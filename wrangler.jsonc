@@ -1,0 +1,18 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fidgetsupply",
+  "main": "src/worker.ts",
+  "compatibility_date": "2024-09-23",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    "NOTIFICATION_EMAIL": "sales@fidgetsupply.com",
+    "RESEND_FROM_EMAIL": "FidgetSupply Inquiries <noreply@fidgetsupply.com>"
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "drop-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
