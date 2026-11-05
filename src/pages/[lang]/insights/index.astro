@@ -1,6 +1,6 @@
 ---
 import { nonDefaultLanguages } from '../../../i18n/config';
-import GuidesHubPage from '../../guides/index.astro';
+import InsightsHubPage from '../../insights/index.astro';
 
 export function getStaticPaths() {
   return nonDefaultLanguages.map((lang) => ({
@@ -9,4 +9,4 @@ export function getStaticPaths() {
 }
 ---
 
-<GuidesHubPage />
+<InsightsHubPage />

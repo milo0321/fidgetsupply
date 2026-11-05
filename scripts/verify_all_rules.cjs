@@ -25,7 +25,7 @@ function fail(msg) {
 console.log('\n=== 1. Image Uniqueness & Spec Audit ===');
 const prodDir = path.join(ROOT, 'src/content/products');
 const prodFiles = fs.readdirSync(prodDir).filter((f) => f.endsWith('.json'));
-const guideDir = path.join(ROOT, 'src/content/guides');
+const guideDir = path.join(ROOT, 'src/content/insights');
 const guideFiles = fs.readdirSync(guideDir).filter((f) => f.endsWith('.md'));
 
 const featuredMap = new Map(); // path -> owner
@@ -171,10 +171,10 @@ for (const file of prodFiles) {
     fail(`Product ${file} has ${n} FAQs (expected 9-12)`);
   }
 }
-const guideTemplate = fs.readFileSync(path.join(ROOT, 'src/pages/guides/[slug].astro'), 'utf8');
+const guideTemplate = fs.readFileSync(path.join(ROOT, 'src/pages/insights/[slug].astro'), 'utf8');
 const guideFaqMatches = (guideTemplate.match(/question:\s*'/g) || []).length;
 if (guideFaqMatches < 54) {
-  fail(`Guide template src/pages/guides/[slug].astro has ${guideFaqMatches} total FAQs across 6 guides (expected 60)`);
+  fail(`Guide template src/pages/insights/[slug].astro has ${guideFaqMatches} total FAQs across 6 guides (expected 60)`);
 }
 pass(`All 140 products and all 6 guides (${guideFaqMatches / 6} FAQs per guide) contain 10 FAQs each (within 9-12 invariant).`);
 

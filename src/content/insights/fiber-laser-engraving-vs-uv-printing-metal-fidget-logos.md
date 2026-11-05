@@ -8,7 +8,7 @@ category: "Custom Branding & Packaging"
 summary: "How to brand existing metal fidget molds with zero tooling cost: comparing 50W fiber laser engraving (+$0.15–$0.30/pc), multi-color silk-screen printing ($35/color screen + $0.10/color/pc), and deep laser engraving with enamel color fill (+$0.35–$0.60/pc at 200–300 pcs MOQ)."
 metaTitle: "Laser Engraving vs Silk-Screen & Color Fill on Metal Fidgets"
 metaDescription: "Compare Fiber Laser Engraving, Silk-Screen Color Printing ($35/color screen + $0.10/color/pc), and Deep Laser Color Fill (+$0.35–$0.60/pc, MOQ 200–300)."
-featuredImage: "/images/guides/laser-vs-uv-branding-hero.webp"
+featuredImage: "/images/insights/laser-vs-uv-branding-hero.webp"
 readTime: "11 min read"
 tags: ["Fiber Laser Engraving", "Silk-Screen Printing", "Deep Laser Color Fill", "MOQ 100"]
 relatedSkus: ["FS-047", "FS-125", "FS-013", "FS-026", "FS-009", "FS-001"]
@@ -27,7 +27,7 @@ Even better:
 Because the underlying mechanical tolerances, neodymium magnet arrays, and R188 bearing fits are already validated across tens of thousands of production units, you eliminate first-batch mechanical debugging risk completely.
 
 <figure class="article-figure">
-  <img src="/images/guides/laser-vs-uv-branding-fig1.webp" alt="High-contrast 50W MOPA fiber laser engraving on FS-047 6063 Anodized Aluminum Slider and FS-013 304 Stainless Steel Haptic Coin" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/laser-vs-uv-branding-fig1.webp" alt="High-contrast 50W MOPA fiber laser engraving on FS-047 6063 Anodized Aluminum Slider and FS-013 304 Stainless Steel Haptic Coin" width="800" height="600" loading="lazy" />
   <figcaption>Figure 1: Ideal substrates for Fiber Laser Engraving and Deep Laser + Color Fill—FS-047 Type-II Anodized 6063 Aluminum Slider (left) and FS-013 304 Stainless Steel Haptic Coin (right).</figcaption>
 </figure>
 
@@ -106,7 +106,7 @@ Why does pulse-width control matter for your brand logo?
 </ul>
 
 <figure class="article-figure">
-  <img src="/images/guides/laser-vs-uv-branding-fig2.webp" alt="Wide flat-face sliders FS-125 Smooth Soap-Box Slider and FS-128 Chocolate Grid Slider engineered for multi-color silk-screen printing and deep laser color fill" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/laser-vs-uv-branding-fig2.webp" alt="Wide flat-face sliders FS-125 Smooth Soap-Box Slider and FS-128 Chocolate Grid Slider engineered for multi-color silk-screen printing and deep laser color fill" width="800" height="600" loading="lazy" />
   <figcaption>Figure 2: Wide unobstructed print zones on FS-125 Smooth Soap-Box Slider (42×26mm flat face, left) and FS-128 Grid Slider (right) for multi-color Silk-Screen Printing or Deep Laser + Color Fill.</figcaption>
 </figure>
 

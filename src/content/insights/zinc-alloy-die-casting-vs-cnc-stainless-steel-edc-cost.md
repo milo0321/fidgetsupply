@@ -8,7 +8,7 @@ category: "Materials & Manufacturing"
 summary: "Compare Zamak #3 die-cast zinc alloy, CNC 6063-T6 aluminum, 304/316 stainless steel, Amber PEI (Ultem), 3K carbon fiber, and Zr702 zirconium across unit cost, CNC cycle time, retail positioning, and branding methods."
 metaTitle: "Zinc Alloy vs CNC Stainless Steel & PEI Fidget Cost Guide"
 metaDescription: "Wholesale cost comparison of Die-Cast Zinc Alloy, 6063 Aluminum, CNC 304/316 Stainless Steel, PEI Ultem, and Zirconium across 140 ready metal fidget molds."
-featuredImage: "/images/guides/zinc-vs-cnc-metallurgy-hero.webp"
+featuredImage: "/images/insights/zinc-vs-cnc-metallurgy-hero.webp"
 readTime: "12 min read"
 tags: ["CNC Stainless Steel", "Zinc Alloy", "PEI Ultem", "Zirconium", "Cost Analysis"]
 relatedSkus: ["FS-114", "FS-105", "FS-099", "FS-075", "FS-038"]
@@ -23,7 +23,7 @@ What separates them is **metallurgy and spindle cycle time**.
 Across our 140 production molds, FidgetSupply spans the complete **6-Tier Metallurgy Ladder**—from high-speed hot-chamber **Zamak #3 Zinc Alloy die-casting** ($0.75–$9.00 wholesale) up to 5-axis CNC **304/316 Stainless Steel**, **6063-T6 Anodized Aluminum**, **3K Carbon Fiber**, **Aerospace Amber PEI (Ultem 1000)**, and **Exotic Zr702 Zirconium** ($10.00–$382.00+ wholesale).
 
 <figure class="article-figure">
-  <img src="/images/guides/zinc-vs-cnc-metallurgy-fig1.webp" alt="Comparison of 3-material Lake-Light Sword FS-114/115/132 and FS-099 CNC Amber PEI Ultem Gourd" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/zinc-vs-cnc-metallurgy-fig1.webp" alt="Comparison of 3-material Lake-Light Sword FS-114/115/132 and FS-099 CNC Amber PEI Ultem Gourd" width="800" height="600" loading="lazy" />
   <figcaption>Figure 1: Flagship CNC metallurgy—the 3-Material Lake-Light Sword FS-114/115/132 (left) and the 5-Axis CNC Amber PEI Ultem Gourd FS-099 (right).</figcaption>
 </figure>
 
@@ -130,7 +130,7 @@ Look at our two signature multi-material families:
 </div>
 
 <figure class="article-figure">
-  <img src="/images/guides/zinc-vs-cnc-metallurgy-fig2.webp" alt="Comparison of CNC 6063 Anodized Aluminum Gourd FS-096 and Zr702 Zirconium Acoustic Chime Gourd FS-107" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/zinc-vs-cnc-metallurgy-fig2.webp" alt="Comparison of CNC 6063 Anodized Aluminum Gourd FS-096 and Zr702 Zirconium Acoustic Chime Gourd FS-107" width="800" height="600" loading="lazy" />
   <figcaption>Figure 2: Identical 61×33.5mm gourd geometry machined in 6063-T6 Anodized Aluminum (FS-096, 65g, left) versus Zr702 Zirconium &amp; Acoustic Alloy (FS-107/112, right).</figcaption>
 </figure>
 

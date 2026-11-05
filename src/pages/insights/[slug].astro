@@ -6,7 +6,7 @@ import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
 
 export async function getStaticPaths() {
-  const guides = await getCollection('guides');
+  const guides = await getCollection('insights');
   const allProducts = await getCollection('products');
 
   return guides.map((guide) => {
@@ -29,7 +29,7 @@ const localizedGuideHtml =
   currentLang === 'en'
     ? rawGuideHtml
     : rawGuideHtml.replace(
-        /href="(\/(?:products|collections|guides|custom-branding|custom-packaging|compliance-safety|about|contact)[^"]*)"/g,
+        /href="(\/(?:products|collections|insights|custom-branding|custom-packaging|compliance-safety|about|contact)[^"]*)"/g,
         (_m: string, p1: string) => `href="${getLocalizedPath(p1, currentLang)}"`
       );
 
@@ -332,14 +332,14 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'Engineering Guides',
-      item: 'https://fidgetsupply.com/guides'
+      name: 'Engineering Insights',
+      item: 'https://fidgetsupply.com/insights'
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: guide.data.title,
-      item: `https://fidgetsupply.com/guides/${guide.data.slug}`
+      item: `https://fidgetsupply.com/insights/${guide.data.slug}`
     }
   ]
 };
@@ -359,14 +359,14 @@ const faqSchema = {
   title={guide.data.metaTitle}
   description={guide.data.metaDescription}
   ogImage={guide.data.featuredImage}
-  activePage="guides"
+  activePage="insights"
   jsonLd={[articleSchema, breadcrumbSchema, faqSchema]}
 >
   <article class="guide-article">
     <header class="guide-hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a> / <a href={getLocalizedPath('/guides', currentLang)}>{t('breadcrumb.guides')}</a> / <span>{guide.data.category}</span>
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a> / <a href={getLocalizedPath('/insights', currentLang)}>{t('breadcrumb.guides')}</a> / <span>{guide.data.category}</span>
         </nav>
         <span class="badge badge-dark">{guide.data.category} · {dynamicReadTime}</span>
         <h1>{guide.data.title}</h1>
@@ -427,14 +427,14 @@ const faqSchema = {
           </section>
         )}
 
-        <!-- Related Engineering Guides Box -->
+        <!-- Related Engineering Insights Box -->
         {relatedGuides.length > 0 && (
-          <section class="related-guides-box" id="related-engineering-guides">
+          <section class="related-guides-box" id="related-engineering-insights">
             <span class="badge">{t('guide.continueBadge')}</span>
             <h2>{t('guide.relatedGuidesTitle')}</h2>
             <div class="related-guides-grid">
               {relatedGuides.map((rg: any) => (
-                <a href={getLocalizedPath(`/guides/${rg.data.slug}`, currentLang)} class="related-guide-card">
+                <a href={getLocalizedPath(`/insights/${rg.data.slug}`, currentLang)} class="related-guide-card">
                   <img src={rg.data.featuredImage} alt={rg.data.title} width="400" height="300" loading="lazy" />
                   <div class="related-guide-body">
                     <span class="related-guide-cat">{rg.data.category}</span>

@@ -8,7 +8,7 @@ category: "Magnetics & Tactile Engineering"
 summary: "An engineering comparison of N30, N35, N40, N45, N50, N52, and N54 NdFeB rare-earth magnets across 140 metal fidget molds—measuring pull force, acoustic decibels, PTFE wear, and wholesale cost impact."
 metaTitle: "N35 vs N52 Magnets in Fidget Sliders: Engineering Guide"
 metaDescription: "Compare N35, N45, and N52 neodymium magnets in wholesale metal fidget sliders. Pull force, acoustic snap, PTFE pad friction, and SKU selection guide."
-featuredImage: "/images/guides/n35-vs-n52-magnets-hero.webp"
+featuredImage: "/images/insights/n35-vs-n52-magnets-hero.webp"
 readTime: "12 min read"
 tags: ["Neodymium Magnets", "N35 vs N52", "Haptic Sliders", "Magnetics Engineering"]
 relatedSkus: ["FS-001", "FS-047", "FS-125", "FS-128", "FS-150"]
@@ -25,7 +25,7 @@ Here is what every product manager needs to know:
 Choosing the right magnet grade is not about blindly picking the highest number. It is about matching **magnetic flux density ($B_r$)** and **normal clamping force** to the slider's mechanical constraint architecture.
 
 <figure class="article-figure">
-  <img src="/images/guides/n35-vs-n52-magnets-fig1.webp" alt="Comparison of mechanical track sliders FS-002 and FS-048 32-Magnet Piano Track Slider using N35 to N40 neodymium magnets" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/n35-vs-n52-magnets-fig1.webp" alt="Comparison of mechanical track sliders FS-002 and FS-048 32-Magnet Piano Track Slider using N35 to N40 neodymium magnets" width="800" height="600" loading="lazy" />
   <figcaption>Figure 1: Mechanical linear track sliders—FS-002 (left) and FS-048 32-Magnet Piano Track Slider (right)—use N35–N40 magnets for effortless, low-fatigue multi-click cadence.</figcaption>
 </figure>
 
@@ -104,7 +104,7 @@ Let's examine why:
 </ul>
 
 <figure class="article-figure">
-  <img src="/images/guides/n35-vs-n52-magnets-fig2.webp" alt="Unlimited free-floating N52 magnetic sliders FS-056 and FS-075 304 Stainless Steel Poker Slider" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/n35-vs-n52-magnets-fig2.webp" alt="Unlimited free-floating N52 magnetic sliders FS-056 and FS-075 304 Stainless Steel Poker Slider" width="800" height="600" loading="lazy" />
   <figcaption>Figure 2: Unlimited free-floating sliders—FS-056 (left) and FS-075 CNC 304 Stainless Poker Slider (right)—rely on 20-magnet N50/N52 arrays to stay coupled without rails.</figcaption>
 </figure>
 

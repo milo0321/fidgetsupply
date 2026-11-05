@@ -145,8 +145,8 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
       </a>
 
       <a
-        href={getLocalizedPath('/guides', currentLang)}
-        class:list={['nav-link', { active: activePage === 'guides' }]}
+        href={getLocalizedPath('/insights', currentLang)}
+        class:list={['nav-link', { active: activePage === 'insights' }]}
       >
         {t('nav.guides')}
       </a>
@@ -189,7 +189,7 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
           <summary class="mobile-nav-link">{t('nav.categories')} ▾</summary>
           <div class="mobile-sublinks">
             {primaryCollections.map((c) => (
-              <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)}>{t(`col.${c.slug}.short` as any)} ({c.skuCount})</a>
+              <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)}>{t(`col.${c.slug}.short` as any)}</a>
             ))}
             {crossCollections.map((c) => (
               <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)}>{t(`col.${c.slug}.short` as any)}</a>
@@ -198,7 +198,7 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
         </details>
         <a href={getLocalizedPath('/custom-branding', currentLang)} class="mobile-nav-link">{t('nav.customLogo')}</a>
         <a href={getLocalizedPath('/custom-packaging', currentLang)} class="mobile-nav-link">{t('nav.sampleKits')}</a>
-        <a href={getLocalizedPath('/guides', currentLang)} class="mobile-nav-link">{t('nav.guides')}</a>
+        <a href={getLocalizedPath('/insights', currentLang)} class="mobile-nav-link">{t('nav.guides')}</a>
         <a href={getLocalizedPath('/about', currentLang)} class="mobile-nav-link">{t('nav.about')}</a>
         <a href={getLocalizedPath('/contact', currentLang)} class="mobile-nav-link">{t('nav.contact')}</a>
       </nav>

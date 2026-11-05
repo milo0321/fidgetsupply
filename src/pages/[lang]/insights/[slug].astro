@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 import { nonDefaultLanguages } from '../../../i18n/config';
-import GuideDetailPage from '../../guides/[slug].astro';
+import InsightDetailPage from '../../insights/[slug].astro';
 
 export async function getStaticPaths() {
-  const guides = await getCollection('guides');
+  const guides = await getCollection('insights');
   const allProducts = await getCollection('products');
 
   return nonDefaultLanguages.flatMap((lang) =>
@@ -21,4 +21,4 @@ export async function getStaticPaths() {
 }
 ---
 
-<GuideDetailPage {...Astro.props} />
+<InsightDetailPage {...Astro.props} />

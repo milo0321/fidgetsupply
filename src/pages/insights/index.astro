@@ -7,14 +7,14 @@ import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
 
-const guides = (await getCollection('guides')).sort(
+const guides = (await getCollection('insights')).sort(
   (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
 );
 
 const guidesHubFaqs = [
   {
-    question: 'What topics are covered in the FidgetSupply Engineering & Global Sourcing Guides?',
-    answer: 'Our 6 core technical guides cover: (1) Zero-Tooling Ready-Mold Private Label SOP, (2) N35 vs. N52 Neodymium Magnet Pull Force & Haptic Calibration, (3) Die-Cast Zinc Alloy vs. 5-Axis CNC Stainless Steel/PEI Cost Breakdown, (4) Acoustic Tuning Fork Resonance Slider Engineering, (5) 50W Fiber Laser vs. UV Color Logo Branding Durability, and (6) US CPSC 16 CFR 1262 Magnet Safety Compliance.'
+    question: 'What topics are covered in the FidgetSupply Engineering & Global Sourcing Insights?',
+    answer: 'Our 6 core technical insights cover: (1) Zero-Tooling Ready-Mold Private Label SOP, (2) N35 vs. N52 Neodymium Magnet Pull Force & Haptic Calibration, (3) Die-Cast Zinc Alloy vs. 5-Axis CNC Stainless Steel/PEI Cost Breakdown, (4) Acoustic Tuning Fork Resonance Slider Engineering, (5) 50W Fiber Laser vs. UV Color Logo Branding Durability, and (6) US CPSC 16 CFR 1262 Magnet Safety Compliance.'
   },
   {
     question: 'How do I choose between N35, N45, N52, and N54 neodymium magnets when sourcing sliders?',
@@ -37,19 +37,19 @@ const guidesHubFaqs = [
     answer: '50W MOPA Fiber Laser Engraving achieves a 10/10 wear rating because it micron-ablates the metal substrate itself and can never peel. For multi-color brand logos, our organosilane-primed CMYK+White+Varnish UV Printing achieves ASTM D3359 4B adhesion durability.'
   },
   {
-    question: 'How do your guides help Amazon FBA sellers pass US CPSC 16 CFR Part 1262 magnet safety reviews?',
-    answer: 'Our CPSC 16 CFR 1262 Compliance Guide documents our 3-layer captive magnet retention architecture, thermal-shock drop test protocols, and 14+ Adult EDC warning label standards required by Amazon Seller Central compliance teams.'
+    question: 'How do your insights help Amazon FBA sellers pass US CPSC 16 CFR Part 1262 magnet safety reviews?',
+    answer: 'Our CPSC 16 CFR 1262 Compliance Report documents our 3-layer captive magnet retention architecture, thermal-shock drop test protocols, and 14+ Adult EDC warning label standards required by Amazon Seller Central compliance teams.'
   },
   {
-    question: 'Do your engineering guides reference real, orderable factory SKU codes?',
-    answer: 'Yes. Every guide links directly to live production SKUs (FS-001 through FS-150) with exact millimeter dimensions, gram weights, magnet array counts, and 50/200/500+ pcs USD wholesale pricing.'
+    question: 'Do your engineering insights reference real, orderable factory SKU codes?',
+    answer: 'Yes. Every article links directly to live production SKUs (FS-001 through FS-150) with exact millimeter dimensions, gram weights, magnet array counts, and 50/200/500+ pcs USD wholesale pricing.'
   },
   {
     question: 'Can we request custom engineering advice or CAD evaluation from your supply chain team?',
     answer: 'Yes. Message our sourcing engineers directly on WhatsApp (+86 187 5012 6315) or email sales@fidgetsupply.com to review magnet grade selection, surface finish pairing, or custom OEM CAD feasibility.'
   },
   {
-    question: 'How can we test the materials and mechanisms discussed in these guides?',
+    question: 'How can we test the materials and mechanisms discussed in these insights?',
     answer: 'Visit our /contact page and list the SKU codes you would like to evaluate before placing your bulk order.'
   }
 ];
@@ -66,9 +66,9 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Metal Fidget Engineering, Magnetics & Global Sourcing Guides | FidgetSupply"
-  description="In-depth engineering guides on N35 vs N52 neodymium magnets, Die-Cast Zinc Alloy vs CNC Stainless Steel costs, Acoustic Tuning Fork sliders, and US CPSC 16 CFR 1262 compliance."
-  activePage="guides"
+  title="Metal Fidget Engineering, Magnetics & Global Sourcing Insights | FidgetSupply"
+  description="In-depth engineering insights on N35 vs N52 neodymium magnets, Die-Cast Zinc Alloy vs CNC Stainless Steel costs, Acoustic Tuning Fork sliders, and US CPSC 16 CFR 1262 compliance."
+  activePage="insights"
   jsonLd={faqSchema}
 >
   <section class="page-hero">
@@ -91,7 +91,7 @@ const faqSchema = {
       <div class="grid-3">
         {guides.map((g) => (
           <article class="guide-card">
-            <a href={getLocalizedPath(`/guides/${g.data.slug}`, currentLang)} class="guide-img-link">
+            <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)} class="guide-img-link">
               <img src={g.data.featuredImage} alt={g.data.title} width="400" height="300" />
             </a>
             <div class="guide-body">
@@ -100,10 +100,10 @@ const faqSchema = {
                 <span>{g.data.readTime}</span>
               </div>
               <h2>
-                <a href={getLocalizedPath(`/guides/${g.data.slug}`, currentLang)}>{g.data.title}</a>
+                <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)}>{g.data.title}</a>
               </h2>
               <p>{g.data.summary}</p>
-              <a href={getLocalizedPath(`/guides/${g.data.slug}`, currentLang)} class="guide-cta">{t('guides.readCta')}</a>
+              <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)} class="guide-cta">{t('guides.readCta')}</a>
             </div>
           </article>
         ))}

@@ -76,8 +76,8 @@ const productsCollection = defineCollection({
   })
 });
 
-const guidesCollection = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: 'src/content/guides' }),
+const insightsCollection = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: 'src/content/insights' }),
   schema: z.object({
     title: z.string(),
     slug: z.string(),
@@ -97,5 +97,5 @@ const guidesCollection = defineCollection({
 
 export const collections = {
   products: productsCollection,
-  guides: guidesCollection
+  insights: insightsCollection
 };

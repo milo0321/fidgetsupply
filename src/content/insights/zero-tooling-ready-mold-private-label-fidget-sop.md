@@ -8,7 +8,7 @@ category: "Wholesale Sourcing SOP"
 summary: "Step-by-step operational playbook for selecting high-margin SKUs (FS-001 to FS-150), avoiding IP/trademark pitfalls, pairing custom laser logos with EVA cases, and calculating landed DDP margins."
 metaTitle: "Launch Private Label Metal Fidgets with $0 Tooling | Sourcing SOP"
 metaDescription: "Step-by-step SOP for e-commerce brands and corporate gift distributors to source custom logo metal fidget sliders in 10 days with $0 mold fees."
-featuredImage: "/images/guides/zero-tooling-sop-hero.webp"
+featuredImage: "/images/insights/zero-tooling-sop-hero.webp"
 readTime: "12 min read"
 tags: ["Private Label SOP", "Zero Tooling", "Corporate Gifting", "SKU Selection"]
 relatedSkus: ["FS-026", "FS-125", "FS-047", "FS-013", "FS-150", "FS-009"]
@@ -20,12 +20,12 @@ Instead of spending 6 weeks negotiating custom CAD drawings and paying **$3,500+
 
 <ol>
   <li><strong>Step 1 — Pick Proven Ready Molds (Day 1):</strong> Select 1 to 3 existing molds from our <a href="/collections/custom-logo-metal-fidgets">28 Logo-Ready Metal Fidgets</a> (<code>FS-125</code>, <code>FS-047</code>, <code>FS-026</code>, <code>FS-013</code>, <code>FS-009</code>). Because the hardened steel die-casting cavities and 5-axis CNC fixtures are already running on our production floor, your mold investment is <strong>$0.00</strong>.</li>
-  <li><strong>Step 2 — Apply Custom Surface Branding at 100–300 pcs MOQ (Days 2–6):</strong> Etch your brand wordmark via <a href="/guides/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">50W MOPA Fiber Laser Engraving</a> (+$0.15–$0.30/pc, $0 setup fee), print multi-color logos via Silk-Screen Printing ($35/color screen fee + $0.10/color/pc), or choose Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc at 200–300 pcs MOQ).</li>
+  <li><strong>Step 2 — Apply Custom Surface Branding at 100–300 pcs MOQ (Days 2–6):</strong> Etch your brand wordmark via <a href="/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">50W MOPA Fiber Laser Engraving</a> (+$0.15–$0.30/pc, $0 setup fee), print multi-color logos via Silk-Screen Printing ($35/color screen fee + $0.10/color/pc), or choose Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc at 200–300 pcs MOQ).</li>
   <li><strong>Step 3 — Pack in Custom EVA Zipper Cases &amp; Ship DDP (Days 7–12):</strong> Nest each unit inside a custom-branded Black EVA Shockproof Zipper Case (+$0.75/pc) with pre-applied FNSKU barcodes and 14+ safety labels, shipped door-to-door via DDP Air Express.</li>
 </ol>
 
 <figure class="article-figure">
-  <img src="/images/guides/zero-tooling-sop-fig1.webp" alt="High-volume promotional and private-label ready molds FS-026 2-in-1 Bottle Opener Slider and FS-009 Knurled Twist Top" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/zero-tooling-sop-fig1.webp" alt="High-volume promotional and private-label ready molds FS-026 2-in-1 Bottle Opener Slider and FS-009 Knurled Twist Top" width="800" height="600" loading="lazy" />
   <figcaption>Figure 1: Two of our highest-velocity corporate &amp; retail launch molds—FS-026 2-in-1 Bottle Opener Magnetic Slider (left) and FS-009 Knurled Pocket Twist Top (right).</figcaption>
 </figure>
 
@@ -92,7 +92,7 @@ Before publishing our master catalog (`FS-001` to `FS-150`), our engineering tea
 </ul>
 
 <figure class="article-figure">
-  <img src="/images/guides/zero-tooling-sop-fig2.webp" alt="Best-selling poker magnetic sliders FS-001 King Poker Slider and FS-024 Suited Poker Slider" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/zero-tooling-sop-fig2.webp" alt="Best-selling poker magnetic sliders FS-001 King Poker Slider and FS-024 Suited Poker Slider" width="800" height="600" loading="lazy" />
   <figcaption>Figure 2: Proven evergreen sellers—FS-001 King Poker Slider (left) and FS-024 Suited Poker Slider (right) with $0 tooling fee and 100 pcs custom branding MOQ.</figcaption>
 </figure>
 

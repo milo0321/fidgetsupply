@@ -8,7 +8,7 @@ category: "Acoustic EDC Trends"
 summary: "An engineering breakdown of the 7 acoustic tuning-fork sliders, spinners, and gourds leading short-form video ASMR sales—how cantilevered tines and N45/N52 magnets generate sustained 2,800–4,200 Hz metallic resonance."
 metaTitle: "Tuning Fork Fidget Slider Wholesale & Acoustic Design Guide"
 metaDescription: "Learn how acoustic tuning fork fidget sliders work and why they lead TikTok ASMR EDC sales. Compare all 7 ready-mold tuning fork models at wholesale prices."
-featuredImage: "/images/guides/acoustic-tuning-fork-hero.webp"
+featuredImage: "/images/insights/acoustic-tuning-fork-hero.webp"
 readTime: "11 min read"
 tags: ["Tuning Fork Slider", "Acoustic EDC", "ASMR Fidget", "Wholesale Sliders"]
 relatedSkus: ["FS-150", "FS-129", "FS-148", "FS-107", "FS-086", "FS-091", "FS-045"]
@@ -29,7 +29,7 @@ Better yet:
 Because acoustic resonance is a physical property of cantilevered metal geometry rather than electronic speakers or batteries, these sliders require **zero batteries**, pass standard mechanical toy customs clearance under **HS Code 9503.00.0000**, and never suffer from electronic component failure.
 
 <figure class="article-figure">
-  <img src="/images/guides/acoustic-tuning-fork-fig1.webp" alt="Side-by-side comparison of FS-150 Compact PTFE Tuning Fork Slider and FS-148 304 Stainless Resonance Chamber Spinner" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/acoustic-tuning-fork-fig1.webp" alt="Side-by-side comparison of FS-150 Compact PTFE Tuning Fork Slider and FS-148 304 Stainless Resonance Chamber Spinner" width="800" height="600" loading="lazy" />
   <figcaption>Figure 1: Comparing linear cantilevered tine excitation in the FS-150 Tuning Fork Slider (left) versus non-contact magnetic plucking in the FS-148 304 Stainless Resonance Spinner (right).</figcaption>
 </figure>
 
@@ -194,7 +194,7 @@ Let's compare the four primary metals used across our acoustic production line:
 </div>
 
 <figure class="article-figure">
-  <img src="/images/guides/acoustic-tuning-fork-fig2.webp" alt="Comparison of FS-129 Divine-Realm Dual-Bearing Tuning Fork EDC and FS-091 56-Magnet Abalone Inlaid Stainless Slider" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/acoustic-tuning-fork-fig2.webp" alt="Comparison of FS-129 Divine-Realm Dual-Bearing Tuning Fork EDC and FS-091 56-Magnet Abalone Inlaid Stainless Slider" width="800" height="600" loading="lazy" />
   <figcaption>Figure 2: Multi-bearing strike geometry in FS-129 (left) versus the 56-magnet harmonic array in FS-091 304 Stainless Abalone Slider (right).</figcaption>
 </figure>
 
@@ -208,7 +208,7 @@ Here is how our internal mechanical tolerances solve all three:
   <li><strong>Self-Lubricating PTFE Isolation Pads:</strong> On <a href="/products/compact-20-magnet-acoustic-tuning-fork-slider">FS-150</a>, a precision 0.3mm white PTFE (Teflon) wear pad separates the sliding magnet plates. This eliminates metal-on-metal scraping noise so only the pure cantilevered tine frequency projects outward, while protecting the internal magnet plates from scratch wear.</li>
   <li><strong>Instant Fingertip Dampening Mode:</strong> Because the acoustic slots are milled along the side or top chassis windows, resting an index fingertip lightly against the tine slot dampens the cantilever vibration immediately. The slider converts in a split second from a loud ASMR desk chime into a quiet, office-friendly magnetic clicker.</li>
   <li><strong>100,000+ Cycle Fatigue Resistance:</strong> During each magnetic snap, peak tine deflection is less than **0.08 mm**, operating below **3% of the alloy's endurance fatigue limit**. Even after 100,000+ rapid slides, the prongs never bend, crack, or drift out of pitch.</li>
-  <li><strong>Zero Pitch Shift After Laser Logo Branding:</strong> Engraving your brand logo via our <a href="/guides/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">50W MOPA Fiber Laser</a> ablates less than 0.03mm on the outer casing wall and never alters the internal prong mass or resonant frequency.</li>
+  <li><strong>Zero Pitch Shift After Laser Logo Branding:</strong> Engraving your brand logo via our <a href="/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">50W MOPA Fiber Laser</a> ablates less than 0.03mm on the outer casing wall and never alters the internal prong mass or resonant frequency.</li>
 </ul>
 
 <h2 id="how-to-curate-an-acoustic-product-bundle">6. How to Curate a High-Margin 3-Tier Acoustic Product Line</h2>
