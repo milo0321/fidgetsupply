@@ -1,0 +1,10 @@
+---
+import { nonDefaultLanguages } from '../../../i18n/config';
+import Page from '../../contact/index.astro';
+
+export function getStaticPaths() {
+  return nonDefaultLanguages.map((lang) => ({ params: { lang } }));
+}
+---
+
+<Page />

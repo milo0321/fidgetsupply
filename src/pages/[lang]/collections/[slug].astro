@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import { nonDefaultLanguages } from '../../../i18n/config';
+import { COLLECTIONS } from '../../../data/collections';
+import CollectionDetailPage from '../../collections/[slug].astro';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+  const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
+
+  return nonDefaultLanguages.flatMap((lang) =>
+    COLLECTIONS.map((col) => {
+      const matched = sortedProducts.filter((p) => {
+        if (col.group === 'primary') {
+          return p.data.primaryCollection === col.slug;
+        } else {
+          return p.data.crossCollections.includes(col.slug);
+        }
+      });
+
+      return {
+        params: { lang, slug: col.slug },
+        props: { collection: col, products: matched }
+      };
+    })
+  );
+}
+---
+
+<CollectionDetailPage {...Astro.props} />

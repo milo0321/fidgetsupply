@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import { nonDefaultLanguages } from '../../../i18n/config';
+import ProductDetailPage from '../../products/[slug].astro';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  const sorted = products.sort((a, b) => a.data.rowId - b.data.rowId);
+
+  return nonDefaultLanguages.flatMap((lang) =>
+    sorted.map((entry) => {
+      const p = entry.data;
+      const related = sorted
+        .filter((other) => other.data.slug !== p.slug && other.data.primaryCollection === p.primaryCollection)
+        .slice(0, 4);
+
+      return {
+        params: { lang, slug: p.slug },
+        props: { product: p, relatedProducts: related }
+      };
+    })
+  );
+}
+---
+
+<ProductDetailPage {...Astro.props} />

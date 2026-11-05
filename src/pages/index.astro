@@ -1,0 +1,584 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import GeoDirectAnswer from '../components/GeoDirectAnswer.astro';
+import { COLLECTIONS } from '../data/collections';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url.pathname);
+const t = useTranslations(currentLang);
+const allProducts = await getCollection('products');
+const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
+
+const primaryCollections = COLLECTIONS.filter((c) => c.group === 'primary');
+const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
+
+// Featured Logo-Ready Bestsellers
+const logoFeaturedIds = [1, 9, 13, 26, 47, 75, 125, 128];
+const logoFeatured = sortedProducts.filter((p) => logoFeaturedIds.includes(p.data.rowId));
+
+// Acoustic Tuning Fork Series (all 7)
+const tuningForkProducts = sortedProducts.filter((p) => p.data.tuningFork);
+
+// Multi-Material Flagships (#114 Lake-Light Sword, #105 Gourd, #107 Chime Gourd, #99 PEI Gourd)
+const exoticFeaturedIds = [38, 99, 105, 114];
+const exoticFeatured = sortedProducts.filter((p) => exoticFeaturedIds.includes(p.data.rowId));
+
+const homeFaqs = [
+  {
+    question: 'Why are there no new mold fees across all 140 metal fidget models?',
+    answer: 'Every model in our catalog (FS-001 through FS-150) is produced using existing die-casting and CNC tooling across our partner workshops. Wholesale buyers and brands can purchase blank stock (MOQ 50 pcs) or add custom laser-engraved / UV-printed logos (MOQ 100 pcs) on existing molds without paying for new tooling.'
+  },
+  {
+    question: 'How is the 140-model product catalog organized?',
+    answer: 'Our catalog organizes 140 distinct metal fidget models (FS-001 to FS-150) across 6 Primary Structural Categories and 3 Specialty Collections, with multi-material variants (such as FS-114 Lake-Light Sword and FS-105/107 Gourds) grouped onto unified product pages so buyers can compare Zinc Alloy, Aluminum, Stainless Steel, PEI, and Zirconium options side by side.'
+  },
+  {
+    question: 'What is the sample fee and production lead time for blank stock and custom logo orders?',
+    answer: 'Custom logo pre-production sampling takes 10–15 days with a custom logo sample fee of $80–$150 USD. For bulk production, blank stock orders (50+ pcs) generally ship within 3–7 business days, and custom logo orders (100+ pcs) typically take 10–15 business days after sample or proof confirmation.'
+  },
+  {
+    question: 'How are magnets secured inside your sliders, coins, and rings?',
+    answer: 'Our magnetic sliders, coins, and rings use recessed magnet cavities, industrial adhesive bonding, and screw-fastened cover plates to keep neodymium magnets securely enclosed during daily use.'
+  },
+  {
+    question: 'What is the Minimum Order Quantity (MOQ) and can we mix colors or SKUs?',
+    answer: 'Our wholesale MOQ is 50 pieces per SKU for blank unbranded stock and 100 pieces per SKU for custom laser-engraved or UV-printed logos. You can mix available color finishes within a single SKU, or request sample units before placing a bulk order.'
+  },
+  {
+    question: 'How is FidgetSupply.com positioned as a supply chain platform?',
+    answer: "FidgetSupply.com is your integrated sourcing & supply chain platform for China's metal EDC fidget & kinetic desk toy industry, coordinated through our Export Logistics Hub in Fuzhou Industrial Zone, Fujian, China. We consolidate 140+ production molds across zinc die-casting, CNC machining, custom branding, and EVA packaging under one export desk."
+  },
+  {
+    question: 'Which models are best suited for custom logo branding and corporate gifts?',
+    answer: 'Collection #7 (Logo-Ready Custom Branding Metal Fidgets) highlights 28 flat-surface models suited for clean laser engraving or UV printing—including FS-125 (Smooth Soap-Box Slider), FS-047 (Minimalist 6063 Aluminum Slider), FS-013 (304 Stainless Haptic Coin), FS-026 (Bottle Opener Slider), and FS-009 (Knurled Finger Twist Top).'
+  },
+  {
+    question: 'What packaging options are included or available?',
+    answer: 'Most models come with a protective polybag or black EVA zipper pouch. We also offer custom-printed gift boxes, window tin boxes, and retail barcode labeling upon request.'
+  },
+  {
+    question: 'What international shipping methods do you offer?',
+    answer: 'From our Fuzhou Export Logistics Hub, we arrange Door-to-Door Air Express (DHL/FedEx/UPS), Air Cargo, and Sea/Rail freight, including DDP delivery options to North America, Europe, the UK, Asia, and Australia.'
+  },
+  {
+    question: 'What payment methods do you accept for wholesale orders?',
+    answer: 'We accept T/T Bank Wire, PayPal, and Wise. Before shipping, we provide product photos and packing details for your confirmation.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: homeFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title="FidgetSupply.com | 140+ Ready Metal Fidget Molds · $0 Tooling · Custom Logo Wholesale"
+  description="Your integrated sourcing & supply chain platform for China's metal EDC fidget industry. 140+ ready molds, $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom laser/UV logo."
+  activePage="home"
+  jsonLd={faqSchema}
+>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="badge badge-dark">{t('home.hero.badge1')}</span>
+          <span class="badge badge-gold">{t('home.hero.badge2')}</span>
+        </div>
+        <h1 class="hero-title">
+          {t('home.hero.title')}<br />
+          <span>{t('home.hero.titleHighlight')}</span>
+        </h1>
+        <p class="hero-lead">
+          {t('home.hero.lead')}
+        </p>
+
+        <div class="hero-kpis">
+          <div class="kpi-item">
+            <strong>{t('home.hero.kpi1Val')}</strong>
+            <span>{t('home.hero.kpi1Sub')}</span>
+          </div>
+          <div class="kpi-item">
+            <strong>{t('home.hero.kpi2Val')}</strong>
+            <span>{t('home.hero.kpi2Sub')}</span>
+          </div>
+          <div class="kpi-item">
+            <strong>{t('home.hero.kpi3Val')}</strong>
+            <span>{t('home.hero.kpi3Sub')}</span>
+          </div>
+          <div class="kpi-item">
+            <strong>{t('home.hero.kpi4Val')}</strong>
+            <span>{t('home.hero.kpi4Sub')}</span>
+          </div>
+        </div>
+
+        <div class="hero-ctas">
+          <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-accent">
+            {t('home.hero.ctaLogo')}
+          </a>
+          <a href={getLocalizedPath('/products', currentLang)} class="btn btn-primary">
+            {t('home.hero.ctaCatalog')}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase">
+        <div class="showcase-card">
+          <div class="showcase-top">
+            <span class="sku-pill">{t('home.hero.showcasePill')}</span>
+            <span class="showcase-price">$0.75 – $382<span>/pc</span></span>
+          </div>
+          <img
+            src="/images/hero-metal-edc-showcase.webp"
+            alt="Precision CNC 304 Stainless Steel Haptic Slider, Amber PEI Ultem Tuning Fork Slider, Knurled Spinner, and Haptic Coin with Black EVA Case"
+            width="480"
+            height="360"
+            class="showcase-img"
+          />
+          <div class="showcase-meta">
+            <strong>{t('home.hero.showcaseTitle')}</strong>
+            <p>{t('home.hero.showcaseDesc')}</p>
+            <div class="showcase-links">
+              <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)}>{t('home.hero.showcaseLink1')}</a>
+              <a href={getLocalizedPath('/contact', currentLang)}>{t('card.quoteSku')} →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verified Supply Chain Specification Summary -->
+  <div class="container">
+    <GeoDirectAnswer
+      title={t('home.geo.title')}
+      answer={t('home.geo.answer')}
+    />
+  </div>
+
+  <!-- Section 1: 6 Primary Category Collections -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="badge">{t('home.section1.badge')}</span>
+        <h2 class="section-title">{t('home.section1.title')}</h2>
+        <p class="section-subtitle">
+          {t('home.section1.sub')}
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {primaryCollections.map((col) => (
+          <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="collection-card">
+            <div class="col-card-top">
+              <span class="col-num">{t('home.section1.catPrefix')} 0{col.number}</span>
+              <span class="col-count">{col.skuCount} {t('home.section1.readyMolds')}</span>
+            </div>
+            <h3 class="col-title">{t(`col.${col.slug}.name` as any)}</h3>
+            <p class="col-zh">{col.zhName} · {col.priceRangeUsd}</p>
+            <p class="col-desc">{col.heroSubtitle}</p>
+            <div class="col-footer">
+              <span>MOQ: {col.moq}</span>
+              <span class="col-cta">{col.skuCount} {t('home.section1.exploreModels')}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: 3 High-Converting Cross-Tag Collections -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="badge badge-gold">{t('home.section2.badge')}</span>
+        <h2 class="section-title">{t('home.section2.title')}</h2>
+        <p class="section-subtitle" style="color: #cbd5e1;">
+          {t('home.section2.sub')}
+        </p>
+      </div>
+
+      <div class="grid-3">
+        {crossCollections.map((col) => (
+          <div class="cross-card">
+            <div class="cross-badge">{t(`col.${col.slug}.short` as any)}</div>
+            <h3>{t(`col.${col.slug}.name` as any)}</h3>
+            <p class="cross-zh">{col.zhName} · {col.priceRangeUsd}</p>
+            <p class="cross-desc">{col.heroSubtitle}</p>
+            <ul class="cross-highlights">
+              {col.engineeringHighlights.map((h) => (
+                <li>✓ {h}</li>
+              ))}
+            </ul>
+            <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="btn btn-accent" style="width: 100%; margin-top: auto;">
+              {col.skuCount} {t('home.section2.browseAll')}
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Featured Logo-Ready Custom Branding Models -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">{t('home.section3.badge')}</span>
+        <h2 class="section-title">{t('home.section3.title')}</h2>
+        <p class="section-subtitle">
+          {t('home.section3.sub')}
+        </p>
+      </div>
+
+      <div class="grid-4">
+        {logoFeatured.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-primary">
+          {t('home.section3.cta')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Acoustic Tuning Fork Series (All 7 Models) -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="badge">{t('home.section4.badge')}</span>
+        <h2 class="section-title">{t('home.section4.title')}</h2>
+        <p class="section-subtitle">
+          {t('home.section4.sub')}
+        </p>
+      </div>
+
+      <div class="grid-4">
+        {tuningForkProducts.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Multi-Material Supply Chain Ladder Case Study -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="badge">{t('home.section5.badge')}</span>
+        <h2 class="section-title">{t('home.section5.title')}</h2>
+        <p class="section-subtitle">
+          {t('home.section5.sub')}
+        </p>
+      </div>
+
+      <div class="grid-4">
+        {exoticFeatured.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: FAQ Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="badge">{t('home.faq.badge')}</span>
+        <h2 class="section-title">{t('home.faq.title')}</h2>
+      </div>
+      <div class="faq-list">
+        {homeFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Conversion CTA -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="sourcing-cta-box">
+        <div class="cta-inner">
+          <div>
+            <span class="badge badge-gold" style="margin-bottom: 0.75rem;">{t('home.cta.badge')}</span>
+            <h2>{t('home.cta.title')}</h2>
+            <p style="margin-top: 0.65rem; max-width: 720px;">
+              {t('home.cta.desc')}
+            </p>
+          </div>
+          <div class="cta-buttons">
+            <a href={getLocalizedPath('/products', currentLang)} class="btn btn-accent">{t('home.hero.ctaCatalog')} →</a>
+            <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary">{t('nav.requestQuote')}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-section {
+    background: radial-gradient(circle at 80% 20%, #1e293b 0%, #090d16 70%);
+    color: #ffffff;
+    padding: 4.5rem 0;
+    border-bottom: 1px solid #1e293b;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 3.6vw, 3.1rem);
+    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 1.15rem;
+  }
+  .hero-title span {
+    color: #38bdf8;
+  }
+  .hero-lead {
+    font-size: 1.08rem;
+    color: #cbd5e1;
+    line-height: 1.68;
+    margin-bottom: 1.75rem;
+  }
+  .hero-kpis {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+  .kpi-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.6rem;
+    padding: 0.75rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .kpi-item strong {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: #fbbf24;
+  }
+  .kpi-item span {
+    font-size: 0.74rem;
+    color: #94a3b8;
+  }
+  .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+  }
+  .showcase-card {
+    background: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 1rem;
+    padding: 1.25rem;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  }
+  .showcase-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.85rem;
+  }
+  .showcase-price {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #34d399;
+  }
+  .showcase-price span {
+    font-size: 0.75rem;
+    color: #94a3b8;
+  }
+  .showcase-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: #f8fafc;
+    border-radius: 0.65rem;
+    margin-bottom: 1rem;
+  }
+  .showcase-meta strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+  .showcase-meta p {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    margin-bottom: 0.85rem;
+  }
+  .showcase-links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .showcase-links a {
+    color: #38bdf8;
+  }
+  .collection-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.9rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  .collection-card:hover {
+    border-color: #0284c7;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .col-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+  .col-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0284c7;
+    text-transform: uppercase;
+  }
+  .col-count {
+    background: #f0f9ff;
+    color: #0369a1;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+  .col-title {
+    font-size: 1.25rem;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+  }
+  .col-zh {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #059669;
+    margin-bottom: 0.75rem;
+  }
+  .col-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+  .col-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.85rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+  .col-cta {
+    font-weight: 800;
+    color: #0284c7;
+  }
+  .cross-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 0.9rem;
+    padding: 1.65rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .cross-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: rgba(245, 158, 11, 0.18);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 0.85rem;
+  }
+  .cross-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+  }
+  .cross-zh {
+    color: #38bdf8;
+    font-size: 0.84rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+  .cross-desc {
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  .cross-highlights {
+    list-style: none;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .cta-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 960px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-kpis {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

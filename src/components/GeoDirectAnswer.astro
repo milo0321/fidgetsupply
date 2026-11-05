@@ -1,0 +1,111 @@
+---
+import { getLanguageFromURL, useTranslations } from '../i18n/utils';
+import type { SupportedLanguage } from '../i18n/config';
+
+interface Props {
+  title?: string;
+  answer: string;
+  metrics?: { label: string; value: string }[];
+  lang?: SupportedLanguage;
+}
+
+const currentLang = Astro.props.lang || getLanguageFromURL(Astro.url.pathname);
+const t = useTranslations(currentLang);
+
+const {
+  title = t('geo.defaultTitle'),
+  answer,
+  metrics = [
+    { label: t('geo.metricTooling'), value: t('geo.metricToolingVal') },
+    { label: t('geo.metricBlankMoq'), value: t('geo.metricBlankMoqVal') },
+    { label: t('geo.metricLogoMoq'), value: t('geo.metricLogoMoqVal') },
+    { label: t('geo.metricSafety'), value: t('geo.metricSafetyVal') }
+  ]
+} = Astro.props;
+---
+
+<section class="geo-direct-answer" aria-label="Engineering Summary">
+  <div class="geo-header">
+    <span class="geo-badge">{t('geo.badge')}</span>
+    <h2 class="geo-title">{title}</h2>
+  </div>
+  <p class="geo-text">{answer}</p>
+  {metrics.length > 0 && (
+    <div class="geo-metrics">
+      {metrics.map((m) => (
+        <div class="geo-metric-card">
+          <span class="metric-label">{m.label}</span>
+          <strong class="metric-value">{m.value}</strong>
+        </div>
+      ))}
+    </div>
+  )}
+</section>
+
+<style>
+  .geo-direct-answer {
+    background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+    border: 1px solid #bae6fd;
+    border-left: 5px solid #0284c7;
+    border-radius: 0.85rem;
+    padding: clamp(2.25rem, 3.5vw, 2.5rem) clamp(1.5rem, 3.5vw, 2.25rem);
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.06);
+  }
+  .geo-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .geo-badge {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.24rem 0.65rem;
+    border-radius: 999px;
+  }
+  .geo-title {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+  }
+  .geo-text {
+    color: #1e293b;
+    font-size: 0.96rem;
+    line-height: 1.72;
+    margin-bottom: 1.25rem;
+  }
+  .geo-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 0.85rem;
+  }
+  .geo-metric-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.55rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .metric-label {
+    font-size: 0.72rem;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+  .metric-value {
+    font-size: 0.92rem;
+    color: #0f172a;
+    font-weight: 800;
+    margin-top: 0.15rem;
+  }
+</style>

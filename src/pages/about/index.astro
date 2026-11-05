@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url.pathname);
+const t = useTranslations(currentLang);
+const waUrl =
+  'https://wa.me/8618750126315?text=Hello%20FidgetSupply%2C%20I%20would%20like%20to%20inquire%20about%20wholesale%20metal%20fidgets%20and%20custom%20logo%20pricing.';
+
+const supplyChainFaqs = [
+  {
+    question: 'How is FidgetSupply.com structured as an integrated sourcing & supply chain platform?',
+    answer: "Rather than operating as a single workshop, FidgetSupply.com serves as your integrated sourcing and supply chain platform for China's metal EDC fidget industry. We bring together 140 ready production molds across specialized zinc alloy die-casting workshops, CNC machining facilities, and laser/UV branding lines, coordinated through our export hub in Fuzhou Industrial Zone."
+  },
+  {
+    question: 'Where is your Export Logistics Hub located?',
+    answer: 'Our export coordination, custom logo branding, and order consolidation hub is located in Fuzhou Industrial Zone, Fujian, China, handling multi-SKU packing, barcode labeling, and international air/sea shipping.'
+  },
+  {
+    question: 'Why source through an integrated supply chain platform instead of a single factory?',
+    answer: 'Different metal EDC products require different production processes—from zinc alloy die-casting for promotional sliders and spinners to CNC machining for stainless steel, aluminum, PEI, and zirconium models. Our platform allows you to combine multiple materials and product categories in a single wholesale order.'
+  },
+  {
+    question: 'What is the Minimum Order Quantity (MOQ) across your 140 models?',
+    answer: 'Standard MOQ is 50 pieces per SKU for blank unbranded stock and 100 pieces per SKU for custom laser-engraved or UV-printed logos using existing molds.'
+  },
+  {
+    question: 'How do you check product quality before shipping?',
+    answer: 'Before packing and dispatch from our Fuzhou hub, orders are checked for surface finish, logo placement accuracy, magnet assembly, and smooth bearing or sliding action.'
+  },
+  {
+    question: 'Can we combine multiple SKUs into a single wholesale order and shipment?',
+    answer: 'Yes. Multi-SKU consolidation is one of our main services. You can combine magnetic sliders, mechanical fidgets, spinners, haptic coins, and custom EVA cases into one invoice and one consolidated shipment.'
+  },
+  {
+    question: 'Do you support custom mold development if we have our own 3D design?',
+    answer: 'Yes. In addition to our 140 ready molds, we can also quote custom CNC machining or new die-casting molds based on your 3D CAD files.'
+  },
+  {
+    question: 'Are FidgetSupply.com, Ruixing Gifts, and EcoPack Sourcing part of the same network?',
+    answer: 'Yes. FidgetSupply.com is part of our Integrated Global Sourcing Alliance alongside Ruixing Gifts (ruixinggifts.com — Custom Promotional Merchandise & Corporate Gifts) and EcoPack Sourcing (ecopacksourcing.com — Sustainable Eco Packaging & Mailer Boxes Hub).'
+  },
+  {
+    question: 'What international shipping terms (DDP, FOB, EXW) do you support?',
+    answer: 'We support Door-to-Door DDP delivery via Air Express, Air Cargo, and Sea/Rail freight, as well as standard FOB and EXW shipping terms.'
+  },
+  {
+    question: 'How can we contact your team for wholesale pricing or sample requests?',
+    answer: 'You can message us on WhatsApp at +86 187 5012 6315 (Mon – Sat: 8:00 AM – 10:00 PM GMT+8), email sales@fidgetsupply.com, or submit our online form on the Contact page.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: supplyChainFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title="About FidgetSupply.com | China Metal EDC Fidget Supply Chain Platform"
+  description="Your integrated sourcing & supply chain platform for China's metal EDC fidget industry: 140+ ready molds, CNC machining, zinc alloy die-casting, custom logo branding, and global export."
+  activePage="about"
+  jsonLd={faqSchema}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-dark">{t('about.heroBadge')}</span>
+      <h1>{t('about.heroTitle')}</h1>
+      <p>
+        {t('about.heroDesc')}
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title={t('about.geoTitle')}
+      answer={t('about.geoAnswer')}
+    />
+
+    <section class="section">
+      <div class="grid-3">
+        <div class="workshop-card">
+          <img src="/images/factory/showcase-1.webp" alt="CNC & Die-Cast Metal EDC Components" width="450" height="338" />
+          <h3>{t('about.card1Title')}</h3>
+          <p>
+            {t('about.card1Desc')}
+          </p>
+        </div>
+
+        <div class="workshop-card">
+          <img src="/images/factory/showcase-2.webp" alt="Magnet & Bearing Assembly" width="450" height="338" />
+          <h3>{t('about.card2Title')}</h3>
+          <p>
+            {t('about.card2Desc')}
+          </p>
+        </div>
+
+        <div class="workshop-card">
+          <img src="/images/factory/showcase-3.webp" alt="Laser Engraving & Packaging Consolidation" width="450" height="338" />
+          <h3>{t('about.card3Title')}</h3>
+          <p>
+            {t('about.card3Desc')}
+          </p>
+        </div>
+      </div>
+
+      <div class="geo-table-wrap" style="margin-top: 3rem;">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th style="width: 32%;">Platform Dimension</th>
+              <th>Operations &amp; Export Coordination</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Platform Positioning</strong></td>
+              <td>Your integrated sourcing &amp; supply chain platform for China's metal EDC fidget &amp; kinetic desk toy industry</td>
+            </tr>
+            <tr>
+              <td><strong>Manufacturing Capabilities</strong></td>
+              <td>Zinc Alloy Die-Casting, CNC Machining (Stainless Steel / Aluminum / Brass / PEI / Zirconium), Surface Plating &amp; Anodizing</td>
+            </tr>
+            <tr>
+              <td><strong>🏢 Export Logistics Hub</strong></td>
+              <td><strong>Fuzhou Industrial Zone, Fujian, China</strong> (Order Consolidation, Custom Branding &amp; Global Export)</td>
+            </tr>
+            <tr>
+              <td><strong>💬 Direct WhatsApp Chat</strong></td>
+              <td>
+                <a href={waUrl} target="_blank" rel="noopener noreferrer" style="font-weight: 800; color: #0284c7;">
+                  +86 187 5012 6315 <span class="badge badge-emerald" style="margin-left: 0.35rem;">Chat Online</span>
+                </a>
+                <div style="font-size: 0.82rem; color: #475569; margin-top: 0.2rem;">
+                  Mon - Sat: 8:00 AM - 10:00 PM GMT+8
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>📧 Email Inquiries</strong></td>
+              <td><a href="mailto:sales@fidgetsupply.com" style="font-weight: 700; color: #0284c7;">sales@fidgetsupply.com</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Supply Chain FAQ Section -->
+    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+      <div class="section-header-center">
+        <span class="badge">{t('about.faqBadge')}</span>
+        <h2 class="section-title">{t('about.faqTitle')}</h2>
+      </div>
+      <div class="faq-list">
+        {supplyChainFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary">
+          {t('about.ctaBtn')}
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 0;
+  }
+  .page-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.85rem, 3vw, 2.55rem);
+    margin: 0.85rem 0;
+  }
+  .page-hero p {
+    color: #cbd5e1;
+    max-width: 820px;
+    font-size: 1.05rem;
+  }
+  .workshop-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .workshop-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: #0f172a;
+  }
+  .workshop-card h3 {
+    padding: 1.25rem 1.25rem 0.5rem;
+    font-size: 1.15rem;
+  }
+  .workshop-card p {
+    padding: 0 1.25rem 1.35rem;
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.65;
+  }
+</style>

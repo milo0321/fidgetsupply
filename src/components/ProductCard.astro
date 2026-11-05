@@ -1,0 +1,271 @@
+---
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
+import type { SupportedLanguage } from '../i18n/config';
+
+interface Props {
+  product: any;
+  lang?: SupportedLanguage;
+}
+
+const { product, lang } = Astro.props;
+const currentLang = (lang || getLanguageFromURL(Astro.url.pathname) || 'en') as SupportedLanguage;
+const t = useTranslations(currentLang);
+const p = product.data || product;
+const pdpUrl = getLocalizedPath(`/products/${p.slug}`, currentLang);
+const rfqUrl = getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}`, currentLang);
+---
+
+<article
+  class="product-card"
+  data-sku={p.sku.toLowerCase()}
+  data-title={p.title.toLowerCase()}
+  data-category={p.primaryCollection}
+  data-material={p.material.toLowerCase()}
+  data-logo={p.logoReady ? 'true' : 'false'}
+  data-tuning={p.tuningFork ? 'true' : 'false'}
+  data-cnc={p.cncExotic ? 'true' : 'false'}
+  data-price={parseFloat(p.tier500)}
+  data-weight={parseFloat(p.weight) || 75}
+>
+  <a href={pdpUrl} class="card-img-wrap">
+    <img
+      src={p.featuredImage}
+      alt={`${p.skuDisplay} ${p.title} - ${p.material} Wholesale`}
+      loading="lazy"
+      width="400"
+      height="300"
+      class="card-img"
+    />
+    <div class="card-badges-top">
+      <span class="sku-pill">{p.skuDisplay}</span>
+      {p.logoReady ? (
+        <span class="tag-pill tag-logo">{t('card.logoReady')}</span>
+      ) : p.tuningFork ? (
+        <span class="tag-pill tag-tuning">{t('card.tuningFork')}</span>
+      ) : p.cncExotic ? (
+        <span class="tag-pill tag-cnc">{t('card.cncExotic')}</span>
+      ) : null}
+    </div>
+    {p.variants && p.variants.length > 1 && (
+      <div class="multi-variant-ribbon">
+        {p.variants.length} {t('card.multiVariant')}
+      </div>
+    )}
+  </a>
+
+  <div class="card-body">
+    <div class="card-cat-row">
+      <span class="card-cat">{t(`col.${p.primaryCollection}.short` as any)}</span>
+      <span class="card-weight">{p.weight} · {p.size}</span>
+    </div>
+
+    <h3 class="card-title">
+      <a href={pdpUrl}>{p.title}</a>
+    </h3>
+
+    <div class="card-specs-mini">
+      <div><strong>{t('card.material')}</strong> {p.material.split('/')[0].trim()}</div>
+      <div><strong>{t('card.magnets')}</strong> {p.magnetsEn.slice(0, 48)}{p.magnetsEn.length > 48 ? '…' : ''}</div>
+    </div>
+
+    <div class="card-price-box">
+      <div class="price-col">
+        <span class="price-label">{t('card.wholesale500')}</span>
+        <strong class="price-val">${p.tier500}<span>/pc</span></strong>
+      </div>
+      <div class="price-col price-col-right">
+        <span class="price-label">{t('card.blankMoq50')}</span>
+        <span class="price-tier50">${p.tier50}/pc</span>
+      </div>
+    </div>
+
+    <div class="card-actions">
+      <a href={pdpUrl} class="btn btn-outline card-btn">
+        {t('card.viewSpecs')}
+      </a>
+      <a href={rfqUrl} rel="nofollow" class="btn btn-primary card-btn-rfq">
+        {t('card.quote')}
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .product-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.22s ease;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+  }
+  .product-card:hover {
+    transform: translateY(-4px);
+    border-color: #0284c7;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.11);
+  }
+  .card-img-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: #f8fafc;
+    overflow: hidden;
+    border-bottom: 1px solid #f1f5f9;
+    display: block;
+  }
+  .card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .product-card:hover .card-img {
+    transform: scale(1.04);
+  }
+  .card-badges-top {
+    position: absolute;
+    top: 0.65rem;
+    left: 0.65rem;
+    right: 0.65rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.35rem;
+    pointer-events: none;
+  }
+  .tag-pill {
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+  }
+  .tag-logo {
+    background: #fef3c7;
+    color: #b45309;
+    border: 1px solid #fcd34d;
+  }
+  .tag-tuning {
+    background: #ede9fe;
+    color: #6d28d9;
+    border: 1px solid #c4b5fd;
+  }
+  .tag-cnc {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #7dd3fc;
+  }
+  .multi-variant-ribbon {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.88);
+    color: #38bdf8;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.28rem 0.5rem;
+  }
+  .card-body {
+    padding: 1.25rem 1.25rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .card-cat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.73rem;
+    color: #64748b;
+    margin-bottom: 0.45rem;
+  }
+  .card-cat {
+    font-weight: 700;
+    color: #0284c7;
+  }
+  .card-weight {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+  }
+  .card-title {
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.38;
+    margin-bottom: 0.75rem;
+  }
+  .card-title a {
+    color: #0f172a;
+  }
+  .card-title a:hover {
+    color: #0284c7;
+  }
+  .card-specs-mini {
+    font-size: 0.78rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 0.95rem;
+    background: #f8fafc;
+    padding: 0.65rem 0.8rem;
+    border-radius: 0.5rem;
+    border: 1px solid #f1f5f9;
+  }
+  .card-price-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    margin-top: auto;
+    border-top: 1px dashed #e2e8f0;
+    margin-bottom: 0.95rem;
+  }
+  .price-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .price-col-right {
+    text-align: right;
+  }
+  .price-label {
+    font-size: 0.68rem;
+    color: #64748b;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .price-val {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #059669;
+    font-family: var(--font-heading);
+    line-height: 1.15;
+  }
+  .price-val span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+  .price-tier50 {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #334155;
+  }
+  .card-actions {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 0.6rem;
+  }
+  .card-btn,
+  .card-btn-rfq {
+    padding: 0.52rem 0.65rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    white-space: nowrap;
+    border-radius: 0.45rem;
+  }
+</style>

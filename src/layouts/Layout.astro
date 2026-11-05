@@ -1,0 +1,263 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppWidget from '../components/WhatsAppWidget.astro';
+import { getLanguageFromURL, getDirection, getHreflangTags, useTranslations } from '../i18n/utils';
+import { languages, type SupportedLanguage } from '../i18n/config';
+import '../styles/global.css';
+import '../styles/rtl.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: SupportedLanguage;
+  dir?: 'ltr' | 'rtl';
+  keywords?: string;
+  canonical?: string;
+  ogImage?: string;
+  activePage?: string;
+  jsonLd?: object | object[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  lang,
+  dir,
+  keywords = 'metal fidget slider wholesale, custom logo fidget toys, haptic fidget coin bulk, tuning fork fidget slider, CNC stainless steel EDC fidget supply chain, China metal fidget sourcing platform',
+  canonical = Astro.url.href,
+  ogImage = 'https://fidgetsupply.com/images/hero-metal-edc-showcase.webp',
+  activePage = '',
+  jsonLd,
+  noindex = false
+} = Astro.props;
+
+const currentLang = (lang || getLanguageFromURL(Astro.url.pathname) || 'en') as SupportedLanguage;
+const currentDir = dir || getDirection(currentLang);
+const t = useTranslations(currentLang);
+const langConfig = languages[currentLang];
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
+
+const localizedTitle =
+  currentLang === 'en'
+    ? title
+    : title.includes(langConfig.nativeName)
+      ? title
+      : `${title} (${langConfig.nativeName})`;
+
+const localizedDescription =
+  currentLang === 'en'
+    ? description
+    : description.startsWith(`[${langConfig.nativeName}]`)
+      ? description
+      : `[${langConfig.nativeName} · ${t('nav.cta')}] ${description}`;
+
+const fullOgImageUrl = ogImage.startsWith('http') ? ogImage : `https://fidgetsupply.com${ogImage}`;
+
+function toCleanCanonical(raw: string): string {
+  if (!raw) return 'https://fidgetsupply.com';
+  try {
+    const parsed = new URL(raw, 'https://fidgetsupply.com');
+    parsed.protocol = 'https:';
+    parsed.hostname = 'fidgetsupply.com';
+    parsed.search = '';
+    parsed.hash = '';
+    if (parsed.pathname.length > 1 && parsed.pathname.endsWith('/')) {
+      parsed.pathname = parsed.pathname.slice(0, -1);
+    }
+    return parsed.toString();
+  } catch {
+    return raw.replace(/\/+$/, '');
+  }
+}
+
+const cleanCanonical = toCleanCanonical(canonical);
+const hreflangTags = getHreflangTags(Astro.url);
+const defaultCanonical = hreflangTags.find((tag) => tag.lang === 'en')?.href || cleanCanonical;
+
+const waUrl =
+  'https://wa.me/8618750126315?text=Hello%20FidgetSupply%2C%20I%20would%20like%20to%20inquire%20about%20wholesale%20metal%20fidgets%20and%20custom%20logo%20pricing.';
+
+const defaultSchemas = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': 'https://fidgetsupply.com/#organization',
+    name: 'FidgetSupply.com',
+    description:
+      "Your integrated sourcing & supply chain platform for China's metal EDC fidget & kinetic desk toy industry.",
+    url: 'https://fidgetsupply.com',
+    logo: 'https://fidgetsupply.com/images/products/fs-001.webp',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Fuzhou Industrial Zone',
+      addressLocality: 'Fuzhou',
+      addressRegion: 'Fujian',
+      addressCountry: 'CN'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+86-187-5012-6315',
+      contactType: 'Wholesale & custom branding sourcing desk',
+      email: 'sales@fidgetsupply.com',
+      availableLanguage: [
+        'English', 'German', 'French', 'Dutch', 'Spanish', 'Italian', 'Portuguese',
+        'Swedish', 'Danish', 'Norwegian', 'Finnish', 'Polish', 'Czech',
+        'Russian', 'Japanese', 'Korean', 'Indonesian', 'Arabic'
+      ]
+    },
+    knowsAbout: [
+      'Magnetic Haptic Fidget Sliders Supply Chain',
+      'Multi-Action Mechanical EDC Toys',
+      'Metal Fidget Spinners & Desktop Gyroscopes',
+      'Metal Haptic Clicker Coins',
+      'Acoustic Tuning Fork Fidget Sliders',
+      'CNC 304/316 Stainless Steel, PEI Ultem & Zirconium Machining',
+      'US CPSC 16 CFR 1262 Magnet Retention Safety Compliance'
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://fidgetsupply.com/#website',
+    url: 'https://fidgetsupply.com',
+    name: "FidgetSupply.com — Your Integrated Sourcing & Supply Chain Platform for China's Metal EDC Fidget Industry",
+    inLanguage: currentLang,
+    publisher: { '@id': 'https://fidgetsupply.com/#organization' }
+  }
+];
+
+const extraSchemas = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const allSchemas = [...defaultSchemas, ...extraSchemas];
+---
+
+<!doctype html>
+<html lang={currentLang} dir={currentDir}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{localizedTitle}</title>
+    <meta name="description" content={localizedDescription} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={cleanCanonical} />
+    {hreflangTags.map((tag) => (
+      <link rel="alternate" hreflang={tag.hreflang} href={tag.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={defaultCanonical} />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt Catalog Summary" />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    )}
+
+    <!-- Factory Metadata -->
+    <meta name="geo.region" content="CN-35" />
+    <meta name="geo.placename" content="Fuzhou Industrial Zone, Fujian, China" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={localizedTitle} />
+    <meta property="og:description" content={localizedDescription} />
+    <meta property="og:url" content={cleanCanonical} />
+    <meta property="og:image" content={fullOgImageUrl} />
+    <meta property="og:site_name" content="FidgetSupply.com" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={localizedTitle} />
+    <meta name="twitter:description" content={localizedDescription} />
+    <meta name="twitter:image" content={fullOgImageUrl} />
+
+    {allSchemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+
+    {gaMeasurementId && (
+      <script is:inline define:vars={{ gaMeasurementId }}>
+        (function () {
+          try {
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('js', new Date());
+            gtag('config', gaMeasurementId);
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaMeasurementId;
+            document.head.appendChild(s);
+          } catch (_) {}
+        })();
+      </script>
+    )}
+
+    <script is:inline>
+      (function () {
+        try {
+          var storage = window.localStorage || window.sessionStorage;
+          if (!storage) return;
+          var now = Date.now();
+          var currentPath = window.location.pathname + window.location.search;
+          var pageId = 'v_' + now + '_' + Math.random().toString(36).slice(2, 6);
+          function recordStep(id, path, startTime) {
+            try {
+              var duration = Math.max(1, Math.round((Date.now() - startTime) / 1000));
+              var raw = storage.getItem('rx_journey_history') || '[]';
+              var list = JSON.parse(raw);
+              if (!Array.isArray(list)) list = [];
+              list.push({ id: id, path: path, duration: duration, t: Date.now() });
+              if (list.length > 20) list = list.slice(-20);
+              storage.setItem('rx_journey_history', JSON.stringify(list));
+            } catch (_) {}
+          }
+          var prevRaw = storage.getItem('rx_active_page');
+          if (prevRaw) {
+            var prev = JSON.parse(prevRaw);
+            if (prev && prev.id && prev.startTime && prev.path !== currentPath) {
+              recordStep(prev.id, prev.path, prev.startTime);
+            }
+          }
+          storage.setItem('rx_active_page', JSON.stringify({ id: pageId, path: currentPath, startTime: now }));
+        } catch (_) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <Header activePage={activePage} currentLang={currentLang} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer currentLang={currentLang} />
+
+    <!-- Ruixing Gifts Interactive Floating WhatsApp Button & Chat Modal -->
+    <WhatsAppWidget currentLang={currentLang} />
+
+    <!-- Global Accordion & Language Picker Event Delegation -->
+    <script is:inline>
+      document.addEventListener('click', function (e) {
+        var header = e.target.closest('.accordion-header');
+        if (header) {
+          var item = header.closest('.accordion-item');
+          if (item) item.classList.toggle('active');
+          return;
+        }
+
+        var langBtn = e.target.closest('.lang-picker-btn');
+        var allLangWrappers = document.querySelectorAll('.lang-picker-wrapper');
+        if (langBtn) {
+          var wrapper = langBtn.closest('.lang-picker-wrapper');
+          var isOpen = wrapper && wrapper.classList.contains('active');
+          allLangWrappers.forEach(function (w) { w.classList.remove('active'); });
+          if (wrapper && !isOpen) {
+            wrapper.classList.add('active');
+          }
+          return;
+        }
+        if (!e.target.closest('.lang-dropdown-menu')) {
+          allLangWrappers.forEach(function (w) { w.classList.remove('active'); });
+        }
+      });
+    </script>
+  </body>
+</html>

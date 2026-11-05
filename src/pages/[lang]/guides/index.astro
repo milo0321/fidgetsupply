@@ -1,0 +1,12 @@
+---
+import { nonDefaultLanguages } from '../../../i18n/config';
+import GuidesHubPage from '../../guides/index.astro';
+
+export function getStaticPaths() {
+  return nonDefaultLanguages.map((lang) => ({
+    params: { lang }
+  }));
+}
+---
+
+<GuidesHubPage />

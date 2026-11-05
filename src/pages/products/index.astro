@@ -1,0 +1,384 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { COLLECTIONS } from '../../data/collections';
+import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url.pathname);
+const t = useTranslations(currentLang);
+const allProducts = await getCollection('products');
+const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
+const primaryCollections = COLLECTIONS.filter((c) => c.group === 'primary');
+
+const catalogFaqs = [
+  {
+    question: 'How do the SKU codes (FS-001 to FS-150) correspond to the master production schedule?',
+    answer: 'Every product card displays its exact factory SKU code (FS-001 through FS-150) mapped 1:1 to rows #1 through #150 of our integrated China metal EDC supply chain master schedule. Referencing these exact FS-XXX codes allows our sourcing engineers to generate multi-tier quotes and packaging specs in seconds.'
+  },
+  {
+    question: 'Why are there 140 product cards when the raw factory spreadsheet contains 148 rows?',
+    answer: 'To prevent Google SEO duplicate-content cannibalization and give buyers a cleaner procurement experience, we eliminated duplicate row #147 (merged into FS-135 Ring), archived out-of-stock row #65 (Iron Lucky Bead Roller), and merged 6 same-mold multi-material variants into unified pages with interactive material tier selectors (FS-114/115/132 Lake-Light Sword, FS-105/106 Gourd, FS-107/112 Chime Gourd, FS-030/031 Wheel Coin, and FS-094/095 Stainless Slider).'
+  },
+  {
+    question: 'How can I filter the catalog to find models suitable for custom corporate logo printing?',
+    answer: 'Use the "Commercial Intent Tag" dropdown above and select "★ Logo-Ready Flat Molds (28)". This filters the catalog down to 28 hand-picked models featuring wide, unobstructed flat or smooth cylindrical surfaces engineered for 50W Fiber Laser Engraving and Full-Color UV Printing at 100 pcs MOQ.'
+  },
+  {
+    question: 'Are all 140 models available with $0 mold/tooling fees?',
+    answer: 'Yes. 100% of the 140 models in this catalog use active, amortized production molds and CNC fixtures across our manufacturing network. You pay $0.00 in tooling fees whether ordering 50 blank pieces or 5,000 custom-branded units.'
+  },
+  {
+    question: 'What is the difference between the two Piano Haptic Sliders (FS-018 and FS-048) in the catalog?',
+    answer: 'Although both had the same Chinese nickname in the raw sheet, they use completely different molds: FS-018 is the Compact 16-Magnet Dual-Layer Piano Slider (60×38×9mm, 108g), while FS-048 is the Elongated 32-Magnet Multi-Key Piano Track Slider (73.5×23×11.5mm, 98g).'
+  },
+  {
+    question: 'Have all third-party IP and studio brand names been removed from these 140 products?',
+    answer: 'Yes. All 12 potentially sensitive nicknames in the raw spreadsheet have been sanitized into neutral industrial descriptors (such as FS-027 Sandwich Cookie Textured Haptic Coin, FS-047 Minimalist Smooth 6063 Aluminum Slider, and FS-138 Retro Arcade Maze Haptic Coin) so Amazon FBA sellers and corporate buyers face zero IP infringement risks.'
+  },
+  {
+    question: 'Can we combine multiple SKUs from this catalog into a single consolidated wholesale shipment?',
+    answer: 'Yes. Our Fuzhou Industrial Zone Export Logistics Hub consolidates multi-SKU orders from our zinc die-casting, CNC stainless, and laser branding lines into a single standard pre-shipment inspected shipment with unified DDP Air or Sea customs clearance.'
+  },
+  {
+    question: 'What do the 50–199 pcs, 200–499 pcs, and 500+ pcs USD price tiers include?',
+    answer: 'All published USD wholesale prices include the fully assembled metal fidget, internal neodymium magnets/bearings, pre-shipment inspection, and standard protective packaging (including a black EVA zipper case on most models). Custom laser logo branding adds only $0.15–$0.30/pc at 100+ pcs.'
+  },
+  {
+    question: 'How do I choose between Die-Cast Zinc Alloy, 6063 Aluminum, and CNC 304/316 Stainless Steel?',
+    answer: 'Use the "Material Metallurgy" filter above: choose Die-Cast Zinc Alloy ($0.75–$9.00) for high-volume promotional giveaways and entry-level retail; choose 6063 Anodized Aluminum ($3.50–$15.00) for vibrant colors and featherweight pocket carry; or choose CNC 304/316 Stainless Steel, PEI Ultem, and Zirconium ($10–$382+) for boutique collector EDC brands.'
+  },
+  {
+    question: 'What is the custom logo sample fee and sample production lead time?',
+    answer: 'You can request custom logo pre-production samples of any SKU model via our Contact page prior to bulk production. The custom logo sample fee is $80–$150 USD depending on the branding method, and the sample lead time is 10–15 days.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: catalogFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title="Metal EDC Fidget Wholesale Catalog — Ready Production Molds | FidgetSupply"
+  description="Browse all 140 deduplicated metal EDC fidget molds (FS-001 to FS-150). Instant filter by category, material (Zinc Alloy, 304 Stainless, 6063 Aluminum, PEI, Zirconium), weight, price tier & Logo-Ready surface."
+  activePage="products"
+  jsonLd={faqSchema}
+>
+  <section class="catalog-hero">
+    <div class="container">
+      <span class="badge badge-dark">{t('catalog.badge')}</span>
+      <h1>{t('catalog.title')}</h1>
+      <p>
+        {t('catalog.desc')}
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title={t('catalog.geoTitle')}
+      answer={t('catalog.geoAnswer')}
+    />
+
+    <!-- Instant Filter Toolbar -->
+    <div class="filter-panel">
+      <div class="filter-row">
+        <div class="filter-group filter-search">
+          <label for="catalog-search">{t('catalog.searchLabel')}</label>
+          <input
+            type="search"
+            id="catalog-search"
+            placeholder={t('catalog.searchPlaceholder')}
+          />
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-category">{t('catalog.categoryLabel')}</label>
+          <select id="filter-category">
+            <option value="all">{t('catalog.allCategories')}</option>
+            {primaryCollections.map((c) => (
+              <option value={c.slug}>{t(`col.${c.slug}.short` as any)} ({c.skuCount})</option>
+            ))}
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-tag">{t('catalog.tagLabel')}</label>
+          <select id="filter-tag">
+            <option value="all">{t('catalog.allMolds')}</option>
+            <option value="logo">{t('catalog.tagLogo')}</option>
+            <option value="tuning">{t('catalog.tagTuning')}</option>
+            <option value="cnc">{t('catalog.tagCnc')}</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-material">{t('catalog.materialLabel')}</label>
+          <select id="filter-material">
+            <option value="all">{t('catalog.allMaterials')}</option>
+            <option value="zinc">{t('catalog.matZinc')}</option>
+            <option value="stainless">{t('catalog.matStainless')}</option>
+            <option value="aluminum">{t('catalog.matAluminum')}</option>
+            <option value="exotic">{t('catalog.matExotic')}</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-price">{t('catalog.priceLabel')}</label>
+          <select id="filter-price">
+            <option value="all">{t('catalog.allPrices')}</option>
+            <option value="under5">{t('catalog.priceUnder5')}</option>
+            <option value="5to15">{t('catalog.price5to15')}</option>
+            <option value="over15">{t('catalog.priceOver15')}</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-weight">{t('catalog.weightLabel')}</label>
+          <select id="filter-weight">
+            <option value="all">{t('catalog.allWeights')}</option>
+            <option value="light">{t('catalog.weightLight')}</option>
+            <option value="medium">{t('catalog.weightMedium')}</option>
+            <option value="heavy">{t('catalog.weightHeavy')}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-status-bar">
+        <span><strong id="visible-count">140</strong> / <strong>140</strong> · {t('catalog.title')}</span>
+        <button type="button" id="reset-filters" class="btn-reset">{t('catalog.resetFilters')}</button>
+      </div>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="grid-4 catalog-grid" id="catalog-grid">
+      {sortedProducts.map((p) => (
+        <ProductCard product={p} />
+      ))}
+    </div>
+
+    <!-- Catalog FAQ Section -->
+    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+      <div class="section-header-center">
+        <span class="badge">{t('catalog.faqBadge')}</span>
+        <h2 class="section-title">{t('catalog.faqTitle')}</h2>
+      </div>
+      <div class="faq-list">
+        {catalogFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script is:inline>
+  (function () {
+    const searchInput = document.getElementById('catalog-search');
+    const catSelect = document.getElementById('filter-category');
+    const tagSelect = document.getElementById('filter-tag');
+    const matSelect = document.getElementById('filter-material');
+    const priceSelect = document.getElementById('filter-price');
+    const weightSelect = document.getElementById('filter-weight');
+    const resetBtn = document.getElementById('reset-filters');
+    const countEl = document.getElementById('visible-count');
+    const cards = Array.from(document.querySelectorAll('#catalog-grid .product-card'));
+
+    function applyFilters() {
+      const q = (searchInput.value || '').trim().toLowerCase();
+      const cat = catSelect.value;
+      const tag = tagSelect.value;
+      const mat = matSelect.value;
+      const price = priceSelect.value;
+      const weight = weightSelect.value;
+
+      let shown = 0;
+      cards.forEach((card) => {
+        const sku = card.dataset.sku || '';
+        const title = card.dataset.title || '';
+        const zh = card.dataset.zh || '';
+        const cCat = card.dataset.category || '';
+        const cMat = card.dataset.material || '';
+        const cLogo = card.dataset.logo === 'true';
+        const cTuning = card.dataset.tuning === 'true';
+        const cCnc = card.dataset.cnc === 'true';
+        const cPrice = parseFloat(card.dataset.price || '0');
+        const cWeight = parseFloat(card.dataset.weight || '75');
+
+        let match = true;
+        if (q && !(sku.includes(q) || title.includes(q) || zh.includes(q))) match = false;
+        if (match && cat !== 'all' && cCat !== cat) match = false;
+        if (match && tag !== 'all') {
+          if (tag === 'logo' && !cLogo) match = false;
+          if (tag === 'tuning' && !cTuning) match = false;
+          if (tag === 'cnc' && !cCnc) match = false;
+        }
+        if (match && mat !== 'all') {
+          if (mat === 'zinc' && !cMat.includes('zinc')) match = false;
+          if (mat === 'stainless' && !cMat.includes('stainless')) match = false;
+          if (mat === 'aluminum' && !cMat.includes('aluminum')) match = false;
+          if (mat === 'exotic' && !(cMat.includes('pei') || cMat.includes('carbon') || cMat.includes('zirconium'))) match = false;
+        }
+        if (match && price !== 'all') {
+          if (price === 'under5' && cPrice >= 5) match = false;
+          if (price === '5to15' && (cPrice < 5 || cPrice > 15)) match = false;
+          if (price === 'over15' && cPrice <= 15) match = false;
+        }
+        if (match && weight !== 'all') {
+          if (weight === 'light' && cWeight >= 60) match = false;
+          if (weight === 'medium' && (cWeight < 60 || cWeight > 100)) match = false;
+          if (weight === 'heavy' && cWeight <= 100) match = false;
+        }
+
+        card.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+
+      if (countEl) countEl.textContent = String(shown);
+    }
+
+    [searchInput, catSelect, tagSelect, matSelect, priceSelect, weightSelect].forEach((el) => {
+      if (el) el.addEventListener('input', applyFilters);
+      if (el) el.addEventListener('change', applyFilters);
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        catSelect.value = 'all';
+        tagSelect.value = 'all';
+        matSelect.value = 'all';
+        priceSelect.value = 'all';
+        weightSelect.value = 'all';
+        applyFilters();
+      });
+    }
+  })();
+</script>
+
+<style>
+  .catalog-hero {
+    background: #0f172a;
+    color: #ffffff;
+    padding: 3.25rem 0;
+    border-bottom: 1px solid #1e293b;
+  }
+  .catalog-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+    margin: 0.75rem 0;
+  }
+  .catalog-hero p {
+    color: #cbd5e1;
+    max-width: 820px;
+    font-size: 1.02rem;
+  }
+  .filter-panel {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.85rem;
+    padding: 1.5rem;
+    margin-bottom: 2.25rem;
+    box-shadow: var(--shadow-sm);
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .filter-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem 1.25rem;
+    width: 100%;
+  }
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 0;
+    max-width: 100%;
+  }
+  .filter-group label {
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #475569;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .filter-group input,
+  .filter-group select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    font-size: 0.88rem;
+    background: #ffffff;
+    color: #0f172a;
+    font-family: var(--font-body);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .filter-group input:focus,
+  .filter-group select:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+  }
+  .filter-status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.86rem;
+    color: #334155;
+  }
+  .btn-reset {
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    padding: 0.35rem 0.8rem;
+    border-radius: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0284c7;
+    cursor: pointer;
+  }
+  .btn-reset:hover {
+    background: #e0f2fe;
+  }
+  .catalog-grid {
+    padding-bottom: 4rem;
+  }
+  @media (max-width: 960px) {
+    .filter-row {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 640px) {
+    .filter-row {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

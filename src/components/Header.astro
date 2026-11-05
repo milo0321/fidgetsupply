@@ -1,0 +1,739 @@
+---
+import { COLLECTIONS } from '../data/collections';
+import LanguagePicker from './LanguagePicker.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
+import type { SupportedLanguage } from '../i18n/config';
+
+interface Props {
+  activePage?: string;
+  currentLang?: SupportedLanguage;
+}
+
+const { activePage = '', currentLang = getLanguageFromURL(Astro.url.pathname) } = Astro.props;
+const t = useTranslations(currentLang);
+const primaryCollections = COLLECTIONS.filter((c) => c.group === 'primary');
+const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
+---
+
+<!-- 1. TOP ANNOUNCEMENT BAR (Scrolls Away When Scrolling Down — Language Picker on Right, No WhatsApp) -->
+<div class="top-announcement-bar" id="topUtilityBar">
+  <div class="container announcement-container">
+    <div class="announcement-text">
+      <span>🌐 <strong>FidgetSupply.com</strong> — {t('top.platformTag')}</span>
+      <span class="dot-separator">•</span>
+      <span>{t('top.moldsCount')}</span>
+      <span class="dot-separator">•</span>
+      <span>{t('top.moqCount')}</span>
+    </div>
+    <div class="announcement-right">
+      <div class="announcement-contact">
+        <a href="mailto:sales@fidgetsupply.com" class="announcement-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-top: 1px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+          <span>sales@fidgetsupply.com</span>
+        </a>
+      </div>
+      <span class="announcement-sep">|</span>
+      <LanguagePicker currentLang={currentLang} variant="topbar" />
+    </div>
+  </div>
+</div>
+
+<!-- 2. MAIN STICKY HEADER -->
+<header class="header" id="siteHeader">
+  <div class="container header-container">
+    <!-- Brand Logo -->
+    <a href={getLocalizedPath('/', currentLang)} class="brand-logo" aria-label="FidgetSupply.com Homepage">
+      <span class="logo-mark">FS</span>
+      <div class="logo-text">
+        <span class="logo-title">FIDGET<span>SUPPLY</span></span>
+        <span class="logo-subtitle">{t('nav.brandSub')}</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-desktop" aria-label="Main Navigation">
+      <a
+        href={getLocalizedPath('/', currentLang)}
+        class:list={['nav-link', { active: activePage === 'home' }]}
+      >
+        {t('nav.home')}
+      </a>
+
+      <!-- Products Mega Menu -->
+      <div class="nav-item-dropdown">
+        <a
+          href={getLocalizedPath('/products', currentLang)}
+          class:list={['nav-link', 'dropdown-toggle', { active: activePage === 'products' }]}
+        >
+          {t('nav.products')}
+          <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-top: 1px;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+        <div class="dropdown-menu mega-menu">
+          <div class="mega-layout">
+            <div class="mega-links-area">
+              <!-- Column 1: 6 Core Structural Categories -->
+              <div class="mega-column">
+                <span class="mega-title">{t('nav.categories')}</span>
+                {primaryCollections.map((c) => (
+                  <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)} class="dropdown-item">
+                    <span class="item-name">{t(`col.${c.slug}.short` as any)}</span>
+                    <span class="item-meta">{c.skuCount} {t('nav.modelsCount')} · {c.priceRangeUsd}</span>
+                  </a>
+                ))}
+              </div>
+
+              <!-- Column 2: 3 Featured Collections & Custom Options -->
+              <div class="mega-column">
+                <span class="mega-title">{t('footer.col2Title')}</span>
+                {crossCollections.map((c) => (
+                  <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)} class="dropdown-item">
+                    <span class="item-name">
+                      {c.slug === 'custom-logo-metal-fidgets'
+                        ? t('nav.logoReady')
+                        : c.slug === 'tuning-fork-fidget-sliders'
+                        ? t('nav.tuningFork')
+                        : t('nav.cncExotic')}
+                    </span>
+                    <span class="item-meta">{c.skuCount} {t('nav.curatedModelsCount')} · {c.priceRangeUsd}</span>
+                  </a>
+                ))}
+                <a href={getLocalizedPath('/custom-packaging', currentLang)} class="dropdown-item">
+                  <span class="item-name">{t('nav.customPackaging')}</span>
+                  <span class="item-meta">{t('nav.customPackagingMeta')}</span>
+                </a>
+                <a href={getLocalizedPath('/compliance-safety', currentLang)} class="dropdown-item">
+                  <span class="item-name">{t('nav.complianceSafety')}</span>
+                  <span class="item-meta">{t('nav.complianceSafetyMeta')}</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Column 3: Featured Showcase Card -->
+            <div class="mega-featured-area">
+              <img
+                src="/images/hero-metal-edc-showcase.webp"
+                alt="140+ Ready Metal EDC Fidget Molds"
+                class="mega-featured-img"
+                loading="lazy"
+                width="340"
+                height="220"
+              />
+              <div class="mega-featured-overlay">
+                <span class="mega-badge">{t('nav.megaBadge')}</span>
+                <h3>{t('nav.megaTitle')}</h3>
+                <a href={getLocalizedPath('/products', currentLang)} class="btn btn-accent mega-catalog-btn">
+                  {t('nav.allCatalog')} &rarr;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href={getLocalizedPath('/custom-branding', currentLang)}
+        class:list={['nav-link', { active: activePage === 'custom-branding' }]}
+      >
+        {t('nav.customLogo')}
+      </a>
+
+      <a
+        href={getLocalizedPath('/custom-packaging', currentLang)}
+        class:list={['nav-link', { active: activePage === 'custom-packaging' }]}
+      >
+        {t('nav.sampleKits')}
+      </a>
+
+      <a
+        href={getLocalizedPath('/guides', currentLang)}
+        class:list={['nav-link', { active: activePage === 'guides' }]}
+      >
+        {t('nav.guides')}
+      </a>
+
+      <a
+        href={getLocalizedPath('/about', currentLang)}
+        class:list={['nav-link', { active: activePage === 'about' }]}
+      >
+        {t('nav.about')}
+      </a>
+    </nav>
+
+    <!-- Right CTA & Mobile Menu Toggle -->
+    <div class="header-actions">
+      <a href={getLocalizedPath('/contact', currentLang)} class:list={['btn', 'btn-primary', 'nav-cta', { active: activePage === 'contact' }]}>
+        {t('nav.requestQuote')}
+      </a>
+      <button
+        type="button"
+        class="mobile-toggle"
+        id="mobileMenuToggle"
+        aria-label="Toggle Mobile Navigation Menu"
+        aria-expanded="false"
+        aria-controls="mobileNavDrawer"
+      >
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="container mobile-nav-inner">
+      <nav class="mobile-nav-links" aria-label="Mobile Navigation">
+        <a href={getLocalizedPath('/', currentLang)} class="mobile-nav-link">{t('nav.home')}</a>
+        <a href={getLocalizedPath('/products', currentLang)} class="mobile-nav-link">{t('nav.allCatalog')}</a>
+        <details class="mobile-nav-details">
+          <summary class="mobile-nav-link">{t('nav.categories')} ▾</summary>
+          <div class="mobile-sublinks">
+            {primaryCollections.map((c) => (
+              <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)}>{t(`col.${c.slug}.short` as any)} ({c.skuCount})</a>
+            ))}
+            {crossCollections.map((c) => (
+              <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)}>{t(`col.${c.slug}.short` as any)}</a>
+            ))}
+          </div>
+        </details>
+        <a href={getLocalizedPath('/custom-branding', currentLang)} class="mobile-nav-link">{t('nav.customLogo')}</a>
+        <a href={getLocalizedPath('/custom-packaging', currentLang)} class="mobile-nav-link">{t('nav.sampleKits')}</a>
+        <a href={getLocalizedPath('/guides', currentLang)} class="mobile-nav-link">{t('nav.guides')}</a>
+        <a href={getLocalizedPath('/about', currentLang)} class="mobile-nav-link">{t('nav.about')}</a>
+        <a href={getLocalizedPath('/contact', currentLang)} class="mobile-nav-link">{t('nav.contact')}</a>
+      </nav>
+      <div class="mobile-nav-cta">
+        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary" style="width: 100%; justify-content: center;">
+          {t('nav.requestQuote')}
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (function () {
+    var toggle = document.getElementById('mobileMenuToggle');
+    var drawer = document.getElementById('mobileNavDrawer');
+    if (toggle && drawer) {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var isOpen = drawer.classList.toggle('open');
+        toggle.classList.toggle('active', isOpen);
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        drawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      });
+    }
+  })();
+</script>
+
+<style>
+  /* 1. Top Announcement Bar */
+  .top-announcement-bar {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    font-size: 0.78rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .announcement-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .announcement-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    flex-shrink: 1;
+  }
+
+  .announcement-text strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .dot-separator {
+    color: #38bdf8;
+    opacity: 0.6;
+  }
+
+  .announcement-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .announcement-contact {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .announcement-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .announcement-link:hover {
+    color: #ffffff;
+  }
+
+  .announcement-rfq {
+    color: #fbbf24 !important;
+    font-weight: 700;
+  }
+
+  .announcement-rfq:hover {
+    color: #fde047 !important;
+  }
+
+  .announcement-sep {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.75rem;
+  }
+
+  /* 2. Main Sticky Header */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
+    transform: translateZ(0);
+    border-bottom: 1px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 74px;
+    position: relative;
+    gap: 1rem;
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+    text-decoration: none;
+  }
+
+  .logo-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 0.5rem;
+    background: #0f172a;
+    color: #38bdf8;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0284c7;
+    flex-shrink: 0;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    max-width: 155px;
+    overflow: hidden;
+  }
+
+  .logo-title {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.14rem;
+    color: #0f172a;
+    line-height: 1.1;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  .logo-title span {
+    color: #0284c7;
+  }
+
+  .logo-subtitle {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #64748b;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Navigation Links */
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.85rem, 1.5vw, 1.75rem);
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  .nav-link {
+    font-family: var(--font-heading);
+    font-size: 0.96rem;
+    font-weight: 700;
+    color: #334155;
+    padding: 0.5rem 0;
+    transition: color 0.15s ease;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #0284c7;
+  }
+
+  /* Products Mega Menu Dropdown */
+  .nav-item-dropdown {
+    position: static;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .arrow {
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .nav-item-dropdown:hover .arrow {
+    transform: rotate(180deg);
+  }
+
+  .mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 1rem;
+    box-shadow: 0 24px 48px rgba(15, 23, 42, 0.16);
+    padding: 1.5rem;
+    width: calc(100% - 3rem);
+    max-width: 960px;
+    z-index: 1010;
+    white-space: normal;
+  }
+
+  .mega-menu::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 0;
+    right: 0;
+    height: 16px;
+  }
+
+  .nav-item-dropdown:hover .mega-menu {
+    display: block;
+  }
+
+  .mega-layout {
+    display: grid;
+    grid-template-columns: 1.85fr 1fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .mega-links-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .mega-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .mega-title {
+    font-size: 0.74rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #0284c7;
+    padding-bottom: 0.45rem;
+    margin-bottom: 0.35rem;
+    border-bottom: 2px solid #e0f2fe;
+  }
+
+  .dropdown-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.65rem;
+    border-radius: 0.5rem;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .dropdown-item:hover {
+    background: #f0f9ff;
+    border-color: #bae6fd;
+    transform: translateX(2px);
+  }
+
+  .item-name {
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+
+  .item-meta {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 0.1rem;
+  }
+
+  .mega-featured-area {
+    position: relative;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 240px;
+  }
+
+  .mega-featured-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.65;
+  }
+
+  .mega-featured-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 1.25rem;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.94) 80%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mega-badge {
+    align-self: flex-start;
+    background: rgba(245, 158, 11, 0.25);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.5);
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+  }
+
+  .mega-featured-overlay h3 {
+    color: #ffffff;
+    font-size: 0.98rem;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .mega-catalog-btn {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .nav-cta {
+    padding: 0.55rem 1.1rem;
+    font-size: 0.86rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .hamburger-bar {
+    width: 18px;
+    height: 2px;
+    background-color: #0f172a;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-toggle.active .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .mobile-toggle.active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle.active .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-nav-drawer {
+    display: none;
+    background: #ffffff;
+    border-bottom: 1px solid #cbd5e1;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+    max-height: calc(100vh - 68px);
+    overflow-y: auto;
+  }
+
+  .mobile-nav-drawer.open {
+    display: block;
+  }
+
+  .mobile-nav-inner {
+    padding-top: 1rem;
+    padding-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-nav-link {
+    font-family: var(--font-heading);
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: #0f172a;
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid #f1f5f9;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .mobile-nav-details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-sublinks {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.5rem 0 0.75rem 1rem;
+    background: #f8fafc;
+    border-radius: 0.5rem;
+  }
+
+  .mobile-sublinks a {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #334155;
+    padding: 0.35rem 0.5rem;
+    text-decoration: none;
+  }
+
+  @media (max-width: 1120px) {
+    .nav-desktop {
+      gap: 0.75rem;
+    }
+    .nav-link {
+      font-size: 0.88rem;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .announcement-contact {
+      display: none;
+    }
+    .announcement-text .dot-separator,
+    .announcement-text span:not(:first-child) {
+      display: none;
+    }
+    .nav-desktop {
+      display: none;
+    }
+    .nav-cta {
+      display: none;
+    }
+    .mobile-toggle {
+      display: flex;
+    }
+    .header-container {
+      height: 64px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .logo-subtitle {
+      display: none;
+    }
+    .brand-logo {
+      min-width: 0;
+    }
+    .logo-title {
+      font-size: 1.05rem;
+    }
+  }
+</style>

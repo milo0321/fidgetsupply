@@ -1,0 +1,540 @@
+---
+import { COLLECTIONS } from '../data/collections';
+import LanguagePicker from './LanguagePicker.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
+import type { SupportedLanguage } from '../i18n/config';
+
+interface Props {
+  currentLang?: SupportedLanguage;
+}
+
+const { currentLang = getLanguageFromURL(Astro.url.pathname) } = Astro.props;
+const t = useTranslations(currentLang);
+const currentYear = new Date().getFullYear();
+const primaryCollections = COLLECTIONS.filter((c) => c.group === 'primary');
+const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
+---
+
+<footer class="footer">
+  <!-- 1. TOP VALUE & TRUST PILLARS BAR (RUIXING GIFTS STYLE) -->
+  <div class="footer-trust-bar">
+    <div class="container trust-bar-grid">
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>{t('footer.trust1Title')}</strong>
+          <span>{t('footer.trust1Sub')}</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>{t('footer.trust2Title')}</strong>
+          <span>{t('footer.trust2Sub')}</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>{t('footer.trust3Title')}</strong>
+          <span>{t('footer.trust3Sub')}</span>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="trust-text">
+          <strong>{t('footer.trust4Title')}</strong>
+          <span>{t('footer.trust4Sub')}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MAIN 5-COLUMN FOOTER CONTENT GRID -->
+  <div class="container footer-container">
+    <!-- Col 1: Brand & Platform Profile -->
+    <div class="footer-col brand-col">
+      <a href={getLocalizedPath('/', currentLang)} class="footer-logo">
+        <span class="footer-logo-mark">FS</span>
+        <span class="logo-title">FIDGET<span>SUPPLY</span></span>
+      </a>
+      <p class="footer-desc">
+        {t('footer.desc')}
+      </p>
+      <div class="cert-badges">
+        <span class="cert-pill">CPSC 16 CFR 1262</span>
+        <span class="cert-pill">RoHS &amp; REACH</span>
+        <span class="cert-pill">Laser &amp; UV Logo</span>
+        <span class="cert-pill">Global Shipping</span>
+      </div>
+    </div>
+
+    <!-- Col 2: 6 Core Categories -->
+    <div class="footer-col">
+      <h4 class="footer-heading">{t('footer.col1Title')}</h4>
+      <ul class="footer-links">
+        {primaryCollections.map((c) => (
+          <li>
+            <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)}>
+              {t(`col.${c.slug}.short` as any)} ({c.skuCount})
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Col 3: Featured Collections & Customization -->
+    <div class="footer-col">
+      <h4 class="footer-heading">{t('footer.col2Title')}</h4>
+      <ul class="footer-links">
+        {crossCollections.map((c) => (
+          <li>
+            <a href={getLocalizedPath(`/collections/${c.slug}`, currentLang)}>
+              {t(`col.${c.slug}.short` as any)} ({c.skuCount})
+            </a>
+          </li>
+        ))}
+        <li><a href={getLocalizedPath('/products', currentLang)}>{t('nav.allCatalog')}</a></li>
+        <li><a href={getLocalizedPath('/custom-branding', currentLang)}>{t('nav.customLogo')}</a></li>
+        <li><a href={getLocalizedPath('/custom-packaging', currentLang)}>{t('nav.customPackaging')}</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Engineering Guides & Company -->
+    <div class="footer-col">
+      <h4 class="footer-heading">{t('footer.col3Title')}</h4>
+      <ul class="footer-links">
+        <li><a href={getLocalizedPath('/guides/zero-tooling-ready-mold-private-label-fidget-sop', currentLang)}>{t('footer.guide1')}</a></li>
+        <li><a href={getLocalizedPath('/guides/n35-vs-n52-neodymium-magnet-haptic-feel-guide', currentLang)}>{t('footer.guide2')}</a></li>
+        <li><a href={getLocalizedPath('/guides/zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost', currentLang)}>{t('footer.guide3')}</a></li>
+        <li><a href={getLocalizedPath('/guides/acoustic-tuning-fork-fidget-slider-engineering-trend', currentLang)}>{t('footer.guide4')}</a></li>
+        <li><a href={getLocalizedPath('/compliance-safety', currentLang)}>{t('nav.complianceSafety')}</a></li>
+        <li><a href={getLocalizedPath('/about', currentLang)}>{t('nav.about')}</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 5: Direct Sourcing Desk (Clean Icon List Like Ruixing Gifts) -->
+    <div class="footer-col contact-col">
+      <h4 class="footer-heading">{t('nav.contact')}</h4>
+      <ul class="footer-links contact-links">
+        <li class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:sales@fidgetsupply.com" class="contact-text-nowrap">sales@fidgetsupply.com</a>
+        </li>
+        <li class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="https://wa.me/8618750126315" target="_blank" rel="noopener noreferrer" class="contact-text-nowrap">+86 187 5012 6315</a>
+        </li>
+        <li class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="contact-text-nowrap">Fuzhou, Fujian, China</span>
+        </li>
+        <li class="contact-rfq-item">
+          <a href={getLocalizedPath('/contact', currentLang)} class="highlight-link">{t('nav.contact')} &amp; {t('nav.requestQuote')}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3. SISTER MANUFACTURING NETWORK BAR -->
+  <div class="footer-network-bar">
+    <div class="container footer-network-container">
+      <span class="network-label">{t('footer.allianceBadge')}:</span>
+      <a href="https://ruixinggifts.com/" target="_blank" rel="noopener noreferrer" class="network-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span><strong>Ruixing Gifts</strong> — Custom Promotional Merchandise &amp; Corporate Gifts</span>
+      </a>
+      <span class="network-sep">·</span>
+      <a href="https://www.ecopacksourcing.com/" target="_blank" rel="noopener noreferrer" class="network-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <span><strong>EcoPack Sourcing</strong> — Sustainable Eco Packaging &amp; Mailer Boxes Hub</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 4. FOOTER BOTTOM COPYRIGHT & LEGAL BAR -->
+  <div class="footer-bottom">
+    <div class="container footer-bottom-container">
+      <div class="copyright-info">
+        <p>&copy; {currentYear} FidgetSupply.com. {t('footer.copyright')}</p>
+      </div>
+      <div class="footer-bottom-right">
+        <LanguagePicker currentLang={currentLang} variant="footer" />
+        <nav class="bottom-nav">
+          <a href={getLocalizedPath('/about', currentLang)}>{t('nav.about')}</a>
+          <a href={getLocalizedPath('/contact', currentLang)}>{t('nav.contact')}</a>
+          <a href={getLocalizedPath('/compliance-safety', currentLang)}>{t('nav.complianceSafety')}</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #0b1329;
+    color: #94a3b8;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-family: var(--font-body, system-ui, sans-serif);
+  }
+
+  /* 1. TRUST PILLARS BAR */
+  .footer-trust-bar {
+    background-color: #070d1e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.35rem 0;
+  }
+
+  .trust-bar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .trust-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: rgba(14, 165, 233, 0.08);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    flex-shrink: 0;
+  }
+
+  .trust-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .trust-text strong {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.25;
+  }
+
+  .trust-text span {
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.25;
+  }
+
+  /* 2. MAIN FOOTER CONTAINER */
+  .footer-container {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr 1fr 1fr 1.05fr;
+    gap: 2.25rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.25rem;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Brand Column */
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.95rem;
+    text-decoration: none;
+  }
+
+  .footer-logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 0.45rem;
+    background: #0f172a;
+    color: #38bdf8;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0284c7;
+  }
+
+  .logo-title {
+    font-family: var(--font-heading, system-ui, sans-serif);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+  }
+
+  .logo-title span {
+    color: #38bdf8;
+  }
+
+  .footer-desc {
+    font-size: 0.88rem;
+    line-height: 1.62;
+    color: #94a3b8;
+    margin: 0 0 1.2rem 0;
+  }
+
+  .cert-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .cert-pill {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    padding: 0.22rem 0.55rem;
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.22);
+    border-radius: 9999px;
+  }
+
+  /* Navigation Columns */
+  .footer-heading {
+    color: #ffffff;
+    font-family: var(--font-heading, system-ui, sans-serif);
+    font-size: 1.02rem;
+    font-weight: 700;
+    margin-bottom: 1.15rem;
+    position: relative;
+    padding-bottom: 0.45rem;
+  }
+
+  .footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 24px;
+    height: 2.5px;
+    background: #0284c7;
+    border-radius: 2px;
+  }
+
+  .footer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    color: #94a3b8;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: color 0.15s ease, transform 0.15s ease;
+    display: inline-block;
+    line-height: 1.45;
+  }
+
+  .footer-links a:hover {
+    color: #38bdf8;
+    transform: translateX(4px);
+  }
+
+  .highlight-link {
+    color: #38bdf8 !important;
+    font-weight: 700;
+    margin-top: 0.2rem;
+    font-size: 0.9rem;
+  }
+
+  .highlight-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Contact Items */
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  .contact-text-nowrap {
+    white-space: nowrap;
+  }
+
+  .contact-item svg {
+    color: #38bdf8;
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: #94a3b8;
+  }
+
+  .contact-item a:hover {
+    color: #38bdf8;
+  }
+
+  .contact-rfq-item {
+    margin-top: 0.25rem;
+  }
+
+  /* 3. SISTER MANUFACTURING NETWORK BAR */
+  .footer-network-bar {
+    background: rgba(255, 255, 255, 0.025);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.9rem 0;
+    font-size: 0.83rem;
+  }
+
+  .footer-network-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .network-label {
+    color: #64748b;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.75rem;
+  }
+
+  .network-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #38bdf8;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .network-link strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .network-link:hover {
+    color: #7dd3fc;
+    text-decoration: underline;
+  }
+
+  .network-sep {
+    color: #475569;
+  }
+
+  /* 4. FOOTER BOTTOM BAR */
+  .footer-bottom {
+    background-color: #050a17;
+    padding: 1.15rem 0 calc(1.15rem + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.82rem;
+  }
+
+  .footer-bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .copyright-info p {
+    color: #64748b;
+    margin: 0;
+  }
+
+  .footer-bottom-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .bottom-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .bottom-nav a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+
+  .bottom-nav a:hover {
+    color: #cbd5e1;
+  }
+
+  @media (max-width: 1024px) {
+    .trust-bar-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .footer-container {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .brand-col {
+      grid-column: span 3;
+      max-width: 650px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+    }
+    .brand-col,
+    .contact-col {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .trust-bar-grid,
+    .footer-container {
+      grid-template-columns: 1fr;
+    }
+    .brand-col,
+    .contact-col {
+      grid-column: span 1;
+    }
+    .footer-bottom-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-bottom-right {
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+  }
+</style>

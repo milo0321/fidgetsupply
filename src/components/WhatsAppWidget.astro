@@ -1,0 +1,557 @@
+---
+import { getLanguageFromURL, useTranslations } from '../i18n/utils';
+import type { SupportedLanguage } from '../i18n/config';
+
+interface Props {
+  phoneNumber?: string;
+  lang?: SupportedLanguage;
+  currentLang?: SupportedLanguage;
+}
+
+const envPhone = '+86 187 5012 6315';
+
+const {
+  phoneNumber = envPhone,
+  lang,
+  currentLang: propCurrentLang
+} = Astro.props;
+
+const currentLang = (lang || propCurrentLang || getLanguageFromURL(Astro.url.pathname) || 'en') as SupportedLanguage;
+const t = useTranslations(currentLang);
+
+const cleanDigits = (phoneNumber || '').replace(/[^0-9]/g, '');
+const isEnabled = cleanDigits.length >= 7;
+---
+
+{isEnabled && (
+  <div
+    class="whatsapp-widget-wrapper"
+    id="whatsappWidgetWrapper"
+    data-phone={cleanDigits}
+    data-lang={currentLang}
+  >
+    {/* BACKDROP OVERLAY (FOR DISMISSAL) */}
+    <div class="whatsapp-backdrop" id="whatsappBackdrop"></div>
+
+    {/* POPUP CHAT CARD MODAL (MATCHING RUIXING GIFTS DESIGN) */}
+    <div class="whatsapp-chat-modal" id="whatsappChatModal" role="dialog" aria-labelledby="chatModalTitle" aria-hidden="true">
+      <!-- 1. DARK GREEN HEADER -->
+      <div class="chat-header">
+        <div class="header-profile">
+          <div class="avatar-box">
+            <div class="avatar-icon-wrap">
+              <span style="font-weight: 900; font-size: 0.9rem; letter-spacing: -0.03em;">FS</span>
+            </div>
+            <span class="status-dot" aria-label="Active Online"></span>
+          </div>
+          <div class="profile-text">
+            <h3 id="chatModalTitle" class="profile-name">{t('whatsapp.desk')}</h3>
+            <p class="profile-status">
+              <span class="status-live">● {t('whatsapp.active')}</span>
+              <span class="status-sep">|</span>
+              <span class="status-reply">{t('whatsapp.replyTime')}</span>
+            </p>
+          </div>
+        </div>
+        <button type="button" class="chat-close-btn" id="whatsappCloseBtn" aria-label="Close WhatsApp Chat">
+          &times;
+        </button>
+      </div>
+
+      <!-- 2. LIGHT CHAT BODY -->
+      <div class="chat-body">
+        <!-- WELCOME GREETING CARD -->
+        <div class="greeting-bubble">
+          <p id="whatsappGreetingText" set:html={t('whatsapp.greeting')} />
+        </div>
+
+        <!-- SECTION LABEL -->
+        <div class="template-label">
+          {t('whatsapp.templateLabel')}
+        </div>
+
+        <!-- EDITABLE INQUIRY TEXTAREA CONTAINER -->
+        <div class="inquiry-card">
+          <textarea
+            id="whatsappInquiryTextarea"
+            class="inquiry-textarea"
+            rows="5"
+            spellcheck="false"
+            aria-label="Customizable WhatsApp Inquiry Message"
+          >{t('whatsapp.defaultMessage')}</textarea>
+        </div>
+
+        <!-- START WHATSAPP CHAT BUTTON (Direct 1-Click Launch) -->
+        <button type="button" id="whatsappSubmitBtn" class="btn-start-chat">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          <span>{t('whatsapp.startChat')}</span>
+        </button>
+
+        <!-- PRIVACY FOOTNOTE -->
+        <p class="chat-footnote">
+          {t('whatsapp.footnote')}
+        </p>
+      </div>
+    </div>
+
+    <!-- 3. FLOATING ACTION BUTTON (FAB) — EXACT RUIXING GIFTS CIRCULAR GREEN BUTTON -->
+    <button type="button" class="whatsapp-fab-btn" id="whatsappFabBtn" aria-label="Open Live WhatsApp Sourcing Chat" aria-expanded="false">
+      <!-- Animated Radar Ripple Pulse -->
+      <span class="fab-pulse-ring"></span>
+      <!-- WhatsApp Logo SVG -->
+      <svg class="whatsapp-fab-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      <!-- Unread Notification Badge -->
+      <span class="fab-badge-count">1</span>
+    </button>
+  </div>
+)}
+
+<style>
+  /* FLOATING CONTAINER & DOCKING OVERLAY */
+  .whatsapp-widget-wrapper {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 99999;
+    font-family: var(--font-body, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  }
+
+  /* BACKDROP (CLICKS OUTSIDE CLOSE MODAL) */
+  .whatsapp-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.35);
+    backdrop-filter: blur(2px);
+    transform: translateZ(0);
+    z-index: 10;
+  }
+
+  .whatsapp-widget-wrapper.is-open .whatsapp-backdrop {
+    display: block;
+  }
+
+  /* CHAT POPUP MODAL */
+  .whatsapp-chat-modal {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 380px;
+    max-height: min(650px, calc(100vh - 32px));
+    background: #f6f5ef;
+    border-radius: 20px;
+    box-shadow: 0 24px 55px rgba(15, 23, 42, 0.32), 0 6px 16px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px) scale(0.96) translateZ(0);
+    transform-origin: bottom right;
+    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.25s;
+    z-index: 30;
+    flex-direction: column;
+  }
+
+  .whatsapp-widget-wrapper.is-open .whatsapp-chat-modal {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1) translateZ(0);
+  }
+
+  /* 1. DARK GREEN HEADER */
+  .chat-header {
+    background-color: #074d39;
+    color: #ffffff;
+    padding: 1.15rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .avatar-box {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .avatar-icon-wrap {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4ade80;
+  }
+
+  .status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 11px;
+    height: 11px;
+    background-color: #22c55e;
+    border: 2px solid #074d39;
+    border-radius: 50%;
+  }
+
+  .profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .profile-name {
+    font-family: var(--font-heading, system-ui, sans-serif);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff !important;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .profile-status {
+    font-size: 0.76rem;
+    color: #a7f3d0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 500;
+  }
+
+  .status-live {
+    color: #4ade80;
+    font-weight: 700;
+  }
+
+  .status-sep {
+    opacity: 0.5;
+  }
+
+  .chat-close-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #ffffff;
+    font-size: 1.35rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+
+  .chat-close-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: scale(1.08);
+  }
+
+  /* 2. CHAT BODY */
+  .chat-body {
+    padding: 1.15rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    background-color: #f6f5ef;
+    background-image: radial-gradient(rgba(7, 77, 57, 0.04) 1px, transparent 1px);
+    background-size: 16px 16px;
+    overflow-y: auto;
+  }
+
+  .greeting-bubble {
+    background: #ffffff;
+    border-radius: 14px;
+    border-top-left-radius: 4px;
+    padding: 0.85rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  .greeting-bubble p {
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: #334155;
+    margin: 0;
+  }
+
+  .greeting-bubble :global(strong) {
+    color: #074d39;
+  }
+
+  .template-label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-top: 0.1rem;
+  }
+
+  .inquiry-card {
+    background: #ffffff;
+    border: 1.5px solid #d9d6c7;
+    border-radius: 14px;
+    padding: 0.75rem 0.85rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .inquiry-card:focus-within {
+    border-color: #074d39;
+    box-shadow: 0 0 0 3px rgba(7, 77, 57, 0.12);
+  }
+
+  .inquiry-textarea {
+    width: 100%;
+    min-height: 110px;
+    height: 125px;
+    max-height: 220px;
+    border: none;
+    outline: none;
+    resize: none;
+    background: transparent;
+    font-family: var(--font-body, system-ui, sans-serif);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #1e293b;
+    padding: 0;
+    overflow-y: auto;
+  }
+
+  /* CTA BUTTON */
+  .btn-start-chat {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: #25d366;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.82rem 1.25rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+    transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    margin-top: 0.1rem;
+  }
+
+  .btn-start-chat:hover {
+    background: #1eb954;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.5);
+  }
+
+  /* 3. FLOATING ACTION BUTTON (FAB) */
+  .whatsapp-fab-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .whatsapp-widget-wrapper.is-open .whatsapp-fab-btn {
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.85);
+  }
+
+  .whatsapp-fab-btn:hover {
+    transform: scale(1.08) translateY(-2px);
+  }
+
+  .whatsapp-fab-icon {
+    width: 30px;
+    height: 30px;
+    z-index: 2;
+  }
+
+  .fab-pulse-ring {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid #25d366;
+    animation: whatsapp-pulse-anim 2.5s infinite;
+    z-index: 1;
+  }
+
+  @keyframes whatsapp-pulse-anim {
+    0% { transform: scale(1); opacity: 0.6; }
+    70% { transform: scale(1.25); opacity: 0; }
+    100% { transform: scale(1.25); opacity: 0; }
+  }
+
+  .fab-badge-count {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 20px;
+    height: 20px;
+    background-color: #ef4444;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    z-index: 3;
+  }
+
+  .chat-footnote {
+    font-size: 0.7rem;
+    color: #64748b;
+    text-align: center;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .whatsapp-widget-wrapper {
+      bottom: 16px;
+      right: 16px;
+    }
+    .whatsapp-chat-modal {
+      width: calc(100vw - 32px);
+      max-height: calc(100vh - 32px);
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    function initWhatsAppWidget() {
+      var wrapper = document.getElementById('whatsappWidgetWrapper');
+      if (!wrapper || wrapper.dataset.bound === 'true') return;
+      wrapper.dataset.bound = 'true';
+
+      var modal = document.getElementById('whatsappChatModal');
+      var fabBtn = document.getElementById('whatsappFabBtn');
+      var closeBtn = document.getElementById('whatsappCloseBtn');
+      var backdrop = document.getElementById('whatsappBackdrop');
+      var greetingText = document.getElementById('whatsappGreetingText');
+      var textarea = document.getElementById('whatsappInquiryTextarea');
+      var submitBtn = document.getElementById('whatsappSubmitBtn');
+
+      if (!modal || !fabBtn || !textarea || !submitBtn) return;
+
+      var phoneNumber = (wrapper.dataset.phone || '8618750126315').replace(/[^0-9]/g, '');
+
+      function updateContextualMessage() {
+        if (textarea.dataset.userEdited === 'true') return;
+        var path = window.location.pathname;
+        var h1 = (document.querySelector('h1') && document.querySelector('h1').innerText.trim()) || document.title.split('|')[0].trim();
+        var skuEl = document.getElementById('display-sku');
+        var skuText = skuEl ? skuEl.innerText.replace('SKU:', '').trim() : '';
+        var cleanUrl = 'https://fidgetsupply.com' + path;
+
+        if (path.indexOf('/products/') !== -1 && skuText) {
+          if (greetingText) {
+            greetingText.innerHTML = '👋 <strong>Hi!</strong> Interested in <strong>' + skuText + ' (' + h1 + ')</strong>? Start a chat for instant factory pricing, 100 pcs custom Laser/UV logo proofs, or samples.';
+          }
+          textarea.value = 'Hi FidgetSupply! I would like to inquire about ' + skuText + ' - ' + h1 + ' (' + cleanUrl + ').\n• Target Quantity: ~200 pcs\n• Branding: Custom Laser / UV Logo';
+        } else if (path.indexOf('/collections/') !== -1) {
+          if (greetingText) {
+            greetingText.innerHTML = '👋 <strong>Hi!</strong> Sourcing from <strong>' + h1 + '</strong>? Message us for our complete SKU price sheet and Sample Evaluation.';
+          }
+          textarea.value = 'Hi FidgetSupply! I am browsing ' + h1 + ' (' + cleanUrl + ') and would like your Wholesale catalog & custom logo quote.';
+        } else {
+          textarea.value = 'Hi FidgetSupply! I am interested in wholesale metal EDC fidget molds & custom logo branding (' + cleanUrl + ').';
+        }
+      }
+
+      textarea.addEventListener('input', function () {
+        textarea.dataset.userEdited = textarea.value.trim() ? 'true' : 'false';
+      });
+
+      function openModal() {
+        updateContextualMessage();
+        wrapper.classList.add('is-open');
+        fabBtn.setAttribute('aria-expanded', 'true');
+        modal.setAttribute('aria-hidden', 'false');
+        setTimeout(function () {
+          textarea.focus();
+        }, 120);
+      }
+
+      function closeModal() {
+        wrapper.classList.remove('is-open');
+        fabBtn.setAttribute('aria-expanded', 'false');
+        modal.setAttribute('aria-hidden', 'true');
+      }
+
+      fabBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (wrapper.classList.contains('is-open')) {
+          closeModal();
+        } else {
+          openModal();
+        }
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          closeModal();
+        });
+      }
+
+      if (backdrop) {
+        backdrop.addEventListener('click', closeModal);
+      }
+
+      document.querySelectorAll('[data-open-whatsapp]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          openModal();
+        });
+      });
+
+      submitBtn.addEventListener('click', function () {
+        var msg = (textarea.value || '').trim() || 'Hi FidgetSupply! I would like to inquire about wholesale metal EDC fidgets.';
+        var url = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(msg);
+        window.open(url, '_blank', 'noopener,noreferrer');
+        closeModal();
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWhatsAppWidget);
+    } else {
+      initWhatsAppWidget();
+    }
+  })();
+</script>

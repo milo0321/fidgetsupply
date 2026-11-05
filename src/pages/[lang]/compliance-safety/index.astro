@@ -1,0 +1,12 @@
+---
+import { nonDefaultLanguages } from '../../../i18n/config';
+import ComplianceSafetyPage from '../../compliance-safety/index.astro';
+
+export function getStaticPaths() {
+  return nonDefaultLanguages.map((lang) => ({
+    params: { lang }
+  }));
+}
+---
+
+<ComplianceSafetyPage />

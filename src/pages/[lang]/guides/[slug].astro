@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import { nonDefaultLanguages } from '../../../i18n/config';
+import GuideDetailPage from '../../guides/[slug].astro';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  const allProducts = await getCollection('products');
+
+  return nonDefaultLanguages.flatMap((lang) =>
+    guides.map((guide) => {
+      const relatedSkus = guide.data.relatedSkus || [];
+      const relatedProducts = allProducts.filter((p) => relatedSkus.includes(p.data.sku)).slice(0, 4);
+      const relatedGuides = guides.filter((g) => g.data.slug !== guide.data.slug).slice(0, 3);
+      return {
+        params: { lang, slug: guide.data.slug },
+        props: { guide, relatedProducts, relatedGuides }
+      };
+    })
+  );
+}
+---
+
+<GuideDetailPage {...Astro.props} />

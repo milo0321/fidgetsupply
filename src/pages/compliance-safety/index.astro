@@ -1,0 +1,166 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+
+const complianceFaqs = [
+  {
+    question: 'What is US CPSC 16 CFR Part 1262 and how does it apply to magnetic fidget sliders?',
+    answer: 'US CPSC 16 CFR Part 1262 (Safety Standard for Magnets) requires that entertainment and stress-relief products containing magnets either not consist of loose small magnets that fit within the CPSC small-parts cylinder (Ø31.7mm × 57.1mm) with a Flux Index >= 50 kG²mm², or ensure embedded magnets never liberate during drop, torque, and tension abuse testing.'
+  },
+  {
+    question: 'How does FidgetSupply.com prevent embedded neodymium magnets from coming loose?',
+    answer: 'Every magnetic model across our 140 molds utilizes a 3-layer retention architecture: (1) precision CNC/die-cast blind pockets covered by screw-locked stainless or PTFE plates, (2) automated pneumatic dispensing of two-part modified structural epoxy (>22 MPa shear strength), and (3) medium-strength anaerobic threadlocker on all M2/M2.5 fasteners.'
+  },
+  {
+    question: 'What drop and abuse tests do you perform before shipping bulk magnetic orders?',
+    answer: 'Under our standard pre-shipment quality protocol, random production units undergo a 48-hour thermal shock cycle (-20°C to +80°C) followed by 10 consecutive drops from 1.5 meters onto a steel-backed concrete plate across 6 orientations, plus 0.45 Nm torque and 70 N tension testing with zero magnet liberation.'
+  },
+  {
+    question: 'What age grade should Amazon FBA and retail sellers use for metal EDC fidgets?',
+    answer: 'All metal EDC sliders, haptic coins, spinners, and mechanical rings should be marketed and labeled as Adult Everyday Carry (EDC) Desk Toys graded for Ages 14+ (or 15+). They are not children’s toys (under 14) and every custom packaging order includes mandatory 14+ & magnet safety warning labels.'
+  },
+  {
+    question: 'Do you provide documentation required for Amazon US/EU safety compliance reviews?',
+    answer: 'Yes. For confirmed wholesale buyers, we supply factory General Certificates of Conformity (GCC), 16 CFR Part 1262 magnet retention abuse test reports, XRF RoHS 3 / REACH heavy-metal compliance sheets, and compliant packaging artwork proofs required by Amazon Seller Central.'
+  },
+  {
+    question: 'Are your zinc alloy, brass, and stainless steel finishes compliant with EU RoHS 3 and REACH SVHC?',
+    answer: 'Yes. We use virgin Zamak #3 zinc alloy, SUS304/316 stainless steel, 6063-T6 aluminum, and RoHS-compliant lead-free brass. All electroplated and PVD finishes pass EU Directive 2015/863 (RoHS 3) for Lead, Cadmium, Mercury, and Hexavalent Chromium, as well as EN 1811 nickel-release limits.'
+  },
+  {
+    question: 'How are neodymium magnetic fidgets cleared for international air freight (IATA DGR PI-953)?',
+    answer: 'International air transport (IATA Packing Instruction 953) requires that magnetic packages produce a stray magnetic field strength below 0.00525 gauss at 4.6 meters (15 feet). Our Fuzhou Export Logistics Hub lines master cartons with high-permeability iron shielding sheets and provides DGM/IATA magnetic inspection certificates.'
+  },
+  {
+    question: 'Do you offer 100% magnet-free metal fidgets for buyers who want zero magnet compliance requirements?',
+    answer: 'Yes! We manufacture over 30 pure mechanical and rotational models that contain zero magnets—including FS-005 (304 Stainless Knuckle Roller), FS-009 (Knurled Twist Top), FS-043 & FS-066 (Multi-Axis Gimbal Gyros), FS-061 & FS-079 (Chain Sprocket Spinners), FS-063 (316 Stainless Goose Spinner), FS-067 (Bolt-Action Slider), and FS-085 / FS-092 (Mechanical Spring Ratchets).'
+  },
+  {
+    question: 'Are California Proposition 65 compliant finishes available for US corporate gifting orders?',
+    answer: 'Yes. All stainless steel, anodized aluminum, PEI Ultem, zirconium, and PVD/electroplated zinc alloy models meet California Prop 65 phthalate and heavy-metal thresholds, and we can print Prop 65 informational labels on outer packaging upon request.'
+  },
+  {
+    question: 'Can we arrange a third-party inspection (SGS, Bureau Veritas, Intertek, or QIMA) before final payment?',
+    answer: 'Absolutely. We welcome SGS, TUV, Intertek, Bureau Veritas, or QIMA inspectors at our Fuzhou Industrial Zone Export Logistics Hub prior to balance payment and shipment dispatch.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: complianceFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title="US CPSC 16 CFR 1262 Magnet Safety & RoHS/REACH Compliance | FidgetSupply"
+  description="How FidgetSupply.com engineers captive magnet enclosures, industrial structural epoxy, and thread-locked M2 fasteners to comply with US CPSC 16 CFR 1262 and EU RoHS/REACH."
+  activePage="guides"
+  jsonLd={faqSchema}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-emerald">{t('comp.heroBadge')}</span>
+      <h1>{t('comp.heroTitle')}</h1>
+      <p>
+        {t('comp.heroDesc')}
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title={t('comp.geoTitle')}
+      answer={t('comp.geoAnswer')}
+    />
+
+    <section class="section">
+      <h2 style="margin-bottom: 1rem;">{t('comp.matrixTitle')}</h2>
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>Engineering Layer</th>
+              <th>Factory Process Specification</th>
+              <th>QC Verification Test</th>
+              <th>Applicable Product Lines</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Captive Mechanical Plate Enclosure</strong></td>
+              <td>Magnets are seated in internal blind pockets sealed beneath a PTFE wear plate or CNC stainless top plate fastened by 2–8 M2/M2.5 machine screws or Chicago sex-bolts.</td>
+              <td>Zero physical exit path even if adhesive bond is thermally cycled</td>
+              <td><code>FS-001</code>, <code>FS-016</code>, <code>FS-035</code>, <code>FS-094</code>, <code>FS-114</code>, <code>FS-125</code>, <code>FS-128</code>, <code>FS-150</code></td>
+            </tr>
+            <tr>
+              <td><strong>2. Two-Part Structural Acrylic/Epoxy Bonding</strong></td>
+              <td>Automated pneumatic dispensing of industrial structural adhesive (shear strength &gt;22 MPa, operating range -40°C to +120°C) into precision-chamfered magnet wells.</td>
+              <td>48-hour thermal shock (-20°C to +80°C) + 10-drop 1.5m steel plate impact test</td>
+              <td>All Magnetic Sliders, Coins, Gourds &amp; Rings</td>
+            </tr>
+            <tr>
+              <td><strong>3. Anaerobic Thread-Locked Fasteners</strong></td>
+              <td>All M2, M2.5, M3 hex socket screws and bearing retention caps are torqued with medium/high-strength anaerobic threadlocker.</td>
+              <td>ASTM F963 / 16 CFR 1500.53 Torque (0.45 Nm) &amp; Tension (70 N) clamp test</td>
+              <td>Multi-Action Mechanical EDC &amp; Multi-Axis Gyros</td>
+            </tr>
+            <tr>
+              <td><strong>4. RoHS 3 &amp; REACH Metallurgy Control</strong></td>
+              <td>Virgin Zamak #3 zinc alloy, 6063-T6 aluminum, 304/316 stainless steel, C36000 lead-free brass, and nickel-release compliant PVD/electroplating.</td>
+              <td>XRF spectrometer screening on every incoming metal ingot batch</td>
+              <td>100% of Catalog (<code>FS-001</code> to <code>FS-150</code>)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Compliance & Safety FAQ Section -->
+    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+      <div class="section-header-center">
+        <span class="badge">{t('comp.faqBadge')}</span>
+        <h2 class="section-title">{t('comp.faqTitle')}</h2>
+      </div>
+      <div class="faq-list">
+        {complianceFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 0;
+  }
+  .page-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+    margin: 0.85rem 0;
+  }
+  .page-hero p {
+    color: #cbd5e1;
+    max-width: 820px;
+    font-size: 1.05rem;
+  }
+</style>

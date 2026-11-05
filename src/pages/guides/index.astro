@@ -1,0 +1,209 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+
+const guides = (await getCollection('guides')).sort(
+  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+const guidesHubFaqs = [
+  {
+    question: 'What topics are covered in the FidgetSupply Engineering & Global Sourcing Guides?',
+    answer: 'Our 6 core technical guides cover: (1) Zero-Tooling Ready-Mold Private Label SOP, (2) N35 vs. N52 Neodymium Magnet Pull Force & Haptic Calibration, (3) Die-Cast Zinc Alloy vs. 5-Axis CNC Stainless Steel/PEI Cost Breakdown, (4) Acoustic Tuning Fork Resonance Slider Engineering, (5) 50W Fiber Laser vs. UV Color Logo Branding Durability, and (6) US CPSC 16 CFR 1262 Magnet Safety Compliance.'
+  },
+  {
+    question: 'How do I choose between N35, N45, N52, and N54 neodymium magnets when sourcing sliders?',
+    answer: 'As detailed in our Magnetics Guide, N35–N40 magnets are ideal for mechanical track sliders with ball detents where low sliding resistance is preferred, whereas N50–N54 high-flux magnets are mandatory for PTFE unlimited free-floating sliders (like FS-125 and FS-128) so the two plates remain tightly coupled.'
+  },
+  {
+    question: 'When should a Wholesale brand choose Die-Cast Zinc Alloy vs. CNC 304/316 Stainless Steel?',
+    answer: 'Choose Zamak #3 Die-Cast Zinc Alloy ($0.75–$9.00 wholesale) for promotional giveaways, corporate swag bags, and entry-level retail under $25. Choose 5-axis CNC 304/316 Stainless Steel, Amber PEI Ultem, or Zirconium ($10–$380+ wholesale) for collector EDC brands retailing at $49–$350.'
+  },
+  {
+    question: 'Why are Acoustic Tuning Fork Fidget Sliders the fastest-growing Wholesale category in 2026–2027?',
+    answer: 'Short-form video platforms (TikTok Shop, YouTube Shorts, Instagram Reels) reward products with an unmistakable ASMR audio hook. Cantilevered tuning-fork sliders (such as FS-150, FS-129, and FS-148) produce a sustained 2,800–4,200 Hz metallic "Ding!" chime that drives 3× higher video conversion rates.'
+  },
+  {
+    question: 'How does the "Keep Ready Mold + Add Custom Logo" SOP save $3,000+ for new brands?',
+    answer: 'Opening a custom multi-cavity die-casting mold or dedicated CNC fixture typically costs $3,000–$4,500 and takes 35–45 days. By selecting from our 28 Logo-Ready existing molds and adding Fiber Laser or UV branding at 100 pcs MOQ, you launch in 7–10 days with $0 tooling investment.'
+  },
+  {
+    question: 'Which logo branding method lasts longest on everyday-carry metal surfaces?',
+    answer: '50W MOPA Fiber Laser Engraving achieves a 10/10 wear rating because it micron-ablates the metal substrate itself and can never peel. For multi-color brand logos, our organosilane-primed CMYK+White+Varnish UV Printing achieves ASTM D3359 4B adhesion durability.'
+  },
+  {
+    question: 'How do your guides help Amazon FBA sellers pass US CPSC 16 CFR Part 1262 magnet safety reviews?',
+    answer: 'Our CPSC 16 CFR 1262 Compliance Guide documents our 3-layer captive magnet retention architecture, thermal-shock drop test protocols, and 14+ Adult EDC warning label standards required by Amazon Seller Central compliance teams.'
+  },
+  {
+    question: 'Do your engineering guides reference real, orderable factory SKU codes?',
+    answer: 'Yes. Every guide links directly to live production SKUs (FS-001 through FS-150) with exact millimeter dimensions, gram weights, magnet array counts, and 50/200/500+ pcs USD wholesale pricing.'
+  },
+  {
+    question: 'Can we request custom engineering advice or CAD evaluation from your supply chain team?',
+    answer: 'Yes. Message our sourcing engineers directly on WhatsApp (+86 187 5012 6315) or email sales@fidgetsupply.com to review magnet grade selection, surface finish pairing, or custom OEM CAD feasibility.'
+  },
+  {
+    question: 'How can we test the materials and mechanisms discussed in these guides?',
+    answer: 'Visit our /contact page and list the SKU codes you would like to evaluate before placing your bulk order.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: guidesHubFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title="Metal Fidget Engineering, Magnetics & Global Sourcing Guides | FidgetSupply"
+  description="In-depth engineering guides on N35 vs N52 neodymium magnets, Die-Cast Zinc Alloy vs CNC Stainless Steel costs, Acoustic Tuning Fork sliders, and US CPSC 16 CFR 1262 compliance."
+  activePage="guides"
+  jsonLd={faqSchema}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-dark">{t('guides.heroBadge')}</span>
+      <h1>{t('guides.heroTitle')}</h1>
+      <p>
+        {t('guides.heroDesc')}
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title={t('guides.geoTitle')}
+      answer={t('guides.geoAnswer')}
+    />
+
+    <section class="section">
+      <div class="grid-3">
+        {guides.map((g) => (
+          <article class="guide-card">
+            <a href={getLocalizedPath(`/guides/${g.data.slug}`, currentLang)} class="guide-img-link">
+              <img src={g.data.featuredImage} alt={g.data.title} width="400" height="300" />
+            </a>
+            <div class="guide-body">
+              <div class="guide-meta">
+                <span class="guide-cat">{g.data.category}</span>
+                <span>{g.data.readTime}</span>
+              </div>
+              <h2>
+                <a href={getLocalizedPath(`/guides/${g.data.slug}`, currentLang)}>{g.data.title}</a>
+              </h2>
+              <p>{g.data.summary}</p>
+              <a href={getLocalizedPath(`/guides/${g.data.slug}`, currentLang)} class="guide-cta">{t('guides.readCta')}</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Guides Hub FAQ Section -->
+    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+      <div class="section-header-center">
+        <span class="badge">{t('guides.faqBadge')}</span>
+        <h2 class="section-title">{t('guides.faqTitle')}</h2>
+      </div>
+      <div class="faq-list">
+        {guidesHubFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 0;
+  }
+  .page-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+    margin: 0.85rem 0;
+  }
+  .page-hero p {
+    color: #cbd5e1;
+    max-width: 820px;
+    font-size: 1.05rem;
+  }
+  .guide-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+  }
+  .guide-img-link {
+    aspect-ratio: 4 / 3;
+    background: #f8fafc;
+    border-bottom: 1px solid #f1f5f9;
+    overflow: hidden;
+  }
+  .guide-img-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .guide-body {
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .guide-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+  .guide-cat {
+    color: #0284c7;
+    font-weight: 700;
+  }
+  .guide-body h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.65rem;
+    line-height: 1.35;
+  }
+  .guide-body h2 a {
+    color: #0f172a;
+  }
+  .guide-body p {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex: 1;
+  }
+  .guide-cta {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0284c7;
+  }
+</style>

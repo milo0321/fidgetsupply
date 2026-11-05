@@ -1,0 +1,1112 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url.pathname);
+const t = useTranslations(currentLang);
+const allProducts = (await getCollection('products')).sort((a, b) => a.data.rowId - b.data.rowId);
+
+const waNumber = '+86 187 5012 6315';
+const cleanWhatsApp = '8618750126315';
+const waBaseUrl =
+  'https://wa.me/8618750126315?text=Hello%20FidgetSupply%2C%20I%20would%20like%20to%20inquire%20about%20wholesale%20metal%20fidgets%20and%20custom%20logo%20pricing.';
+
+const contactFaqs = [
+  {
+    question: 'What is your typical Minimum Order Quantity (MOQ)?',
+    answer: 'Blank unbranded wholesale stock starts at <strong>50 pieces per SKU</strong>. Custom laser-engraved or UV color-printed logo orders start at <strong>100 pieces per SKU</strong> using our existing production molds (<strong>$0.00 mold fee</strong>).'
+  },
+  {
+    question: 'How fast can I receive a wholesale quotation and digital logo proof?',
+    answer: 'Our sourcing desk responds within <strong>2 to 12 hours</strong> by email, or within <strong>15 minutes on WhatsApp</strong> during working hours (Mon – Sat: 8:00 AM – 10:00 PM GMT+8). Digital mockups showing your logo placement on selected models are provided free of charge within <strong>24 hours</strong>.'
+  },
+  {
+    question: 'Why should I select exact FS-001 to FS-150 SKU codes in the form?',
+    answer: 'Every SKU code (<strong>FS-001 through FS-150</strong>) maps directly to our production mold specifications, material options, unit weight, and carton packing dimensions—allowing us to calculate exact unit pricing and shipping costs immediately.'
+  },
+  {
+    question: 'Can I request custom logo samples before placing a bulk order?',
+    answer: 'Yes. You can request sample units of specific SKU models or a custom logo pre-production sample before confirming bulk production. Custom logo sampling takes <strong>10 to 15 days</strong> with a custom logo sample fee of <strong>$80 to $150 USD</strong> depending on the branding process. Simply select <strong>Sample / Prototype Evaluation</strong> in the quantity field above.'
+  },
+  {
+    question: 'Can I combine multiple SKUs in a single wholesale inquiry?',
+    answer: 'Yes. You can type multiple SKU codes or click several category pills in the form above (for example, FS-001, FS-047, and FS-125) to request a single consolidated quotation.'
+  },
+  {
+    question: 'What logo file formats do you accept for custom laser or UV branding?',
+    answer: 'We prefer vector files (<strong>.EPS, .PDF, .SVG, or .CDR</strong>) for the sharpest laser engraving and UV printing results, and we can also work with high-resolution <strong>.PNG or .PSD</strong> artwork.'
+  },
+  {
+    question: 'Can we sign a Non-Disclosure Agreement (NDA) before sharing artwork?',
+    answer: 'Yes. We routinely sign mutual NDAs with private-label brands, corporate buyers, and distributors to protect your brand logos and confidential product plans.'
+  },
+  {
+    question: 'What international shipping and delivery options do you offer?',
+    answer: 'From our Export Logistics Hub in <strong>Fuzhou Industrial Zone, Fujian, China</strong>, we arrange <strong>Door-to-Door (DDP) duty-paid delivery</strong> as well as standard air express (DHL/FedEx/UPS in 5–7 days), air cargo, and sea/rail freight worldwide.'
+  },
+  {
+    question: 'What packaging options are included or available?',
+    answer: 'Most models include a standard protective polybag or <strong>black EVA zipper pouch</strong>. We also supply custom-debossed EVA cases, window tin boxes, rigid magnetic gift boxes, and retail barcode labels upon request.'
+  },
+  {
+    question: 'What payment methods and commercial terms do you support?',
+    answer: 'We issue formal invoices in USD, EUR, GBP, or RMB and accept <strong>T/T Bank Wire, PayPal, and Wise</strong>. Standard bulk production terms are 30% deposit and 70% balance after pre-shipment inspection confirmation.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: contactFaqs.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer.replace(/<[^>]+>/g, '')
+    }
+  }))
+};
+---
+
+<Layout
+  title="Contact Us & Request a Wholesale Quote | FidgetSupply.com"
+  description="Contact FidgetSupply.com for wholesale metal EDC fidget pricing (FS-001 to FS-150), custom laser/UV logo proofs, sample requests, and global shipping estimates."
+  activePage="contact"
+  jsonLd={faqSchema}
+>
+  <div class="contact-page-wrapper">
+    <!-- PAGE HERO HEADER (RUIXING GIFTS STYLE) -->
+    <div class="contact-header text-center">
+      <span class="pill-badge">{t('contact.badge')}</span>
+      <h1 class="page-title">{t('contact.title')}</h1>
+      <p class="page-subtitle">
+        {t('contact.subtitle')}
+      </p>
+    </div>
+
+    <!-- MAIN CONTAINED SPLIT CARD (LEFT DARK INFO PANEL + RIGHT FORM PANEL) -->
+    <div class="contact-card-container">
+      <!-- LEFT PANEL: Brand, Direct Chat & Contact Info -->
+      <div class="contact-info-panel">
+        <div class="info-content-wrap">
+          <span class="info-badge">{t('contact.badge')}</span>
+
+          <h2 class="info-title">{t('contact.infoTitle')}</h2>
+          <p class="info-desc">
+            {t('contact.infoDesc')}
+          </p>
+
+          <div class="contact-details-list">
+            <div class="contact-detail-item">
+              <div class="detail-icon">📧</div>
+              <div class="detail-text">
+                <span class="detail-label">{t('contact.emailLabel')}</span>
+                <a href="mailto:sales@fidgetsupply.com" class="detail-value">sales@fidgetsupply.com</a>
+                <span class="detail-sub">{t('contact.emailSub')}</span>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="detail-icon">💬</div>
+              <div class="detail-text">
+                <span class="detail-label">{t('contact.waLabel')}</span>
+                <a
+                  href={waBaseUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="detail-value whatsapp-link"
+                >
+                  {waNumber} <span class="online-tag">{t('top.chatOnline')}</span>
+                </a>
+                <span class="detail-sub">{t('contact.waSub')}</span>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="detail-icon">🏢</div>
+              <div class="detail-text">
+                <span class="detail-label">{t('contact.hubLabel')}</span>
+                <span class="detail-value location-text">{t('contact.hubVal')}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="trust-indicators">
+            <div class="trust-stat">
+              <span class="stat-num">140+</span>
+              <span class="stat-text">{t('contact.stat1')}</span>
+            </div>
+            <div class="trust-stat">
+              <span class="stat-num">50 / 100</span>
+              <span class="stat-text">{t('contact.stat2')}</span>
+            </div>
+            <div class="trust-stat">
+              <span class="stat-num">24h</span>
+              <span class="stat-text">{t('contact.stat3')}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL: Primary Quote Submission Form -->
+      <div class="contact-form-panel">
+        <div class="contact-card">
+          <div id="formFieldsContainer">
+            <h3 class="form-title">{t('contact.formTitle')}</h3>
+            <p class="form-desc">
+              {t('contact.formDesc')}
+            </p>
+
+            <form id="rfqForm" class="rfq-form" novalidate>
+              <!-- ROW 1: Identity (Required *) -->
+              <div class="form-row">
+                <div class="form-group half">
+                  <label class="form-label" for="fullName">{t('contact.fullName')}</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    class="form-input"
+                    placeholder="e.g. Alex Morgan"
+                    required
+                  />
+                </div>
+
+                <div class="form-group half">
+                  <label class="form-label" for="workEmail">{t('contact.workEmail')}</label>
+                  <input
+                    type="email"
+                    id="workEmail"
+                    name="workEmail"
+                    class="form-input"
+                    placeholder="name@company.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <!-- ROW 2: Organization & Destination -->
+              <div class="form-row">
+                <div class="form-group half">
+                  <label class="form-label" for="companyName">
+                    {t('contact.company')} <span class="optional-badge">{t('contact.optional')}</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    class="form-input"
+                    placeholder="Your Company or Store"
+                  />
+                </div>
+
+                <div class="form-group half">
+                  <label class="form-label" for="destinationCountry">
+                    {t('contact.country')} <span class="optional-badge">{t('contact.optional')}</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="destinationCountry"
+                    name="destinationCountry"
+                    class="form-input"
+                    placeholder="e.g. United States, Germany, UK..."
+                  />
+                </div>
+              </div>
+
+              <!-- ROW 3: Target Product / SKU Selector -->
+              <div class="form-group">
+                <div class="label-with-hint">
+                  <label class="form-label" for="productName">{t('contact.targetProduct')}</label>
+                  <span class="field-micro-badge">{t('top.moldsCount')}</span>
+                </div>
+                <input
+                  type="text"
+                  id="productName"
+                  name="productName"
+                  list="skuCatalogDatalist"
+                  class="form-input"
+                  placeholder="e.g. FS-125 Smooth Slider, FS-047 Aluminum Slider..."
+                  required
+                />
+                <datalist id="skuCatalogDatalist">
+                  {allProducts.map((p) => (
+                    <option value={`${p.data.skuDisplay} — ${p.data.title}`} />
+                  ))}
+                </datalist>
+
+                <div class="quick-product-pills" role="group" aria-label="Popular categories">
+                  <span class="pills-label">{t('contact.quickSelect')}</span>
+                  <button type="button" class="prod-pill" data-name="Logo-Ready Custom Branding Fidgets">{t('card.logoReady')}</button>
+                  <button type="button" class="prod-pill" data-name="Magnetic Haptic Sliders">{t('col.magnetic-fidget-sliders.short')}</button>
+                  <button type="button" class="prod-pill" data-name="Acoustic Tuning Fork Sliders">{t('card.tuningFork')}</button>
+                  <button type="button" class="prod-pill" data-name="CNC Stainless Steel & PEI EDC">{t('card.cncExotic')}</button>
+                  <button type="button" class="prod-pill" data-name="Metal Fidget Spinners & Gyros">{t('col.metal-fidget-spinners-gyros.short')}</button>
+                  <button type="button" class="prod-pill" data-name="Metal Haptic Clicker Coins">{t('col.haptic-fidget-coins.short')}</button>
+                </div>
+              </div>
+
+              <!-- ROW 4: Target Quantity & Branding Mode -->
+              <div class="form-row">
+                <div class="form-group half">
+                  <div class="label-with-hint">
+                    <label class="form-label" for="estimatedQuantity">{t('contact.quantity')}</label>
+                    <span class="field-micro-badge">{t('top.moqCount')}</span>
+                  </div>
+                  <select id="estimatedQuantity" name="estimatedQuantity" class="form-input form-select" required>
+                    <option value="Sample / Prototype Evaluation">{t('pdp.orderSample')}</option>
+                    <option value="50 - 99 pcs (Blank Stock)">50 – 99 pcs ({t('pdp.blankMoq')})</option>
+                    <option value="100 - 199 pcs (Custom Logo MOQ)" selected>100 – 199 pcs ({t('pdp.logoMoq')})</option>
+                    <option value="200 - 499 pcs">200 – 499 pcs</option>
+                    <option value="500 - 1,999 pcs">500 – 1,999 pcs</option>
+                    <option value="2,000+ pcs">2,000+ pcs</option>
+                  </select>
+                </div>
+
+                <div class="form-group half">
+                  <label class="form-label" for="brandingMode">{t('contact.brandingMode')}</label>
+                  <select id="brandingMode" name="brandingMode" class="form-input form-select">
+                    <option value="Blank Unbranded Stock">{t('pdp.opt1Title')}</option>
+                    <option value="Fiber Laser Engraved Logo" selected>{t('pdp.opt2Title')}</option>
+                    <option value="Silk-Screen / Deep Laser Color Fill">{t('pdp.opt3Title')}</option>
+                    <option value="Custom Logo + Black EVA Zipper Case">{t('pdp.opt4Title')}</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- ROW 5: Detailed Specifications -->
+              <div class="form-group">
+                <label class="form-label" for="inquiryDetails">
+                  {t('contact.notes')} <span class="optional-badge">{t('contact.optional')}</span>
+                </label>
+                <textarea
+                  id="inquiryDetails"
+                  name="inquiryDetails"
+                  rows="3"
+                  class="form-input form-textarea"
+                  placeholder="Share preferred finishes/colors, logo placement requirements, custom packaging needs, or target delivery date..."
+                ></textarea>
+              </div>
+
+              <!-- Submit Actions -->
+              <div class="submit-actions-stack">
+                <button type="submit" id="submitBtn" class="btn btn-primary form-submit-btn">
+                  {t('contact.submitBtn')} &rarr;
+                </button>
+                <button type="button" id="waInstantSubmitBtn" class="btn-wa-secondary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                  <span>{t('contact.waBtn')} ({waNumber})</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- THANK YOU CONFIRMATION STATE -->
+          <div id="formSuccessCard" class="success-card hidden">
+            <div class="success-icon-wrap">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3 class="success-title">{t('contact.successTitle')}</h3>
+            <p class="success-subtitle">
+              {t('contact.successSub')}
+            </p>
+            <div class="success-actions">
+              <a id="successWaLink" href={waBaseUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+                {t('contact.successWaBtn')}
+              </a>
+              <button type="button" id="resetFormBtn" class="btn btn-secondary" style="width: 100%; margin-top: 0.75rem;">
+                {t('contact.resetFormBtn')}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION (RUIXING GIFTS ACCORDION STYLE) -->
+    <section class="contact-faq-section">
+      <div class="faq-container">
+        <div class="faq-header text-center">
+          <span class="sub-badge">{t('contact.faqBadge')}</span>
+          <h2 class="section-title">{t('contact.faqTitle')}</h2>
+          <p class="section-subtitle">{t('contact.faqSub')}</p>
+        </div>
+
+        <div class="faq-accordion-grid">
+          {contactFaqs.map((faq, idx) => (
+            <details class="faq-item" open={idx === 0}>
+              <summary class="faq-question">
+                <span>{faq.question}</span>
+                <svg class="chevron-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p set:html={faq.answer} />
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script is:inline>
+  (function () {
+    var productInput = document.getElementById('productName');
+    var quickSelect = document.getElementById('quickSkuSelect');
+    var brandingSelect = document.getElementById('brandingMode');
+    var pills = document.querySelectorAll('.prod-pill');
+    var form = document.getElementById('rfqForm');
+    var waInstantBtn = document.getElementById('waInstantSubmitBtn');
+    var formFieldsContainer = document.getElementById('formFieldsContainer');
+    var formSuccessCard = document.getElementById('formSuccessCard');
+    var successWaLink = document.getElementById('successWaLink');
+    var resetFormBtn = document.getElementById('resetFormBtn');
+
+    // 1. Pre-fill from URL query parameters (?sku=FS-125&mode=...)
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var skuParam = params.get('sku');
+      var modeParam = params.get('mode');
+      if (skuParam && productInput && !productInput.value) {
+        productInput.value = skuParam;
+      }
+      if (modeParam && brandingSelect) {
+        for (var i = 0; i < brandingSelect.options.length; i++) {
+          if (brandingSelect.options[i].value.toLowerCase().indexOf(modeParam.toLowerCase()) !== -1) {
+            brandingSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+    } catch (e) {}
+
+    // 2. Quick SKU Dropdown appends to productInput
+    if (quickSelect && productInput) {
+      quickSelect.addEventListener('change', function () {
+        if (!quickSelect.value) return;
+        var curr = productInput.value.trim();
+        productInput.value = curr ? curr + ', ' + quickSelect.value : quickSelect.value;
+        quickSelect.value = '';
+      });
+    }
+
+    // 3. Popular Category Pills append to productInput
+    pills.forEach(function (pill) {
+      pill.addEventListener('click', function () {
+        var name = pill.getAttribute('data-name') || '';
+        if (!name || !productInput) return;
+        var curr = productInput.value.trim();
+        if (curr.indexOf(name) === -1) {
+          productInput.value = curr ? curr + ', ' + name : name;
+        }
+        pill.classList.toggle('active');
+      });
+    });
+
+    function buildInquiryMessage() {
+      var name = (document.getElementById('fullName')?.value || '').trim();
+      var email = (document.getElementById('workEmail')?.value || '').trim();
+      var company = (document.getElementById('companyName')?.value || '').trim();
+      var country = (document.getElementById('destinationCountry')?.value || '').trim();
+      var products = (document.getElementById('productName')?.value || '').trim();
+      var qty = document.getElementById('estimatedQuantity')?.value || '';
+      var mode = document.getElementById('brandingMode')?.value || '';
+      var details = (document.getElementById('inquiryDetails')?.value || '').trim();
+
+      return [
+        'Hello FidgetSupply Sourcing Desk,',
+        '',
+        '• Target Product / SKU(s): ' + (products || 'Wholesale Metal EDC Fidgets'),
+        '• Estimated Quantity: ' + (qty || '100 - 199 pcs'),
+        '• Customization Mode: ' + (mode || 'Custom Logo'),
+        '• Contact Name: ' + (name || 'Buyer') + (company ? ' (' + company + ')' : ''),
+        '• Email: ' + (email || 'Not provided'),
+        country ? '• Destination Country: ' + country : null,
+        details ? '• Project Notes: ' + details : null
+      ]
+        .filter(Boolean)
+        .join('\n');
+    }
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var nameEl = document.getElementById('fullName');
+        var emailEl = document.getElementById('workEmail');
+        var prodEl = document.getElementById('productName');
+        if (nameEl && !nameEl.value.trim()) {
+          nameEl.focus();
+          return;
+        }
+        if (emailEl && !emailEl.value.trim()) {
+          emailEl.focus();
+          return;
+        }
+        if (prodEl && !prodEl.value.trim()) {
+          prodEl.focus();
+          return;
+        }
+
+        var msg = buildInquiryMessage();
+        var company = document.getElementById('companyName')?.value || nameEl?.value || 'Wholesale Buyer';
+        var subject = 'Wholesale Quote Inquiry - ' + company + ' | FidgetSupply.com';
+        var waUrl = 'https://wa.me/8618750126315?text=' + encodeURIComponent(msg);
+
+        if (successWaLink) successWaLink.setAttribute('href', waUrl);
+
+        var submitBtn = document.getElementById('submitBtn');
+        var origBtnText = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Sending...';
+        }
+
+        var journey = [];
+        try {
+          var storage = window.localStorage || window.sessionStorage;
+          if (storage) {
+            journey = JSON.parse(storage.getItem('rx_journey_history') || '[]');
+          }
+        } catch (_) {}
+
+        var payload = {
+          fullName: nameEl?.value || '',
+          workEmail: emailEl?.value || '',
+          companyName: document.getElementById('companyName')?.value || '',
+          destinationCountry: document.getElementById('destinationCountry')?.value || '',
+          productName: prodEl?.value || '',
+          estimatedQuantity: document.getElementById('estimatedQuantity')?.value || '',
+          brandingMode: document.getElementById('brandingMode')?.value || '',
+          inquiryDetails: document.getElementById('inquiryDetails')?.value || '',
+          browsingJourney: journey
+        };
+
+        fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .catch(function () {
+            window.location.href = 'mailto:sales@fidgetsupply.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
+          })
+          .finally(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = origBtnText;
+            }
+            if (formFieldsContainer && formSuccessCard) {
+              formFieldsContainer.classList.add('hidden');
+              formSuccessCard.classList.remove('hidden');
+            }
+          });
+      });
+    }
+
+    if (waInstantBtn) {
+      waInstantBtn.addEventListener('click', function () {
+        var msg = buildInquiryMessage();
+        window.open('https://wa.me/8618750126315?text=' + encodeURIComponent(msg), '_blank');
+      });
+    }
+
+    if (resetFormBtn) {
+      resetFormBtn.addEventListener('click', function () {
+        if (formSuccessCard && formFieldsContainer) {
+          formSuccessCard.classList.add('hidden');
+          formFieldsContainer.classList.remove('hidden');
+        }
+      });
+    }
+  })();
+</script>
+
+<style>
+  .contact-page-wrapper {
+    background-color: #f8fafc;
+    padding: 3.5rem 1.5rem 5rem;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .contact-header {
+    max-width: 800px;
+    margin: 0 auto 2.75rem;
+  }
+
+  .pill-badge {
+    display: inline-block;
+    background: rgba(14, 116, 144, 0.1);
+    color: #0891b2;
+    border: 1px solid rgba(14, 116, 144, 0.25);
+    font-weight: 700;
+    padding: 0.4rem 1.1rem;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    margin-bottom: 1.1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .page-title {
+    font-size: clamp(2rem, 3.5vw, 2.65rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin-bottom: 0.85rem;
+    font-family: var(--font-heading);
+  }
+
+  .page-subtitle {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  /* CONTAINED SPLIT CARD (EXACT RUIXING GIFTS ARCHITECTURE) */
+  .contact-card-container {
+    max-width: 1240px;
+    margin: 0 auto 5rem;
+    background: #ffffff;
+    border-radius: 24px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07);
+    display: flex;
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+
+  /* LEFT PANEL: 42% Dark Brand & Contact Info */
+  .contact-info-panel {
+    width: 42%;
+    background: linear-gradient(145deg, #0b132b 0%, #1c2541 60%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+
+  .contact-info-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(52, 211, 153, 0.06) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .info-content-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .info-badge {
+    display: inline-block;
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    font-weight: 700;
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .info-title {
+    font-size: 1.85rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: #ffffff;
+  }
+
+  .info-desc {
+    font-size: 1.02rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.15rem;
+  }
+
+  .detail-icon {
+    font-size: 1.35rem;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+  }
+
+  .detail-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-label {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .detail-value {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 0.2rem;
+  }
+
+  .location-text {
+    color: #cbd5e1;
+    font-weight: 500;
+  }
+
+  .detail-value[href]:hover {
+    color: #38bdf8;
+  }
+
+  .whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #25d366 !important;
+    flex-wrap: wrap;
+  }
+
+  .whatsapp-link:hover {
+    color: #4ade80 !important;
+    text-decoration: underline;
+  }
+
+  .online-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(37, 211, 102, 0.18);
+    color: #25d366;
+    border: 1px solid rgba(37, 211, 102, 0.35);
+    padding: 0.15rem 0.5rem;
+    border-radius: 9999px;
+  }
+
+  .detail-sub {
+    font-size: 0.84rem;
+    color: #38bdf8;
+    font-weight: 600;
+  }
+
+  .trust-indicators {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .trust-stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #38bdf8;
+  }
+
+  .stat-text {
+    font-size: 0.78rem;
+    color: #cbd5e1;
+    margin-top: 0.2rem;
+    line-height: 1.35;
+  }
+
+  /* RIGHT PANEL: 58% Form Container */
+  .contact-form-panel {
+    width: 58%;
+    min-width: 0;
+    padding: 3.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #ffffff;
+  }
+
+  .form-title {
+    font-size: 1.75rem;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+  }
+
+  .form-desc {
+    color: #64748b;
+    font-size: 0.96rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .rfq-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+    min-width: 0;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 1.25rem;
+    min-width: 0;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .form-group.half {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .label-with-hint {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.45rem;
+    gap: 0.5rem;
+  }
+
+  .label-with-hint .form-label {
+    margin-bottom: 0;
+  }
+
+  .field-micro-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #0284c7;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 0.12rem 0.55rem;
+    border-radius: 999px;
+  }
+
+  .form-label {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .optional-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #94a3b8;
+    background: #f1f5f9;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+  }
+
+  .form-input {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 0.8rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.94rem;
+    font-family: var(--font-body);
+    color: #0f172a;
+    background: #f8fafc;
+    transition: all 0.18s ease;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: #0284c7;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+  }
+
+  .sku-picker-row {
+    margin-top: 0.55rem;
+  }
+
+  .sku-select-compact {
+    font-size: 0.84rem;
+    padding: 0.6rem 0.85rem;
+    background-color: #f1f5f9;
+    border-style: dashed;
+    color: #334155;
+    cursor: pointer;
+  }
+
+  .quick-product-pills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.65rem;
+  }
+
+  .pills-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #64748b;
+    margin-right: 0.2rem;
+  }
+
+  .prod-pill {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .prod-pill:hover,
+  .prod-pill.active {
+    background: #e0f2fe;
+    border-color: #38bdf8;
+    color: #0369a1;
+  }
+
+  .submit-actions-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.35rem;
+  }
+
+  .form-submit-btn {
+    width: 100%;
+    padding: 0.95rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: 12px;
+    justify-content: center;
+  }
+
+  .btn-wa-secondary {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    background: #f0fdf4;
+    color: #047857;
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+
+  .btn-wa-secondary:hover {
+    background: #dcfce7;
+    border-color: #10b981;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .success-card {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .success-icon-wrap {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.25rem;
+  }
+
+  .success-title {
+    font-size: 1.5rem;
+    color: #0f172a;
+    margin-bottom: 0.65rem;
+  }
+
+  .success-subtitle {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  /* FAQ SECTION */
+  .contact-faq-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2.5rem 0;
+  }
+
+  .sub-badge {
+    display: inline-block;
+    color: #0891b2;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: 2.15rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.02rem;
+    color: #64748b;
+    margin-bottom: 2.5rem;
+  }
+
+  .faq-accordion-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .faq-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.25rem 1.75rem;
+    transition: all 0.2s ease;
+  }
+
+  .faq-item[open] {
+    border-color: #0891b2;
+    box-shadow: 0 4px 20px -5px rgba(8, 145, 178, 0.12);
+  }
+
+  .faq-question {
+    font-size: 1.06rem;
+    font-weight: 700;
+    color: #0f172a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .chevron-icon {
+    transition: transform 0.2s ease;
+    color: #64748b;
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] .chevron-icon {
+    transform: rotate(180deg);
+    color: #0891b2;
+  }
+
+  .faq-answer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+    color: #475569;
+    line-height: 1.75;
+    font-size: 0.96rem;
+  }
+
+  .faq-answer :global(strong) {
+    color: #0f172a;
+    font-weight: 700;
+    background: rgba(8, 145, 178, 0.08);
+    padding: 0.12rem 0.4rem;
+    border-radius: 6px;
+    border: 1px solid rgba(8, 145, 178, 0.15);
+  }
+
+  /* RESPONSIVE BREAKPOINTS */
+  @media (max-width: 1024px) {
+    .contact-card-container {
+      flex-direction: column;
+      border-radius: 20px;
+    }
+    .contact-info-panel,
+    .contact-form-panel {
+      width: 100%;
+      padding: 2.75rem 2rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .contact-page-wrapper {
+      padding: 2.25rem 1.25rem 3.5rem;
+    }
+    .form-row {
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+    .contact-info-panel,
+    .contact-form-panel {
+      padding: 2rem 1.25rem;
+    }
+    .trust-indicators {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+  }
+</style>

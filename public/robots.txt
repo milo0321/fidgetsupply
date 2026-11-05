@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /contact?*
+Disallow: /*/contact?*
+Disallow: /*?sku=*
+Disallow: /*?mode=*
+
+Sitemap: https://fidgetsupply.com/sitemap-index.xml

@@ -1,0 +1,12 @@
+---
+import { nonDefaultLanguages } from '../../../i18n/config';
+import CustomPackagingPage from '../../custom-packaging/index.astro';
+
+export function getStaticPaths() {
+  return nonDefaultLanguages.map((lang) => ({
+    params: { lang }
+  }));
+}
+---
+
+<CustomPackagingPage />

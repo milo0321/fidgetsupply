@@ -1,0 +1,865 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  const allProducts = await getCollection('products');
+
+  return guides.map((guide) => {
+    const relatedSkus = guide.data.relatedSkus || [];
+    const relatedProducts = allProducts.filter((p) => relatedSkus.includes(p.data.sku)).slice(0, 4);
+    const relatedGuides = guides.filter((g) => g.data.slug !== guide.data.slug).slice(0, 3);
+    return {
+      params: { slug: guide.data.slug },
+      props: { guide, relatedProducts, relatedGuides }
+    };
+  });
+}
+
+const { guide, relatedProducts, relatedGuides = [] } = Astro.props;
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+await render(guide);
+const rawGuideHtml = guide.rendered?.html || guide.body || '';
+const localizedGuideHtml =
+  currentLang === 'en'
+    ? rawGuideHtml
+    : rawGuideHtml.replace(
+        /href="(\/(?:products|collections|guides|custom-branding|custom-packaging|compliance-safety|about|contact)[^"]*)"/g,
+        (_m: string, p1: string) => `href="${getLocalizedPath(p1, currentLang)}"`
+      );
+
+const GUIDE_FAQS_BY_SLUG: Record<string, { question: string; answer: string }[]> = {
+  'acoustic-tuning-fork-fidget-slider-engineering-trend': [
+    {
+      question: 'How does an acoustic tuning fork fidget slider create its metallic "Ding!" chime?',
+      answer: 'Acoustic tuning fork sliders (such as FS-150, FS-129, and FS-148) feature CNC-milled cantilevered prongs and hollow resonance chambers. When opposing N45–N52 magnets snap into alignment or hardened steel balls strike the bridge, kinetic energy excites the tines at 2,800–4,200 Hz.'
+    },
+    {
+      question: 'Which 7 catalog models belong to the FidgetSupply Acoustic Tuning Fork Series?',
+      answer: 'Our 7 acoustic models are FS-150 (Compact 20-Magnet N45 PTFE Tuning Fork Slider), FS-129 (Divine-Realm Dual-Bearing Tuning Fork EDC), FS-148 (304 Stainless Resonance Chamber Spinner), FS-107/112 (Acoustic Chime Gourd), FS-086 (Harmonic Rhythm Stainless Slider), FS-091 (56-Magnet Abalone Stainless Slider), and FS-045 (Wood-Tone Cavity Slider).'
+    },
+    {
+      question: 'Which tuning fork slider offers the highest retail margin for TikTok Shop and Shopify sellers?',
+      answer: 'FS-150 ($10.15–$12.55 wholesale) and FS-045 ($5.50–$6.80 wholesale) regularly retail between $39 and $69 on TikTok Shop and independent EDC stores due to their viral ASMR audio signature.'
+    },
+    {
+      question: 'How does 304 Stainless Steel compare to Zinc Alloy or Zirconium for acoustic sustain?',
+      answer: '304 Stainless Steel (FS-086, FS-091, FS-148) offers the highest acoustic Q-factor and longest bright sustain (~3,800 Hz), 6063 Aluminum / Zinc Alloy (FS-112, FS-150) produces a crisp mid-frequency bell note, and Zr702 Zirconium (FS-107) delivers a rich, warm harmonic ring.'
+    },
+    {
+      question: 'Can users mute the tuning fork chime when using the slider in a quiet office?',
+      answer: 'Yes. Resting a fingertip lightly against the outer tine slot dampens the cantilever vibration immediately, converting the slider into a quiet tactile magnetic clicker.'
+    },
+    {
+      question: 'Why are PTFE wear pads used on FS-150 Tuning Fork Slider?',
+      answer: 'PTFE (Teflon) wear pads reduce sliding friction between the magnet plates while isolating surface drag noise, ensuring only the pure metallic tuning-fork frequency rings out on each stroke.'
+    },
+    {
+      question: 'Does fiber laser engraving a brand logo change the tuning fork pitch?',
+      answer: 'No. 50W Fiber Laser Engraving ablates less than 0.04mm on the outer casing wall and has zero impact on the internal tine mass or resonant frequency.'
+    },
+    {
+      question: 'Do the tuning fork prongs ever fatigue or crack after thousands of clicks?',
+      answer: 'No. Because the magnetic excitation force operates below 3% of the alloy fatigue limit, the cantilevered tines maintain their exact pitch across 100,000+ cycles.'
+    },
+    {
+      question: 'What is the wholesale MOQ and lead time for custom-branded Tuning Fork Sliders?',
+      answer: 'Blank stock MOQ is 50 pcs (3–5 days dispatch), and custom Fiber Laser / UV logo MOQ is 100 pcs (7–12 days lead time) with $0 tooling fees.'
+    },
+    {
+      question: 'How can we test the acoustic chime in person before placing a bulk order?',
+      answer: 'Request sample units of our tuning fork models (such as FS-150 or FS-148) via our /contact page to evaluate the acoustic chime and build quality.'
+    }
+  ],
+  'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos': [
+    {
+      question: 'What are the three main custom logo processes available on existing metal fidget molds?',
+      answer: 'We offer three industrial processes: (1) Fiber Laser Engraving for permanent monochrome marks (+$0.15–$0.30/pc, $0 setup fee, 100 pcs MOQ), (2) Silk-Screen Color Printing for multi-color logos ($35 screen fee per color + $0.10/pc per color, 100 pcs MOQ), and (3) Deep Laser Engraving + Color Fill for recessed enamel logos (+$0.35–$0.60/pc, 200–300 pcs MOQ).'
+    },
+    {
+      question: 'How is Silk-Screen Color Printing priced when a logo has multiple colors?',
+      answer: 'Silk-Screen Printing is our standard process for colored logos. The screen setup fee is $35 USD per color and stacks linearly (1 color = $35, 2 colors = 2 × $35 = $70, 3 colors = 3 × $35 = $105). The unit logo cost adds +$0.10 USD per color to the product price (1 color = +$0.10/pc, 5 colors = 5 × $0.10 = +$0.50/pc).'
+    },
+    {
+      question: 'How does the Deep Laser Engraving + Color Fill process work and what is the MOQ?',
+      answer: 'First, our fiber laser engraves your logo to a noticeable recess depth into the metal shell; second, we fill the recessed cavity with durable colored enamel ink and bake-cure it. The MOQ is 200 to 300 pieces per SKU, and the unit logo cost is +$0.35 to $0.60 USD per piece.'
+    },
+    {
+      question: 'Which ready molds are best suited for 50W Fiber Laser Engraving?',
+      answer: 'Anodized 6063 Aluminum (FS-047, FS-064, FS-096) and brushed/stonewashed 304 Stainless Steel (FS-013, FS-075, FS-086) produce razor-sharp, high-contrast laser marks.'
+    },
+    {
+      question: 'Which ready molds are best suited for Multi-Color Silk-Screen Printing?',
+      answer: 'Wide, flat-faced sliders such as FS-125 (Smooth Soap-Box Slider), FS-128 (Chocolate Grid Slider), FS-001 (Poker King Slider), and FS-026 (Bottle Opener Slider) are ideal for multi-color Silk-Screen Printing.'
+    },
+    {
+      question: 'Which branding method is most durable against daily pocket carry and thumb friction?',
+      answer: 'Standard Fiber Laser Engraving (10/10 rating) and Deep Laser Engraving + Color Fill (9.5/10 rating, where the recessed metal walls shield the enamel pigment from thumb rub) offer the highest long-term abrasion resistance.'
+    },
+    {
+      question: 'Can you engrave cylindrical or curved models like Gourds (FS-096) and Spinner Rings (FS-014)?',
+      answer: 'Yes. We mount cylindrical gourds, kinetic eggs, and mechanical rings onto a synchronized 360-degree CNC rotary chuck under the fiber laser lens for distortion-free rotational engraving.'
+    },
+    {
+      question: 'Can we serialize limited-edition runs (e.g., 001/250 to 250/250) with fiber laser?',
+      answer: 'Yes. Our Galvo laser software automatically increments serial numbers or imports CSV name lists for +$0.20/unit.'
+    },
+    {
+      question: 'What artwork file format do we need to submit for a 12-hour digital proof?',
+      answer: 'Provide vector files in .AI, .EPS, vector .PDF, or .SVG format with outlined fonts and Pantone color codes. We return a 1:1 digital placement proof within 12 hours and a physical sample photo within 48 to 72 hours.'
+    },
+    {
+      question: 'Can we brand both the metal fidget and the Black EVA Zipper Case?',
+      answer: 'Yes! Pairing a custom-branded metal fidget with a custom logo Black EVA Zipper Case (+$0.75/pc at 100 pcs MOQ) is our #1 turnkey retail package.'
+    }
+  ],
+  'n35-vs-n52-neodymium-magnet-haptic-feel-guide': [
+    {
+      question: 'What do the neodymium magnet grades N35, N40, N45, N50, N52, and N54 mean?',
+      answer: 'The "N" rating indicates the Maximum Energy Product (BHmax in Mega-Gauss-Oersteds, MGOe) of sintered NdFeB rare-earth magnets. An N52 magnet delivers ~48% higher magnetic pull force per cubic millimeter than an N35 magnet of identical dimensions.'
+    },
+    {
+      question: 'Why do Unlimited PTFE Free-Floating Sliders require N50, N52, or N54 magnets?',
+      answer: 'Because unlimited sliders (such as FS-056, FS-075, FS-125, and FS-128) have no mechanical guide rails holding the two halves together, they rely entirely on high-flux N50–N54 magnet arrays (20 to 26 magnets) to prevent the top plate from flying off during rapid one-handed tricks.'
+    },
+    {
+      question: 'Why do Mechanical Track Sliders often use N35, N38, or N40 magnets instead of N52?',
+      answer: 'Track sliders (such as FS-002, FS-006, and FS-048) already constrain the plates mechanically with rails and spring-loaded detent balls. Using N35–N40 magnets prevents excessive thumb fatigue and produces a faster, smoother multi-click cadence.'
+    },
+    {
+      question: 'How does magnet diameter and thickness (e.g., Ø5×2mm vs. Ø3×1mm) change tactile feel?',
+      answer: 'Larger Ø5×2mm magnets create deep, heavy, distinct steps with loud acoustic snaps, whereas dense arrays of micro Ø3×1mm or Ø4×1.2mm magnets (such as the 56-magnet FS-091 or 16-magnet Spinner Rings) create rapid, fine-resolution ripples.'
+    },
+    {
+      question: 'Can we customize the magnet grade (e.g., upgrading N38 to N52) on an existing mold?',
+      answer: 'Yes! Because magnet pocket dimensions (e.g., Ø4×2mm or Ø5×2mm) are standardized across our molds, you can specify N45 or N52 magnet upgrades at a 100 pcs MOQ for +$0.35–$0.80 per unit without modifying the mold.'
+    },
+    {
+      question: 'What temperature rating (Curie / operating temperature) do your NdFeB magnets have?',
+      answer: 'Our N35–N54 magnets are Ni-Cu-Ni triple-plated sintered NdFeB rated for continuous operation up to 80°C (176°F), ensuring zero magnetic flux loss during summer ocean/air transit or hot warehouse storage.'
+    },
+    {
+      question: 'How do you ensure magnet polarity is 100% consistent across all 20 to 56 pockets?',
+      answer: 'Our assembly lines use pneumatic polarity-indexing fixtures and automated Gaussmeter array scanners that verify North/South pole orientation before the top plate is sealed.'
+    },
+    {
+      question: 'How do PTFE wear pads interact with N52 magnet pull force?',
+      answer: 'Adding a 0.3mm self-adhesive PTFE Teflon pad slightly increases the air gap between opposing N52 magnets, lowering sliding friction by ~40% and softening the metallic impact sound for office use.'
+    },
+    {
+      question: 'Do N52/N54 magnets require special shielding for DHL/FedEx air freight?',
+      answer: 'Yes. High-flux N52/N54 shipments are packed inside iron-shielded master cartons at our Fuzhou Export Logistics Hub to keep external stray fields below 0.00525 gauss at 4.6m per IATA DGR PI-953.'
+    },
+    {
+      question: 'How are N52/N54 magnets locked inside the slider to comply with US CPSC 16 CFR 1262?',
+      answer: 'Every magnet is bonded with two-part structural epoxy (>22 MPa shear strength) inside counterbored cavities and mechanically trapped beneath thread-locked CNC/PTFE cover plates.'
+    }
+  ],
+  'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance': [
+    {
+      question: 'What products are regulated under the US CPSC 16 CFR Part 1262 Magnet Safety Standard?',
+      answer: '16 CFR Part 1262 regulates consumer entertainment, jewelry, and mental-stimulation/stress-relief products designed or marketed for ages 14+ that contain one or more loose or separable magnets.'
+    },
+    {
+      question: 'What is the CPSC small-parts cylinder and Flux Index threshold (50 kG²mm²)?',
+      answer: 'Under 16 CFR 1262, any loose or liberated magnet that fits entirely within the CPSC small-parts test cylinder (31.7mm diameter) must have a magnetic Flux Index below 50 kG²mm². Because complete metal EDC sliders (typically 50–75mm long) do not fit inside the small-parts cylinder, compliance requires that internal neodymium magnets never detach during abuse testing.'
+    },
+    {
+      question: 'How does FidgetSupply engineer magnetic sliders so internal magnets never liberate?',
+      answer: 'We enforce a 3-Layer Anti-Detachment Protocol: (1) Captive blind pockets covered by screw-fastened metal/PTFE plates, (2) Two-part structural epoxy (>22 MPa shear strength) in chamfered wells, and (3) Anaerobic threadlocker on all M2/M2.5 assembly screws.'
+    },
+    {
+      question: 'What physical abuse tests are performed to verify magnet retention?',
+      answer: 'Production batches undergo 48-hour thermal cycling (-20°C to +80°C) followed by 10× 1.5-meter drops onto a steel-backed concrete surface, 0.45 Nm torque tests, and 70 N tension pull tests with zero magnet detachment.'
+    },
+    {
+      question: 'Why must metal EDC fidgets be age-graded 14+ (Adult EDC) rather than under-14 children’s toys?',
+      answer: 'Precision metal EDC sliders and coins are heavy kinetic desk instruments designed for adults and teens aged 14+. Grading and labeling packaging as "14+ Adult Everyday Carry Desk Toy — Keep Away from Children" aligns with CPSC classification and prevents ASTM F963 under-14 toy misclassifications on Amazon.'
+    },
+    {
+      question: 'What compliance documents do you provide when Amazon Seller Central requests magnet safety proof?',
+      answer: 'We provide a complete Amazon compliance packet including the General Certificate of Conformity (GCC), 16 CFR 1262 Magnet Retention Test Report, RoHS 3 / REACH XRF Material Report, and high-res photos of compliant 14+ warning labels on packaging.'
+    },
+    {
+      question: 'Are your surface platings compliant with EU RoHS 3, REACH SVHC, and California Prop 65?',
+      answer: 'Yes. Every lot of Zamak #3 zinc alloy, 6063 aluminum, 304/316 stainless steel, and electroplating is XRF-screened for Lead (<90 ppm), Cadmium, Mercury, Hexavalent Chromium, and EN 1811 nickel release.'
+    },
+    {
+      question: 'Which catalog models are 100% magnet-free for zero magnet regulation risk?',
+      answer: 'Over 30 models contain zero magnets, including FS-005 (304 Stainless Knuckle Roller), FS-009 (Knurled Twist Top), FS-043 & FS-066 (Gimbal Gyros), FS-061 & FS-079 (Chain Sprocket Spinners), FS-063 (316 Stainless Goose Spinner), FS-067 (Bolt-Action Slider), and FS-085 / FS-092 (Mechanical Ratchets).'
+    },
+    {
+      question: 'Do you print mandatory safety warnings on custom EVA cases and gift boxes free of charge?',
+      answer: 'Yes. All custom packaging orders include free application of Amazon FNSKU barcodes, country-of-origin markings, and compliant 14+ / magnet safety warning labels.'
+    },
+    {
+      question: 'Can we commission an independent CPSC-accredited lab test (SGS / Intertek / TUV) on our private-label SKU?',
+      answer: 'Yes. Our Fuzhou compliance team coordinates directly with SGS, Intertek, and Bureau Veritas labs to issue lab test reports in your company’s legal name and Amazon ASIN.'
+    }
+  ],
+  'zero-tooling-ready-mold-private-label-fidget-sop': [
+    {
+      question: 'What is the "Zero-Tooling Ready-Mold Private Label SOP"?',
+      answer: 'Instead of paying $3,000–$4,500 and waiting 40 days to cut a new metal die-casting mold, wholesale buyers select from our 140 proven ready molds (specifically our 28 flat-surface Logo-Ready SKUs), add custom Fiber Laser or UV logo branding at 100 pcs MOQ, and pack in custom EVA zipper cases—launching in 7–10 days with $0 mold cost.'
+    },
+    {
+      question: 'How much upfront capital does a new e-commerce or Shopify brand save with this SOP?',
+      answer: 'A typical 100-piece custom-branded launch order on a best-selling mold like FS-125 or FS-047 costs ~$600–$950 total (including logo engraving and EVA cases), saving over $3,500 in tooling capex.'
+    },
+    {
+      question: 'Why did FidgetSupply clean the 148-row factory spreadsheet into 140 product pages?',
+      answer: 'We removed duplicate row #147 (identical to #135 Ring), archived out-of-stock row #65 (Iron Bead Roller), merged 6 same-mold multi-material variants into unified pages, separated same-name different-mold Piano Sliders (FS-018 vs. FS-048), and replaced 12 IP nicknames with safe industrial descriptors.'
+    },
+    {
+      question: 'Are all 140 models intellectual-property (IP) safe for US, UK, and EU retail?',
+      answer: 'Yes. All third-party brand nicknames (such as Oreo, Thor, Pac-Man, Elden Ring, or 01EDC) have been completely stripped and replaced with neutral geometric names, and all products ship clean without unauthorized studio marks.'
+    },
+    {
+      question: 'What are the top 5 ready molds for a first-time private-label launch?',
+      answer: 'Our top 5 launch SKUs are: (1) FS-125 Smooth Soap-Box 20-Magnet N52 Slider, (2) FS-047 Minimalist 6063 Anodized Aluminum Slider, (3) FS-150 Compact Acoustic Tuning Fork Slider, (4) FS-013 304 Stainless Haptic Coin, and (5) FS-026 2-in-1 Bottle Opener Slider.'
+    },
+    {
+      question: 'What is the step-by-step timeline from sending our logo to receiving bulk inventory?',
+      answer: 'Day 1: Select SKU(s) & submit vector logo -> Hour 12: Approve digital 3D placement proof -> Hour 48: Approve physical laser/UV sample photo -> Days 3–9: Bulk branding & Quality Inspection at our Fuzhou Hub -> Days 10–15: Door-to-Door DDP Air delivery.'
+    },
+    {
+      question: 'Can we test sample evaluation units before committing to a 100-piece custom logo run?',
+      answer: 'Yes. Contact our team on /contact to request sample units or a pre-production logo sample before bulk production.'
+    },
+    {
+      question: 'Can we customize the packaging even if we order only 100 pieces?',
+      answer: 'Yes. Our Custom Logo Black EVA Shockproof Zipper Case starts at just 100 pieces MOQ (+$0.75/pc) and includes free Amazon FNSKU barcode and 14+ warning label application.'
+    },
+    {
+      question: 'What happens when our SKU scales to 1,000+ units per month and we want an exclusive mold?',
+      answer: 'Once your private-label brand validates market demand using our ready molds, our engineering team can transition you to a proprietary custom die-casting or CNC mold with exclusive territory protection.'
+    },
+    {
+      question: 'How do we lock in factory pricing and check live blank shell stock today?',
+      answer: 'Reference your target FS-XXX SKU code on our /contact page or message our sourcing desk on WhatsApp (+86 187 5012 6315) for a 10-minute stock and DDP price check.'
+    }
+  ],
+  'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost': [
+    {
+      question: 'What is the core manufacturing difference between Die-Cast Zinc Alloy and CNC Stainless Steel fidgets?',
+      answer: 'Die-Cast Zinc Alloy (Zamak #3) injects molten metal into hardened steel cavities at high speed (cycling every 15 seconds), enabling intricate 3D relief sculptures at $0.75–$9.00/pc. CNC 304/316 Stainless Steel mills solid bar stock on 5-axis CNC centers (15–45 minutes spindle time per unit) for ±0.02mm tolerances and heirloom durability ($10–$60+/pc).'
+    },
+    {
+      question: 'How does the Lake-Light Sword (FS-132 vs. FS-115 vs. FS-114) illustrate the 3-tier metallurgy ladder?',
+      answer: 'Built on the exact same 99×42×12.5mm design with 18 N52 magnets, FS-132 (Die-Cast Zinc Alloy) wholesales at ~$55–$68, FS-115 (5-Axis CNC 304 Stainless Steel) wholesales at ~$255–$314, and FS-114 (5-Axis CNC Zr702 Zirconium) wholesales at ~$382–$470—showing how metallurgy and CNC cycle time drive EDC value tiers.'
+    },
+    {
+      question: 'How do the EDC Gourds compare across 6063 Aluminum, Amber PEI (Ultem), and Zirconium?',
+      answer: 'On the identical 61×33.5mm gourd geometry, CNC 6063 Anodized Aluminum (FS-096, FS-105) wholesales at $9.75–$14.40, CNC Amber PEI Ultem (FS-099) wholesales at $25–$31, and CNC Zr702 Zirconium (FS-106, FS-107) wholesales at $169–$261.'
+    },
+    {
+      question: 'When is Zamak #3 Zinc Alloy the smarter choice for a wholesale buyer?',
+      answer: 'Zamak #3 Zinc Alloy is ideal when your target retail price is $14.99–$29.99, when you need complex 3D relief textures (like dragons, armor, or cookies), or when ordering 500–10,000 units for corporate giveaways and mass e-commerce.'
+    },
+    {
+      question: 'When is 5-Axis CNC 304/316 Stainless Steel worth the higher unit cost?',
+      answer: 'CNC 304/316 Stainless Steel is essential for premium EDC brands ($59–$150 retail), acoustic tuning fork sliders requiring high elastic modulus chime sustain (FS-086, FS-091, FS-148), and bare-metal stonewashed/brushed finishes that never wear through.'
+    },
+    {
+      question: 'What is Amber PEI (Ultem 1000) and why do EDC collectors pay a premium for it?',
+      answer: 'PEI (Polyetherimide / Ultem) is an aerospace amorphous thermoplastic with a natural translucent amber hue, high strength-to-weight ratio (46g on FS-099 vs. 73g in aluminum), warm hand feel, and distinct acoustic snap.'
+    },
+    {
+      question: 'Why is CNC Zr702 Zirconium (FS-106, FS-107, FS-114) the most expensive material in the catalog?',
+      answer: 'Raw Zr702 Zirconium bar stock costs 12× more than stainless steel and produces pyrophoric titanium-like chips during CNC milling, requiring flood coolant, slow feed rates, and specialized thermal-oxidation flaming to create its black ceramic-oxide surface.'
+    },
+    {
+      question: 'Where does 6063-T6 Anodized Aluminum fit in the price and weight spectrum?',
+      answer: '6063-T6 CNC/Forged Aluminum (used in FS-047, FS-064, FS-085, FS-096, FS-140) sits right in the middle ($3.50–$14.00 wholesale), offering featherweight pocket carry (35g–70g) and vibrant Type-II/III anodized colors that laser-etch bright white.'
+    },
+    {
+      question: 'Do both Die-Cast Zinc Alloy and CNC Stainless models carry $0 tooling fees on FidgetSupply.com?',
+      answer: 'Yes! Whether you pick a Die-Cast Zinc Alloy mold or a 5-axis CNC Stainless/PEI/Zirconium program, all 140 catalog models have existing tooling and CAM fixtures—so your tooling cost is $0.00.'
+    },
+    {
+      question: 'Can we compare Zinc Alloy, Aluminum, 304/316 Stainless, PEI, and Carbon Fiber side-by-side?',
+      answer: 'Yes. Contact us on /contact to request sample units across different materials (Zinc Alloy, Aluminum, Stainless Steel, or PEI) before placing your bulk order.'
+    }
+  ]
+};
+
+const guideFaqs = GUIDE_FAQS_BY_SLUG[guide.data.slug] || GUIDE_FAQS_BY_SLUG['zero-tooling-ready-mold-private-label-fidget-sop'];
+
+// Dynamic Reading Time Calculation based on actual text, technical tables, and FAQ elements
+const rawText = guide.body ? guide.body.replace(/<[^>]*>?/gm, ' ') : '';
+const wordCount = rawText.split(/\s+/).filter((word) => word.length > 0).length;
+const tableCount = (guide.body ? guide.body.match(/<table/g) || [] : []).length;
+const faqCount = guideFaqs.length;
+const computedReadingMinutes = Math.max(
+  8,
+  Math.round(wordCount / 160 + tableCount * 1.5 + faqCount * 0.45)
+);
+const dynamicReadTime = `${computedReadingMinutes} min read`;
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': ['TechArticle', 'BlogPosting'],
+  headline: guide.data.title,
+  description: guide.data.summary,
+  image: [`https://fidgetsupply.com${guide.data.featuredImage}`],
+  datePublished: guide.data.publishDate,
+  dateModified: guide.data.updatedDate || guide.data.publishDate,
+  author: {
+    '@type': 'Organization',
+    name: guide.data.author,
+    '@id': 'https://fidgetsupply.com/#organization'
+  },
+  publisher: {
+    '@id': 'https://fidgetsupply.com/#organization'
+  }
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: 'https://fidgetsupply.com'
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Engineering Guides',
+      item: 'https://fidgetsupply.com/guides'
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: guide.data.title,
+      item: `https://fidgetsupply.com/guides/${guide.data.slug}`
+    }
+  ]
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: guideFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title={guide.data.metaTitle}
+  description={guide.data.metaDescription}
+  ogImage={guide.data.featuredImage}
+  activePage="guides"
+  jsonLd={[articleSchema, breadcrumbSchema, faqSchema]}
+>
+  <article class="guide-article">
+    <header class="guide-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a> / <a href={getLocalizedPath('/guides', currentLang)}>{t('breadcrumb.guides')}</a> / <span>{guide.data.category}</span>
+        </nav>
+        <span class="badge badge-dark">{guide.data.category} · {dynamicReadTime}</span>
+        <h1>{guide.data.title}</h1>
+        <p class="guide-lead">{guide.data.summary}</p>
+        <div class="guide-byline">
+          <span>By <strong>{guide.data.author}</strong></span>
+          <span>·</span>
+          <span>Updated {guide.data.updatedDate || guide.data.publishDate}</span>
+          <span>·</span>
+          <span>{dynamicReadTime}</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3-COLUMN BACKLINKO PUBLICATION ARCHITECTURE -->
+    <div class="container article-layout-grid">
+      <!-- LEFT SIDEBAR: Sticky Table of Contents -->
+      <aside class="article-sidebar left-sidebar" aria-label="Table of Contents">
+        <div class="sticky-wrapper">
+          <h4 class="sidebar-title">{t('guide.tocTitle')}</h4>
+          <nav id="toc-container" class="toc-nav">
+            <!-- Dynamically populated by inline script -->
+          </nav>
+        </div>
+      </aside>
+
+      <!-- CENTER COLUMN: Main Skyscraper Article -->
+      <div class="article-main">
+        <!-- Featured Hero Image -->
+        <div class="article-featured-image-wrap">
+          <img
+            src={guide.data.featuredImage}
+            alt={guide.data.title}
+            width="800"
+            height="600"
+            loading="eager"
+          />
+        </div>
+
+        <!-- Executive Engineering Summary Callout -->
+        <GeoDirectAnswer
+          title={t('guide.execBriefTitle')}
+          answer={guide.data.summary}
+        />
+
+        <!-- Main Editorial Content -->
+        <div class="prose article-body clean-editorial-content" set:html={localizedGuideHtml} />
+
+        <!-- Referenced Ready-to-Produce Factory Models -->
+        {relatedProducts.length > 0 && (
+          <section class="related-skus-section" id="referenced-factory-models">
+            <h2>{t('guide.refModelsTitle')}</h2>
+            <div class="grid-3">
+              {relatedProducts.slice(0, 3).map((p: any) => (
+                <ProductCard product={p} />
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- Related Engineering Guides Box -->
+        {relatedGuides.length > 0 && (
+          <section class="related-guides-box" id="related-engineering-guides">
+            <span class="badge">{t('guide.continueBadge')}</span>
+            <h2>{t('guide.relatedGuidesTitle')}</h2>
+            <div class="related-guides-grid">
+              {relatedGuides.map((rg: any) => (
+                <a href={getLocalizedPath(`/guides/${rg.data.slug}`, currentLang)} class="related-guide-card">
+                  <img src={rg.data.featuredImage} alt={rg.data.title} width="400" height="300" loading="lazy" />
+                  <div class="related-guide-body">
+                    <span class="related-guide-cat">{rg.data.category}</span>
+                    <h3>{rg.data.title}</h3>
+                    <span class="related-guide-cta">{t('guides.readCta')}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <!-- Guide 10-FAQ Section -->
+        <section class="section section-light guide-faq-section" id="frequently-asked-questions">
+          <div class="section-header-center">
+            <span class="badge">{t('guides.faqBadge')}</span>
+            <h2 class="section-title">{t('pdp.faqTitle')} — {guide.data.category}</h2>
+          </div>
+          <div class="faq-list">
+            {guideFaqs.map((faq, idx) => (
+              <div class:list={['accordion-item', { active: idx === 0 }]}>
+                <button type="button" class="accordion-header">
+                  <span>{faq.question}</span>
+                  <span class="accordion-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- Author & Engineering Lab Credentials Card -->
+        <div class="author-credential-card">
+          <div class="author-info-wrap">
+            <span class="author-sub">{t('guide.authorSub')}</span>
+            <h4 class="author-name">{t('guide.authorName')}</h4>
+            <p class="author-bio">
+              {t('guide.authorBio')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR: Sticky Quick Action Dock -->
+      <aside class="article-sidebar right-sidebar" aria-label="Quick Sourcing Actions">
+        <div class="sticky-wrapper">
+          <div class="quick-rfq-dock">
+            <span class="dock-badge">{t('guide.dockBadge')}</span>
+            <h4>{t('guide.dockTitle')}</h4>
+            <p>{t('guide.dockDesc')}</p>
+            <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary dock-cta-btn">
+              {t('nav.requestQuote')}
+            </a>
+            <a href={getLocalizedPath('/products', currentLang)} class="btn btn-outline dock-catalog-btn">
+              {t('nav.allCatalog')}
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </article>
+</Layout>
+
+<script is:inline>
+  (function () {
+    var tocNav = document.getElementById('toc-container');
+    var articleBody = document.querySelector('.article-main');
+    if (!tocNav || !articleBody) return;
+    var headings = articleBody.querySelectorAll('h2');
+    if (!headings.length) return;
+    var ul = document.createElement('ul');
+    headings.forEach(function (h, idx) {
+      if (!h.id) {
+        h.id = 'section-' + (idx + 1);
+      }
+      var li = document.createElement('li');
+      var a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+    tocNav.appendChild(ul);
+  })();
+</script>
+
+<style>
+  .guide-hero {
+    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid #334155;
+  }
+  .breadcrumb {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+  .breadcrumb a {
+    color: #38bdf8;
+  }
+  .guide-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.85rem, 3vw, 2.55rem);
+    margin: 0.85rem 0;
+    max-width: 920px;
+    line-height: 1.2;
+  }
+  .guide-lead {
+    color: #cbd5e1;
+    max-width: 820px;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    line-height: 1.65;
+  }
+  .guide-byline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.84rem;
+    color: #94a3b8;
+  }
+  .guide-byline strong {
+    color: #ffffff;
+  }
+
+  /* 3-Column Backlinko Publication Grid */
+  .article-layout-grid {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 760px) 220px;
+    gap: 2.5rem;
+    justify-content: space-between;
+    align-items: stretch;
+    padding-top: 2.75rem;
+    padding-bottom: 4rem;
+  }
+
+  .article-sidebar {
+    min-width: 0;
+  }
+
+  .sticky-wrapper {
+    position: sticky;
+    top: 96px;
+  }
+
+  .sidebar-title {
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+    font-weight: 800;
+  }
+
+  .toc-nav :global(ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .toc-nav :global(a) {
+    display: block;
+    padding: 0.3rem 0 0.3rem 0.75rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #475569;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    margin-left: -2px;
+    transition: all 0.15s ease;
+  }
+
+  .toc-nav :global(a:hover) {
+    color: #0284c7;
+    border-left-color: #0284c7;
+  }
+
+  .article-main {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .article-featured-image-wrap {
+    margin-bottom: 2rem;
+    border-radius: 0.9rem;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: var(--shadow-md);
+    background: #0f172a;
+  }
+
+  .article-featured-image-wrap img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+
+  .prose {
+    font-size: 1.02rem;
+    line-height: 1.78;
+    color: #1e293b;
+  }
+  .prose :global(h2) {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 0.95rem;
+    color: #0f172a;
+    padding-bottom: 0.45rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+  .prose :global(h3) {
+    font-size: 1.22rem;
+    margin: 1.75rem 0 0.65rem;
+    color: #0f172a;
+  }
+  .prose :global(p),
+  .prose :global(ul),
+  .prose :global(ol) {
+    margin-bottom: 1.2rem;
+  }
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.4rem;
+  }
+  .prose :global(li) {
+    margin-bottom: 0.55rem;
+  }
+  .prose :global(.article-figure) {
+    margin: 2rem 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .prose :global(.article-figure img) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+  }
+  .prose :global(.article-figure figcaption) {
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    color: #475569;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+  }
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    background: #f1f5f9;
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.86em;
+  }
+
+  .related-skus-section {
+    margin-top: 3rem;
+    padding: 2.5rem 0;
+    border-top: 1px solid #e2e8f0;
+  }
+  .related-skus-section h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .related-guides-box {
+    margin-top: 2rem;
+    padding: 2.5rem 2.25rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+  }
+  .related-guides-box h2 {
+    font-size: 1.35rem;
+    margin: 0.6rem 0 1.25rem;
+  }
+  .related-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.1rem;
+  }
+  .related-guide-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .related-guide-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .related-guide-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+  .related-guide-body {
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+  }
+  .related-guide-cat {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #0284c7;
+    text-transform: uppercase;
+  }
+  .related-guide-body h3 {
+    font-size: 0.9rem;
+    line-height: 1.35;
+    color: #0f172a;
+    margin: 0;
+    flex: 1;
+  }
+  .related-guide-cta {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #0284c7;
+    margin-top: 0.25rem;
+  }
+
+  .guide-faq-section {
+    border-radius: 1rem;
+    padding: 2.5rem 1.75rem;
+    margin-top: 3rem;
+  }
+
+  .author-credential-card {
+    margin-top: 2.5rem;
+    padding: 1.75rem;
+    background: #0f172a;
+    color: #ffffff;
+    border-radius: 0.9rem;
+    border: 1px solid #334155;
+  }
+  .author-sub {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #38bdf8;
+    font-weight: 800;
+  }
+  .author-name {
+    color: #ffffff;
+    font-size: 1.15rem;
+    margin: 0.3rem 0 0.6rem;
+  }
+  .author-bio {
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .quick-rfq-dock {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.85rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .dock-badge {
+    align-self: flex-start;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: #e0f2fe;
+    color: #0284c7;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+  }
+  .quick-rfq-dock h4 {
+    font-size: 0.98rem;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .quick-rfq-dock p {
+    font-size: 0.8rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .dock-cta-btn,
+  .dock-catalog-btn {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8rem;
+    text-align: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 1180px) {
+    .article-layout-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .article-sidebar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .related-guides-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .guide-faq-section {
+      padding: 2.5rem 1.35rem;
+    }
+  }
+</style>

@@ -1,0 +1,298 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { COLLECTIONS, type CollectionMeta } from '../../data/collections';
+import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+  const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
+
+  return COLLECTIONS.map((col) => {
+    const matched = sortedProducts.filter((p) => {
+      if (col.group === 'primary') {
+        return p.data.primaryCollection === col.slug;
+      } else {
+        return p.data.crossCollections.includes(col.slug);
+      }
+    });
+
+    return {
+      params: { slug: col.slug },
+      props: { collection: col, products: matched }
+    };
+  });
+}
+
+interface Props {
+  collection: CollectionMeta;
+  products: any[];
+}
+
+const { collection, products } = Astro.props;
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${collection.name} | FidgetSupply.com`,
+  description: collection.heroSubtitle,
+  url: `https://fidgetsupply.com/collections/${collection.slug}`,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: products.length,
+    itemListElement: products.map((p, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      url: `https://fidgetsupply.com/products/${p.data.slug}`,
+      name: `${p.data.skuDisplay} ${p.data.title}`
+    }))
+  }
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: collection.faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title={`${collection.name} (${products.length} Ready Molds) | FidgetSupply`}
+  description={`${collection.name}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom laser/UV logo branding.`}
+  keywords={collection.targetKeywords}
+  jsonLd={[itemListSchema, faqSchema]}
+>
+  <section class="collection-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+        <span>/</span>
+        <a href={getLocalizedPath('/products', currentLang)}>{t('breadcrumb.allCatalog')}</a>
+        <span>/</span>
+        <span>{t(`col.${collection.slug}.short` as any)}</span>
+      </nav>
+
+      <div class="hero-badges">
+        <span class="badge badge-dark">{t(`col.${collection.slug}.short` as any)} · {products.length} {t('nav.modelsCount')}</span>
+        <span class="badge badge-gold">{t('col.heroBadge')}</span>
+      </div>
+
+      <h1>{t(`col.${collection.slug}.name` as any)}</h1>
+      <p class="hero-sub">{collection.heroSubtitle}</p>
+
+      <div class="collection-stats">
+        <div class="stat-pill">
+          <span>{t('col.stat1Label')}</span>
+          <strong>{products.length}</strong>
+        </div>
+        <div class="stat-pill">
+          <span>{t('col.stat2Label')}</span>
+          <strong>{collection.priceRangeUsd}</strong>
+        </div>
+        <div class="stat-pill">
+          <span>{t('col.stat3Label')}</span>
+          <strong>{collection.moq}</strong>
+        </div>
+        <div class="stat-pill">
+          <span>{t('col.stat4Label')}</span>
+          <strong>{collection.leadTime}</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title={`${t(`col.${collection.slug}.short` as any)} — ${t('geo.defaultTitle')}`}
+      answer={collection.geoDirectAnswer}
+    />
+
+    <!-- Engineering Highlights Bar -->
+    <div class="highlights-box">
+      {collection.engineeringHighlights.map((h) => (
+        <div class="highlight-item">
+          <span class="check-icon">✓</span>
+          <p>{h}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Product Grid -->
+    <section class="collection-products-section">
+      <div class="grid-header">
+        <h2>{t('col.gridHeadingPrefix')} {t(`col.${collection.slug}.short` as any)} ({products.length})</h2>
+        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary">{t('nav.requestQuote')}</a>
+      </div>
+
+      <div class="grid-4">
+        {products.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
+    </section>
+
+    <!-- Collection Engineering Comparison Table (Top 15 Models) -->
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">{t('col.matrixBadge')}</span>
+        <h2 class="section-title">{t(`col.${collection.slug}.short` as any)} {t('col.matrixTitleSuffix')}</h2>
+        <p class="section-subtitle">
+          {t('col.matrixSub')}
+        </p>
+      </div>
+
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>{t('col.thSku')}</th>
+              <th>{t('col.thName')}</th>
+              <th>{t('col.thMaterial')}</th>
+              <th>{t('col.thSizeWeight')}</th>
+              <th>{t('col.thMagnet')}</th>
+              <th>{t('col.thLogo')}</th>
+              <th>{t('col.thPrice')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((p) => (
+              <tr>
+                <td><a href={getLocalizedPath(`/products/${p.data.slug}`, currentLang)}><strong>{p.data.skuDisplay}</strong></a></td>
+                <td><a href={getLocalizedPath(`/products/${p.data.slug}`, currentLang)}>{p.data.title}</a></td>
+                <td>{p.data.material.split('/')[0].trim()}</td>
+                <td>{p.data.size} · {p.data.weight}</td>
+                <td>{p.data.magnetsEn}</td>
+                <td>{p.data.logoReady ? '✅' : 'EVA'}</td>
+                <td><strong>${p.data.tier500}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+      <div class="section-header-center">
+        <span class="badge">{t('col.faqBadge')}</span>
+        <h2 class="section-title">{t('pdp.faqTitle')} — {t(`col.${collection.slug}.short` as any)}</h2>
+      </div>
+      <div class="faq-list">
+        {collection.faqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .collection-hero {
+    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid #334155;
+  }
+  .breadcrumb {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: #94a3b8;
+    margin-bottom: 1rem;
+  }
+  .breadcrumb a {
+    color: #38bdf8;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+  .collection-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+    margin-bottom: 0.85rem;
+  }
+  .hero-sub {
+    color: #cbd5e1;
+    max-width: 860px;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
+  }
+  .collection-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.85rem;
+  }
+  .stat-pill {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 0.6rem;
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-pill span {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+  }
+  .stat-pill strong {
+    font-size: 1.05rem;
+    color: #fbbf24;
+    margin-top: 0.15rem;
+  }
+  .highlights-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .highlight-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.65rem;
+    padding: 1rem 1.15rem;
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.88rem;
+    color: #334155;
+  }
+  .check-icon {
+    color: #059669;
+    font-weight: 900;
+    font-size: 1rem;
+  }
+  .collection-products-section {
+    padding: 2.5rem 0;
+  }
+  .grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .grid-header h2 {
+    font-size: 1.45rem;
+  }
+</style>

@@ -1,0 +1,210 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+const allProducts = await getCollection('products');
+const logoReadyModels = allProducts
+  .filter((p) => p.data.logoReady)
+  .sort((a, b) => a.data.rowId - b.data.rowId)
+  .slice(0, 8);
+
+const brandingFaqs = [
+  {
+    question: 'What is the Minimum Order Quantity (MOQ) for adding a custom logo to existing metal molds?',
+    answer: 'Our MOQ is 100 pieces per SKU for standard Fiber Laser Engraving and Silk-Screen Color Printing, and 200 to 300 pieces per SKU for Deep Laser Engraving + Color Fill. Blank unbranded stock starts at 50 pieces per SKU.'
+  },
+  {
+    question: 'How is Silk-Screen Printing priced for multi-color logos?',
+    answer: 'For colored logos, Silk-Screen Printing is our standard process. The screen setup fee is $35 USD per color (cumulative by color count: 1 color = $35, 2 colors = 2 × $35 = $70, 3 colors = 3 × $35 = $105). The unit logo cost adds +$0.10 USD per color per piece (for example, 1 color adds +$0.10/pc, and a 5-color logo adds 5 × $0.10 = +$0.50/pc).'
+  },
+  {
+    question: 'How does the Deep Laser Engraving + Color Fill process work and what does it cost?',
+    answer: 'For a recessed, tactile colored emblem on metal, we first use a high-power fiber laser to engrave your logo to a noticeable depth into the metal shell, and then fill the recessed cavity with durable colored enamel ink. The MOQ for Deep Laser + Color Fill is 200 to 300 pieces per SKU, and the unit branding cost is +$0.35 to $0.60 USD per piece.'
+  },
+  {
+    question: 'Why does custom branding on FidgetSupply.com require $0.00 in mold/tooling fees?',
+    answer: 'Instead of cutting a bespoke die-casting mold ($3,000–$4,500), you select from our 140 existing ready-to-produce metal molds—specifically our 28 flat-surface Logo-Ready models—and apply your brand via fiber laser engraving, silk-screen printing, or deep laser color fill.'
+  },
+  {
+    question: 'Which metal fidget models have the largest unobstructed flat surface for logo printing?',
+    answer: 'Top flat-surface models include FS-125 (Smooth Soap-Box Slider, 42×26mm print zone), FS-047 (Minimalist 6063 Aluminum Slider, 40×22mm zone), FS-001 (Poker King Slider, 38×25mm zone), FS-026 (Bottle Opener Slider), FS-013 (304 Stainless Coin, Ø28mm zone), and FS-009 (Knurled Twist Top, Ø16mm cap).'
+  },
+  {
+    question: 'What vector artwork file formats do you require for custom branding?',
+    answer: 'Please send vector files in Adobe Illustrator (.AI), Encapsulated PostScript (.EPS), vector .PDF, or .SVG format with fonts converted to outlines and Pantone (PMS) color callouts if choosing Silk-Screen Printing or Deep Laser Color Fill.'
+  },
+  {
+    question: 'What is the custom logo sample fee and sample production lead time?',
+    answer: 'Our engineering desk returns a 1:1 scaled digital placement proof within 12 hours of receiving your vector logo. Physical custom logo sampling takes 10 to 15 days, with a custom logo sample fee of $80 to $150 USD depending on the branding method and color count.'
+  },
+  {
+    question: 'Can you laser engrave logos onto curved models like EDC Gourds (FS-096), Desk Eggs (FS-064), or Spinner Rings (FS-014)?',
+    answer: 'Yes. Our laser workstations are equipped with synchronized 360-degree CNC rotary indexing chucks that engrave distortion-free logos and serial numbers around cylindrical gourds, kinetic eggs, and the inner/outer rims of mechanical rings.'
+  },
+  {
+    question: 'Can you engrave sequential serial numbers (e.g., 001/300 to 300/300) or individual VIP names?',
+    answer: 'Yes. Our Galvo fiber laser software supports automated CSV variable-data marking, allowing you to serialize limited-edition drops (001/500) or personalize individual corporate recipient names for just +$0.20/pc.'
+  },
+  {
+    question: 'What if we choose a heavily sculpted 3D relief fidget that has no flat space on the body?',
+    answer: 'For 3D sculpted models (such as FS-010, FS-032, or FS-114), we either laser-etch your micro-logo onto the internal sliding track plate / side bezel, or apply your full-size brand logo to the included Black EVA Shockproof Zipper Case or Window Metal Tin Box.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: brandingFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title="Custom Logo Metal Fidget Branding: Fiber Laser, UV Print & Silk Screen | FidgetSupply"
+  description="Zero tooling modification custom branding on 140 ready metal fidget molds. Compare 50W Fiber Laser Engraving, Full-Color UV Printing, and Pad Printing at 100 pcs MOQ."
+  activePage="custom-branding"
+  jsonLd={faqSchema}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-gold">{t('brand.heroBadge')}</span>
+      <h1>{t('brand.heroTitle')}</h1>
+      <p>
+        {t('brand.heroDesc')}
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title={t('brand.geoTitle')}
+      answer={t('brand.geoAnswer')}
+    />
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">{t('brand.compBadge')}</span>
+        <h2 class="section-title">{t('brand.compTitle')}</h2>
+      </div>
+
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>Branding Parameter</th>
+              <th>1. Fiber Laser Engraving (Monochrome)</th>
+              <th>2. Silk-Screen Printing (Standard Colored Logo)</th>
+              <th>3. Deep Laser + Color Fill (Recessed Enamel)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Minimum Order Quantity (MOQ)</strong></td>
+              <td><strong>100 pcs per SKU</strong></td>
+              <td><strong>100 pcs per SKU</strong></td>
+              <td><strong>200 – 300 pcs per SKU</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Screen / Setup Fee</strong></td>
+              <td><strong>$0.00 (Free Digital Setup)</strong></td>
+              <td><strong>$35 / color</strong> (1 color = $35, 2 colors = 2×$35 = $70, 3 colors = 3×$35 = $105)</td>
+              <td><strong>$0.00 Laser Setup</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Unit Logo Add-On Cost</strong></td>
+              <td><strong>+$0.15 – $0.30 / pc</strong></td>
+              <td><strong>+$0.10 / color / pc</strong> (1 color = +$0.10/pc, 5 colors = +$0.50/pc)</td>
+              <td><strong>+$0.35 – $0.60 / pc</strong> (Deep laser etch + hand color fill)</td>
+            </tr>
+            <tr>
+              <td><strong>Custom Logo Sample Fee &amp; Time</strong></td>
+              <td><strong>$80 – $150 USD · 10 – 15 Days</strong></td>
+              <td><strong>$80 – $150 USD · 10 – 15 Days</strong></td>
+              <td><strong>$80 – $150 USD · 10 – 15 Days</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Process &amp; Visual Effect</strong></td>
+              <td>Crisp permanent metallic/white contrast laser mark</td>
+              <td>Vibrant multi-color spot ink printed across smooth flat faces</td>
+              <td>Deep-engraved recessed metal cavity filled with cured color enamel</td>
+            </tr>
+            <tr>
+              <td><strong>Wear &amp; Sweat Durability</strong></td>
+              <td>10/10 Permanent micron-level ablation (Never fades)</td>
+              <td>8.5/10 Kiln-baked industrial screen ink</td>
+              <td>9.5/10 Recessed cavity protects color fill from thumb friction</td>
+            </tr>
+            <tr>
+              <td><strong>Recommended Ready Molds</strong></td>
+              <td><code>FS-047</code>, <code>FS-013</code>, <code>FS-009</code>, <code>FS-012</code>, <code>FS-064</code>, <code>FS-075</code>, <code>FS-086</code>, <code>FS-096</code></td>
+              <td><code>FS-125</code>, <code>FS-128</code>, <code>FS-001</code>, <code>FS-024</code>, <code>FS-026</code>, <code>FS-050</code>, <code>FS-056</code></td>
+              <td><code>FS-013</code>, <code>FS-047</code>, <code>FS-075</code>, <code>FS-086</code>, <code>FS-125</code>, <code>FS-148</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">{t('brand.topPicksBadge')}</span>
+        <h2 class="section-title">{t('brand.topPicksTitle')}</h2>
+      </div>
+      <div class="grid-4">
+        {logoReadyModels.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-primary">{t('brand.topPicksCta')}</a>
+      </div>
+    </section>
+
+    <!-- Custom Branding FAQ Section -->
+    <section class="section" style="margin-bottom: 3rem;">
+      <div class="section-header-center">
+        <span class="badge">{t('brand.faqBadge')}</span>
+        <h2 class="section-title">{t('brand.faqTitle')}</h2>
+      </div>
+      <div class="faq-list">
+        {brandingFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 0;
+  }
+  .page-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+    margin: 0.85rem 0;
+  }
+  .page-hero p {
+    color: #cbd5e1;
+    max-width: 820px;
+    font-size: 1.05rem;
+  }
+</style>

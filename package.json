@@ -1,0 +1,34 @@
+{
+  "name": "fidgetsupply",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "FidgetSupply.com - B2B Metal EDC Fidget Toys Wholesale & Custom Laser/UV Branding Platform (140+ Ready Metal Molds, $0 Tooling Fee)",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write \"src/**/*.{astro,ts,tsx,css,json}\" \"dist/**/*.{html,xml}\"",
+    "astro": "astro",
+    "catalog:sync": "python3 scripts/build_catalog_140.py && node scripts/convert_excel_media.cjs"
+  },
+  "dependencies": {
+    "@astrojs/cloudflare": "^14.2.5",
+    "@astrojs/react": "^6.0.4",
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "wrangler": "^4.122.0"
+  },
+  "devDependencies": {
+    "@emnapi/core": "^1.11.3",
+    "@emnapi/runtime": "^1.11.3",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "cheerio": "^1.2.0",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.7.3"
+  }
+}

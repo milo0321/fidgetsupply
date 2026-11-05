@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+
+const packagingFaqs = [
+  {
+    question: 'What standard packaging is included in the base wholesale price of your metal fidgets?',
+    answer: 'Every unit ships in a scratch-preventive OPP polybag, and over 85% of our sliders, coins, and rings already include a standard unbranded black EVA zipper pouch or acrylic storage box at no extra charge (see the Packaging specification on each product page).'
+  },
+  {
+    question: 'What is the Minimum Order Quantity (MOQ) for custom-branded Black EVA Zipper Cases?',
+    answer: 'Our MOQ for custom-branded Black EVA Shockproof Zipper Cases (95×65×32mm) is just 100 pieces (+$0.75/pc), which matches our 100-piece custom logo MOQ for metal fidgets.'
+  },
+  {
+    question: 'How is our logo applied to the Black EVA Shockproof Zipper Case?',
+    answer: 'We offer three durable branding methods on EVA cases: (1) Silk-screen printing in white, gold, silver, or Pantone spot colors directly onto the top shell, (2) Hot-debossed custom PVC/silicone rubber badges stitched or heat-welded to the center lid, and (3) Custom-molded metal zipper pulls.'
+  },
+  {
+    question: 'Can you die-cut custom EVA foam inserts to fit our exact fidget model inside a Tin Box or Gift Box?',
+    answer: 'Yes. We maintain exact 2D CAD contours for all 140 catalog molds (FS-001 to FS-150). Our CNC oscillating-knife foam routers cut precision 45-shore black EVA foam cavities (including velvet-flocked tops) with zero die-cutting blade fee on orders of 200+ boxes.'
+  },
+  {
+    question: 'Do you apply Amazon FBA FNSKU barcode stickers and CPSC 14+ warning labels?',
+    answer: 'Yes! We print and apply thermal-transfer Amazon FNSKU barcode labels, "Made in China" country-of-origin stickers, and mandatory US CPSC 16 CFR 1262 / 14+ Adult EDC safety warning labels to every outer box or polybag free of charge.'
+  },
+  {
+    question: 'Can you include a custom printed instruction card, QR code warranty card, and spare hardware bag inside each case?',
+    answer: 'Yes. Most private-label brands insert a 350gsm matte-laminated instruction/story card (+$0.08/pc) alongside a mini zip-bag containing 2 spare PTFE Teflon wear pads, 2 stainless/ceramic detent balls, and 1 hex screwdriver inside the internal mesh pocket of the EVA case.'
+  },
+  {
+    question: 'What is the difference between the Window Metal Tin Box and the Two-Piece Rigid Gift Box?',
+    answer: 'The Matte Window Metal Tin Box (+$0.85/pc, MOQ 200) features a clear PET top window so retail customers can see the metal fidget inside without opening the lid. The Two-Piece Rigid Cardboard Gift Box (+$1.10/pc, MOQ 300) uses 1200gsm greyboard with soft-touch film and metallic foil stamping for luxury unboxing.'
+  },
+  {
+    question: 'Can we bundle 2 or 3 different fidgets into a single multi-piece collector gift box?',
+    answer: 'Absolutely. We regularly engineer dual-cavity and triple-cavity EVA foam trays (e.g., 1 Magnetic Slider + 1 Haptic Coin + 1 Spinner Ring) inside an oversized 160×110×40mm magnetic book box for holiday gift bundles and VIP corporate onboarding kits.'
+  },
+  {
+    question: 'Do your packaging boxes pass Amazon FBA 3-foot drop tests without dented corners?',
+    answer: 'Yes. All export master cartons use double-wall 5-ply K=K corrugated board with corner edge protectors, and individual rigid/tin boxes are heat-shrunk in POF film or protective bubble sleeves so retail packaging arrives pristine at Amazon FBA warehouses.'
+  },
+  {
+    question: 'Do you provide dieline templates (.EPS / .PDF) so our graphic designer can lay out the box artwork?',
+    answer: 'Yes. Message our sourcing desk on WhatsApp (+86 187 5012 6315) or submit an RFQ with your chosen SKU code, and we will send you the exact 1:1 Adobe Illustrator (.EPS) dieline template for the EVA case, tin box, or rigid gift box within 2 hours.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: packagingFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+---
+
+<Layout
+  title="Custom Fidget Packaging: Black EVA Zipper Cases, Window Tin Boxes & Gift Boxes | FidgetSupply"
+  description="Turnkey Wholesale packaging for wholesale metal EDC fidgets: Custom debossed Black EVA Shockproof Zipper Cases, Window Metal Tin Boxes, Rigid Magnetic Gift Boxes & Amazon FBA FNSKU labeling."
+  activePage="custom-branding"
+  jsonLd={faqSchema}
+>
+  <section class="page-hero">
+    <div class="container">
+      <span class="badge badge-gold">{t('pkg.heroBadge')}</span>
+      <h1>{t('pkg.heroTitle')}</h1>
+      <p>
+        {t('pkg.heroDesc')}
+      </p>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title={t('pkg.geoTitle')}
+      answer={t('pkg.geoAnswer')}
+    />
+
+    <section class="section">
+      <div class="grid-3">
+        <div class="pkg-card">
+          <span class="badge badge-emerald">{t('pkg.card1Badge')}</span>
+          <h3>{t('pkg.card1Title')}</h3>
+          <p class="pkg-price">+$0.75 / pc · MOQ 100</p>
+          <p>
+            {t('pkg.card1Desc')}
+          </p>
+          <ul>
+            <li>✓ 95 × 65 × 32 mm</li>
+            <li>✓ Silicone / Silk-Screen Logo</li>
+            <li>✓ FNSKU &amp; CPSC 14+ Ready</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <span class="badge">{t('pkg.card2Badge')}</span>
+          <h3>{t('pkg.card2Title')}</h3>
+          <p class="pkg-price">+$0.85 / pc · MOQ 200</p>
+          <p>
+            {t('pkg.card2Desc')}
+          </p>
+          <ul>
+            <li>✓ 110 × 80 × 28 mm</li>
+            <li>✓ Fiber Laser / UV Lid Logo</li>
+            <li>✓ Custom CNC Foam Cavity</li>
+          </ul>
+        </div>
+
+        <div class="pkg-card">
+          <span class="badge badge-gold">{t('pkg.card3Badge')}</span>
+          <h3>{t('pkg.card3Title')}</h3>
+          <p class="pkg-price">+$1.10 / pc · MOQ 300</p>
+          <p>
+            {t('pkg.card3Desc')}
+          </p>
+          <ul>
+            <li>✓ 125 × 90 × 38 mm</li>
+            <li>✓ Gold / Silver Hot Foil Stamping</li>
+            <li>✓ Velvet-Flocked EVA Interior</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href={getLocalizedPath('/contact?mode=Custom+EVA+Case', currentLang)} rel="nofollow" class="btn btn-primary">{t('pkg.ctaBtn')}</a>
+      </div>
+    </section>
+
+    <!-- Custom Packaging FAQ Section -->
+    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+      <div class="section-header-center">
+        <span class="badge">{t('pkg.faqBadge')}</span>
+        <h2 class="section-title">{t('pkg.faqTitle')}</h2>
+      </div>
+      <div class="faq-list">
+        {packagingFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-hero {
+    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 3.5rem 0;
+  }
+  .page-hero h1 {
+    color: #ffffff;
+    font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+    margin: 0.85rem 0;
+  }
+  .page-hero p {
+    color: #cbd5e1;
+    max-width: 820px;
+    font-size: 1.05rem;
+  }
+  .pkg-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.9rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .pkg-card h3 {
+    font-size: 1.25rem;
+  }
+  .pkg-price {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #059669;
+  }
+  .pkg-card p {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.65;
+  }
+  .pkg-card ul {
+    list-style: none;
+    font-size: 0.84rem;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid #f1f5f9;
+  }
+</style>

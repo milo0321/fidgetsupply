@@ -1,0 +1,51 @@
+/* ============================================================
+   RTL (Right-to-Left) Stylesheet for Arabic (ar) Language Support
+   FidgetSupply.com Internationalization
+============================================================ */
+
+html[dir="rtl"],
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Segoe UI', Tahoma, Arial, 'Noto Sans Arabic', sans-serif;
+}
+
+[dir="rtl"] .top-utility-inner,
+[dir="rtl"] .nav-inner,
+[dir="rtl"] .primary-nav,
+[dir="rtl"] .hero-grid,
+[dir="rtl"] .pdp-hero-grid,
+[dir="rtl"] .stage-2-grid,
+[dir="rtl"] .rfq-layout,
+[dir="rtl"] .footer-grid,
+[dir="rtl"] .network-card,
+[dir="rtl"] .breadcrumb,
+[dir="rtl"] .pdp-breadcrumb {
+  direction: rtl;
+}
+
+[dir="rtl"] .dropdown-panel {
+  left: auto;
+  right: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .lang-dropdown-menu {
+  left: 0;
+  right: auto;
+  text-align: right;
+}
+
+[dir="rtl"] .geo-table th,
+[dir="rtl"] .geo-table td {
+  text-align: right;
+}
+
+[dir="rtl"] .form-field input,
+[dir="rtl"] .form-field select,
+[dir="rtl"] .form-field textarea,
+[dir="rtl"] .filter-group input,
+[dir="rtl"] .filter-group select {
+  text-align: right;
+  direction: rtl;
+}
