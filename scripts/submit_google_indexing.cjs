@@ -1,15 +1,51 @@
 #!/usr/bin/env node
 /**
- * Closed-Loop Google Indexing API & Sitemap Submission Script
+ * Closed-Loop Google Indexing API & Sitemap Submission Script (Zero-Dependency Native Node.js)
  * Submits sitemaps to GSC and publishes URL_UPDATED notifications to Google Indexing API.
  */
 const fs = require('fs');
 const path = require('path');
-const { google } = require('googleapis');
+const crypto = require('crypto');
 
 const CREDENTIALS_PATH = process.env.GSC_CREDENTIALS_PATH || path.join(__dirname, '../scratch/gsc_credentials.json');
 const SITE_URL = 'sc-domain:fidgetsupply.com';
 const BASE_URL = 'https://fidgetsupply.com';
+
+function base64UrlEncode(input) {
+  const buf = Buffer.isBuffer(input) ? input : Buffer.from(input, 'utf8');
+  return buf.toString('base64').replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
+}
+
+async function getAccessToken(creds, scopes) {
+  const now = Math.floor(Date.now() / 1000);
+  const header = { alg: 'RS256', typ: 'JWT' };
+  const payload = {
+    iss: creds.client_email,
+    scope: scopes.join(' '),
+    aud: creds.token_uri || 'https://oauth2.googleapis.com/token',
+    iat: now,
+    exp: now + 3600
+  };
+  const unsigned = `${base64UrlEncode(JSON.stringify(header))}.${base64UrlEncode(JSON.stringify(payload))}`;
+  const signer = crypto.createSign('RSA-SHA256');
+  signer.update(unsigned);
+  const signature = signer.sign(creds.private_key);
+  const jwt = `${unsigned}.${base64UrlEncode(signature)}`;
+
+  const res = await fetch(creds.token_uri || 'https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+      assertion: jwt
+    })
+  });
+  const data = await res.json();
+  if (!res.ok || !data.access_token) {
+    throw new Error(`Failed to obtain access token: ${JSON.stringify(data)}`);
+  }
+  return data.access_token;
+}
 
 async function main() {
   if (!fs.existsSync(CREDENTIALS_PATH)) {
@@ -17,28 +53,25 @@ async function main() {
     process.exit(1);
   }
 
-  const auth = new google.auth.GoogleAuth({
-    keyFile: CREDENTIALS_PATH,
-    scopes: [
-      'https://www.googleapis.com/auth/indexing',
-      'https://www.googleapis.com/auth/webmasters'
-    ]
-  });
-
-  const authClient = await auth.getClient();
-  const searchconsole = google.searchconsole({ version: 'v1', auth: authClient });
+  const creds = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf8'));
+  const token = await getAccessToken(creds, [
+    'https://www.googleapis.com/auth/indexing',
+    'https://www.googleapis.com/auth/webmasters'
+  ]);
 
   // 1. Re-submit Sitemaps to GSC
   console.log('=== 1. Re-Submitting Sitemaps to Google Search Console ===');
   for (const sm of [`${BASE_URL}/sitemap-index.xml`, `${BASE_URL}/sitemap-0.xml`]) {
-    try {
-      await searchconsole.sitemaps.submit({
-        siteUrl: SITE_URL,
-        feedpath: sm
-      });
-      console.log(`✅ Submitted sitemap: ${sm}`);
-    } catch (err) {
-      console.error(`❌ Failed to submit sitemap ${sm}:`, err.message);
+    const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps/${encodeURIComponent(sm)}`;
+    const res = await fetch(endpoint, {
+      method: 'PUT',
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    if (res.ok || res.status === 204) {
+      console.log(`✅ Submitted sitemap (${res.status}): ${sm}`);
+    } else {
+      const txt = await res.text();
+      console.error(`❌ Failed to submit sitemap ${sm} (${res.status}): ${txt}`);
     }
   }
 
@@ -75,10 +108,8 @@ async function main() {
     .map((f) => `${BASE_URL}/insights/${f.replace(/\.md$/, '')}`);
 
   const priorityProductSlugs = [
-    // Crawled - currently not indexed (updated meta & internal mesh)
     'poker-king-magnetic-slider',
     '304ss-akq-triple-layer-24-magnet-slider',
-    // Unindexed / Flagship SKUs from GSC inspection & top conversion hubs
     '10-magnet-textured-armor-slider',
     '12-constellation-zodiac-haptic-coin',
     '12-magnet-planetary-gear-linkage-spinner',
@@ -107,30 +138,30 @@ async function main() {
 
   let successCount = 0;
   let errorCount = 0;
-  const results = [];
 
   for (let i = 0; i < allUrls.length; i++) {
     const url = allUrls[i];
-    try {
-      const res = await authClient.request({
-        url: 'https://indexing.googleapis.com/v3/urlNotifications:publish',
-        method: 'POST',
-        data: {
-          url,
-          type: 'URL_UPDATED'
-        }
-      });
+    const res = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        url,
+        type: 'URL_UPDATED'
+      })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.ok) {
       successCount++;
-      const notifyTime = res.data?.urlNotificationMetadata?.latestUpdate?.notifyTime || 'OK';
+      const notifyTime = data?.urlNotificationMetadata?.latestUpdate?.notifyTime || 'OK';
       console.log(`[${i + 1}/${allUrls.length}] ✅ 200 URL_UPDATED -> ${url} (${notifyTime})`);
-      results.push({ url, status: 200, notifyTime });
-    } catch (err) {
+    } else {
       errorCount++;
-      const status = err.response?.status || 'ERR';
-      const msg = err.response?.data?.error?.message || err.message;
-      console.error(`[${i + 1}/${allUrls.length}] ❌ ${status} -> ${url}: ${msg}`);
-      results.push({ url, status, error: msg });
-      if (status === 429) {
+      const msg = data?.error?.message || JSON.stringify(data);
+      console.error(`[${i + 1}/${allUrls.length}] ❌ ${res.status} -> ${url}: ${msg}`);
+      if (res.status === 429) {
         console.warn('⚠️ Quota limit reached (HTTP 429). Stopping batch.');
         break;
       }
