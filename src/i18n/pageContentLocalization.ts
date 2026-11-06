@@ -73,7 +73,7 @@ export function getBrandingTableData(lang: SupportedLanguage) {
         ['Setup Fee', '$0.00 (Free Digital Setup)', '$0.00 Laser Setup', 'N/A'],
         ['Unit Logo Add-On Cost', '+$0.15 – $0.30 USD / pc', '+$0.35 – $0.60 USD / pc (Deep laser cavity + color fill)', 'Prone to peeling complaints'],
         ['Paid Custom Sample Fee (10–15 Days)', '$50 USD (Standard Laser Sample)', '$80 – $150 USD (Deep Laser + Color Fill Sample)', 'Not recommended'],
-        ['Adhesion & Physical Mechanism', 'Permanent micron-level laser ablation inside metal substrate', 'Laser carves a 0.15–0.25mm recessed cavity filled with cured enamel below the friction plane', 'Smooth, chemically inert metal lacks ink adhesion (附着力不足); ink peels off under thumb rub'],
+        ['Adhesion & Physical Mechanism', 'Permanent micron-level laser ablation inside metal substrate', 'Laser carves a 0.15–0.25mm recessed cavity filled with cured enamel below the friction plane', 'Smooth, chemically inert metal lacks ink adhesion; ink peels off under thumb rub'],
         ['Wear & Sweat Durability', '10/10 Permanent (Never fades or peels)', '9.8/10 Recessed metal walls protect color fill from thumb friction', '4.0/10 Surface ink delaminates on smooth metal'],
         ['Recommended Ready Molds', 'FS-047, FS-013, FS-009, FS-012, FS-064, FS-075, FS-086, FS-096', 'FS-125, FS-047, FS-013, FS-001, FS-026, FS-075, FS-086, FS-128', 'None on bare/plated metal (Use only on EVA pouches)']
       ]

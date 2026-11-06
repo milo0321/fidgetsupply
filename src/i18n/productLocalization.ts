@@ -856,7 +856,7 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Custom Logo Branding & Private-Label Options ($0 Mold Fee)',
     logoBullets: [
       '<strong>50W MOPA Fiber Laser Engraving (Monochrome):</strong> MOQ 100 pcs · $0.00 setup fee · +$0.15–$0.30/pc unit cost. Micron-ablates permanent metallic/white contrast marks that never peel or fade.',
-      '<strong>Why Silk-Screen / UV Surface Printing Is NOT Recommended on Metal:</strong> Polished and plated metal surfaces are ultra-smooth and chemically inert; surface inks lack adhesion (附着力不足) and peel off under thumb friction.',
+      '<strong>Why Silk-Screen / UV Surface Printing Is NOT Recommended on Metal:</strong> Polished and plated metal surfaces are ultra-smooth and chemically inert; surface inks lack adhesion and peel off under thumb friction.',
       '<strong>Deep Laser Engraving + Enamel Color Fill (Recommended for Colored Logos):</strong> MOQ 100–200 pcs · $0.00 laser setup · +$0.35–$0.60/pc unit cost. Laser-carves a recessed cavity into the metal and fills it with cured enamel so the color never peels off.',
       '<strong>Paid Custom Logo Pre-Production Sampling:</strong> Standard Fiber Laser Sample = $50 USD · Deep Laser + Color Fill Sample = $80–$150 USD (10–15 days lead time; free 12-hour digital proof prior to sampling).'
     ],

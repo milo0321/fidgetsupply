@@ -565,8 +565,20 @@ if (fs.existsSync(distDir)) {
       seoGeoErrors++;
     }
   }
-  if (seoGeoErrors === 0) {
-    pass(`All ${checkedProdInsightPages} built Product & Insight pages (170 routes x 18 languages) verified for Canonical, 19 Hreflang tags, GeoDirectAnswer block, and JSON-LD (Product/TechArticle + FAQPage + BreadcrumbList).`);
+  // Check all non-Japanese built HTML pages for any stray Chinese characters
+  let strayCjkPages = 0;
+  for (const f of htmlFiles) {
+    const relFile = '/' + path.relative(distDir, f).replace(/\\/g, '/');
+    if (relFile === '/ja/index.html' || relFile.startsWith('/ja/')) continue;
+    const htmlNoJaLabel = fs.readFileSync(f, 'utf8').replace(/日本語/g, '');
+    const cjkMatch = htmlNoJaLabel.match(/[\u4e00-\u9fff]+/g);
+    if (cjkMatch) {
+      fail(`Stray Chinese/CJK characters [${[...new Set(cjkMatch)].join(', ')}] found in ${relFile}`);
+      strayCjkPages++;
+    }
+  }
+  if (seoGeoErrors === 0 && strayCjkPages === 0) {
+    pass(`All ${checkedProdInsightPages} built Product & Insight pages (170 routes x 18 languages) verified for Canonical, 19 Hreflang tags, GeoDirectAnswer block, JSON-LD, and 0 stray Chinese characters across all non-JA pages.`);
   }
 } else {
   fail('dist/ directory not found. Run npm run build first.');
