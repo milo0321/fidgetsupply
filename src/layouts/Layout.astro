@@ -37,7 +37,8 @@ const currentLang = (lang || getLanguageFromURL(Astro.url.pathname) || 'en') as 
 const currentDir = dir || getDirection(currentLang);
 const t = useTranslations(currentLang);
 const langConfig = languages[currentLang];
-const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || 'GTM-TH9NHVJ4';
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || 'G-HHP8CN1M58';
+const gtmId = 'GTM-TH9NHVJ4';
 
 const localizedTitle =
   currentLang === 'en'
@@ -176,19 +177,16 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     ))}
 
-    <!-- Google Tag Manager / GA4 -->
-    <script async src={`https://www.googletagmanager.com/${gaMeasurementId.startsWith('GTM-') ? 'gtm.js' : 'gtag/js'}?id=${gaMeasurementId}`}></script>
-    <script is:inline define:vars={{ gaMeasurementId }}>
+    <!-- Google Tag Manager & GA4 (GTM-TH9NHVJ4 / G-HHP8CN1M58) -->
+    <script async src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`}></script>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+    <script is:inline define:vars={{ gaMeasurementId, gtmId }}>
       window.dataLayer = window.dataLayer || [];
-      if (gaMeasurementId && gaMeasurementId.indexOf('GTM-') === 0) {
-        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-      }
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
       function gtag(){window.dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('js', new Date());
-      if (gaMeasurementId && gaMeasurementId.indexOf('G-') === 0) {
-        gtag('config', gaMeasurementId);
-      }
+      gtag('config', gaMeasurementId);
     </script>
 
     <script is:inline>

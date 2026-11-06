@@ -11,7 +11,7 @@
     "NOTIFICATION_EMAIL": "sales@fidgetsupply.com",
     "RESEND_FROM_EMAIL": "FidgetSupply Inquiries <quotes@send.fidgetsupply.com>",
     "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAF1GTaPVmYSNUcHS",
-    "PUBLIC_GA_MEASUREMENT_ID": "GTM-TH9NHVJ4"
+    "PUBLIC_GA_MEASUREMENT_ID": "G-HHP8CN1M58"
   },
   "assets": {
     "directory": "./dist",
