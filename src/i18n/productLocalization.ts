@@ -1229,12 +1229,41 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
 export function getRelatedInsightSlugsForProduct(p: any): string[] {
   const slugs: string[] = [];
   const titleLower = String(p.title || '').toLowerCase();
+  const matLower = String(p.material || '').toLowerCase();
   const magLower = String(p.magnetsEn || '').toLowerCase();
   const accLower = String(p.accessoriesEn || '').toLowerCase();
   const colLower = String(p.colorsEn || '').toLowerCase();
 
   if (p.tuningFork) {
     slugs.push('acoustic-tuning-fork-fidget-slider-engineering-trend');
+    slugs.push('tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide');
+  }
+  if (/sprocket|chain|planetary|pendulum|tourbillon|roulette/i.test(titleLower)) {
+    slugs.push('sprocket-chain-planetary-gear-chaotic-pendulum-metal-fidget-guide');
+  }
+  if (/gimbal|gyro|egg|totem|top|orbit/i.test(titleLower)) {
+    slugs.push('multi-axis-gimbal-gyroscope-spinning-desk-egg-totem-edc-guide');
+  }
+  if (/pistol|sword|excalibur|blade|shield|templar|hammer|corsair|warhead/i.test(titleLower)) {
+    slugs.push('tactical-pistol-slide-spring-sword-katana-shield-metal-edc-guide');
+  }
+  if (/fan|pivot|capsule|pill|begleri|knuckle|cylinder|tri-fold/i.test(titleLower)) {
+    slugs.push('folding-fan-pivot-sliders-magnetic-capsules-knuckle-roller-begleri-guide');
+  }
+  if (/gamepad|arcade|camera|pea-pod|pea pod|cookie|chocolate|piano|pumpkin|nutcracker|crab/i.test(titleLower)) {
+    slugs.push('retro-gamepad-arcade-piano-pea-pod-biscuit-novelty-metal-fidgets');
+  }
+  if (/zirconium|zr702|carbon|abalone|pei|ultem|tri-metal/i.test(titleLower + ' ' + matLower)) {
+    slugs.push('zirconium-zr702-carbon-fiber-abalone-inlay-exotic-metal-edc-fidgets');
+  }
+  if (/aluminum|6063|6061|heavy|drop-tower|invader|brass/i.test(titleLower + ' ' + matLower)) {
+    slugs.push('ultralight-6063-aluminum-vs-heavyweight-brass-stainless-edc-fidget-weight-guide');
+  }
+  if (/wheel|tire|truck|roulette|trophy|royal|poker/i.test(titleLower)) {
+    slugs.push('automotive-wheel-rim-casino-vip-esports-merch-custom-metal-fidget-guide');
+  }
+  if (/silicone|soap|ribbed|bead|ring|gourd/i.test(titleLower)) {
+    slugs.push('adult-adhd-focus-sensory-regulation-heavy-metal-fidget-selection-guide');
   }
   if (/poker|ace|king|joker|spade|card|mahjong|casino|dice/i.test(titleLower)) {
     slugs.push('poker-card-mahjong-tile-casino-metal-magnetic-fidget-sliders-guide');
@@ -1256,6 +1285,7 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
     case 'magnetic-fidget-sliders':
       slugs.push('unlimited-free-floating-ptfe-vs-mechanical-track-fidget-sliders');
       slugs.push('n35-vs-n52-neodymium-magnet-haptic-feel-guide');
+      slugs.push('tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide');
       break;
     case 'metal-fidget-spinners-gyros':
       slugs.push('r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide');
@@ -1287,7 +1317,7 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
   slugs.push('custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide');
   slugs.push('international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide');
   slugs.push('us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance');
-  return Array.from(new Set(slugs)).slice(0, 5);
+  return Array.from(new Set(slugs)).slice(0, 6);
 }
 
 const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
@@ -1310,7 +1340,17 @@ const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
   'multi-function-bottle-opener-keychain-luminous-tritium-edc-fidgets': 'Multi-Function 2-in-1 Bottle Opener, Keychain & Luminous Night-Glow Metal EDC Fidgets',
   '3d-mecha-armor-gothic-skull-relief-sculpted-metal-edc-fidget-guide': '3D Mecha Armor, Gothic Skull, Mythic Dragon & Pop-Art Relief Sculpted EDC Fidgets',
   'ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide': 'PTFE Teflon Friction Tape, Si3N4 Ceramic Beads & R188 Bearing Maintenance Guide',
-  'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide': 'International DDP Shipping, HS Codes (9503.00) & IATA PI-953 Magnetic Air Freight Guide'
+  'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide': 'International DDP Shipping, HS Codes (9503.00) & IATA PI-953 Magnetic Air Freight Guide',
+  'sprocket-chain-planetary-gear-chaotic-pendulum-metal-fidget-guide': 'Sprocket Chain, Planetary Gear & Chaotic Pendulum Metal Fidgets: Linkage Guide',
+  'multi-axis-gimbal-gyroscope-spinning-desk-egg-totem-edc-guide': 'Multi-Axis Gimbal Gyroscopes, Spinning Desk Eggs & Kinetic Totems: Executive Guide',
+  'tactical-pistol-slide-spring-sword-katana-shield-metal-edc-guide': 'Tactical Pistol-Slide, Spring-Press Katana Sword & Shield Metal EDC Fidgets Guide',
+  'folding-fan-pivot-sliders-magnetic-capsules-knuckle-roller-begleri-guide': 'Folding-Fan Pivot Sliders, Magnetic Capsules & Knuckle-Roller Begleri Beads Guide',
+  'retro-gamepad-arcade-piano-pea-pod-biscuit-novelty-metal-fidgets': 'Retro Gamepad, Arcade Maze, Piano Key & Food-Inspired (Pea Pod, Cookie) Metal Fidgets',
+  'zirconium-zr702-carbon-fiber-abalone-inlay-exotic-metal-edc-fidgets': 'Exotic Zirconium (Zr702), 3K Carbon Fiber & Natural Abalone Inlay Metal EDC Fidgets',
+  'ultralight-6063-aluminum-vs-heavyweight-brass-stainless-edc-fidget-weight-guide': 'Ultralight 6063 Anodized Aluminum (<55g) vs. Heavyweight Brass & Stainless Weight Guide',
+  'adult-adhd-focus-sensory-regulation-heavy-metal-fidget-selection-guide': 'Adult ADHD Focus, Anxiety Relief & Proprioceptive Sensory Heavy Metal Fidget Guide',
+  'automotive-wheel-rim-casino-vip-esports-merch-custom-metal-fidget-guide': 'Automotive Wheel Rim, Casino VIP & Esports Gaming Merch: Custom Metal Fidget Playbook',
+  'tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide': 'TikTok Shop ASMR Viral Hooks, Amazon FBA & Shopify Metal Fidget Reseller Margin Guide'
 };
 
 function buildLocalizedEditorialHtml(

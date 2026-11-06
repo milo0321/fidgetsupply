@@ -1554,7 +1554,747 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       title: 'الشحن الدولي الشامل للرسوم DDP والرموز الجمركية HS (9503.00) والشحن الجوي المغناطيسي IATA PI-953: دليل الاستيراد',
       summary: 'دليل الجمارك والخدمات اللوجستية الشامل لاستيراد أدوات الفيدجت المعدنية إلى الولايات المتحدة وأوروبا وبريطانيا ومستودعات Amazon FBA.'
     }
-  }
+  },
+  "sprocket-chain-planetary-gear-chaotic-pendulum-metal-fidget-guide": {
+    "en": {
+        "title": "Sprocket Chain, Planetary Gear & Chaotic Pendulum Metal Fidgets: Mechanical Linkage Engineering Guide",
+        "summary": "Explore roller sprocket chains, planetary gear trains, and chaotic pendulum metal fidget spinners. Compare R188 bearings, gear tooth pitch, and MOQ 50."
+    },
+    "de": {
+        "title": "Kettenrad-, Planetengetriebe- & Chaospendel-Metall-Fidgets: Mechanischer Leitfaden",
+        "summary": "Technischer Leitfaden für Rollenketten-Spinner, Planetengetriebe und Chaospendel-Kreisel (FS-061, FS-068, FS-070, FS-090) ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "Spinners à Chaîne Pignon, Engrenage Planétaire & Pendule Chaotique : Guide Mécanique",
+        "summary": "Découvrez les spinners à chaîne à rouleaux, trains planétaires et pendules chaotiques en métal (FS-061, FS-068, FS-070, FS-090) dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "Kettingwiel-, Planeetwiel- & Chaotische Slinger Metalen Fidgets: Mechanische Gids",
+        "summary": "Ontdek rollenketting-spinners, planetaire tandwielen en chaotische slinger-fidgets (FS-061, FS-068, FS-070, FS-090) vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "Spinners de Cadena de Piñón, Engranaje Planetario y Péndulo Caótico: Guía Mecánica",
+        "summary": "Explore spinners de cadena de rodillos, engranajes planetarios y péndulos caóticos de metal (FS-061, FS-068, FS-070, FS-090) desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "Fidget in Metallo con Catena a Pignone, Ingranaggi Planetari e Pendolo Caotico: Guida",
+        "summary": "Scopri spinner a catena a rulli, ingranaggi planetari e pendoli caotici in metallo (FS-061, FS-068, FS-070, FS-090) da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "Fidgets Metálicos de Corrente de Pinhão, Engrenagem Planetária e Pêndulo Caótico: Guia",
+        "summary": "Explore spinners de corrente de rolos, engrenagens planetárias e pêndulos caóticos (FS-061, FS-068, FS-070, FS-090) a partir de MOQ 50 un."
+    },
+    "sv": {
+        "title": "Kedjedrev, Planetväxel & Kaotisk Pendel Metall-Fidgets: Mekanisk Guide",
+        "summary": "Utforska rullkedje-spinners, planetväxlar och kaotiska pendel-fidgets i metall (FS-061, FS-068, FS-070, FS-090) från MOQ 50 st."
+    },
+    "da": {
+        "title": "Kædehjul, Planetgear & Kaotisk Pendul Metal-Fidgets: Mekanisk Guide",
+        "summary": "Udforsk rullekæde-spinnere, planetgear og kaotiske pendul-fidgets i metal (FS-061, FS-068, FS-070, FS-090) fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "Kjedehjul, Planetgir & Kaotisk Pendel Metall-Fidgets: Mekanisk Guide",
+        "summary": "Utforsk rullekjede-spinnere, planetgir og kaotiske pendel-fidgets i metall (FS-061, FS-068, FS-070, FS-090) fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "Ketjupyörä-, Planeettavaihde- & Kaaosheiluri Metallifidgetit: Mekaaninen Opas",
+        "summary": "Tutustu rullaketju-spinnereihin, planeettavaihteisiin ja kaaosheilureihin (FS-061, FS-068, FS-070, FS-090) alkaen MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "Fidgety z Łańcuchem Zębatym, Przekładnią Planetarną i Wahadłem Chaotycznym: Przewodnik",
+        "summary": "Poznaj spinnery łańcuchowe, przekładnie planetarne i wahadła chaotyczne z metalu (FS-061, FS-068, FS-070, FS-090) od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "Kovové Fidgety s Řetězovým Kolem, Planetovou Převodovkou a Chaotickým Kyvadlem",
+        "summary": "Prozkoumejte řetězové spinnery, planetová soukolí a chaotická kyvadla (FS-061, FS-068, FS-070, FS-090) od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "Металлические фиджеты с цепным приводом, планетарной передачей и хаотическим маятником",
+        "summary": "Инженерный гид по цепным спиннерам, планетарным шестерням и маятникам (FS-061, FS-068, FS-070, FS-090) от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "スプロケットチェーン・遊星歯車・カオス振り子金属フィジェット：機械連動エンジニアリングガイド",
+        "summary": "ローラーチェーン、遊星ギア、カオス振り子スピナー（FS-061、FS-068、FS-070、FS-090）の構造と卸売仕様（最小50個〜）を解説。"
+    },
+    "ko": {
+        "title": "스프로킷 체인, 유성 기어 및 카오스 진자 메탈 피젯: 기계식 링크 엔지니어링 가이드",
+        "summary": "롤러 체인 스피너, 유성 기어 및 카오스 진자 메탈 피젯(FS-061, FS-068, FS-070, FS-090)의 R188 베어링 설계 및 도매 가이드(MOQ 50개)."
+    },
+    "id": {
+        "title": "Fidget Logam Rantai Sprocket, Roda Gigi Planet & Pendulum Kaotik: Panduan Rekayasa",
+        "summary": "Jelajahi spinner rantai rol, roda gigi planet, dan pendulum kaotik logam (FS-061, FS-068, FS-070, FS-090) mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "أدوات الفيدجت المعدنية بسلسلة التروس والتروس الكوكبية والبندول الفوضوي: دليل هندسي",
+        "summary": "اكتشف سبينرات السلاسل الفولاذية والتروس الكوكبية والبندول الفوضوي (FS-061، FS-068، FS-070، FS-090) بحد أدنى للطلب 50 قطعة."
+    }
+},
+  "multi-axis-gimbal-gyroscope-spinning-desk-egg-totem-edc-guide": {
+    "en": {
+        "title": "Multi-Axis Gimbal Gyroscopes, Spinning Desk Eggs & Kinetic Totems: Executive Desk EDC Engineering Guide",
+        "summary": "Buyer guide to 6-axis CNC stainless steel gimbal gyroscopes, anodized aluminum spinning desk eggs, and kinetic totems. Compare spin times and MOQ 50."
+    },
+    "de": {
+        "title": "Mehrachsige Kardan-Gyroskope, rotierende Tisch-Eier & Kinetische Totems: Executive-EDC-Guide",
+        "summary": "Leitfaden für 6-Achsen-CNC-Edelstahl-Gyroskope, eloxierte Aluminium-Tischeier und Kreisel-Totems (FS-066, FS-118, FS-064) ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "Gyroscopes à Cardan Multi-Axes, Œufs Rotatifs de Bureau & Totems Cinétiques : Guide EDC",
+        "summary": "Guide d’achat des gyroscopes CNC 6 axes en inox, œufs rotatifs en aluminium anodisé et totems (FS-066, FS-118, FS-064) dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "Meerassige Cardanische Gyroscopen, Draaiende Bureau-eieren & Kinetische Totems: Gids",
+        "summary": "Inkoopgids voor 6-assige CNC RVS gyroscopen, geanodiseerde aluminium bureau-eieren en totems (FS-066, FS-118, FS-064) vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "Giroscopios Cardán Multieje, Huevos Giratorios de Escritorio y Tótems Cinéticos: Guía EDC",
+        "summary": "Guía de compra de giroscopios CNC de acero inoxidable, huevos giratorios de aluminio y tótems (FS-066, FS-118, FS-064) desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "Giroscopi Cardanici Multi-Asse, Uova Rotanti da Scrivania e Totem Cinetici: Guida EDC",
+        "summary": "Guida ai giroscopi cardanici CNC in acciaio inox, uova da scrivania in alluminio e totem (FS-066, FS-118, FS-064) da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "Giroscópios Cardan Multieixo, Ovos Giratórios de Mesa e Totens Cinéticos: Guia EDC",
+        "summary": "Guia de giroscópios CNC em aço inox, ovos giratórios de alumínio anodizado e totens (FS-066, FS-118, FS-064) desde MOQ 50 un."
+    },
+    "sv": {
+        "title": "Fleraxliga Kardangyroskop, Snurrande Skrivbordsägg & Kinetiska Totems: EDC-Guide",
+        "summary": "Köpguide för 6-axliga CNC-gyroskop i rostfritt stål, anodiserade aluminiumägg och totems (FS-066, FS-118, FS-064) från MOQ 50 st."
+    },
+    "da": {
+        "title": "Fleraksede Kardangyroskoper, Roterende Skrivebordsæg & Kinetiske Totems: EDC-Guide",
+        "summary": "Købsguide til 6-aksede CNC-gyroskoper i rustfrit stål, anodiserede aluminiumsæg og totems (FS-066, FS-118, FS-064) fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "Fleraksede Kardangyroskoper, Roterende Skrivebords-egg & Kinetiske Totems: EDC-Guide",
+        "summary": "Innkjøpsguide for 6-aksede CNC-gyroskoper i rustfritt stål, anodiserte aluminiumsegg og totems (FS-066, FS-118, FS-064) fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "Moniakseliset Kardaanigyroskoopit, Pyörivät Pöytämunat & Kineettiset Toteemit: Opas",
+        "summary": "Osto-opas 6-akselisiin CNC-teräsgyroskooppeihin, anodisoituihin alumiinimuniin ja toteemeihin (FS-066, FS-118, FS-064) alkaen MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "Wieloosiowe Żyroskopy Kardana, Wirujące Jajka Biurkowe i Totemy Kinetyczne: Przewodnik",
+        "summary": "Przewodnik po 6-osiowych żyroskopach CNC ze stali nierdzewnej, jajkach z aluminium i totemach (FS-066, FS-118, FS-064) od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "Víceosé Kardanové Gyroskopy, Rotující Stolní Vejce a Kinetické Totemy: Průvodce",
+        "summary": "Průvodce 6osými CNC nerezovými gyroskopy, eloxovanými hliníkovými vejci a totemy (FS-066, FS-118, FS-064) od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "Многоосевые карданные гироскопы, вращающиеся настольные яйца и кинетические тотемы",
+        "summary": "Руководство по 6-осевым ЧПУ-гироскопам из нержавейки, алюминиевым настольным яйцам и тотемам (FS-066, FS-118, FS-064) от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "多軸ジンバルジャイロスコープ・卓上スピニングエッグ・キネティックトーテム：エグゼクティブEDCガイド",
+        "summary": "6軸CNCステンレスジンバルジャイロ、陽極酸化アルミ卓上エッグ、回転トーテム（FS-066、FS-118、FS-064）の精密バランスと卸売仕様。"
+    },
+    "ko": {
+        "title": "다축 짐벌 자이로스코프, 데스크 스피닝 에그 및 키네틱 토템: 임원용 데스크 EDC 가이드",
+        "summary": "6축 CNC 스테인리스 짐벌 자이로, 아노다이징 알루미늄 데스크 에그 및 스피닝 토템(FS-066, FS-118, FS-064) 구매 가이드(MOQ 50개)."
+    },
+    "id": {
+        "title": "Giroskop Gimbal Multi-Sumbu, Telur Putar Meja & Totem Kinetik: Panduan EDC Eksekutif",
+        "summary": "Panduan giroskop gimbal baja tahan karat CNC 6-sumbu, telur putar aluminium anodisa, dan totem (FS-066, FS-118, FS-064) mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "جيروسكوبات الجيمبال متعددة المحاور وبيض المكتب الدوار والطواطم الحركية: دليل هدايا التنفيذيين",
+        "summary": "دليل شامل لجيروسكوبات الفولاذ المقاوم للصدأ CNC سداسية المحاور وبيض الألمنيوم المؤكسد (FS-066، FS-118، FS-064) بحد أدنى 50 قطعة."
+    }
+},
+  "tactical-pistol-slide-spring-sword-katana-shield-metal-edc-guide": {
+    "en": {
+        "title": "Tactical Pistol-Slide, Spring-Press Katana Sword & Shield Metal EDC Fidgets: Collector Mechanics Guide",
+        "summary": "Engineering guide to tactical pistol-slide magnetic sliders, spring-loaded mini katana swords, warhammers, and shield haptic coins. Wholesale MOQ 50 pcs."
+    },
+    "de": {
+        "title": "Taktische Pistolenschlitten-, Federschwert-Katana- & Schild-Metall-EDC-Fidgets: Sammler-Guide",
+        "summary": "Technischer Leitfaden zu Pistolenschlitten-Slidern, gefederten Mini-Schwertern und Schild-Münzen (FS-035, FS-088, FS-093, FS-052) ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "Sliders Culasse de Pistolet, Épées Katana à Ressort & Boucliers EDC en Métal : Guide",
+        "summary": "Guide technique des sliders tactiques culasse, mini-épées à ressort et pièces boucliers (FS-035, FS-088, FS-093, FS-052) dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "Tactische Pistoolslede-, Veerzwaard-Katana- & Schild Metalen EDC Fidgets: Gids",
+        "summary": "Technische gids voor pistoolslede-sliders, geveerde mini-zwaarden en schild-munten (FS-035, FS-088, FS-093, FS-052) vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "Sliders Tácticos de Corredera, Espadas Katana con Resorte y Escudos EDC de Metal: Guía",
+        "summary": "Guía de ingeniería de sliders de corredera, mini espadas con resorte y monedas de escudo (FS-035, FS-088, FS-093, FS-052) desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "Slider Tattici Carrello Pistola, Spade Katana a Molla e Scudi EDC in Metallo: Guida",
+        "summary": "Guida tecnica agli slider tattici, mini spade a molla, martelli e monete scudo (FS-035, FS-088, FS-093, FS-052) da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "Sliders Táticos de Ferrolho, Espadas Katana com Mola e Escudos EDC Metálicos: Guia",
+        "summary": "Guia de engenharia para sliders táticos, mini espadas com mola e moedas escudo (FS-035, FS-088, FS-093, FS-052) desde MOQ 50 un."
+    },
+    "sv": {
+        "title": "Taktiska Pistolmantel-, Fjädersvärd- & Sköld Metall-EDC-Fidgets: Samlarguide",
+        "summary": "Teknisk guide till pistolmantel-sliders, fjäderbelastade minisvärd och sköldmynt (FS-035, FS-088, FS-093, FS-052) från MOQ 50 st."
+    },
+    "da": {
+        "title": "Taktiske Pistolslæde-, Fjedersværd- & Skjold Metal-EDC-Fidgets: Samlerguide",
+        "summary": "Teknisk guide til pistolslæde-slidere, fjederbelastede minisværd og skjoldmønter (FS-035, FS-088, FS-093, FS-052) fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "Taktiske Pistolglider-, Fjærsverd- & Skjold Metall-EDC-Fidgets: Samlerguide",
+        "summary": "Teknisk guide til pistolglider-slidere, fjærbelastede minisverd og skjoldmynter (FS-035, FS-088, FS-093, FS-052) fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "Taktiset Pistooliluisti-, Jousimiekka- & Kilpi Metallifidgetit: Keräilijän Opas",
+        "summary": "Tekninen opas pistooliluisti-slidereihin, jousitoimisiin pienoismiekkoihin ja kilpidernikoihin (FS-035, FS-088, FS-093, FS-052) alkaen MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "Taktyczne Slidery Zamka Pistoletu, Miecze Sprężynowe i Tarcze EDC z Metalu: Przewodnik",
+        "summary": "Przewodnik po sliderach taktycznych, mini mieczach sprężynowych i monetach tarczach (FS-035, FS-088, FS-093, FS-052) od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "Taktické Slidery Závěru Pistole, Pružinové Meče a Štítové Kovové EDC Fidgety",
+        "summary": "Průvodce taktickými slidery, pružinovými mini meči a štítovými mincemi (FS-035, FS-088, FS-093, FS-052) od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "Тактические слайдеры-затворы, пружинные мечи-катаны и щиты EDC из металла: Гид",
+        "summary": "Инженерный гид по тактическим слайдерам, пружинным мини-мечам и монетам-щитам (FS-035, FS-088, FS-093, FS-052) от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "タクティカルピストルスライド・スプリング刀剣＆シールド金属EDCフィジェット：コレクター機構ガイド",
+        "summary": "ブローバック感を楽しめるピストルスライド、バネ展開ミニ刀剣、シールドコイン（FS-035、FS-088、FS-093、FS-052）の機構と通関安全基準。"
+    },
+    "ko": {
+        "title": "택티컬 피스톨 슬라이드, 스프링 카타나 검 및 실드 메탈 EDC 피젯: 컬렉터 메커니즘 가이드",
+        "summary": "피스톨 슬라이드 마그네틱 슬라이더, 스프링 미니 검, 워해머 및 실드 햅틱 코인(FS-035, FS-088, FS-093, FS-052) 도매 가이드(MOQ 50개)."
+    },
+    "id": {
+        "title": "Slider Taktis Pistol-Slide, Pedang Katana Pegas & Perisai EDC Logam: Panduan Kolektor",
+        "summary": "Panduan teknis slider magnetik pistol-slide, pedang mini pegas, dan koin perisai (FS-035, FS-088, FS-093, FS-052) mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "سلايدر المزلاج التكتيكي والسيوف النابضية والدروع المعدنية EDC: دليل الميكانيكا للمقتنين",
+        "summary": "دليل هندسي لسلايدرات المزلاج التكتيكي والسيوف المصغرة النابضية وعملات الدروع (FS-035، FS-088، FS-093، FS-052) بحد أدنى 50 قطعة."
+    }
+},
+  "folding-fan-pivot-sliders-magnetic-capsules-knuckle-roller-begleri-guide": {
+    "en": {
+        "title": "Folding-Fan Pivot Sliders, Magnetic Capsules & Knuckle-Roller Begleri Beads: Pocket EDC Form-Factor Guide",
+        "summary": "Compare radial folding-fan pivot sliders, 6063 aluminum magnetic capsules, and 304 stainless knuckle-roller begleri beads. Pocket ergonomics & MOQ 50."
+    },
+    "de": {
+        "title": "Fächer-Pivot-Slider, Magnetkapseln & Knuckle-Roller Begleri-Perlen: Taschen-EDC-Guide",
+        "summary": "Vergleich von radialen Fächer-Slidern, 6063-Aluminium-Magnetkapseln und 304-Edelstahl-Begleri (FS-039, FS-080, FS-012, FS-005) ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "Sliders Éventail Pivotants, Capsules Magnétiques & Perles Begleri Knuckle-Roller : Guide",
+        "summary": "Comparatif des sliders éventail radiaux, capsules magnétiques en aluminium 6063 et begleri inox 304 (FS-039, FS-080, FS-012, FS-005) dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "Waaier-Pivot Sliders, Magnetische Capsules & Knuckle-Roller Begleri Kralen: Zak-EDC Gids",
+        "summary": "Vergelijk radiale waaier-sliders, 6063 aluminium magnetische capsules en 304 RVS begleri (FS-039, FS-080, FS-012, FS-005) vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "Sliders de Abanico Pivotante, Cápsulas Magnéticas y Cuentas Begleri Knuckle-Roller: Guía",
+        "summary": "Compare sliders radiales de abanico, cápsulas magnéticas de aluminio 6063 y begleri de acero 304 (FS-039, FS-080, FS-012, FS-005) desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "Slider a Ventaglio Pivotante, Capsule Magnetiche e Perle Begleri Knuckle-Roller: Guida",
+        "summary": "Confronta slider radiali a ventaglio, capsule magnetiche in alluminio 6063 e begleri in acciaio 304 (FS-039, FS-080, FS-012, FS-005) da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "Sliders de Leque Pivotante, Cápsulas Magnéticas e Contas Begleri Knuckle-Roller: Guia",
+        "summary": "Compare sliders radiais em leque, cápsulas magnéticas de alumínio 6063 e begleri em inox 304 (FS-039, FS-080, FS-012, FS-005) desde MOQ 50 un."
+    },
+    "sv": {
+        "title": "Solfjäder-Pivot Sliders, Magnetkapslar & Knuckle-Roller Begleri-Pärlor: Fick-EDC-Guide",
+        "summary": "Jämför radiella solfjäder-sliders, magnetkapslar i 6063-aluminium och begleri i 304 rostfritt stål (FS-039, FS-080, FS-012, FS-005) från MOQ 50 st."
+    },
+    "da": {
+        "title": "Vifte-Pivot Sliders, Magnetkapsler & Knuckle-Roller Begleri-Perler: Lomme-EDC-Guide",
+        "summary": "Sammenlign radiale vifte-slidere, magnetkapsler i 6063-aluminium og begleri i 304 rustfrit stål (FS-039, FS-080, FS-012, FS-005) fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "Vifte-Pivot Sliders, Magnetkapsler & Knuckle-Roller Begleri-Perler: Lomme-EDC-Guide",
+        "summary": "Sammenlign radiale vifte-slidere, magnetkapsler i 6063-aluminium og begleri i 304 rustfritt stål (FS-039, FS-080, FS-012, FS-005) fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "Viuhka-Pivot Sliderit, Magneettikapselit & Knuckle-Roller Begleri-Helmet: Tasku-EDC-Opas",
+        "summary": "Vertaa säteittäisiä viuhka-slidereita, 6063-alumiinisia magneettikapseleita ja 304-teräs-beglereitä (FS-039, FS-080, FS-012, FS-005) alkaen MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "Slidery Wachlarzowe, Kapsułki Magnetyczne i Koraliki Begleri Knuckle-Roller: Przewodnik",
+        "summary": "Porównaj slidery wachlarzowe, aluminiowe kapsułki magnetyczne 6063 i begleri ze stali 304 (FS-039, FS-080, FS-012, FS-005) od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "Vějířové Pivot Slidery, Magnetické Kapsle a Korálky Begleri Knuckle-Roller: Průvodce",
+        "summary": "Porovnejte radiální vějířové slidery, hliníkové magnetické kapsle 6063 a nerezové begleri 304 (FS-039, FS-080, FS-012, FS-005) od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "Веерные слайдеры, магнитные капсулы и четки-беглери Knuckle-Roller: Карманные EDC",
+        "summary": "Сравнение радиальных веерных слайдеров, алюминиевых магнитных капсул 6063 и стальных беглери (FS-039, FS-080, FS-012, FS-005) от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "扇型ピボットスライダー・磁気カプセル＆ナックルローラーベグレリ：ポケットEDC形状ガイド",
+        "summary": "扇状に開くファンピボットスライダー、6063アルミ磁気カプセル、304ステンレスベグレリ（FS-039、FS-080、FS-012、FS-005）の人間工学と卸売仕様。"
+    },
+    "ko": {
+        "title": "폴딩 팬 피벗 슬라이더, 마그네틱 캡슐 및 너클 롤러 베글레리 비즈: 포켓 EDC 폼팩터 가이드",
+        "summary": "부채꼴 피벗 슬라이더, 6063 알루미늄 마그네틱 캡슐 및 304 스테인리스 베글레리(FS-039, FS-080, FS-012, FS-005) 비교 및 도매 가이드(MOQ 50개)."
+    },
+    "id": {
+        "title": "Slider Pivot Kipas Lipat, Kapsul Magnetik & Manik Begleri Knuckle-Roller: Panduan EDC Saku",
+        "summary": "Bandingkan slider kipas radial, kapsul magnetik aluminium 6063, dan begleri baja tahan karat 304 (FS-039, FS-080, FS-012, FS-005) mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "سلايدرات المروحة القابلة للطي والكبسولات المغناطيسية وسبحات البيجلري المعدنية: دليل أشكال الجيب",
+        "summary": "قارن بين سلايدرات المروحة المحورية وكبسولات الألمنيوم المغناطيسية 6063 وخرز البيجلري الفولاذي (FS-039، FS-080، FS-012، FS-005) بحد أدنى 50 قطعة."
+    }
+},
+  "retro-gamepad-arcade-piano-pea-pod-biscuit-novelty-metal-fidgets": {
+    "en": {
+        "title": "Retro Gamepad, Arcade Maze, Piano Key & Food-Inspired (Pea Pod, Cookie, Chocolate) Metal Fidgets Guide",
+        "summary": "Discover high-converting novelty metal fidgets: retro gamepads, arcade mazes, piano sliders, pea pods, sandwich cookies, and chocolate bars. MOQ 50 pcs."
+    },
+    "de": {
+        "title": "Retro-Gamepad-, Arcade-Labyrinth-, Klavier- & Food-Metall-Fidgets (Erbsenschote, Keks, Schokolade)",
+        "summary": "Verkaufsstarke Novelty-Metall-Fidgets für Geschenkläden: Gamepads, Labyrinthe, Klaviertasten, Erbsenschoten & Kekse (FS-040, FS-022, FS-027) ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "Fidgets en Métal Manette Rétro, Labyrinthe Arcade, Piano & Gourmandises (Petit Pois, Biscuit, Chocolat)",
+        "summary": "Découvrez nos fidgets métalliques originaux à forte conversion : manettes rétro, pianos, cosses de pois et biscuits (FS-040, FS-022, FS-027) dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "Retro Gamepad, Arcade Doolhof, Piano & Food-Geïnspireerde (Erwt, Koekje, Chocolade) Metalen Fidgets",
+        "summary": "Hoog-converterende novelty metalen fidgets: retro gamepads, doolhoven, pianotoetsen, erwtjes en koekjes (FS-040, FS-022, FS-027) vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "Fidgets Metálicos de Gamepad Retro, Laberinto Arcade, Piano y Alimentos (Guisante, Galleta, Chocolate)",
+        "summary": "Descubra fidgets metálicos originales de alta conversión: mandos retro, pianos, vainas de guisantes y galletas (FS-040, FS-022, FS-027) desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "Fidget in Metallo Gamepad Retro, Labirinto Arcade, Pianoforte e Food (Baccello, Biscotto, Cioccolato)",
+        "summary": "Scopri i fidget metallici novelty ad alta conversione: gamepad retro, pianoforti, baccelli di piselli e biscotti (FS-040, FS-022, FS-027) da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "Fidgets Metálicos de Gamepad Retro, Labirinto Arcade, Piano e Alimentos (Ervilha, Bolacha, Chocolate)",
+        "summary": "Descubra fidgets metálicos criativos de alta conversão: comandos retro, pianos, vagens de ervilha e bolachas (FS-040, FS-022, FS-027) desde MOQ 50 un."
+    },
+    "sv": {
+        "title": "Retro Gamepad, Arkadlabyrint, Piano & Matinspirerade (Ärtskida, Kaka, Choklad) Metall-Fidgets",
+        "summary": "Upptäck storsäljande novelty-metallfidgets: retro-gamepads, labyrinter, pianon, ärtskidor och kakor (FS-040, FS-022, FS-027) från MOQ 50 st."
+    },
+    "da": {
+        "title": "Retro Gamepad, Arkadelabyrint, Klaver & Madinspirerede (Ærteskulpe, Kiks, Chokolade) Metal-Fidgets",
+        "summary": "Oplev storsælgende novelty-metalfidgets: retro-gamepads, labyrinter, klaverer, ærteskulper og kiks (FS-040, FS-022, FS-027) fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "Retro Gamepad, Arkadelabyrint, Piano & Matinspirerte (Erteskulpe, Kjeks, Sjokolade) Metall-Fidgets",
+        "summary": "Oppdag bestselgende novelty-metallfidgets: retro-gamepads, labyrinter, pianoer, erteskulper og kjeks (FS-040, FS-022, FS-027) fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "Retro-peliohjain, Pelilabyrintti, Piano & Ruoka-aiheiset (Herneenpalko, Keksi, Suklaa) Metallifidgetit",
+        "summary": "Tutustu suosittuihin erikoismuotoiltuihin metallifidgetteihin: peliohjaimet, pianot, herneenpalot ja keksit (FS-040, FS-022, FS-027) alkaen MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "Metalowe Fidgety Retro Gamepad, Labirynt Arcade, Pianino i Kształty Spożywcze (Groszek, Ciastko, Czekolada)",
+        "summary": "Odkryj bestsellerowe metalowe fidgety upominkowe: pady retro, pianina, strąki groszku i ciastka (FS-040, FS-022, FS-027) od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "Kovové Fidgety Retro Gamepad, Labyrint, Klavír a Potraviny (Hrášek, Sušenka, Čokoláda)",
+        "summary": "Objevte dárkové kovové fidgety s vysokou konverzí: retro gamepady, klavíry, lusky hrášku a sušenky (FS-040, FS-022, FS-027) od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "Металлические фиджеты в форме ретро-геймпада, лабиринта, пианино и еды (горошек, печенье, шоколад)",
+        "summary": "Подарочные металлические фиджеты с высокой конверсией: геймпады, пианино, стручки гороха и печенье (FS-040, FS-022, FS-027) от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "レトロゲームパッド・迷路・ピアノ鍵盤＆フード型（えんどう豆・クッキー・チョコ）金属フィジェットガイド",
+        "summary": "ギフトショップで高転換率を誇るゲームコントローラー、カメラ、えんどう豆、ビスケット、板チョコ型金属フィジェット（FS-040、FS-022、FS-027）卸売ガイド。"
+    },
+    "ko": {
+        "title": "레트로 게임패드, 아케이드 미로, 피아노 건반 및 푸드 테마(완두콩, 쿠키, 초콜릿) 메탈 피젯 가이드",
+        "summary": "기프트숍 인기 노벨티 메탈 피젯: 레트로 게임패드, 피아노 슬라이더, 완두콩 꼬투리, 샌드위치 쿠키 및 초콜릿 바(FS-040, FS-022, FS-027) 도매 가이드."
+    },
+    "id": {
+        "title": "Fidget Logam Gamepad Retro, Labirin Arkade, Piano & Bentuk Makanan (Polong Kacang, Biskuit, Cokelat)",
+        "summary": "Temukan fidget logam unik berkonversi tinggi: gamepad retro, piano, polong kacang, biskuit, dan cokelat (FS-040, FS-022, FS-027) mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "أدوات الفيدجت المعدنية بتصاميم يد الألعاب الكلاسيكية والبيانو والأطعمة (البازلاء، البسكويت، الشوكولاتة)",
+        "summary": "اكتشف هدايا الفيدجت المعدنية المبتكرة عالية المبيعات: أذرع الألعاب، البيانو، قرون البازلاء، والبسكويت (FS-040، FS-022، FS-027) بحد أدنى 50 قطعة."
+    }
+},
+  "zirconium-zr702-carbon-fiber-abalone-inlay-exotic-metal-edc-fidgets": {
+    "en": {
+        "title": "Exotic Zirconium (Zr702), 3K Carbon Fiber & Natural Abalone Shell Inlay Metal EDC Fidgets Guide",
+        "summary": "Metallurgical guide to flamed Zirconium Zr702, 3K woven carbon fiber, C36000 brass, and natural abalone shell inlay metal fidgets. Wholesale MOQ 50 pcs."
+    },
+    "de": {
+        "title": "Exotisches Zirkonium (Zr702), 3K-Carbonfaser & Abalone-Perlmutt-Inlay Metall-EDC-Fidgets",
+        "summary": "Metallurgischer Leitfaden zu geflammtem Zirkonium Zr702, 3K-Carbonfaser, C36000-Messing und echten Abalone-Inlays (FS-105, FS-038, FS-091) ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "Zirconium Exotique (Zr702), Fibre de Carbone 3K & Incrustation d’Ormeau Naturel : Guide EDC",
+        "summary": "Guide métallurgique du Zirconium Zr702 flammé, fibre de carbone 3K, laiton C36000 et nacre d’ormeau (FS-105, FS-038, FS-091) dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "Exotisch Zirkonium (Zr702), 3K Koolstofvezel & Natuurlijke Abalone Inleg Metalen EDC Fidgets",
+        "summary": "Metallurgische gids voor gevlamd Zirkonium Zr702, 3K carbon, C36000 messing en echte abalone-inleg (FS-105, FS-038, FS-091) vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "Circonio Exótico (Zr702), Fibra de Carbono 3K e Incrustación de Abulón Natural en EDC Metálicos",
+        "summary": "Guía metalúrgica de Circonio Zr702 flameado, fibra de carbono 3K, latón C36000 y nácar de abulón (FS-105, FS-038, FS-091) desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "Zirconio Esotico (Zr702), Fibra di Carbonio 3K e Intarsi in Abalone Naturale: Guida EDC",
+        "summary": "Guida metallurgica a Zirconio Zr702 fiammato, carbonio 3K, ottone C36000 e madreperla abalone (FS-105, FS-038, FS-091) da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "Zircónio Exótico (Zr702), Fibra de Carbono 3K e Incrustação de Abalone Natural: Guia EDC",
+        "summary": "Guia metalúrgico de Zircónio Zr702 flamejado, fibra de carbono 3K, latão C36000 e madrepérola abalone (FS-105, FS-038, FS-091) desde MOQ 50 un."
+    },
+    "sv": {
+        "title": "Exotiskt Zirkonium (Zr702), 3K Kolfiber & Naturlig Abalone-Inläggning Metall-EDC-Guide",
+        "summary": "Metallurgisk guide till flamhärdat Zirkonium Zr702, 3K kolfiber, C36000 mässing och abalone-pärlemor (FS-105, FS-038, FS-091) från MOQ 50 st."
+    },
+    "da": {
+        "title": "Eksotisk Zirkonium (Zr702), 3K Kulfiber & Naturlig Abalone-Indlæg Metal-EDC-Guide",
+        "summary": "Metallurgisk guide til flammehærdet Zirkonium Zr702, 3K kulfiber, C36000 messing og abalone-perlemor (FS-105, FS-038, FS-091) fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "Eksotisk Zirkonium (Zr702), 3K Karbonfiber & Naturlig Abalone-Innlegg Metall-EDC-Guide",
+        "summary": "Metallurgisk guide til flammeherdet Zirkonium Zr702, 3K karbonfiber, C36000 messing og abalone-perlemor (FS-105, FS-038, FS-091) fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "Eksoottinen Zirkonium (Zr702), 3K Hiilikuitu & Luonnon Abalone-Upotus Metallifidgetit",
+        "summary": "Metallurginen opas liekitettyyn Zirkonium Zr702 -seokseen, 3K-hiilikuituun, C36000-messinkiin ja abalone-helmiäiseen (FS-105, FS-038, FS-091) MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "Egzotyczny Cyrkon (Zr702), Włókno Węglowe 3K i Inkrustacje z Muszli Abalone: Przewodnik EDC",
+        "summary": "Przewodnik metalurgiczny po płomieniowanym cyrkonie Zr702, karbonie 3K, mosiądzu C36000 i masie perłowej abalone (FS-105, FS-038, FS-091) od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "Exotické Zirkonium (Zr702), 3K Uhlíkové Vlákno a Intarzie z Mušle Abalone: Průvodce EDC",
+        "summary": "Metalurgický průvodce žíhaným zirkoniem Zr702, 3K karbonem, mosazí C36000 a perletí abalone (FS-105, FS-038, FS-091) od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "Экзотический цирконий (Zr702), карбон 3K и инкрустация перламутром абалона: Гид по EDC",
+        "summary": "Металлургический гид по оксидированному цирконию Zr702, 3K-карбону, латуни C36000 и перламутру (FS-105, FS-038, FS-091) от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "エキゾチックジルコニウム（Zr702）・3Kカーボンファイバー＆天然アワビ貝象嵌金属EDCガイド",
+        "summary": "黒酸化ジルコニウムZr702、オートクレーブ3Kカーボン、C36000真鍮、天然パウア貝インレイ（FS-105、FS-038、FS-091）の冶金仕様と卸売。"
+    },
+    "ko": {
+        "title": "엑조틱 지르코늄(Zr702), 3K 카본 파이버 및 천연 전복 자개 인레이 메탈 EDC 피젯 가이드",
+        "summary": "화염 흑산화 지르코늄 Zr702, 3K 카본 파이버, C36000 황동 및 천연 전복 자개 인레이(FS-105, FS-038, FS-091) 야금학 및 도매 가이드(MOQ 50개)."
+    },
+    "id": {
+        "title": "Zirkonium Eksotis (Zr702), Serat Karbon 3K & Tatahan Kerang Abalone Alami: Panduan EDC",
+        "summary": "Panduan metalurgi Zirkonium Zr702 bakar, serat karbon 3K, kuningan C36000, dan kerang abalone (FS-105, FS-038, FS-091) mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "الزركونيوم النادر (Zr702) وألياف الكربون 3K وتطعيم صدف الأبالون الطبيعي: دليل المعادن الفاخرة",
+        "summary": "دليل هندسي لمعادن الزركونيوم المؤكسد حرارياً وألياف الكربون 3K والنحاس C36000 وصدف الأبالون (FS-105، FS-038، FS-091) بحد أدنى 50 قطعة."
+    }
+},
+  "ultralight-6063-aluminum-vs-heavyweight-brass-stainless-edc-fidget-weight-guide": {
+    "en": {
+        "title": "Ultralight 6063 Anodized Aluminum (<55g) vs. Heavyweight Brass & Stainless (120g–185g) EDC Fidget Weight Guide",
+        "summary": "Compare sub-55g ultralight 6061/6063 anodized aluminum EDC fidgets vs 120g–185g heavyweight brass and stainless steel models. Mass & ergonomics guide."
+    },
+    "de": {
+        "title": "Ultraleichtes 6063-Aluminium (<55g) vs. Schwergewichts-Messing & Edelstahl (120g–185g) EDC-Gewichtsguide",
+        "summary": "Vergleich von ultraleichten 6061/6063-Aluminium-Fidgets (<55g) mit schweren Messing- und Edelstahlmodellen (120g–185g, FS-047 vs. FS-142)."
+    },
+    "fr": {
+        "title": "Aluminium Anodisé 6063 Ultraléger (<55g) vs Laiton & Inox Lourds (120g–185g) : Guide de Poids EDC",
+        "summary": "Comparez les fidgets ultralégers en aluminium 6061/6063 (<55g) aux modèles lourds en laiton et acier inoxydable (120g–185g, FS-047 vs FS-142)."
+    },
+    "nl": {
+        "title": "Ultralicht 6063 Aluminium (<55g) vs. Zwaargewicht Messing & RVS (120g–185g) EDC Gewichtsgids",
+        "summary": "Vergelijk ultralichte 6061/6063 geanodiseerde aluminium fidgets (<55g) met zware messing en RVS modellen (120g–185g, FS-047 vs. FS-142)."
+    },
+    "es": {
+        "title": "Aluminio Anodizado 6063 Ultraligero (<55g) vs. Latón y Acero Pesado (120g–185g): Guía de Peso EDC",
+        "summary": "Compare fidgets ultraligeros de aluminio 6061/6063 (<55g) con modelos pesados de latón y acero inoxidable (120g–185g, FS-047 vs. FS-142)."
+    },
+    "it": {
+        "title": "Alluminio Anodizzato 6063 Ultraleggero (<55g) vs Ottone e Inox Pesanti (120g–185g): Guida al Peso",
+        "summary": "Confronta i fidget ultraleggeri in alluminio 6061/6063 (<55g) con i modelli pesanti in ottone e acciaio inox (120g–185g, FS-047 vs FS-142)."
+    },
+    "pt": {
+        "title": "Alumínio Anodizado 6063 Ultraleve (<55g) vs. Latão e Inox Pesados (120g–185g): Guia de Peso EDC",
+        "summary": "Compare fidgets ultraleves em alumínio 6061/6063 (<55g) com modelos pesados de latão e aço inox (120g–185g, FS-047 vs. FS-142)."
+    },
+    "sv": {
+        "title": "Ultralätt 6063 Anodiserat Aluminium (<55g) vs. Tung Mässing & Rostfritt Stål (120g–185g) Viktguide",
+        "summary": "Jämför ultralätta 6061/6063 aluminium-fidgets (<55g) med tunga mässings- och stålmodeller (120g–185g, FS-047 vs. FS-142)."
+    },
+    "da": {
+        "title": "Ultralet 6063 Anodiseret Aluminium (<55g) vs. Tung Messing & Rustfrit Stål (120g–185g) Vægtguide",
+        "summary": "Sammenlign ultralette 6061/6063 aluminium-fidgets (<55g) med tunge messing- og stålmodeller (120g–185g, FS-047 vs. FS-142)."
+    },
+    "no": {
+        "title": "Ultralett 6063 Anodisert Aluminium (<55g) vs. Tung Messing & Rustfritt Stål (120g–185g) Vektguide",
+        "summary": "Sammenlign ultralette 6061/6063 aluminium-fidgets (<55g) med tunge messing- og stålmodeller (120g–185g, FS-047 vs. FS-142)."
+    },
+    "fi": {
+        "title": "Ultrakevyt 6063 Anodisoitu Alumiini (<55g) vs. Raskas Messinki & Teräs (120g–185g) Paino-opas",
+        "summary": "Vertaa alle 55g kevyitä 6061/6063-alumiinifidgettejä raskaisiin 120g–185g messinki- ja teräsmalleihin (FS-047 vs. FS-142)."
+    },
+    "pl": {
+        "title": "Ultralekkie Aluminium 6063 (<55g) vs. Ciężki Mosiądz i Stal Nierdzewna (120g–185g): Przewodnik Wagowy",
+        "summary": "Porównaj ultralekkie fidgety z aluminium 6061/6063 (<55g) z ciężkimi modelami z mosiądzu i stali 304 (120g–185g, FS-047 vs. FS-142)."
+    },
+    "cs": {
+        "title": "Ultralehký Eloxovaný Hliník 6063 (<55g) vs. Těžká Mosaz a Nerez (120g–185g): Průvodce Hmotností",
+        "summary": "Porovnejte ultralehké hliníkové fidgety 6061/6063 (<55g) s těžkými mosaznými a nerezovými modely (120g–185g, FS-047 vs. FS-142)."
+    },
+    "ru": {
+        "title": "Ультралегкий анодированный алюминий 6063 (<55 г) против тяжелой латуни и стали (120–185 г): Гид по весу",
+        "summary": "Сравнение легких карманных фиджетов из алюминия 6061/6063 (<55 г) и тяжелых моделей из латуни и стали (120–185 г, FS-047 против FS-142)."
+    },
+    "ja": {
+        "title": "超軽量6063陽極酸化アルミ（55g未満）vs 重量級真鍮・ステンレス（120g〜185g）：EDC重量設計ガイド",
+        "summary": "ポケット携帯に最適な55g未満の6061/6063アルミモデル（FS-047、FS-097）と、重厚な120g〜185gの真鍮・ステンレスモデル（FS-142、FS-071）を徹底比較。"
+    },
+    "ko": {
+        "title": "초경량 6063 아노다이징 알루미늄(<55g) vs 헤비급 황동 및 스테인리스(120g–185g) EDC 피젯 무게 가이드",
+        "summary": "55g 미만 초경량 6061/6063 알루미늄 피젯과 120g–185g 중량급 황동/스테인리스 모델(FS-047 vs FS-142)의 밀도 및 인체공학 비교."
+    },
+    "id": {
+        "title": "Aluminium Anodisa 6063 Ultra-Ringan (<55g) vs. Kuningan & Baja Berat (120g–185g): Panduan Berat EDC",
+        "summary": "Bandingkan fidget aluminium 6061/6063 ultra-ringan (<55g) dengan model kuningan dan baja tahan karat berat (120g–185g, FS-047 vs FS-142)."
+    },
+    "ar": {
+        "title": "مقارنة وزن أدوات الفيدجت: ألمنيوم 6063 فائق الخفة (أقل من 55 جم) مقابل النحاس والفولاذ الثقيل (120–185 جم)",
+        "summary": "قارن بين موديلات الألمنيوم المؤكسد الخفيفة للجيب (FS-047، FS-097) والموديلات الثقيلة من النحاس والفولاذ المقاوم للصدأ (FS-142، FS-071)."
+    }
+},
+  "adult-adhd-focus-sensory-regulation-heavy-metal-fidget-selection-guide": {
+    "en": {
+        "title": "Adult ADHD Focus, Anxiety Relief & Proprioceptive Sensory Regulation: Heavy Metal Fidget Selection Guide",
+        "summary": "Science-backed guide to selecting heavy proprioceptive metal fidgets for adult ADHD focus, executive dysfunction, and anxiety relief vs plastic toys."
+    },
+    "de": {
+        "title": "ADHS-Fokus für Erwachsene, Stressabbau & Propriozeptive Sensorik: Schwere Metall-Fidgets im Vergleich",
+        "summary": "Wissenschaftlich fundierter Auswahl-Leitfaden für schwere Metall-Fidgets (80g–150g) bei ADHS im Erwachsenenalter und Büro-Fokus (FS-145, FS-099, FS-125)."
+    },
+    "fr": {
+        "title": "Concentration TDAH Adulte, Anxiété & Régulation Sensorielle Proprioceptive : Guide des Fidgets Métal",
+        "summary": "Guide scientifique pour choisir des fidgets métalliques lourds (80g–150g) favorisant la concentration TDAH adulte et le calme au bureau (FS-145, FS-099, FS-125)."
+    },
+    "nl": {
+        "title": "ADHD-Focus voor Volwassenen, Stressverlichting & Proprioceptieve Sensoriek: Zware Metalen Fidgets",
+        "summary": "Wetenschappelijke keuzegids voor zware proprioceptieve metalen fidgets (80g–150g) voor ADHD-focus en rust op kantoor (FS-145, FS-099, FS-125)."
+    },
+    "es": {
+        "title": "Enfoque TDAH en Adultos, Alivio de Ansiedad y Regulación Propioceptiva: Guía de Fidgets de Metal Pesado",
+        "summary": "Guía respaldada por la ciencia para elegir fidgets metálicos pesados (80g–150g) para concentración TDAH en adultos y enfoque laboral (FS-145, FS-099, FS-125)."
+    },
+    "it": {
+        "title": "Focus ADHD Adulti, Sollievo dall’Ansia e Regolazione Propriocettiva: Guida ai Fidget in Metallo Pesante",
+        "summary": "Guida scientifica alla scelta di fidget in metallo pesante (80g–150g) per concentrazione ADHD negli adulti e lavoro d’ufficio (FS-145, FS-099, FS-125)."
+    },
+    "pt": {
+        "title": "Foco TDAH em Adultos, Alívio da Ansiedade e Regulação Propriocetiva: Guia de Fidgets de Metal Pesado",
+        "summary": "Guia científico para selecionar fidgets metálicos pesados (80g–150g) para foco TDAH em adultos e regulação sensorial (FS-145, FS-099, FS-125)."
+    },
+    "sv": {
+        "title": "ADHD-Fokus för Vuxna, Ångestlindring & Proprioceptiv Sensorisk Reglering: Tung Metall-Fidget-Guide",
+        "summary": "Vetenskapligt baserad guide för att välja tunga proprioceptiva metallfidgets (80g–150g) för vuxna med ADHD och kontorsfokus (FS-145, FS-099, FS-125)."
+    },
+    "da": {
+        "title": "ADHD-Fokus for Voksne, Angstlindring & Proprioceptiv Sensorisk Regulering: Tung Metal-Fidget-Guide",
+        "summary": "Videnskabeligt baseret guide til valg af tunge proprioceptive metalfidgets (80g–150g) til voksne med ADHD og kontorfokus (FS-145, FS-099, FS-125)."
+    },
+    "no": {
+        "title": "ADHD-Fokus for Voksne, Angstlindring & Proprioseptiv Sensorisk Regulering: Tung Metall-Fidget-Guide",
+        "summary": "Vitenskapelig basert guide for valg av tunge proprioseptive metallfidgets (80g–150g) for voksne med ADHD og kontorfokus (FS-145, FS-099, FS-125)."
+    },
+    "fi": {
+        "title": "Aikuisten ADHD-Keskittyminen, Ahdistuksen Lievitys & Proprioseptiivinen Aistisäätely: Metallifidget-Opas",
+        "summary": "Tieteeseen pohjautuva opas raskaiden (80g–150g) metallifidgettien valintaan aikuisten ADHD-keskittymiseen ja toimistotyöhön (FS-145, FS-099, FS-125)."
+    },
+    "pl": {
+        "title": "Koncentracja ADHD u Dorosłych, Redukcja Stresu i Regulacja Proprioceptywna: Ciężkie Metalowe Fidgety",
+        "summary": "Przewodnik wyboru ciężkich metalowych fidgetów (80g–150g) wspomagających koncentrację ADHD u dorosłych i cichą pracę biurową (FS-145, FS-099, FS-125)."
+    },
+    "cs": {
+        "title": "Soustředění ADHD u Dospělých, Úleva od Úzkosti a Proprioceptivní Regulace: Těžké Kovové Fidgety",
+        "summary": "Průvodce výběrem těžkých kovových fidgetů (80g–150g) pro podporu soustředění dospělých s ADHD a tichou práci (FS-145, FS-099, FS-125)."
+    },
+    "ru": {
+        "title": "Концентрация при СДВГ у взрослых, снятие тревожности и проприоцептивная регуляция: Тяжелые фиджеты",
+        "summary": "Научно обоснованный гид по выбору тяжелых металлических фиджетов (80–150 г) для концентрации внимания и тихой работы (FS-145, FS-099, FS-125)."
+    },
+    "ja": {
+        "title": "大人のADHD集中力・不安緩和＆深部感覚（固有受容覚）調整：重厚金属フィジェット選定ガイド",
+        "summary": "12gのプラスチック玩具では得られない80g〜150gの金属重量フィードバックと42dBA以下の静音設計（FS-145、FS-099、FS-125）による集中力向上ガイド。"
+    },
+    "ko": {
+        "title": "성인 ADHD 집중력, 불안 완화 및 고유수용성 감각 조절: 헤비 메탈 피젯 선택 가이드",
+        "summary": "플라스틱 장난감과 차별화되는 80g–150g 묵직한 메탈 피젯의 심부 압박 감각 피드백과 42dBA 이하 저소음 오피스 모델(FS-145, FS-099, FS-125) 가이드."
+    },
+    "id": {
+        "title": "Fokus ADHD Dewasa, Pereda Cemas & Regulasi Sensorik Proprioseptif: Panduan Fidget Logam Berat",
+        "summary": "Panduan berbasis sains memilih fidget logam berat (80g–150g) untuk fokus ADHD dewasa dan ketenangan kerja dibandingkan mainan plastik (FS-145, FS-099, FS-125)."
+    },
+    "ar": {
+        "title": "التركيز لفرط الحركة وتشتت الانتباه لدى البالغين (ADHD) وتخفيف التوتر: دليل اختيار الفيدجت المعدني الثقيل",
+        "summary": "دليل علمي لاختيار أدوات الفيدجت المعدنية الثقيلة (80–150 جم) لتحفيز الإحساس العميق والتركيز الهادئ أثناء العمل (FS-145، FS-099، FS-125)."
+    }
+},
+  "automotive-wheel-rim-casino-vip-esports-merch-custom-metal-fidget-guide": {
+    "en": {
+        "title": "Automotive Wheel Rim, Casino VIP & Esports Gaming Merch: Industry-Specific Custom Metal Fidget Playbook",
+        "summary": "Source industry-themed custom metal fidgets for automotive wheel/tire brands, casino VIP lounges, and esports gaming merch. Zero tooling fees, MOQ 50 pcs."
+    },
+    "de": {
+        "title": "Autofelgen-, Casino-VIP- & Esports-Gaming-Merch: Branchenspezifische Custom-Metall-Fidgets",
+        "summary": "Maßgeschneiderte Metall-Fidgets für Reifen-/Felgenmarken (FS-030, FS-069), Casino-VIP-Lounges (FS-083) und Esports-Teams (FS-020, FS-040) ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "Jantes Auto, Cadeaux VIP Casino & Merch Esports : Guide des Fidgets Métalliques Personnalisés par Secteur",
+        "summary": "Fidgets métalliques sur mesure pour marques auto/pneus (FS-030, FS-069), salons VIP de casinos (FS-083) et équipes esports (FS-020, FS-040) dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "Autovelg-, Casino VIP- & Esports Gaming-Merch: Branchespecifieke Custom Metalen Fidgets",
+        "summary": "Custom metalen fidgets voor auto-/bandenmerken (FS-030, FS-069), casino VIP-lounges (FS-083) en esports-teams (FS-020, FS-040) vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "Llantas Automotrices, Regalos VIP de Casino y Merch de Esports: Fidgets Metálicos por Industria",
+        "summary": "Fidgets metálicos personalizados para marcas de neumáticos/llantas (FS-030, FS-069), casinos VIP (FS-083) y equipos de esports (FS-020, FS-040) desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "Cerchi Auto, Regali VIP Casinò e Merchandising Esports: Guida ai Fidget Metallici Personalizzati",
+        "summary": "Fidget in metallo personalizzati per brand automotive/pneumatici (FS-030, FS-069), casinò VIP (FS-083) e team esports (FS-020, FS-040) da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "Jantes Automóveis, Brindes VIP de Casino e Merch Esports: Fidgets Metálicos Personalizados",
+        "summary": "Fidgets metálicos para marcas de pneus/jantes (FS-030, FS-069), salas VIP de casinos (FS-083) e equipas de esports (FS-020, FS-040) desde MOQ 50 un."
+    },
+    "sv": {
+        "title": "Bilfälgar, Casino-VIP & Esports-Merch: Branschspecifika Specialanpassade Metall-Fidgets",
+        "summary": "Specialanpassade metallfidgets för däck-/fälgmärken (FS-030, FS-069), casino-VIP (FS-083) och esportlag (FS-020, FS-040) med 0 kr verktygskostnad från MOQ 50 st."
+    },
+    "da": {
+        "title": "Bilfælge, Casino-VIP & Esports-Merch: Branchespecifikke Specialtilpassede Metal-Fidgets",
+        "summary": "Specialtilpassede metalfidgets til dæk-/fælgmærker (FS-030, FS-069), casino-VIP (FS-083) og esportshold (FS-020, FS-040) med $0 værktøjsgebyr fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "Bilfelger, Casino-VIP & Esports-Merch: Bransjespesifikke Spesialtilpassede Metall-Fidgets",
+        "summary": "Spesialtilpassede metallfidgets for dekk-/felgmerker (FS-030, FS-069), casino-VIP (FS-083) og esportslag (FS-020, FS-040) med $0 verktøygebyr fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "Autovanteet, Kasino-VIP & Esports-Oheistuotteet: Toimialakohtaiset Kustomoidut Metallifidgetit",
+        "summary": "Valmiit muotit rengas-/vannemerkeille (FS-030, FS-069), kasinoiden VIP-lahjoihin (FS-083) ja esports-tiimeille (FS-020, FS-040) ilman muottimaksua alkaen MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "Felgi Samochodowe, Prezenty VIP dla Kasyn i Merch Esportowy: Branżowe Metalowe Fidgety z Logo",
+        "summary": "Metalowe fidgety dla marek motoryzacyjnych (FS-030, FS-069), kasyn VIP (FS-083) i drużyn esportowych (FS-020, FS-040) bez kosztów matryc od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "Automobilové Disky, VIP Dárky pro Kasina a Esport Merch: Oborové Kovové Fidgety s Logem",
+        "summary": "Hotové formy pro automobilové a pneu značky (FS-030, FS-069), kasina (FS-083) a esport týmy (FS-020, FS-040) s nulovým poplatkem za formu od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "Автомобильные диски, VIP-подарки для казино и мерч киберспорта: Отраслевые металлические фиджеты",
+        "summary": "Готовые пресс-формы для шинных и автобрендов (FS-030, FS-069), VIP-залов казино (FS-083) и киберспорта (FS-020, FS-040) без оплаты оснастки от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "自動車ホイール＆タイヤ・カジノVIP・eスポーツ公式グッズ：業界別カスタム金属フィジェット企画ガイド",
+        "summary": "ホイール型コイン（FS-030）、タイヤトレッドリング（FS-069）、ルーレット（FS-083）、トロフィー（FS-020）など金型代0円で10日納品可能な業界別OEMガイド。"
+    },
+    "ko": {
+        "title": "자동차 휠·타이어, 카지노 VIP 및 e스포츠 게임 굿즈: 산업별 맞춤형 메탈 피젯 제작 플레이북",
+        "summary": "자동차 휠 코인(FS-030), 타이어 트레드 링(FS-069), 카지노 룰렛(FS-083), 트로피(FS-020) 등 금형비 $0로 제작하는 산업별 맞춤 굿즈 가이드(MOQ 50개)."
+    },
+    "id": {
+        "title": "Velg Otomotif, VIP Kasino & Merchandise Esports: Panduan Kustom Fidget Logam Spesifik Industri",
+        "summary": "Cetakan siap pakai untuk merek ban/velg otomotif (FS-030, FS-069), VIP kasino (FS-083), dan tim esports (FS-020, FS-040) dengan biaya cetakan $0 mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "جنوط السيارات وهدايا كبار الشخصيات في الكازينو والرياضات الإلكترونية: دليل تخصيص الفيدجت المعدني",
+        "summary": "قوالب جاهزة بدون رسوم قوالب لعلامات السيارات والإطارات (FS-030، FS-069) وصالات الكازينو (FS-083) وفرق الألعاب الإلكترونية (FS-020، FS-040) من 50 قطعة."
+    }
+},
+  "tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide": {
+    "en": {
+        "title": "TikTok Shop ASMR Viral Hooks, Amazon FBA & Shopify Metal Fidget Reseller Margin Playbook (2026–2027)",
+        "summary": "E-commerce reseller guide to sourcing high-margin ($3.20–$7.50) metal fidget sliders for TikTok Shop ASMR videos, Amazon FBA, and Shopify private label."
+    },
+    "de": {
+        "title": "TikTok Shop ASMR-Hooks, Amazon FBA & Shopify Metall-Fidget-Händler-Margen-Playbook (2026–2027)",
+        "summary": "E-Commerce-Leitfaden für den Einkauf margenstarker Metall-Fidgets ($3,20–$7,50 ab Werk) für TikTok Shop ASMR-Videos, Amazon FBA und Shopify ab MOQ 50 Stk."
+    },
+    "fr": {
+        "title": "TikTok Shop ASMR, Amazon FBA & Shopify : Guide des Marges Revendeur Fidgets en Métal (2026–2027)",
+        "summary": "Guide e-commerce pour sourcer des sliders métalliques à forte marge (3,20 $–7,50 $ départ usine) pour vidéos ASMR TikTok Shop, Amazon FBA et Shopify dès MOQ 50 pcs."
+    },
+    "nl": {
+        "title": "TikTok Shop ASMR-Hooks, Amazon FBA & Shopify Metalen Fidget Reseller Marge-Playbook (2026–2027)",
+        "summary": "E-commerce gids voor de inkoop van hoge-marge metalen fidgets ($3,20–$7,50 af-fabriek) voor TikTok Shop ASMR-video’s, Amazon FBA en Shopify vanaf MOQ 50 stuks."
+    },
+    "es": {
+        "title": "TikTok Shop ASMR, Amazon FBA y Shopify: Guía de Márgenes para Revendedores de Fidgets Metálicos",
+        "summary": "Guía de comercio electrónico para importar sliders metálicos de alto margen ($3.20–$7.50 USD) para videos ASMR en TikTok Shop, Amazon FBA y Shopify desde MOQ 50 uds."
+    },
+    "it": {
+        "title": "TikTok Shop ASMR, Amazon FBA e Shopify: Guida ai Margini per Rivenditori di Fidget in Metallo",
+        "summary": "Guida e-commerce per acquistare fidget metallici ad alto margine ($3,20–$7,50 franco fabbrica) per video ASMR su TikTok Shop, Amazon FBA e Shopify da MOQ 50 pz."
+    },
+    "pt": {
+        "title": "TikTok Shop ASMR, Amazon FBA e Shopify: Guia de Margens para Revendedores de Fidgets Metálicos",
+        "summary": "Guia de e-commerce para importar sliders metálicos de alta margem ($3,20–$7,50 fábrica) para vídeos ASMR no TikTok Shop, Amazon FBA e Shopify desde MOQ 50 un."
+    },
+    "sv": {
+        "title": "TikTok Shop ASMR, Amazon FBA & Shopify Metall-Fidget Återförsäljarguide & Marginalkalkyl (2026–2027)",
+        "summary": "E-handelsguide för inköp av högmarginal-metallfidgets ($3,20–$7,50 från fabrik) för TikTok Shop ASMR-klipp, Amazon FBA och Shopify från MOQ 50 st."
+    },
+    "da": {
+        "title": "TikTok Shop ASMR, Amazon FBA & Shopify Metal-Fidget Forhandlerguide & Avancekalkule (2026–2027)",
+        "summary": "E-handelsguide til indkøb af højavance-metalfidgets ($3,20–$7,50 ab fabrik) til TikTok Shop ASMR-videoer, Amazon FBA og Shopify fra MOQ 50 stk."
+    },
+    "no": {
+        "title": "TikTok Shop ASMR, Amazon FBA & Shopify Metall-Fidget Forhandlerguide & Marginanalyse (2026–2027)",
+        "summary": "Netthandelsguide for innkjøp av høymargin-metallfidgets ($3,20–$7,50 fra fabrikk) for TikTok Shop ASMR-videoer, Amazon FBA og Shopify fra MOQ 50 stk."
+    },
+    "fi": {
+        "title": "TikTok Shop ASMR, Amazon FBA & Shopify Metallifidget-Jälleenmyyjän Kateopas (2026–2027)",
+        "summary": "Verkkokauppiaan opas korkeakatteisten ($3,20–$7,50) metallifidgettien hankintaan TikTok Shop ASMR -videoihin, Amazon FBA:han ja Shopifyhin alkaen MOQ 50 kpl."
+    },
+    "pl": {
+        "title": "TikTok Shop ASMR, Amazon FBA i Shopify: Przewodnik Marżowy dla Sprzedawców Metalowych Fidgetów",
+        "summary": "Przewodnik e-commerce po zakupie wysokomarżowych fidgetów ($3,20–$7,50 z fabryki) pod filmy ASMR na TikTok Shop, Amazon FBA i własną markę od MOQ 50 szt."
+    },
+    "cs": {
+        "title": "TikTok Shop ASMR, Amazon FBA a Shopify: Průvodce Maržemi pro Prodejce Kovových Fidgetů",
+        "summary": "E-commerce průvodce nákupem vysokomaržových kovových fidgetů ($3,20–$7,50 z výroby) pro ASMR videa na TikTok Shopu, Amazon FBA a Shopify od MOQ 50 ks."
+    },
+    "ru": {
+        "title": "TikTok Shop ASMR, Amazon FBA и Shopify: Гид по маржинальности металлических фиджетов для селлеров",
+        "summary": "Руководство для e-commerce по закупке высокомаржинальных фиджетов ($3,20–$7,50 с фабрики) для ASMR-роликов TikTok Shop, Amazon FBA и Shopify от MOQ 50 шт."
+    },
+    "ja": {
+        "title": "TikTok Shop ASMR動画・Amazon FBA＆Shopify金属フィジェット販売利益率プレイブック（2026–2027）",
+        "summary": "工場直販価格（$3.20〜$7.50）で仕入れ、小売$29.99〜$69.99（粗利率68%〜82%）を実現するASMR音響モデル選定と無料FNSKU貼付ガイド。"
+    },
+    "ko": {
+        "title": "틱톡 샵(TikTok Shop) ASMR 바이럴, 아마존 FBA 및 쇼피파이 메탈 피젯 셀러 마진 플레이북(2026–2027)",
+        "summary": "공장 직영 도매가($3.20–$7.50)로 소싱하여 68%–82% 마진을 달성하는 틱톡 ASMR 인기 모델(FS-150, FS-124, FS-001) 및 아마존 FNSKU 무료 라벨링 가이드."
+    },
+    "id": {
+        "title": "Viral ASMR TikTok Shop, Amazon FBA & Shopify: Panduan Margin Reseller Fidget Logam (2026–2027)",
+        "summary": "Panduan reseller e-commerce memasok fidget logam margin tinggi ($3,20–$7,50 pabrik) untuk video ASMR TikTok Shop, Amazon FBA, dan merek pribadi mulai MOQ 50 pcs."
+    },
+    "ar": {
+        "title": "دليل أرباح بائعي متاجر TikTok Shop ASMR و Amazon FBA و Shopify لأدوات الفيدجت المعدنية (2026–2027)",
+        "summary": "دليل التجارة الإلكترونية لاستيراد سلايدرات الفيدجت المعدنية عالية الهامش (3.20–7.50 دولار من المصنع) لمقاطع ASMR ومستودعات Amazon FBA بحد أدنى 50 قطعة."
+    }
+}
 };
 
 export function localizeInsightMeta(guideData: any, lang: SupportedLanguage) {
