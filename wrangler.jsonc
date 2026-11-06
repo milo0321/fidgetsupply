@@ -6,7 +6,8 @@
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
     "NOTIFICATION_EMAIL": "sales@fidgetsupply.com",
-    "RESEND_FROM_EMAIL": "FidgetSupply Inquiries <noreply@fidgetsupply.com>"
+    "RESEND_FROM_EMAIL": "FidgetSupply Inquiries <noreply@fidgetsupply.com>",
+    "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAF1GTaPVmYSNUcHS"
   },
   "assets": {
     "directory": "./dist",

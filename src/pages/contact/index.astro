@@ -10,7 +10,7 @@ const turnstileSiteKey = (
   import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ||
   import.meta.env.TURNSTILE_SITE_KEY ||
   (typeof process !== 'undefined' ? process.env?.PUBLIC_TURNSTILE_SITE_KEY || process.env?.TURNSTILE_SITE_KEY : '') ||
-  ''
+  '0x4AAAAAAF1GTaPVmYSNUcHS'
 ).trim();
 
 const waNumber = '+86 187 5012 6315';
@@ -347,6 +347,7 @@ const faqSchema = {
                   <div
                     class="cf-turnstile"
                     data-sitekey={turnstileSiteKey}
+                    data-action="contact"
                     data-theme="light"
                     data-callback="onTurnstileSuccess"
                     data-expired-callback="onTurnstileExpired"
@@ -850,6 +851,10 @@ const faqSchema = {
           if (submitProgressContainer) submitProgressContainer.classList.add('hidden');
           submitBtn.disabled = false;
           submitBtn.innerHTML = defaultBtnText;
+          turnstileToken = null;
+          if (window.turnstile && typeof window.turnstile.reset === 'function') {
+            try { window.turnstile.reset(); } catch (_) {}
+          }
           if (statusMsg) {
             statusMsg.textContent = resData.error || resData.message || '⚠️ Submission error. Please try again or send via WhatsApp.';
             statusMsg.classList.remove('hidden');

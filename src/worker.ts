@@ -6,6 +6,7 @@ export interface Env {
   NOTIFICATION_EMAIL?: string;
   RESEND_FROM_EMAIL?: string;
   TURNSTILE_SECRET_KEY?: string;
+  TURNSTILE_SECRET?: string;
   PUBLIC_TURNSTILE_SITE_KEY?: string;
   TURNSTILE_SITE_KEY?: string;
 }
@@ -66,7 +67,7 @@ export default {
           JSON.stringify({
             status: 'ok',
             service: 'FidgetSupply Contact API',
-            turnstileSiteKey: env.PUBLIC_TURNSTILE_SITE_KEY || env.TURNSTILE_SITE_KEY || ''
+            turnstileSiteKey: env.PUBLIC_TURNSTILE_SITE_KEY || env.TURNSTILE_SITE_KEY || '0x4AAAAAAF1GTaPVmYSNUcHS'
           }),
           {
             status: 200,

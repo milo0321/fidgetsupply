@@ -230,19 +230,30 @@ export async function onRequestPost(context) {
     const locationParts = [cfCity, cfRegion, cfPostal, cfCountry !== 'GL' ? cfCountry : ''].filter(Boolean);
     const verifiedLocation = locationParts.length > 0 ? locationParts.join(', ') : cfCountry;
 
-    // Cloudflare Turnstile verification
-    const secretKey = env.TURNSTILE_SECRET_KEY;
-    if (secretKey && turnstileToken) {
+    // Cloudflare Turnstile verification (supports both TURNSTILE_SECRET_KEY and TURNSTILE_SECRET)
+    const secretKey = env.TURNSTILE_SECRET_KEY || env.TURNSTILE_SECRET;
+    if (secretKey) {
+      if (!turnstileToken || typeof turnstileToken !== 'string' || turnstileToken.length > 2048) {
+        return new Response(
+          JSON.stringify({
+            success: false,
+            error: 'Please complete the security verification check and try again.'
+          }),
+          { status: 403, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
+        );
+      }
       try {
-        const verifyFormData = new FormData();
-        verifyFormData.append('secret', secretKey);
-        verifyFormData.append('response', turnstileToken);
+        const bodyParams = new URLSearchParams({
+          secret: secretKey,
+          response: turnstileToken
+        });
         if (clientIp && clientIp !== '127.0.0.1') {
-          verifyFormData.append('remoteip', clientIp);
+          bodyParams.set('remoteip', clientIp);
         }
         const verifyRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
           method: 'POST',
-          body: verifyFormData
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: bodyParams
         });
         const verifyOutcome = await verifyRes.json();
         if (!verifyOutcome.success) {
