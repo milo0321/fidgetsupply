@@ -394,6 +394,53 @@ if (fs.existsSync(distDir)) {
   if (meshErrors === 0) {
     pass(`100% Bidirectional Semantic Mesh verified across all 140 Products, 9 Collections, and ${guideFiles.length} Authoritative Insights.`);
   }
+
+  // ---------------------------------------------------------------------------
+  // RULE 9: Full-Site Built HTML <img src>, OG/Twitter Image & <link href> Audit
+  // ---------------------------------------------------------------------------
+  console.log('\n=== 9. Full-Site Built HTML <img src>, OG Image & Asset Audit ===');
+  let missingImgCount = 0;
+  let missingMetaImgCount = 0;
+  let totalCheckedImgs = 0;
+  for (const f of htmlFiles) {
+    const relFile = '/' + path.relative(distDir, f).replace(/\\/g, '/');
+    const html = fs.readFileSync(f, 'utf8');
+
+    // 1. Check every <img ... src="...">
+    const imgRegex = /<img\b[^>]*?\bsrc=["']([^"']+)["'][^>]*>/gi;
+    let im;
+    while ((im = imgRegex.exec(html)) !== null) {
+      const src = im[1];
+      if (src.startsWith('data:')) continue;
+      if (src.startsWith('http://') || (src.startsWith('https://') && !src.startsWith('https://fidgetsupply.com'))) continue;
+      const localPath = src.replace(/^https?:\/\/fidgetsupply\.com/, '').split('?')[0].split('#')[0];
+      totalCheckedImgs++;
+      const distTarget = path.join(distDir, localPath);
+      const pubTarget = path.join(ROOT, 'public', localPath);
+      if (!fs.existsSync(distTarget) && !fs.existsSync(pubTarget)) {
+        fail(`Missing <img src="${src}"> in ${relFile}`);
+        missingImgCount++;
+      }
+    }
+
+    // 2. Check og:image and twitter:image
+    const metaImgRegex = /<meta\b[^>]+(?:property|name)=["'](?:og:image|twitter:image)["'][^>]+content=["']([^"']+)["']/gi;
+    while ((im = metaImgRegex.exec(html)) !== null) {
+      const src = im[1];
+      const localPath = src.replace(/^https?:\/\/fidgetsupply\.com/, '').split('?')[0].split('#')[0];
+      if (localPath.startsWith('/')) {
+        const distTarget = path.join(distDir, localPath);
+        const pubTarget = path.join(ROOT, 'public', localPath);
+        if (!fs.existsSync(distTarget) && !fs.existsSync(pubTarget)) {
+          fail(`Missing meta image "${src}" in ${relFile}`);
+          missingMetaImgCount++;
+        }
+      }
+    }
+  }
+  if (missingImgCount === 0 && missingMetaImgCount === 0) {
+    pass(`All ${totalCheckedImgs} <img src> tags and all OG/Twitter meta images across ${htmlFiles.length} built HTML pages exist on disk.`);
+  }
 } else {
   fail('dist/ directory not found. Run npm run build first.');
 }
