@@ -9,7 +9,7 @@
   },
   "vars": {
     "NOTIFICATION_EMAIL": "sales@fidgetsupply.com",
-    "RESEND_FROM_EMAIL": "FidgetSupply Inquiries <noreply@fidgetsupply.com>",
+    "RESEND_FROM_EMAIL": "FidgetSupply Inquiries <quotes@send.fidgetsupply.com>",
     "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAF1GTaPVmYSNUcHS"
   },
   "assets": {

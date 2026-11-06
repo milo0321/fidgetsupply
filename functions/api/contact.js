@@ -412,7 +412,7 @@ ${quotedDetails}`;
       `;
 
       const resendPayload = {
-        from: env.RESEND_FROM_EMAIL || 'FidgetSupply Inquiries <noreply@fidgetsupply.com>',
+        from: env.RESEND_FROM_EMAIL || 'FidgetSupply Inquiries <quotes@send.fidgetsupply.com>',
         to: [env.NOTIFICATION_EMAIL || 'sales@fidgetsupply.com'],
         reply_to: cleanCustomerEmail,
         subject: prominentSubject,
