@@ -144,17 +144,17 @@ const locCol = localizeCollectionContent(collection, currentLang);
 const itemListSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: `${collection.name} | FidgetSupply.com`,
-  description: collection.heroSubtitle,
-  url: `https://fidgetsupply.com/collections/${collection.slug}`,
+  name: `${t(`col.${collection.slug}.name` as any)} | FidgetSupply.com`,
+  description: locCol.heroSubtitle,
+  url: `https://fidgetsupply.com${getLocalizedPath(`/collections/${collection.slug}`, currentLang)}`,
   mainEntity: {
     '@type': 'ItemList',
     numberOfItems: products.length,
     itemListElement: products.map((p, idx) => ({
       '@type': 'ListItem',
       position: idx + 1,
-      url: `https://fidgetsupply.com/products/${p.data.slug}`,
-      name: `${p.data.skuDisplay} ${p.data.title}`
+      url: `https://fidgetsupply.com${getLocalizedPath(`/products/${p.data.slug}`, currentLang)}`,
+      name: `${p.data.skuDisplay} ${localizeTitle(p.data.title, currentLang)}`
     }))
   }
 };
@@ -168,13 +168,31 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
   }))
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
+    { '@type': 'ListItem', position: 2, name: t('breadcrumb.allCatalog'), item: `https://fidgetsupply.com${getLocalizedPath('/products', currentLang)}` },
+    { '@type': 'ListItem', position: 3, name: t(`col.${collection.slug}.name` as any), item: `https://fidgetsupply.com${getLocalizedPath(`/collections/${collection.slug}`, currentLang)}` }
+  ]
+};
+
+const cleanShortName = collection.shortName.replace(/^[^\w]+/, '').trim();
+const rawEnTitle = `${collection.name} (${products.length} Molds) | FidgetSupply`;
+const medEnTitle = `${collection.name} | FidgetSupply`;
+const shortEnTitle = `${cleanShortName} Wholesale | FidgetSupply`;
+const enTitle = rawEnTitle.length <= 60 ? rawEnTitle : medEnTitle.length <= 60 ? medEnTitle : shortEnTitle;
+const enDesc = `${cleanShortName}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom fiber laser & color-fill branding.`;
 ---
 
 <Layout
-  title={currentLang === 'en' ? `${collection.name} (${products.length} Ready Molds) | FidgetSupply` : `${t(`col.${collection.slug}.name` as any)} (${products.length} ${t('nav.modelsCount')}) | FidgetSupply`}
-  description={currentLang === 'en' ? `${collection.name}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom laser/UV logo branding.` : locCol.heroSubtitle}
+  title={currentLang === 'en' ? enTitle : `${t(`col.${collection.slug}.name` as any)} (${products.length} ${t('nav.modelsCount')}) | FidgetSupply`}
+  description={currentLang === 'en' ? enDesc : locCol.heroSubtitle}
   keywords={collection.targetKeywords}
-  jsonLd={[itemListSchema, faqSchema]}
+  ogImage={products[0]?.data.featuredImage}
+  jsonLd={[itemListSchema, faqSchema, breadcrumbSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">

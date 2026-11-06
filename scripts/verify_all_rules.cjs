@@ -523,18 +523,44 @@ if (fs.existsSync(distDir)) {
   }
 
   // ---------------------------------------------------------------------------
-  // RULE 10: Built HTML SEO & GEO Structured Data Audit (Products & Insights x 18 Languages)
+  // RULE 10: Built HTML SEO & GEO Structured Data Audit (Products, Collections, Insights & Static x 18 Languages)
   // ---------------------------------------------------------------------------
   console.log('\n=== 10. Built HTML SEO & GEO Structured Data Audit ===');
   let seoGeoErrors = 0;
   let checkedProdInsightPages = 0;
+  function decodeHtmlEntities(s) {
+    return s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+  }
   for (const f of htmlFiles) {
     const relFile = '/' + path.relative(distDir, f).replace(/\\/g, '/');
+    const firstSeg = relFile.split('/').filter(Boolean)[0] || '';
+    const isEnPage = !nonEnLangs.includes(firstSeg);
+    const html = fs.readFileSync(f, 'utf8');
+
+    if (isEnPage) {
+      const tm = html.match(/<title>([^<]+)<\/title>/);
+      const dm = html.match(/<meta name="description" content="([^"]+)"/);
+      if (tm) {
+        const decodedTitle = decodeHtmlEntities(tm[1]);
+        if (decodedTitle.length > 60) {
+          fail(`English page ${relFile} <title> exceeds 60 chars (${decodedTitle.length}): "${decodedTitle}"`);
+          seoGeoErrors++;
+        }
+      }
+      if (dm) {
+        const decodedDesc = decodeHtmlEntities(dm[1]);
+        if (decodedDesc.length > 160) {
+          fail(`English page ${relFile} <meta name="description"> exceeds 160 chars (${decodedDesc.length}): "${decodedDesc}"`);
+          seoGeoErrors++;
+        }
+      }
+    }
+
     const isProdLeaf = /\/products\/[^/]+\/index\.html$/.test(relFile);
     const isInsightLeaf = /\/insights\/[^/]+\/index\.html$/.test(relFile);
-    if (!isProdLeaf && !isInsightLeaf) continue;
+    const isCollectionLeaf = /\/collections\/[^/]+\/index\.html$/.test(relFile);
+    if (!isProdLeaf && !isInsightLeaf && !isCollectionLeaf) continue;
     checkedProdInsightPages++;
-    const html = fs.readFileSync(f, 'utf8');
     if (!html.includes('rel="canonical"')) {
       fail(`Missing canonical link in ${relFile}`);
       seoGeoErrors++;
@@ -558,6 +584,10 @@ if (fs.existsSync(distDir)) {
     }
     if (isProdLeaf && !html.includes('"@type":"Product"')) {
       fail(`Missing Product JSON-LD in ${relFile}`);
+      seoGeoErrors++;
+    }
+    if (isCollectionLeaf && !html.includes('"@type":"CollectionPage"')) {
+      fail(`Missing CollectionPage JSON-LD in ${relFile}`);
       seoGeoErrors++;
     }
     if (isInsightLeaf && !html.includes('TechArticle')) {

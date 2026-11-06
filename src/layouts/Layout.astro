@@ -230,13 +230,69 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
     <!-- Ruixing Gifts Interactive Floating WhatsApp Button & Chat Modal -->
     <WhatsAppWidget currentLang={currentLang} />
 
-    <!-- Global Accordion & Language Picker Event Delegation -->
+    <!-- Global Accordion, Language Picker & GA4 Full-Funnel Event Delegation -->
     <script is:inline>
       document.addEventListener('click', function (e) {
+        function trackGaEvent(eventName, params) {
+          try {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', eventName, params || {});
+            }
+          } catch (_) {}
+        }
+
+        var waTarget = e.target.closest('a[href*="wa.me"], .wa-float-btn, .wa-send-btn, .wa-quick-chip');
+        if (waTarget) {
+          trackGaEvent('whatsapp_click', {
+            event_category: 'conversion_intent',
+            source_page: window.location.pathname,
+            trigger_type: waTarget.className || 'wa_link'
+          });
+        }
+
+        var rfqTarget = e.target.closest('a[href*="/contact"]');
+        if (rfqTarget) {
+          trackGaEvent('rfq_cta_click', {
+            event_category: 'conversion_intent',
+            source_page: window.location.pathname,
+            cta_text: (rfqTarget.textContent || '').trim().slice(0, 60),
+            target_href: rfqTarget.getAttribute('href') || '/contact'
+          });
+        }
+
+        var radioCard = e.target.closest('#custom-radio-group .radio-card');
+        if (radioCard) {
+          var radioInput = radioCard.querySelector('input[type="radio"]');
+          trackGaEvent('customization_select', {
+            event_category: 'product_config',
+            source_page: window.location.pathname,
+            custom_mode: radioInput ? radioInput.value : 'custom'
+          });
+        }
+
+        var variantBtn = e.target.closest('.variant-btn');
+        if (variantBtn) {
+          trackGaEvent('material_variant_select', {
+            event_category: 'product_config',
+            source_page: window.location.pathname,
+            variant_sku: variantBtn.getAttribute('data-sku') || ''
+          });
+        }
+
         var header = e.target.closest('.accordion-header');
         if (header) {
           var item = header.closest('.accordion-item');
-          if (item) item.classList.toggle('active');
+          if (item) {
+            var willOpen = !item.classList.contains('active');
+            item.classList.toggle('active');
+            if (willOpen) {
+              trackGaEvent('faq_expand', {
+                event_category: 'engagement',
+                source_page: window.location.pathname,
+                question_text: (header.textContent || '').trim().slice(0, 80)
+              });
+            }
+          }
           return;
         }
 
