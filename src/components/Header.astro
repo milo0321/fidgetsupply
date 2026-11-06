@@ -290,6 +290,12 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     flex-shrink: 1;
   }
 
+  .announcement-text > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
   .announcement-text strong {
     color: #ffffff;
     font-weight: 700;

@@ -1898,7 +1898,6 @@ const faqSchema = {
     width: 100%;
     height: auto;
     max-height: 480px;
-    aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
   }
@@ -1907,6 +1906,11 @@ const faqSchema = {
     font-size: 1.05rem;
     line-height: 1.8;
     color: #1e293b;
+  }
+  .prose :global(img) {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
   .prose :global(h2) {
     font-size: 1.6rem;
@@ -1947,7 +1951,6 @@ const faqSchema = {
     width: 100%;
     height: auto;
     max-height: 460px;
-    aspect-ratio: 4 / 3;
     object-fit: cover;
     display: block;
   }

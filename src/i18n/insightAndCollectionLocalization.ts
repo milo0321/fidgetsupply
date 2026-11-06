@@ -2484,73 +2484,77 @@ export function localizeInsightHtml(rawHtml: string, guideData: any, lang: Suppo
 <p>${meta.summary}</p>
 <p>${t('home.geo.answer')}</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>${t('pdp.specColParam')}</th>
-      <th>${t('pdp.specColVal')}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>${t('geo.metricTooling')}</strong></td>
-      <td>${t('geo.metricToolingVal')} (FS-001 – FS-150 · $0.00)</td>
-    </tr>
-    <tr>
-      <td><strong>${t('pdp.blankMoq')}</strong></td>
-      <td>${t('pdp.opt1Desc')}</td>
-    </tr>
-    <tr>
-      <td><strong>${t('pdp.logoMoq')}</strong></td>
-      <td>${t('pdp.opt2Desc')} / ${t('pdp.opt3Desc')}</td>
-    </tr>
-    <tr>
-      <td><strong>${t('pdp.orderSample')}</strong></td>
-      <td>${t('footer.trust3Sub')}</td>
-    </tr>
-    <tr>
-      <td><strong>${t('geo.metricSafety')}</strong></td>
-      <td>${t('pdp.trust1')} · ${t('pdp.trust2')}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="geo-table-wrap">
+  <table class="geo-table">
+    <thead>
+      <tr>
+        <th>${t('pdp.specColParam')}</th>
+        <th>${t('pdp.specColVal')}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>${t('geo.metricTooling')}</strong></td>
+        <td>${t('geo.metricToolingVal')} (FS-001 – FS-150 · $0.00)</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pdp.blankMoq')}</strong></td>
+        <td>${t('pdp.opt1Desc')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pdp.logoMoq')}</strong></td>
+        <td>${t('pdp.opt2Desc')} / ${t('pdp.opt3Desc')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pdp.orderSample')}</strong></td>
+        <td>${t('footer.trust3Sub')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('geo.metricSafety')}</strong></td>
+        <td>${t('pdp.trust1')} · ${t('pdp.trust2')}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ${fig1}
 
 <h2 id="section-2">2. ${t('brand.compTitle')}</h2>
 <p>${t('brand.geoAnswer')}</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>${t('contact.brandingMode')}</th>
-      <th>MOQ</th>
-      <th>${t('pdp.pricingTitle')}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>${t('pdp.opt1Title')}</strong></td>
-      <td>50 ${t('unit.pcs')}</td>
-      <td>${t('pdp.opt1Desc')}</td>
-    </tr>
-    <tr>
-      <td><strong>${t('pdp.opt2Title')}</strong></td>
-      <td>100 ${t('unit.pcs')}</td>
-      <td>${t('pdp.opt2Desc')}</td>
-    </tr>
-    <tr>
-      <td><strong>${t('pdp.opt3Title')}</strong></td>
-      <td>100 – 300 ${t('unit.pcs')}</td>
-      <td>${t('pdp.opt3Desc')}</td>
-    </tr>
-    <tr>
-      <td><strong>${t('pdp.opt4Title')}</strong></td>
-      <td>100 ${t('unit.pcs')}</td>
-      <td>${t('pdp.opt4Desc')}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="geo-table-wrap">
+  <table class="geo-table">
+    <thead>
+      <tr>
+        <th>${t('contact.brandingMode')}</th>
+        <th>MOQ</th>
+        <th>${t('pdp.pricingTitle')}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>${t('pdp.opt1Title')}</strong></td>
+        <td>50 ${t('unit.pcs')}</td>
+        <td>${t('pdp.opt1Desc')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pdp.opt2Title')}</strong></td>
+        <td>100 ${t('unit.pcs')}</td>
+        <td>${t('pdp.opt2Desc')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pdp.opt3Title')}</strong></td>
+        <td>100 – 300 ${t('unit.pcs')}</td>
+        <td>${t('pdp.opt3Desc')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pdp.opt4Title')}</strong></td>
+        <td>100 ${t('unit.pcs')}</td>
+        <td>${t('pdp.opt4Desc')}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <h2 id="section-3">3. ${t('home.section5.title')}</h2>
 <p>${t('home.section5.sub')}</p>
