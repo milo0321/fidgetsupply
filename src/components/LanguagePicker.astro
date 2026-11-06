@@ -279,11 +279,36 @@ const displayLanguages: SupportedLanguage[] = [
     flex-shrink: 0;
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 640px) {
     .lang-dropdown-menu {
-      width: calc(100vw - 1.5rem);
-      max-width: 340px;
-      right: 0;
+      position: fixed;
+      top: 52px;
+      left: 12px;
+      right: 12px;
+      bottom: auto;
+      width: auto;
+      max-width: none;
+      max-height: calc(100dvh - 80px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      box-shadow: 0 24px 48px rgba(15, 23, 42, 0.28);
+    }
+    .lang-picker-wrapper.footer .lang-dropdown-menu {
+      top: auto;
+      bottom: 84px;
+    }
+    .lang-dropdown-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.4rem;
+      padding: 0.65rem;
+    }
+    .lang-grid-item,
+    .lang-grid-item:nth-last-child(-n+2) {
+      grid-column: span 1;
+      padding: 0.5rem 0.6rem;
+    }
+    .lang-grid-item.featured {
+      grid-column: span 2;
     }
   }
 </style>

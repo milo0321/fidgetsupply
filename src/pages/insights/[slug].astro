@@ -2099,12 +2099,35 @@ const faqSchema = {
   }
 
   @media (max-width: 768px) {
+    .article-layout-grid {
+      padding-top: 1.75rem;
+      padding-bottom: 2.5rem;
+    }
     .related-skus-section .grid-3,
     .related-guides-grid {
       grid-template-columns: minmax(0, 1fr);
     }
+    .related-guides-box {
+      padding: 1.65rem 1.15rem;
+    }
     .guide-faq-section {
-      padding: 2.5rem 1.35rem;
+      padding: 1.75rem 1.15rem;
+      margin-top: 2rem;
+    }
+    .prose {
+      font-size: 0.96rem;
+      line-height: 1.7;
+    }
+    .prose :global(h2) {
+      font-size: 1.32rem;
+      margin: 2rem 0 0.75rem;
+    }
+    .prose :global(h3) {
+      font-size: 1.1rem;
+      margin: 1.4rem 0 0.55rem;
+    }
+    .author-credential-card {
+      padding: 1.25rem 1.15rem;
     }
   }
 </style>

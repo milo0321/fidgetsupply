@@ -173,7 +173,7 @@ const faqSchema = {
     </section>
 
     <!-- Compliance & Safety FAQ Section -->
-    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+    <section class="section section-light comp-faq-box">
       <div class="section-header-center">
         <span class="badge">{t('comp.faqBadge')}</span>
         <h2 class="section-title">{t('comp.faqTitle')}</h2>
@@ -210,5 +210,16 @@ const faqSchema = {
     color: #cbd5e1;
     max-width: 820px;
     font-size: 1.05rem;
+  }
+  .comp-faq-box {
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    margin-bottom: 3.5rem;
+  }
+  @media (max-width: 640px) {
+    .comp-faq-box {
+      padding: 1.75rem 1.15rem;
+      margin-bottom: 2.25rem;
+    }
   }
 </style>

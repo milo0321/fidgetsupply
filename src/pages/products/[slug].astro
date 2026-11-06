@@ -1024,6 +1024,18 @@ const breadcrumbSchema = {
     }
   }
   @media (max-width: 640px) {
+    .pdp-stage-1 {
+      padding-top: 1.5rem;
+      padding-bottom: 2.25rem;
+    }
+    .pdp-title {
+      font-size: 1.42rem;
+      line-height: 1.25;
+    }
+    .thumb-btn {
+      width: 72px;
+      height: 54px;
+    }
     .gallery-quick-kpis {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -1032,14 +1044,27 @@ const breadcrumbSchema = {
       gap: 0.35rem;
     }
     .tiers-grid {
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .tier-cell {
-      border-right: none;
-      border-bottom: 1px solid #e2e8f0;
+      padding: 0.7rem 0.5rem;
+      text-align: center;
+      align-items: center;
     }
-    .tier-cell:last-child {
-      border-bottom: none;
+    .tier-qty {
+      font-size: 0.66rem;
+    }
+    .tier-val {
+      font-size: 1.15rem;
+    }
+    .tier-sub {
+      font-size: 0.62rem;
+      line-height: 1.2;
+    }
+    .pdp-cta-row .btn {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
     }
   }
   .pdp-guides-grid {

@@ -320,7 +320,7 @@ const faqSchema = {
     </section>
 
     <!-- FAQ Section -->
-    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+    <section class="section section-light col-faq-box">
       <div class="section-header-center">
         <span class="badge">{t('col.faqBadge')}</span>
         <h2 class="section-title">{t('pdp.faqTitle')} — {t(`col.${collection.slug}.short` as any)}</h2>
@@ -528,6 +528,33 @@ const faqSchema = {
   @media (max-width: 900px) {
     .col-guides-grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .col-faq-box {
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    margin-bottom: 3rem;
+  }
+  @media (max-width: 640px) {
+    .highlights-box {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+    }
+    .highlight-item {
+      padding: 0.85rem 1rem;
+      font-size: 0.84rem;
+    }
+    .grid-header h2 {
+      font-size: 1.25rem;
+    }
+    .grid-header .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    .col-faq-box {
+      padding: 1.75rem 1.15rem;
+      margin-bottom: 2.25rem;
     }
   }
 </style>

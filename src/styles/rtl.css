@@ -10,23 +10,25 @@ html[dir="rtl"],
   font-family: 'Segoe UI', Tahoma, Arial, 'Noto Sans Arabic', sans-serif;
 }
 
-[dir="rtl"] .top-utility-inner,
-[dir="rtl"] .nav-inner,
-[dir="rtl"] .primary-nav,
+[dir="rtl"] .announcement-container,
+[dir="rtl"] .header-container,
+[dir="rtl"] .nav-desktop,
 [dir="rtl"] .hero-grid,
+[dir="rtl"] .grand-hero-grid,
 [dir="rtl"] .pdp-hero-grid,
 [dir="rtl"] .stage-2-grid,
-[dir="rtl"] .rfq-layout,
-[dir="rtl"] .footer-grid,
-[dir="rtl"] .network-card,
+[dir="rtl"] .contact-card-container,
+[dir="rtl"] .footer-container,
+[dir="rtl"] .trust-bar-grid,
+[dir="rtl"] .footer-network-container,
+[dir="rtl"] .footer-bottom-container,
 [dir="rtl"] .breadcrumb,
+[dir="rtl"] .hero-breadcrumb,
 [dir="rtl"] .pdp-breadcrumb {
   direction: rtl;
 }
 
-[dir="rtl"] .dropdown-panel {
-  left: auto;
-  right: 0;
+[dir="rtl"] .mega-menu {
   text-align: right;
 }
 
@@ -36,16 +38,79 @@ html[dir="rtl"],
   text-align: right;
 }
 
+@media (max-width: 640px) {
+  [dir="rtl"] .lang-dropdown-menu {
+    left: 12px;
+    right: 12px;
+  }
+}
+
+[dir="rtl"] .geo-direct-answer {
+  border-left: 1px solid #bae6fd;
+  border-right: 5px solid #0284c7;
+}
+
+[dir="rtl"] .footer-heading::after {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .footer-links a:hover {
+  transform: translateX(-4px);
+}
+
+[dir="rtl"] .toc-nav ul {
+  border-left: none;
+  border-right: 2px solid #e2e8f0;
+}
+
+[dir="rtl"] .toc-nav a {
+  padding: 0.3rem 0.75rem 0.3rem 0;
+  border-left: none;
+  border-right: 2px solid transparent;
+  margin-left: 0;
+  margin-right: -2px;
+}
+
+[dir="rtl"] .toc-nav a:hover {
+  border-right-color: #cbd5e1;
+}
+
+[dir="rtl"] .toc-nav a.active {
+  border-right-color: #0284c7;
+}
+
 [dir="rtl"] .geo-table th,
 [dir="rtl"] .geo-table td {
   text-align: right;
 }
 
-[dir="rtl"] .form-field input,
-[dir="rtl"] .form-field select,
-[dir="rtl"] .form-field textarea,
+[dir="rtl"] .accordion-header {
+  text-align: right;
+}
+
+[dir="rtl"] .form-input,
 [dir="rtl"] .filter-group input,
 [dir="rtl"] .filter-group select {
   text-align: right;
   direction: rtl;
 }
+
+[dir="rtl"] .whatsapp-widget-wrapper {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .whatsapp-chat-modal {
+  right: auto;
+  left: 0;
+  transform-origin: bottom left;
+}
+
+@media (max-width: 640px) {
+  [dir="rtl"] .whatsapp-widget-wrapper {
+    right: auto;
+    left: 16px;
+  }
+}
+

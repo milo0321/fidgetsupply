@@ -207,7 +207,7 @@ const faqSchema = {
     </div>
 
     <!-- Catalog FAQ Section -->
-    <section class="section section-light" style="border-radius: 1rem; padding: 3rem 2rem; margin-bottom: 3.5rem;">
+    <section class="section section-light catalog-faq-box">
       <div class="section-header-center">
         <span class="badge">{t('catalog.faqBadge')}</span>
         <h2 class="section-title">{t('catalog.faqTitle')}</h2>
@@ -412,14 +412,36 @@ const faqSchema = {
   .catalog-grid {
     padding-bottom: 4rem;
   }
+  .catalog-faq-box {
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+    margin-bottom: 3.5rem;
+  }
   @media (max-width: 960px) {
     .filter-row {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   @media (max-width: 640px) {
+    .filter-panel {
+      padding: 1.1rem 1rem;
+      margin-bottom: 1.5rem;
+    }
     .filter-row {
       grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
+    }
+    .filter-status-bar {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .catalog-grid {
+      padding-bottom: 2.5rem;
+    }
+    .catalog-faq-box {
+      padding: 1.75rem 1.15rem;
+      margin-bottom: 2.5rem;
     }
   }
 </style>
