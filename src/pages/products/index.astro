@@ -5,6 +5,7 @@ import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { COLLECTIONS } from '../../data/collections';
 import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+import { getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
@@ -55,10 +56,12 @@ const catalogFaqs = [
   }
 ];
 
+const localizedCatalogFaqs = getLocalizedPageFaqs('catalog', catalogFaqs, currentLang);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: catalogFaqs.map((f) => ({
+  mainEntity: localizedCatalogFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -67,8 +70,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Metal EDC Fidget Wholesale Catalog — Ready Production Molds | FidgetSupply"
-  description="Browse all 140 deduplicated metal EDC fidget molds (FS-001 to FS-150). Instant filter by category, material (Zinc Alloy, 304 Stainless, 6063 Aluminum, PEI, Zirconium), weight, price tier & Logo-Ready surface."
+  title={currentLang === 'en' ? 'Metal EDC Fidget Wholesale Catalog — Ready Production Molds | FidgetSupply' : `${t('catalog.title')} | FidgetSupply`}
+  description={currentLang === 'en' ? 'Browse all 140 deduplicated metal EDC fidget molds (FS-001 to FS-150). Instant filter by category, material (Zinc Alloy, 304 Stainless, 6063 Aluminum, PEI, Zirconium), weight, price tier & Logo-Ready surface.' : t('catalog.desc')}
   activePage="products"
   jsonLd={faqSchema}
 >
@@ -172,7 +175,7 @@ const faqSchema = {
         <h2 class="section-title">{t('catalog.faqTitle')}</h2>
       </div>
       <div class="faq-list">
-        {catalogFaqs.map((faq, idx) => (
+        {localizedCatalogFaqs.map((faq, idx) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

@@ -59,7 +59,7 @@ const itemListSchema = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: collection.faqs.map((f) => ({
+  mainEntity: locCol.faqs.map((f: any) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -68,8 +68,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title={`${collection.name} (${products.length} Ready Molds) | FidgetSupply`}
-  description={`${collection.name}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom laser/UV logo branding.`}
+  title={currentLang === 'en' ? `${collection.name} (${products.length} Ready Molds) | FidgetSupply` : `${t(`col.${collection.slug}.name` as any)} (${products.length} ${t('nav.modelsCount')}) | FidgetSupply`}
+  description={currentLang === 'en' ? `${collection.name}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom laser/UV logo branding.` : locCol.heroSubtitle}
   keywords={collection.targetKeywords}
   jsonLd={[itemListSchema, faqSchema]}
 >
@@ -102,11 +102,11 @@ const faqSchema = {
         </div>
         <div class="stat-pill">
           <span>{t('col.stat3Label')}</span>
-          <strong>{collection.moq}</strong>
+          <strong>{locCol.moq}</strong>
         </div>
         <div class="stat-pill">
           <span>{t('col.stat4Label')}</span>
-          <strong>{collection.leadTime}</strong>
+          <strong>{locCol.leadTime}</strong>
         </div>
       </div>
     </div>
@@ -189,7 +189,7 @@ const faqSchema = {
         <h2 class="section-title">{t('pdp.faqTitle')} — {t(`col.${collection.slug}.short` as any)}</h2>
       </div>
       <div class="faq-list">
-        {collection.faqs.map((faq, idx) => (
+        {locCol.faqs.map((faq: any, idx: number) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

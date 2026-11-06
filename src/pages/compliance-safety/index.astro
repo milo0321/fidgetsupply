@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+import { getComplianceTableData, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const compTable = getComplianceTableData(currentLang);
 
 const complianceFaqs = [
   {
@@ -49,10 +51,12 @@ const complianceFaqs = [
   }
 ];
 
+const localizedComplianceFaqs = getLocalizedPageFaqs('compliance', complianceFaqs, currentLang);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: complianceFaqs.map((f) => ({
+  mainEntity: localizedComplianceFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -61,8 +65,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="US CPSC 16 CFR 1262 Magnet Safety & RoHS/REACH Compliance | FidgetSupply"
-  description="How FidgetSupply.com engineers captive magnet enclosures, industrial structural epoxy, and thread-locked M2 fasteners to comply with US CPSC 16 CFR 1262 and EU RoHS/REACH."
+  title={currentLang === 'en' ? 'US CPSC 16 CFR 1262 Magnet Safety & RoHS/REACH Compliance | FidgetSupply' : `${t('comp.heroTitle')} | FidgetSupply`}
+  description={currentLang === 'en' ? 'How FidgetSupply.com engineers captive magnet enclosures, industrial structural epoxy, and thread-locked M2 fasteners to comply with US CPSC 16 CFR 1262 and EU RoHS/REACH.' : t('comp.heroDesc')}
   activePage="insights"
   jsonLd={faqSchema}
 >
@@ -88,37 +92,20 @@ const faqSchema = {
         <table class="geo-table">
           <thead>
             <tr>
-              <th>Engineering Layer</th>
-              <th>Factory Process Specification</th>
-              <th>QC Verification Test</th>
-              <th>Applicable Product Lines</th>
+              {compTable.headers.map((h) => (
+                <th>{h}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>1. Captive Mechanical Plate Enclosure</strong></td>
-              <td>Magnets are seated in internal blind pockets sealed beneath a PTFE wear plate or CNC stainless top plate fastened by 2–8 M2/M2.5 machine screws or Chicago sex-bolts.</td>
-              <td>Zero physical exit path even if adhesive bond is thermally cycled</td>
-              <td><code>FS-001</code>, <code>FS-016</code>, <code>FS-035</code>, <code>FS-094</code>, <code>FS-114</code>, <code>FS-125</code>, <code>FS-128</code>, <code>FS-150</code></td>
-            </tr>
-            <tr>
-              <td><strong>2. Two-Part Structural Acrylic/Epoxy Bonding</strong></td>
-              <td>Automated pneumatic dispensing of industrial structural adhesive (shear strength &gt;22 MPa, operating range -40°C to +120°C) into precision-chamfered magnet wells.</td>
-              <td>48-hour thermal shock (-20°C to +80°C) + 10-drop 1.5m steel plate impact test</td>
-              <td>All Magnetic Sliders, Coins, Gourds &amp; Rings</td>
-            </tr>
-            <tr>
-              <td><strong>3. Anaerobic Thread-Locked Fasteners</strong></td>
-              <td>All M2, M2.5, M3 hex socket screws and bearing retention caps are torqued with medium/high-strength anaerobic threadlocker.</td>
-              <td>ASTM F963 / 16 CFR 1500.53 Torque (0.45 Nm) &amp; Tension (70 N) clamp test</td>
-              <td>Multi-Action Mechanical EDC &amp; Multi-Axis Gyros</td>
-            </tr>
-            <tr>
-              <td><strong>4. RoHS 3 &amp; REACH Metallurgy Control</strong></td>
-              <td>Virgin Zamak #3 zinc alloy, 6063-T6 aluminum, 304/316 stainless steel, C36000 lead-free brass, and nickel-release compliant PVD/electroplating.</td>
-              <td>XRF spectrometer screening on every incoming metal ingot batch</td>
-              <td>100% of Catalog (<code>FS-001</code> to <code>FS-150</code>)</td>
-            </tr>
+            {compTable.rows.map((row) => (
+              <tr>
+                <td><strong>{row[0]}</strong></td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+                <td>{row[3]}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -131,7 +118,7 @@ const faqSchema = {
         <h2 class="section-title">{t('comp.faqTitle')}</h2>
       </div>
       <div class="faq-list">
-        {complianceFaqs.map((faq, idx) => (
+        {localizedComplianceFaqs.map((faq, idx) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

@@ -165,11 +165,11 @@ const breadcrumbSchema = {
           </div>
           <div class="qkpi">
             <span>{t('pdp.blankMoq')}</span>
-            <strong>50 pcs</strong>
+            <strong>50 {t('unit.pcs')}</strong>
           </div>
           <div class="qkpi">
             <span>{t('pdp.logoMoq')}</span>
-            <strong>100 pcs</strong>
+            <strong>100 {t('unit.pcs')}</strong>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ const breadcrumbSchema = {
       <div class="pdp-config-panel">
         <div class="pdp-meta-top">
           <span class="sku-code-large" id="display-sku">SKU: {p.skuDisplay}</span>
-          <span class="factory-ref">Production Mold #{String(p.rowId).padStart(3, '0')} · {t('pdp.readyMold')}</span>
+          <span class="factory-ref">{t('pdp.prodMold')} #{String(p.rowId).padStart(3, '0')} · {t('pdp.readyMold')}</span>
         </div>
 
         <h1 class="pdp-title">{lp.title}</h1>
@@ -221,17 +221,17 @@ const breadcrumbSchema = {
           </div>
           <div class="tiers-grid">
             <div class="tier-cell">
-              <span class="tier-qty">50 – 199 pcs</span>
+              <span class="tier-qty">50 – 199 {t('unit.pcs')}</span>
               <strong class="tier-val" id="price-tier-50">${p.tier50}</strong>
               <span class="tier-sub">{t('pdp.trialBatch')}</span>
             </div>
             <div class="tier-cell tier-popular">
-              <span class="tier-qty">200 – 499 pcs</span>
+              <span class="tier-qty">200 – 499 {t('unit.pcs')}</span>
               <strong class="tier-val" id="price-tier-200">${p.tier200}</strong>
               <span class="tier-sub">{t('pdp.customLogoStd')}</span>
             </div>
             <div class="tier-cell tier-best">
-              <span class="tier-qty">500+ pcs</span>
+              <span class="tier-qty">500+ {t('unit.pcs')}</span>
               <strong class="tier-val" id="price-tier-500">${p.tier500}</strong>
               <span class="tier-sub">{t('pdp.volumeTier')}</span>
             </div>

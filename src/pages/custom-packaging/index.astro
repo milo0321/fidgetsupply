@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getPackagingBullets, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const pkgBullets = getPackagingBullets(currentLang);
 
 const packagingFaqs = [
   {
@@ -49,10 +51,12 @@ const packagingFaqs = [
   }
 ];
 
+const localizedPackagingFaqs = getLocalizedPageFaqs('packaging', packagingFaqs, currentLang);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: packagingFaqs.map((f) => ({
+  mainEntity: localizedPackagingFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -61,9 +65,9 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Custom Fidget Packaging: Black EVA Zipper Cases, Window Tin Boxes & Gift Boxes | FidgetSupply"
-  description="Turnkey Wholesale packaging for wholesale metal EDC fidgets: Custom debossed Black EVA Shockproof Zipper Cases, Window Metal Tin Boxes, Rigid Magnetic Gift Boxes & Amazon FBA FNSKU labeling."
-  activePage="custom-branding"
+  title={currentLang === 'en' ? 'Custom Fidget Packaging: Black EVA Zipper Cases, Window Tin Boxes & Gift Boxes | FidgetSupply' : `${t('pkg.heroTitle')} | FidgetSupply`}
+  description={currentLang === 'en' ? 'Turnkey Wholesale packaging for wholesale metal EDC fidgets: Custom debossed Black EVA Shockproof Zipper Cases, Window Metal Tin Boxes, Rigid Magnetic Gift Boxes & Amazon FBA FNSKU labeling.' : t('pkg.heroDesc')}
+  activePage="custom-packaging"
   jsonLd={faqSchema}
 >
   <section class="page-hero">
@@ -87,42 +91,36 @@ const faqSchema = {
         <div class="pkg-card">
           <span class="badge badge-emerald">{t('pkg.card1Badge')}</span>
           <h3>{t('pkg.card1Title')}</h3>
-          <p class="pkg-price">+$0.75 / pc · MOQ 100</p>
+          <p class="pkg-price">{pkgBullets.price1}</p>
           <p>
             {t('pkg.card1Desc')}
           </p>
           <ul>
-            <li>✓ 95 × 65 × 32 mm</li>
-            <li>✓ Silicone / Silk-Screen Logo</li>
-            <li>✓ FNSKU &amp; CPSC 14+ Ready</li>
+            {pkgBullets.bullets1.map((b) => <li>{b}</li>)}
           </ul>
         </div>
 
         <div class="pkg-card">
           <span class="badge">{t('pkg.card2Badge')}</span>
           <h3>{t('pkg.card2Title')}</h3>
-          <p class="pkg-price">+$0.85 / pc · MOQ 200</p>
+          <p class="pkg-price">{pkgBullets.price2}</p>
           <p>
             {t('pkg.card2Desc')}
           </p>
           <ul>
-            <li>✓ 110 × 80 × 28 mm</li>
-            <li>✓ Fiber Laser / UV Lid Logo</li>
-            <li>✓ Custom CNC Foam Cavity</li>
+            {pkgBullets.bullets2.map((b) => <li>{b}</li>)}
           </ul>
         </div>
 
         <div class="pkg-card">
           <span class="badge badge-gold">{t('pkg.card3Badge')}</span>
           <h3>{t('pkg.card3Title')}</h3>
-          <p class="pkg-price">+$1.10 / pc · MOQ 300</p>
+          <p class="pkg-price">{pkgBullets.price3}</p>
           <p>
             {t('pkg.card3Desc')}
           </p>
           <ul>
-            <li>✓ 125 × 90 × 38 mm</li>
-            <li>✓ Gold / Silver Hot Foil Stamping</li>
-            <li>✓ Velvet-Flocked EVA Interior</li>
+            {pkgBullets.bullets3.map((b) => <li>{b}</li>)}
           </ul>
         </div>
       </div>
@@ -139,7 +137,7 @@ const faqSchema = {
         <h2 class="section-title">{t('pkg.faqTitle')}</h2>
       </div>
       <div class="faq-list">
-        {packagingFaqs.map((faq, idx) => (
+        {localizedPackagingFaqs.map((faq, idx) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

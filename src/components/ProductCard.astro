@@ -75,11 +75,11 @@ const rfqUrl = getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}`, cur
     <div class="card-price-box">
       <div class="price-col">
         <span class="price-label">{t('card.wholesale500')}</span>
-        <strong class="price-val">${p.tier500}<span>/pc</span></strong>
+        <strong class="price-val">${p.tier500}<span>/{t('unit.pc')}</span></strong>
       </div>
       <div class="price-col price-col-right">
         <span class="price-label">{t('card.blankMoq50')}</span>
-        <span class="price-tier50">${p.tier50}/pc</span>
+        <span class="price-tier50">${p.tier50}/{t('unit.pc')}</span>
       </div>
     </div>
 

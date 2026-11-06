@@ -5,6 +5,8 @@ import ProductCard from '../components/ProductCard.astro';
 import GeoDirectAnswer from '../components/GeoDirectAnswer.astro';
 import { COLLECTIONS } from '../data/collections';
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
+import { localizeCollectionContent } from '../i18n/insightAndCollectionLocalization';
+import { getLocalizedPageFaqs } from '../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
@@ -68,10 +70,12 @@ const homeFaqs = [
   }
 ];
 
+const localizedHomeFaqs = getLocalizedPageFaqs('home', homeFaqs, currentLang);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: homeFaqs.map((f) => ({
+  mainEntity: localizedHomeFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -80,8 +84,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="FidgetSupply.com | 140+ Ready Metal Fidget Molds · $0 Tooling · Custom Logo Wholesale"
-  description="Your integrated sourcing & supply chain platform for China's metal EDC fidget industry. 140+ ready molds, $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom laser/UV logo."
+  title={currentLang === 'en' ? 'FidgetSupply.com | 140+ Ready Metal Fidget Molds · $0 Tooling · Custom Logo Wholesale' : `${t('home.hero.title')} | FidgetSupply.com`}
+  description={currentLang === 'en' ? "Your integrated sourcing & supply chain platform for China's metal EDC fidget industry. 140+ ready molds, $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom laser/UV logo." : t('home.hero.lead')}
   activePage="home"
   jsonLd={faqSchema}
 >
@@ -134,7 +138,7 @@ const faqSchema = {
         <div class="showcase-card">
           <div class="showcase-top">
             <span class="sku-pill">{t('home.hero.showcasePill')}</span>
-            <span class="showcase-price">$0.75 – $382<span>/pc</span></span>
+            <span class="showcase-price">$0.75 – $382<span>/{t('unit.pc')}</span></span>
           </div>
           <img
             src="/images/hero-metal-edc-showcase.webp"
@@ -176,21 +180,24 @@ const faqSchema = {
       </div>
 
       <div class="grid-3">
-        {primaryCollections.map((col) => (
-          <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="collection-card">
-            <div class="col-card-top">
-              <span class="col-num">{t('home.section1.catPrefix')} 0{col.number}</span>
-              <span class="col-count">{col.skuCount} {t('home.section1.readyMolds')}</span>
-            </div>
-            <h3 class="col-title">{t(`col.${col.slug}.name` as any)}</h3>
-            <p class="col-zh">{col.zhName} · {col.priceRangeUsd}</p>
-            <p class="col-desc">{col.heroSubtitle}</p>
-            <div class="col-footer">
-              <span>MOQ: {col.moq}</span>
-              <span class="col-cta">{col.skuCount} {t('home.section1.exploreModels')}</span>
-            </div>
-          </a>
-        ))}
+        {primaryCollections.map((col) => {
+          const locCol = localizeCollectionContent(col, currentLang);
+          return (
+            <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="collection-card">
+              <div class="col-card-top">
+                <span class="col-num">{t('home.section1.catPrefix')} 0{col.number}</span>
+                <span class="col-count">{col.skuCount} {t('home.section1.readyMolds')}</span>
+              </div>
+              <h3 class="col-title">{t(`col.${col.slug}.name` as any)}</h3>
+              <p class="col-zh">{t(`col.${col.slug}.short` as any)} · {col.priceRangeUsd}</p>
+              <p class="col-desc">{locCol.heroSubtitle}</p>
+              <div class="col-footer">
+                <span>MOQ: {locCol.moq}</span>
+                <span class="col-cta">{col.skuCount} {t('home.section1.exploreModels')}</span>
+              </div>
+            </a>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -207,22 +214,25 @@ const faqSchema = {
       </div>
 
       <div class="grid-3">
-        {crossCollections.map((col) => (
-          <div class="cross-card">
-            <div class="cross-badge">{t(`col.${col.slug}.short` as any)}</div>
-            <h3>{t(`col.${col.slug}.name` as any)}</h3>
-            <p class="cross-zh">{col.zhName} · {col.priceRangeUsd}</p>
-            <p class="cross-desc">{col.heroSubtitle}</p>
-            <ul class="cross-highlights">
-              {col.engineeringHighlights.map((h) => (
-                <li>✓ {h}</li>
-              ))}
-            </ul>
-            <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="btn btn-accent" style="width: 100%; margin-top: auto;">
-              {col.skuCount} {t('home.section2.browseAll')}
-            </a>
-          </div>
-        ))}
+        {crossCollections.map((col) => {
+          const locCol = localizeCollectionContent(col, currentLang);
+          return (
+            <div class="cross-card">
+              <div class="cross-badge">{t(`col.${col.slug}.short` as any)}</div>
+              <h3>{t(`col.${col.slug}.name` as any)}</h3>
+              <p class="cross-zh">{t(`col.${col.slug}.short` as any)} · {col.priceRangeUsd}</p>
+              <p class="cross-desc">{locCol.heroSubtitle}</p>
+              <ul class="cross-highlights">
+                {locCol.engineeringHighlights.map((h: string) => (
+                  <li>✓ {h}</li>
+                ))}
+              </ul>
+              <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="btn btn-accent" style="width: 100%; margin-top: auto;">
+                {col.skuCount} {t('home.section2.browseAll')}
+              </a>
+            </div>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -298,7 +308,7 @@ const faqSchema = {
         <h2 class="section-title">{t('home.faq.title')}</h2>
       </div>
       <div class="faq-list">
-        {homeFaqs.map((faq, idx) => (
+        {localizedHomeFaqs.map((faq, idx) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

@@ -103,10 +103,10 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
         {t('footer.desc')}
       </p>
       <div class="cert-badges">
-        <span class="cert-pill">CPSC 16 CFR 1262</span>
-        <span class="cert-pill">RoHS &amp; REACH</span>
-        <span class="cert-pill">Laser &amp; UV Logo</span>
-        <span class="cert-pill">Global Shipping</span>
+        <span class="cert-pill">{t('footer.cert1')}</span>
+        <span class="cert-pill">{t('footer.cert2')}</span>
+        <span class="cert-pill">{t('footer.cert3')}</span>
+        <span class="cert-pill">{t('footer.cert4')}</span>
       </div>
     </div>
 
@@ -168,7 +168,7 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
         </li>
         <li class="contact-item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <span class="contact-text-nowrap">Fuzhou, Fujian, China</span>
+          <span class="contact-text-nowrap">{t('footer.location')}</span>
         </li>
         <li class="contact-rfq-item">
           <a href={getLocalizedPath('/contact', currentLang)} class="highlight-link">{t('nav.contact')} &amp; {t('nav.requestQuote')}</a>
@@ -183,12 +183,12 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
       <span class="network-label">{t('footer.allianceBadge')}:</span>
       <a href="https://ruixinggifts.com/" target="_blank" rel="noopener noreferrer" class="network-link">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        <span><strong>Ruixing Gifts</strong> — Custom Promotional Merchandise &amp; Corporate Gifts</span>
+        <span><strong>Ruixing Gifts</strong> — {t('footer.ruixingDesc')}</span>
       </a>
       <span class="network-sep">·</span>
       <a href="https://www.ecopacksourcing.com/" target="_blank" rel="noopener noreferrer" class="network-link">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        <span><strong>EcoPack Sourcing</strong> — Sustainable Eco Packaging &amp; Mailer Boxes Hub</span>
+        <span><strong>EcoPack Sourcing</strong> — {t('footer.ecopackDesc')}</span>
       </a>
     </div>
   </div>

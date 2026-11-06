@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
 import { localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
+import { getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
@@ -55,10 +56,12 @@ const guidesHubFaqs = [
   }
 ];
 
+const localizedGuidesHubFaqs = getLocalizedPageFaqs('insights', guidesHubFaqs, currentLang);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: guidesHubFaqs.map((f) => ({
+  mainEntity: localizedGuidesHubFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -67,8 +70,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Metal Fidget Engineering, Magnetics & Global Sourcing Insights | FidgetSupply"
-  description="In-depth engineering insights on N35 vs N52 neodymium magnets, Die-Cast Zinc Alloy vs CNC Stainless Steel costs, Acoustic Tuning Fork sliders, and US CPSC 16 CFR 1262 compliance."
+  title={currentLang === 'en' ? "Metal Fidget Engineering, Magnetics & Global Sourcing Insights | FidgetSupply" : `${t('guides.heroTitle')} | FidgetSupply`}
+  description={currentLang === 'en' ? "In-depth engineering insights on N35 vs N52 neodymium magnets, Die-Cast Zinc Alloy vs CNC Stainless Steel costs, Acoustic Tuning Fork sliders, and US CPSC 16 CFR 1262 compliance." : t('guides.heroDesc')}
   activePage="insights"
   jsonLd={faqSchema}
 >
@@ -100,7 +103,7 @@ const faqSchema = {
               <div class="guide-body">
                 <div class="guide-meta">
                   <span class="guide-cat">{lm.category}</span>
-                  <span>{g.data.readTime}</span>
+                  <span>{lm.readTime}</span>
                 </div>
                 <h2>
                   <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)}>{lm.title}</a>
@@ -121,7 +124,7 @@ const faqSchema = {
         <h2 class="section-title">{t('guides.faqTitle')}</h2>
       </div>
       <div class="faq-list">
-        {guidesHubFaqs.map((faq, idx) => (
+        {localizedGuidesHubFaqs.map((faq, idx) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

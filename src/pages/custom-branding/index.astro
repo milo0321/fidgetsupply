@@ -4,9 +4,11 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getBrandingTableData, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const brandingTable = getBrandingTableData(currentLang);
 const allProducts = await getCollection('products');
 const logoReadyModels = allProducts
   .filter((p) => p.data.logoReady)
@@ -56,10 +58,12 @@ const brandingFaqs = [
   }
 ];
 
+const localizedBrandingFaqs = getLocalizedPageFaqs('branding', brandingFaqs, currentLang);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: brandingFaqs.map((f) => ({
+  mainEntity: localizedBrandingFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -68,8 +72,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="Custom Logo Metal Fidget Branding: Fiber Laser, UV Print & Silk Screen | FidgetSupply"
-  description="Zero tooling modification custom branding on 140 ready metal fidget molds. Compare 50W Fiber Laser Engraving, Full-Color UV Printing, and Pad Printing at 100 pcs MOQ."
+  title={currentLang === 'en' ? 'Custom Logo Metal Fidget Branding: Fiber Laser, UV Print & Silk Screen | FidgetSupply' : `${t('brand.heroTitle')} | FidgetSupply`}
+  description={currentLang === 'en' ? 'Zero tooling modification custom branding on 140 ready metal fidget molds. Compare 50W Fiber Laser Engraving, Full-Color UV Printing, and Pad Printing at 100 pcs MOQ.' : t('brand.heroDesc')}
   activePage="custom-branding"
   jsonLd={faqSchema}
 >
@@ -99,55 +103,20 @@ const faqSchema = {
         <table class="geo-table">
           <thead>
             <tr>
-              <th>Branding Parameter</th>
-              <th>1. Fiber Laser Engraving (Monochrome)</th>
-              <th>2. Silk-Screen Printing (Standard Colored Logo)</th>
-              <th>3. Deep Laser + Color Fill (Recessed Enamel)</th>
+              {brandingTable.headers.map((h) => (
+                <th>{h}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Minimum Order Quantity (MOQ)</strong></td>
-              <td><strong>100 pcs per SKU</strong></td>
-              <td><strong>100 pcs per SKU</strong></td>
-              <td><strong>200 – 300 pcs per SKU</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Screen / Setup Fee</strong></td>
-              <td><strong>$0.00 (Free Digital Setup)</strong></td>
-              <td><strong>$35 / color</strong> (1 color = $35, 2 colors = 2×$35 = $70, 3 colors = 3×$35 = $105)</td>
-              <td><strong>$0.00 Laser Setup</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Unit Logo Add-On Cost</strong></td>
-              <td><strong>+$0.15 – $0.30 / pc</strong></td>
-              <td><strong>+$0.10 / color / pc</strong> (1 color = +$0.10/pc, 5 colors = +$0.50/pc)</td>
-              <td><strong>+$0.35 – $0.60 / pc</strong> (Deep laser etch + hand color fill)</td>
-            </tr>
-            <tr>
-              <td><strong>Custom Logo Sample Fee &amp; Time</strong></td>
-              <td><strong>$80 – $150 USD · 10 – 15 Days</strong></td>
-              <td><strong>$80 – $150 USD · 10 – 15 Days</strong></td>
-              <td><strong>$80 – $150 USD · 10 – 15 Days</strong></td>
-            </tr>
-            <tr>
-              <td><strong>Process &amp; Visual Effect</strong></td>
-              <td>Crisp permanent metallic/white contrast laser mark</td>
-              <td>Vibrant multi-color spot ink printed across smooth flat faces</td>
-              <td>Deep-engraved recessed metal cavity filled with cured color enamel</td>
-            </tr>
-            <tr>
-              <td><strong>Wear &amp; Sweat Durability</strong></td>
-              <td>10/10 Permanent micron-level ablation (Never fades)</td>
-              <td>8.5/10 Kiln-baked industrial screen ink</td>
-              <td>9.5/10 Recessed cavity protects color fill from thumb friction</td>
-            </tr>
-            <tr>
-              <td><strong>Recommended Ready Molds</strong></td>
-              <td><code>FS-047</code>, <code>FS-013</code>, <code>FS-009</code>, <code>FS-012</code>, <code>FS-064</code>, <code>FS-075</code>, <code>FS-086</code>, <code>FS-096</code></td>
-              <td><code>FS-125</code>, <code>FS-128</code>, <code>FS-001</code>, <code>FS-024</code>, <code>FS-026</code>, <code>FS-050</code>, <code>FS-056</code></td>
-              <td><code>FS-013</code>, <code>FS-047</code>, <code>FS-075</code>, <code>FS-086</code>, <code>FS-125</code>, <code>FS-148</code></td>
-            </tr>
+            {brandingTable.rows.map((row) => (
+              <tr>
+                <td><strong>{row[0]}</strong></td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+                <td>{row[3]}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -175,7 +144,7 @@ const faqSchema = {
         <h2 class="section-title">{t('brand.faqTitle')}</h2>
       </div>
       <div class="faq-list">
-        {brandingFaqs.map((faq, idx) => (
+        {localizedBrandingFaqs.map((faq, idx) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

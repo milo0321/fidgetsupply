@@ -2,9 +2,11 @@
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getAboutTableData, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
+const aboutTable = getAboutTableData(currentLang);
 const waUrl =
   'https://wa.me/8618750126315?text=Hello%20FidgetSupply%2C%20I%20would%20like%20to%20inquire%20about%20wholesale%20metal%20fidgets%20and%20custom%20logo%20pricing.';
 
@@ -51,10 +53,12 @@ const supplyChainFaqs = [
   }
 ];
 
+const localizedSupplyChainFaqs = getLocalizedPageFaqs('about', supplyChainFaqs, currentLang);
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: supplyChainFaqs.map((f) => ({
+  mainEntity: localizedSupplyChainFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -63,8 +67,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="About FidgetSupply.com | China Metal EDC Fidget Supply Chain Platform"
-  description="Your integrated sourcing & supply chain platform for China's metal EDC fidget industry: 140+ ready molds, CNC machining, zinc alloy die-casting, custom logo branding, and global export."
+  title={currentLang === 'en' ? 'About FidgetSupply.com | China Metal EDC Fidget Supply Chain Platform' : `${t('about.heroTitle')} | FidgetSupply.com`}
+  description={currentLang === 'en' ? "Your integrated sourcing & supply chain platform for China's metal EDC fidget industry: 140+ ready molds, CNC machining, zinc alloy die-casting, custom logo branding, and global export." : t('about.heroDesc')}
   activePage="about"
   jsonLd={faqSchema}
 >
@@ -115,36 +119,36 @@ const faqSchema = {
         <table class="geo-table">
           <thead>
             <tr>
-              <th style="width: 32%;">Platform Dimension</th>
-              <th>Operations &amp; Export Coordination</th>
+              <th style="width: 32%;">{aboutTable.col1}</th>
+              <th>{aboutTable.col2}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Platform Positioning</strong></td>
-              <td>Your integrated sourcing &amp; supply chain platform for China's metal EDC fidget &amp; kinetic desk toy industry</td>
+              <td><strong>{aboutTable.row1Label}</strong></td>
+              <td>{aboutTable.row1Val}</td>
             </tr>
             <tr>
-              <td><strong>Manufacturing Capabilities</strong></td>
-              <td>Zinc Alloy Die-Casting, CNC Machining (Stainless Steel / Aluminum / Brass / PEI / Zirconium), Surface Plating &amp; Anodizing</td>
+              <td><strong>{aboutTable.row2Label}</strong></td>
+              <td>{aboutTable.row2Val}</td>
             </tr>
             <tr>
-              <td><strong>🏢 Export Logistics Hub</strong></td>
-              <td><strong>Fuzhou Industrial Zone, Fujian, China</strong> (Order Consolidation, Custom Branding &amp; Global Export)</td>
+              <td><strong>🏢 {t('contact.hubLabel')}</strong></td>
+              <td><strong>{t('contact.hubVal')}</strong></td>
             </tr>
             <tr>
-              <td><strong>💬 Direct WhatsApp Chat</strong></td>
+              <td><strong>💬 {t('contact.waLabel')}</strong></td>
               <td>
                 <a href={waUrl} target="_blank" rel="noopener noreferrer" style="font-weight: 800; color: #0284c7;">
-                  +86 187 5012 6315 <span class="badge badge-emerald" style="margin-left: 0.35rem;">Chat Online</span>
+                  +86 187 5012 6315 <span class="badge badge-emerald" style="margin-left: 0.35rem;">{t('top.chatOnline')}</span>
                 </a>
                 <div style="font-size: 0.82rem; color: #475569; margin-top: 0.2rem;">
-                  Mon - Sat: 8:00 AM - 10:00 PM GMT+8
+                  {t('contact.waSub')}
                 </div>
               </td>
             </tr>
             <tr>
-              <td><strong>📧 Email Inquiries</strong></td>
+              <td><strong>📧 {t('contact.emailLabel')}</strong></td>
               <td><a href="mailto:sales@fidgetsupply.com" style="font-weight: 700; color: #0284c7;">sales@fidgetsupply.com</a></td>
             </tr>
           </tbody>
@@ -159,7 +163,7 @@ const faqSchema = {
         <h2 class="section-title">{t('about.faqTitle')}</h2>
       </div>
       <div class="faq-list">
-        {supplyChainFaqs.map((faq, idx) => (
+        {localizedSupplyChainFaqs.map((faq, idx) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>

@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
-import { localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
+import { localizeInsightMeta, localizeInsightFaqs, localizeInsightHtml } from '../../i18n/insightAndCollectionLocalization';
 
 export async function getStaticPaths() {
   const guides = await getCollection('insights');
@@ -30,7 +30,7 @@ const rawGuideHtml = guide.rendered?.html || guide.body || '';
 const localizedGuideHtml =
   currentLang === 'en'
     ? rawGuideHtml
-    : rawGuideHtml.replace(
+    : localizeInsightHtml(rawGuideHtml, guide.data, currentLang).replace(
         /href="(\/(?:products|collections|insights|custom-branding|custom-packaging|compliance-safety|about|contact)[^"]*)"/g,
         (_m: string, p1: string) => `href="${getLocalizedPath(p1, currentLang)}"`
       );
@@ -291,29 +291,30 @@ const GUIDE_FAQS_BY_SLUG: Record<string, { question: string; answer: string }[]>
 };
 
 const guideFaqs = GUIDE_FAQS_BY_SLUG[guide.data.slug] || GUIDE_FAQS_BY_SLUG['zero-tooling-ready-mold-private-label-fidget-sop'];
+const localizedGuideFaqs = localizeInsightFaqs(guide.data.slug, guideFaqs, currentLang);
 
 // Dynamic Reading Time Calculation based on actual text, technical tables, and FAQ elements
 const rawText = guide.body ? guide.body.replace(/<[^>]*>?/gm, ' ') : '';
 const wordCount = rawText.split(/\s+/).filter((word) => word.length > 0).length;
 const tableCount = (guide.body ? guide.body.match(/<table/g) || [] : []).length;
-const faqCount = guideFaqs.length;
+const faqCount = localizedGuideFaqs.length;
 const computedReadingMinutes = Math.max(
   8,
   Math.round(wordCount / 160 + tableCount * 1.5 + faqCount * 0.45)
 );
-const dynamicReadTime = `${computedReadingMinutes} min read`;
+const dynamicReadTime = `${computedReadingMinutes} ${t('unit.minRead')}`;
 
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': ['TechArticle', 'BlogPosting'],
-  headline: guide.data.title,
-  description: guide.data.summary,
+  headline: locGuideMeta.title,
+  description: locGuideMeta.summary,
   image: [`https://fidgetsupply.com${guide.data.featuredImage}`],
   datePublished: guide.data.publishDate,
   dateModified: guide.data.updatedDate || guide.data.publishDate,
   author: {
     '@type': 'Organization',
-    name: guide.data.author,
+    name: locGuideMeta.author,
     '@id': 'https://fidgetsupply.com/#organization'
   },
   publisher: {
@@ -328,19 +329,19 @@ const breadcrumbSchema = {
     {
       '@type': 'ListItem',
       position: 1,
-      name: 'Home',
+      name: t('breadcrumb.home'),
       item: 'https://fidgetsupply.com'
     },
     {
       '@type': 'ListItem',
       position: 2,
-      name: 'Engineering Insights',
+      name: t('breadcrumb.guides'),
       item: 'https://fidgetsupply.com/insights'
     },
     {
       '@type': 'ListItem',
       position: 3,
-      name: guide.data.title,
+      name: locGuideMeta.title,
       item: `https://fidgetsupply.com/insights/${guide.data.slug}`
     }
   ]
@@ -349,7 +350,7 @@ const breadcrumbSchema = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: guideFaqs.map((f) => ({
+  mainEntity: localizedGuideFaqs.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -374,9 +375,9 @@ const faqSchema = {
         <h1>{locGuideMeta.title}</h1>
         <p class="guide-lead">{locGuideMeta.summary}</p>
         <div class="guide-byline">
-          <span>By <strong>{guide.data.author}</strong></span>
+          <span>{t('guide.by')} <strong>{locGuideMeta.author}</strong></span>
           <span>·</span>
-          <span>Updated {guide.data.updatedDate || guide.data.publishDate}</span>
+          <span>{t('guide.updated')} {guide.data.updatedDate || guide.data.publishDate}</span>
           <span>·</span>
           <span>{dynamicReadTime}</span>
         </div>
@@ -456,10 +457,10 @@ const faqSchema = {
         <section class="section section-light guide-faq-section" id="frequently-asked-questions">
           <div class="section-header-center">
             <span class="badge">{t('guides.faqBadge')}</span>
-            <h2 class="section-title">{t('pdp.faqTitle')} — {guide.data.category}</h2>
+            <h2 class="section-title">{t('pdp.faqTitle')} — {locGuideMeta.category}</h2>
           </div>
           <div class="faq-list">
-            {guideFaqs.map((faq, idx) => (
+            {localizedGuideFaqs.map((faq, idx) => (
               <div class:list={['accordion-item', { active: idx === 0 }]}>
                 <button type="button" class="accordion-header">
                   <span>{faq.question}</span>
