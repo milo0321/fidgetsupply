@@ -27,7 +27,7 @@ Across our <a href="/collections/mechanical-edc-fidgets">Multi-Action Mechanical
 4. **Eastern &amp; Mythological Bionic Totems** (<a href="/products/ancient-bronze-mask-haptic-coin">FS-017</a>, <a href="/products/3d-tiger-totem-relief-magnetic-slider">FS-023</a>, <a href="/products/tiger-crest-ceramic-bead-haptic-coin">FS-041</a>, <a href="/products/316ss-bionics-goose-fidget-spinner">FS-063</a>, <a href="/products/dragon-scale-16-magnet-ptfe-slider">FS-111</a>)
 
 <figure class="article-figure">
-  <img src="/images/insights/mecha-armor-relief-sculpted-edc-fig1.webp" alt="Bionic Mecha Beetle Spring EDC FS-098 and Machine-Spirit Torsion-Spring Mecha EDC FS-110 showing articulated wing and armor linkages" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/mecha-armor-relief-sculpted-edc-fig1.webp" alt="Bionic Mecha Beetle Spring EDC FS-098 and Machine-Spirit Torsion-Spring Mecha EDC FS-110 showing articulated wing and armor linkages" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Articulated cyber-mecha engineering—FS-098 Bionic Mecha Beetle Spring EDC with deployable carapace wings (left) and FS-110 Machine-Spirit Torsion-Spring Mecha EDC (right).</figcaption>
 </figure>
 
@@ -144,7 +144,7 @@ In our 3D sculpted series—such as <a href="/products/gothic-skull-relief-push-
 - **No Sharp Burrs (`Vibratory Ceramic Deburring`)**: Every sculpted casting and CNC armor plate undergoes 3-stage vibratory tumbling and hand cotton-wheel relieving (see our <a href="/insights/pvd-coating-hard-anodizing-stonewash-antique-metal-fidget-finishes">Antique Patina &amp; Stonewash Surface Guide</a>) so every 3D peak feels silky smooth against skin.
 
 <figure class="article-figure">
-  <img src="/images/insights/mecha-armor-relief-sculpted-edc-fig2.webp" alt="Gothic Horned Shield Haptic Coin FS-034 and Mecha Palm-Blade Bearing Finger EDC FS-143 showcasing sculpted dark fantasy and cyber-mecha hardware" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/mecha-armor-relief-sculpted-edc-fig2.webp" alt="Gothic Horned Shield Haptic Coin FS-034 and Mecha Palm-Blade Bearing Finger EDC FS-143 showcasing sculpted dark fantasy and cyber-mecha hardware" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Sculpted collector diversity—FS-034 Gothic Horned Shield Haptic Coin in relieved antique silver/bronze (left) and FS-143 Mecha Palm-Blade Bearing Finger EDC (right).</figcaption>
 </figure>
 

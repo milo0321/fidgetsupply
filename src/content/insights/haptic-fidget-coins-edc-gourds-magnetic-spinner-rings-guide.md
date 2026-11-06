@@ -25,7 +25,7 @@ Not every user wants a back-and-forth linear thumb push. By expanding your catal
 3. **The Zero-Pocket-Bulk Wearable User (`Magnetic Spinner Rings`)**: Commuters and creatives who want a silent or micro-clicking fidget ring worn directly on the index or middle finger (`Ø18mm–Ø22mm` inner bore) for instantaneous one-handed rotation.
 
 <figure class="article-figure">
-  <img src="/images/insights/coins-gourds-rings-fig1.webp" alt="304SS 12-magnet haptic fidget coin FS-013 and Invader heavyweight R188 haptic coin FS-071 showing circular rotary detent arrays" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/coins-gourds-rings-fig1.webp" alt="304SS 12-magnet haptic fidget coin FS-013 and Invader heavyweight R188 haptic coin FS-071 showing circular rotary detent arrays" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Circular rotary haptic medallions—FS-013 304SS 12-Magnet Haptic Fidget Coin (left) and FS-071 Invader Heavyweight R188 Haptic Coin (right)—engineered for continuous 360-degree one-handed thumb indexing.</figcaption>
 </figure>
 
@@ -79,7 +79,7 @@ Inside a circular haptic coin, two shell halves rotate around a central pivot sc
 3. **3D Relief Artistry vs. Minimalist Machinist Radial Grip**: Coins like <a href="/products/ancient-bronze-mask-haptic-coin">FS-017</a> and <a href="/products/gothic-horned-shield-haptic-coin">FS-034</a> showcase deep 3D die-struck or CNC relief sculptures that act as natural thumb traction ridges, whereas <a href="/products/sandwich-cookie-textured-haptic-coin">FS-027</a> and <a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013</a> use precision geometric knurling for minimalist modern brands.
 
 <figure class="article-figure">
-  <img src="/images/insights/coins-gourds-rings-fig2.webp" alt="Amber PEI Ultem CNC Gourd EDC FS-099 and Machinist Tri-Metal Magnetic Spinner Ring FS-014 showing exotic palm and wearable EDC engineering" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/coins-gourds-rings-fig2.webp" alt="Amber PEI Ultem CNC Gourd EDC FS-099 and Machinist Tri-Metal Magnetic Spinner Ring FS-014 showing exotic palm and wearable EDC engineering" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Exotic palm and wearable form factors—FS-099 Amber PEI (Ultem) CNC Gourd EDC (left) and FS-014 Machinist Tri-Metal Magnetic Spinner Ring (right)—combining rotary magnetic detents with ergonomic CNC lathe profiles.</figcaption>
 </figure>
 

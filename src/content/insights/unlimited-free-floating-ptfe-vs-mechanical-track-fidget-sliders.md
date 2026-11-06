@@ -25,7 +25,7 @@ Because a customer who expects a captive one-directional clicker may accidentall
 Matching the right slider architecture to your buyer persona eliminates post-purchase confusion and maximizes repeat collection purchases.
 
 <figure class="article-figure">
-  <img src="/images/insights/unlimited-vs-track-sliders-fig1.webp" alt="Comparison of Smooth Soap-Box 20-Magnet Unlimited Slider FS-125 and Chocolate Grid 20-Magnet N52 Unlimited Slider FS-128" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/unlimited-vs-track-sliders-fig1.webp" alt="Comparison of Smooth Soap-Box 20-Magnet Unlimited Slider FS-125 and Chocolate Grid 20-Magnet N52 Unlimited Slider FS-128" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Flagship free-floating unlimited sliders—FS-125 Smooth Soap-Box 20-Magnet Unlimited Slider (left) and FS-128 Chocolate Grid 20-Magnet N52 Unlimited Slider (right)—engineered for 360-degree omnidirectional sliding and corner pivots.</figcaption>
 </figure>
 
@@ -97,7 +97,7 @@ Because removing the physical guide rail unlocks three kinetic maneuvers that ar
 As detailed in our <a href="/insights/n35-vs-n52-neodymium-magnet-haptic-feel-guide">N35 vs. N52 Neodymium Magnet Engineering Guide</a>, unlimited sliders **must** use high-remanence N50–N54 magnets (`14,200–14,800 Gauss`) so normal clamping force prevents accidental shell separation during high-speed flips.
 
 <figure class="article-figure">
-  <img src="/images/insights/unlimited-vs-track-sliders-fig2.webp" alt="Infinity Cube 26-Magnet Unlimited Slider FS-050 and Blade-Scar 26-Magnet Unlimited Slider FS-073 showing high-density corner stabilizer magnet arrays" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/unlimited-vs-track-sliders-fig2.webp" alt="Infinity Cube 26-Magnet Unlimited Slider FS-050 and Blade-Scar 26-Magnet Unlimited Slider FS-073 showing high-density corner stabilizer magnet arrays" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: High-retention 26-magnet unlimited architectures—FS-050 Infinity Cube 26-Magnet Unlimited Slider (left) and FS-073 Blade-Scar 26-Magnet Unlimited Slider (right)—utilizing auxiliary center-row stabilizer magnets to prevent accidental shell drop.</figcaption>
 </figure>
 

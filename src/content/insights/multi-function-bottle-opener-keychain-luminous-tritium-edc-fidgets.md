@@ -23,7 +23,7 @@ Our engineering team solved that objection by integrating **structural mechanica
 Across our <a href="/collections/magnetic-fidget-sliders">Magnetic Sliders</a>, <a href="/collections/edc-gourds-hand-pieces">EDC Gourds &amp; Hand Pieces</a>, and <a href="/collections/mechanical-edc-fidgets">Mechanical EDC</a> collections, over 18 molds combine tactile fidgeting with secondary real-world utility.
 
 <figure class="article-figure">
-  <img src="/images/insights/utility-opener-luminous-edc-fig1.webp" alt="Carbon Fiber Brass 16-Magnet Slider FS-038 with luminous glow inlays and Luminous Graphic Spring Promo Slider FS-059" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/utility-opener-luminous-edc-fig1.webp" alt="Carbon Fiber Brass 16-Magnet Slider FS-038 with luminous glow inlays and Luminous Graphic Spring Promo Slider FS-059" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Photoluminescent night-glow EDC—FS-038 3K Carbon Fiber &amp; Brass 16-Magnet Slider with strontium aluminate glow inlays (left) and FS-059 Luminous Graphic Spring Promo Slider (right).</figcaption>
 </figure>
 
@@ -84,7 +84,7 @@ How did we engineer <a href="/products/bottle-opener-12-magnet-edc-slider">FS-02
 - **Dedicated `34 × 20 mm` Billboard Logo Deck**: While the bottom half forms the opener jaw, the upper sliding plate provides a clean, flat rectangular billboard (`34 × 20 mm`) ready for 50W Fiber Laser Engraving or multi-color Silk-Screen Printing—making `FS-026` a runaway bestseller for beverage promotions and corporate gifts (see our <a href="/insights/corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide">Corporate Executive Gifting Guide</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/utility-opener-luminous-edc-fig2.webp" alt="304SS Knuckle Roller Begleri Beads FS-005 and Celestial Relief Multi-Metal Gourd EDC FS-105 designed for paracord lanyard and keychain carry" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/utility-opener-luminous-edc-fig2.webp" alt="304SS Knuckle Roller Begleri Beads FS-005 and Celestial Relief Multi-Metal Gourd EDC FS-105 designed for paracord lanyard and keychain carry" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Keychain and paracord utility architectures—FS-005 304SS Knuckle Roller Begleri Beads (left) and FS-105 Celestial Relief Multi-Metal Gourd EDC with integrated lanyard bail (right).</figcaption>
 </figure>
 

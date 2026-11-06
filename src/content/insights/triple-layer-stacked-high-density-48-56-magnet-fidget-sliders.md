@@ -25,7 +25,7 @@ To achieve **8 to 16+ tactile clicks per stroke** within a pocket-sized `50mm` c
 2. **Ultra-High-Density Micro-Magnet Arrays (`32, 39, and 56 Magnets`)**: Packing staggered matrices of `Ø3×1mm` and `Ø4×1.5mm` N45–N52 rare-earth magnets with sub-millimeter wall spacing to create a high-frequency "zipper" or "piano-key" ripple.
 
 <figure class="article-figure">
-  <img src="/images/insights/triple-layer-high-density-sliders-fig1.webp" alt="Triple-Layer 32-Magnet Slider FS-002 and Racetrack Triple-Layer Magnetic Slider FS-003 showing compound telescoping plate engineering" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/triple-layer-high-density-sliders-fig1.webp" alt="Triple-Layer 32-Magnet Slider FS-002 and Racetrack Triple-Layer Magnetic Slider FS-003 showing compound telescoping plate engineering" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Compound 3-layer telescoping architectures—FS-002 Triple-Layer 32-Magnet Slider (left) and FS-003 Racetrack Triple-Layer Magnetic Slider (right)—doubling linear thumb travel via dual-sided center shuttle plates.</figcaption>
 </figure>
 
@@ -124,11 +124,11 @@ Compare all 10 high-density and multi-layer production molds in our catalog acro
 When an engineer stacks three metal plates (`Top Plate A`, `Center Shuttle Plate B`, and `Bottom Plate C`) with magnets embedded on all four mating faces, a critical physics question arises: **How do you make Plate A slide first, followed smoothly by Plate B, instead of both plates moving randomly together?**
 
 We solve **sequential stage deployment** using two precision calibration methods:
-1. **Differential Magnet Diameter &amp; Grade Staggering**: On models like <a href="/products/triple-layer-32-magnet-slider">FS-002</a>, <a href="/products/qka-royal-triple-layer-magnetic-slider">FS-062</a>, and <a href="/products/304ss-akq-triple-layer-24-magnet-slider">FS-075</a>, the upper interface (`A-to-B`) uses slightly lower shear breakaway force (`3.8 N`) than the lower interface (`B-to-C`, `4.6 N`). When your thumb pushes the top plate forward, Stage 1 completes its full 4-click run until it hits its internal mechanical stop pin—at which point kinetic momentum seamlessly transfers into Stage 2 (`Plate B`), firing another 4 clicks!
+1. **Differential Magnet Diameter &amp; Grade Staggering**: On models like <a href="/products/triple-layer-32-magnet-slider">FS-002</a>, <a href="/products/qka-royal-triple-layer-magnetic-slider">FS-062</a>, and <a href="/products/304ss-akq-triple-layer-24-magnet-slider">FS-075</a>, the upper interface (`A-to-B`) uses slightly lower shear breakaway force (`3.8 N`) than the lower interface (`B-to-C`, `4.6 N`). When your thumb pushes the top plate forward, Stage 1 completes its full 4-click run until it hits its internal mechanical stop pin—at which point kinetic momentum smoothly transfers into Stage 2 (`Plate B`), firing another 4 clicks!
 2. **Center-Shuttle Flux Cancellation Shielding**: Because the center shuttle plate (`Plate B`) is only `3.2mm to 4.0mm` thick, opposing magnet fields from top and bottom could cancel each other out if drilled straight through. Our CNC fixtures offset or interleave the upper and lower magnet pockets inside `Plate B` and utilize ferromagnetic backing shims so zero magnetic flux leaks across the center web (see our <a href="/insights/n35-vs-n52-neodymium-magnet-haptic-feel-guide">NdFeB Magnet Flux Engineering Guide</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/triple-layer-high-density-sliders-fig2.webp" alt="Triple-Layer Wave 32-Magnet Slider FS-058 and Abalone Inlay 56-Magnet Stainless Slider FS-091 showcasing high-density micro-magnet engineering" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/triple-layer-high-density-sliders-fig2.webp" alt="Triple-Layer Wave 32-Magnet Slider FS-058 and Abalone Inlay 56-Magnet Stainless Slider FS-091 showcasing high-density micro-magnet engineering" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: High-density tactile resolution—FS-058 Triple-Layer Wave 32-Magnet Slider (left) and FS-091 Abalone Inlay 56-Magnet CNC Stainless Slider (right)—packing up to 56 rare-earth magnets into a single pocket instrument.</figcaption>
 </figure>
 

@@ -30,7 +30,7 @@ Why is this the #1 priority for Amazon FBA and retail distributors?
 If a single customer reports that a small Ø5×2mm neodymium magnet fell out of a cheap slider, Amazon's automated safety team can suspend the ASIN immediately pending a 16 CFR 1262 test report.
 
 <figure class="article-figure">
-  <img src="/images/insights/cpsc-1262-compliance-fig1.webp" alt="Captive screw-locked magnet retention plate engineering on FS-016 and FS-094 metal magnetic sliders" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/cpsc-1262-compliance-fig1.webp" alt="Captive screw-locked magnet retention plate engineering on FS-016 and FS-094 metal magnetic sliders" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Captive mechanical plate retention—internal neodymium magnets are physically trapped beneath M2 thread-locked cover plates on FS-016 (left) and FS-094 (right).</figcaption>
 </figure>
 
@@ -112,7 +112,7 @@ Because everyday carry fidgets remain in constant skin contact with the user's f
 </div>
 
 <figure class="article-figure">
-  <img src="/images/insights/cpsc-1262-compliance-fig2.webp" alt="100% magnet-free mechanical EDC models FS-005 304 Stainless Knuckle Roller and FS-063 316 Stainless Bionics Goose Spinner" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/cpsc-1262-compliance-fig2.webp" alt="100% magnet-free mechanical EDC models FS-005 304 Stainless Knuckle Roller and FS-063 316 Stainless Bionics Goose Spinner" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Zero-magnet mechanical alternatives—FS-005 CNC 304 Stainless Knuckle Roller (left) and FS-063 316 Stainless Goose Spinner (right) contain 0 magnets and require zero magnetic compliance review.</figcaption>
 </figure>
 

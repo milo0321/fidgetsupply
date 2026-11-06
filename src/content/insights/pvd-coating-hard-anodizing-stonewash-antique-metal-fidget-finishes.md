@@ -23,7 +23,7 @@ If a supplier sprays cheap wet lacquer or single-layer flash plating onto a meta
 Across our 140 factory molds (detailed in our <a href="/insights/zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost">Zinc Alloy vs. CNC Stainless Steel Cost Guide</a>), we match every base alloy—**Zamak #3 Zinc Alloy**, **6063-T6 Aerospace Aluminum**, **304/316 Stainless Steel**, and **Zr702 Zirconium**—with industrial surface treatments engineered to pass **48-to-96 hour ASTM B117 neutral salt-spray and artificial perspiration testing**.
 
 <figure class="article-figure">
-  <img src="/images/insights/pvd-anodizing-stonewash-finishes-fig1.webp" alt="Rainbow PVD Stainless Gimbal Gyro FS-120 and 6-Ball Orbit Rainbow Aluminum Spinner FS-074 showcasing vacuum PVD and multi-color anodic finishes" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/pvd-anodizing-stonewash-finishes-fig1.webp" alt="Rainbow PVD Stainless Gimbal Gyro FS-120 and 6-Ball Orbit Rainbow Aluminum Spinner FS-074 showcasing vacuum PVD and multi-color anodic finishes" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Precision vacuum and electrochemical surface treatments—FS-120 Rainbow PVD Stainless Gimbal Gyro Model 9 (left) and FS-074 6-Ball Orbit Rainbow Anodized Aluminum Spinner (right).</figcaption>
 </figure>
 
@@ -99,7 +99,7 @@ If you plate a 3D sculpture in uniform bright chrome, glare washes out all the f
 4. **Cathodic Electrophoretic Clear Coat (`E-Coat` Baked at `160°C`)**: Seals the relieved patina beneath an invisible, sweat-proof polyurethane-acrylic film that prevents green copper verdigris or finger tarnish.
 
 <figure class="article-figure">
-  <img src="/images/insights/pvd-anodizing-stonewash-finishes-fig2.webp" alt="Gothic Skull Relief Push Slider FS-010 in relieved antique silver/bronze and Harmonic Rhythm CNC Stainless Slider FS-086 in ceramic stonewash" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/pvd-anodizing-stonewash-finishes-fig2.webp" alt="Gothic Skull Relief Push Slider FS-010 in relieved antique silver/bronze and Harmonic Rhythm CNC Stainless Slider FS-086 in ceramic stonewash" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Contrast between 3D relieved antique electroplating on FS-010 Gothic Skull Relief Slider (left) and isotropic ceramic stonewashing on FS-086 Harmonic Rhythm CNC 304 Stainless Slider (right).</figcaption>
 </figure>
 

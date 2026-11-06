@@ -1338,19 +1338,19 @@ const breadcrumbSchema = {
       '@type': 'ListItem',
       position: 1,
       name: t('breadcrumb.home'),
-      item: 'https://fidgetsupply.com'
+      item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}`
     },
     {
       '@type': 'ListItem',
       position: 2,
       name: t('breadcrumb.guides'),
-      item: 'https://fidgetsupply.com/insights'
+      item: `https://fidgetsupply.com${getLocalizedPath('/insights', currentLang)}`
     },
     {
       '@type': 'ListItem',
       position: 3,
       name: locGuideMeta.title,
-      item: `https://fidgetsupply.com/insights/${guide.data.slug}`
+      item: `https://fidgetsupply.com${getLocalizedPath(`/insights/${guide.data.slug}`, currentLang)}`
     }
   ]
 };
@@ -1432,7 +1432,7 @@ const faqSchema = {
         <div class="article-featured-image-wrap">
           <img
             src={guide.data.featuredImage}
-            alt={guide.data.title}
+            alt={locGuideMeta.title}
             width="800"
             height="600"
             loading="eager"

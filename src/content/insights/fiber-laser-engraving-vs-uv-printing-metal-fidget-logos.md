@@ -27,7 +27,7 @@ Even better:
 Because the underlying mechanical tolerances, neodymium magnet arrays, and R188 bearing fits are already validated across tens of thousands of production units, you eliminate first-batch mechanical debugging risk completely.
 
 <figure class="article-figure">
-  <img src="/images/insights/laser-vs-uv-branding-fig1.webp" alt="High-contrast 50W MOPA fiber laser engraving on FS-047 6063 Anodized Aluminum Slider and FS-013 304 Stainless Steel Haptic Coin" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/laser-vs-uv-branding-fig1.webp" alt="High-contrast 50W MOPA fiber laser engraving on FS-047 6063 Anodized Aluminum Slider and FS-013 304 Stainless Steel Haptic Coin" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Ideal substrates for Fiber Laser Engraving and Deep Laser + Color Fill—FS-047 Type-II Anodized 6063 Aluminum Slider (left) and FS-013 304 Stainless Steel Haptic Coin (right).</figcaption>
 </figure>
 
@@ -120,7 +120,7 @@ Why does pulse-width control matter for your brand logo?
 </ul>
 
 <figure class="article-figure">
-  <img src="/images/insights/laser-vs-uv-branding-fig2.webp" alt="Wide flat-face sliders FS-125 Smooth Soap-Box Slider and FS-128 Chocolate Grid Slider engineered for fiber laser engraving and deep laser color fill" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/laser-vs-uv-branding-fig2.webp" alt="Wide flat-face sliders FS-125 Smooth Soap-Box Slider and FS-128 Chocolate Grid Slider engineered for fiber laser engraving and deep laser color fill" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Wide unobstructed branding zones on FS-125 Smooth Soap-Box Slider (42×26mm flat face, left) and FS-128 Grid Slider (right) for Fiber Laser Engraving or Deep Laser + Color Fill.</figcaption>
 </figure>
 
@@ -128,7 +128,7 @@ Why does pulse-width control matter for your brand logo?
 
 When your brand guidelines require specific Pantone colors rather than a monochrome laser mark, surface silk-screen or UV ink is not viable because smooth metal has high chemical inertness and zero pore absorption—causing surface ink to peel off.
 
-Our factory solves this permanently through **Deep Laser Engraving + Enamel Color Fill (深度激光+填色)**:
+Our factory solves this permanently through **Deep Laser Engraving + Enamel Color Fill**:
 
 <ol>
   <li><strong>Stage 1 — Multi-Pass Deep Laser Cavity Carving (`0.15mm – 0.25mm` Depth):</strong>

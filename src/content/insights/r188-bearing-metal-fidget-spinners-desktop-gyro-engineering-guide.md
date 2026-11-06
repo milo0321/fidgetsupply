@@ -25,7 +25,7 @@ Why did the global EDC market abandon the 608 bearing in favor of the R188?
 Because rotational drag torque inside a rolling-element bearing scales directly with the **pitch circle diameter** of the ball complement. By shrinking the bearing outer diameter from `22.0mm` down to `12.7mm` and utilizing a **crown-less 10-ball full-complement raceway**, the R188 cuts rolling friction by more than **62%** while concentrating a higher percentage of the spinner's mass at the outer perimeter.
 
 <figure class="article-figure">
-  <img src="/images/insights/r188-spinners-gyros-fig1.webp" alt="High-mass CNC stainless steel gimbal gyro FS-043 and multi-axis desktop gyro FS-066 engineered around precision R188 bearings" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/r188-spinners-gyros-fig1.webp" alt="High-mass CNC stainless steel gimbal gyro FS-043 and multi-axis desktop gyro FS-066 engineered around precision R188 bearings" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Precision multi-axis CNC stainless steel gimbal gyros—FS-043 6-Axis CNC Stainless Gyro Spinner (left) and FS-066 3D Multi-Axis Stainless Gimbal Gyro (right)—engineered with threaded R188 bearing retention cages.</figcaption>
 </figure>
 
@@ -100,7 +100,7 @@ We engineer our kinetic line across four distinct rotor architectures:
 4. **Hybrid Magnetic-Kinetic & Tuning Fork Spinners**: Crossover designs like <a href="/products/18-magnet-silicone-bumper-fidget-spinner">FS-145 (18-Magnet Silicone Bumper Spinner)</a> and <a href="/products/resonance-cnc-stainless-tuning-fork-spinner">FS-148 (Resonance CNC Stainless Tuning Fork Spinner)</a> combine an R188 core bearing with secondary magnetic detents or cantilevered tuning-fork tines (see our <a href="/insights/acoustic-tuning-fork-fidget-slider-engineering-trend">Acoustic Tuning Fork EDC Engineering Guide</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/r188-spinners-gyros-fig2.webp" alt="Dual-sprocket chain drive spinner FS-061 and 6063 aluminum coin-top desktop gyro FS-139 showing precision CNC knurling and laser logo zones" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/r188-spinners-gyros-fig2.webp" alt="Dual-sprocket chain drive spinner FS-061 and 6063 aluminum coin-top desktop gyro FS-139 showing precision CNC knurling and laser logo zones" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Mechanical sprocket-chain spinner FS-061 (left) and 6063-T6 anodized aluminum coin-top desktop gyro FS-139 (right), showcasing broad center-cap zones engineered for custom fiber laser logo engraving.</figcaption>
 </figure>
 

@@ -85,9 +85,9 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: 'https://fidgetsupply.com' },
-    { '@type': 'ListItem', position: 2, name: t(`col.${p.primaryCollection}.short` as any), item: `https://fidgetsupply.com/collections/${p.primaryCollection}` },
-    { '@type': 'ListItem', position: 3, name: `${p.skuDisplay} ${lp.title}`, item: `https://fidgetsupply.com/products/${p.slug}` }
+    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
+    { '@type': 'ListItem', position: 2, name: t(`col.${p.primaryCollection}.short` as any), item: `https://fidgetsupply.com${getLocalizedPath(`/collections/${p.primaryCollection}`, currentLang)}` },
+    { '@type': 'ListItem', position: 3, name: `${p.skuDisplay} ${lp.title}`, item: `https://fidgetsupply.com${getLocalizedPath(`/products/${p.slug}`, currentLang)}` }
   ]
 };
 ---
@@ -136,7 +136,7 @@ const breadcrumbSchema = {
           <img
             id="pdp-main-img"
             src={p.featuredImage}
-            alt={`${p.skuDisplay} ${p.title} - ${p.material}`}
+            alt={`${p.skuDisplay} ${lp.title} - ${lp.material}`}
             width="800"
             height="600"
           />
@@ -155,7 +155,7 @@ const breadcrumbSchema = {
                 data-img={img}
                 aria-label={`View angle ${idx + 1}`}
               >
-                <img src={img} alt={`${p.sku} view ${idx + 1}`} width="120" height="90" />
+                <img src={img} alt={`${p.skuDisplay} ${lp.title} - ${idx + 1}`} width="120" height="90" />
               </button>
             ))}
           </div>

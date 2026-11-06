@@ -25,7 +25,7 @@ Instead of spending 6 weeks negotiating custom CAD drawings and paying **$3,500+
 </ol>
 
 <figure class="article-figure">
-  <img src="/images/insights/zero-tooling-sop-fig1.webp" alt="High-volume promotional and private-label ready molds FS-026 2-in-1 Bottle Opener Slider and FS-009 Knurled Twist Top" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/zero-tooling-sop-fig1.webp" alt="High-volume promotional and private-label ready molds FS-026 2-in-1 Bottle Opener Slider and FS-009 Knurled Twist Top" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Two of our highest-velocity corporate &amp; retail launch molds—FS-026 2-in-1 Bottle Opener Magnetic Slider (left) and FS-009 Knurled Pocket Twist Top (right).</figcaption>
 </figure>
 
@@ -92,7 +92,7 @@ Before publishing our master catalog (`FS-001` to `FS-150`), our engineering tea
 </ul>
 
 <figure class="article-figure">
-  <img src="/images/insights/zero-tooling-sop-fig2.webp" alt="Best-selling poker magnetic sliders FS-001 King Poker Slider and FS-024 Suited Poker Slider" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/zero-tooling-sop-fig2.webp" alt="Best-selling poker magnetic sliders FS-001 King Poker Slider and FS-024 Suited Poker Slider" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Proven evergreen sellers—FS-001 King Poker Slider (left) and FS-024 Suited Poker Slider (right) with $0 tooling fee and 100 pcs custom branding MOQ.</figcaption>
 </figure>
 

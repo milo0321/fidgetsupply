@@ -27,7 +27,7 @@ Here is why mechanical EDC fidgets achieve **35% to 60% higher retail perceived 
 3. **Multi-Modal 3-in-1 & 4-in-1 Ergonomics**: Single chassis designs combine linear ratcheting, rotary clicking, bolt-action snapping, and R188 gyro spinning in one compact pocket instrument.
 
 <figure class="article-figure">
-  <img src="/images/insights/mechanical-ratchet-edc-fig1.webp" alt="Bolt-action spring breech EDC slider FS-067 and Armored Track planetary gear chain EDC FS-068 showing mechanical linkage architecture" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/mechanical-ratchet-edc-fig1.webp" alt="Bolt-action spring breech EDC slider FS-067 and Armored Track planetary gear chain EDC FS-068 showing mechanical linkage architecture" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Precision mechanical linkage hardware—FS-067 Bolt-Action Spring Breech EDC Slider (left) and FS-068 Armored Track Planetary Gear Chain EDC (right)—engineered with hardened stainless steel springs and precision gear teeth.</figcaption>
 </figure>
 
@@ -95,7 +95,7 @@ Every mechanical SKU in our <a href="/collections/cnc-stainless-steel-pei-edc">C
 - **Spare Parts Hardware Pack Included**: Because tiny `3mm` springs and detent beads can jump across a room if a customer disassembles the slider on an uncarpeted desk, our factory automatically includes a heat-sealed **spare spring & ceramic bead maintenance pack** inside the retail box of every serviceable mechanical SKU.
 
 <figure class="article-figure">
-  <img src="/images/insights/mechanical-ratchet-edc-fig2.webp" alt="CNC Aluminum Dual-Spring Ratchet EDC FS-085 and Arachnid 8-Spring Mechanical Slider FS-117 showing multi-spring detent customization" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/mechanical-ratchet-edc-fig2.webp" alt="CNC Aluminum Dual-Spring Ratchet EDC FS-085 and Arachnid 8-Spring Mechanical Slider FS-117 showing multi-spring detent customization" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Multi-spring mechanical detent engineering—FS-085 CNC Aluminum Dual-Spring Ratchet EDC (left) and FS-117 Arachnid 8-Spring Mechanical Slider (right)—featuring modular spring-and-bead chambers for customizable tactile resistance.</figcaption>
 </figure>
 

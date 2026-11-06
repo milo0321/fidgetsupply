@@ -29,7 +29,7 @@ Better yet:
 Because acoustic resonance is a physical property of cantilevered metal geometry rather than electronic speakers or batteries, these sliders require **zero batteries**, pass standard mechanical toy customs clearance under **HS Code 9503.00.0000**, and never suffer from electronic component failure.
 
 <figure class="article-figure">
-  <img src="/images/insights/acoustic-tuning-fork-fig1.webp" alt="Side-by-side comparison of FS-150 Compact PTFE Tuning Fork Slider and FS-148 304 Stainless Resonance Chamber Spinner" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/acoustic-tuning-fork-fig1.webp" alt="Side-by-side comparison of FS-150 Compact PTFE Tuning Fork Slider and FS-148 304 Stainless Resonance Chamber Spinner" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Comparing linear cantilevered tine excitation in the FS-150 Tuning Fork Slider (left) versus non-contact magnetic plucking in the FS-148 304 Stainless Resonance Spinner (right).</figcaption>
 </figure>
 
@@ -194,7 +194,7 @@ Let's compare the four primary metals used across our acoustic production line:
 </div>
 
 <figure class="article-figure">
-  <img src="/images/insights/acoustic-tuning-fork-fig2.webp" alt="Comparison of FS-129 Divine-Realm Dual-Bearing Tuning Fork EDC and FS-091 56-Magnet Abalone Inlaid Stainless Slider" width="800" height="600" loading="lazy" />
+  <img src="/images/insights/acoustic-tuning-fork-fig2.webp" alt="Comparison of FS-129 Divine-Realm Dual-Bearing Tuning Fork EDC and FS-091 56-Magnet Abalone Inlaid Stainless Slider" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Multi-bearing strike geometry in FS-129 (left) versus the 56-magnet harmonic array in FS-091 304 Stainless Abalone Slider (right).</figcaption>
 </figure>
 

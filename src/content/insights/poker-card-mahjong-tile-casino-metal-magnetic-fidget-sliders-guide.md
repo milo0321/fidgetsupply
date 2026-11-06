@@ -27,7 +27,7 @@ Why do card-and-tile form factors convert at nearly **2.4× the rate** of abstra
 3. **High-Margin Casino, Club &amp; Men's Gift Appeal**: Card, roulette, and arcade themes bridge the gap between EDC enthusiasts, poker/board-game players, groomsmen gifts, and casino VIP loyalty rewards.
 
 <figure class="article-figure">
-  <img src="/images/insights/poker-mahjong-gaming-sliders-fig1.webp" alt="Royal King Queen Poker Magnetic Slider FS-024 and Royal Jack Two-Tone Poker Slider FS-025 in relieved antique bronze and dual-tone plating" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/poker-mahjong-gaming-sliders-fig1.webp" alt="Royal King Queen Poker Magnetic Slider FS-024 and Royal Jack Two-Tone Poker Slider FS-025 in relieved antique bronze and dual-tone plating" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Iconic playing-card relief series—FS-024 Royal King/Queen Poker Magnetic Slider (left) and FS-025 Royal Jack Two-Tone Poker Slider (right)—combining 3D relieved court-card engraving with crisp magnetic track indexing.</figcaption>
 </figure>
 
@@ -129,7 +129,7 @@ One of the smartest merchandising ladders in our entire catalog is the **3-tier 
 - **Boutique CNC 304 Stainless Collector Edition (<a href="/products/304ss-akq-triple-layer-24-magnet-slider">FS-075 at $14.70</a>)**: Replaces die-cast alloy with solid 5-axis CNC-milled **304 Stainless Steel** and upgrades all 24 internal magnets to high-flux **N52 grade**—commanding `$69–$99` retail pricing in our <a href="/collections/cnc-stainless-steel-pei-edc">CNC Stainless Steel collection</a> (see <a href="/insights/zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost">Zinc Alloy vs. CNC Stainless Cost Guide</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/poker-mahjong-gaming-sliders-fig2.webp" alt="Poker Suit Engraved Haptic Coin FS-033 and Retro Arcade Maze Stainless Brass Slider FS-138 for gaming and casino collectors" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/poker-mahjong-gaming-sliders-fig2.webp" alt="Poker Suit Engraved Haptic Coin FS-033 and Retro Arcade Maze Stainless Brass Slider FS-138 for gaming and casino collectors" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Casino &amp; arcade tactile crossovers—FS-033 Poker Suit Engraved 12-Magnet Haptic Coin (left) and FS-138 Retro Arcade Maze CNC Stainless-Brass Slider (right).</figcaption>
 </figure>
 

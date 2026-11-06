@@ -23,7 +23,7 @@ In those environments, a `70 dBA` metallic snap gets picked up immediately by co
 To help e-commerce brands, occupational therapy / ADHD sensory retailers, and corporate gift buyers categorize products accurately, our acoustic lab measured the **A-weighted sound pressure level (`dBA` at a `30 cm` microphone distance)** across all 140 molds in our catalog—identifying **28 whisper-quiet models that operate strictly below `45 dBA`** (quieter than a standard computer keyboard or library room ambient floor).
 
 <figure class="article-figure">
-  <img src="/images/insights/quiet-office-decibel-fidgets-fig1.webp" alt="Minimalist Smooth 6063 Aluminum Slider FS-047 and 6063 Aluminum Magnetic Capsule Pill FS-012 engineered for low-decibel executive office use" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/quiet-office-decibel-fidgets-fig1.webp" alt="Minimalist Smooth 6063 Aluminum Slider FS-047 and 6063 Aluminum Magnetic Capsule Pill FS-012 engineered for low-decibel executive office use" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Executive office staples—FS-047 Minimalist Smooth 6063 Anodized Aluminum Slider (left) and FS-012 6063 Aluminum Magnetic Capsule Pill (right)—combining low-mass anodized shells with damped internal magnet chambers.</figcaption>
 </figure>
 
@@ -85,7 +85,7 @@ How do we preserve strong, satisfying tactile feedback for ADHD focus and anxiet
 4. **10-Ball 440C Stainless Steel R188 Desktop Gyros**: Pure rotational instruments in our <a href="/collections/metal-fidget-spinners-gyros">Metal Fidget Spinners &amp; Gyros collection</a> (<a href="/products/6063-aluminum-coin-top-desktop-gyro">FS-139</a>, <a href="/products/anodized-aluminum-spinning-desk-egg">FS-064</a>, <a href="/products/3d-multi-axis-stainless-gimbal-gyro">FS-066</a>) generate smooth gyroscopic precession in the palm at **34–38 dBA**—completely invisible to Zoom noise-cancellation algorithms (see <a href="/insights/r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide">R188 Bearing &amp; Gyro Engineering Guide</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/quiet-office-decibel-fidgets-fig2.webp" alt="Aluminum-Brass 16-Magnet Spinner Ring FS-135 and M-Profile Aluminum 16-Magnet Ring FS-140 engineered for silent wearable tactile feedback" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/quiet-office-decibel-fidgets-fig2.webp" alt="Aluminum-Brass 16-Magnet Spinner Ring FS-135 and M-Profile Aluminum 16-Magnet Ring FS-140 engineered for silent wearable tactile feedback" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Zero-impact magnetic shear indexing—FS-135 Aluminum-Brass 16-Magnet Spinner Ring (left) and FS-140 M-Profile Aluminum 16-Magnet Ring (right)—delivering 16 distinct tactile pulses per rotation at under 36 dBA.</figcaption>
 </figure>
 

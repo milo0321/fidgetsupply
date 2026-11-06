@@ -26,7 +26,7 @@ When new importers attempt to ship metal fidgets inside standard `300gsm` foldin
 To solve both transit protection and retail presentation at low wholesale minimums (`100–500 pcs`), our Dongguan packaging division has standardized four structural packaging tiers paired with custom CNC waterjet or die-cut **high-density closed-cell EVA foam inserts**.
 
 <figure class="article-figure">
-  <img src="/images/insights/eva-tin-packaging-fig1.webp" alt="Poker King magnetic slider FS-001 and 3-Layer Stacked Slider FS-047 presented with custom retail packaging configurations" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/eva-tin-packaging-fig1.webp" alt="Poker King magnetic slider FS-001 and 3-Layer Stacked Slider FS-047 presented with custom retail packaging configurations" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: High-converting retail and corporate gift heroes—FS-001 Poker King Dual-Tone Magnetic Slider (left) and FS-047 3-Layer Stacked Magnetic Slider (right)—engineered to drop into custom die-cut EVA foam cavities.</figcaption>
 </figure>
 
@@ -89,7 +89,7 @@ Our factory exclusively specifies **45 to 60 kg/m³ high-density closed-cell EVA
 - **Multi-Cavity Accessory Integration**: Every custom EVA insert we cut includes a recessed thumb-notch for effortless removal plus a dedicated under-tray or side slot to hold your **Teflon (PTFE) spare friction pads**, **spare spring/ceramic bead pack**, **collector authenticity card**, and **microfiber polishing cloth**.
 
 <figure class="article-figure">
-  <img src="/images/insights/eva-tin-packaging-fig2.webp" alt="Mecha-X Armor CNC Stainless Slider FS-125 and Gothic Cross Dual-Tone Tuning Fork Slider FS-150 engineered for collector tin and rigid magnetic gift boxes" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/eva-tin-packaging-fig2.webp" alt="Mecha-X Armor CNC Stainless Slider FS-125 and Gothic Cross Dual-Tone Tuning Fork Slider FS-150 engineered for collector tin and rigid magnetic gift boxes" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: Flagship collector models—FS-125 Mecha-X Armor CNC Stainless Slider (left) and FS-150 Gothic Cross Dual-Tone Tuning Fork Slider (right)—paired with multi-cavity EVA trays that house spare PTFE friction pads and acoustic tuning forks.</figcaption>
 </figure>
 

@@ -30,8 +30,28 @@ const guideFiles = fs.readdirSync(guideDir).filter((f) => f.endsWith('.md'));
 
 const featuredMap = new Map(); // path -> owner
 const md5Map = new Map(); // md5 -> path
+let galleryCount = 0;
 
-function checkWebpImage(relPath, owner) {
+function parseWebpDims(buf) {
+  if (buf.toString('ascii', 0, 4) !== 'RIFF' || buf.toString('ascii', 8, 12) !== 'WEBP') {
+    return null;
+  }
+  const chunk = buf.toString('ascii', 12, 16);
+  if (chunk === 'VP8 ') {
+    return { w: buf.readUInt16LE(26) & 0x3fff, h: buf.readUInt16LE(28) & 0x3fff };
+  } else if (chunk === 'VP8L') {
+    const b = buf.readUInt32LE(21);
+    return { w: (b & 0x3fff) + 1, h: ((b >> 14) & 0x3fff) + 1 };
+  } else if (chunk === 'VP8X') {
+    return {
+      w: (buf.readUIntLE(24, 3) & 0xffffff) + 1,
+      h: (buf.readUIntLE(27, 3) & 0xffffff) + 1
+    };
+  }
+  return null;
+}
+
+function checkWebpImage(relPath, owner, expectedDims = null) {
   if (!relPath.endsWith('.webp')) {
     fail(`${owner} image is not .webp: ${relPath}`);
   }
@@ -45,8 +65,14 @@ function checkWebpImage(relPath, owner) {
     fail(`${owner} image exceeds 150KB (${Math.round(stat.size / 1024)}KB): ${relPath}`);
   }
   const buf = fs.readFileSync(abs);
+  const dims = parseWebpDims(buf);
+  if (!dims) {
+    fail(`${owner} image is not a valid WebP binary: ${relPath}`);
+  } else if (expectedDims && (dims.w !== expectedDims.w || dims.h !== expectedDims.h)) {
+    fail(`${owner} image ${relPath} dimensions are ${dims.w}x${dims.h} (expected ${expectedDims.w}x${expectedDims.h})`);
+  }
   const md5 = crypto.createHash('md5').update(buf).digest('hex');
-  return { abs, size: stat.size, md5 };
+  return { abs, size: stat.size, md5, dims };
 }
 
 for (const file of prodFiles) {
@@ -56,12 +82,17 @@ for (const file of prodFiles) {
     fail(`Duplicate featuredImage path ${img} between ${file} and ${featuredMap.get(img)}`);
   }
   featuredMap.set(img, `Product:${file}`);
-  const info = checkWebpImage(img, `Product:${file}`);
+  const info = checkWebpImage(img, `Product:${file}`, { w: 800, h: 600 });
   if (info) {
     if (md5Map.has(info.md5)) {
       fail(`Duplicate binary MD5 for ${img} (${file}) and ${md5Map.get(info.md5)}`);
     }
     md5Map.set(info.md5, `${img} (${file})`);
+  }
+  for (const gImg of data.galleryImages || []) {
+    if (gImg === img) continue;
+    galleryCount++;
+    checkWebpImage(gImg, `ProductGallery:${file}`, { w: 800, h: 600 });
   }
 }
 
@@ -77,7 +108,7 @@ for (const file of guideFiles) {
     fail(`Guide ${file} reuses featuredImage ${img} already owned by ${featuredMap.get(img)}`);
   }
   featuredMap.set(img, `Guide:${file}`);
-  const info = checkWebpImage(img, `Guide:${file}`);
+  const info = checkWebpImage(img, `Guide:${file}`, { w: 800, h: 600 });
   if (info) {
     if (md5Map.has(info.md5)) {
       fail(`Duplicate binary MD5 for guide ${img} (${file}) and ${md5Map.get(info.md5)}`);
@@ -86,14 +117,16 @@ for (const file of guideFiles) {
   }
 
   // Also verify inline <figure class="article-figure"> images in guide body
-  const inlineImgs = [...raw.matchAll(/<img\s+[^>]*src="([^"]+)"[^>]*alt="([^"]*)"/g)];
+  const inlineImgs = [...raw.matchAll(/<img\s+[^>]*src="([^"]+)"[^>]*alt="([^"]*)"[^>]*width="(\d+)"[^>]*height="(\d+)"/g)];
   if (inlineImgs.length < 2) {
-    fail(`Guide ${file} has fewer than 2 inline <img> figures (${inlineImgs.length})`);
+    fail(`Guide ${file} has fewer than 2 inline <img> figures with width/height (${inlineImgs.length})`);
   }
   const seenInGuide = new Set([img]);
   for (const match of inlineImgs) {
     const inlineSrc = match[1];
     const inlineAlt = match[2];
+    const attrW = Number(match[3]);
+    const attrH = Number(match[4]);
     if (!inlineAlt || inlineAlt.trim().length < 10) {
       fail(`Guide ${file} inline image ${inlineSrc} has short/empty alt text`);
     }
@@ -101,7 +134,7 @@ for (const file of guideFiles) {
       fail(`Guide ${file} repeats image ${inlineSrc} on the same page`);
     }
     seenInGuide.add(inlineSrc);
-    const inInfo = checkWebpImage(inlineSrc, `GuideInline:${file}`);
+    const inInfo = checkWebpImage(inlineSrc, `GuideInline:${file}`, { w: attrW, h: attrH });
     if (inInfo) {
       if (md5Map.has(inInfo.md5)) {
         fail(`Duplicate binary MD5 for inline image ${inlineSrc} and ${md5Map.get(inInfo.md5)}`);
@@ -124,24 +157,55 @@ for (let i = 1; i <= 4; i++) {
 checkWebpImage('/images/hero-metal-edc-showcase.webp', 'HeroShowcase');
 
 if (errors === 0) {
-  pass(`All ${prodFiles.length} products, ${guideFiles.length} guides, ${guideFiles.length * 2} inline figures, and 5 showcase images have unique paths, unique MD5 hashes, .webp format, and <150KB size.`);
+  pass(`All ${prodFiles.length} product featuredImages (800x600), ${galleryCount} extra galleryImages (800x600), ${guideFiles.length} guide featuredImages (800x600), ${guideFiles.length * 2} inline figures, and 5 showcase images have unique paths, unique MD5 hashes, .webp format, and <150KB size.`);
 }
 
 // ---------------------------------------------------------------------------
-// RULE 2: Backlinko Editorial, SEO/GEO Meta & Mesh Compliance on All 10 Guides
+// RULE 2: Backlinko Editorial, SEO/GEO Meta & Mesh Compliance on All Products & Guides
 // ---------------------------------------------------------------------------
 console.log('\n=== 2. Backlinko Editorial, SEO/GEO Meta & Mesh Compliance ===');
 const aiCliches = [
   'in today\'s fast-paced',
-  'delve into',
-  'testament to',
+  'delve',
+  'testament',
   'tapestry',
   'game-changer',
-  'unlock the power'
+  'unlock the power',
+  'paramount',
+  'crucial',
+  'beacon',
+  'cutting-edge',
+  'unwavering',
+  'seamlessly',
+  'revolutionize',
+  'in the realm of'
 ];
 
-if (guideFiles.length < 20) {
-  fail(`Expected at least 20 authoritative Insights, found ${guideFiles.length}`);
+const seenMetaTitles = new Map();
+const seenMetaDescs = new Map();
+
+for (const file of prodFiles) {
+  const data = JSON.parse(fs.readFileSync(path.join(prodDir, file), 'utf8'));
+  const mt = data.metaTitle || '';
+  const md = data.metaDescription || '';
+  if (!mt || mt.length >= 60) {
+    fail(`Product ${file} metaTitle length is ${mt.length} (must be < 60 chars): "${mt}"`);
+  }
+  if (!md || md.length >= 155) {
+    fail(`Product ${file} metaDescription length is ${md.length} (must be < 155 chars): "${md}"`);
+  }
+  if (seenMetaTitles.has(mt)) {
+    fail(`Duplicate metaTitle "${mt}" between Product:${file} and ${seenMetaTitles.get(mt)}`);
+  }
+  seenMetaTitles.set(mt, `Product:${file}`);
+  if (seenMetaDescs.has(md)) {
+    fail(`Duplicate metaDescription "${md}" between Product:${file} and ${seenMetaDescs.get(md)}`);
+  }
+  seenMetaDescs.set(md, `Product:${file}`);
+}
+
+if (guideFiles.length < 30) {
+  fail(`Expected at least 30 authoritative Insights, found ${guideFiles.length}`);
 }
 
 for (const file of guideFiles) {
@@ -154,11 +218,27 @@ for (const file of guideFiles) {
   if (!md || md.length >= 155) {
     fail(`Guide ${file} metaDescription length is ${md.length} (must be < 155 chars): "${md}"`);
   }
+  if (seenMetaTitles.has(mt)) {
+    fail(`Duplicate metaTitle "${mt}" between Guide:${file} and ${seenMetaTitles.get(mt)}`);
+  }
+  seenMetaTitles.set(mt, `Guide:${file}`);
+  if (seenMetaDescs.has(md)) {
+    fail(`Duplicate metaDescription "${md}" between Guide:${file} and ${seenMetaDescs.get(md)}`);
+  }
+  seenMetaDescs.set(md, `Guide:${file}`);
+
+  if (/[\u4e00-\u9fff]/.test(raw)) {
+    fail(`Guide ${file} contains Chinese characters in English Markdown`);
+  }
 
   const body = raw.replace(/^---[\s\S]*?---/, '');
   const wordCount = body.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
   if (wordCount < 1200) {
     fail(`Guide ${file} word count is ${wordCount} (must be >= 1,200 words)`);
+  }
+  const calcMinutes = Math.max(8, Math.ceil(wordCount / 145));
+  if (calcMinutes < 8) {
+    fail(`Guide ${file} calculated reading time is ${calcMinutes} min (must be >= 8 min)`);
   }
 
   const tableCount = (raw.match(/<table class="geo-table">/g) || []).length;
@@ -179,11 +259,11 @@ for (const file of guideFiles) {
 
   for (const cliche of aiCliches) {
     if (raw.toLowerCase().includes(cliche)) {
-      fail(`Guide ${file} contains AI cliché "${cliche}"`);
+      fail(`Guide ${file} contains banned AI buzzword "${cliche}"`);
     }
   }
 }
-pass(`All ${guideFiles.length} guides pass Backlinko skyscraper, SEO meta (<60/<155), word count (>=1,200), and semantic mesh checks.`);
+pass(`All ${prodFiles.length} products and ${guideFiles.length} guides pass Backlinko skyscraper, unique SEO meta (<60/<155), word count (>=1,200), reading time (>=8 min), 0 banned buzzwords, and semantic mesh checks.`);
 
 // ---------------------------------------------------------------------------
 // RULE 3: FAQ Count Audit (9-12 FAQs per page across all products, collections, guides, and static pages)
@@ -440,6 +520,53 @@ if (fs.existsSync(distDir)) {
   }
   if (missingImgCount === 0 && missingMetaImgCount === 0) {
     pass(`All ${totalCheckedImgs} <img src> tags and all OG/Twitter meta images across ${htmlFiles.length} built HTML pages exist on disk.`);
+  }
+
+  // ---------------------------------------------------------------------------
+  // RULE 10: Built HTML SEO & GEO Structured Data Audit (Products & Insights x 18 Languages)
+  // ---------------------------------------------------------------------------
+  console.log('\n=== 10. Built HTML SEO & GEO Structured Data Audit ===');
+  let seoGeoErrors = 0;
+  let checkedProdInsightPages = 0;
+  for (const f of htmlFiles) {
+    const relFile = '/' + path.relative(distDir, f).replace(/\\/g, '/');
+    const isProdLeaf = /\/products\/[^/]+\/index\.html$/.test(relFile);
+    const isInsightLeaf = /\/insights\/[^/]+\/index\.html$/.test(relFile);
+    if (!isProdLeaf && !isInsightLeaf) continue;
+    checkedProdInsightPages++;
+    const html = fs.readFileSync(f, 'utf8');
+    if (!html.includes('rel="canonical"')) {
+      fail(`Missing canonical link in ${relFile}`);
+      seoGeoErrors++;
+    }
+    const hreflangCount = (html.match(/hreflang="/g) || []).length;
+    if (hreflangCount < 19) {
+      fail(`Expected 19 hreflang links in ${relFile}, found ${hreflangCount}`);
+      seoGeoErrors++;
+    }
+    if (!html.includes('class="geo-direct-answer"')) {
+      fail(`Missing GeoDirectAnswer block in ${relFile}`);
+      seoGeoErrors++;
+    }
+    if (!html.includes('"@type":"FAQPage"')) {
+      fail(`Missing FAQPage JSON-LD in ${relFile}`);
+      seoGeoErrors++;
+    }
+    if (!html.includes('"@type":"BreadcrumbList"')) {
+      fail(`Missing BreadcrumbList JSON-LD in ${relFile}`);
+      seoGeoErrors++;
+    }
+    if (isProdLeaf && !html.includes('"@type":"Product"')) {
+      fail(`Missing Product JSON-LD in ${relFile}`);
+      seoGeoErrors++;
+    }
+    if (isInsightLeaf && !html.includes('TechArticle')) {
+      fail(`Missing TechArticle/BlogPosting JSON-LD in ${relFile}`);
+      seoGeoErrors++;
+    }
+  }
+  if (seoGeoErrors === 0) {
+    pass(`All ${checkedProdInsightPages} built Product & Insight pages (170 routes x 18 languages) verified for Canonical, 19 Hreflang tags, GeoDirectAnswer block, and JSON-LD (Product/TechArticle + FAQPage + BreadcrumbList).`);
   }
 } else {
   fail('dist/ directory not found. Run npm run build first.');

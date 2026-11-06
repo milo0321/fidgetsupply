@@ -23,7 +23,7 @@ When an online shopper pays `$35 to $120` for a precision metal EDC slider or me
 Across our <a href="/collections/magnetic-fidget-sliders">Magnetic Fidget Sliders</a>, <a href="/collections/mechanical-edc-fidgets">Mechanical EDC</a>, and <a href="/collections/metal-fidget-spinners-gyros">Spinners &amp; Gyros</a> collections, our Dongguan factory solves both issues at the root through **engineered tribological interfaces** (`virgin PTFE membranes` &amp; `ceramic detent spheres`) and **complimentary heat-sealed spare-parts packs**.
 
 <figure class="article-figure">
-  <img src="/images/insights/ptfe-ceramic-bearing-maintenance-fig1.webp" alt="Retro Camera PTFE Magnetic Slider FS-016 and Dragon-Scale 16-Magnet PTFE Slider FS-111 engineered with low-friction Teflon wear surfaces" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/ptfe-ceramic-bearing-maintenance-fig1.webp" alt="Retro Camera PTFE Magnetic Slider FS-016 and Dragon-Scale 16-Magnet PTFE Slider FS-111 engineered with low-friction Teflon wear surfaces" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: Factory PTFE-interfaced sliders—FS-016 Retro Camera PTFE Magnetic Slider (left) and FS-111 Dragon-Scale 16-Magnet PTFE Slider (right)—utilizing virgin polytetrafluoroethylene wear plates to eliminate metal-on-metal galling.</figcaption>
 </figure>
 
@@ -84,7 +84,7 @@ Why do we include **die-cut `0.30mm` Virgin PTFE (Teflon) adhesive wear pads**�
 3. **Pure Acoustic Isolation on Tuning Fork Sliders**: On <a href="/products/compact-20-magnet-acoustic-tuning-fork-slider">FS-150</a>, the PTFE pad eliminates harsh metal-scraping noise so only the pure `3,800 Hz` internal tuning-fork bell note rings out (see <a href="/insights/acoustic-tuning-fork-fidget-slider-engineering-trend">Acoustic Tuning Fork Engineering Guide</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/ptfe-ceramic-bearing-maintenance-fig2.webp" alt="Harmonic 10-Spring 18-Bead Mechanical Slider FS-124 and CNC Stainless 12-Bead Spring Bearing EDC FS-130 showing multi-bead ceramic detent arrays" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/ptfe-ceramic-bearing-maintenance-fig2.webp" alt="Harmonic 10-Spring 18-Bead Mechanical Slider FS-124 and CNC Stainless 12-Bead Spring Bearing EDC FS-130 showing multi-bead ceramic detent arrays" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: High-count spring-and-bead mechanical arrays—FS-124 Harmonic 10-Spring 18-Bead Mechanical Slider (left) and FS-130 CNC Stainless 12-Bead Spring Bearing EDC (right)—shipped with complimentary spare spring and bead maintenance packs.</figcaption>
 </figure>
 

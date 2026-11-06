@@ -7,7 +7,7 @@ author: "FidgetSupply Global Export & Logistics Desk"
 category: "Wholesale Sourcing SOP"
 summary: "A complete customs and international logistics blueprint for importing wholesale metal EDC fidgets from China to the US, EU, UK, Japan, and Australia—covering HS/HTS codes (9503 vs. 7326/8505), IATA PI-953 magnetic shielding, and DDP door-to-door air/sea rates."
 metaTitle: "DDP Shipping, HS Codes & IATA PI-953 Metal Fidget Guide"
-metaDescription: "Import wholesale metal fidgets seamlessly with our DDP air/sea logistics guide. Compare HS codes (9503 vs 7326), IATA PI-953 testing, and FBA rules."
+metaDescription: "Import wholesale metal fidgets reliably with our DDP air/sea logistics guide. Compare HS codes (9503 vs 7326), IATA PI-953 testing, and FBA rules."
 featuredImage: "/images/insights/ddp-shipping-hs-code-iata-hero.webp"
 readTime: "12 min read"
 tags: ["DDP Shipping", "IATA PI-953 Magnetic Freight", "HS Codes Metal Fidgets", "Amazon FBA Logistics"]
@@ -24,7 +24,7 @@ If you order 200 precision metal magnetic sliders (<a href="/products/smooth-soa
 At FidgetSupply.com, our **Fuzhou Export Logistics Hub** eliminates both friction points by combining **in-house IATA PI-953 ferromagnetic carton shielding** with **All-Inclusive Door-to-Door DDP (Delivered Duty Paid) Air, Sea, and Rail Freight** across North America, Europe, the UK, Asia-Pacific, and the Middle East.
 
 <figure class="article-figure">
-  <img src="/images/insights/ddp-shipping-hs-code-iata-fig1.webp" alt="Mechanical Pumpkin N54 Haptic Coin FS-053 and Tri-Fold 14-Magnet N54 Haptic Slider FS-126 requiring IATA PI-953 magnetic shielding for air export" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/ddp-shipping-hs-code-iata-fig1.webp" alt="Mechanical Pumpkin N54 Haptic Coin FS-053 and Tri-Fold 14-Magnet N54 Haptic Slider FS-126 requiring IATA PI-953 magnetic shielding for air export" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: High-flux N54 neodymium models—FS-053 Mechanical Pumpkin N54 Haptic Coin (left) and FS-126 Tri-Fold 14-Magnet N54 Haptic Slider (right)—requiring ferromagnetic flux-shunting carton liners for IATA PI-953 air-freight clearance.</figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ To qualify as **Unrestricted General Air Cargo (Exempt under PI-953 Section II)*
 3. **Pre-Dispatch Digital Gaussmeter Certification (`DGM Report`)**: Before sealing the carton, our QC technician scans all 6 faces at `2.1m` using a calibrated 3-axis fluxgate milligaussmeter, verifying that peak stray field remains strictly below `0.0035 Gauss` (see our <a href="/insights/n35-vs-n52-neodymium-magnet-haptic-feel-guide">N35 vs. N52 Magnet Guide</a> and <a href="/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide">Custom EVA &amp; Tin Box Packaging Guide</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/ddp-shipping-hs-code-iata-fig2.webp" alt="Triple Pea-Pod 39-Magnet 4-Bearing EDC FS-136 and Drop-Tower 6-Bearing 24-Magnet Heavy EDC FS-142 engineered for shielded international air export" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/ddp-shipping-hs-code-iata-fig2.webp" alt="Triple Pea-Pod 39-Magnet 4-Bearing EDC FS-136 and Drop-Tower 6-Bearing 24-Magnet Heavy EDC FS-142 engineered for shielded international air export" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: High-mass multi-magnet and multi-bearing export models—FS-136 Triple Pea-Pod 39-Magnet 4-Bearing EDC (left) and FS-142 Drop-Tower 6-Bearing 24-Magnet Heavy EDC (right)—shipped in silicon-iron shielded master cartons.</figcaption>
 </figure>
 

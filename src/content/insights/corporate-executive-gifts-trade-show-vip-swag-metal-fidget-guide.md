@@ -25,7 +25,7 @@ Why are Fortune 500 marketing teams and promotional gift distributors rapidly sh
 3. **100-Piece MOQ &amp; $0 Tooling Turnkey Execution**: Using our existing production molds, corporate buyers launch custom-branded metal gifts in **10 to 15 days** with **$0.00 mold fees** (see our <a href="/insights/zero-tooling-ready-mold-private-label-fidget-sop">Zero-Tooling Private-Label SOP</a>).
 
 <figure class="article-figure">
-  <img src="/images/insights/corporate-vip-swag-fidget-gifts-fig1.webp" alt="2-in-1 Bottle Opener 12-Magnet EDC Slider FS-026 and QKA Royal Triple-Layer Magnetic Slider FS-062 designed for corporate trade-show and client gifting" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/corporate-vip-swag-fidget-gifts-fig1.webp" alt="2-in-1 Bottle Opener 12-Magnet EDC Slider FS-026 and QKA Royal Triple-Layer Magnetic Slider FS-062 designed for corporate trade-show and client gifting" width="800" height="310" loading="lazy" />
   <figcaption>Figure 1: High-retention corporate swag favorites—FS-026 2-in-1 Bottle Opener 12-Magnet EDC Slider (left) and FS-062 QKA Royal Triple-Layer Magnetic Slider (right)—offering broad flat logo zones and instant desk appeal.</figcaption>
 </figure>
 
@@ -81,7 +81,7 @@ Across hundreds of corporate fulfillment runs, five models consistently earn the
 5. **<a href="/products/fortune-oracle-cnc-stainless-slider">FS-108 (Fortune Oracle CNC Stainless Slider — $14.20)</a> &amp; <a href="/products/conqueror-ultra-slim-26-magnet-ss-slider">FS-144 (Conqueror Ultra-Slim 26-Magnet SS Slider — $18.50)</a>**: Heirloom-grade CNC stainless steel instruments from our <a href="/collections/cnc-stainless-steel-pei-edc">CNC Stainless Steel collection</a> for VIP executives.
 
 <figure class="article-figure">
-  <img src="/images/insights/corporate-vip-swag-fidget-gifts-fig2.webp" alt="Fortune Oracle CNC Stainless Slider FS-108 and Conqueror Ultra-Slim 26-Magnet Stainless Slider FS-144 engineered for VIP executive gifting" width="1200" height="900" loading="lazy" />
+  <img src="/images/insights/corporate-vip-swag-fidget-gifts-fig2.webp" alt="Fortune Oracle CNC Stainless Slider FS-108 and Conqueror Ultra-Slim 26-Magnet Stainless Slider FS-144 engineered for VIP executive gifting" width="800" height="310" loading="lazy" />
   <figcaption>Figure 2: C-Suite VIP collector tier—FS-108 Fortune Oracle CNC Stainless Slider (left) and FS-144 Conqueror Ultra-Slim 26-Magnet Stainless Slider (right)—ideal for Deep Laser + Enamel Color Fill and serialized 001/100 engraving.</figcaption>
 </figure>
 
