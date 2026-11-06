@@ -6,6 +6,12 @@ import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
 const allProducts = (await getCollection('products')).sort((a, b) => a.data.rowId - b.data.rowId);
+const turnstileSiteKey = (
+  import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ||
+  import.meta.env.TURNSTILE_SITE_KEY ||
+  (typeof process !== 'undefined' ? process.env?.PUBLIC_TURNSTILE_SITE_KEY || process.env?.TURNSTILE_SITE_KEY : '') ||
+  ''
+).trim();
 
 const waNumber = '+86 187 5012 6315';
 const cleanWhatsApp = '8618750126315';
@@ -158,7 +164,12 @@ const faqSchema = {
               {t('contact.formDesc')}
             </p>
 
-            <form id="rfqForm" class="rfq-form" novalidate>
+            <form id="rfqForm" class="rfq-form" action="/api/contact" method="POST" enctype="multipart/form-data" novalidate>
+              <!-- Anti-bot Honeypot Field -->
+              <div style="position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; pointer-events: none;" aria-hidden="true">
+                <label for="rx_bot_trap_hp9">Do not fill this field</label>
+                <input type="text" id="rx_bot_trap_hp9" name="rx_bot_trap_hp9" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-1p-ignore="true" data-form-type="other" value="" />
+              </div>
               <!-- ROW 1: Identity (Required *) -->
               <div class="form-row">
                 <div class="form-group half">
@@ -289,9 +300,71 @@ const faqSchema = {
                 ></textarea>
               </div>
 
+              <!-- ROW 6: Logo Artwork / Tech Pack Attachment (Optional, max 15MB) -->
+              <div class="form-group">
+                <label class="form-label" for="artworkFile">
+                  {t('contact.fileLabel')} <span class="optional-badge">{t('contact.fileOptional')}</span>
+                </label>
+
+                <div class="file-dropzone" id="fileDropzone" tabindex="0" role="button" aria-label={t('contact.fileLabel')}>
+                  <input
+                    type="file"
+                    id="artworkFile"
+                    name="artworkFile"
+                    class="file-input-hidden"
+                    accept=".ai,.eps,.pdf,.svg,.cdr,.psd,.png,.jpg,.jpeg,.webp,.zip,.rar,.7z"
+                  />
+                  <div class="dropzone-empty" id="dropzoneEmpty">
+                    <svg class="upload-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <span class="dropzone-text">{t('contact.fileHint')}</span>
+                  </div>
+
+                  <div class="dropzone-selected hidden" id="dropzoneSelected">
+                    <div class="selected-file-info">
+                      <span class="file-type-icon">📎</span>
+                      <div class="file-meta">
+                        <span class="file-label-prefix">{t('contact.fileSelected')}</span>
+                        <span class="file-name" id="selectedFileName"></span>
+                        <span class="file-size" id="selectedFileSize"></span>
+                      </div>
+                    </div>
+                    <button type="button" class="btn-remove-file" id="btnRemoveFile" title={t('contact.fileRemove')}>
+                      ✕
+                    </button>
+                  </div>
+                </div>
+
+                <div class="file-error-msg hidden" id="fileErrorMsg"></div>
+              </div>
+
+              <!-- Cloudflare Turnstile Anti-Bot Widget -->
+              <div id="turnstileWidgetContainer" class="turnstile-widget-wrap" data-build-sitekey={turnstileSiteKey}>
+                {turnstileSiteKey && (
+                  <div
+                    class="cf-turnstile"
+                    data-sitekey={turnstileSiteKey}
+                    data-theme="light"
+                    data-callback="onTurnstileSuccess"
+                    data-expired-callback="onTurnstileExpired"
+                    data-error-callback="onTurnstileError"
+                  ></div>
+                )}
+              </div>
+
               <!-- Submit Actions -->
               <div class="submit-actions-stack">
-                <button type="submit" id="submitBtn" class="btn btn-primary form-submit-btn">
+                <button
+                  type="submit"
+                  id="submitBtn"
+                  class="btn btn-primary form-submit-btn"
+                  data-submit-text={`${t('contact.submitBtn')} →`}
+                  data-sending-text={t('contact.sending')}
+                  data-verifying-text={t('contact.verifying')}
+                >
                   {t('contact.submitBtn')} &rarr;
                 </button>
                 <button type="button" id="waInstantSubmitBtn" class="btn-wa-secondary">
@@ -301,7 +374,41 @@ const faqSchema = {
                   <span>{t('contact.waBtn')} ({waNumber})</span>
                 </button>
               </div>
+
+              <!-- Upload & Submission Progress Bar -->
+              <div
+                id="submitProgressContainer"
+                class="submit-progress-container hidden"
+                role="progressbar"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                data-uploading-text={t('contact.uploadingProgress')}
+                data-processing-text={t('contact.processingInquiry')}
+              >
+                <div class="progress-header">
+                  <div class="progress-status-wrap">
+                    <span class="progress-spinner"></span>
+                    <span class="progress-label" id="progressLabel">{t('contact.uploadingProgress')}</span>
+                  </div>
+                  <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+                <div class="progress-footer">
+                  <span class="progress-bytes" id="progressBytes"></span>
+                  <span class="progress-note">{t('contact.progressNote')}</span>
+                </div>
+              </div>
             </form>
+
+            <div
+              id="formStatus"
+              class="form-status-msg hidden"
+              data-file-error-size={t('contact.fileErrorSize')}
+              data-file-error-type={t('contact.fileErrorType')}
+            ></div>
           </div>
 
           <!-- THANK YOU CONFIRMATION STATE -->
@@ -358,8 +465,11 @@ const faqSchema = {
   </div>
 </Layout>
 
+<script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <script is:inline>
   (function () {
+    var formInitTime = Date.now();
     var productInput = document.getElementById('productName');
     var quickSelect = document.getElementById('quickSkuSelect');
     var brandingSelect = document.getElementById('brandingMode');
@@ -370,6 +480,177 @@ const faqSchema = {
     var formSuccessCard = document.getElementById('formSuccessCard');
     var successWaLink = document.getElementById('successWaLink');
     var resetFormBtn = document.getElementById('resetFormBtn');
+    var submitBtn = document.getElementById('submitBtn');
+    var statusMsg = document.getElementById('formStatus');
+
+    // File upload elements
+    var fileInput = document.getElementById('artworkFile');
+    var fileDropzone = document.getElementById('fileDropzone');
+    var dropzoneEmpty = document.getElementById('dropzoneEmpty');
+    var dropzoneSelected = document.getElementById('dropzoneSelected');
+    var selectedFileName = document.getElementById('selectedFileName');
+    var selectedFileSize = document.getElementById('selectedFileSize');
+    var btnRemoveFile = document.getElementById('btnRemoveFile');
+    var fileErrorMsg = document.getElementById('fileErrorMsg');
+
+    // Progress bar elements
+    var submitProgressContainer = document.getElementById('submitProgressContainer');
+    var progressLabel = document.getElementById('progressLabel');
+    var progressPercent = document.getElementById('progressPercent');
+    var progressFill = document.getElementById('progressFill');
+    var progressBytes = document.getElementById('progressBytes');
+
+    // Turnstile state & global callbacks
+    var turnstileToken = null;
+    var isWaitingForTurnstile = false;
+    var turnstileTimer = null;
+
+    window.onTurnstileSuccess = function (token) {
+      turnstileToken = token;
+      if (isWaitingForTurnstile) {
+        if (turnstileTimer) clearTimeout(turnstileTimer);
+        isWaitingForTurnstile = false;
+        executeSubmit(token);
+      }
+    };
+
+    window.onTurnstileExpired = function () {
+      turnstileToken = null;
+    };
+
+    window.onTurnstileError = function () {
+      if (isWaitingForTurnstile) {
+        if (turnstileTimer) clearTimeout(turnstileTimer);
+        isWaitingForTurnstile = false;
+        executeSubmit(null);
+      }
+    };
+
+    // Runtime Turnstile SiteKey fallback (if configured in Cloudflare Worker runtime vars rather than build-time vars)
+    var turnstileContainer = document.getElementById('turnstileWidgetContainer');
+    if (turnstileContainer && !turnstileContainer.getAttribute('data-build-sitekey')) {
+      fetch('/api/contact')
+        .then(function (r) { return r.json(); })
+        .then(function (info) {
+          if (info && info.turnstileSiteKey && turnstileContainer && !turnstileContainer.querySelector('.cf-turnstile')) {
+            var widgetDiv = document.createElement('div');
+            widgetDiv.className = 'cf-turnstile';
+            widgetDiv.setAttribute('data-sitekey', info.turnstileSiteKey);
+            widgetDiv.setAttribute('data-theme', 'light');
+            turnstileContainer.appendChild(widgetDiv);
+            var tryRender = function (attempts) {
+              if (window.turnstile && typeof window.turnstile.render === 'function') {
+                try {
+                  window.turnstile.render(widgetDiv, {
+                    sitekey: info.turnstileSiteKey,
+                    theme: 'light',
+                    callback: window.onTurnstileSuccess,
+                    'expired-callback': window.onTurnstileExpired,
+                    'error-callback': window.onTurnstileError
+                  });
+                } catch (_) {}
+              } else if (attempts > 0) {
+                setTimeout(function () { tryRender(attempts - 1); }, 300);
+              }
+            };
+            tryRender(15);
+          }
+        })
+        .catch(function () {});
+    }
+
+    var MAX_FILE_SIZE = 15 * 1024 * 1024; // 15MB
+    var ALLOWED_EXTS = ['.pdf', '.ai', '.eps', '.svg', '.cdr', '.psd', '.png', '.jpg', '.jpeg', '.webp', '.zip', '.rar', '.7z'];
+
+    function formatFileSize(bytes) {
+      if (bytes < 1024) return bytes + ' B';
+      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+      return (bytes / (1024 * 1024)).toFixed(2) + ' MB';
+    }
+
+    function handleFileSelection(file) {
+      if (!file) {
+        if (fileInput) fileInput.value = '';
+        if (dropzoneEmpty) dropzoneEmpty.classList.remove('hidden');
+        if (dropzoneSelected) dropzoneSelected.classList.add('hidden');
+        if (fileErrorMsg) fileErrorMsg.classList.add('hidden');
+        return;
+      }
+
+      if (file.size > MAX_FILE_SIZE) {
+        if (fileInput) fileInput.value = '';
+        if (dropzoneEmpty) dropzoneEmpty.classList.remove('hidden');
+        if (dropzoneSelected) dropzoneSelected.classList.add('hidden');
+        if (fileErrorMsg) {
+          fileErrorMsg.textContent = (statusMsg && statusMsg.getAttribute('data-file-error-size')) || '⚠️ File exceeds 15MB limit. Please select a file under 15MB.';
+          fileErrorMsg.classList.remove('hidden');
+        }
+        return;
+      }
+
+      var extMatch = file.name.match(/\.[^.]+$/);
+      var ext = extMatch ? extMatch[0].toLowerCase() : '';
+      if (ALLOWED_EXTS.indexOf(ext) === -1) {
+        if (fileInput) fileInput.value = '';
+        if (dropzoneEmpty) dropzoneEmpty.classList.remove('hidden');
+        if (dropzoneSelected) dropzoneSelected.classList.add('hidden');
+        if (fileErrorMsg) {
+          fileErrorMsg.textContent = (statusMsg && statusMsg.getAttribute('data-file-error-type')) || '⚠️ Unsupported file format.';
+          fileErrorMsg.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (fileErrorMsg) fileErrorMsg.classList.add('hidden');
+      if (dropzoneEmpty) dropzoneEmpty.classList.add('hidden');
+      if (selectedFileName) selectedFileName.textContent = file.name;
+      if (selectedFileSize) selectedFileSize.textContent = '(' + formatFileSize(file.size) + ')';
+      if (dropzoneSelected) dropzoneSelected.classList.remove('hidden');
+    }
+
+    if (fileInput) {
+      fileInput.addEventListener('change', function () {
+        if (fileInput.files && fileInput.files.length > 0) {
+          handleFileSelection(fileInput.files[0]);
+        } else {
+          handleFileSelection(null);
+        }
+      });
+    }
+
+    if (btnRemoveFile) {
+      btnRemoveFile.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        handleFileSelection(null);
+      });
+    }
+
+    if (fileDropzone) {
+      ['dragenter', 'dragover'].forEach(function (eventName) {
+        fileDropzone.addEventListener(eventName, function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          fileDropzone.classList.add('drag-active');
+        });
+      });
+
+      ['dragleave', 'dragend', 'drop'].forEach(function (eventName) {
+        fileDropzone.addEventListener(eventName, function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          fileDropzone.classList.remove('drag-active');
+        });
+      });
+
+      fileDropzone.addEventListener('drop', function (e) {
+        var dt = e.dataTransfer;
+        if (dt && dt.files && dt.files.length > 0) {
+          if (fileInput) fileInput.files = dt.files;
+          handleFileSelection(dt.files[0]);
+        }
+      });
+    }
 
     // 1. Pre-fill from URL query parameters (?sku=FS-125&mode=...)
     try {
@@ -421,6 +702,7 @@ const faqSchema = {
       var qty = document.getElementById('estimatedQuantity')?.value || '';
       var mode = document.getElementById('brandingMode')?.value || '';
       var details = (document.getElementById('inquiryDetails')?.value || '').trim();
+      var hasAttached = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0].name : '';
 
       return [
         'Hello FidgetSupply Sourcing Desk,',
@@ -431,10 +713,158 @@ const faqSchema = {
         '• Contact Name: ' + (name || 'Buyer') + (company ? ' (' + company + ')' : ''),
         '• Email: ' + (email || 'Not provided'),
         country ? '• Destination Country: ' + country : null,
+        hasAttached ? '• Attached File: ' + hasAttached : null,
         details ? '• Project Notes: ' + details : null
       ]
         .filter(Boolean)
         .join('\n');
+    }
+
+    function executeSubmit(verifiedToken) {
+      if (!form || !submitBtn) return;
+
+      var msg = buildInquiryMessage();
+      var nameEl = document.getElementById('fullName');
+      var company = document.getElementById('companyName')?.value || nameEl?.value || 'Wholesale Buyer';
+      var subject = 'Wholesale Quote Inquiry - ' + company + ' | FidgetSupply.com';
+      var waUrl = 'https://wa.me/8618750126315?text=' + encodeURIComponent(msg);
+      if (successWaLink) successWaLink.setAttribute('href', waUrl);
+
+      var defaultBtnText = submitBtn.getAttribute('data-submit-text') || submitBtn.innerHTML;
+      var sendingText = submitBtn.getAttribute('data-sending-text') || 'Sending...';
+      submitBtn.disabled = true;
+      submitBtn.textContent = sendingText;
+      if (statusMsg) statusMsg.classList.add('hidden');
+
+      var formData = new FormData(form);
+      var attachedFile = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
+      if (attachedFile && attachedFile.size > MAX_FILE_SIZE) {
+        if (fileErrorMsg) {
+          fileErrorMsg.textContent = (statusMsg && statusMsg.getAttribute('data-file-error-size')) || '⚠️ File exceeds 15MB limit.';
+          fileErrorMsg.classList.remove('hidden');
+        }
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = defaultBtnText;
+        return;
+      }
+
+      var existingTurnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+      var tokenToUse = verifiedToken || turnstileToken || (existingTurnstileInput ? existingTurnstileInput.value : '');
+      if (tokenToUse) {
+        formData.set('cf-turnstile-response', tokenToUse);
+        formData.set('turnstileToken', tokenToUse);
+      }
+
+      // Attach visitor telemetry & browsing journey
+      try {
+        var urlParams = new URLSearchParams(window.location.search);
+        var timeSpentSec = Math.max(1, Math.round((Date.now() - formInitTime) / 1000));
+        var detectedTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'N/A';
+
+        formData.set('pageUrl', window.location.href);
+        formData.set('pageReferrer', document.referrer || 'Direct Visit');
+        formData.set('browserLanguage', navigator.language || 'N/A');
+        formData.set('screenResolution', window.screen.width + 'x' + window.screen.height + ' (' + (window.devicePixelRatio || 1) + 'x DPR)');
+        formData.set('clientTimezone', detectedTimezone);
+        formData.set('clientLocalTime', new Date().toLocaleString());
+        formData.set('timeOnPageSeconds', timeSpentSec + 's');
+        formData.set('utmSource', urlParams.get('utm_source') || '');
+        formData.set('utmMedium', urlParams.get('utm_medium') || '');
+        formData.set('utmCampaign', urlParams.get('utm_campaign') || '');
+        formData.set('utmTerm', urlParams.get('utm_term') || '');
+        formData.set('utmContent', urlParams.get('utm_content') || '');
+
+        var storage = window.localStorage || window.sessionStorage;
+        if (storage) {
+          var journey = JSON.parse(storage.getItem('rx_journey_history') || '[]');
+          formData.set('browsingJourney', JSON.stringify(journey));
+        }
+      } catch (_) {}
+
+      var hasFile = Boolean(attachedFile && attachedFile.size > 0);
+      if (submitProgressContainer) {
+        submitProgressContainer.classList.remove('hidden');
+        if (progressFill) progressFill.style.width = '5%';
+        if (progressPercent) progressPercent.textContent = '0%';
+        if (progressLabel) {
+          progressLabel.textContent = submitProgressContainer.getAttribute('data-uploading-text') || 'Uploading...';
+        }
+        if (progressBytes) {
+          progressBytes.textContent = hasFile ? '0 B / ' + formatFileSize(attachedFile.size) : '';
+        }
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/api/contact', true);
+      xhr.setRequestHeader('Accept', 'application/json');
+
+      if (xhr.upload) {
+        xhr.upload.onprogress = function (e) {
+          if (e.lengthComputable && e.total > 0) {
+            var pct = Math.min(95, Math.max(5, Math.round((e.loaded / e.total) * 100)));
+            if (progressFill) progressFill.style.width = pct + '%';
+            if (progressPercent) progressPercent.textContent = pct + '%';
+            if (progressBytes && hasFile) {
+              progressBytes.textContent = formatFileSize(e.loaded) + ' / ' + formatFileSize(e.total);
+            }
+          }
+        };
+        xhr.upload.onload = function () {
+          if (progressFill) progressFill.style.width = '96%';
+          if (progressPercent) progressPercent.textContent = '96%';
+          if (progressLabel && submitProgressContainer) {
+            progressLabel.textContent = submitProgressContainer.getAttribute('data-processing-text') || 'Processing inquiry...';
+          }
+          if (progressBytes) progressBytes.textContent = '';
+        };
+      }
+
+      xhr.onload = function () {
+        var resData = {};
+        try {
+          resData = JSON.parse(xhr.responseText);
+        } catch (_) {}
+
+        if (xhr.status >= 200 && xhr.status < 300 && resData.success !== false) {
+          if (progressFill) progressFill.style.width = '100%';
+          if (progressPercent) progressPercent.textContent = '100%';
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', {
+              event_category: 'form_submission',
+              event_label: 'contact_form',
+              currency: 'USD',
+              value: 100
+            });
+          }
+          setTimeout(function () {
+            if (submitProgressContainer) submitProgressContainer.classList.add('hidden');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = defaultBtnText;
+            if (formFieldsContainer && formSuccessCard) {
+              formFieldsContainer.classList.add('hidden');
+              formSuccessCard.classList.remove('hidden');
+              formSuccessCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+          }, 200);
+        } else {
+          if (submitProgressContainer) submitProgressContainer.classList.add('hidden');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = defaultBtnText;
+          if (statusMsg) {
+            statusMsg.textContent = resData.error || resData.message || '⚠️ Submission error. Please try again or send via WhatsApp.';
+            statusMsg.classList.remove('hidden');
+          }
+        }
+      };
+
+      xhr.onerror = function () {
+        if (submitProgressContainer) submitProgressContainer.classList.add('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = defaultBtnText;
+        window.location.href = 'mailto:sales@fidgetsupply.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
+      };
+
+      xhr.send(formData);
     }
 
     if (form) {
@@ -456,58 +886,27 @@ const faqSchema = {
           return;
         }
 
-        var msg = buildInquiryMessage();
-        var company = document.getElementById('companyName')?.value || nameEl?.value || 'Wholesale Buyer';
-        var subject = 'Wholesale Quote Inquiry - ' + company + ' | FidgetSupply.com';
-        var waUrl = 'https://wa.me/8618750126315?text=' + encodeURIComponent(msg);
+        var turnstileWidget = form.querySelector('.cf-turnstile');
+        var existingTurnstileInput = form.querySelector('[name="cf-turnstile-response"]');
+        var currentToken = turnstileToken || (existingTurnstileInput ? existingTurnstileInput.value : null);
 
-        if (successWaLink) successWaLink.setAttribute('href', waUrl);
-
-        var submitBtn = document.getElementById('submitBtn');
-        var origBtnText = submitBtn ? submitBtn.innerHTML : '';
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Sending...';
+        if (turnstileWidget && !currentToken) {
+          isWaitingForTurnstile = true;
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = submitBtn.getAttribute('data-verifying-text') || 'Verifying Security...';
+          }
+          if (turnstileTimer) clearTimeout(turnstileTimer);
+          turnstileTimer = setTimeout(function () {
+            if (isWaitingForTurnstile) {
+              isWaitingForTurnstile = false;
+              executeSubmit(null);
+            }
+          }, 2000);
+          return;
         }
 
-        var journey = [];
-        try {
-          var storage = window.localStorage || window.sessionStorage;
-          if (storage) {
-            journey = JSON.parse(storage.getItem('rx_journey_history') || '[]');
-          }
-        } catch (_) {}
-
-        var payload = {
-          fullName: nameEl?.value || '',
-          workEmail: emailEl?.value || '',
-          companyName: document.getElementById('companyName')?.value || '',
-          destinationCountry: document.getElementById('destinationCountry')?.value || '',
-          productName: prodEl?.value || '',
-          estimatedQuantity: document.getElementById('estimatedQuantity')?.value || '',
-          brandingMode: document.getElementById('brandingMode')?.value || '',
-          inquiryDetails: document.getElementById('inquiryDetails')?.value || '',
-          browsingJourney: journey
-        };
-
-        fetch('/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        })
-          .catch(function () {
-            window.location.href = 'mailto:sales@fidgetsupply.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(msg);
-          })
-          .finally(function () {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerHTML = origBtnText;
-            }
-            if (formFieldsContainer && formSuccessCard) {
-              formFieldsContainer.classList.add('hidden');
-              formSuccessCard.classList.remove('hidden');
-            }
-          });
+        executeSubmit(currentToken);
       });
     }
 
@@ -521,6 +920,13 @@ const faqSchema = {
     if (resetFormBtn) {
       resetFormBtn.addEventListener('click', function () {
         if (formSuccessCard && formFieldsContainer) {
+          if (form) form.reset();
+          handleFileSelection(null);
+          pills.forEach(function (p) { p.classList.remove('active'); });
+          turnstileToken = null;
+          if (window.turnstile && typeof window.turnstile.reset === 'function') {
+            try { window.turnstile.reset(); } catch (_) {}
+          }
           formSuccessCard.classList.add('hidden');
           formFieldsContainer.classList.remove('hidden');
         }
@@ -912,6 +1318,258 @@ const faqSchema = {
     background: #e0f2fe;
     border-color: #38bdf8;
     color: #0369a1;
+  }
+
+  /* File Upload Dropzone */
+  .file-dropzone {
+    position: relative;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    background-color: #f8fafc;
+    padding: 1.15rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+
+  .file-dropzone:hover,
+  .file-dropzone.drag-active {
+    border-color: #0284c7;
+    background-color: #f0f9ff;
+  }
+
+  .file-input-hidden {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .dropzone-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    pointer-events: none;
+  }
+
+  .upload-icon {
+    color: #64748b;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .file-dropzone:hover .upload-icon,
+  .file-dropzone.drag-active .upload-icon {
+    color: #0284c7;
+    transform: translateY(-2px);
+  }
+
+  .dropzone-text {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.45;
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .dropzone-selected {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.55rem 0.85rem;
+    background: #ffffff;
+    border: 1px solid #bae6fd;
+    border-radius: 10px;
+    position: relative;
+    z-index: 3;
+  }
+
+  .selected-file-info {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+  }
+
+  .file-type-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .file-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem;
+    min-width: 0;
+    font-size: 0.86rem;
+  }
+
+  .file-label-prefix {
+    color: #64748b;
+    font-size: 0.78rem;
+  }
+
+  .file-name {
+    font-weight: 700;
+    color: #0f172a;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 240px;
+  }
+
+  .file-size {
+    color: #0284c7;
+    font-weight: 600;
+    font-size: 0.78rem;
+  }
+
+  .btn-remove-file {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 700;
+    transition: all 0.18s ease;
+    flex-shrink: 0;
+  }
+
+  .btn-remove-file:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #b91c1c;
+  }
+
+  .file-error-msg {
+    margin-top: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #dc2626;
+  }
+
+  .turnstile-widget-wrap {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 0;
+  }
+
+  /* Upload & Submission Progress Bar */
+  .submit-progress-container {
+    margin-top: 0.85rem;
+    padding: 1rem 1.25rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+    transform: translateZ(0);
+  }
+
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+    gap: 0.75rem;
+  }
+
+  .progress-status-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .progress-spinner {
+    width: 15px;
+    height: 15px;
+    border: 2.5px solid #cbd5e1;
+    border-top-color: #0284c7;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+    animation: rfqSpin 0.8s linear infinite;
+  }
+
+  @keyframes rfqSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .progress-label {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .progress-percent {
+    font-size: 0.9rem;
+    font-weight: 800;
+    font-family: var(--font-mono, monospace);
+    color: #0284c7;
+  }
+
+  .progress-track {
+    width: 100%;
+    height: 9px;
+    background: #e2e8f0;
+    border-radius: 9999px;
+    overflow: hidden;
+    position: relative;
+    transform: translateZ(0);
+  }
+
+  .progress-fill {
+    height: 100%;
+    background-color: #0284c7;
+    border-radius: 9999px;
+    transition: width 0.2s ease-out;
+  }
+
+  .progress-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.76rem;
+    color: #64748b;
+    gap: 0.5rem;
+  }
+
+  .progress-bytes {
+    font-family: var(--font-mono, monospace);
+    font-weight: 700;
+    color: #0284c7;
+  }
+
+  .progress-note {
+    color: #94a3b8;
+    font-size: 0.74rem;
+  }
+
+  .form-status-msg {
+    margin-top: 1rem;
+    padding: 0.95rem 1.15rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #991b1b;
   }
 
   .submit-actions-stack {

@@ -1,4 +1,4 @@
-import type { SupportedLanguage } from "./config";
+import type { SupportedLanguage } from './config';
 
 export const ui: Record<SupportedLanguage, Record<string, string>> = {
   "en": {
@@ -353,10 +353,22 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "pkg.card3Badge": "Executive VIP & Luxury EDC Tier",
     "pkg.card3Title": "3. Two-Piece Rigid Lid-and-Base Gift Box",
     "pkg.card3Desc": "1200gsm rigid greyboard wrapped in soft-touch matte black or textured paper, hot-foil stamped in metallic gold/silver, with velvet-flocked EVA interior (125 × 90 × 38 mm).",
-    "contact.successTitle": "Inquiry Prepared Successfully!",
-    "contact.successSub": "Your wholesale quote sheet has been generated. Please complete sending via your email client or click below to send directly on WhatsApp for an immediate reply.",
+    "contact.successTitle": "Inquiry Sent Successfully!",
+    "contact.successSub": "Your wholesale inquiry and specifications have been transmitted directly to our Fuzhou engineering & sourcing desk. We will reply within 2–12 hours, or click below to chat on WhatsApp immediately.",
     "contact.successWaBtn": "Send Quote Sheet via WhatsApp Now →",
-    "contact.resetFormBtn": "Submit Another Inquiry"
+    "contact.resetFormBtn": "Submit Another Inquiry",
+    "contact.fileLabel": "Attach Logo Artwork / Spec File",
+    "contact.fileOptional": "Optional · Max 15MB",
+    "contact.fileHint": "Click or drag & drop your logo vector or spec file here (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Attached:",
+    "contact.fileRemove": "Remove file",
+    "contact.fileErrorSize": "⚠️ File exceeds 15MB limit. Please select a file under 15MB or share a download link in the project notes.",
+    "contact.fileErrorType": "⚠️ Unsupported file format. Supported formats: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Uploading specifications & artwork file...",
+    "contact.processingInquiry": "Processing inquiry & sending to sourcing desk...",
+    "contact.progressNote": "Encrypted transmission · Please do not close this tab",
+    "contact.verifying": "Verifying Security...",
+    "contact.sending": "Sending Inquiry..."
   },
   "de": {
     "lang.select": "Sprache wählen",
@@ -713,7 +725,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Anfrage erfolgreich vorbereitet!",
     "contact.successSub": "Ihr Großhandels-Anfrageblatt wurde erstellt. Bitte senden Sie es über Ihr E-Mail-Programm oder klicken Sie unten für direkten WhatsApp-Versand.",
     "contact.successWaBtn": "Anfrageblatt jetzt per WhatsApp senden →",
-    "contact.resetFormBtn": "Weitere Anfrage stellen"
+    "contact.resetFormBtn": "Weitere Anfrage stellen",
+    "contact.fileLabel": "Logo-Vektordatei / Spezifikation anhängen",
+    "contact.fileOptional": "Optional · Max. 15 MB",
+    "contact.fileHint": "Klicken oder Datei hierher ziehen (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Angehängt:",
+    "contact.fileRemove": "Datei entfernen",
+    "contact.fileErrorSize": "⚠️ Datei überschreitet das 15-MB-Limit. Bitte wählen Sie eine Datei unter 15 MB oder teilen Sie einen Download-Link mit.",
+    "contact.fileErrorType": "⚠️ Nicht unterstütztes Dateiformat. Unterstützt: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Spezifikationen & Logo-Datei werden hochgeladen...",
+    "contact.processingInquiry": "Anfrage wird verarbeitet & an das Technik-Team gesendet...",
+    "contact.progressNote": "Verschlüsselte Übertragung · Bitte schließen Sie dieses Fenster nicht",
+    "contact.verifying": "Sicherheitsprüfung läuft...",
+    "contact.sending": "Anfrage wird gesendet..."
   },
   "fr": {
     "lang.select": "Choisir la langue",
@@ -1070,7 +1094,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Demande préparée avec succès !",
     "contact.successSub": "Votre fiche de devis a été générée. Envoyez-la via votre client e-mail ou cliquez ci-dessous pour l’envoyer directement sur WhatsApp.",
     "contact.successWaBtn": "Envoyer le devis sur WhatsApp →",
-    "contact.resetFormBtn": "Envoyer une autre demande"
+    "contact.resetFormBtn": "Envoyer une autre demande",
+    "contact.fileLabel": "Joindre un Fichier Logo / Cahier des Charges",
+    "contact.fileOptional": "Optionnel · Max 15 Mo",
+    "contact.fileHint": "Cliquez ou glissez-déposez votre fichier logo ou spécification ici (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Fichier joint :",
+    "contact.fileRemove": "Supprimer le fichier",
+    "contact.fileErrorSize": "⚠️ Le fichier dépasse la limite de 15 Mo. Veuillez choisir un fichier inférieur à 15 Mo ou partager un lien.",
+    "contact.fileErrorType": "⚠️ Format non pris en charge. Formats acceptés : PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Téléversement des spécifications et du fichier logo...",
+    "contact.processingInquiry": "Traitement de la demande et envoi au bureau d’études...",
+    "contact.progressNote": "Transmission chiffrée · Veuillez ne pas fermer cet onglet",
+    "contact.verifying": "Vérification de sécurité...",
+    "contact.sending": "Envoi en cours..."
   },
   "nl": {
     "lang.select": "Selecteer taal",
@@ -1427,7 +1463,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Aanvraag succesvol voorbereid!",
     "contact.successSub": "Uw offerteblad is aangemaakt. Verzenden via uw e-mailprogramma of klik hieronder om direct via WhatsApp te sturen.",
     "contact.successWaBtn": "Stuur offerteblad nu via WhatsApp →",
-    "contact.resetFormBtn": "Nog een aanvraag indienen"
+    "contact.resetFormBtn": "Nog een aanvraag indienen",
+    "contact.fileLabel": "Logo-bestand / Specificatie toevoegen",
+    "contact.fileOptional": "Optioneel · Max. 15 MB",
+    "contact.fileHint": "Klik of sleep uw logo-vectorbestand hierheen (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Bijgevoegd:",
+    "contact.fileRemove": "Bestand verwijderen",
+    "contact.fileErrorSize": "⚠️ Bestand overschrijdt de limiet van 15 MB. Kies een bestand onder 15 MB of deel een downloadlink.",
+    "contact.fileErrorType": "⚠️ Niet-ondersteund bestandsformaat. Ondersteund: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Specificaties & bestand uploaden...",
+    "contact.processingInquiry": "Aanvraag verwerken & verzenden...",
+    "contact.progressNote": "Versleutelde verzending · Sluit dit tabblad niet",
+    "contact.verifying": "Beveiliging controleren...",
+    "contact.sending": "Bezig met verzenden..."
   },
   "es": {
     "lang.select": "Seleccionar idioma",
@@ -1784,7 +1832,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "¡Consulta preparada con éxito!",
     "contact.successSub": "Su hoja de cotización ha sido generada. Envíela desde su correo o haga clic abajo para enviarla directamente por WhatsApp.",
     "contact.successWaBtn": "Enviar cotización por WhatsApp ahora →",
-    "contact.resetFormBtn": "Enviar otra consulta"
+    "contact.resetFormBtn": "Enviar otra consulta",
+    "contact.fileLabel": "Adjuntar Archivo de Logo / Especificaciones",
+    "contact.fileOptional": "Opcional · Máx. 15 MB",
+    "contact.fileHint": "Haga clic o arrastre aquí su archivo vectorial de logo (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Adjunto:",
+    "contact.fileRemove": "Eliminar archivo",
+    "contact.fileErrorSize": "⚠️ El archivo supera el límite de 15 MB. Seleccione un archivo menor a 15 MB o comparta un enlace de descarga.",
+    "contact.fileErrorType": "⚠️ Formato no compatible. Formatos aceptados: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Subiendo especificaciones y archivo de logo...",
+    "contact.processingInquiry": "Procesando solicitud y enviando al equipo de ingeniería...",
+    "contact.progressNote": "Transmisión cifrada · Por favor no cierre esta pestaña",
+    "contact.verifying": "Verificando seguridad...",
+    "contact.sending": "Enviando solicitud..."
   },
   "it": {
     "lang.select": "Seleziona lingua",
@@ -2141,7 +2201,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Richiesta preparata con successo!",
     "contact.successSub": "Il modulo di preventivo è pronto. Invialo tramite il tuo client email o clicca qui sotto per inviarlo subito su WhatsApp.",
     "contact.successWaBtn": "Invia preventivo su WhatsApp ora →",
-    "contact.resetFormBtn": "Invia un’altra richiesta"
+    "contact.resetFormBtn": "Invia un’altra richiesta",
+    "contact.fileLabel": "Allega File Logo / Specifiche Tecniche",
+    "contact.fileOptional": "Opzionale · Max 15 MB",
+    "contact.fileHint": "Clicca o trascina qui il tuo file logo vettoriale (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Allegato:",
+    "contact.fileRemove": "Rimuovi file",
+    "contact.fileErrorSize": "⚠️ Il file supera il limite di 15 MB. Seleziona un file inferiore a 15 MB o inserisci un link nelle note.",
+    "contact.fileErrorType": "⚠️ Formato non supportato. Formati accettati: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Caricamento specifiche e file logo in corso...",
+    "contact.processingInquiry": "Elaborazione richiesta e invio al reparto tecnico...",
+    "contact.progressNote": "Trasmissione crittografata · Non chiudere questa scheda",
+    "contact.verifying": "Verifica di sicurezza...",
+    "contact.sending": "Invio in corso..."
   },
   "pt": {
     "lang.select": "Selecionar idioma",
@@ -2498,7 +2570,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Cotação preparada com sucesso!",
     "contact.successSub": "Sua folha de orçamento foi gerada. Envie pelo seu aplicativo de e-mail ou clique abaixo para enviar diretamente via WhatsApp.",
     "contact.successWaBtn": "Enviar cotação via WhatsApp agora →",
-    "contact.resetFormBtn": "Enviar outra consulta"
+    "contact.resetFormBtn": "Enviar outra consulta",
+    "contact.fileLabel": "Anexar Ficheiro de Logótipo / Especificações",
+    "contact.fileOptional": "Opcional · Máx. 15 MB",
+    "contact.fileHint": "Clique ou arraste o seu ficheiro vetorial de logótipo para aqui (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Anexado:",
+    "contact.fileRemove": "Remover ficheiro",
+    "contact.fileErrorSize": "⚠️ O ficheiro excede o limite de 15 MB. Selecione um ficheiro inferior a 15 MB ou partilhe um link.",
+    "contact.fileErrorType": "⚠️ Formato não suportado. Formatos aceites: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "A carregar especificações e ficheiro de logótipo...",
+    "contact.processingInquiry": "A processar pedido e a enviar para a equipa técnica...",
+    "contact.progressNote": "Transmissão encriptada · Não feche este separador",
+    "contact.verifying": "A verificar segurança...",
+    "contact.sending": "A enviar pedido..."
   },
   "sv": {
     "lang.select": "Välj språk",
@@ -2855,7 +2939,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Förfrågan har skapats!",
     "contact.successSub": "Ditt offertunderlag är klart. Skicka via din e-postklient eller klicka nedan för att skicka direkt på WhatsApp.",
     "contact.successWaBtn": "Skicka offert via WhatsApp nu →",
-    "contact.resetFormBtn": "Skicka en ny förfrågan"
+    "contact.resetFormBtn": "Skicka en ny förfrågan",
+    "contact.fileLabel": "Bifoga logotypfil / specifikation",
+    "contact.fileOptional": "Valfritt · Max 15 MB",
+    "contact.fileHint": "Klicka eller dra och släpp din logotypfil här (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Bifogad:",
+    "contact.fileRemove": "Ta bort fil",
+    "contact.fileErrorSize": "⚠️ Filen överskrider gränsen på 15 MB. Välj en fil under 15 MB eller dela en länk i meddelandet.",
+    "contact.fileErrorType": "⚠️ Filformatet stöds inte. Format som stöds: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Laddar upp specifikationer och logotypfil...",
+    "contact.processingInquiry": "Bearbetar förfrågan och skickar till inköpsteamet...",
+    "contact.progressNote": "Krypterad överföring · Stäng inte den här fliken",
+    "contact.verifying": "Verifierar säkerhet...",
+    "contact.sending": "Skickar förfrågan..."
   },
   "da": {
     "lang.select": "Vælg sprog",
@@ -3212,7 +3308,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Forespørgsel klargjort!",
     "contact.successSub": "Dit tilbudsark er oprettet. Send via dit e-mailprogram eller klik nedenfor for at sende direkte på WhatsApp.",
     "contact.successWaBtn": "Send tilbudsark via WhatsApp nu →",
-    "contact.resetFormBtn": "Send en ny forespørgsel"
+    "contact.resetFormBtn": "Send en ny forespørgsel",
+    "contact.fileLabel": "Vedhæft logofil / specifikation",
+    "contact.fileOptional": "Valgfrit · Maks. 15 MB",
+    "contact.fileHint": "Klik eller træk og slip din logofil her (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Vedhæftet:",
+    "contact.fileRemove": "Fjern fil",
+    "contact.fileErrorSize": "⚠️ Filen overskrider grænsen på 15 MB. Vælg en fil under 15 MB eller del et downloadlink.",
+    "contact.fileErrorType": "⚠️ Ikke-understøttet filformat. Understøttet: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Uploader specifikationer og logofil...",
+    "contact.processingInquiry": "Behandler forespørgsel og sender til ingeniørteamet...",
+    "contact.progressNote": "Krypteret overførsel · Luk venligst ikke denne fane",
+    "contact.verifying": "Bekræfter sikkerhed...",
+    "contact.sending": "Sender forespørgsel..."
   },
   "no": {
     "lang.select": "Velg språk",
@@ -3569,7 +3677,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Forespørsel klargjort!",
     "contact.successSub": "Tilbudsarket ditt er klart. Send via e-postklienten din eller klikk nedenfor for å sende direkte på WhatsApp.",
     "contact.successWaBtn": "Send tilbudsark via WhatsApp nå →",
-    "contact.resetFormBtn": "Send en ny forespørsel"
+    "contact.resetFormBtn": "Send en ny forespørsel",
+    "contact.fileLabel": "Legg ved logofil / spesifikasjon",
+    "contact.fileOptional": "Valgfritt · Maks 15 MB",
+    "contact.fileHint": "Klikk eller dra og slipp logofilen din her (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Vedlagt:",
+    "contact.fileRemove": "Fjern fil",
+    "contact.fileErrorSize": "⚠️ Filen overskrider grensen på 15 MB. Velg en fil under 15 MB eller del en nedlastingslenke.",
+    "contact.fileErrorType": "⚠️ Filformatet støttes ikke. Støttede formater: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Laster opp spesifikasjoner og logofil...",
+    "contact.processingInquiry": "Behandler forespørsel og sender til ingeniørteamet...",
+    "contact.progressNote": "Kryptert overføring · Ikke lukk denne fanen",
+    "contact.verifying": "Bekrefter sikkerhet...",
+    "contact.sending": "Sender forespørsel..."
   },
   "fi": {
     "lang.select": "Valitse kieli",
@@ -3926,7 +4046,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Tarjouspyyntö valmisteltu!",
     "contact.successSub": "Tarjouslomake on luotu. Lähetä se sähköpostiohjelmallasi tai napsauta alta lähettääksesi suoraan WhatsAppissa.",
     "contact.successWaBtn": "Lähetä tarjouspyyntö WhatsAppissa nyt →",
-    "contact.resetFormBtn": "Lähetä uusi tiedustelu"
+    "contact.resetFormBtn": "Lähetä uusi tiedustelu",
+    "contact.fileLabel": "Liitä logotiedosto / spesifikaatio",
+    "contact.fileOptional": "Valinnainen · Enintään 15 Mt",
+    "contact.fileHint": "Napsauta tai vedä ja pudota logotiedostosi tähän (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Liitetty:",
+    "contact.fileRemove": "Poista tiedosto",
+    "contact.fileErrorSize": "⚠️ Tiedosto ylittää 15 Mt:n rajan. Valitse alle 15 Mt:n tiedosto tai jaa latauslinkki.",
+    "contact.fileErrorType": "⚠️ Tiedostomuotoa ei tueta. Tuetut muodot: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Lähetetään tietoja ja logotiedostoa...",
+    "contact.processingInquiry": "Käsitellään tarjouspyyntöä...",
+    "contact.progressNote": "Salattu yhteys · Älä sulje tätä välilehteä",
+    "contact.verifying": "Vahvistetaan tietoturvaa...",
+    "contact.sending": "Lähetetään..."
   },
   "pl": {
     "lang.select": "Wybierz język",
@@ -4283,7 +4415,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Zapytanie przygotowane pomyślnie!",
     "contact.successSub": "Arkusz wyceny został wygenerowany. Wyślij go przez program pocztowy lub kliknij poniżej, aby wysłać bezpośrednio przez WhatsApp.",
     "contact.successWaBtn": "Wyślij wycenę przez WhatsApp teraz →",
-    "contact.resetFormBtn": "Wyślij kolejne zapytanie"
+    "contact.resetFormBtn": "Wyślij kolejne zapytanie",
+    "contact.fileLabel": "Załącz plik z logo / specyfikację",
+    "contact.fileOptional": "Opcjonalnie · Maks. 15 MB",
+    "contact.fileHint": "Kliknij lub przeciągnij i upuść plik wektorowy logo tutaj (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Załączono:",
+    "contact.fileRemove": "Usuń plik",
+    "contact.fileErrorSize": "⚠️ Plik przekracza limit 15 MB. Wybierz plik poniżej 15 MB lub podaj link do pobrania w uwagach.",
+    "contact.fileErrorType": "⚠️ Nieobsługiwany format pliku. Obsługiwane: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Przesyłanie specyfikacji i pliku logo...",
+    "contact.processingInquiry": "Przetwarzanie zapytania i wysyłanie do działu wycen...",
+    "contact.progressNote": "Szyfrowana transmisja · Proszę nie zamykać tej karty",
+    "contact.verifying": "Weryfikacja zabezpieczeń...",
+    "contact.sending": "Wysyłanie zapytania..."
   },
   "cs": {
     "lang.select": "Vybrat jazyk",
@@ -4640,7 +4784,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Poptávka úspěšně připravena!",
     "contact.successSub": "Váš poptávkový list byl vygenerován. Odešlete jej e-mailem nebo klikněte níže pro přímé odeslání přes WhatsApp.",
     "contact.successWaBtn": "Odeslat poptávku přes WhatsApp nyní →",
-    "contact.resetFormBtn": "Odeslat další poptávku"
+    "contact.resetFormBtn": "Odeslat další poptávku",
+    "contact.fileLabel": "Připojit soubor s logem / specifikaci",
+    "contact.fileOptional": "Volitelné · Max. 15 MB",
+    "contact.fileHint": "Klikněte nebo sem přetáhněte vektorový soubor loga (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Připojeno:",
+    "contact.fileRemove": "Odebrat soubor",
+    "contact.fileErrorSize": "⚠️ Soubor překračuje limit 15 MB. Vyberte soubor do 15 MB nebo vložte odkaz ke stažení.",
+    "contact.fileErrorType": "⚠️ Nepodporovaný formát souboru. Podporované: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Nahrávání specifikací a souboru loga...",
+    "contact.processingInquiry": "Zpracování poptávky a odesílání...",
+    "contact.progressNote": "Šifrovaný přenos · Nezavírejte prosím tuto kartu",
+    "contact.verifying": "Ověřování zabezpečení...",
+    "contact.sending": "Odesílání poptávky..."
   },
   "ru": {
     "lang.select": "Выберите язык",
@@ -4997,7 +5153,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Запрос успешно сформирован!",
     "contact.successSub": "Ваш лист расчета готов. Отправьте его через почтовый клиент или нажмите кнопку ниже для мгновенной отправки в WhatsApp.",
     "contact.successWaBtn": "Отправить запрос в WhatsApp сейчас →",
-    "contact.resetFormBtn": "Отправить еще один запрос"
+    "contact.resetFormBtn": "Отправить еще один запрос",
+    "contact.fileLabel": "Прикрепить файл логотипа / ТЗ",
+    "contact.fileOptional": "Необязательно · Макс. 15 МБ",
+    "contact.fileHint": "Нажмите или перетащите векторный файл логотипа сюда (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Прикреплено:",
+    "contact.fileRemove": "Удалить файл",
+    "contact.fileErrorSize": "⚠️ Файл превышает лимит 15 МБ. Пожалуйста, выберите файл до 15 МБ или укажите ссылку в примечаниях.",
+    "contact.fileErrorType": "⚠️ Неподдерживаемый формат файла. Поддерживаются: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Загрузка спецификации и файла логотипа...",
+    "contact.processingInquiry": "Обработка запроса и отправка в инженерный отдел...",
+    "contact.progressNote": "Защищенная передача · Пожалуйста, не закрывайте вкладку",
+    "contact.verifying": "Проверка безопасности...",
+    "contact.sending": "Отправка запроса..."
   },
   "ja": {
     "lang.select": "言語を選択",
@@ -5354,7 +5522,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "お見積りシートを作成しました！",
     "contact.successSub": "お見積り内容が生成されました。メールソフトから送信するか、下のボタンからWhatsAppで直接送信してください。",
     "contact.successWaBtn": "WhatsAppで今すぐ見積りシートを送信 →",
-    "contact.resetFormBtn": "別のお問い合わせを送信する"
+    "contact.resetFormBtn": "別のお問い合わせを送信する",
+    "contact.fileLabel": "ロゴデータ・仕様書ファイルを添付",
+    "contact.fileOptional": "任意・最大 15MB",
+    "contact.fileHint": "ここをクリックまたはドラッグ＆ドロップでロゴデータを添付 (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "添付済み:",
+    "contact.fileRemove": "ファイルを削除",
+    "contact.fileErrorSize": "⚠️ ファイルサイズが15MBの上限を超えています。15MB以下のファイルを選択するか、備考欄にダウンロードリンクをご記入ください。",
+    "contact.fileErrorType": "⚠️ 対応していないファイル形式です（対応形式: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z）。",
+    "contact.uploadingProgress": "仕様およびロゴファイルをアップロード中...",
+    "contact.processingInquiry": "お見積り依頼を送信中...",
+    "contact.progressNote": "暗号化通信中・このタブを閉じないでください",
+    "contact.verifying": "セキュリティ確認中...",
+    "contact.sending": "送信中..."
   },
   "ko": {
     "lang.select": "언어 선택",
@@ -5711,7 +5891,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "견적 문의서가 준비되었습니다!",
     "contact.successSub": "도매 견적 시트가 생성되었습니다. 이메일 클라이언트로 전송하거나 아래 버튼을 눌러 WhatsApp으로 즉시 전송하세요.",
     "contact.successWaBtn": "지금 WhatsApp으로 견적 시트 보내기 →",
-    "contact.resetFormBtn": "다른 문의 작성하기"
+    "contact.resetFormBtn": "다른 문의 작성하기",
+    "contact.fileLabel": "로고 원본 / 사양서 파일 첨부",
+    "contact.fileOptional": "선택 사항 · 최대 15MB",
+    "contact.fileHint": "클릭하거나 로고 벡터 파일을 이곳으로 드래그 앤 드롭하세요 (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "첨부됨:",
+    "contact.fileRemove": "파일 삭제",
+    "contact.fileErrorSize": "⚠️ 파일 크기가 15MB 제한을 초과했습니다. 15MB 이하의 파일을 선택하거나 메모란에 다운로드 링크를 남겨주세요.",
+    "contact.fileErrorType": "⚠️ 지원되지 않는 파일 형식입니다. 지원 형식: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "사양 및 로고 파일 업로드 중...",
+    "contact.processingInquiry": "문의 접수 및 엔지니어링 데스크 전송 중...",
+    "contact.progressNote": "암호화 전송 중 · 이 탭을 닫지 마세요",
+    "contact.verifying": "보안 확인 중...",
+    "contact.sending": "전송 중..."
   },
   "id": {
     "lang.select": "Pilih Bahasa",
@@ -6068,7 +6260,19 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "Permintaan Berhasil Disiapkan!",
     "contact.successSub": "Lembar penawaran grosir Anda telah dibuat. Silakan kirim melalui aplikasi email Anda atau klik di bawah untuk mengirim langsung via WhatsApp.",
     "contact.successWaBtn": "Kirim Lembar Penawaran via WhatsApp Sekarang →",
-    "contact.resetFormBtn": "Kirim Permintaan Lainnya"
+    "contact.resetFormBtn": "Kirim Permintaan Lainnya",
+    "contact.fileLabel": "Lampirkan File Logo / Spesifikasi",
+    "contact.fileOptional": "Opsional · Maks 15MB",
+    "contact.fileHint": "Klik atau seret & lepas file vektor logo Anda di sini (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "Terlampir:",
+    "contact.fileRemove": "Hapus file",
+    "contact.fileErrorSize": "⚠️ Ukuran file melebihi batas 15MB. Pilih file di bawah 15MB atau bagikan tautan unduhan di catatan.",
+    "contact.fileErrorType": "⚠️ Format file tidak didukung. Format yang didukung: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "Mengunggah spesifikasi & file logo...",
+    "contact.processingInquiry": "Memproses permintaan & mengirim ke tim teknik...",
+    "contact.progressNote": "Transmisi terenkripsi · Jangan tutup tab ini",
+    "contact.verifying": "Memverifikasi keamanan...",
+    "contact.sending": "Mengirim..."
   },
   "ar": {
     "lang.select": "اختر اللغة",
@@ -6425,6 +6629,18 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "contact.successTitle": "تم تجهيز طلب التسعير بنجاح!",
     "contact.successSub": "تم إنشاء ورقة عرض الأسعار الخاصة بك. يرجى إرسالها عبر البريد الإلكتروني أو النقر أدناه لإرسالها مباشرة عبر واتساب.",
     "contact.successWaBtn": "إرسال طلب التسعير عبر واتساب الآن ←",
-    "contact.resetFormBtn": "إرسال استفسار آخر"
+    "contact.resetFormBtn": "إرسال استفسار آخر",
+    "contact.fileLabel": "إرفاق ملف الشعار / المواصفات الفنية",
+    "contact.fileOptional": "اختياري · الحد الأقصى 15 ميجابايت",
+    "contact.fileHint": "انقر أو اسحب وأفلت ملف الشعار المتجه هنا (.AI, .EPS, .PDF, .SVG, .CDR, .PSD, .PNG, .JPG, .WEBP, .ZIP)",
+    "contact.fileSelected": "الملف المرفق:",
+    "contact.fileRemove": "إزالة الملف",
+    "contact.fileErrorSize": "⚠️ حجم الملف يتجاوز حد 15 ميجابايت. يرجى اختيار ملف أصغر من 15 ميجابايت أو مشاركة رابط تنزيل في الملاحظات.",
+    "contact.fileErrorType": "⚠️ صيغة الملف غير مدعومة. الصيغ المدعومة: PDF, AI, EPS, SVG, CDR, PSD, PNG, JPG, WEBP, ZIP, RAR, 7Z.",
+    "contact.uploadingProgress": "جاري رفع المواصفات وملف الشعار...",
+    "contact.processingInquiry": "جاري معالجة الطلب وإرساله إلى مكتب الهندسة والتوريد...",
+    "contact.progressNote": "إرسال مشفر · يرجى عدم إغلاق هذه الصفحة",
+    "contact.verifying": "جاري التحقق من الأمان...",
+    "contact.sending": "جاري الإرسال..."
   }
 };

@@ -6,6 +6,8 @@ export interface Env {
   NOTIFICATION_EMAIL?: string;
   RESEND_FROM_EMAIL?: string;
   TURNSTILE_SECRET_KEY?: string;
+  PUBLIC_TURNSTILE_SITE_KEY?: string;
+  TURNSTILE_SITE_KEY?: string;
 }
 
 export default {
@@ -60,10 +62,17 @@ export default {
         return handleContactPost({ request, env, ctx });
       }
       if (request.method === 'GET') {
-        return new Response(JSON.stringify({ status: 'ok', service: 'FidgetSupply Contact API' }), {
-          status: 200,
-          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-        });
+        return new Response(
+          JSON.stringify({
+            status: 'ok',
+            service: 'FidgetSupply Contact API',
+            turnstileSiteKey: env.PUBLIC_TURNSTILE_SITE_KEY || env.TURNSTILE_SITE_KEY || ''
+          }),
+          {
+            status: 200,
+            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+          }
+        );
       }
       return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
         status: 405,
