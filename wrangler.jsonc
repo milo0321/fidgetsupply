@@ -10,7 +10,8 @@
   "vars": {
     "NOTIFICATION_EMAIL": "sales@fidgetsupply.com",
     "RESEND_FROM_EMAIL": "FidgetSupply Inquiries <quotes@send.fidgetsupply.com>",
-    "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAF1GTaPVmYSNUcHS"
+    "PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAF1GTaPVmYSNUcHS",
+    "PUBLIC_GA_MEASUREMENT_ID": "GTM-TH9NHVJ4"
   },
   "assets": {
     "directory": "./dist",

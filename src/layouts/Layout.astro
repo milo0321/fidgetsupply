@@ -37,7 +37,7 @@ const currentLang = (lang || getLanguageFromURL(Astro.url.pathname) || 'en') as 
 const currentDir = dir || getDirection(currentLang);
 const t = useTranslations(currentLang);
 const langConfig = languages[currentLang];
-const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
+const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || 'GTM-TH9NHVJ4';
 
 const localizedTitle =
   currentLang === 'en'
@@ -176,23 +176,20 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     ))}
 
-    {gaMeasurementId && (
-      <script is:inline define:vars={{ gaMeasurementId }}>
-        (function () {
-          try {
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', gaMeasurementId);
-            var s = document.createElement('script');
-            s.async = true;
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaMeasurementId;
-            document.head.appendChild(s);
-          } catch (_) {}
-        })();
-      </script>
-    )}
+    <!-- Google Tag Manager / GA4 -->
+    <script async src={`https://www.googletagmanager.com/${gaMeasurementId.startsWith('GTM-') ? 'gtm.js' : 'gtag/js'}?id=${gaMeasurementId}`}></script>
+    <script is:inline define:vars={{ gaMeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      if (gaMeasurementId && gaMeasurementId.indexOf('GTM-') === 0) {
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      }
+      function gtag(){window.dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+      if (gaMeasurementId && gaMeasurementId.indexOf('G-') === 0) {
+        gtag('config', gaMeasurementId);
+      }
+    </script>
 
     <script is:inline>
       (function () {
