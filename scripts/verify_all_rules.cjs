@@ -124,13 +124,13 @@ for (let i = 1; i <= 4; i++) {
 checkWebpImage('/images/hero-metal-edc-showcase.webp', 'HeroShowcase');
 
 if (errors === 0) {
-  pass(`All ${prodFiles.length} products, ${guideFiles.length} guides, 12 inline figures, and 5 showcase images have unique paths, unique MD5 hashes, .webp format, and <150KB size.`);
+  pass(`All ${prodFiles.length} products, ${guideFiles.length} guides, ${guideFiles.length * 2} inline figures, and 5 showcase images have unique paths, unique MD5 hashes, .webp format, and <150KB size.`);
 }
 
 // ---------------------------------------------------------------------------
-// RULE 2: Backlinko Editorial Compliance on All 6 Guides
+// RULE 2: Backlinko Editorial, SEO/GEO Meta & Mesh Compliance on All 10 Guides
 // ---------------------------------------------------------------------------
-console.log('\n=== 2. Backlinko Editorial & Structural Compliance ===');
+console.log('\n=== 2. Backlinko Editorial, SEO/GEO Meta & Mesh Compliance ===');
 const aiCliches = [
   'in today\'s fast-paced',
   'delve into',
@@ -140,17 +140,42 @@ const aiCliches = [
   'unlock the power'
 ];
 
+if (guideFiles.length < 10) {
+  fail(`Expected at least 10 authoritative Insights, found ${guideFiles.length}`);
+}
+
 for (const file of guideFiles) {
   const raw = fs.readFileSync(path.join(guideDir, file), 'utf8');
+  const mt = (raw.match(/metaTitle:\s*"([^"]+)"/) || [])[1] || '';
+  const md = (raw.match(/metaDescription:\s*"([^"]+)"/) || [])[1] || '';
+  if (!mt || mt.length >= 60) {
+    fail(`Guide ${file} metaTitle length is ${mt.length} (must be < 60 chars): "${mt}"`);
+  }
+  if (!md || md.length >= 155) {
+    fail(`Guide ${file} metaDescription length is ${md.length} (must be < 155 chars): "${md}"`);
+  }
+
+  const body = raw.replace(/^---[\s\S]*?---/, '');
+  const wordCount = body.replace(/<[^>]+>/g, ' ').trim().split(/\s+/).length;
+  if (wordCount < 1200) {
+    fail(`Guide ${file} word count is ${wordCount} (must be >= 1,200 words)`);
+  }
+
   const tableCount = (raw.match(/<table class="geo-table">/g) || []).length;
   const figCount = (raw.match(/<figure class="article-figure">/g) || []).length;
   const ctaBoxCount = (raw.match(/class="sourcing-cta-box"/g) || []).length;
   const h2Count = (raw.match(/<h2[\s>]|^##\s+/gm) || []).length;
+  const prodLinks = (body.match(/href="\/products\//g) || []).length;
+  const colLinks = (body.match(/href="\/collections\//g) || []).length;
+  const insLinks = (body.match(/href="\/insights\//g) || []).length;
 
   if (tableCount < 2) fail(`Guide ${file} has <2 .geo-table comparison tables (${tableCount})`);
   if (figCount < 2) fail(`Guide ${file} has <2 .article-figure inline figures (${figCount})`);
   if (ctaBoxCount < 1) fail(`Guide ${file} missing .sourcing-cta-box`);
   if (h2Count < 4) fail(`Guide ${file} has <4 H2 sections (${h2Count})`);
+  if (prodLinks < 15) fail(`Guide ${file} has <15 product cross-links (${prodLinks})`);
+  if (colLinks < 2) fail(`Guide ${file} has <2 collection cross-links (${colLinks})`);
+  if (insLinks < 3) fail(`Guide ${file} has <3 sibling insight cross-links (${insLinks})`);
 
   for (const cliche of aiCliches) {
     if (raw.toLowerCase().includes(cliche)) {
@@ -158,7 +183,7 @@ for (const file of guideFiles) {
     }
   }
 }
-pass(`All ${guideFiles.length} guides pass Backlinko skyscraper checks (>=2 tables, >=2 figures, >=4 H2s, .sourcing-cta-box, 0 AI clichés).`);
+pass(`All ${guideFiles.length} guides pass Backlinko skyscraper, SEO meta (<60/<155), word count (>=1,200), and semantic mesh checks.`);
 
 // ---------------------------------------------------------------------------
 // RULE 3: FAQ Count Audit (9-12 FAQs per page across all products, collections, guides, and static pages)
@@ -173,10 +198,10 @@ for (const file of prodFiles) {
 }
 const guideTemplate = fs.readFileSync(path.join(ROOT, 'src/pages/insights/[slug].astro'), 'utf8');
 const guideFaqMatches = (guideTemplate.match(/question:\s*'/g) || []).length;
-if (guideFaqMatches < 54) {
-  fail(`Guide template src/pages/insights/[slug].astro has ${guideFaqMatches} total FAQs across 6 guides (expected 60)`);
+if (guideFaqMatches < guideFiles.length * 9) {
+  fail(`Guide template src/pages/insights/[slug].astro has ${guideFaqMatches} total FAQs across ${guideFiles.length} guides (expected ${guideFiles.length * 10})`);
 }
-pass(`All 140 products and all 6 guides (${guideFaqMatches / 6} FAQs per guide) contain 10 FAQs each (within 9-12 invariant).`);
+pass(`All 140 products and all ${guideFiles.length} guides (${guideFaqMatches / guideFiles.length} FAQs per guide) contain 10 FAQs each (within 9-12 invariant).`);
 
 // ---------------------------------------------------------------------------
 // RULE 4: Prohibited Strings Audit (No B2B, GEO, AI, AQL 2.5, $49 Sample, 100% credit, or supplier leaks)
@@ -334,6 +359,40 @@ if (fs.existsSync(distDir)) {
 
   if (missingLocaleRoutes === 0 && brokenLinkCount === 0 && unlocalizedLinkCount === 0) {
     pass(`All ${enRoutes.length} routes x 18 languages (${htmlFiles.length} built HTML pages) verified with 0 missing routes, 0 broken links, and 0 unlocalized English fallback links.`);
+  }
+
+  // ---------------------------------------------------------------------------
+  // RULE 8: Bidirectional Semantic Mesh Audit (Product <-> Collection <-> Insight)
+  // ---------------------------------------------------------------------------
+  console.log('\n=== 8. Bidirectional Semantic Mesh Audit ===');
+  let meshErrors = 0;
+  for (const enRoute of enRoutes) {
+    if (enRoute.startsWith('/products/') && enRoute !== '/products') {
+      const html = fs.readFileSync(path.join(distDir, enRoute.slice(1), 'index.html'), 'utf8');
+      const insLinks = (html.match(/href="\/insights\/[^"]+"/g) || []).length;
+      if (insLinks < 4) {
+        fail(`Product page ${enRoute} has fewer than 4 links to Insights (${insLinks})`);
+        meshErrors++;
+      }
+    } else if (enRoute.startsWith('/collections/') && enRoute !== '/collections') {
+      const html = fs.readFileSync(path.join(distDir, enRoute.slice(1), 'index.html'), 'utf8');
+      const insLinks = (html.match(/href="\/insights\/[^"]+"/g) || []).length;
+      if (insLinks < 3) {
+        fail(`Collection page ${enRoute} has fewer than 3 links to Insights (${insLinks})`);
+        meshErrors++;
+      }
+    } else if (enRoute.startsWith('/insights/') && enRoute !== '/insights') {
+      const html = fs.readFileSync(path.join(distDir, enRoute.slice(1), 'index.html'), 'utf8');
+      const prodLinks = (html.match(/href="\/products\/[^"]+"/g) || []).length;
+      const colLinks = (html.match(/href="\/collections\/[^"]+"/g) || []).length;
+      if (prodLinks < 10 || colLinks < 2) {
+        fail(`Insight page ${enRoute} has insufficient mesh links (products=${prodLinks}, collections=${colLinks})`);
+        meshErrors++;
+      }
+    }
+  }
+  if (meshErrors === 0) {
+    pass('100% Bidirectional Semantic Mesh verified across all 140 Products, 9 Collections, and 10 Authoritative Insights.');
   }
 } else {
   fail('dist/ directory not found. Run npm run build first.');

@@ -2,14 +2,14 @@
 name: Insights & Blog Article Architecture
 description: >-
   Standard operating procedure and editorial guidelines for writing, formatting, and auditing B2B sourcing guides, industry reports, and blog articles (under /insights/[slug]/ or src/content/insights/).
-  Incorporates the "6-Question Procurement Calibration Protocol", Backlinko-grade skyscraper content engineering, anti-freeloading conversion risk controls, 3-column publication layouts, comparison tables, and 7-item FAQ schema.
+  Incorporates the "6-Question Procurement Calibration Protocol", Backlinko-grade skyscraper content engineering, anti-freeloading conversion risk controls, 3-column publication layouts, comparison tables, and 10-Item FAQ Schema (9–12 FAQs Invariant).
 ---
 
 # Insights & Blog Article Architecture (6-Question & Backlinko Editorial Standard)
 
 When tasked with creating, editing, or auditing B2B sourcing guides, industry reports, or technical blog articles under `/insights/[slug]/` (`src/content/insights/`), you MUST follow the **6-Question Calibration & Backlinko-Grade Publication Architecture**.
 
-Articles serve global enterprise procurement directors, promotional merchandise distributors, and private label brand managers. They establish Ruixing's undisputed manufacturing authority, capture top organic rankings on Google, and convert qualified commercial buyers into high-intent RFQs.
+Articles serve global enterprise procurement directors, promotional merchandise distributors, and private label brand managers. They establish FidgetSupply's undisputed manufacturing authority, capture top organic rankings on Google, and convert qualified commercial buyers into high-intent RFQs.
 
 ---
 
@@ -46,7 +46,7 @@ Before drafting a single line of Markdown, the author/agent MUST execute the **6
 ### Q3: WHY — Factory Root Causes & Manufacturing Physics
 - Break down the exact commercial and technical mechanics of how shortcuts happen:
   - Explain why rogue workshops underbid by $0.20 (e.g. substituting virgin polymer with brittle regrind resin, dropping yarn count from 16s to 10s, omitting Box-X reinforcement stitching).
-  - Present Ruixing's engineering counter-measures: automated bar-tack sewing, 0.8mm needle detection, 70N tensile pull-testing, and 4-grade dry/wet crocking fastness.
+  - Present FidgetSupply's engineering counter-measures: automated bar-tack sewing, 0.8mm needle detection, 70N tensile pull-testing, and 4-grade dry/wet crocking fastness.
 
 ### Q4: HOW — Engineering Selection Matrices & Comparison Tables
 - Provide clear, actionable decision-making tools that buyers can take directly to their executive procurement committees.

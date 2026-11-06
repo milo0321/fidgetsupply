@@ -2,11 +2,11 @@
 
 ## 0. 4-Tier Catalog Taxonomy & Page Roles
 1. **L1: Homepage & Root Catalog** (`/`, `/products/`): Global brand positioning, featured collections, cross-category discovery.
-2. **L2: Core Collection (Macro Category Hub, e.g. `/custom-bags-wholesale/`)**:
+2. **L2: Core Collection (Macro Category Hub, e.g. `/collections/magnetic-fidget-sliders`)**:
    - **Role**: High-level category discovery and factory qualification.
    - **Spec Policy (Option A)**: Strictly NO single Technical Spec Sheet and NO pricing table.
    - **Information Flow**: Hero → TrustLogos → Why Choose Us (3 cards) → Dimension 1 (4-column collection cards) → Dimension 2 (4 Z-pattern style rows with `.capability-btn`) → Logo Wall → Related Insights → FAQ → CTA.
-3. **L3: Sub-Collection (Sub-Category / Silhouette Hub, e.g. `/custom-backpacks-wholesale/`)**:
+3. **L3: Sub-Collection (Sub-Category / Silhouette Hub, e.g. `/collections/metal-fidget-spinners-gyros`)**:
    - **Role**: Mid-level horizontal comparison across silhouette styles and materials.
    - **Spec Policy (Option A)**: Strictly NO single Technical Spec Sheet and NO pricing table. Specs and parameters are organically embedded inside the 4 Z-Pattern style rows, guiding the buyer directly into specific L4 Leaf SKUs via `.capability-btn`.
 4. **L4/L5: Leaf Product SKU (Single Product Landing Page, e.g. `/products/[slug]/`)**:
@@ -44,7 +44,7 @@
    - 3-card feature grid or Z-Pattern detailing stitching, lining, zippers, hardware, and Pantone color matching.
 7. **Ethical & Sustainable Supply Chain (Certification Logo Wall)**:
    - Single-row logo wall (`.logo-wall`) with official links (BSCI, GOTS, OEKO-TEX, GRS).
-8. **The Ruixing Partner Advantage**:
+8. **The FidgetSupply Supply Chain Advantage**:
    - 3 service capability cards: Unbiased Material Engineering, Specialized Mill Matching, On-Site Quality Assurance (AQL 2.5).
 9. **Explore Related Capabilities (Sister SKUs)**:
    - 3-column product cards (`.grid-3`) recommending alternative materials, weights, or complementary sister SKUs.
@@ -65,7 +65,7 @@
 - Spec Sheet Values (`.spec-row-val`): `font-size: 0.95rem; color: #475569;`
 
 ## 3. Brand Name Invariant
-- Chinese brand name is **瑞兴** (Ruixing Gifts), never 瑞星.
+- Chinese brand name is **FidgetSupply** (FidgetSupply.com), never 瑞星.
 
 ## 4. Mandatory Synchronous CatalogTree Registration Invariant
 - Every newly created or modified leaf product SKU (`src/content/products/<slug>.json`) MUST be synchronously registered in:

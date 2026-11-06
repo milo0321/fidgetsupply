@@ -22,6 +22,6 @@ To prevent SERP truncation on Google (mobile and desktop) and eliminate Ubersugg
 
 | Meta Field | Golden Character Range | Key Structural Invariants | Prohibitions |
 | :--- | :--- | :--- | :--- |
-| **`metaTitle`** | **40 ~ 53 characters** (Strict Max: 58) | Primary keyword frontloaded + ` \| Ruixing` suffix. | No keyword stuffing; no generic ellipses; no repeating brand name twice. |
+| **`metaTitle`** | **40 ~ 53 characters** (Strict Max: 58) | Primary keyword frontloaded + ` \| FidgetSupply` suffix. | No keyword stuffing; no generic ellipses; no repeating brand name twice. |
 | **`metaDescription`** | **135 ~ 150 characters** (Strict Max: 155) | Frontloaded B2B purchase intent: MOQ (e.g., `Low MOQ 300 pcs`), DDP global shipping, factory direct value proposition. | No ending with trailing conjunctions (`&`, `and`); no generic robotic filler words (`Click here`). |
 

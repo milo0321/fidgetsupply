@@ -43,6 +43,34 @@ const INSIGHT_CATEGORIES: Record<string, Record<SupportedLanguage, string>> = {
     da: 'Materialer & CNC-produktion', no: 'Materialer & CNC-produksjon', fi: 'Materiaalit & CNC-valmistus', pl: 'Materiały i Produkcja CNC',
     cs: 'Materiály a CNC výroba', ru: 'Материалы и ЧПУ-производство', ja: '金属素材・CNC加工技術', ko: '금속 소재 및 CNC 제조',
     id: 'Material & Manufaktur CNC', ar: 'المواد والتصنيع باستخدام CNC'
+  },
+  'Kinetic Bearing & Gyro Engineering': {
+    en: 'Kinetic Bearing & Gyro Engineering', de: 'R188-Lager & Kreisel-Technik', fr: 'Roulements R188 & Gyroscopes CNC', nl: 'R188-lagers & Gyroscoop-techniek',
+    es: 'Rodamientos R188 e Ingeniería Giroscópica', it: 'Cuscinetti R188 e Giroscopi CNC', pt: 'Rolamentos R188 e Giroscópios CNC', sv: 'R188-lager & gyroteknik',
+    da: 'R188-lejer & gyroteknik', no: 'R188-lagre & gyroteknikk', fi: 'R188-laakerit & gyrotekniikka', pl: 'Łożyska R188 i Żyroskopy CNC',
+    cs: 'Ložiska R188 a gyroskopy CNC', ru: 'Подшипники R188 и гироскопы ЧПУ', ja: 'R188ベアリング・精密ジャイロ工学', ko: 'R188 베어링 및 정밀 자이로 엔지니어링',
+    id: 'Bearing R188 & Rekayasa Giroskop', ar: 'محامل R188 وهندسة الجيروسكوب'
+  },
+  'Mechanical & Ratchet Engineering': {
+    en: 'Mechanical & Ratchet Engineering', de: 'Mechanik- & Ratschen-EDC-Technik', fr: 'Mécanique à Cliquet & Verrouillage', nl: 'Mechanische Ratel & Grendel EDC',
+    es: 'Ingeniería Mecánica de Trinquete y Cerrojo', it: 'Meccanica a Cricchetto e Otturatore EDC', pt: 'Engenharia Mecânica de Catraca e Ferrolho', sv: 'Mekanisk spärr- & bultmekanik',
+    da: 'Mekanisk skralde- & boltmekanik', no: 'Mekanisk skralle- & boltmekanikk', fi: 'Mekaaninen räikkä- & pulttitekniikka', pl: 'Mechanika Zapadkowa i Ryglowa EDC',
+    cs: 'Mechanické ráčny a závěrové EDC', ru: 'Механические храповики и затворы EDC', ja: '機械式ラチェット・ボルトアクション工学', ko: '기계식 라쳇 및 볼트액션 엔지니어링',
+    id: 'Rekayasa Mekanis Ratchet & Bolt-Action', ar: 'هندسة السقاطة الميكانيكية والمزلاج'
+  },
+  'Pocket Ergonomics & Form Factors': {
+    en: 'Pocket Ergonomics & Form Factors', de: 'Taschen-Ergonomie & Bauformen', fr: 'Ergonomie de Poche & Formats EDC', nl: 'Zak-ergonomie & EDC-vormfactoren',
+    es: 'Ergonomía de Bolsillo y Formatos EDC', it: 'Ergonomia Tascabile e Formati EDC', pt: 'Ergonomia de Bolso e Formatos EDC', sv: 'Fickergonomi & EDC-formfaktorer',
+    da: 'Lommeergonomi & EDC-formfaktorer', no: 'Lommeergonomi & EDC-formfaktorer', fi: 'Taskuergonomia & EDC-muodot', pl: 'Ergonomia Kieszonkowa i Formy EDC',
+    cs: 'Kapesní ergonomie a tvary EDC', ru: 'Карманная эргономика и форм-факторы EDC', ja: 'ポケット人間工学・コイン＆瓢箪＆リング設計', ko: '포켓 인체공학 및 폼팩터 설계',
+    id: 'Ergonomi Saku & Bentuk EDC', ar: 'بيئة العمل الجيبية وأشكال EDC'
+  },
+  'Packaging & Retail Presentation': {
+    en: 'Packaging & Retail Presentation', de: 'EVA-Etuis & Einzelhandelsverpackung', fr: 'Étuis EVA & Packaging Retail', nl: 'EVA-cases & Retailverpakking',
+    es: 'Estuches EVA y Empaque Minorista', it: 'Custodie EVA e Packaging Retail', pt: 'Estojos EVA e Embalagem de Retalho', sv: 'EVA-fodral & butiksförpackning',
+    da: 'EVA-etuier & detailemballage', no: 'EVA-etuier & detaljemballasje', fi: 'EVA-kotelot & vähittäismyyntipakkaus', pl: 'Etui EVA i Opakowania Detaliczne',
+    cs: 'Pouzdra EVA a maloobchodní balení', ru: 'Кейсы EVA и розничная упаковка', ja: 'カスタムEVAケース・缶ボックス包装設計', ko: '커스텀 EVA 케이스 및 틴박스 패키징',
+    id: 'Kotak EVA & Kemasan Ritel', ar: 'حافظات EVA وتغليف التجزئة'
   }
 };
 
@@ -490,6 +518,302 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       title: 'مقارنة سبائك الزنك المصبوبة مقابل تصنيع CNC خماسي المحاور للفولاذ 304/316 وPEI والزركونيوم',
       summary: 'لماذا يكلف نفس تصميم EDC ما بين 1.20–6.00 دولار في سبائك الزنك المصبوبة مقابل 15–380+ دولار في التصنيع الرقمي CNC من الفولاذ المقاوم للصدأ أو PEI أو الزركونيوم.'
     }
+  },
+  'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide': {
+    en: {
+      title: 'R188 Bearing Physics & Multi-Axis Desktop Gyro Spinners: Complete Wholesale Engineering Guide',
+      summary: 'A deep-dive engineering guide into 10-ball stainless and hybrid Si3N4 ceramic R188 bearings, rotational inertia, threaded retention caps, and multi-axis CNC gimbal gyros across 30+ kinetic metal spinner molds.'
+    },
+    de: {
+      title: 'R188-Kugellager-Physik & Mehrachsige Tischkreisel-Spinner: Technischer Großhandels-Leitfaden',
+      summary: 'Ingenieur-Leitfaden zu 10-Kugel-Edelstahl- und Si3N4-Hybridkeramik-R188-Lagern, Rotationsmassenträgheit, Schraubkappen und mehrachsigen CNC-Kardan-Kreiseln über 30+ Metall-Spinner-Formen.'
+    },
+    fr: {
+      title: 'Physique des Roulements R188 & Gyroscopes de Bureau Multi-Axes : Guide d’Ingénierie Grossiste',
+      summary: 'Comparatif technique des roulements R188 à 10 billes en acier inox 440C et céramique hybride Si3N4, inertie rotative et gyroscopes à cardan CNC sur plus de 30 moules.'
+    },
+    nl: {
+      title: 'R188-kogellagerfysica & Meerassige Desktop Gyro Spinners: Technische Groothandelsgids',
+      summary: 'Technische analyse van 10-kogel RVS en hybride Si3N4 keramische R188-lagers, rotatietraagheid en meerassige CNC-cardangyroscopen in 30+ metalen spinnermallen.'
+    },
+    es: {
+      title: 'Física de Rodamientos R188 y Giroscopios de Escritorio Multieje: Guía de Ingeniería Mayorista',
+      summary: 'Guía técnica de rodamientos R188 de 10 bolas de acero inoxidable y cerámica híbrida Si3N4, inercia rotacional y giroscopios cardán CNC en más de 30 moldes metálicos.'
+    },
+    it: {
+      title: 'Fisica dei Cuscinetti R188 e Giroscopi da Scrivania Multi-Asse: Guida Tecnica all’Ingrosso',
+      summary: 'Analisi ingegneristica dei cuscinetti R188 a 10 sfere in acciaio inox e ceramica ibrida Si3N4, inerzia rotazionale e giroscopi cardanici CNC su oltre 30 stampi.'
+    },
+    pt: {
+      title: 'Física dos Rolamentos R188 e Giroscópios de Mesa Multieixo: Guia de Engenharia por Atacado',
+      summary: 'Guia técnico de rolamentos R188 de 10 esferas em aço inox e cerâmica híbrida Si3N4, inércia rotacional e giroscópios cardan CNC em mais de 30 moldes metálicos.'
+    },
+    sv: {
+      title: 'R188-kullagerfysik & Fleraxliga Skrivbordsgyron: Komplett Teknisk Grossistguide',
+      summary: 'Teknisk genomgång av 10-kulors rostfria och Si3N4-hybridkeramiska R188-lager, rotationsinertie och fleraxliga CNC-kardangyron över 30+ metallformar.'
+    },
+    da: {
+      title: 'R188-kuglelejefysik & Fleraksede Skrivebordsgyroer: Komplet Teknisk Engrosguide',
+      summary: 'Teknisk guide til 10-kuglers rustfri og Si3N4-hybridkeramiske R188-lejer, rotationsinerti og fleraksede CNC-kardangyroer på tværs af 30+ metalforme.'
+    },
+    no: {
+      title: 'R188-kulelagerfysikk & Fleraksede Skrivebordsgyroer: Komplett Teknisk Engrosguide',
+      summary: 'Teknisk gjennomgang av 10-kulers rustfrie og Si3N4-hybridkeramiske R188-lagre, rotasjonsinerti og fleraksede CNC-kardangyroer over 30+ metallformer.'
+    },
+    fi: {
+      title: 'R188-kuulalaakerifysiikka & Moniakseliset Pöytägyroskoopit: Tekninen Tukkuopas',
+      summary: 'Insinööriopas 10-kuulaisiin ruostumattomiin ja Si3N4-hybridikeraamisiin R188-laakereihin, pyörimishitauteen ja CNC-kardaanigyroihin yli 30 metallimuotissa.'
+    },
+    pl: {
+      title: 'Fizyka Łożysk R188 i Wieloosiowe Żyroskopy Biurkowe: Przewodnik Inżynieryjny Hurtowni',
+      summary: 'Analiza 10-kulkowych łożysk R188 ze stali 440C i ceramiki hybrydowej Si3N4, bezwładności obrotowej oraz żyroskopów kardanowych CNC w ponad 30 formach.'
+    },
+    cs: {
+      title: 'Fyzika Ložisek R188 a Víceosé Stolní Gyroskopy: Kompletní Velkoobchodní Technický Průvodce',
+      summary: 'Inženýrský rozbor 10kuličkových nerezových a hybridních keramických Si3N4 ložisek R188, momentu setrvačnosti a CNC kardanových gyroskopů u 30+ forem.'
+    },
+    ru: {
+      title: 'Физика Подшипников R188 и Многоосевые Настольные Гироскопы: Инженерный Оптовый Гид',
+      summary: 'Инженерный разбор 10-шариковых стальных 440C и гибридных керамических Si3N4 подшипников R188, момента инерции и карданных ЧПУ-гироскопов в 30+ моделях.'
+    },
+    ja: {
+      title: 'R188ベアリング物理と多軸CNCデスクトップジャイロ＆ハンドスピナー：卸売エンジニアリング完全ガイド',
+      summary: '10ボール440CステンレスおよびSi3N4ハイブリッドセラミックR188ベアリング、慣性モーメント、ネジ式保持リング、多軸ジンバルジャイロ全30モデル以上を徹底解説。'
+    },
+    ko: {
+      title: 'R188 베어링 물리학 및 다축 데스크탑 자이로 스피너: 도매 엔지니어링 완벽 가이드',
+      summary: '10볼 440C 스테인리스 및 Si3N4 하이브리드 세라믹 R188 베어링, 회전 관성 모멘트, 나사식 리테이너 및 30종 이상의 CNC 짐벌 자이로 금형 기술 분석.'
+    },
+    id: {
+      title: 'Fisika Bearing R188 & Spinner Giroskop Meja Multi-Sumbu: Panduan Rekayasa Grosir Lengkap',
+      summary: 'Panduan teknis bearing R188 10-bola baja tahan karat dan keramik hibrida Si3N4, inersia rotasi, serta giroskop gimbal CNC di lebih dari 30 cetakan logam.'
+    },
+    ar: {
+      title: 'فيزياء محامل R188 وجيروسكوبات المكتب متعددة المحاور: دليل الهندسة الشامل للجملة',
+      summary: 'دليل هندسي لمحامل R188 ذات 10 كرات من الفولاذ المقاوم للصدأ والسيراميك الهجين Si3N4 وعزم القصور الذاتي والجيروسكوبات المحورية عبر أكثر من 30 قالباً معدنياً.'
+    }
+  },
+  'multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide': {
+    en: {
+      title: 'Multi-Action Mechanical EDC Fidgets: Spring Ratchets, Bolt-Action Breeches & Planetary Gear Engineering',
+      summary: 'An engineering teardown of spring-loaded pawl ratchets, bolt-action breech locks, 8-spring arachnid linkages, and zirconia ceramic bead detents across 27+ multi-action mechanical EDC fidget molds.'
+    },
+    de: {
+      title: 'Mechanische Multi-Action-EDC-Fidgets: Federratschen, Bolt-Action-Verschlüsse & Planetengetriebe',
+      summary: 'Technische Analyse von federbelasteten Sperrklinken, Bolt-Action-Verschlüssen, 8-Feder-Mechaniken und Zirkonoxid-Keramikkugelrasten über 27+ mechanische EDC-Formen.'
+    },
+    fr: {
+      title: 'Fidgets EDC Mécaniques Multi-Actions : Cliquets à Ressort, Verrous Bolt-Action & Engrenages Planétaires',
+      summary: 'Analyse technique des cliquets à ressort, culasses bolt-action, glissières à 8 ressorts et billes de détente en céramique Zircone sur plus de 27 moules mécaniques.'
+    },
+    nl: {
+      title: 'Multi-Action Mechanische EDC Fidgets: Veerratels, Bolt-Action Grendels & Planetaire Tandwielen',
+      summary: 'Technische analyse van veergeladen ratels, bolt-action grendels, 8-veer sliders en zirkonia keramische detent-kogels in 27+ mechanische EDC-mallen.'
+    },
+    es: {
+      title: 'Fidgets EDC Mecánicos Multiacción: Trinquetes de Resorte, Cerrojos Bolt-Action y Engranajes Planetarios',
+      summary: 'Análisis de ingeniería de trinquetes por resorte, cerrojos tácticos bolt-action, enlaces de 8 resortes y esferas de circonio en más de 27 moldes mecánicos.'
+    },
+    it: {
+      title: 'Fidget EDC Meccanici Multi-Azione: Cricchetti a Molla, Otturatori Bolt-Action e Ingranaggi Planetari',
+      summary: 'Analisi tecnica di cricchetti a molla, otturatori bolt-action, slider a 8 molle e sfere di arresto in ceramica zirconia su oltre 27 stampi meccanici.'
+    },
+    pt: {
+      title: 'Fidgets EDC Mecânicos Multiação: Catracas de Mola, Ferrolhos Bolt-Action e Engrenagens Planetárias',
+      summary: 'Análise técnica de catracas por mola, ferrolhos bolt-action, cursores de 8 molas e esferas detentoras de zircónia em mais de 27 moldes mecânicos.'
+    },
+    sv: {
+      title: 'Mekaniska Multi-Action EDC Fidgets: Fjäderspärrar, Bolt-Action-slutstycken & Planetväxlar',
+      summary: 'Teknisk genomgång av fjäderbelastade spärrhakar, bolt-action-mekanismer, 8-fjädrars sliders och keramiska zirkoniakulor i 27+ mekaniska EDC-formar.'
+    },
+    da: {
+      title: 'Mekaniske Multi-Action EDC Fidgets: Fjederskralder, Bolt-Action-låse & Planetgear',
+      summary: 'Teknisk gennemgang af fjederbelastede skralder, bolt-action-mekanismer, 8-fjedres sliders og keramiske zirkoniakugler på tværs af 27+ mekaniske EDC-forme.'
+    },
+    no: {
+      title: 'Mekaniske Multi-Action EDC Fidgets: Fjærskraller, Bolt-Action-låser & Planetgir',
+      summary: 'Teknisk gjennomgang av fjærbelastede skraller, bolt-action-mekanismer, 8-fjærs slidere og keramiske zirkoniakuler over 27+ mekaniske EDC-former.'
+    },
+    fi: {
+      title: 'Monitoimiset Mekaaniset EDC-Fidgetit: Jousiräikät, Pulttilukot & Planeettavaihteet',
+      summary: 'Insinöörianalyysi jousikuormitteisista räikistä, bolt-action-lukoista, 8-jousisista liukusäätimistä ja keraamisista zirkoniakuulista yli 27 mekaanisessa muotissa.'
+    },
+    pl: {
+      title: 'Wielofunkcyjne Mechaniczne Fidgety EDC: Zapadki Sprężynowe, Zamki Bolt-Action i Przekładnie Planetarne',
+      summary: 'Analiza techniczna zapadek sprężynowych, zamków ryglowych bolt-action, 8-sprężynowych sliderów i kulek ceramicznych ZrO2 w ponad 27 formach mechanicznych.'
+    },
+    cs: {
+      title: 'Víceúčelové Mechanické EDC Fidgety: Pružinové Ráčny, Závěry Bolt-Action a Planetové Převody',
+      summary: 'Inženýrský rozbor pružinových ráčen, závěrových mechanismů bolt-action, 8pružinových sliderů a keramických kuliček ZrO2 u 27+ mechanických EDC forem.'
+    },
+    ru: {
+      title: 'Многофункциональные Механические EDC-Фиджеты: Пружинные Храповики, Затворы Bolt-Action и Планетарные Шестерни',
+      summary: 'Инженерный разбор пружинных храповиков, затворов bolt-action, 8-пружинных слайдеров и керамических фиксаторов ZrO2 в 27+ механических моделях.'
+    },
+    ja: {
+      title: 'マルチアクション機械式EDCフィジェット：スプリングラチェット・ボルトアクション・遊星ギア工学ガイド',
+      summary: 'SUS304スプリングラチェット、ボルトアクション機構、8スプリングスライダー、ジルコニアセラミックデテントボールを採用した機械式EDC全27モデル以上を解説。'
+    },
+    ko: {
+      title: '멀티액션 기계식 EDC 피젯: 스프링 라쳇, 볼트액션 및 유성 기어 엔지니어링 가이드',
+      summary: 'SUS304 스프링 폴 라쳇, 볼트액션 브리치, 8-스프링 아라크니드 링크 및 지르코니아 세라믹 볼 디텐트를 적용한 27종 이상의 기계식 EDC 금형 분석.'
+    },
+    id: {
+      title: 'Fidget EDC Mekanis Multi-Aksi: Ratchet Pegas, Gerendel Bolt-Action & Rekayasa Roda Gigi Planet',
+      summary: 'Analisis rekayasa ratchet pegas, kunci bolt-action, slider 8-pegas, dan bola detent keramik zirkonia di lebih dari 27 cetakan EDC mekanis.'
+    },
+    ar: {
+      title: 'أدوات الفيدجت الميكانيكية متعددة الحركات: السقاطات الزنبركية ومزلاج Bolt-Action والتروس الكوكبية',
+      summary: 'تحليل هندسي للسقاطات المحملة بزنبرك ومزلاج الترباس التكتيكي وكرات السيراميك الزركونيا عبر أكثر من 27 قالباً ميكانيكياً.'
+    }
+  },
+  'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide': {
+    en: {
+      title: 'Haptic Fidget Coins, Baoding EDC Gourds & Magnetic Spinner Rings: Pocket Ergonomics & Sourcing Guide',
+      summary: 'A comparative product engineering and merchandising guide to circular 12-magnet haptic coins, modern CNC Baoding gourds/capsules, and wearable 16-magnet spinner rings across 27+ specialized factory molds.'
+    },
+    de: {
+      title: 'Haptische Fidget-Münzen, CNC-EDC-Kalebassen & Magnet-Spinner-Ringe: Ergonomie- & Einkaufsleitfaden',
+      summary: 'Vergleich von 12-Magnet-Haptikmünzen, 5-Achsen-CNC-Kalebassen/Kapseln (inkl. PEI Ultem) und tragbaren 16-Magnet-Spinner-Ringen über 27+ Spezialformen.'
+    },
+    fr: {
+      title: 'Pièces Haptiques, Calebasses EDC CNC & Bagues Spinner Magnétiques : Guide d’Ergonomie & Sourcing',
+      summary: 'Guide comparatif des pièces haptiques rotatives à 12 aimants, calebasses CNC (dont PEI Ultem) et bagues magnétiques à 16 aimants sur plus de 27 moules.'
+    },
+    nl: {
+      title: 'Haptische Fidget-munten, CNC EDC-kalebassen & Magnetische Spinner-ringen: Ergonomie & Inkoopgids',
+      summary: 'Vergelijkende gids voor 12-magneet haptische munten, CNC Baoding-kalebassen (incl. PEI Ultem) en draagbare 16-magneet spinner-ringen in 27+ mallen.'
+    },
+    es: {
+      title: 'Monedas Hápticas, Calabazas EDC CNC y Anillos Giratorios Magnéticos: Guía de Ergonomía y Compras',
+      summary: 'Guía comparativa de monedas hápticas rotativas de 12 imanes, calabazas CNC (incl. PEI Ultem) y anillos magnéticos de 16 imanes en más de 27 moldes.'
+    },
+    it: {
+      title: 'Monete Aptiche, Zucche EDC CNC e Anelli Spinner Magnetici: Guida Ergonomica e Fornitura all’Ingrosso',
+      summary: 'Confronto tecnico tra monete aptiche a 12 magneti, zucche/capsule CNC (incluso PEI Ultem) e anelli spinner magnetici a 16 magneti su oltre 27 stampi.'
+    },
+    pt: {
+      title: 'Moedas Hápticas, Cabaças EDC CNC e Anéis Giratórios Magnéticos: Guia de Ergonomia e Atacado',
+      summary: 'Guia comparativo de moedas hápticas de 12 ímanes, cabaças/cápsulas CNC (incluindo PEI Ultem) e anéis magnéticos de 16 ímanes em mais de 27 moldes.'
+    },
+    sv: {
+      title: 'Haptiska Fidget-mynt, CNC EDC-kalebasser & Magnetiska Spinner-ringar: Ergonomi- & Inköpsguide',
+      summary: 'Jämförande guide till 12-magnets haptiska mynt, CNC-frästa kalebasser/kapslar (inkl. PEI Ultem) och bärbara 16-magnets spinnerringar i 27+ formar.'
+    },
+    da: {
+      title: 'Haptiske Fidget-mønter, CNC EDC-kalabasser & Magnetiske Spinner-ringe: Ergonomi- & Indkøbsguide',
+      summary: 'Sammenlignende guide til 12-magnets haptiske mønter, CNC-drejede kalabasser (inkl. PEI Ultem) og bærbare 16-magnets spinnerringe i 27+ forme.'
+    },
+    no: {
+      title: 'Haptiske Fidget-mynter, CNC EDC-kalebasser & Magnetiske Spinner-ringer: Ergonomi- & Innkjøpsguide',
+      summary: 'Sammenlignende guide til 12-magnets haptiske mynter, CNC-dreide kalebasser (inkl. PEI Ultem) og bærbare 16-magnets spinnerringer i 27+ former.'
+    },
+    fi: {
+      title: 'Haptiset Fidget-kolikot, CNC EDC-kurpitsat & Magneettiset Spinner-sormukset: Ergonomia- & Tukkuopas',
+      summary: 'Vertaileva opas 12 magneetin haptisiin kolikoihin, CNC-koneistettuihin kämmenkappaleisiin (ml. PEI Ultem) ja 16 magneetin sormuksiin yli 27 muotissa.'
+    },
+    pl: {
+      title: 'Monety Haptyczne, Tykwy EDC CNC i Magnetyczne Pierścienie: Przewodnik Ergonomii i Zakupów Hurtowych',
+      summary: 'Porównanie 12-magnesowych monet haptycznych, toczonych CNC tykw/kapsuł (w tym PEI Ultem) oraz 16-magnesowych pierścieni obrotowych w ponad 27 formach.'
+    },
+    cs: {
+      title: 'Haptické Fidget Mince, CNC Kalabasy EDC a Magnetické Prsteny: Průvodce Ergonomií a Velkoobchodem',
+      summary: 'Srovnávací průvodce 12magnetovými haptickými mincemi, CNC kalabasami/kapslemi (vč. PEI Ultem) a 16magnetovými prsteny napříč 27+ formami.'
+    },
+    ru: {
+      title: 'Тактильные Монеты, ЧПУ-Тыквы (Хулу) и Магнитные Кольца-Спиннеры: Гид по Эргономике и Оптовым Закупкам',
+      summary: 'Сравнительный обзор 12-магнитных тактильных монет, точеных ЧПУ-тыкв/капсул (включая янтарный PEI Ultem) и 16-магнитных колец в 27+ моделях.'
+    },
+    ja: {
+      title: 'ハプティックコイン・CNC瓢箪（ひょうたん）ハンドピース・磁気スピナーリング：人間工学＆卸売ガイド',
+      summary: '360度回転12磁石ハプティックコイン、5軸CNC瓢箪・カプセル（アンバーPEI Ultem含む）、16磁石スピナーリング全27モデル以上の設計と名入れ仕様を比較。'
+    },
+    ko: {
+      title: '햅틱 피젯 코인, CNC 조롱박 핸드피스 및 마그네틱 스피너 링: 포켓 인체공학 및 도매 소싱 가이드',
+      summary: '12자석 회전식 햅틱 코인, 5축 CNC 조롱박/캡슐(앰버 PEI 울템 포함) 및 16자석 웨어러블 스피너 링 등 27종 이상의 특수 금형 비교 가이드.'
+    },
+    id: {
+      title: 'Koin Fidget Haptik, Labu EDC CNC & Cincin Spinner Magnetik: Panduan Ergonomi Saku & Grosir',
+      summary: 'Panduan perbandingan koin haptik putar 12-magnet, labu/kapsul CNC (termasuk PEI Ultem), dan cincin spinner 16-magnet di lebih dari 27 cetakan pabrik.'
+    },
+    ar: {
+      title: 'عملات الفيدجت اللمسية وقرع اليد CNC وخواتم السبينر المغناطيسية: دليل بيئة العمل والتوريد بالجملة',
+      summary: 'دليل مقارن للعملات اللمسية الدوارة بـ 12 مغناطيساً وقطع اليد المخروطة CNC (بما فيها PEI Ultem) والخواتم المغناطيسية بـ 16 مغناطيساً عبر أكثر من 27 قالباً.'
+    }
+  },
+  'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide': {
+    en: {
+      title: 'Custom EVA Zipper Cases, Windowed Tin Boxes & Collector Gift Packaging for Wholesale Metal Fidgets',
+      summary: 'A complete packaging engineering guide for wholesale metal EDC fidgets—comparing 75-Shore-C EVA foam inserts, hard-shell PU/nylon zipper cases, matte tin presentation boxes, Amazon FNSKU barcoding, and magnetic air-freight shielding.'
+    },
+    de: {
+      title: 'Individuelle EVA-Reißverschlussetuis, Sichtfenster-Blechdosen & Sammler-Geschenkboxen für Metall-Fidgets',
+      summary: 'Verpackungs-Leitfaden für Metall-EDC-Fidgets: 75-Shore-C-EVA-Schaumeinlagen, Hartschalen-Reißverschlussetuis, Metalldosen, Amazon-FNSKU-Etikettierung und IATA-PI-953-Magnetabschirmung.'
+    },
+    fr: {
+      title: 'Étuis Zippés EVA sur Mesure, Boîtes en Fer-Blanc à Fenêtre & Coffrets Collector pour Fidgets Métal',
+      summary: 'Guide complet du packaging EDC : inserts en mousse EVA haute densité, étuis rigides EVA zippés, boîtes métalliques, codes-barres Amazon FNSKU et blindage magnétique aérien IATA PI-953.'
+    },
+    nl: {
+      title: 'Bedrukte EVA-ritsetuis, Blikken Doosjes met Venster & Collector-geschenkdozen voor Metalen Fidgets',
+      summary: 'Verpakkingsgids voor metalen EDC-fidgets: 75-Shore-C EVA-schuiminlays, hard-shell ritsetuis, matte blikken dozen, Amazon FNSKU-barcodes en IATA PI-953 magnetische luchtvaartafscherming.'
+    },
+    es: {
+      title: 'Estuches EVA con Cremallera, Cajas Metálicas con Ventana y Cajas de Regalo para Fidgets de Metal',
+      summary: 'Guía de ingeniería de empaque mayorista: espuma EVA de alta densidad, estuches rígidos EVA, cajas de hojalata, códigos Amazon FNSKU y blindaje magnético aéreo IATA PI-953.'
+    },
+    it: {
+      title: 'Custodie EVA con Zip, Scatole in Latta Finestrata e Cofanetti Regalo Collector per Fidget in Metallo',
+      summary: 'Guida completa al packaging EDC: inserti in schiuma EVA ad alta densità, custodie rigide con zip, scatole in latta, codici Amazon FNSKU e schermatura magnetica aerea IATA PI-953.'
+    },
+    pt: {
+      title: 'Estojos EVA com Fecho, Caixas de Lata com Janela e Caixas de Presente Collector para Fidgets de Metal',
+      summary: 'Guia completo de embalagem por atacado: espuma EVA de alta densidade, estojos rígidos EVA, caixas metálicas, etiquetas Amazon FNSKU e blindagem magnética aérea IATA PI-953.'
+    },
+    sv: {
+      title: 'Anpassade EVA-dragkedjefodral, Plåtaskar med Fönster & Samlarpresentaskar för Metallfidgets',
+      summary: 'Förpackningsguide för metall-EDC: högdensitets EVA-skuminsatser, hårda dragkedjefodral, matta plåtaskar, Amazon FNSKU-streckkoder och IATA PI-953 magnetisk flygskärmning.'
+    },
+    da: {
+      title: 'Specialfremstillede EVA-lynlåsetuier, Metalæsker med Vindue & Samlergaveæsker til Metalfidgets',
+      summary: 'Emballageguide til metal-EDC: højdensitets EVA-skumindsatser, hard-shell lynlåsetuier, matte metalæsker, Amazon FNSKU-stregkoder og IATA PI-953 magnetisk luftfragtsskærmning.'
+    },
+    no: {
+      title: 'Spesialtilpassede EVA-glidelåsetuier, Metallbokser med Vindu & Samlergaveesker for Metallfidgets',
+      summary: 'Emballasjeguide for metall-EDC: høydensitets EVA-skuminnsatser, hard-shell glidelåsetuier, matte metallbokser, Amazon FNSKU-strekkoder og IATA PI-953 magnetisk flyfraktskjerming.'
+    },
+    fi: {
+      title: 'Räätälöidyt EVA-vetoketjukotelot, Ikkunalliset Peltirasiat & Keräilylahjapakkaukset Metallifidgeteille',
+      summary: 'Pakkausopas metallisille EDC-fidgeteille: tiheät EVA-vaahtomuovisisäkkeet, kovat vetoketjukotelot, peltirasiat, Amazon FNSKU -viivakoodit ja IATA PI-953 -magneettisuojaus.'
+    },
+    pl: {
+      title: 'Etui EVA na Zamek, Puszki z Okienkiem i Pudełka Prezentowe Collector dla Metalowych Fidgetów',
+      summary: 'Przewodnik po opakowaniach hurtowych: wkładki z pianki EVA o wysokiej gęstości, twarde etui EVA, puszki stalowe, kody Amazon FNSKU oraz ekranowanie magnetyczne IATA PI-953.'
+    },
+    cs: {
+      title: 'Zakázková Pouzdra EVA na Zip, Plechové Krabičky s Okénkem a Sběratelské Dárkové Boxy pro Kovové Fidgety',
+      summary: 'Průvodce velkoobchodním balením: výplně z husté pěny EVA, skořepinová pouzdra na zip, plechové krabičky, štítky Amazon FNSKU a magnetické stínění IATA PI-953.'
+    },
+    ru: {
+      title: 'Брендированные Кейсы EVA на Молнии, Жестяные Коробки с Окном и Подарочная Упаковка для Металлических Фиджетов',
+      summary: 'Инженерный гид по оптовой упаковке: ложементы из плотной пены EVA, жесткие чехлы на молнии, жестяные коробки, штрихкоды Amazon FNSKU и магнитное экранирование IATA PI-953.'
+    },
+    ja: {
+      title: 'カスタムEVAジッパーケース・窓付きブリキ缶・コレクター向け磁気ギフトボックス：金属フィジェット包装完全ガイド',
+      summary: '高密度クローズドセルEVAフォーム中敷き、ハードシェルEVAケース、マット缶ボックス、Amazon FNSKUラベル貼付、IATA PI-953航空磁気シールド梱包を徹底解説。'
+    },
+    ko: {
+      title: '커스텀 EVA 지퍼 케이스, 윈도우 틴박스 및 컬렉터 기프트 박스: 금속 피젯 도매 패키징 완벽 가이드',
+      summary: '고밀도 EVA 폼 인서트, 하드쉘 EVA 지퍼 케이스, 무광 틴박스, 아마존 FNSKU 바코드 부착 및 IATA PI-953 항공 마그네틱 차폐 포장 엔지니어링 가이드.'
+    },
+    id: {
+      title: 'Kotak Resleting EVA Kustom, Kotak Kaleng Jendela & Kemasan Hadiah Kolektor untuk Fidget Logam',
+      summary: 'Panduan rekayasa kemasan grosir: busa EVA kepadatan tinggi, kotak resleting EVA keras, kotak kaleng matte, barcode Amazon FNSKU, dan pelindung magnetik udara IATA PI-953.'
+    },
+    ar: {
+      title: 'حافظات EVA بسحاب مخصصة وعلب معدنية بنافذة وصناديق هدايا فاخرة لأدوات الفيدجت المعدنية بالجملة',
+      summary: 'دليل هندسة التغليف بالجملة: حشوات إسفنج EVA عالي الكثافة، حافظات صلبة بسحاب، علب صفيح غير لامعة، ملصقات Amazon FNSKU، والعزل المغناطيسي للشحن الجوي IATA PI-953.'
+    }
   }
 };
 
@@ -652,10 +976,22 @@ export function localizeInsightHtml(rawHtml: string, guideData: any, lang: Suppo
   const t = useTranslations(lang);
   const meta = localizeInsightMeta(guideData, lang);
 
-  // Extract figures and links from original HTML so visual diagrams and internal links remain intact
+  // Extract figures and internal mesh links from original HTML so visual diagrams and cross-links remain intact
   const figures = rawHtml.match(/<figure[\s\S]*?<\/figure>/g) || [];
   const fig1 = figures[0] || '';
   const fig2 = figures[1] || '';
+
+  const seenHrefs = new Set<string>();
+  const meshLinks: string[] = [];
+  for (const m of rawHtml.matchAll(/<a\s+href="(\/(?:products|collections|insights)\/[^"]+)"[^>]*>([\s\S]*?)<\/a>/g)) {
+    const href = m[1];
+    const label = m[2].replace(/<[^>]+>/g, '').trim();
+    if (!seenHrefs.has(href) && label) {
+      seenHrefs.add(href);
+      meshLinks.push(`<li><a href="${href}">${label}</a></li>`);
+    }
+  }
+  const meshLinksHtml = meshLinks.length > 0 ? `<ul class="localized-mesh-links">${meshLinks.slice(0, 18).join('')}</ul>` : '';
 
   const productsUrl = getLocalizedPath('/products', lang);
   const brandingUrl = getLocalizedPath('/custom-branding', lang);
@@ -750,6 +1086,7 @@ ${fig2}
 <h2 id="section-4">4. ${t('comp.heroTitle')} &amp; ${t('pkg.heroTitle')}</h2>
 <p>${t('comp.geoAnswer')}</p>
 <p>${t('pkg.geoAnswer')}</p>
+${meshLinksHtml}
 <ul>
   <li><a href="${productsUrl}">${t('nav.allCatalog')} (FS-001 – FS-150)</a></li>
   <li><a href="${brandingUrl}">${t('brand.heroTitle')}</a></li>

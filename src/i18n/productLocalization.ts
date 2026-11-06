@@ -1,4 +1,6 @@
 import type { SupportedLanguage } from './config';
+import { getLocalizedPath, useTranslations } from './utils';
+import { localizeInsightMeta } from './insightAndCollectionLocalization';
 
 export interface LocalizedProductData {
   title: string;
@@ -1224,6 +1226,52 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
   }
 };
 
+export function getRelatedInsightSlugsForProduct(p: any): string[] {
+  const slugs: string[] = [];
+  if (p.tuningFork) {
+    slugs.push('acoustic-tuning-fork-fidget-slider-engineering-trend');
+  }
+  switch (p.primaryCollection) {
+    case 'magnetic-fidget-sliders':
+      slugs.push('n35-vs-n52-neodymium-magnet-haptic-feel-guide');
+      break;
+    case 'metal-fidget-spinners-gyros':
+      slugs.push('r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide');
+      break;
+    case 'mechanical-edc-fidgets':
+      slugs.push('multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide');
+      break;
+    case 'haptic-fidget-coins':
+    case 'edc-gourds-hand-pieces':
+    case 'magnetic-fidget-rings':
+      slugs.push('haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide');
+      break;
+    default:
+      slugs.push('n35-vs-n52-neodymium-magnet-haptic-feel-guide');
+  }
+  if (p.cncExotic) {
+    slugs.push('zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost');
+  } else {
+    slugs.push('fiber-laser-engraving-vs-uv-printing-metal-fidget-logos');
+  }
+  slugs.push('custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide');
+  slugs.push('us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance');
+  return Array.from(new Set(slugs)).slice(0, 4);
+}
+
+const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
+  'acoustic-tuning-fork-fidget-slider-engineering-trend': 'Acoustic Tuning Fork Fidget Sliders: Resonance Chamber Engineering & Wholesale Guide',
+  'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos': 'Fiber Laser Engraving vs. Silk-Screen & Deep Color Fill on Metal EDC Fidgets',
+  'n35-vs-n52-neodymium-magnet-haptic-feel-guide': 'N35 vs. N45 vs. N52 Neodymium Magnets in Metal Fidget Sliders: Tactile Force Guide',
+  'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance': 'US CPSC 16 CFR 1262 Magnet Safety Standard & RoHS/REACH Compliance Guide',
+  'zero-tooling-ready-mold-private-label-fidget-sop': 'How to Launch a Private Label Metal Fidget Brand in 10 Days ($0 Tooling SOP)',
+  'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost': 'Die-Cast Zinc Alloy vs. CNC 304/316 Stainless Steel & PEI (Ultem): Cost Breakdown',
+  'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide': 'R188 Bearing Physics & Multi-Axis Desktop Gyro Spinners: Wholesale Engineering Guide',
+  'multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide': 'Multi-Action Mechanical EDC Fidgets: Spring Ratchets, Bolt-Action & Planetary Gears',
+  'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide': 'Haptic Fidget Coins, Baoding EDC Gourds & Magnetic Spinner Rings: Ergonomics Guide',
+  'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide': 'Custom EVA Zipper Cases, Windowed Tin Boxes & Collector Gift Packaging Guide'
+};
+
 function buildLocalizedEditorialHtml(
   p: any,
   locTitle: string,
@@ -1234,6 +1282,18 @@ function buildLocalizedEditorialHtml(
   lang: SupportedLanguage
 ): string {
   const c = EDITORIAL_COPY[lang] || EDITORIAL_COPY.en;
+  const t = useTranslations(lang);
+  const insightSlugs = getRelatedInsightSlugsForProduct(p);
+  const insightLinksHtml = insightSlugs
+    .map((slug) => {
+      const meta = localizeInsightMeta({ slug, title: INSIGHT_DEFAULT_TITLES[slug] || slug, summary: '', category: '' }, lang);
+      const href = getLocalizedPath(`/insights/${slug}`, lang);
+      return `<li><a href="${href}">${meta.title}</a></li>`;
+    })
+    .join('');
+  const colHref = getLocalizedPath(`/collections/${p.primaryCollection}`, lang);
+  const colName = t(`col.${p.primaryCollection}.name` as any);
+
   return `
     <h2>${c.secTitle(p.skuDisplay, locTitle)}</h2>
     <p>${c.p1(p.skuDisplay, locTitle, locMat, p.size, p.weight, p.rowId)}</p>
@@ -1265,6 +1325,10 @@ function buildLocalizedEditorialHtml(
         </tbody>
       </table>
     </div>
+    <h3>4. ${t('breadcrumb.guides')} &amp; <a href="${colHref}">${colName}</a></h3>
+    <ul class="editorial-guide-links">
+      ${insightLinksHtml}
+    </ul>
   `;
 }
 

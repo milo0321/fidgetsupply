@@ -8,7 +8,7 @@ description: >-
 
 When tasked with scaling organic B2B search traffic, capturing Google AI Overviews / Perplexity citations, optimizing People Also Ask (PAA) real estate, or transforming real-world customer inquiries into high-converting content assets, you MUST execute the **B2B Question Keyword Clustering & GEO Growth Engine**.
 
-This architecture operates on a proven 2026 paradigm shift: **search behavior has permanently transitioned from generic product keywords to nuanced decision-making questions**. Rather than competing for commoditized head terms, Ruixing captures and dominates high-intent commercial decision nodes through structured, entity-clustered content hubs.
+This architecture operates on a proven 2026 paradigm shift: **search behavior has permanently transitioned from generic product keywords to nuanced decision-making questions**. Rather than competing for commoditized head terms, FidgetSupply captures and dominates high-intent commercial decision nodes through structured, entity-clustered content hubs.
 
 ---
 
@@ -33,7 +33,7 @@ This architecture operates on a proven 2026 paradigm shift: **search behavior ha
 
 ## 1. Pillar 1: Full-Domain 7-Source Harvesting Protocol
 
-Generic SEO relies exclusively on third-party tools (Ahrefs/Semrush/Ubersuggest) to filter "What/How/Why" questions, resulting in homogeneous, commoditized content. Ruixing enforces **7-Source Full-Domain Harvesting**, prioritizing proprietary first-party channels:
+Generic SEO relies exclusively on third-party tools (Ahrefs/Semrush/Ubersuggest) to filter "What/How/Why" questions, resulting in homogeneous, commoditized content. FidgetSupply enforces **7-Source Full-Domain Harvesting**, prioritizing proprietary first-party channels:
 
 | Priority | Source | Questions Harvested | Strategic Value & Moat |
 | :--- | :--- | :--- | :--- |
@@ -43,7 +43,7 @@ Generic SEO relies exclusively on third-party tools (Ahrefs/Semrush/Ubersuggest)
 | **P1** | **Reddit & Specialized Niche Forums** | Subreddits (`r/merch`, `r/enamelpins`, `r/streetwearstartup`, `r/supplychain`) containing unfiltered complaints and supplier horror stories. | **Authentic Failure Modes**. Captures colloquial phrasing, industry skepticism, and pricing transparency traps. |
 | **P2** | **YouTube Technical Reviews & Comments** | Questions asked under competitor factory tours, sample unboxings, and QA testing videos. | **Unmet Technical Blind Spots**. Zero-cost buyer focus groups indicating what existing content failed to explain. |
 | **P2** | **Google PAA (People Also Ask) & Autocomplete** | Mainstream algorithmic search questions and long-tail query fan-outs. | **Baseline Volume**. Broad coverage foundation, optimized for algorithmic presence. |
-| **P3** | **Google Search Console (GSC) Query Long-Tail** | Questions where Ruixing impressions are growing but CTR is low (Striking Distance). | **Immediate Traffic Recovery**. Unlocks latent rankings by adding dedicated question-answer blocks to existing pages. |
+| **P3** | **Google Search Console (GSC) Query Long-Tail** | Questions where FidgetSupply impressions are growing but CTR is low (Striking Distance). | **Immediate Traffic Recovery**. Unlocks latent rankings by adding dedicated question-answer blocks to existing pages. |
 
 ---
 
@@ -63,8 +63,8 @@ Not all question keywords carry equal commercial value. Every harvested query MU
 
 ### Tier 3: Quality Assurance & Troubleshooting Intent (★★★☆☆ — 10% Content Focus)
 - **Typical Queries**: *"Why do zinc alloy keychains get plating bubbles?"*, *"How to prevent screen print cracking on canvas totes"*, *"Do fridge magnets damage painted appliances?"*.
-- **Commercial Reality**: Post-purchase troubleshooting or pre-emptive risk mitigation. Establishes Ruixing as an ethical, audited, and transparent manufacturing partner.
-- **Action**: Provide root-cause factory physics (humidity, curing temp, alloy purity) and explain Ruixing's AQL 2.5 quality controls.
+- **Commercial Reality**: Post-purchase troubleshooting or pre-emptive risk mitigation. Establishes FidgetSupply as an ethical, audited, and transparent manufacturing partner.
+- **Action**: Provide root-cause factory physics (humidity, curing temp, alloy purity) and explain FidgetSupply's AQL 2.5 quality controls.
 
 ### Tier 4: Informational & Awareness Intent (★★☆☆☆ — 5% Content Focus)
 - **Typical Queries**: *"What is a lanyard"*, *"History of fridge magnets"*, *"What is plush toy filling made of"*.
@@ -195,7 +195,7 @@ Whenever the user shares customer interactions, WhatsApp chat records, or trade 
 
 ---
 
-## 7. Living Entity & Question Moat Repository (Ruixing Core Categories)
+## 7. Living Entity & Question Moat Repository (FidgetSupply Core Categories)
 
 *This repository is continuously updated by the conversation flywheel.*
 
@@ -214,7 +214,7 @@ Whenever the user shares customer interactions, WhatsApp chat records, or trade 
 ### Category 2: Enamel Pins, Medals & Metal Keychains
 - **Core Entities**: Soft enamel, hard enamel (cloisonné), zinc alloy, die-struck iron, antique brass, epoxy dome coating.
 - **Top Comparison Cluster Heads**:
-  - `Soft Enamel vs Hard Enamel Pins`: Recessed textured feel vs flat polished mirror finish (`/insights/guide-hard-vs-soft-enamel`).
+  - `Soft Enamel vs Hard Enamel Pins`: Recessed textured feel vs flat polished mirror finish (`/insights/insights/hard-vs-soft-enamel`).
   - `Zinc Alloy vs Iron Die-Struck`: 3D relief capability vs unit weight and cost at 5,000+ pcs.
   - `Keychain Plating Durability`: Nickel vs real gold vs electrophoresis black (salt spray hours).
 - **Proprietary Customer Questions (From WhatsApp/Inquiries)**:

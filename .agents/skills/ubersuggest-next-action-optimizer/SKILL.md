@@ -73,7 +73,7 @@ Query project opportunities using the Ubersuggest MCP:
 ### Step 2: Categorize Opportunities into Action Types
 1. **`SITE_AUDIT` (Technical Hygiene)**:
    - High SEO impact errors: `have_title_duplicates`, `duplicate_meta_descriptions`, `absent_h1_tags`, `response_code_4xx`, `have_broken_links_anchor`.
-   - Query detailed affected URLs using `site_audit_results(domain: 'ruixinggifts.com', issue: '<issue_id>')`.
+   - Query detailed affected URLs using `site_audit_results(domain: 'fidgetsupply.com', issue: '<issue_id>')`.
 2. **`KEYWORD_OPPORTUNITY -> existing_content` (Striking-Distance Interception)**:
    - Keywords ranking in positions 11–20 with established URLs.
    - High commercial intent ($CPC \ge \$3.00$).
@@ -111,7 +111,7 @@ Only proceed with items whose status is NOT `done` and NOT `ignored`.
 - **New Leaf SKU**:
   Adhere strictly to [Product SKU Page Tank Architecture](file:///Users/vivi/Desktop/Milo/Code/ruixing/.agents/skills/product-sku-page/SKILL.md) and Rules 1–18 (10-stage flow, monotonic pricing, zero Chinese characters).
 - **New Skyscraper Guide**:
-  Adhere strictly to [Insights & Blog Article Architecture](file:///Users/vivi/Desktop/Milo/Code/ruixing/.agents/skills/insights-blog-article/SKILL.md) (Backlinko standards, 6-question protocol, 7-item FAQ schema, dark `#0f172a` CTA box).
+  Adhere strictly to [Insights & Blog Article Architecture](file:///Users/vivi/Desktop/Milo/Code/ruixing/.agents/skills/insights-blog-article/SKILL.md) (Backlinko standards, 6-question protocol, 10-Item FAQ Schema (9–12 FAQs Invariant), dark `#0f172a` CTA box).
 
 ---
 
@@ -155,7 +155,7 @@ The local state file acts as the source of truth for the autonomous development 
 
 ### Track 2: Ubersuggest Cloud Platform Synchronization
 1. **Site Audit Technical Issues**:
-   - Call `site_audit(domain: 'ruixinggifts.com')` via Ubersuggest MCP to initiate a re-crawl.
+   - Call `site_audit(domain: 'fidgetsupply.com')` via Ubersuggest MCP to initiate a re-crawl.
    - Upon crawler verification, Ubersuggest automatically removes resolved errors and recalculates the Health Score.
 2. **Keyword Opportunities (Done / Ignore)**:
    - When using Chrome DevTools MCP or manual browser navigation at `https://app.neilpatel.com/en/next-actions`:

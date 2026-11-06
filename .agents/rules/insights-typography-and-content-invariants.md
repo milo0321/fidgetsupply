@@ -28,7 +28,7 @@ To maintain international publication-grade ergonomics (Backlinko / Stripe / Git
 
 ## 5. High-Contrast Sourcing CTA Box & FAQPage Schema
 - **Multi-Element High Contrast Stack**: Dark sourcing boxes (`.sourcing-cta-box`, background `#0f172a` &rarr; `#1e293b`) MUST enforce white headings (`#ffffff !important`), silver text (`#cbd5e1 !important`), sky blue links (`#38bdf8 !important`), and solid primary buttons (`#0284c7 !important`, text `#ffffff !important`).
-- **7-Item Technical FAQ Accordion**: Every B2B guide MUST include a 7-item accordion addressing MOQ, sampling time, compliance (EN 71, FDA, GRS), packaging, and logistics, fully backed by Schema.org `FAQPage` JSON-LD structured data.
+- **10-Item Technical FAQ Accordion (9–12 FAQs Invariant)**: Every B2B guide MUST include a 7-item accordion addressing MOQ, sampling time, compliance (EN 71, FDA, GRS), packaging, and logistics, fully backed by Schema.org `FAQPage` JSON-LD structured data.
 
 ## 6. Markdown Cleanliness & Guardrails
 - **No URL-Encoded Body Content**: Never commit Markdown files with raw `%20%20%3Cdiv...` strings. All content must be fully decoded UTF-8 Markdown/HTML.

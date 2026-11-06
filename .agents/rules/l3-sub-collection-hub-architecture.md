@@ -1,6 +1,6 @@
 # L3 Sub-Collection Hub Architecture & Content Specification
 
-> **Scope**: Applied to all Sub-Category and Silhouette Hub pages (L3) such as `/custom-backpacks-wholesale/`, `/custom-tote-bags-wholesale/`, `/custom-cooler-bags-wholesale/`, `/custom-stainless-steel-bottles-wholesale/`, `/custom-coffee-mugs-wholesale/`, `/custom-performance-outerwear-wholesale/`, `/custom-headwear-neckwear-wholesale/`, etc.
+> **Scope**: Applied to all Sub-Category and Silhouette Hub pages (L3) such as `/collections/metal-fidget-spinners-gyros`, `/collections/haptic-fidget-coins`, `/collections/tuning-fork-fidget-sliders`, `/custom-stainless-steel-bottles-wholesale/`, `/custom-coffee-mugs-wholesale/`, `/custom-performance-outerwear-wholesale/`, `/custom-headwear-neckwear-wholesale/`, etc.
 
 ---
 
@@ -29,7 +29,7 @@ Stage 1: Silhouette-Focused Grand Hero (H1 + 3 Glass Metric Cards + CTA + Galler
    ↓
 Stage 2: Fortune 500 Trust Logos (<TrustLogos />)
    ↓
-Stage 3: Why Choose Wholesale Custom [Silhouette] from Ruixing? (3-Card Advantage Grid)
+Stage 3: Why Choose Wholesale Custom [Silhouette] from FidgetSupply? (3-Card Advantage Grid)
    ↓
 Stage 4: [Dimension 1] Silhouette Sub-Type & Application Cards (4-Column Grid)
    ↓
@@ -37,7 +37,7 @@ Stage 5: [Dimension 2] Technical Fabrication & 4 Styles Breakdown (Z-Pattern wit
    ↓
 Stage 6: Ethical & Sustainable Supply Chain Certification Wall (.logo-wall)
    ↓
-Stage 7: The Ruixing Partner Advantage (3 Capability Cards)
+Stage 7: The FidgetSupply Supply Chain Advantage (3 Capability Cards)
    ↓
 Stage 8: Related Sourcing Guides & Industry Intelligence (<RelatedInsights />)
    ↓
@@ -101,7 +101,7 @@ Stage 10: Contained Floating Bottom Conversion CTA Card (<BottomCTA />)
   - **OEKO-TEX Standard 100** (`https://www.oeko-tex.com/en/`)
   - **Global Recycled Standard GRS** (`https://textileexchange.org/global-recycled-standard/`)
 
-### Stage 7: The Ruixing Partner Advantage
+### Stage 7: The FidgetSupply Supply Chain Advantage
 - 3 service capability cards: Unbiased Material Engineering, Specialized Mill Matching, On-Site Quality Assurance (AQL 2.5).
 
 ### Stage 8: Related Sourcing Guides & Intelligence (`<RelatedInsights />`)

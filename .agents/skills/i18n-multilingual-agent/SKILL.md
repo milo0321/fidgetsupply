@@ -43,7 +43,7 @@ src/
 │   └── translations/
 │       ├── whatsapp.ts        # Client-side interactive widget greetings & inquiry templates
 │       └── pages/             # Deep page-level schema dictionaries
-│           ├── home.ts        # Hero, metrics, feature tiers, FAQs (all 10 languages)
+│           ├── home.ts        # Hero, metrics, feature tiers, FAQs (all 18 languages)
 │           ├── about.ts       # History, timeline, leadership, values
 │           ├── contact.ts     # RFQ forms, office locations, response commitments
 │           └── catalog.ts     # Category filter tags, sorting badges, MOQs

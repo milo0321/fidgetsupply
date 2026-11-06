@@ -2,11 +2,11 @@
 title: "How E-Commerce Brands & Corporate Gift Agencies Launch Custom Metal Fidgets in 10 Days ($0 Tooling SOP)"
 slug: "zero-tooling-ready-mold-private-label-fidget-sop"
 publishDate: "2026-11-01"
-updatedDate: "2026-11-05"
+updatedDate: "2026-11-06"
 author: "FidgetSupply Engineering Team"
 category: "Wholesale Sourcing SOP"
 summary: "Step-by-step operational playbook for selecting high-margin SKUs (FS-001 to FS-150), avoiding IP/trademark pitfalls, pairing custom laser logos with EVA cases, and calculating landed DDP margins."
-metaTitle: "Launch Private Label Metal Fidgets with $0 Tooling | Sourcing SOP"
+metaTitle: "Launch Private Label Metal Fidgets ($0 Tooling SOP)"
 metaDescription: "Step-by-step SOP for e-commerce brands and corporate gift distributors to source custom logo metal fidget sliders in 10 days with $0 mold fees."
 featuredImage: "/images/insights/zero-tooling-sop-hero.webp"
 readTime: "12 min read"
@@ -156,6 +156,28 @@ What does your actual landed cost per unit look like when ordering **200 custom-
     </tbody>
   </table>
 </div>
+
+<h2 id="ten-day-fuzhou-production-and-qc-timeline">5. Inside Our 10-Day Production, Laser Branding &amp; Pre-Shipment Inspection Workflow</h2>
+
+<p>How does FidgetSupply consistently deliver custom-branded metal EDC orders in <strong>10 to 15 business days</strong> while traditional trading companies take 45 days? The secret is keeping semi-finished blank metal shells in stock across our partner die-casting and CNC workshops:</p>
+
+<ul>
+  <li><strong>Hours 1–12 (Digital 3D Mockup &amp; Dieline Confirmation):</strong> Once you select your SKUs from our <a href="/collections/custom-logo-metal-fidgets">Logo-Ready Collection</a> or <a href="/collections/magnetic-fidget-sliders">Magnetic Sliders Catalog</a> and upload your vector logo on <a href="/contact">our Quote Page</a>, our engineers return a 1:1 digital placement proof within 12 hours.</li>
+  <li><strong>Days 1–3 (Blank Shell Allocation &amp; Fixture Calibration):</strong> We pull inspected blank shells (<a href="/products/smooth-soap-box-20-magnet-unlimited-slider">FS-125</a>, <a href="/products/minimalist-smooth-6063-aluminum-slider">FS-047</a>, <a href="/products/bottle-opener-12-magnet-edc-slider">FS-026</a>, <a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013</a>) and calibrate our 50W MOPA fiber laser or multi-color silk-screen jigs (detailed in our <a href="/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">Laser vs. Silk-Screen Branding Guide</a>).</li>
+  <li><strong>Days 4–8 (Surface Branding, Ultrasonic Cleaning &amp; Magnet/Bearing QC):</strong> Every unit is branded, ultrasonically cleaned, verified for <a href="/insights/n35-vs-n52-neodymium-magnet-haptic-feel-guide">N35–N52 magnet polarity</a> and <a href="/insights/us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance">US CPSC 16 CFR 1262 fastener retention</a>, and packed into <a href="/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide">custom Black EVA Zipper Cases or Tin Boxes</a>.</li>
+  <li><strong>Days 9–15 (Pre-Shipment Photo Verification &amp; DDP Dispatch):</strong> Before balance payment and dispatch from our Fuzhou Industrial Zone Hub, we send high-resolution photos and videos of your finished bulk batch and shipping cartons.</li>
+</ul>
+
+<h2 id="category-pairing-blueprint-for-new-brands">6. Category Pairing Blueprint: Building a Balanced 4-SKU Starter Catalog</h2>
+
+<p>Instead of betting your entire launch budget on a single silhouette, top Shopify and Amazon sellers combine 3 to 4 complementary mechanisms across our 9 collections to maximize average order value (AOV):</p>
+
+<ol>
+  <li><strong>Core Daily Bestseller (Magnetic Slider):</strong> Anchor your store with <a href="/products/smooth-soap-box-20-magnet-unlimited-slider">FS-125 Smooth Soap-Box N52 Slider ($5.94)</a> or <a href="/products/minimalist-smooth-6063-aluminum-slider">FS-047 6063 Aluminum Slider ($3.38)</a> from <a href="/collections/magnetic-fidget-sliders">Magnetic Fidget Sliders</a>.</li>
+  <li><strong>Viral Video Traffic Magnet (Acoustic Tuning Fork):</strong> Add <a href="/products/compact-20-magnet-acoustic-tuning-fork-slider">FS-150 PTFE Tuning Fork Slider ($10.15)</a> from <a href="/collections/tuning-fork-fidget-sliders">Acoustic Tuning Fork Sliders</a> (see our <a href="/insights/acoustic-tuning-fork-fidget-slider-engineering-trend">Tuning Fork Trend Report</a>).</li>
+  <li><strong>Desktop Kinetic Instrument (R188 Spinner / Gyro):</strong> Include <a href="/products/knurled-finger-twist-spinner-top">FS-009 Knurled Twist Top ($0.75)</a> or <a href="/products/6-axis-cnc-stainless-gyro-spinner">FS-043 Gimbal Gyro ($4.70)</a> from <a href="/collections/metal-fidget-spinners-gyros">Metal Fidget Spinners &amp; Gyros</a>.</li>
+  <li><strong>Premium Collector Upgrade (CNC Stainless / Haptic Coin / Gourd):</strong> Offer <a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013 304SS Haptic Coin ($9.15)</a> or <a href="/products/amber-pei-ultem-cnc-gourd-edc">FS-099 Amber PEI Ultem Gourd ($25.50)</a> from <a href="/collections/cnc-stainless-steel-pei-edc">CNC Stainless Steel, PEI &amp; Exotic EDC</a>.</li>
+</ol>
 
 <div class="sourcing-cta-box">
   <h3>Ready to Launch Your Custom Metal EDC Line in 10 Days?</h3>

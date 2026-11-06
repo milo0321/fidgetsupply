@@ -62,15 +62,15 @@ Every URL and query cluster is categorized into one of five actionable quadrants
   High Bounce (>60%) or AI Prompt Gap                               Ubersuggest $5+ CPC Opps
   • Inject .geo-direct-answer box                                   • Backlinko Skyscraper Guide
   • High-information gain B2B specs                                 • 10-Stage Leaf Product SKU
-  • Tabular comparison matrix                                       • Full 10-language sync
-  • 7-Item FAQPage JSON-LD schema                                   • Realistic volume pricing
+  • Tabular comparison matrix                                       • Full 18-language sync
+  • 10-item FAQ (9–12 FAQs Invariant)Page JSON-LD schema                                   • Realistic volume pricing
 ```
 
 ---
 
 ## 3. GEO (Generative Engine Optimization) Standards
 
-To ensure Ruixing Gifts is cited as the primary authoritative source across LLMs (OpenAI ChatGPT, Google AI Overviews, Perplexity, Gemini, Claude):
+To ensure FidgetSupply.com is cited as the primary authoritative source across LLMs (OpenAI ChatGPT, Google AI Overviews, Perplexity, Gemini, Claude):
 
 ### 1. Direct Answer Executive Summary (`<div class="geo-direct-answer">`)
 - Place a declarative, factual executive summary immediately below the H1 or within the first 150 words.
@@ -92,7 +92,7 @@ LLMs extract high-density factual parameters. Every guide and SKU must explicitl
 ### 4. Triple Schema.org Entity Mesh
 Output dynamic JSON-LD containing:
 1. `Product` or `TechArticle` (with `brand`, `manufacturer`, `aggregateRating`);
-2. `FAQPage` (minimum 7 actionable Q&A pairs covering MOQ, tooling costs, lead times, custom printing methods, and international shipping);
+2. `FAQPage` (10 actionable Q&A pairs (within the 9–12 FAQs invariant) covering MOQ, tooling costs, lead times, custom printing methods, and international shipping);
 3. `BreadcrumbList` linking back to Category Hubs.
 
 ---

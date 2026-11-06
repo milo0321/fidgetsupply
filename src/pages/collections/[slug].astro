@@ -6,11 +6,60 @@ import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { COLLECTIONS, type CollectionMeta } from '../../data/collections';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
 import { localizeTitle, localizeMaterial, localizeHardwareOrMagnets } from '../../i18n/productLocalization';
-import { localizeCollectionContent } from '../../i18n/insightAndCollectionLocalization';
+import { localizeCollectionContent, localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
 
 export async function getStaticPaths() {
   const allProducts = await getCollection('products');
+  const allGuides = await getCollection('insights');
   const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
+
+  const COLLECTION_INSIGHT_MAP: Record<string, string[]> = {
+    'magnetic-fidget-sliders': [
+      'n35-vs-n52-neodymium-magnet-haptic-feel-guide',
+      'acoustic-tuning-fork-fidget-slider-engineering-trend',
+      'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance'
+    ],
+    'metal-fidget-spinners-gyros': [
+      'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide',
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+    ],
+    'mechanical-edc-fidgets': [
+      'multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide',
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos'
+    ],
+    'edc-gourds-hand-pieces': [
+      'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide',
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+    ],
+    'haptic-fidget-coins': [
+      'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide',
+      'n35-vs-n52-neodymium-magnet-haptic-feel-guide',
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos'
+    ],
+    'magnetic-fidget-rings': [
+      'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide',
+      'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance',
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos'
+    ],
+    'custom-logo-metal-fidgets': [
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos',
+      'zero-tooling-ready-mold-private-label-fidget-sop',
+      'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+    ],
+    'tuning-fork-fidget-sliders': [
+      'acoustic-tuning-fork-fidget-slider-engineering-trend',
+      'n35-vs-n52-neodymium-magnet-haptic-feel-guide',
+      'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide'
+    ],
+    'cnc-stainless-steel-pei-edc': [
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide',
+      'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide'
+    ]
+  };
 
   return COLLECTIONS.map((col) => {
     const matched = sortedProducts.filter((p) => {
@@ -21,9 +70,18 @@ export async function getStaticPaths() {
       }
     });
 
+    const guideSlugs = COLLECTION_INSIGHT_MAP[col.slug] || [
+      'zero-tooling-ready-mold-private-label-fidget-sop',
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos',
+      'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+    ];
+    const relatedGuides = guideSlugs
+      .map((s) => allGuides.find((g) => g.data.slug === s))
+      .filter(Boolean);
+
     return {
       params: { slug: col.slug },
-      props: { collection: col, products: matched }
+      props: { collection: col, products: matched, relatedGuides }
     };
   });
 }
@@ -31,9 +89,10 @@ export async function getStaticPaths() {
 interface Props {
   collection: CollectionMeta;
   products: any[];
+  relatedGuides?: any[];
 }
 
-const { collection, products } = Astro.props;
+const { collection, products, relatedGuides = [] } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
 const locCol = localizeCollectionContent(collection, currentLang);
@@ -202,6 +261,32 @@ const faqSchema = {
         ))}
       </div>
     </section>
+
+    <!-- Related Engineering & Sourcing Insights (Collection <-> Insight Mesh) -->
+    {relatedGuides.length > 0 && (
+      <section class="section" style="padding-top: 0; margin-bottom: 3.5rem;">
+        <div class="section-header-center">
+          <span class="badge">{t('guide.continueBadge')}</span>
+          <h2 class="section-title">{t('guide.relatedGuidesTitle')}</h2>
+        </div>
+        <div class="col-guides-grid">
+          {relatedGuides.map((rg: any) => {
+            const rgLoc = localizeInsightMeta(rg.data, currentLang);
+            return (
+              <a href={getLocalizedPath(`/insights/${rg.data.slug}`, currentLang)} class="col-guide-card">
+                <img src={rg.data.featuredImage} alt={rgLoc.title} width="400" height="300" loading="lazy" />
+                <div class="col-guide-body">
+                  <span class="col-guide-cat">{rgLoc.category}</span>
+                  <h3>{rgLoc.title}</h3>
+                  <p>{rgLoc.summary}</p>
+                  <span class="col-guide-cta">{t('guides.readCta')}</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
   </div>
 </Layout>
 
@@ -297,5 +382,74 @@ const faqSchema = {
   }
   .grid-header h2 {
     font-size: 1.45rem;
+  }
+  .col-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .col-guide-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .col-guide-card:hover {
+    transform: translate3d(0, -3px, 0);
+    border-color: #38bdf8;
+  }
+  .col-guide-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .col-guide-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .col-guide-cat {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #0284c7;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.45rem;
+  }
+  .col-guide-body h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  .col-guide-body p {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .col-guide-cta {
+    margin-top: auto;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #0284c7;
+  }
+  @media (max-width: 900px) {
+    .col-guides-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 </style>

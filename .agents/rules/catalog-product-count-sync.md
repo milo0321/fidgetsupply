@@ -28,7 +28,7 @@ Whenever one or more new Product SKUs (`src/content/products/*.json`) or Categor
    - Update the product count number (`<totalSKUs>+`) across all 18 languages in:
      - `nav.productCount` (e.g., `'Explore 217+ Custom Products'`)
      - `nav.searchPlaceholder` (e.g., `'Search 217+ custom products...'`)
-     - `search.placeholder` (e.g., `'Search 217+ products (e.g. canvas tote, enamel pin, bamboo mug, MOQ)...'`)
+     - `search.placeholder` (e.g., `'Search 140 ready metal fidget molds (FS-001 to FS-150) (e.g. N52 magnetic slider, tuning fork slider, R188 spinner, haptic coin, MOQ)...'`)
 
 ---
 

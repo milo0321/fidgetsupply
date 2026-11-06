@@ -14,4 +14,4 @@ Always define reusable CSS classes in `src/styles/legacy-content.css` or `src/st
 ## Invariants for Product `bodyHtml` Content:
 1. **No Embedded FAQ Sections**: `bodyHtml` MUST NOT contain an FAQ accordion or `<h2>Frequently Asked Questions</h2>` block. `[slug].astro` renders the single global FAQ section at the bottom of the page.
 2. **Multi-Line Spec Parameters**: In `Specifications & Custom Options` tables, multi-item custom parameters MUST use `<ul><li>...</li></ul>` multi-line lists.
-3. **Preserve Internal Blog Links**: All internal guide and blog links (`<a href="/guide-...">...</a>`) MUST be preserved on dedicated lines below the parameter list.
+3. **Preserve Internal Blog Links**: All internal guide and blog links (`<a href="/insights/...">...</a>`) MUST be preserved on dedicated lines below the parameter list.

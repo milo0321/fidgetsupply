@@ -34,7 +34,7 @@ Every technical guide MUST contain at least 2 to 4 responsive tables:
   2. `p`: `#cbd5e1 !important;`
   3. `p a`: `#38bdf8 !important; text-decoration: underline;`
   4. `.btn-primary`: `background-color: #0284c7 !important; color: #ffffff !important; font-weight: 700;`
-- **7-Item Technical FAQ Accordion**: Every B2B guide MUST include a 7-item accordion addressing MOQ, sampling time, compliance (EN 71, FDA, GRS), packaging, and logistics, fully backed by Schema.org `FAQPage` JSON-LD structured data.
+- **10-Item Technical FAQ Accordion (9–12 FAQs Invariant)**: Every B2B guide MUST include a 7-item accordion addressing MOQ, sampling time, compliance (EN 71, FDA, GRS), packaging, and logistics, fully backed by Schema.org `FAQPage` JSON-LD structured data.
 
 ---
 

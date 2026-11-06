@@ -21,8 +21,8 @@ This rule defines the mandatory standards for all product pages (`src/content/pr
 ---
 
 ## 3. FAQ Specifications (Insights vs. Products)
-- **Insight Articles (7-Item FAQ Schema)**:
-  - Every insight article MUST include an accordion FAQ section with **exactly 7 items** addressing B2B procurement concerns (MOQ, sample turnaround, mass production lead time, compliance/testing, material science, packaging, and logistics).
+- **Insight Articles (10-Item FAQ Schema (9–12 FAQs Invariant))**:
+  - Every insight article MUST include an accordion FAQ section with **10 items (within the 9–12 FAQs invariant)** addressing B2B procurement concerns (MOQ, sample turnaround, mass production lead time, compliance/testing, material science, packaging, and logistics).
   - Must be backed by Schema.org `FAQPage` JSON-LD structured data.
 - **Product Pages (Zero FAQ in `bodyHtml`)**:
   - Product `bodyHtml` strings MUST NOT contain embedded FAQ accordions or `<h2>Frequently Asked Questions</h2>` blocks.

@@ -1,10 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import { nonDefaultLanguages } from '../../../i18n/config';
+import { getRelatedInsightSlugsForProduct } from '../../../i18n/productLocalization';
 import ProductDetailPage from '../../products/[slug].astro';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
+  const allGuides = await getCollection('insights');
   const sorted = products.sort((a, b) => a.data.rowId - b.data.rowId);
 
   return nonDefaultLanguages.flatMap((lang) =>
@@ -14,9 +16,15 @@ export async function getStaticPaths() {
         .filter((other) => other.data.slug !== p.slug && other.data.primaryCollection === p.primaryCollection)
         .slice(0, 4);
 
+      const targetGuideSlugs = getRelatedInsightSlugsForProduct(p);
+      const relatedGuides = targetGuideSlugs
+        .map((s) => allGuides.find((g) => g.data.slug === s))
+        .filter(Boolean)
+        .slice(0, 3);
+
       return {
         params: { lang, slug: p.slug },
-        props: { product: p, relatedProducts: related }
+        props: { product: p, relatedProducts: related, relatedGuides }
       };
     })
   );

@@ -30,7 +30,7 @@ Stage 6: Detailed Craftsmanship & Fabrication Deep-Dive (Z-Pattern Feature Rows)
    ↓
 Stage 7: Ethical & Sustainable Supply Chain (Certification Logo Wall .logo-wall)
    ↓
-Stage 8: The Ruixing Partner Advantage (3 Capability Cards: Engineering, Mill Matching, AQL 2.5)
+Stage 8: The FidgetSupply Supply Chain Advantage (3 Capability Cards: Engineering, Mill Matching, AQL 2.5)
    ↓
 Stage 9: Explore Related Capabilities (Sister SKUs 3-Column Grid)
    ↓
@@ -90,7 +90,7 @@ Stage 12: Contained Floating Bottom Conversion CTA Card (<BottomCTA />)
 ### Stage 7: Ethical & Sustainable Supply Chain (`.logo-wall`)
 - Single-row logo wall with official links to BSCI, GOTS Organic, OEKO-TEX Standard 100, and GRS badges.
 
-### Stage 8: The Ruixing Partner Advantage
+### Stage 8: The FidgetSupply Supply Chain Advantage
 - 3 capability cards: Material Engineering, Specialized Mill Matching, AQL 2.5 Quality Assurance.
 
 ### Stage 9: Explore Related Capabilities (Sister SKUs)

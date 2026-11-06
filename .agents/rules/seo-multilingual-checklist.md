@@ -12,7 +12,7 @@ Whenever creating, refactoring, localizing, or modifying any page (Category Hub,
    - NEVER leave English placeholder titles untranslated (e.g. 'Sourcing with Purpose' in Japanese or German is strictly FORBIDDEN).
    - NEVER output fallback language tags like (JA), (KO), (AR), (DE), (FR) in titles.
 3. **Domain Uniqueness**: Every single URL must possess a unique <title>. Similar SKUs or related collections must specify distinct differentiation descriptors (e.g., 'DuPont Tyvek Shopping Tote' vs 'Tyvek Promotional Storage Bag').
-4. **Brand Consistency**: Enforce standard suffix format: '| Ruixing Gifts' (or '| Ruixing' for tight character limits).
+4. **Brand Consistency**: Enforce standard suffix format: '| FidgetSupply.com' (or '| FidgetSupply' for tight character limits).
 
 ---
 
@@ -34,7 +34,7 @@ Whenever creating, refactoring, localizing, or modifying any page (Category Hub,
 ---
 
 ## 4. Canonical & Hreflang Configuration
-1. **Self-Referencing Canonical**: Every page must include <link rel="canonical" href="https://ruixinggifts.com/..."> matching the canonical URL without unnecessary query parameters or trailing slash discrepancies.
+1. **Self-Referencing Canonical**: Every page must include <link rel="canonical" href="https://fidgetsupply.com/..."> matching the canonical URL without unnecessary query parameters or trailing slash discrepancies.
 2. **Complete 10-Locale Hreflang Matrix**: Every indexable page must output alternate hreflang tags for all 10 supported locales:
    - en, de, fr, es, pt, ar, ja, ko, it, ru, plus x-default (pointing to the English route).
 3. **Bidirectional Consistency**: If page A links to page B in hreflang, page B must link back to page A with the corresponding hreflang code.
@@ -44,11 +44,11 @@ Whenever creating, refactoring, localizing, or modifying any page (Category Hub,
 ## 5. URL Routing & 301 Permanent Redirects
 1. **Strict 4-Tier Hierarchy**:
    - L1 Root: / and /[lang]/
-   - L2/L3 Category Hubs: /[hub-slug]/ and /[lang]/[hub-slug]/ (e.g. /custom-bags-wholesale/)
+   - L2/L3 Category Hubs: /[hub-slug]/ and /[lang]/[hub-slug]/ (e.g. /collections/magnetic-fidget-sliders)
    - L3/L4 Leaf Product SKUs: /products/[sku-slug]/ and /[lang]/products/[sku-slug]/
    - Sourcing Insights / Guides: /insights/[slug]/ and /[lang]/insights/[slug]/
 2. **Mandatory Category Hub 301 Redirects**:
-   - Because Category Hubs live at root level /[hub-slug], you MUST configure 301 redirects in astro.config.mjs for /products/[hub-slug] -> /[hub-slug] across all 10 languages.
+   - Because Category Hubs live at root level /[hub-slug], you MUST configure 301 redirects in astro.config.mjs for /products/[hub-slug] -> /[hub-slug] across all 18 languages.
 3. **Zero Broken Internal Links (404s)**:
    - All internal links in markdown content, navigation menus, related product cards, and footer grids MUST target verified, active URLs.
    - If an old article or SKU is deleted or renamed, its 301 redirect must be registered in astro.config.mjs.

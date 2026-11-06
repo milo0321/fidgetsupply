@@ -8,7 +8,7 @@ Whenever ANY page, article, collection hub, product SKU, or core widget is creat
 
 1. **Simultaneous 10-Locale Synchronization**:
    - Never update an English page or component in isolation while leaving non-English versions stale.
-   - If a page's content, technical specifications, volume pricing tiers, FAQ accordion, or Hero copy changes in English, the corresponding localized translation dictionaries in `src/i18n/translations/pages/` or localized page controllers MUST be updated across all 10 languages in the same task/commit.
+   - If a page's content, technical specifications, volume pricing tiers, FAQ accordion, or Hero copy changes in English, the corresponding localized translation dictionaries in `src/i18n/translations/pages/` or localized page controllers MUST be updated across all 18 languages in the same task/commit.
 
 2. **New Page Creation Protocol**:
    - Whenever creating a new page (e.g. `src/pages/[slug].astro`, `src/content/insights/[slug].md`, or `src/content/products/[slug].json`), you MUST:

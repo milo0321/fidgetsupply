@@ -1,10 +1,10 @@
 ---
-description: "Strict rules for copywriting, tone, and brand positioning for the Ruixing Gifts website."
+description: "Strict rules for copywriting, tone, and brand positioning for the FidgetSupply.com website."
 ---
 
 # B2B Copywriting and Positioning Rules
 
-When writing or modifying any content (copywriting, design, strategic positioning) for the Ruixing Gifts B2B website, you **MUST STRICTLY** adhere to the following rules. The user has defined this as the absolute bottom line for the website's credibility.
+When writing or modifying any content (copywriting, design, strategic positioning) for the FidgetSupply.com B2B website, you **MUST STRICTLY** adhere to the following rules. The user has defined this as the absolute bottom line for the website's credibility.
 
 ## 1. NO Exaggeration or Unrealistic Hype
 - **Do not** use overblown, "high-brow" (高逼格), or Silicon Valley-style startup jargon (e.g., "Next-Generation", "Innovation Lab", "Revolutionary", "World-Changing").
@@ -13,7 +13,7 @@ When writing or modifying any content (copywriting, design, strategic positionin
 
 ## 2. Authentic & Grounded Sourcing Partner Identity (FIRST IRON RULE)
 - Speak as a highly professional, reliable, and grounded **Global Sourcing Partner / Supply Chain Ecosystem** in China.
-- **NEVER** write "Direct Factory Manufacturing", "Direct Manufacturer", or claim that Ruixing Gifts is a single direct mega-factory. We are an expert B2B supply chain consolidation partner.
+- **NEVER** write "Direct Factory Manufacturing", "Direct Manufacturer", or claim that FidgetSupply.com is a single direct mega-factory. We are an expert B2B supply chain consolidation partner.
 - Your true strengths are your 50+ audited factory network, independent QC process (AQL 2.5), certified material expertise (GOTS, GRS, BSCI), cross-category consolidation, and turnkey DDP shipping. Present these truthfully and professionally without inflating or misrepresenting our identity.
 
 ## 3. Pragmatic Tone

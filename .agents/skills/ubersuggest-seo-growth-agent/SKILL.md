@@ -2,7 +2,7 @@
 name: ubersuggest-seo-growth-agent
 description: >-
   Standard operating procedure and execution blueprint for the autonomous Ubersuggest SEO & Growth Intelligence Agent.
-  Leverages 10 data intelligence pillars (competitor top pages reverse engineering, Google autocomplete fan-out, viral content mining, SERP position 0 sniping, Core Web Vitals, backlink intersection hunting, striking-distance keyword interception, 12-month seasonality forecasting, high-CPC commercial targeting, and Generative AI LLM citation monitoring) to optimize and scale Ruixing Gifts.
+  Leverages 10 data intelligence pillars (competitor top pages reverse engineering, Google autocomplete fan-out, viral content mining, SERP position 0 sniping, Core Web Vitals, backlink intersection hunting, striking-distance keyword interception, 12-month seasonality forecasting, high-CPC commercial targeting, and Generative AI LLM citation monitoring) to optimize and scale FidgetSupply.com.
 ---
 
 # Ubersuggest SEO & Growth Intelligence Agent (SOP & Architecture)
@@ -55,7 +55,7 @@ This document defines the operational architecture, standard workflows, and exec
    - Embed dark `#0f172a` `.sourcing-cta-box`.
 
 ### Workflow C: Backlink Opportunity & Industry Outreach Gap Discovery
-1. **Competitor Link Intersection**: Call `backlink_opportunity` comparing `ruixinggifts.com` against top industry leaders (`4imprint.com`, `everythingpromo.com`, `halo.com`).
+1. **Competitor Link Intersection**: Call `backlink_opportunity` comparing `fidgetsupply.com` against top industry leaders (`4imprint.com`, `everythingpromo.com`, `halo.com`).
 2. **Filter High-Authority Domains**: Extract domains with Domain Rating ($DR \ge 40$) in industry associations (PPAI, ASI, PSI), trade show directories (Canton Fair, Magic Show), sustainable certifications (Textile Exchange, FSC, GOTS), and supply chain journals.
 3. **Linkable Asset Crafting**: Produce downloadable spec sheets, technical compliance calculators, or comprehensive benchmark reports to pitch editorial inclusions.
 
@@ -93,7 +93,7 @@ This document defines the operational architecture, standard workflows, and exec
 ## 4. Invariants & Deterministic Guardrails
 
 1. **100% Full English Invariant (Rule 17)**: All code, metadata, markdown, and JSON must contain 0 Chinese characters.
-2. **Backlinko Editorial Standard (Rule 16)**: Reading time $\ge 8$ minutes, 1–3 sentence paragraphs, bold lead-in bullet items, $\ge 2$ inline WebP figures ($<150$KB), 7-item FAQ, dark `#0f172a` CTA box.
+2. **Backlinko Editorial Standard (Rule 16)**: Reading time $\ge 8$ minutes, 1–3 sentence paragraphs, bold lead-in bullet items, $\ge 2$ inline WebP figures ($<150$KB), 10-item FAQ (9–12 FAQs Invariant), dark `#0f172a` CTA box.
 3. **B2B Realistic Volume Pricing (Rule 10)**: Monotonic volume decay curves strictly bounded between 15% and 38%.
 4. **Zero Duplicate Images (Rule 13)**: 100% unique image paths per page.
 5. **Deterministic Verification**: All executions must pass `node scripts/verify_all_rules.cjs` (17/17 checks) and `npm run build` (0 errors).

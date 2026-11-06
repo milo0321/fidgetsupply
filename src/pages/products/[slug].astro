@@ -4,10 +4,12 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
-import { localizeProduct } from '../../i18n/productLocalization';
+import { localizeProduct, getRelatedInsightSlugsForProduct } from '../../i18n/productLocalization';
+import { localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
+  const allGuides = await getCollection('insights');
   const sorted = products.sort((a, b) => a.data.rowId - b.data.rowId);
 
   return sorted.map((entry) => {
@@ -16,14 +18,20 @@ export async function getStaticPaths() {
       .filter((other) => other.data.slug !== p.slug && other.data.primaryCollection === p.primaryCollection)
       .slice(0, 4);
 
+    const targetGuideSlugs = getRelatedInsightSlugsForProduct(p);
+    const relatedGuides = targetGuideSlugs
+      .map((s) => allGuides.find((g) => g.data.slug === s))
+      .filter(Boolean)
+      .slice(0, 3);
+
     return {
       params: { slug: p.slug },
-      props: { product: p, relatedProducts: related }
+      props: { product: p, relatedProducts: related, relatedGuides }
     };
   });
 }
 
-const { product: p, relatedProducts } = Astro.props;
+const { product: p, relatedProducts, relatedGuides = [] } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
 const lp = localizeProduct(p, currentLang);
@@ -455,6 +463,34 @@ const breadcrumbSchema = {
           {relatedProducts.map((rel: any) => (
             <ProductCard product={rel} />
           ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Related Engineering & Sourcing Insights (Bidirectional Mesh) -->
+  {relatedGuides.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="badge">{t('guide.continueBadge')}</span>
+          <h2 class="section-title">{t('guide.relatedGuidesTitle')}</h2>
+        </div>
+        <div class="pdp-guides-grid">
+          {relatedGuides.map((rg: any) => {
+            const rgLoc = localizeInsightMeta(rg.data, currentLang);
+            return (
+              <a href={getLocalizedPath(`/insights/${rg.data.slug}`, currentLang)} class="pdp-guide-card">
+                <img src={rg.data.featuredImage} alt={rgLoc.title} width="400" height="300" loading="lazy" />
+                <div class="pdp-guide-body">
+                  <span class="pdp-guide-cat">{rgLoc.category}</span>
+                  <h3>{rgLoc.title}</h3>
+                  <p>{rgLoc.summary}</p>
+                  <span class="pdp-guide-cta">{t('guides.readCta')}</span>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -1004,6 +1040,75 @@ const breadcrumbSchema = {
     }
     .tier-cell:last-child {
       border-bottom: none;
+    }
+  }
+  .pdp-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .pdp-guide-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.85rem;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    transform: translateZ(0);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .pdp-guide-card:hover {
+    transform: translate3d(0, -3px, 0);
+    border-color: #38bdf8;
+  }
+  .pdp-guide-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .pdp-guide-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .pdp-guide-cat {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #0284c7;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.45rem;
+  }
+  .pdp-guide-body h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+  .pdp-guide-body p {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .pdp-guide-cta {
+    margin-top: auto;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #0284c7;
+  }
+  @media (max-width: 900px) {
+    .pdp-guides-grid {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 </style>

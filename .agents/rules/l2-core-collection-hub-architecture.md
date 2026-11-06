@@ -1,6 +1,6 @@
 # L2 Core Collection Hub Architecture & Content Specification
 
-> **Scope**: Applied to all top-level Core Category Hub pages (L2) such as `/custom-bags-wholesale/`, `/custom-drinkware-wholesale/`, `/custom-apparel-wearables-wholesale/`, `/custom-corporate-pins-wholesale/`, and `/custom-pet-products-wholesale/`.
+> **Scope**: Applied to all top-level Core Category Hub pages (L2) such as `/collections/magnetic-fidget-sliders`, `/custom-drinkware-wholesale/`, `/custom-apparel-wearables-wholesale/`, `/custom-corporate-pins-wholesale/`, and `/custom-pet-products-wholesale/`.
 
 ---
 
@@ -26,7 +26,7 @@ Stage 1: Grand Category Hero (H1 + 3 Glass Metric Cards + CTA + Gallery)
    ↓
 Stage 2: Fortune 500 Trust Logos (<TrustLogos />)
    ↓
-Stage 3: Why Choose Ruixing [Category] (3-Card Advantage Grid)
+Stage 3: Why Choose FidgetSupply [Category] (3-Card Advantage Grid)
    ↓
 Stage 4: [Dimension 1] Sourcing Scenario Collections Grid (4-Column Cards)
    ↓
@@ -34,7 +34,7 @@ Stage 5: [Dimension 2] Technical Fabrication & Styles Portfolio (4 Z-Pattern Row
    ↓
 Stage 6: Ethical & Sustainable Supply Chain Certification Wall (.logo-wall)
    ↓
-Stage 7: The Ruixing Partner Advantage (3 Capability Cards)
+Stage 7: The FidgetSupply Supply Chain Advantage (3 Capability Cards)
    ↓
 Stage 8: Related Sourcing Guides & Industry Intelligence (<RelatedInsights />)
    ↓
@@ -61,7 +61,7 @@ Stage 10: Contained Floating Bottom Conversion CTA Card (<BottomCTA />)
 ### Stage 2: Fortune 500 Trust Logos (`<TrustLogos />`)
 - Prominently displays procurement partner logos: **Audi, BMW, Mercedes-Benz, O2, Continental, ADAC, PUEBLO**.
 
-### Stage 3: Why Choose Ruixing [Category] (3-Card Grid)
+### Stage 3: Why Choose FidgetSupply [Category] (3-Card Grid)
 - **Container**: `<section class="section section-light">`
 - **Grid**: `.features-3col-grid` or `.advantage-grid` (3 equal-width cards with white card background, subtle border, and soft hover lift).
 - **Standard Pillars**:
@@ -100,7 +100,7 @@ Stage 10: Contained Floating Bottom Conversion CTA Card (<BottomCTA />)
   - **OEKO-TEX Standard 100** (`https://www.oeko-tex.com/en/`)
   - **Global Recycled Standard GRS** (`https://textileexchange.org/global-recycled-standard/`)
 
-### Stage 7: The Ruixing Partner Advantage
+### Stage 7: The FidgetSupply Supply Chain Advantage
 - **Container**: `<section class="section section-light">`
 - **Cards (3)**:
   1. *Unbiased Material Engineering*: Lab stress-testing tensile strength, seam integrity, and colorfastness.
@@ -134,7 +134,7 @@ Stage 10: Contained Floating Bottom Conversion CTA Card (<BottomCTA />)
   "sampleTime": "3 - 5 days",
   "material": "Certified Raw Material Breakdown",
   "featuredImage": "/wp-content/uploads/2025/09/category-hero.webp",
-  "metaTitle": "Wholesale Custom Category | Ruixing Gifts China Factory",
+  "metaTitle": "Wholesale Custom Category | FidgetSupply.com China Factory",
   "metaDescription": "Direct factory custom category wholesale...",
   "overview": "Comprehensive 2-sentence macro category overview...",
   "bodyHtml": "<div class=\"page-container\">...10-stage HTML...</div>"

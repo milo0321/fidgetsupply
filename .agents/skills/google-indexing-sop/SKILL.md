@@ -14,7 +14,7 @@ This skill provides the standard workflow and automation script for notifying Go
 ## 1. Prerequisites & Safety Invariants
 
 1. **Prerequisite Push to Remote**:
-   - The agent MUST NOT submit indexing requests for local-only changes. Indexing notifications should ONLY be dispatched AFTER the user has manually executed `git push` and changes are live on the production domain (`ruixinggifts.com`).
+   - The agent MUST NOT submit indexing requests for local-only changes. Indexing notifications should ONLY be dispatched AFTER the user has manually executed `git push` and changes are live on the production domain (`fidgetsupply.com`).
 2. **Service Account Credentials**:
    - Uses the authorized service account key stored at `scratch/gsc_credentials.json`.
    - OAuth 2.0 Scope required: `https://www.googleapis.com/auth/indexing`.

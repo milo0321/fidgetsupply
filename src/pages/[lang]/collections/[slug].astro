@@ -6,7 +6,56 @@ import CollectionDetailPage from '../../collections/[slug].astro';
 
 export async function getStaticPaths() {
   const allProducts = await getCollection('products');
+  const allGuides = await getCollection('insights');
   const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
+
+  const COLLECTION_INSIGHT_MAP: Record<string, string[]> = {
+    'magnetic-fidget-sliders': [
+      'n35-vs-n52-neodymium-magnet-haptic-feel-guide',
+      'acoustic-tuning-fork-fidget-slider-engineering-trend',
+      'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance'
+    ],
+    'metal-fidget-spinners-gyros': [
+      'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide',
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+    ],
+    'mechanical-edc-fidgets': [
+      'multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide',
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos'
+    ],
+    'edc-gourds-hand-pieces': [
+      'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide',
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+    ],
+    'haptic-fidget-coins': [
+      'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide',
+      'n35-vs-n52-neodymium-magnet-haptic-feel-guide',
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos'
+    ],
+    'magnetic-fidget-rings': [
+      'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide',
+      'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance',
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos'
+    ],
+    'custom-logo-metal-fidgets': [
+      'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos',
+      'zero-tooling-ready-mold-private-label-fidget-sop',
+      'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+    ],
+    'tuning-fork-fidget-sliders': [
+      'acoustic-tuning-fork-fidget-slider-engineering-trend',
+      'n35-vs-n52-neodymium-magnet-haptic-feel-guide',
+      'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide'
+    ],
+    'cnc-stainless-steel-pei-edc': [
+      'zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost',
+      'multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide',
+      'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide'
+    ]
+  };
 
   return nonDefaultLanguages.flatMap((lang) =>
     COLLECTIONS.map((col) => {
@@ -18,9 +67,18 @@ export async function getStaticPaths() {
         }
       });
 
+      const guideSlugs = COLLECTION_INSIGHT_MAP[col.slug] || [
+        'zero-tooling-ready-mold-private-label-fidget-sop',
+        'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos',
+        'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide'
+      ];
+      const relatedGuides = guideSlugs
+        .map((s) => allGuides.find((g) => g.data.slug === s))
+        .filter(Boolean);
+
       return {
         params: { lang, slug: col.slug },
-        props: { collection: col, products: matched }
+        props: { collection: col, products: matched, relatedGuides }
       };
     })
   );

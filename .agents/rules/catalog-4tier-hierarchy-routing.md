@@ -4,8 +4,8 @@ All product and collection pages in the codebase MUST strictly follow the 4-tier
 
 ## 1. Hierarchy & URL Structure
 - **L1 (Catalog Root)**: Served at `/products/`
-- **L2 / L3 / L4 (Collection Hubs)**: Served at root `/[slug]/` without `/products/` prefix (e.g. `/custom-bags-wholesale/`, `/custom-pouches-wholesale/`, `/custom-neck-gaiters-wholesale/`). Rendered via `src/pages/[slug].astro`.
-- **Leaf Node SKUs (Product Pages)**: Served at `/products/[slug]/` (e.g. `/products/custom-canvas-tote-bags-wholesale/`). Rendered via `src/pages/products/[slug].astro`.
+- **L2 / L3 / L4 (Collection Hubs)**: Served at root `/[slug]/` without `/products/` prefix (e.g. `/collections/magnetic-fidget-sliders`, `/custom-pouches-wholesale/`, `/custom-neck-gaiters-wholesale/`). Rendered via `src/pages/[slug].astro`.
+- **Leaf Node SKUs (Product Pages)**: Served at `/products/[slug]/` (e.g. `/products/smooth-soap-box-20-magnet-n52-slider`). Rendered via `src/pages/products/[slug].astro`.
 
 ## 2. Link Navigation Rules
 - Links pointing to Collection Hubs MUST use root `/[slug]/`.
@@ -30,7 +30,7 @@ All product and collection pages in the codebase MUST strictly follow the 4-tier
 ## 7. Canonical B2B Section Ordering & Logo Wall Placement
 - All catalog pages MUST follow the canonical B2B section flow:
   Hero ➔ Trust Logos ➔ Advantage Grid ➔ Category Grid ➔ Z-Pattern Features ➔ Specifications Table ➔ Ethical Supply Chain Logo Wall ➔ Partner Advantage ➔ 10-Item FAQ.
-- The **"An Ethical & Sustainable Supply Chain"** logo wall MUST be positioned immediately AFTER the Specifications Table and BEFORE The Ruixing Partner Advantage / FAQ section.
+- The **"An Ethical & Sustainable Supply Chain"** logo wall MUST be positioned immediately AFTER the Specifications Table and BEFORE The FidgetSupply Supply Chain Advantage / FAQ section.
 
 ## 8. Category-Tailored Specifications Invariant
 - "Specifications & Custom Options" tables MUST contain 100% domain-specific parameters.
@@ -40,12 +40,12 @@ All product and collection pages in the codebase MUST strictly follow the 4-tier
 - Standalone `.astro` hub pages MUST render the full 10-item B2B procurement FAQ accordion.
 
 ## 10. Strict Blog & Insight Link Domain Matching (MANDATORY)
-- ALL internal blog / guide links (`<a href="/insights/guide-...">`) embedded in product HTML or `.astro` templates MUST strictly match the product's domain.
+- ALL internal blog / guide links (`<a href="/insights/insights/...">`) embedded in product HTML or `.astro` templates MUST strictly match the product's domain.
 - NEVER point a Drinkware page to a Bag or Pet guide, or vice versa.
 - ALWAYS verify that the target Markdown article exists in `src/content/insights/` before rendering the link.
 
 ## 11. Hub vs. Product SKU Routing Isolation & No Inverted Redirects (MANDATORY)
-- **Root-Level Hub Placement**: All Category Collection Hub pages (L2/L3) MUST live strictly at the root path `/[slug]/` (e.g. `/custom-bags-wholesale/`, `/custom-cooler-bags-wholesale/`, `/custom-neoprene-products-wholesale/`).
+- **Root-Level Hub Placement**: All Category Collection Hub pages (L2/L3) MUST live strictly at the root path `/[slug]/` (e.g. `/collections/magnetic-fidget-sliders`, `/collections/tuning-fork-fidget-sliders`, `/custom-neoprene-products-wholesale/`).
 - **Leaf-Level SKU Placement**: All individual product SKU pages (L3/L4) MUST live strictly under `/products/[slug]/` (e.g. `/products/custom-insulated-cooler-bags-wholesale/`).
 - **No Inverted Redirects**: All legacy `/products/[hub]` paths MUST permanently 301 redirect to `/[hub]/`. NEVER configure inverted redirects from `/[hub]` to `/products/[hub]`.
 - **Product Generator Isolation**: `src/pages/products/[slug].astro` MUST explicitly filter out all `hubSlugs` in `getStaticPaths` to prevent generating redundant single-product templates for Hub pages.
