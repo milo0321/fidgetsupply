@@ -122,7 +122,7 @@ relatedSkus: ["FS-040", "FS-138", "FS-016", "FS-022", "FS-136", "FS-027", "FS-12
 <h2>4. Commercial Procurement Matrix: MOQ 50 Tiered Pricing, Custom Branding &amp; Turnkey Packaging</h2>
 <p>Because all 16 factory models referenced in this guide are maintained in active ready-mold tooling at our manufacturing facility, brand owners, e-commerce resellers, and corporate gift agencies pay <strong>$0.00 in mold setup fees</strong>. Whether you are ordering a 50-piece starter batch of the <a href="/products/gamepad-dome-switch-magnetic-slider">FS-040 Gamepad Dome-Switch Magnetic Slider</a> to validate a new store collection or scaling a 1,000-piece mixed-SKU wholesale run combining the <a href="/products/pea-pod-ergonomic-magnetic-slider">FS-022 Pea-Pod Ergonomic Magnetic Slider</a>, the <a href="/products/chocolate-grid-20-magnet-n52-unlimited-slider">FS-128 Chocolate-Grid 20-Magnet N52 Unlimited Slider</a>, and the <a href="/products/jack-o-lantern-carved-fidget-spinner">FS-044 Jack-O-Lantern Carved Fidget Spinner</a>, our production line supports rapid 7–12 day turnaround with transparent volume tiering.</p>
 
-<p>For private-label brands and corporate buyers requiring custom logo personalization, we offer three factory-floor branding methods starting at 100 units per SKU: <strong>50W MOPA Fiber Laser Engraving</strong> (permanent micron-precision etching on stainless steel, brass, zirconium, or anodized aluminum), <strong>UV Full-Color Silk-Screen Printing</strong> (ideal for multi-color corporate emblems and esports team crests), and <strong>Deep Laser Cavities with Hand-Inlaid Enamel Color Fill</strong>. Every custom order includes a complimentary 12-hour digital 3D placement proof prior to mass production.</p>
+<p>For private-label brands and corporate buyers requiring custom logo personalization, we offer three factory-floor branding methods starting at 100 units per SKU: <strong>50W MOPA Fiber Laser Engraving</strong> (permanent micron-precision etching on stainless steel, brass, zirconium, or anodized aluminum), and <strong>Deep Laser Engraving + Enamel Color Fill (+$0.35–$0.60/pc)</strong> for colored corporate emblems (note: surface silk-screen/UV printing is not recommended on smooth, chemically inert metal due to low ink adhesion). Custom pre-production sampling is paid ($50 USD for standard laser; $80–$150 USD for deep laser + color fill, 10–15 days), preceded by a complimentary 12-hour digital 3D placement proof.</p>
 
 <div class="geo-table-wrap">
   <table class="geo-table">
@@ -150,7 +150,7 @@ relatedSkus: ["FS-040", "FS-138", "FS-016", "FS-022", "FS-136", "FS-027", "FS-12
       <tr>
         <td><strong>Custom Logo Branding</strong></td>
         <td>50W Fiber Laser (+$0.15/pc, MOQ 100)</td>
-        <td>Fiber Laser or UV Color Print (+$0.25/pc)</td>
+        <td>50W Fiber Laser (+$0.15–$0.30/pc) or Deep Laser + Color Fill (+$0.35–$0.60/pc)</td>
         <td>Deep Laser + Enamel Fill or Custom Relief</td>
       </tr>
       <tr>

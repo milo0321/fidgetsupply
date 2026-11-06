@@ -23,7 +23,7 @@ const waBaseUrl =
 const contactFaqs = [
   {
     question: 'What is your typical Minimum Order Quantity (MOQ)?',
-    answer: 'Blank unbranded wholesale stock starts at <strong>50 pieces per SKU</strong>. Custom laser-engraved or UV color-printed logo orders start at <strong>100 pieces per SKU</strong> using our existing production molds (<strong>$0.00 mold fee</strong>).'
+    answer: 'Blank unbranded wholesale stock starts at <strong>50 pieces per SKU</strong>. Custom logo orders via <strong>50W Fiber Laser Engraving</strong> or <strong>Deep Laser Engraving + Color Fill</strong> start at <strong>100 pieces per SKU</strong> using our existing production molds (<strong>$0.00 mold fee</strong>).'
   },
   {
     question: 'How fast can I receive a wholesale quotation and digital logo proof?',
@@ -35,15 +35,15 @@ const contactFaqs = [
   },
   {
     question: 'Can I request custom logo samples before placing a bulk order?',
-    answer: 'Yes. You can request sample units of specific SKU models or a custom logo pre-production sample before confirming bulk production. Custom logo sampling takes <strong>10 to 15 days</strong> with a custom logo sample fee of <strong>$80 to $150 USD</strong> depending on the branding process. Simply select <strong>Sample / Prototype Evaluation</strong> in the quantity field above.'
+    answer: 'Yes. Custom logo pre-production sampling is paid and takes <strong>10 to 15 days</strong>: <strong>Standard Fiber Laser Engraving sample fee is $50 USD</strong>, and <strong>Deep Laser Engraving + Color Fill sample fee is $80 to $150 USD</strong>. Simply select <strong>Sample / Prototype Evaluation</strong> in the quantity field above.'
   },
   {
     question: 'Can I combine multiple SKUs in a single wholesale inquiry?',
     answer: 'Yes. You can type multiple SKU codes or click several category pills in the form above (for example, FS-001, FS-047, and FS-125) to request a single consolidated quotation.'
   },
   {
-    question: 'What logo file formats do you accept for custom laser or UV branding?',
-    answer: 'We prefer vector files (<strong>.EPS, .PDF, .SVG, or .CDR</strong>) for the sharpest laser engraving and UV printing results, and we can also work with high-resolution <strong>.PNG or .PSD</strong> artwork.'
+    question: 'What logo file formats do you accept for Fiber Laser or Deep Laser + Color Fill branding?',
+    answer: 'We prefer vector files (<strong>.AI, .EPS, .PDF, .SVG, or .CDR</strong>) with Pantone (PMS) color callouts for the sharpest Fiber Laser Engraving and Deep Laser + Color Fill (+$0.35–$0.60/pc) results. Note: we do not recommend surface silk-screen or UV ink on metal because smooth, chemically inert metal surfaces lack ink adhesion and peel under thumb friction.'
   },
   {
     question: 'Can we sign a Non-Disclosure Agreement (NDA) before sharing artwork?',
@@ -311,7 +311,7 @@ const faqSchema = {
                   <select id="brandingMode" name="brandingMode" class="form-input form-select">
                     <option value="Blank Unbranded Stock">{t('pdp.opt1Title')}</option>
                     <option value="Fiber Laser Engraved Logo" selected>{t('pdp.opt2Title')}</option>
-                    <option value="Silk-Screen / Deep Laser Color Fill">{t('pdp.opt3Title')}</option>
+                    <option value="Deep Laser + Color Fill (+$0.35-$0.60/pc)">{t('pdp.opt3Title')}</option>
                     <option value="Custom Logo + Black EVA Zipper Case">{t('pdp.opt4Title')}</option>
                   </select>
                 </div>

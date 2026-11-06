@@ -486,97 +486,97 @@ export function localizeColors(raw: string, lang: SupportedLanguage): string {
 
 const OVERVIEW_BUILDER: Record<SupportedLanguage, (sku: string, title: string, mat: string, size: string, weight: string, mag: string, acc: string, rowId: number) => string> = {
   en: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} is an industrial-grade wholesale metal EDC fidget engineered from ${mat} (${size}, net weight ${weight}). Equipped with ${mag} and ${acc}, this model utilizes our mature ready-to-use production mold #${rowId} ($0 Tooling Cost) across our integrated China precision metalworking & CNC supply chain network. Available for immediate blank wholesale (MOQ 50 pcs) or custom corporate surface branding via Fiber Laser Engraving, Silk-Screen Printing, and Deep Laser Color Fill (MOQ 100–300 pcs).`,
+    `${sku} ${title} is an industrial-grade wholesale metal EDC fidget engineered from ${mat} (${size}, net weight ${weight}). Equipped with ${mag} and ${acc}, this model utilizes our mature ready-to-use production mold #${rowId} ($0 Tooling Cost) across our integrated China precision metalworking & CNC supply chain network. Available for immediate blank wholesale (MOQ 50 pcs) or custom corporate surface branding via 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) and Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample; surface silk-screen is not recommended on smooth metal).`,
   de: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} ist ein präzisionsgefertigtes Metall-EDC-Fidget für den Großhandel aus ${mat} (Maße ${size}, Nettogewicht ${weight}). Ausgestattet mit ${mag} sowie ${acc}, nutzt dieses Modell unsere sofort einsatzbereite Serienform #${rowId} ($0 Werkzeugkosten) in unserem integrierten CNC- & Druckguss-Fertigungsnetzwerk. Sofort lieferbar als Blanko-Lagerware (ab 50 Stk. MOQ) oder mit individueller Logo-Veredelung per 50W-Faserlasergravur, Siebdruck ($35/Farbe + $0,10/Farbe/Stk.) oder tiefer Lasergravur mit Farbauslegung (ab 100–300 Stk. MOQ).`,
+    `${sku} ${title} ist ein präzisionsgefertigtes Metall-EDC-Fidget für den Großhandel aus ${mat} (Maße ${size}, Nettogewicht ${weight}). Ausgestattet mit ${mag} sowie ${acc}, nutzt dieses Modell unsere sofort einsatzbereite Serienform #${rowId} ($0 Werkzeugkosten). Sofort lieferbar als Blanko-Lagerware (ab 50 Stk. MOQ) oder mit individueller Logo-Veredelung per 50W-Faserlasergravur (+$0,15–$0,30/Stk., Muster $50 USD) oder tiefer Lasergravur mit Farbfüllung (+$0,35–$0,60/Stk., Muster $80–$150 USD).`,
   fr: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} est un fidget EDC en métal de qualité industrielle pour la vente en gros, fabriqué en ${mat} (dimensions ${size}, poids net ${weight}). Équipé de ${mag} et de ${acc}, ce modèle utilise notre moule de série prêt à produire #${rowId} (0 $ de frais de moule). Disponible immédiatement en stock neutre (MOQ 50 pcs) ou avec personnalisation de logo par gravure laser fibre 50W, sérigraphie couleur (35 $/couleur + 0,10 $/couleur/pc) ou gravure laser profonde avec remplissage émail (MOQ 100–300 pcs).`,
+    `${sku} ${title} est un fidget EDC en métal de qualité industrielle pour la vente en gros, fabriqué en ${mat} (dimensions ${size}, poids net ${weight}). Équipé de ${mag} et de ${acc}, ce modèle utilise notre moule de série prêt à produire #${rowId} (0 $ de frais de moule). Disponible immédiatement en stock neutre (MOQ 50 pcs) ou avec personnalisation de logo par gravure laser fibre 50W (+0,15–0,30 $/pc, échantillon 50 $) ou gravure laser profonde + remplissage couleur (+0,35–0,60 $/pc, échantillon 80–150 $).`,
   nl: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} is een hoogwaardig metalen EDC-fidget voor de groothandel, vervaardigd uit ${mat} (afmetingen ${size}, nettogewicht ${weight}). Uitgerust met ${mag} en ${acc}, maakt dit model gebruik van onze productierijpe matrijs #${rowId} ($0 matrijskosten). Direct leverbaar als blanco voorraad (MOQ 50 st.) of met gepersonaliseerd bedrijfslogo via 50W fiberlasergravure, zeefdruk ($35/kleur + $0,10/kleur/st.) of diepe lasergravure met kleurvulling (MOQ 100–300 st.).`,
+    `${sku} ${title} is een hoogwaardig metalen EDC-fidget voor de groothandel, vervaardigd uit ${mat} (afmetingen ${size}, nettogewicht ${weight}). Uitgerust met ${mag} en ${acc}, maakt dit model gebruik van onze productierijpe matrijs #${rowId} ($0 matrijskosten). Direct leverbaar als blanco voorraad (MOQ 50 st.) of met gepersonaliseerd bedrijfslogo via 50W fiberlasergravure (+$0,15–$0,30/st., monster $50) of diepe lasergravure met kleurvulling (+$0,35–$0,60/st., monster $80–$150).`,
   es: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} es un fidget EDC metálico de grado industrial al por mayor fabricado en ${mat} (dimensiones ${size}, peso neto ${weight}). Equipado con ${mag} y ${acc}, este modelo utiliza nuestro molde de producción listo #${rowId} ($0 costo de molde). Disponible para envío inmediato en blanco (MOQ 50 uds.) o con personalización de marca mediante grabado láser de fibra de 50W, serigrafía ($35/color + $0.10/color/ud.) o grabado láser profundo con relleno de color (MOQ 100–300 uds.).`,
+    `${sku} ${title} es un fidget EDC metálico de grado industrial al por mayor fabricado en ${mat} (dimensiones ${size}, peso neto ${weight}). Equipado con ${mag} y ${acc}, este modelo utiliza nuestro molde de producción listo #${rowId} ($0 costo de molde). Disponible para envío inmediato en blanco (MOQ 50 uds.) o con personalización de marca mediante grabado láser de fibra de 50W (+$0.15–$0.30/ud., muestra $50) o grabado láser profundo con relleno de color (+$0.35–$0.60/ud., muestra $80–$150).`,
   it: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} è un fidget EDC in metallo di grado industriale all'ingrosso realizzato in ${mat} (dimensioni ${size}, peso netto ${weight}). Dotato di ${mag} e ${acc}, questo modello utilizza il nostro stampo di serie pronto #${rowId} ($0 costi di stampo). Disponibile per fornitura immediata neutra (MOQ 50 pz.) o con personalizzazione del logo tramite incisione laser a fibra 50W, serigrafia ($35/colore + $0,10/colore/pz.) o incisione laser profonda con smalto colorato (MOQ 100–300 pz.).`,
+    `${sku} ${title} è un fidget EDC in metallo di grado industriale all'ingrosso realizzato in ${mat} (dimensioni ${size}, peso netto ${weight}). Dotato di ${mag} e ${acc}, questo modello utilizza il nostro stampo di serie pronto #${rowId} ($0 costi di stampo). Disponibile per fornitura immediata neutra (MOQ 50 pz.) o con personalizzazione del logo tramite incisione laser a fibra 50W (+$0,15–$0,30/pz., campione $50) o incisione laser profonda con smalto colorato (+$0,35–$0,60/pz., campione $80–$150).`,
   pt: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} é um fidget EDC metálico de grau industrial por atacado fabricado em ${mat} (dimensões ${size}, peso líquido ${weight}). Equipado com ${mag} e ${acc}, este modelo utiliza o nosso molde de produção pronto #${rowId} ($0 custo de molde). Disponível para envio imediato sem marca (MOQ 50 un.) ou com personalização de logótipo via gravação a laser de fibra 50W, serigrafia ($35/cor + $0,10/cor/un.) ou gravação a laser profunda com preenchimento de cor (MOQ 100–300 un.).`,
+    `${sku} ${title} é um fidget EDC metálico de grau industrial por atacado fabricado em ${mat} (dimensões ${size}, peso líquido ${weight}). Equipado com ${mag} e ${acc}, este modelo utiliza o nosso molde de produção pronto #${rowId} ($0 custo de molde). Disponível para envio imediato sem marca (MOQ 50 un.) ou com personalização de logótipo via gravação a laser de fibra 50W (+$0,15–$0,30/un., amostra $50) ou gravação a laser profunda com preenchimento de cor (+$0,35–$0,60/un., amostra $80–$150).`,
   sv: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} är en industriell EDC-metallfidget för grossister tillverkad av ${mat} (mått ${size}, nettovikt ${weight}). Utrustad med ${mag} och ${acc} använder denna modell vår färdiga produktionsform #${rowId} ($0 verktygskostnad). Tillgänglig för omedelbar leverans utan tryck (MOQ 50 st) eller med egen logotyp via 50W fiberlasergravyr, screentryck ($35/färg + $0,10/färg/st) eller djup lasergravyr med färgfyllning (MOQ 100–300 st).`,
+    `${sku} ${title} är en industriell EDC-metallfidget för grossister tillverkad av ${mat} (mått ${size}, nettovikt ${weight}). Utrustad med ${mag} och ${acc} använder denna modell vår färdiga produktionsform #${rowId} ($0 verktygskostnad). Tillgänglig för omedelbar leverans utan tryck (MOQ 50 st) eller med egen logotyp via 50W fiberlasergravyr (+$0,15–$0,30/st, prov $50) eller djup lasergravyr med färgfyllning (+$0,35–$0,60/st, prov $80–$150).`,
   da: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} er en industriel metal-EDC-fidget til engros fremstillet af ${mat} (mål ${size}, nettovægt ${weight}). Udstyret med ${mag} og ${acc} benytter denne model vores produktionsklare støbeform #${rowId} ($0 værktøjsgebyr). Kan leveres straks uden logo (MOQ 50 stk.) eller med brugerdefineret logo via 50W fiberlasergravering, serigrafi ($35/farve + $0,10/farve/stk.) eller dyb lasergravering med farvefyld (MOQ 100–300 stk.).`,
+    `${sku} ${title} er en industriel metal-EDC-fidget til engros fremstillet af ${mat} (mål ${size}, nettovægt ${weight}). Udstyret med ${mag} og ${acc} benytter denne model vores produktionsklare støbeform #${rowId} ($0 værktøjsgebyr). Kan leveres straks uden logo (MOQ 50 stk.) eller med brugerdefineret logo via 50W fiberlasergravering (+$0,15–$0,30/stk., prøve $50) eller dyb lasergravering med farvefyld (+$0,35–$0,60/stk., prøve $80–$150).`,
   no: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} er en industriell metall-EDC-fidget for engros produsert i ${mat} (mål ${size}, nettovekt ${weight}). Utstyrt med ${mag} og ${acc}, bruker denne modellen vår produksjonsklare støpeform #${rowId} ($0 verktøygebyr). Tilgjengelig for umiddelbar levering uten logo (MOQ 50 stk.) eller med eget firmalogo via 50W fiberlasergravering, silketrykk ($35/farge + $0,10/farge/stk.) eller dyp lasergravering med fargefyll (MOQ 100–300 stk.).`,
+    `${sku} ${title} er en industriell metall-EDC-fidget for engros produsert i ${mat} (mål ${size}, nettovekt ${weight}). Utstyrt med ${mag} og ${acc}, bruker denne modellen vår produksjonsklare støpeform #${rowId} ($0 verktøygebyr). Tilgjengelig for umiddelbar levering uten logo (MOQ 50 stk.) eller med eget firmalogo via 50W fiberlasergravering (+$0,15–$0,30/stk., prøve $50) eller dyp lasergravering med fargefyll (+$0,35–$0,60/stk., prøve $80–$150).`,
   fi: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} on teollisuusluokan metallinen EDC-fidget tukkumyyntiin, valmistettu materiaalista ${mat} (mitat ${size}, nettopaino ${weight}). Varustettu kokoonpanolla ${mag} ja ${acc}, tämä malli hyödyntää valmista sarjatuotantomuottiamme #${rowId} ($0 muottikulu). Saatavilla heti ilman merkkausta (MOQ 50 kpl) tai omalla logolla 50W kuitulaserkaiverruksella, silkkipainatuksella ($35/väri + $0,10/väri/kpl) tai syvälaserkaiverruksella ja väritäytöllä (MOQ 100–300 kpl).`,
+    `${sku} ${title} on teollisuusluokan metallinen EDC-fidget tukkumyyntiin, valmistettu materiaalista ${mat} (mitat ${size}, nettopaino ${weight}). Varustettu kokoonpanolla ${mag} ja ${acc}, tämä malli hyödyntää valmista sarjatuotantomuottiamme #${rowId} ($0 muottikulu). Saatavilla heti ilman merkkausta (MOQ 50 kpl) tai omalla logolla 50W kuitulaserkaiverruksella (+$0,15–$0,30/kpl, malli $50) tai syvälaserkaiverruksella ja väritäytöllä (+$0,35–$0,60/kpl, malli $80–$150).`,
   pl: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} to przemysłowej klasy metalowy gadżet EDC w sprzedaży hurtowej, wykonany z materiału ${mat} (wymiary ${size}, masa netto ${weight}). Wyposażony w ${mag} oraz ${acc}, model ten wykorzystuje naszą gotową formę produkcyjną #${rowId} (0 $ kosztów formy). Dostępny od ręki w wersji czystej (MOQ 50 szt.) lub z personalizacją logo metodą grawerowania laserem światłowodowym 50W, sitodruku (35 $/kolor + 0,10 $/kolor/szt.) lub głębokiego grawerowania laserowego z wypełnieniem kolorem (MOQ 100–300 szt.).`,
+    `${sku} ${title} to przemysłowej klasy metalowy gadżet EDC w sprzedaży hurtowej, wykonany z materiału ${mat} (wymiary ${size}, masa netto ${weight}). Wyposażony w ${mag} oraz ${acc}, model ten wykorzystuje naszą gotową formę produkcyjną #${rowId} (0 $ kosztów formy). Dostępny od ręki w wersji czystej (MOQ 50 szt.) lub z personalizacją logo metodą grawerowania laserem światłowodowym 50W (+$0,15–$0,30/szt., próbka $50) lub głębokiego grawerowania laserowego z wypełnieniem kolorem (+$0,35–$0,60/szt., próbka $80–$150).`,
   cs: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} je průmyslový kovový EDC fidget pro velkoobchod vyrobený z materiálu ${mat} (rozměry ${size}, čistá hmotnost ${weight}). Tento model vybavený ${mag} a ${acc} využívá naši hotovou sériovou formu #${rowId} ($0 poplatek za formu). K dispozici ihned bez potisku (MOQ 50 ks) nebo s vlastním logem pomocí 50W vláknového laseru, sítotisku ($35/barva + $0,10/barva/ks) či hlubokého laserového gravírování s barevnou výplní (MOQ 100–300 ks).`,
+    `${sku} ${title} je průmyslový kovový EDC fidget pro velkoobchod vyrobený z materiálu ${mat} (rozměry ${size}, čistá hmotnost ${weight}). Tento model vybavený ${mag} a ${acc} využívá naši hotovou sériovou formu #${rowId} ($0 poplatek za formu). K dispozici ihned bez potisku (MOQ 50 ks) nebo s vlastním logem pomocí 50W vláknového laseru (+$0,15–$0,30/ks, vzorek $50) či hlubokého laserového gravírování s barevnou výplní (+$0,35–$0,60/ks, vzorek $80–$150).`,
   ru: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} — металлический EDC-фиджет промышленного класса оптом, изготовленный из материала ${mat} (габариты ${size}, чистый вес ${weight}). Оснащенный конфигурацией (${mag}; ${acc}), этот артикул производится на базе нашей готовой серийной пресс-формы #${rowId} ($0 за оснастку). Доступен со склада без логотипа (MOQ 50 шт.) или с нанесением фирменного логотипа методом оптоволоконной лазерной гравировки 50W, шелкографии ($35/цвет + $0.10/цвет/шт.) или глубокой лазерной гравировки с заливкой эмалью (MOQ 100–300 шт.).`,
+    `${sku} ${title} — металлический EDC-фиджет промышленного класса оптом, изготовленный из материала ${mat} (габариты ${size}, чистый вес ${weight}). Оснащенный конфигурацией (${mag}; ${acc}), этот артикул производится на базе нашей готовой серийной пресс-формы #${rowId} ($0 за оснастку). Доступен со склада без логотипа (MOQ 50 шт.) или с нанесением фирменного логотипа методом оптоволоконной лазерной гравировки 50W (+$0.15–$0.30/шт., образец $50) или глубокой лазерной гравировки с заливкой цветом (+$0.35–$0.60/шт., образец $80–$150).`,
   ja: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title}は、${mat}（外寸 ${size}、単体重量 ${weight}）を採用した卸売・OEM向け高精度メタルEDCフィジェットです。内部に${mag}および${acc}を搭載し、当社の既存量産金型 #${rowId}（金型費用 $0）を活用して製造されます。ロゴなし無地在庫の即時出荷（最小ロット 50個〜）はもちろん、50Wファイバーレーザー刻印、シルクスクリーン多色印刷（版代 $35/色＋単価 +$0.10/色）、深彫りレーザー＋色入れ加工（最小ロット 100〜300個〜）によるOEMカスタムロゴ名入れに完全対応しています。`,
+    `${sku} ${title}は、${mat}（外寸 ${size}、単体重量 ${weight}）を採用した卸売・OEM向け高精度メタルEDCフィジェットです。内部に${mag}および${acc}を搭載し、当社の既存量産金型 #${rowId}（金型費用 $0）を活用して製造されます。金属表面は滑らかでシルク印刷ではインクが剥がれやすいため、当工場では50Wファイバーレーザー刻印（+$0.15〜$0.30/個、サンプル費 $50 USD）および深彫りレーザー＋色入れ加工（+$0.35〜$0.60/個、サンプル費 $80〜$150 USD）によるOEMカスタムロゴ名入れを推奨しています。`,
   ko: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} 모델은 ${mat} 소재(치수 ${size}, 순중량 ${weight})로 정밀 설계된 도매 및 OEM 전용 금속 EDC 피젯 토이입니다. 내부에는 ${mag} 및 ${acc} 구조가 적용되어 있으며, 당사의 검증된 기성 금형 #${rowId}(금형비 $0)를 통해 생산됩니다. 무지 기본 재고 소량 발주(MOQ 50개)부터 50W 파이버 레이저 각인, 실크스크린 컬러 인쇄(판비 색상당 $35 + 개당 색상당 +$0.10), 심층 레이저 각인 후 컬러 필링(MOQ 100~300개)까지 맞춤형 브랜드 로고 제작을 지원합니다.`,
+    `${sku} ${title} 모델은 ${mat} 소재(치수 ${size}, 순중량 ${weight})로 정밀 설계된 도매 및 OEM 전용 금속 EDC 피젯 토이입니다. 내부에는 ${mag} 및 ${acc} 구조가 적용되어 있으며, 당사의 검증된 기성 금형 #${rowId}(금형비 $0)를 통해 생산됩니다. 금속 표면이 매끄러워 실크스크린 인쇄는 쉽게 벗겨지므로, 공장에서는 50W 파이버 레이저 각인(+$0.15~$0.30/개, 샘플비 $50 USD) 또는 심층 레이저 음각 + 컬러 필링(+$0.35~$0.60/개, 샘플비 $80~$150 USD)을 권장합니다.`,
   id: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `${sku} ${title} adalah mainan fidget EDC logam kelas industri grosir yang dirancang dari ${mat} (dimensi ${size}, berat bersih ${weight}). Dilengkapi dengan ${mag} dan ${acc}, model ini menggunakan cetakan produksi siap pakai #${rowId} ($0 biaya cetakan/mold). Tersedia untuk pesanan grosir polos (MOQ 50 pcs) maupun kustomisasi logo merek melalui Grafir Laser Fiber 50W, Sablon Silk-Screen ($35/warna + $0,10/warna/pc), atau Grafir Laser Dalam + Isi Warna (MOQ 100–300 pcs).`,
+    `${sku} ${title} adalah mainan fidget EDC logam kelas industri grosir yang dirancang dari ${mat} (dimensi ${size}, berat bersih ${weight}). Dilengkapi dengan ${mag} dan ${acc}, model ini menggunakan cetakan produksi siap pakai #${rowId} ($0 biaya cetakan/mold). Tersedia untuk pesanan grosir polos (MOQ 50 pcs) maupun kustomisasi logo merek melalui Grafir Laser Fiber 50W (+$0,15–$0,30/pc, sampel $50) atau Grafir Laser Dalam + Isi Warna (+$0,35–$0,60/pc, sampel $80–$150).`,
   ar: (sku, title, mat, size, weight, mag, acc, rowId) =>
-    `إن ${sku} ${title} هو فيدجت معدني EDC احترافي للبيع بالجملة مصنع من ${mat} (الأبعاد ${size}، الوزن الصافي ${weight}). تم تجهيز هذا الموديل بـ ${mag} مع ${acc}، ويعتمد على قالب الإنتاج الجاهز رقم #${rowId} (0 دولار رسوم القالب). متاح للطلب الفوري بدون شعار (الحد الأدنى 50 قطعة) أو مع تخصيص شعار علامتك التجارية عبر الحفر بالليزر الليفي 50W، أو الطباعة الحريرية متعددة الألوان (35 دولاراً/لون + 0.10 دولار/لون/قطعة)، أو الحفر العميق بالليزر مع تعبئة الألوان (الحد الأدنى 100–300 قطعة).`
+    `إن ${sku} ${title} هو فيدجت معدني EDC احترافي للبيع بالجملة مصنع من ${mat} (الأبعاد ${size}، الوزن الصافي ${weight}). تم تجهيز هذا الموديل بـ ${mag} مع ${acc}، ويعتمد على قالب الإنتاج الجاهز رقم #${rowId} (0 دولار رسوم القالب). متاح للطلب الفوري بدون شعار (الحد الأدنى 50 قطعة) أو مع تخصيص شعار علامتك التجارية عبر الحفر بالليزر الليفي 50W (+0.15–0.30$/قطعة، عينة 50$) أو الحفر العميق بالليزر مع تعبئة الألوان (+0.35–0.60$/قطعة، عينة 80–150$).`
 };
 
 const BRANDING_SPEC_VALUE: Record<SupportedLanguage, (logoReady: boolean) => string> = {
   en: (lr) => lr
-    ? 'Fiber Laser Engraving (+$0.15–$0.30/pc) / Silk-Screen Color Print ($35/color screen + $0.10/color/pc) / Deep Laser + Color Fill ($0.35–$0.60/pc, MOQ 200–300)'
+    ? '50W Fiber Laser Engraving (+$0.15–$0.30/pc, Sample $50) / Deep Laser + Color Fill (+$0.35–$0.60/pc, Sample $80–$150) — Silk-Screen not recommended on smooth metal'
     : 'Track-Plate Laser Mark or Custom Logo on Black EVA Zipper Case / Window Tin Box',
   de: (lr) => lr
-    ? '50W-Faserlasergravur (+$0,15–$0,30/Stk.) / Siebdruck ($35/Farbe Sieb + $0,10/Farbe/Stk.) / Tiefe Lasergravur + Farbauslegung (+$0,35–$0,60/Stk., MOQ 200–300)'
+    ? '50W-Faserlasergravur (+$0,15–$0,30/Stk., Muster $50) / Tiefe Lasergravur + Farbfüllung (+$0,35–$0,60/Stk., Muster $80–$150) — Siebdruck auf glattem Metall nicht empfohlen'
     : 'Innenbahn-Lasergravur oder Logo auf schwarzem EVA-Reißverschlussetui / Sichtfenster-Blechdose',
   fr: (lr) => lr
-    ? 'Gravure Laser Fibre 50W (+0,15–0,30 $/pc) / Sérigraphie Couleur (35 $/couleur + 0,10 $/couleur/pc) / Gravure Laser Profonde + Émail (+0,35–0,60 $/pc, MOQ 200–300)'
+    ? 'Gravure Laser Fibre 50W (+0,15–0,30 $/pc, Échantillon 50 $) / Gravure Laser Profonde + Couleur (+0,35–0,60 $/pc, Échantillon 80–150 $) — Sérigraphie déconseillée sur métal lisse'
     : 'Marquage Laser sur Piste Interne ou Logo sur Étui Zippé EVA Noir / Boîte Métallique à Fenêtre',
   nl: (lr) => lr
-    ? '50W Fiberlasergravure (+$0,15–$0,30/st.) / Zeefdruk ($35/kleur zeef + $0,10/kleur/st.) / Diepe Lasergravure + Kleurvulling (+$0,35–$0,60/st., MOQ 200–300)'
+    ? '50W Fiberlasergravure (+$0,15–$0,30/st., Monster $50) / Diepe Lasergravure + Kleurvulling (+$0,35–$0,60/st., Monster $80–$150) — Zeefdruk afgeraden op glad metaal'
     : 'Lasergravure op Binnenplaat of Logo op Zwarte EVA-ritsetui / Blikken Doos met Venster',
   es: (lr) => lr
-    ? 'Grabado Láser de Fibra (+$0.15–$0.30/ud.) / Serigrafía en Color ($35/color pantalla + $0.10/color/ud.) / Láser Profundo + Relleno de Color (+$0.35–$0.60/ud., MOQ 200–300)'
+    ? 'Grabado Láser de Fibra 50W (+$0.15–$0.30/ud., Muestra $50) / Láser Profundo + Relleno de Color (+$0.35–$0.60/ud., Muestra $80–$150) — Serigrafía no recomendada en metal liso'
     : 'Marca Láser en Placa Interna o Logo Personalizado en Estuche EVA Negro / Caja Metálica con Ventana',
   it: (lr) => lr
-    ? 'Incisione Laser a Fibra (+$0,15–$0,30/pz.) / Serigrafia a Colori ($35/colore telaio + $0,10/colore/pz.) / Laser Profondo + Smalto (+$0,35–$0,60/pz., MOQ 200–300)'
+    ? 'Incisione Laser a Fibra 50W (+$0,15–$0,30/pz., Campione $50) / Laser Profondo + Riempimento Colore (+$0,35–$0,60/pz., Campione $80–$150) — Serigrafia sconsigliata su metallo liscio'
     : 'Marcatura Laser su Piastra Interna o Logo su Custodia Zip EVA Nera / Scatola in Latta con Finestra',
   pt: (lr) => lr
-    ? 'Gravação a Laser de Fibra (+$0,15–$0,30/un.) / Serigrafia a Cores ($35/cor quadro + $0,10/cor/un.) / Laser Profundo + Preenchimento (+$0,35–$0,60/un., MOQ 200–300)'
+    ? 'Gravação a Laser de Fibra 50W (+$0,15–$0,30/un., Amostra $50) / Laser Profundo + Preenchimento de Cor (+$0,35–$0,60/un., Amostra $80–$150) — Serigrafia não recomendada em metal liso'
     : 'Marcação a Laser na Placa Interna ou Logótipo em Bolsa EVA Preta / Caixa de Lata com Janela',
   sv: (lr) => lr
-    ? '50W Fiberlasergravyr (+$0,15–$0,30/st) / Screentryck ($35/färg schablon + $0,10/färg/st) / Djup Lasergravyr + Färgfyllning (+$0,35–$0,60/st, MOQ 200–300)'
+    ? '50W Fiberlasergravyr (+$0,15–$0,30/st, Prov $50) / Djup Lasergravyr + Färgfyllning (+$0,35–$0,60/st, Prov $80–$150)'
     : 'Lasergravyr på inre glidplatta eller logotyp på svart EVA-fodral / plåtask med fönster',
   da: (lr) => lr
-    ? '50W Fiberlasergravering (+$0,15–$0,30/stk.) / Serigrafi ($35/farve ramme + $0,10/farve/stk.) / Dyb Lasergravering + Farvefyld (+$0,35–$0,60/stk., MOQ 200–300)'
+    ? '50W Fiberlasergravering (+$0,15–$0,30/stk., Prøve $50) / Dyb Lasergravering + Farvefyld (+$0,35–$0,60/stk., Prøve $80–$150)'
     : 'Lasermærkning på indvendig plade eller logo på sort EVA-lynlåsetui / metalæske med vindue',
   no: (lr) => lr
-    ? '50W Fiberlasergravering (+$0,15–$0,30/stk.) / Silketrykk ($35/farge ramme + $0,10/farge/stk.) / Dyp Lasergravering + Fargefyll (+$0,35–$0,60/stk., MOQ 200–300)'
+    ? '50W Fiberlasergravering (+$0,15–$0,30/stk., Prøve $50) / Dyp Lasergravering + Fargefyll (+$0,35–$0,60/stk., Prøve $80–$150)'
     : 'Lasermerking på innvendig plate eller logo på svart EVA-glidelåsetui / metalleske med vindu',
   fi: (lr) => lr
-    ? '50W Kuitulaserkaiverrus (+$0,15–$0,30/kpl) / Silkkipainatus ($35/väri seula + $0,10/väri/kpl) / Syvälaserkaiverrus + Väritäyttö (+$0,35–$0,60/kpl, MOQ 200–300)'
+    ? '50W Kuitulaserkaiverrus (+$0,15–$0,30/kpl, Malli $50) / Syvälaserkaiverrus + Väritäyttö (+$0,35–$0,60/kpl, Malli $80–$150)'
     : 'Lasermerkkaus sisälevyyn tai logo mustaan EVA-vetoketjukoteloon / ikkunalliseen peltirasiaan',
   pl: (lr) => lr
-    ? 'Grawerowanie Laserem Fibre (+0,15–0,30 $/szt.) / Sitodruk Kolorowy (35 $/kolor matryca + 0,10 $/kolor/szt.) / Głęboki Laser + Kolor (+0,35–0,60 $/szt., MOQ 200–300)'
+    ? 'Grawerowanie Laserem Fibre 50W (+0,15–0,30 $/szt., Próbka $50) / Głęboki Laser + Wypełnienie Kolorem (+0,35–0,60 $/szt., Próbka $80–$150)'
     : 'Znakowanie laserowe na płytce wewnętrznej lub logo na czarnym etui EVA / puszce z okienkiem',
   cs: (lr) => lr
-    ? '50W Vláknový laser (+$0,15–$0,30/ks) / Barevný sítotisk ($35/barva šablona + $0,10/barva/ks) / Hluboký laser + Barevná výplň (+$0,35–$0,60/ks, MOQ 200–300)'
+    ? '50W Vláknový laser (+$0,15–$0,30/ks, Vzorek $50) / Hluboký laser + Barevná výplň (+$0,35–$0,60/ks, Vzorek $80–$150)'
     : 'Laserové značení na vnitřní desku nebo logo na černé EVA pouzdro / plechovou krabičku s okénkem',
   ru: (lr) => lr
-    ? 'Оптоволоконный лазер 50W (+$0.15–$0.30/шт.) / Шелкография ($35/цвет матрица + $0.10/цвет/шт.) / Глубокий лазер + эмаль (+$0.35–$0.60/шт., MOQ 200–300)'
+    ? 'Оптоволоконный лазер 50W (+$0.15–$0.30/шт., Образец $50) / Глубокий лазер + заливка цветом (+$0.35–$0.60/шт., Образец $80–$150)'
     : 'Лазерная маркировка на внутренней пластине или логотип на черном чехле EVA / жестяной коробке',
   ja: (lr) => lr
-    ? '50Wファイバーレーザー刻印 (+$0.15〜$0.30/個) / シルクスクリーン印刷 (版代$35/色 + 単価+$0.10/色) / 深彫りレーザー＋色入れ (+$0.35〜$0.60/個, MOQ 200〜300個)'
+    ? '50Wファイバーレーザー刻印 (+$0.15〜$0.30/個, サンプル費 $50) / 深彫りレーザー＋色入れ (+$0.35〜$0.60/個, サンプル費 $80〜$150) ※平滑金属のためシルク印刷非推奨'
     : '内部トラックプレートへのレーザー刻印、または黒EVAジッパーケース・窓付き缶ボックスへのロゴ名入れ',
   ko: (lr) => lr
-    ? '50W 파이버 레이저 각인 (+$0.15~$0.30/개) / 실크스크린 인쇄 (판비 $35/색상 + 단가 +$0.10/색상) / 심층 레이저 + 컬러 필링 (+$0.35~$0.60/개, MOQ 200~300개)'
+    ? '50W 파이버 레이저 각인 (+$0.15~$0.30/개, 샘플비 $50) / 심층 레이저 + 컬러 필링 (+$0.35~$0.60/개, 샘플비 $80~$150) ※매끄러운 금속 표면 특성상 실크스크린 비권장'
     : '내부 트랙 플레이트 레이저 각인 또는 블랙 EVA 지퍼 케이스 / 윈도우 틴케이스 로고 인쇄',
   id: (lr) => lr
-    ? 'Grafir Laser Fiber 50W (+$0,15–$0,30/pc) / Sablon Silk-Screen ($35/warna screen + $0,10/warna/pc) / Laser Dalam + Isi Warna (+$0,35–$0,60/pc, MOQ 200–300)'
+    ? 'Grafir Laser Fiber 50W (+$0,15–$0,30/pc, Sampel $50) / Laser Dalam + Isi Warna (+$0,35–$0,60/pc, Sampel $80–$150)'
     : 'Marka Laser pada Pelat Dalam atau Logo Kustom pada Case Resleting EVA Hitam / Kotak Kaleng Jendela',
   ar: (lr) => lr
-    ? 'حفر ليزر فايبر 50W (+0.15–0.30$/قطعة) / طباعة حريرية ملونة (35$/لون للشاشة + 0.10$/لون/قطعة) / حفر ليزر عميق + تعبئة لون (+0.35–0.60$/قطعة، MOQ 200–300)'
+    ? 'حفر ليزر فايبر 50W (+0.15–0.30$/قطعة، عينة 50$) / حفر ليزر عميق + تعبئة لون (+0.35–0.60$/قطعة، عينة 80–150$)'
     : 'وسم بالليزر على الصفيحة الداخلية أو طباعة الشعار على حقيبة EVA السوداء / علبة القصدير بنافذة'
 };
 
@@ -590,128 +590,128 @@ const SPEC_STATIC_VALS: Record<SupportedLanguage, {
   en: {
     moldRef: (r) => `Mold #${r} (Ready Production Tooling)`,
     toolingFee: '$0.00 (Mature Ready Production Mold)',
-    moq: '50 pcs (Blank Stock) / 100 pcs (Custom Laser or Silk-Screen Logo)',
+    moq: '50 pcs (Blank Stock) / 100 pcs (Custom Fiber Laser or Deep Laser + Color Fill)',
     safety: 'US CPSC 16 CFR 1262 Locked-Magnet Enclosure, RoHS & REACH Compliant',
-    sampleFeeTime: '$80–$150 USD (Custom Logo Sample) · 10–15 Days'
+    sampleFeeTime: 'Laser Sample: $50 USD · Deep Laser + Color Fill Sample: $80–$150 USD (10–15 Days)'
   },
   de: {
     moldRef: (r) => `Serienform #${r} (Fertiges Produktionswerkzeug)`,
     toolingFee: '$0,00 (Sofort einsatzbereite Serienform)',
     moq: '50 Stk. (Blanko-Lagerware) / 100 Stk. (Mit Laser- oder Siebdruck-Logo)',
     safety: 'US CPSC 16 CFR 1262 Verriegeltes Magnetgehäuse, EU RoHS & REACH konform',
-    sampleFeeTime: '$80–$150 USD (Individuelles Logo-Muster) · 10–15 Tage'
+    sampleFeeTime: 'Lasermuster: $50 USD · Tiefe Lasergravur + Farbfüllung: $80–$150 USD (10–15 Tage)'
   },
   fr: {
     moldRef: (r) => `Moule #${r} (Outillage de Série Prêt)`,
     toolingFee: '0,00 $ (Moule de Série Prêt à Produire)',
     moq: '50 pcs (Stock Neutre) / 100 pcs (Logo Laser ou Sérigraphie)',
     safety: 'Boîtier Magnétique Verrouillé US CPSC 16 CFR 1262, Conforme RoHS & REACH',
-    sampleFeeTime: '80 $ – 150 $ USD (Échantillon Logo Personnalisé) · 10 à 15 Jours'
+    sampleFeeTime: 'Échantillon Laser : 50 $ USD · Laser Profond + Couleur : 80–150 $ USD (10–15 Jours)'
   },
   nl: {
     moldRef: (r) => `Matrijs #${r} (Productierijp Gereedschap)`,
     toolingFee: '$0,00 (Bestaande Productierijpe Matrijs)',
     moq: '50 st. (Blanco Voorraad) / 100 st. (Laser- of Zeefdruklogo)',
     safety: 'US CPSC 16 CFR 1262 Vergrendelde Magneetbehuizing, RoHS & REACH Conform',
-    sampleFeeTime: '$80–$150 USD (Monster met Eigen Logo) · 10–15 Dagen'
+    sampleFeeTime: 'Lasermonster: $50 USD · Diepe Laser + Kleurvulling: $80–$150 USD (10–15 Dagen)'
   },
   es: {
     moldRef: (r) => `Molde #${r} (Herramental de Serie Listo)`,
     toolingFee: '$0.00 (Molde de Producción en Serie Listo)',
     moq: '50 uds. (Stock en Blanco) / 100 uds. (Logo Láser o Serigrafía)',
     safety: 'Carcasa Magnética Bloqueada US CPSC 16 CFR 1262, Cumple RoHS y REACH',
-    sampleFeeTime: '$80–$150 USD (Muestra con Logo Personalizado) · 10–15 Días'
+    sampleFeeTime: 'Muestra Láser: $50 USD · Láser Profundo + Color: $80–$150 USD (10–15 Días)'
   },
   it: {
     moldRef: (r) => `Stampo #${r} (Attrezzatura di Serie Pronta)`,
     toolingFee: '$0,00 (Stampo di Produzione di Serie Pronto)',
     moq: '50 pz. (Stock Neutro) / 100 pz. (Logo Laser o Serigrafia)',
     safety: 'Scocca Magneti Bloccati US CPSC 16 CFR 1262, Conforme RoHS e REACH',
-    sampleFeeTime: '$80–$150 USD (Campione con Logo Personalizzato) · 10–15 Giorni'
+    sampleFeeTime: 'Campione Laser: $50 USD · Laser Profondo + Colore: $80–$150 USD (10–15 Giorni)'
   },
   pt: {
     moldRef: (r) => `Molde #${r} (Ferramentaria de Série Pronta)`,
     toolingFee: '$0,00 (Molde de Produção de Série Pronto)',
     moq: '50 un. (Stock Neutro) / 100 un. (Logótipo Laser ou Serigrafia)',
     safety: 'Caixa Magnética Bloqueada US CPSC 16 CFR 1262, Conforme RoHS e REACH',
-    sampleFeeTime: '$80–$150 USD (Amostra com Logótipo Personalizado) · 10–15 Dias'
+    sampleFeeTime: 'Amostra Laser: $50 USD · Laser Profundo + Cor: $80–$150 USD (10–15 Dias)'
   },
   sv: {
     moldRef: (r) => `Form #${r} (Färdigt produktionsverktyg)`,
     toolingFee: '$0,00 (Färdig serieproduktionsform)',
     moq: '50 st ( Blankt lager ) / 100 st ( Laser- eller screentryckt logotyp )',
     safety: 'US CPSC 16 CFR 1262 låst magnethölje, RoHS- & REACH-kompatibel',
-    sampleFeeTime: '$80–$150 USD (Prov med egen logotyp) · 10–15 dagar'
+    sampleFeeTime: 'Laserprov: $50 USD · Djup Laser + Färg: $80–$150 USD (10–15 dagar)'
   },
   da: {
     moldRef: (r) => `Støbeform #${r} (Produktionsklart værktøj)`,
     toolingFee: '$0,00 (Produktionsklar seriestøbeform)',
     moq: '50 stk. (Neutralt lager) / 100 stk. (Laser- eller serigrafilogo)',
     safety: 'US CPSC 16 CFR 1262 låst magnetkabinet, RoHS- & REACH-godkendt',
-    sampleFeeTime: '$80–$150 USD (Prøve med eget logo) · 10–15 dage'
+    sampleFeeTime: 'Laserprøve: $50 USD · Dyb Laser + Farve: $80–$150 USD (10–15 dage)'
   },
   no: {
     moldRef: (r) => `Støpeform #${r} (Produksjonsklart verktøy)`,
     toolingFee: '$0,00 (Produksjonsklar seriestøpeform)',
     moq: '50 stk. (Nøytralt lager) / 100 stk. (Laser- eller silketrykklogo)',
     safety: 'US CPSC 16 CFR 1262 låst magnetkabinett, RoHS- & REACH-samsvar',
-    sampleFeeTime: '$80–$150 USD (Prøve med eget logo) · 10–15 dager'
+    sampleFeeTime: 'Laserprøve: $50 USD · Dyp Laser + Farge: $80–$150 USD (10–15 dager)'
   },
   fi: {
     moldRef: (r) => `Muotti #${r} (Valmis sarjatuotantotyökalu)`,
     toolingFee: '$0,00 (Valmis sarjatuotantomuotti)',
     moq: '50 kpl (Ilman merkkausta) / 100 kpl (Laser- tai silkkipainettu logo)',
     safety: 'US CPSC 16 CFR 1262 lukittu magneettirunko, RoHS- & REACH-yhteensopiva',
-    sampleFeeTime: '$80–$150 USD (Räätälöity logomalli) · 10–15 päivää'
+    sampleFeeTime: 'Lasermalli: $50 USD · Syvälaser + Väri: $80–$150 USD (10–15 päivää)'
   },
   pl: {
     moldRef: (r) => `Forma #${r} (Gotowe Oprzędziowanie Seryjne)`,
     toolingFee: '0,00 $ (Gotowa Forma Produkcyjna)',
     moq: '50 szt. (Wersja Czysta) / 100 szt. (Z Logo Laserowym lub Sitodrukiem)',
     safety: 'Zablokowana Komora Magnesów US CPSC 16 CFR 1262, Zgodność z RoHS i REACH',
-    sampleFeeTime: '80–150 USD (Próbka z Własnym Logo) · 10–15 Dni'
+    sampleFeeTime: 'Próbka Laser: $50 USD · Głęboki Laser + Kolor: $80–$150 USD (10–15 Dni)'
   },
   cs: {
     moldRef: (r) => `Forma #${r} (Hotový sériový nástroj)`,
     toolingFee: '$0,00 (Hotová sériová výrobní forma)',
     moq: '50 ks (Bez potisku) / 100 ks (Vlastní logo laserem nebo sítotiskem)',
     safety: 'Uzamčené magnetické pouzdro US CPSC 16 CFR 1262, shoda s RoHS a REACH',
-    sampleFeeTime: '$80–$150 USD (Vzorek s vlastním logem) · 10–15 dní'
+    sampleFeeTime: 'Vzorek Laser: $50 USD · Hluboký Laser + Barva: $80–$150 USD (10–15 dní)'
   },
   ru: {
     moldRef: (r) => `Пресс-форма #${r} (Готовая серийная оснастка)`,
     toolingFee: '$0.00 (Готовая серийная пресс-форма)',
     moq: '50 шт. (Без логотипа) / 100 шт. (Лазерная гравировка или шелкография)',
     safety: 'Защищенный магнитный корпус US CPSC 16 CFR 1262, соответствие RoHS и REACH',
-    sampleFeeTime: '$80–$150 USD (Образец с логотипом) · 10–15 дней'
+    sampleFeeTime: 'Образец Лазер: $50 USD · Глубокий лазер + цвет: $80–$150 USD (10–15 дней)'
   },
   ja: {
     moldRef: (r) => `金型 #${r}（量産対応・既存金型）`,
     toolingFee: '$0.00（既存量産金型を使用するため金型代不要）',
     moq: '50個（無地在庫） / 100個（レーザー刻印・シルク印刷ロゴ）',
     safety: '米国CPSC 16 CFR 1262 磁石脱落防止ロック構造・EU RoHS & REACH準拠',
-    sampleFeeTime: '$80〜$150 USD（カスタムロゴ試作サンプル） · 10〜15日'
+    sampleFeeTime: 'レーザー試作：$50 USD · 深彫りレーザー＋色入れ試作：$80〜$150 USD（10〜15日）'
   },
   ko: {
     moldRef: (r) => `금형 #${r} (양산 완료 기성 금형)`,
     toolingFee: '$0.00 (기성 양산 금형 사용으로 초기 금형비 무료)',
     moq: '50개 (무지 기본형) / 100개 (레이저 각인 및 실크스크린 로고)',
     safety: '미국 CPSC 16 CFR 1262 자석 이탈 방지 잠금 구조, EU RoHS & REACH 준수',
-    sampleFeeTime: '$80–$150 USD (맞춤 로고 샘플 제작비) · 10–15일 소요'
+    sampleFeeTime: '일반 레이저 샘플: $50 USD · 심층 레이저+컬러 샘플: $80–$150 USD (10–15일)'
   },
   id: {
     moldRef: (r) => `Cetakan #${r} (Cetakan Produksi Siap Pakai)`,
     toolingFee: '$0,00 (Cetakan Produksi Seri Siap Pakai)',
     moq: '50 pcs (Stok Polos) / 100 pcs (Logo Laser atau Sablon Silk-Screen)',
     safety: 'Enklosur Magnet Terkunci US CPSC 16 CFR 1262, Sesuai RoHS & REACH',
-    sampleFeeTime: '$80–$150 USD (Sampel Logo Kustom) · 10–15 Hari'
+    sampleFeeTime: 'Sampel Laser: $50 USD · Sampel Laser Dalam + Warna: $80–$150 USD (10–15 Hari)'
   },
   ar: {
     moldRef: (r) => `القالب #${r} (قالب إنتاج متسلسل جاهز)`,
     toolingFee: '0.00 دولار (قالب إنتاج جاهز بدون رسوم تأسيس)',
     moq: '50 قطعة (بدون شعار) / 100 قطعة (مع شعار بالليزر أو الطباعة الحريرية)',
     safety: 'هيكل مغناطيسي محكم الإغلاق مطابق لـ US CPSC 16 CFR 1262 و RoHS و REACH',
-    sampleFeeTime: '80–150 دولاراً أمريكياً (عينة بشعار مخصص) · 10–15 يوماً'
+    sampleFeeTime: 'عينة ليزر عادي: 50$ · عينة حفر ليزر عميق + لون: 80–150$ USD (10–15 يوماً)'
   }
 };
 
@@ -720,79 +720,79 @@ const FEATURES_BUILDER: Record<SupportedLanguage, (rowId: number, mag: string, a
     `Zero Tooling Cost ($0 Mold Fee): Ready-to-produce factory mold #${rowId} eliminates $2,500+ custom CNC/die-casting tooling expenses.`,
     `Verified Tactile & Acoustic Engineering: Built with ${mag} and ${acc} for repeatable crisp haptic feedback.`,
     `CPSC 16 CFR 1262 Magnet Retention: Internal mechanical screw/structural lock prevents neodymium magnet detachment under heavy drop tests.`,
-    `Turnkey Wholesale Branding & Packaging: Supports 50W Fiber Laser Engraving, Silk-Screen Printing ($35/color + $0.10/color/pc), Deep Laser Color Fill, and custom EVA zipper pouches.`
+    `Turnkey Wholesale Branding & Packaging: Supports 50W Fiber Laser Engraving, Silk-Screen Printing ($0 Setup + $0.10/color/pc), Deep Laser Color Fill, and custom EVA zipper pouches.`
   ],
   de: (rowId, mag, acc) => [
     `Null Werkzeugkosten ($0 Formgebühr): Unsere fertige Serienform #${rowId} spart über $2.500 an individuellen Druckguss- oder CNC-Vorrichtungskosten.`,
     `Geprüfte Haptik- & Akustik-Mechanik: Ausgestattet mit ${mag} sowie ${acc} für präzises, reproduzierbares Klick-Feedback.`,
     `US CPSC 16 CFR 1262 Magnetverriegelung: Mechanische Verschraubung und Strukturkleber verhindern das Lösen von Neodym-Magneten bei Falltests.`,
-    `Schlüsselfertiges Logo-Branding & Verpackung: Unterstützt 50W-Faserlasergravur, Siebdruck ($35/Farbe + $0,10/Farbe/Stk.), tiefe Lasergravur mit Farbauslegung sowie EVA-Etuis.`
+    `Schlüsselfertiges Logo-Branding & Verpackung: Unterstützt 50W-Faserlasergravur, Siebdruck ($0 Setup + $0,10/Farbe/Stk.), tiefe Lasergravur mit Farbauslegung sowie EVA-Etuis.`
   ],
   fr: (rowId, mag, acc) => [
     `Zéro Frais de Moule (0 $ d’Outillage) : Notre moule de série prêt #${rowId} élimine plus de 2 500 $ de frais de création de moule sur mesure.`,
     `Ingénierie Tactile & Acoustique Calibrée : Assemblé avec ${mag} et ${acc} pour un retour haptique net et régulier.`,
     `Sécurité Magnétique US CPSC 16 CFR 1262 : Le verrouillage mécanique par vis et résine époxy empêche tout détachement d’aimant lors des tests de chute.`,
-    `Personnalisation Logo & Packaging Clé en Main : Gravure laser fibre 50W, sérigraphie (35 $/couleur + 0,10 $/couleur/pc), gravure profonde émaillée et étuis EVA.`
+    `Personnalisation Logo & Packaging Clé en Main : Gravure laser fibre 50W, sérigraphie (0 $ Setup + 0,10 $/couleur/pc), gravure profonde émaillée et étuis EVA.`
   ],
   nl: (rowId, mag, acc) => [
     `Geen Matrijskosten ($0 Tooling Fee): Onze productierijpe matrijs #${rowId} bespaart meer dan $2.500 aan opstart- en matrijskosten.`,
     `Gekalibreerde Haptische & Akoestische Mechaniek: Gebouwd met ${mag} en ${acc} voor consistente, strakke klikfeedback.`,
     `US CPSC 16 CFR 1262 Magneetbeveiliging: Interne schroefvergrendeling en structurele epoxy voorkomen het losraken van magneten bij valproeven.`,
-    `Turnkey Logo-personalisatie & Verpakking: Ondersteunt 50W fiberlasergravure, zeefdruk ($35/kleur + $0,10/kleur/st.), diepe lasergravure met kleurvulling en EVA-etuis.`
+    `Turnkey Logo-personalisatie & Verpakking: Ondersteunt 50W fiberlasergravure, zeefdruk ($0 Setup + $0,10/kleur/st.), diepe lasergravure met kleurvulling en EVA-etuis.`
   ],
   es: (rowId, mag, acc) => [
     `Cero Costo de Molde ($0 Matricería): Nuestro molde de serie listo #${rowId} elimina más de $2,500 en gastos de moldes personalizados.`,
     `Ingeniería Táctil y Acústica Verificada: Construido con ${mag} y ${acc} para una respuesta háptica nítida y repetible.`,
     `Retención Magnética US CPSC 16 CFR 1262: El bloqueo mecánico interno evita el desprendimiento de imanes de neodimio en pruebas de caída.`,
-    `Personalización de Marca y Empaque Llave en Mano: Admite grabado láser de fibra 50W, serigrafía ($35/color + $0.10/color/ud.), láser profundo con color y estuches EVA.`
+    `Personalización de Marca y Empaque Llave en Mano: Admite grabado láser de fibra 50W, serigrafía ($0 Setup + $0.10/color/ud.), láser profundo con color y estuches EVA.`
   ],
   it: (rowId, mag, acc) => [
     `Zero Costi di Stampo ($0 Attrezzatura): Il nostro stampo di serie pronto #${rowId} elimina oltre $2.500 di spese per stampi personalizzati.`,
     `Ingegneria Tattile e Acustica Calibrata: Costruito con ${mag} e ${acc} per un feedback aptico nitido e costante.`,
     `Sicurezza Magnetica US CPSC 16 CFR 1262: Il bloccaggio meccanico interno impedisce il distacco dei magneti al neodimio nei test di caduta.`,
-    `Personalizzazione Logo e Packaging Chiavi in Mano: Supporta incisione laser a fibra 50W, serigrafia ($35/colore + $0,10/colore/pz.), laser profondo con smalto e custodie EVA.`
+    `Personalizzazione Logo e Packaging Chiavi in Mano: Supporta incisione laser a fibra 50W, serigrafia ($0 Setup + $0,10/colore/pz.), laser profondo con smalto e custodie EVA.`
   ],
   pt: (rowId, mag, acc) => [
     `Zero Custo de Molde ($0 Ferramentaria): O nosso molde de produção pronto #${rowId} elimina mais de $2.500 em custos de moldes personalizados.`,
     `Engenharia Tátil e Acústica Verificada: Construído com ${mag} e ${acc} para um feedback háptico nítido e consistente.`,
     `Retenção Magnética US CPSC 16 CFR 1262: O bloqueio mecânico interno impede o desprendimento de ímanes de neodímio em testes de queda.`,
-    `Personalização de Logótipo e Embalagem Chave na Mão: Suporta gravação a laser de fibra 50W, serigrafia ($35/cor + $0,10/cor/un.), laser profundo com cor e bolsas EVA.`
+    `Personalização de Logótipo e Embalagem Chave na Mão: Suporta gravação a laser de fibra 50W, serigrafia ($0 Setup + $0,10/cor/un.), laser profundo com cor e bolsas EVA.`
   ],
   sv: (rowId, mag, acc) => [
     `Noll verktygskostnad ($0 formavgift): Vår färdiga produktionsform #${rowId} eliminerar över $2 500 i verktygskostnader.`,
     `Verifierad taktil & akustisk mekanik: Byggd med ${mag} och ${acc} för distinkt och repeterbar haptisk respons.`,
     `US CPSC 16 CFR 1262 magnetlåsning: Intern mekanisk skruv- och epoxilåsning förhindrar att magneter lossnar vid falltester.`,
-    `Nyckelfärdig logotypmärkning & förpackning: Stöder 50W fiberlasergravyr, screentryck ($35/färg + $0,10/färg/st), djup laser med färgfyllning och EVA-fodral.`
+    `Nyckelfärdig logotypmärkning & förpackning: Stöder 50W fiberlasergravyr, screentryck ($0 Setup + $0,10/färg/st), djup laser med färgfyllning och EVA-fodral.`
   ],
   da: (rowId, mag, acc) => [
     `Nul værktøjsomkostninger ($0 formgebyr): Vores produktionsklare støbeform #${rowId} sparer over $2.500 i værktøjsudgifter.`,
     `Verificeret taktil & akustisk mekanik: Konstrueret med ${mag} og ${acc} for skarp og ensartet haptisk respons.`,
     `US CPSC 16 CFR 1262 magnetlåsning: Intern mekanisk skrue- og epoxylås forhindrer magnetløsning under faldtest.`,
-    `Nøglefærdig logomærkning & emballage: Understøtter 50W fiberlasergravering, serigrafi ($35/farve + $0,10/farve/stk.), dyb laser med farvefyld og EVA-etuier.`
+    `Nøglefærdig logomærkning & emballage: Understøtter 50W fiberlasergravering, serigrafi ($0 Setup + $0,10/farve/stk.), dyb laser med farvefyld og EVA-etuier.`
   ],
   no: (rowId, mag, acc) => [
     `Null verktøykostnad ($0 støpeformgebyr): Vår produksjonsklare støpeform #${rowId} sparer over $2 500 i verktøykostnader.`,
     `Verifisert taktil & akustisk mekanikk: Bygget med ${mag} og ${acc} for presis og repeterbar haptisk respons.`,
     `US CPSC 16 CFR 1262 magnetlåsing: Intern mekanisk skrue- og epoksylåsing forhindrer at magneter løsner under falltester.`,
-    `Nøkkelferdig logomerking & emballasje: Støtter 50W fiberlasergravering, silketrykk ($35/farge + $0,10/farge/stk.), dyp laser med fargefyll og EVA-etuier.`
+    `Nøkkelferdig logomerking & emballasje: Støtter 50W fiberlasergravering, silketrykk ($0 Setup + $0,10/farge/stk.), dyp laser med fargefyll og EVA-etuier.`
   ],
   fi: (rowId, mag, acc) => [
     `Nolla muottikulua ($0 työkalumaksu): Valmis sarjatuotantomuottimme #${rowId} säästää yli $2 500 räätälöidyissä muottikuluissa.`,
     `Varmennettu haptinen & akustinen mekaniikka: Rakennettu kokoonpanolla ${mag} ja ${acc} tarkkaa ja toistettavaa tuntumaa varten.`,
     `US CPSC 16 CFR 1262 magneettilukitus: Sisäinen ruuvi- ja epoksilukitus estää neodyymimagneettien irtoamisen pudotustesteissä.`,
-    `Avaimet käteen -logomerkkaus & pakkaus: Tukee 50W kuitulaserkaiverrusta, silkkipainatusta ($35/väri + $0,10/väri/kpl), syvälaseria väritäytöllä ja EVA-koteloita.`
+    `Avaimet käteen -logomerkkaus & pakkaus: Tukee 50W kuitulaserkaiverrusta, silkkipainatusta ($0 Setup + $0,10/väri/kpl), syvälaseria väritäytöllä ja EVA-koteloita.`
   ],
   pl: (rowId, mag, acc) => [
     `Zero Kosztów Formy (0 $ Opłaty Narzędziowej): Gotowa forma seryjna #${rowId} eliminuje ponad 2500 $ kosztów budowy własnej matrycy.`,
     `Zweryfikowana Mechanika Haptyczna i Akustyczna: Zbudowany z ${mag} oraz ${acc} dla powtarzalnego, wyraźnego kliku.`,
     `Zabezpieczenie Magnesów US CPSC 16 CFR 1262: Wewnętrzna blokada śrubowa i epoksydowa zapobiega wypadaniu magnesów w testach upadku.`,
-    `Kompleksowe Znakowanie Logo i Opakowania: Obsługuje laser światłowodowy 50W, sitodruk (35 $/kolor + 0,10 $/kolor/szt.), głęboki laser z kolorem oraz etui EVA.`
+    `Kompleksowe Znakowanie Logo i Opakowania: Obsługuje laser światłowodowy 50W, sitodruk (0 $ Setup + 0,10 $/kolor/szt.), głęboki laser z kolorem oraz etui EVA.`
   ],
   cs: (rowId, mag, acc) => [
     `Nulové náklady na formu ($0 poplatek): Naše hotová sériová forma #${rowId} eliminuje více než $2 500 za výrobu zakázkové formy.`,
     `Ověřená haptická a akustická mechanika: Sestaveno s ${mag} a ${acc} pro přesnou a opakovatelnou odezvu.`,
     `Zajištění magnetů US CPSC 16 CFR 1262: Vnitřní mechanické šroubové a epoxidové jištění zabraňuje uvolnění magnetů při pádových testech.`,
-    `Kompletní branding a balení na klíč: Podporuje 50W vláknový laser, sítotisk ($35/barva + $0,10/barva/ks), hluboký laser s barvou a pouzdra EVA.`
+    `Kompletní branding a balení na klíč: Podporuje 50W vláknový laser, sítotisk ($0 Setup + $0,10/barva/ks), hluboký laser s barvou a pouzdra EVA.`
   ],
   ru: (rowId, mag, acc) => [
     `Нулевая стоимость пресс-формы ($0 за оснастку): Готовая серийная форма #${rowId} экономит более $2500 на индивидуальной оснастке.`,
@@ -816,7 +816,7 @@ const FEATURES_BUILDER: Record<SupportedLanguage, (rowId: number, mag: string, a
     `Bebas Biaya Cetakan ($0 Mold Fee): Cetakan produksi siap pakai #${rowId} menghemat lebih dari $2.500 biaya pembuatan cetakan baru.`,
     `Rekayasa Taktil & Akustik Teruji: Dirancang dengan ${mag} dan ${acc} untuk umpan balik klik haptik yang presisi.`,
     `Keamanan Magnet US CPSC 16 CFR 1262: Penguncian sekrup mekanis internal mencegah lepasnya magnet neodymium saat uji jatuh.`,
-    `Branding Logo & Kemasan Siap Jual: Mendukung Grafir Laser Fiber 50W, Sablon Silk-Screen ($35/warna + $0,10/warna/pc), Laser Dalam + Isi Warna, dan pouch EVA.`
+    `Branding Logo & Kemasan Siap Jual: Mendukung Grafir Laser Fiber 50W, Sablon Silk-Screen ($0 Setup + $0,10/warna/pc), Laser Dalam + Isi Warna, dan pouch EVA.`
   ],
   ar: (rowId, mag, acc) => [
     `صفر رسوم للقالب (0$ تكلفة التجهيز): القالب الجاهز للإنتاج رقم #${rowId} يوفر عليك أكثر من 2,500 دولار من تكاليف فتح قوالب جديدة.`,
@@ -856,16 +856,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Custom Logo Branding & Private-Label Options ($0 Mold Fee)',
     logoBullets: [
       '<strong>50W MOPA Fiber Laser Engraving (Monochrome):</strong> MOQ 100 pcs · $0.00 setup fee · +$0.15–$0.30/pc unit cost. Micron-ablates permanent metallic/white contrast marks that never peel or fade.',
-      '<strong>Silk-Screen Printing (Standard Multi-Color Logo):</strong> MOQ 100 pcs · $35 USD screen setup fee per color (1 color = $35, 2 colors = $70, 3 colors = $105) · +$0.10 USD per color per unit (e.g., 1 color = +$0.10/pc, 5 colors = +$0.50/pc).',
-      '<strong>Deep Laser Engraving + Hand Color Fill (Recessed Enamel):</strong> MOQ 200–300 pcs · $0.00 laser setup · +$0.35–$0.60/pc unit cost. Deep-etches a recessed cavity into the metal before filling with durable color enamel.',
-      '<strong>Custom Logo Pre-Production Sample:</strong> $80–$150 USD sample fee · 10–15 days sample lead time (free 12-hour digital vector mockup provided prior to sampling).'
+      '<strong>Why Silk-Screen / UV Surface Printing Is NOT Recommended on Metal:</strong> Polished and plated metal surfaces are ultra-smooth and chemically inert; surface inks lack adhesion (附着力不足) and peel off under thumb friction.',
+      '<strong>Deep Laser Engraving + Enamel Color Fill (Recommended for Colored Logos):</strong> MOQ 100–200 pcs · $0.00 laser setup · +$0.35–$0.60/pc unit cost. Laser-carves a recessed cavity into the metal and fills it with cured enamel so the color never peels off.',
+      '<strong>Paid Custom Logo Pre-Production Sampling:</strong> Standard Fiber Laser Sample = $50 USD · Deep Laser + Color Fill Sample = $80–$150 USD (10–15 days lead time; free 12-hour digital proof prior to sampling).'
     ],
     h3Table: (sku) => `3. ${sku} Customization & Packaging Cost Reference Matrix`,
     thOption: 'Customization / Packaging Mode', thMoq: 'MOQ', thSetup: 'Setup / Screen Fee', thUnitAdd: 'Unit Add-On Cost', thLead: 'Production Time',
     r1: ['Blank Ready-Mold Stock', '50 pcs', '$0.00', 'Included in Base Tier Price', '3–5 Business Days'],
-    r2: ['50W Fiber Laser Engraved Logo', '100 pcs', '$0.00', '+$0.15 – $0.30 / pc', '10–15 Business Days'],
-    r3: ['Silk-Screen Multi-Color Logo', '100 pcs', '$35 / color', '+$0.10 / color / pc', '10–15 Business Days'],
-    r4: ['Deep Laser Etch + Color Fill', '200–300 pcs', '$0.00', '+$0.35 – $0.60 / pc', '12–15 Business Days']
+    r2: ['50W Fiber Laser Engraved Logo (Monochrome)', '100 pcs', '$0.00 (Sample $50)', '+$0.15 – $0.30 / pc', '10–15 Business Days'],
+    r3: ['Deep Laser Etch + Color Fill (Colored Logo)', '100–200 pcs', '$0.00 (Sample $80–$150)', '+$0.35 – $0.60 / pc', '10–15 Business Days'],
+    r4: ['Custom EVA Zipper Case + Logo Bundle', '100 pcs', '$0.00', '+$0.75 / pc', '10–15 Business Days']
   },
   de: {
     secTitle: (sku, title) => `${sku} ${title} — Mechanik-Aufbau, Logo-Veredelung & Verpackungsleitfaden`,
@@ -1322,7 +1322,7 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
 
 const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
   'acoustic-tuning-fork-fidget-slider-engineering-trend': 'Acoustic Tuning Fork Fidget Sliders: Resonance Chamber Engineering & Wholesale Guide',
-  'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos': 'Fiber Laser Engraving vs. Silk-Screen & Deep Color Fill on Metal EDC Fidgets',
+  'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos': 'Fiber Laser Engraving & Deep Laser Color Fill vs. Silk-Screen on Metal EDC Fidgets',
   'n35-vs-n52-neodymium-magnet-haptic-feel-guide': 'N35 vs. N45 vs. N52 Neodymium Magnets in Metal Fidget Sliders: Tactile Force Guide',
   'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance': 'US CPSC 16 CFR 1262 Magnet Safety Standard & RoHS/REACH Compliance Guide',
   'zero-tooling-ready-mold-private-label-fidget-sop': 'How to Launch a Private Label Metal Fidget Brand in 10 Days ($0 Tooling SOP)',
@@ -1436,7 +1436,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `Können wir unser eigenes Marken- oder Firmenlogo auf ${sku} anbringen?`,
-      answer: `Ja. Wir unterstützen 50W-Faserlasergravur (+$0,15–$0,30/Stk., $0 Einrichtung), mehrfarbigen Siebdruck ($35/Farbe Siebgebühr + $0,10/Farbe/Stk., ab 100 Stk.) sowie tiefe Lasergravur mit Farbauslegung (+$0,35–$0,60/Stk., ab 200–300 Stk.).`
+      answer: `Ja. Wir unterstützen 50W-Faserlasergravur (+$0,15–$0,30/Stk., $0 Einrichtung), mehrfarbigen Siebdruck ($0 Setup Siebgebühr + $0,10/Farbe/Stk., ab 100 Stk.) sowie tiefe Lasergravur mit Farbauslegung (+$0,35–$0,60/Stk., ab 200–300 Stk.).`
     },
     {
       question: `Wie sind die Magnete im Modell ${sku} gemäß US CPSC 16 CFR 1262 gesichert?`,
@@ -1478,7 +1478,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `Pouvons-nous personnaliser notre logo sur le modèle ${sku} ?`,
-      answer: `Oui. Nous proposons la gravure laser fibre 50W (+0,15–0,30 $/pc, 0 $ de frais fixes), la sérigraphie couleur (35 $/couleur d’écran + 0,10 $/couleur/pc, MOQ 100 pcs) et la gravure laser profonde avec remplissage émail (+0,35–0,60 $/pc, MOQ 200–300 pcs).`
+      answer: `Oui. Nous proposons la gravure laser fibre 50W (+0,15–0,30 $/pc, 0 $ de frais fixes), la sérigraphie couleur (0 $ Setup d’écran + 0,10 $/couleur/pc, MOQ 100 pcs) et la gravure laser profonde avec remplissage émail (+0,35–0,60 $/pc, MOQ 200–300 pcs).`
     },
     {
       question: `Comment les aimants sont-ils sécurisés dans ${sku} pour la conformité US CPSC 16 CFR 1262 ?`,
@@ -1520,7 +1520,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `¿Podemos personalizar nuestro logotipo corporativo en ${sku}?`,
-      answer: `Sí. Ofrecemos grabado láser de fibra 50W (+$0.15–$0.30/ud., $0 setup), serigrafía en color ($35/color de pantalla + $0.10/color/ud., MOQ 100 uds.) y grabado láser profundo con relleno de color (+$0.35–$0.60/ud., MOQ 200–300 uds.).`
+      answer: `Sí. Ofrecemos grabado láser de fibra 50W (+$0.15–$0.30/ud., $0 setup), serigrafía en color ($0 Setup de pantalla + $0.10/color/ud., MOQ 100 uds.) y grabado láser profundo con relleno de color (+$0.35–$0.60/ud., MOQ 200–300 uds.).`
     },
     {
       question: `¿Cómo se aseguran los imanes en ${sku} para cumplir con US CPSC 16 CFR 1262?`,

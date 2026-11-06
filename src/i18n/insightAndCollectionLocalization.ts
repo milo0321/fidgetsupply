@@ -151,8 +151,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
   },
   'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos': {
     en: {
-      title: '50W Fiber Laser Engraving vs. Silk-Screen vs. Deep Laser Color Fill on Metal Fidgets',
-      summary: 'Engineering comparison of monochrome Fiber Laser Engraving (+$0.15–$0.30/pc), multi-color Silk-Screen Printing ($35/color + $0.10/color/pc), and Deep Laser Color Fill (+$0.35–$0.60/pc).'
+      title: 'Fiber Laser Engraving & Deep Laser Color Fill vs. Silk-Screen / UV Printing on Metal Fidgets',
+      summary: 'Why our factory does NOT recommend silk-screen or UV surface printing on smooth, chemically inert metal fidgets (poor ink adhesion leads to peeling)—and why we recommend 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) or Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).'
     },
     de: {
       title: '50W-Faserlasergravur vs. Siebdruck vs. Tiefe Lasergravur mit Farbauslegung auf Metall-Fidgets',

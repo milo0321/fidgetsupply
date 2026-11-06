@@ -25,7 +25,7 @@ export function getLocalizedPageFaqs(
       answer: t('brand.geoAnswer')
     },
     {
-      question: `4. ${t('pdp.orderSample')} (10–15d · $80–$150 USD)?`,
+      question: `4. ${t('pdp.orderSample')} ($50 / $80–$150 USD)?`,
       answer: `${t('footer.trust3Sub')}. ${t('contact.subtitle')}`
     },
     {
@@ -63,18 +63,19 @@ export function getBrandingTableData(lang: SupportedLanguage) {
     return {
       headers: [
         'Branding Parameter',
-        '1. Fiber Laser Engraving (Monochrome)',
-        '2. Silk-Screen Printing (Standard Colored Logo)',
-        '3. Deep Laser + Color Fill (Recessed Enamel)'
+        '1. 50W Fiber Laser Engraving (★ Recommended Monochrome)',
+        '2. Deep Laser + Color Fill (★ Recommended Colored Logo)',
+        '3. Silk-Screen / UV Surface Print (⚠️ Not Recommended on Metal)'
       ],
       rows: [
-        ['Minimum Order Quantity (MOQ)', '100 pcs per SKU', '100 pcs per SKU', '200 – 300 pcs per SKU'],
-        ['Screen / Setup Fee', '$0.00 (Free Digital Setup)', '$35 / color (1 color = $35, 2 colors = 2×$35 = $70, 3 colors = 3×$35 = $105)', '$0.00 Laser Setup'],
-        ['Unit Logo Add-On Cost', '+$0.15 – $0.30 / pc', '+$0.10 / color / pc (1 color = +$0.10/pc, 5 colors = +$0.50/pc)', '+$0.35 – $0.60 / pc (Deep laser etch + hand color fill)'],
-        ['Custom Logo Sample Fee & Time', '$80 – $150 USD · 10 – 15 Days', '$80 – $150 USD · 10 – 15 Days', '$80 – $150 USD · 10 – 15 Days'],
-        ['Process & Visual Effect', 'Crisp permanent metallic/white contrast laser mark', 'Vibrant multi-color spot ink printed across smooth flat faces', 'Deep-engraved recessed metal cavity filled with cured color enamel'],
-        ['Wear & Sweat Durability', '10/10 Permanent micron-level ablation (Never fades)', '8.5/10 Kiln-baked industrial screen ink', '9.5/10 Recessed cavity protects color fill from thumb friction'],
-        ['Recommended Ready Molds', 'FS-047, FS-013, FS-009, FS-012, FS-064, FS-075, FS-086, FS-096', 'FS-125, FS-128, FS-001, FS-024, FS-026, FS-050, FS-056', 'FS-013, FS-047, FS-075, FS-086, FS-125, FS-148']
+        ['Factory Recommendation', '★ Recommended for Monochrome Logos', '★ Recommended for Colored Logos', '⚠️ Not Recommended (Peels off smooth, chemically inert metal)'],
+        ['Minimum Order Quantity (MOQ)', '100 pcs per SKU', '100 – 200 pcs per SKU', 'N/A (Use Deep Laser + Color Fill instead)'],
+        ['Setup Fee', '$0.00 (Free Digital Setup)', '$0.00 Laser Setup', 'N/A'],
+        ['Unit Logo Add-On Cost', '+$0.15 – $0.30 USD / pc', '+$0.35 – $0.60 USD / pc (Deep laser cavity + color fill)', 'Prone to peeling complaints'],
+        ['Paid Custom Sample Fee (10–15 Days)', '$50 USD (Standard Laser Sample)', '$80 – $150 USD (Deep Laser + Color Fill Sample)', 'Not recommended'],
+        ['Adhesion & Physical Mechanism', 'Permanent micron-level laser ablation inside metal substrate', 'Laser carves a 0.15–0.25mm recessed cavity filled with cured enamel below the friction plane', 'Smooth, chemically inert metal lacks ink adhesion (附着力不足); ink peels off under thumb rub'],
+        ['Wear & Sweat Durability', '10/10 Permanent (Never fades or peels)', '9.8/10 Recessed metal walls protect color fill from thumb friction', '4.0/10 Surface ink delaminates on smooth metal'],
+        ['Recommended Ready Molds', 'FS-047, FS-013, FS-009, FS-012, FS-064, FS-075, FS-086, FS-096', 'FS-125, FS-047, FS-013, FS-001, FS-026, FS-075, FS-086, FS-128', 'None on bare/plated metal (Use only on EVA pouches)']
       ]
     };
   }
@@ -82,17 +83,17 @@ export function getBrandingTableData(lang: SupportedLanguage) {
     headers: [
       t('pdp.specColParam'),
       t('pdp.opt2Title'),
-      `2. ${t('pdp.opt3Title').replace(/^3\.\s*/, '').split('(')[0].trim()} (Silk-Screen)`,
-      `3. Deep Laser + Color Fill`
+      t('pdp.opt3Title'),
+      `⚠️ Silk-Screen / UV`
     ],
     rows: [
-      [t('pdp.logoMoq'), `100 ${pcs} / SKU`, `100 ${pcs} / SKU`, `200 – 300 ${pcs} / SKU`],
-      [t('geo.metricTooling'), '$0.00', '$35 / color (1 = $35, 2 = $70, 3 = $105)', '$0.00'],
-      [t('pdp.pricingTitle'), `+$0.15 – $0.30 / ${pc}`, `+$0.10 / color / ${pc} (5 = +$0.50/${pc})`, `+$0.35 – $0.60 / ${pc}`],
-      [t('pdp.orderSample'), t('footer.trust3Sub'), t('footer.trust3Sub'), t('footer.trust3Sub')],
-      [t('contact.brandingMode'), t('pdp.opt2Desc'), t('pdp.opt3Desc'), `200–300 ${pcs} · +$0.35–$0.60/${pc}`],
-      [t('geo.metricSafety'), '10/10 (50W MOPA Fiber Laser)', '8.5/10 (Pantone Silk-Screen)', '9.5/10 (Deep Laser + Enamel)'],
-      ['SKU', 'FS-047, FS-013, FS-009, FS-012, FS-064, FS-075, FS-086, FS-096', 'FS-125, FS-128, FS-001, FS-024, FS-026, FS-050, FS-056', 'FS-013, FS-047, FS-075, FS-086, FS-125, FS-148']
+      [t('pdp.logoMoq'), `100 ${pcs} / SKU`, `100 – 200 ${pcs} / SKU`, `—`],
+      [t('geo.metricTooling'), '$0.00', '$0.00', '—'],
+      [t('pdp.pricingTitle'), `+$0.15 – $0.30 / ${pc}`, `+$0.35 – $0.60 / ${pc}`, `—`],
+      [t('pdp.orderSample'), `$50 USD (10–15d)`, `$80 – $150 USD (10–15d)`, `—`],
+      [t('contact.brandingMode'), t('pdp.opt2Desc'), t('pdp.opt3Desc'), `⚠️ Peels on smooth metal`],
+      [t('geo.metricSafety'), '10/10 (50W MOPA Fiber Laser)', '9.8/10 (Deep Laser + Enamel Fill)', '4.0/10 (Low Adhesion)'],
+      ['SKU', 'FS-047, FS-013, FS-009, FS-012, FS-064, FS-075, FS-086, FS-096', 'FS-125, FS-047, FS-013, FS-001, FS-026, FS-075, FS-086, FS-128', '—']
     ]
   };
 }

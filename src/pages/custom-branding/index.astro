@@ -17,32 +17,32 @@ const logoReadyModels = allProducts
 
 const brandingFaqs = [
   {
-    question: 'What is the Minimum Order Quantity (MOQ) for adding a custom logo to existing metal molds?',
-    answer: 'Our MOQ is 100 pieces per SKU for standard Fiber Laser Engraving and Silk-Screen Color Printing, and 200 to 300 pieces per SKU for Deep Laser Engraving + Color Fill. Blank unbranded stock starts at 50 pieces per SKU.'
+    question: 'Why does the factory NOT recommend Silk-Screen or UV surface printing on metal fidgets?',
+    answer: 'Polished, electroplated, anodized, and PVD-coated metal surfaces are ultra-smooth and chemically inert. Surface-applied silk-screen or UV ink lacks mechanical adhesion ("bite") on smooth metal and easily peels or flakes off under continuous thumb friction. Therefore, our factory recommends Fiber Laser Engraving for monochrome logos and Deep Laser Engraving + Color Fill for colored logos.'
   },
   {
-    question: 'How is Silk-Screen Printing priced for multi-color logos?',
-    answer: 'For colored logos, Silk-Screen Printing is our standard process. The screen setup fee is $35 USD per color (cumulative by color count: 1 color = $35, 2 colors = 2 × $35 = $70, 3 colors = 3 × $35 = $105). The unit logo cost adds +$0.10 USD per color per piece (for example, 1 color adds +$0.10/pc, and a 5-color logo adds 5 × $0.10 = +$0.50/pc).'
+    question: 'How does Deep Laser Engraving + Color Fill work and what does it cost?',
+    answer: 'For colored logos on metal, we first use a 50W fiber laser to deep-carve a recessed cavity (0.15–0.25mm deep) into the metal shell, and then fill the recessed cavity with thermally cured colored enamel. Because the color sits below the metal friction plane, it never peels off. Unit cost is +$0.35 to $0.60 USD per piece (MOQ 100–200 pcs).'
   },
   {
-    question: 'How does the Deep Laser Engraving + Color Fill process work and what does it cost?',
-    answer: 'For a recessed, tactile colored emblem on metal, we first use a high-power fiber laser to engrave your logo to a noticeable depth into the metal shell, and then fill the recessed cavity with durable colored enamel ink. The MOQ for Deep Laser + Color Fill is 200 to 300 pieces per SKU, and the unit branding cost is +$0.35 to $0.60 USD per piece.'
+    question: 'What is the custom logo pre-production sample fee and lead time?',
+    answer: 'Custom logo sampling is paid and takes 10 to 15 days: Standard Fiber Laser Engraving sample fee is $50 USD, and Deep Laser Engraving + Color Fill sample fee is $80 to $150 USD depending on color count and SKU. A 1:1 digital vector placement proof is provided free within 12 hours prior to sampling.'
+  },
+  {
+    question: 'What is the Minimum Order Quantity (MOQ) and unit cost for standard Fiber Laser Engraving?',
+    answer: 'For monochrome Fiber Laser Engraving, our MOQ is 100 pieces per SKU with $0.00 setup fee and a unit branding cost of +$0.15 to $0.30 USD per piece. Blank unbranded stock starts at 50 pieces per SKU.'
   },
   {
     question: 'Why does custom branding on FidgetSupply.com require $0.00 in mold/tooling fees?',
-    answer: 'Instead of cutting a bespoke die-casting mold ($3,000–$4,500), you select from our 140 existing ready-to-produce metal molds—specifically our 28 flat-surface Logo-Ready models—and apply your brand via fiber laser engraving, silk-screen printing, or deep laser color fill.'
+    answer: 'Instead of cutting a bespoke die-casting mold ($3,000–$4,500), you select from our 140 existing ready-to-produce metal molds—specifically our 28 flat-surface Logo-Ready models—and apply your brand via Fiber Laser Engraving or Deep Laser Engraving + Color Fill.'
   },
   {
-    question: 'Which metal fidget models have the largest unobstructed flat surface for logo printing?',
-    answer: 'Top flat-surface models include FS-125 (Smooth Soap-Box Slider, 42×26mm print zone), FS-047 (Minimalist 6063 Aluminum Slider, 40×22mm zone), FS-001 (Poker King Slider, 38×25mm zone), FS-026 (Bottle Opener Slider), FS-013 (304 Stainless Coin, Ø28mm zone), and FS-009 (Knurled Twist Top, Ø16mm cap).'
+    question: 'Which metal fidget models have the largest unobstructed flat surface for laser and color-fill branding?',
+    answer: 'Top flat-surface models include FS-125 (Smooth Soap-Box Slider, 42×26mm zone), FS-047 (Minimalist 6063 Aluminum Slider, 40×22mm zone), FS-001 (Poker King Slider, 38×25mm zone), FS-026 (Bottle Opener Slider), FS-013 (304 Stainless Coin, Ø28mm zone), and FS-009 (Knurled Twist Top, Ø16mm cap).'
   },
   {
     question: 'What vector artwork file formats do you require for custom branding?',
-    answer: 'Please send vector files in Adobe Illustrator (.AI), Encapsulated PostScript (.EPS), vector .PDF, or .SVG format with fonts converted to outlines and Pantone (PMS) color callouts if choosing Silk-Screen Printing or Deep Laser Color Fill.'
-  },
-  {
-    question: 'What is the custom logo sample fee and sample production lead time?',
-    answer: 'Our engineering desk returns a 1:1 scaled digital placement proof within 12 hours of receiving your vector logo. Physical custom logo sampling takes 10 to 15 days, with a custom logo sample fee of $80 to $150 USD depending on the branding method and color count.'
+    answer: 'Please send vector files in Adobe Illustrator (.AI), Encapsulated PostScript (.EPS), vector .PDF, or .SVG format with fonts converted to outlines and Pantone (PMS) color callouts if choosing Deep Laser Engraving + Color Fill.'
   },
   {
     question: 'Can you laser engrave logos onto curved models like EDC Gourds (FS-096), Desk Eggs (FS-064), or Spinner Rings (FS-014)?',
@@ -72,8 +72,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Custom Logo Metal Fidget Branding: Fiber Laser, UV Print & Silk Screen | FidgetSupply' : `${t('brand.heroTitle')} | FidgetSupply`}
-  description={currentLang === 'en' ? 'Zero tooling modification custom branding on 140 ready metal fidget molds. Compare 50W Fiber Laser Engraving, Full-Color UV Printing, and Pad Printing at 100 pcs MOQ.' : t('brand.heroDesc')}
+  title={currentLang === 'en' ? 'Custom Logo Metal Fidget Branding: Fiber Laser & Deep Laser Color Fill | FidgetSupply' : `${t('brand.heroTitle')} | FidgetSupply`}
+  description={currentLang === 'en' ? 'Custom metal fidget branding on 140 ready molds: 50W Fiber Laser (+$0.15–$0.30/pc, $50 sample) & Deep Laser + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).' : t('brand.heroDesc')}
   activePage="custom-branding"
   jsonLd={faqSchema}
 >
@@ -98,20 +98,20 @@ const faqSchema = {
 
         <div class="hero-glass-grid">
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">{t('pdp.logoMoq')}</span>
-            <strong class="glass-kpi-val">100 {t('unit.pcs')}</strong>
-          </div>
-          <div class="glass-kpi-card">
-            <span class="glass-kpi-label">{t('home.hero.kpi2Sub')}</span>
-            <strong class="glass-kpi-val">$0.00</strong>
-          </div>
-          <div class="glass-kpi-card">
             <span class="glass-kpi-label">50W Fiber Laser</span>
-            <strong class="glass-kpi-val">+$0.15 / {t('unit.pc')}</strong>
+            <strong class="glass-kpi-val">+$0.15–$0.30/{t('unit.pc')}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">3D Digital Proof</span>
-            <strong class="glass-kpi-val">12 Hours</strong>
+            <span class="glass-kpi-label">Deep Laser + Color</span>
+            <strong class="glass-kpi-val">+$0.35–$0.60/{t('unit.pc')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Laser Sample Fee</span>
+            <strong class="glass-kpi-val">$50 USD</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Color Fill Sample</span>
+            <strong class="glass-kpi-val">$80–$150 USD</strong>
           </div>
         </div>
 
@@ -127,7 +127,7 @@ const faqSchema = {
 
       <div class="hero-showcase-card">
         <div class="hero-showcase-top">
-          <span class="sku-pill">50W MOPA LASER &amp; UV PRINT</span>
+          <span class="sku-pill">50W LASER &amp; DEEP COLOR FILL</span>
           <span class="hero-showcase-price">28 Logo-Ready Molds</span>
         </div>
         <div class="hero-showcase-img-wrap">
@@ -140,9 +140,8 @@ const faqSchema = {
           />
         </div>
         <div class="hero-showcase-meta">
-          <span>50W Fiber Laser</span>
-          <span>Silk-Screen &amp; UV</span>
-          <span>Deep Laser + Enamel</span>
+          <span>50W Fiber Laser ($50 Sample)</span>
+          <span>Deep Laser + Color (+$0.35–$0.60)</span>
         </div>
       </div>
     </div>

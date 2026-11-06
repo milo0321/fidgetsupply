@@ -409,20 +409,20 @@ export const COLLECTIONS: CollectionMeta[] = [
     group: 'cross',
     name: 'Logo-Ready Custom Branding Metal Fidgets',
     shortName: '★ Logo-Ready Molds (28)',
-    zhName: 'Unobstructed Flat-Surface Molds for Laser & UV Branding',
+    zhName: 'Unobstructed Flat-Surface Molds for Fiber Laser & Deep Laser Color Fill',
     badge: '★ Cross-Tag Collection #7 · 28 Logo-Ready Molds',
     skuCount: 28,
     priceRangeRmb: '¥3.5 – ¥82',
     priceRangeUsd: '$0.75 – $21.45',
     moq: '100 pcs (Custom Logo) / 50 pcs (Blank)',
-    leadTime: '7–10 Days (With Logo)',
+    leadTime: '10–15 Days (With Logo)',
     targetKeywords: 'custom logo metal fidget toys, promotional edc slider with logo, laser engraved fidget spinner bulk, private label amazon fidget supplier',
-    heroSubtitle: 'Hand-picked from our 140 molds: 28 flat-surface, smooth-bezel metal fidgets specifically engineered for rapid Fiber Laser Engraving, Full-Color UV Printing, and Silk-Screen Branding—$0 mold fee, 100 pcs custom logo MOQ, 5-minute Wholesale selection.',
-    geoDirectAnswer: 'The Logo-Ready Custom Branding collection aggregates 28 existing metal molds with unobstructed flat or smooth cylindrical branding zones (minimum 18×18mm to 45×28mm print area). Top picks for Amazon private-label sellers and corporate gifting buyers include FS-125 Smooth Soap-Box Slider, FS-047 Minimalist 6063 Aluminum Slider, FS-013 304 Stainless Coin, FS-026 Bottle Opener Slider, and FS-009 Finger Twist Top.',
+    heroSubtitle: 'Hand-picked from our 140 molds: 28 flat-surface, smooth-bezel metal fidgets specifically engineered for permanent 50W Fiber Laser Engraving (+$0.15–$0.30/pc) and Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc)—$0 mold fee, 100 pcs custom logo MOQ.',
+    geoDirectAnswer: 'The Logo-Ready Custom Branding collection aggregates 28 existing metal molds with unobstructed flat or smooth cylindrical branding zones (minimum 18×18mm to 45×28mm engraving area). Because smooth metal is chemically inert and surface silk-screen/UV ink peels off due to low adhesion, our factory recommends 50W Fiber Laser Engraving ($50 sample) or Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).',
     engineeringHighlights: [
-      'Zero Tooling Modification Needed: Lock in our "Keep Ready Mold + Print Custom Logo" strategy—save $3,000+ in custom die-casting molds and launch in 7–10 days.',
-      'Three Factory Branding Processes: Permanent Fiber Laser Engraving (+$0.15–$0.30/pc, $0 setup), Multi-Color Silk-Screen Printing ($35/color screen + $0.10/color/pc), and Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, MOQ 200–300 pcs).',
-      'Pre-Packaged in Custom EVA Cases: Pair any of these 28 Logo-Ready fidgets with a custom-debossed black EVA zipper pouch and FNSKU barcode sticker.'
+      'Zero Tooling Modification Needed: Lock in our "Keep Ready Mold + Laser Brand Custom Logo" strategy—save $3,000+ in custom die-casting molds and launch in 10–15 days.',
+      'Why We Recommend Laser Over Silk-Screen: Smooth metal surfaces are chemically inert so surface silk-screen/UV ink lacks adhesion and peels off. We recommend 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) or Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).',
+      'Pre-Packaged in Custom EVA Cases: Pair any of these 28 Logo-Ready fidgets with a custom-branded black EVA zipper pouch and FNSKU barcode sticker.'
     ],
     faqs: [
       {
@@ -430,40 +430,40 @@ export const COLLECTIONS: CollectionMeta[] = [
         answer: 'Our top 5 Logo-Ready models are: (1) FS-125 Smooth Soap-Box N52 Slider (wide 45×28mm flat face), (2) FS-047 Minimalist 6063 Anodized Aluminum Slider (contrasting white laser mark on red/blue/gold anodized aluminum), (3) FS-026 2-in-1 Bottle Opener Slider, (4) FS-013 304 Stainless Haptic Coin, and (5) FS-009 Knurled Twist Top ($0.75+ giveaway staple).'
       },
       {
-        question: 'What artwork file format is required for Fiber Laser, Silk-Screen, or Deep Laser Color Fill?',
-        answer: 'Please provide vector artwork in .AI, .EPS, .PDF, or .SVG format (with Pantone color codes for silk-screen or color-fill orders). Our engineering team returns a digital 1:1 placement proof within 12 hours. Physical custom logo sampling takes 10 to 15 days with a custom logo sample fee of $80 to $150 USD.'
+        question: 'Why does the factory NOT recommend Silk-Screen or UV surface printing on metal fidgets?',
+        answer: 'Polished, electroplated, anodized, and PVD-coated metal surfaces are ultra-smooth and chemically inert. Surface-applied silk-screen or UV ink lacks mechanical adhesion ("bite") on smooth metal and easily peels off under continuous thumb friction. Therefore, our factory recommends 50W Fiber Laser Engraving for monochrome logos and Deep Laser Engraving + Color Fill for colored logos.'
       },
       {
-        question: 'Can we order custom logo samples before placing a 100 pcs order?',
-        answer: 'Yes! Visit our /contact page to request custom logo pre-production samples ($80–$150 USD sample fee, 10–15 days lead time) demonstrating Fiber Laser, Silk-Screen Color Print, or Deep Laser Color Fill branding before bulk production.'
+        question: 'What is the custom logo pre-production sample fee and sample lead time?',
+        answer: 'Custom pre-production logo sampling is paid and takes 10 to 15 days: Standard Fiber Laser Engraving sample fee is $50 USD, and Deep Laser Engraving + Color Fill sample fee is $80 to $150 USD depending on color complexity and SKU. A free 1:1 digital placement proof is provided within 12 hours prior to sampling.'
       },
       {
-        question: 'How is multi-color Silk-Screen Printing priced compared to Deep Laser Engraving + Color Fill?',
-        answer: 'For colored logos, Silk-Screen Printing is our standard process: screen setup is $35 per color (1 color = $35, 2 colors = 2×$35 = $70, 3 colors = 3×$35 = $105) and unit printing is +$0.10 per color per piece (e.g., 5 colors adds +$0.50/pc). Alternatively, Deep Laser Engraving + Color Fill (200–300 pcs MOQ) deep-etches a recessed cavity into the metal and fills it with colored enamel for +$0.35–$0.60/pc.'
+        question: 'How does Deep Laser Engraving + Color Fill work for colored logos and what does it cost?',
+        answer: 'When your logo requires color, our 50W fiber laser first deep-carves a recessed cavity (0.15–0.25mm deep) into the metal shell, and technicians then fill the recessed cavity with thermally cured colored enamel. Because the color sits below the metal friction plane, it never peels off. Unit cost is +$0.35 to $0.60 USD per piece (MOQ 100–200 pcs).'
       },
       {
-        question: 'Is there any setup charge or plate fee for custom logo orders at 100 pcs MOQ?',
-        answer: 'For Fiber Laser Engraving on orders of 100+ pcs per SKU, setup and fixture programming are 100% FREE ($0 setup fee). For multi-color Silk-Screen Printing, the screen fee is $35 USD per color.'
+        question: 'Is there any setup charge or plate fee for custom laser logo orders at 100 pcs MOQ?',
+        answer: 'For both 50W Fiber Laser Engraving (+$0.15–$0.30/pc) and Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc) on orders of 100+ pcs per SKU, laser setup and fixture programming are $0.00.'
       },
       {
         question: 'Can you engrave individual serial numbers (e.g., 001/500) or personalized VIP names on each unit?',
         answer: 'Yes! Our EZCAD Galvo fiber laser system supports automated variable-data serialization (e.g., Limited Edition 001/250 to 250/250) or individual employee names from a CSV spreadsheet for only +$0.20/unit.'
       },
       {
-        question: 'What is the maximum logo print area across these 28 Logo-Ready molds?',
-        answer: 'Flat rectangular sliders like FS-125, FS-047, and FS-001 support print areas up to 42×26mm; circular coins (FS-013, FS-030) support Ø22mm–Ø34mm medallions; and compact spinners (FS-008, FS-009) support Ø14mm–Ø18mm center-cap logos.'
+        question: 'What is the maximum logo engraving area across these 28 Logo-Ready molds?',
+        answer: 'Flat rectangular sliders like FS-125, FS-047, and FS-001 support engraving areas up to 42×26mm; circular coins (FS-013, FS-030) support Ø22mm–Ø34mm medallions; and compact spinners (FS-008, FS-009) support Ø14mm–Ø18mm center-cap logos.'
       },
       {
-        question: 'How durable is UV color printing on metal surfaces during daily pocket carry?',
-        answer: 'We apply a metal-adhesion primer before jetting Japanese UV-LED curable ink and finish with a clear gloss or matte UV varnish coat, achieving 4B cross-hatch adhesion (ASTM D3359) resistant to sweat and pocket abrasion.'
+        question: 'What vector artwork file format is required for Fiber Laser or Deep Laser Color Fill?',
+        answer: 'Please provide vector artwork in .AI, .EPS, .PDF, or .SVG format with outlined fonts and Pantone (PMS) color callouts if choosing Deep Laser + Color Fill.'
       },
       {
         question: 'Can we brand both the metal fidget and the outer EVA zipper case?',
-        answer: 'Yes. Dual branding (laser engraving on the metal fidget + hot-debossed or silk-screened logo on the lid of the black EVA zipper case) is our most popular turnkey package for Amazon private-label brands.'
+        answer: 'Yes. Dual branding (permanent laser engraving on the metal fidget + custom logo on the lid of the black EVA zipper case) is our most popular turnkey package for Amazon private-label brands.'
       },
       {
         question: 'How fast can you deliver 500 custom laser-engraved fidgets for an upcoming trade show?',
-        answer: 'Because we keep unpainted and plated blank shells in stock for our top 28 Logo-Ready molds, we can laser-engrave, pack, and dispatch 500 units via DHL Express within 5–7 business days.'
+        answer: 'Because we keep blank shells in stock for our top 28 Logo-Ready molds, we can laser-engrave, pack, and dispatch 500 units within 10–15 business days.'
       }
     ]
   },
