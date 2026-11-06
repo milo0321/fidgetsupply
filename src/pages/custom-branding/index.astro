@@ -77,13 +77,74 @@ const faqSchema = {
   activePage="custom-branding"
   jsonLd={faqSchema}
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="badge badge-gold">{t('brand.heroBadge')}</span>
-      <h1>{t('brand.heroTitle')}</h1>
-      <p>
-        {t('brand.heroDesc')}
-      </p>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">{t('nav.customBranding')}</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-gold">{t('brand.heroBadge')}</span>
+          <span class="badge badge-dark">{t('home.hero.badge2')}</span>
+        </div>
+
+        <h1 class="grand-hero-title">{t('brand.heroTitle')}</h1>
+        <p class="grand-hero-lead">
+          {t('brand.heroDesc')}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('pdp.logoMoq')}</span>
+            <strong class="glass-kpi-val">100 {t('unit.pcs')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('home.hero.kpi2Sub')}</span>
+            <strong class="glass-kpi-val">$0.00</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">50W Fiber Laser</span>
+            <strong class="glass-kpi-val">+$0.15 / {t('unit.pc')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">3D Digital Proof</span>
+            <strong class="glass-kpi-val">12 Hours</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            {t('nav.requestQuote')}
+          </a>
+          <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-secondary-dark btn-hero">
+            {t('home.hero.ctaLogo')}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">50W MOPA LASER &amp; UV PRINT</span>
+          <span class="hero-showcase-price">28 Logo-Ready Molds</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/insights/laser-vs-uv-branding-hero.webp"
+            alt={t('brand.heroTitle')}
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>50W Fiber Laser</span>
+          <span>Silk-Screen &amp; UV</span>
+          <span>Deep Laser + Enamel</span>
+        </div>
+      </div>
     </div>
   </section>
 

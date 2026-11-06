@@ -954,20 +954,42 @@ const faqSchema = {
   jsonLd={[articleSchema, breadcrumbSchema, faqSchema]}
 >
   <article class="guide-article">
-    <header class="guide-hero">
-      <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a> / <a href={getLocalizedPath('/insights', currentLang)}>{t('breadcrumb.guides')}</a> / <span>{locGuideMeta.category}</span>
+    <header class="grand-hero">
+      <div class="container" style="max-width: 1040px;">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <a href={getLocalizedPath('/insights', currentLang)}>{t('breadcrumb.guides')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">{locGuideMeta.category}</span>
         </nav>
-        <span class="badge badge-dark">{locGuideMeta.category} · {dynamicReadTime}</span>
-        <h1>{locGuideMeta.title}</h1>
-        <p class="guide-lead">{locGuideMeta.summary}</p>
-        <div class="guide-byline">
-          <span>{t('guide.by')} <strong>{locGuideMeta.author}</strong></span>
-          <span>·</span>
-          <span>{t('guide.updated')} {guide.data.updatedDate || guide.data.publishDate}</span>
-          <span>·</span>
-          <span>{dynamicReadTime}</span>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-dark">{locGuideMeta.category}</span>
+          <span class="badge badge-gold">{dynamicReadTime}</span>
+        </div>
+
+        <h1 class="grand-hero-title">{locGuideMeta.title}</h1>
+        <p class="grand-hero-lead" style="max-width: 920px;">{locGuideMeta.summary}</p>
+
+        <div class="article-meta-bar">
+          <div class="meta-author-block">
+            <div class="meta-avatar">FS</div>
+            <div class="meta-col">
+              <span class="meta-label">{t('guide.by')}</span>
+              <strong class="meta-val">{locGuideMeta.author}</strong>
+            </div>
+          </div>
+          <div class="meta-divider"></div>
+          <div class="meta-col">
+            <span class="meta-label">{t('guide.updated')}</span>
+            <strong class="meta-val">{guide.data.updatedDate || guide.data.publishDate}</strong>
+          </div>
+          <div class="meta-divider"></div>
+          <div class="meta-col">
+            <span class="meta-label">{t('guide.tocTitle')}</span>
+            <strong class="meta-val">{dynamicReadTime}</strong>
+          </div>
         </div>
       </div>
     </header>
@@ -1211,43 +1233,62 @@ const faqSchema = {
 </script>
 
 <style>
-  .guide-hero {
-    background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
-    color: #ffffff;
-    padding: 3.5rem 0;
-    border-bottom: 1px solid #334155;
-  }
-  .breadcrumb {
-    font-size: 0.82rem;
-    color: #94a3b8;
-    margin-bottom: 1rem;
-  }
-  .breadcrumb a {
-    color: #38bdf8;
-  }
-  .guide-hero h1 {
-    color: #ffffff;
-    font-size: clamp(1.85rem, 3vw, 2.55rem);
-    margin: 0.85rem 0;
-    max-width: 980px;
-    line-height: 1.2;
-  }
-  .guide-lead {
-    color: #cbd5e1;
-    max-width: 880px;
-    font-size: 1.05rem;
-    margin-bottom: 1rem;
-    line-height: 1.65;
-  }
-  .guide-byline {
+  .article-meta-bar {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    font-size: 0.84rem;
-    color: #94a3b8;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.2);
   }
-  .guide-byline strong {
+  .meta-author-block {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .meta-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    border: 2px solid rgba(56, 189, 248, 0.45);
     color: #ffffff;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .meta-col {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+  }
+  .meta-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #94a3b8;
+    font-weight: 700;
+  }
+  .meta-val {
+    color: #ffffff;
+    font-size: 0.96rem;
+    font-weight: 700;
+  }
+  .meta-divider {
+    width: 1px;
+    height: 28px;
+    background: rgba(148, 163, 184, 0.25);
+  }
+  @media (max-width: 640px) {
+    .meta-divider {
+      display: none;
+    }
+    .article-meta-bar {
+      gap: 1rem;
+    }
   }
 
   /* 3-Column Publication Grid (Wider Center Content + Compact 64px Right Icon Dock) */

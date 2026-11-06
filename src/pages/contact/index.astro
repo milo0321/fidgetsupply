@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
 import { localizeTitle } from '../../i18n/productLocalization';
 import { getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
@@ -85,15 +85,42 @@ const faqSchema = {
   activePage="contact"
   jsonLd={faqSchema}
 >
-  <div class="contact-page-wrapper">
-    <!-- PAGE HERO HEADER (RUIXING GIFTS STYLE) -->
-    <div class="contact-header text-center">
-      <span class="pill-badge">{t('contact.badge')}</span>
-      <h1 class="page-title">{t('contact.title')}</h1>
-      <p class="page-subtitle">
+  <section class="grand-hero">
+    <div class="container grand-hero-centered">
+      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+        <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">{t('nav.contact')}</span>
+      </nav>
+
+      <div class="hero-badges-row">
+        <span class="badge badge-dark">{t('contact.badge')}</span>
+        <span class="badge badge-gold">{t('home.hero.badge2')}</span>
+      </div>
+
+      <h1 class="grand-hero-title">{t('contact.title')}</h1>
+      <p class="grand-hero-lead">
         {t('contact.subtitle')}
       </p>
+
+      <div class="hero-glass-grid cols-3" style="margin-bottom: 0;">
+        <div class="glass-kpi-card">
+          <span class="glass-kpi-label">{t('contact.stat1')}</span>
+          <strong class="glass-kpi-val">140+ Molds</strong>
+        </div>
+        <div class="glass-kpi-card">
+          <span class="glass-kpi-label">{t('contact.stat2')}</span>
+          <strong class="glass-kpi-val">50 / 100 {t('unit.pcs')}</strong>
+        </div>
+        <div class="glass-kpi-card">
+          <span class="glass-kpi-label">{t('contact.stat3')}</span>
+          <strong class="glass-kpi-val">&lt; 12 Hours</strong>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <div class="contact-page-wrapper">
 
     <!-- MAIN CONTAINED SPLIT CARD (LEFT DARK INFO PANEL + RIGHT FORM PANEL) -->
     <div class="contact-card-container">

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
-import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
 import { getComplianceTableData, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
@@ -70,13 +70,74 @@ const faqSchema = {
   activePage="insights"
   jsonLd={faqSchema}
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="badge badge-emerald">{t('comp.heroBadge')}</span>
-      <h1>{t('comp.heroTitle')}</h1>
-      <p>
-        {t('comp.heroDesc')}
-      </p>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">{t('nav.compliance')}</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-emerald">{t('comp.heroBadge')}</span>
+          <span class="badge badge-dark">US CPSC · EU RoHS 3 · IATA PI-953</span>
+        </div>
+
+        <h1 class="grand-hero-title">{t('comp.heroTitle')}</h1>
+        <p class="grand-hero-lead">
+          {t('comp.heroDesc')}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">16 CFR 1262</span>
+            <strong class="glass-kpi-val">&lt; 50 kG²mm²</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">RoHS 3 / Prop 65</span>
+            <strong class="glass-kpi-val">Pb &lt; 90 ppm</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">IATA PI-953</span>
+            <strong class="glass-kpi-val">&lt; 0.00525 G</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Age Grading</span>
+            <strong class="glass-kpi-val">14+ Adult EDC</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            {t('nav.requestQuote')}
+          </a>
+          <a href={getLocalizedPath('/insights/us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance', currentLang)} class="btn btn-secondary-dark btn-hero">
+            {t('guides.readCta')}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">CAPTIVE MAGNET &amp; XRF AUDIT</span>
+          <span class="hero-showcase-price">100% Lab Verified</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/insights/cpsc-compliance-safety-hero.webp"
+            alt={t('comp.heroTitle')}
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>3-Layer Magnet Lock</span>
+          <span>XRF Alloy Screening</span>
+          <span>Amazon GCC Ready</span>
+        </div>
+      </div>
     </div>
   </section>
 

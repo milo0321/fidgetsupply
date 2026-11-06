@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { COLLECTIONS } from '../../data/collections';
-import { getLanguageFromURL, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
 import { getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
@@ -75,13 +75,51 @@ const faqSchema = {
   activePage="products"
   jsonLd={faqSchema}
 >
-  <section class="catalog-hero">
-    <div class="container">
-      <span class="badge badge-dark">{t('catalog.badge')}</span>
-      <h1>{t('catalog.title')}</h1>
-      <p>
+  <section class="grand-hero">
+    <div class="container grand-hero-centered">
+      <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+        <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+        <span class="bc-sep">/</span>
+        <span class="bc-current">{t('breadcrumb.allCatalog')}</span>
+      </nav>
+
+      <div class="hero-badges-row">
+        <span class="badge badge-dark">{t('catalog.badge')}</span>
+        <span class="badge badge-gold">{t('home.hero.badge2')}</span>
+      </div>
+
+      <h1 class="grand-hero-title">{t('catalog.title')}</h1>
+      <p class="grand-hero-lead">
         {t('catalog.desc')}
       </p>
+
+      <div class="hero-glass-grid">
+        <div class="glass-kpi-card">
+          <span class="glass-kpi-label">{t('col.stat1Label')}</span>
+          <strong class="glass-kpi-val">140</strong>
+        </div>
+        <div class="glass-kpi-card">
+          <span class="glass-kpi-label">{t('home.hero.kpi2Sub')}</span>
+          <strong class="glass-kpi-val">$0.00</strong>
+        </div>
+        <div class="glass-kpi-card">
+          <span class="glass-kpi-label">{t('col.stat3Label')}</span>
+          <strong class="glass-kpi-val">50 / 100 {t('unit.pcs')}</strong>
+        </div>
+        <div class="glass-kpi-card">
+          <span class="glass-kpi-label">{t('col.stat2Label')}</span>
+          <strong class="glass-kpi-val">$0.75 – $382</strong>
+        </div>
+      </div>
+
+      <div class="hero-actions">
+        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+          {t('nav.requestQuote')}
+        </a>
+        <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-secondary-dark btn-hero">
+          {t('home.hero.ctaLogo')}
+        </a>
+      </div>
     </div>
   </section>
 

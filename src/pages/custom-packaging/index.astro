@@ -70,13 +70,74 @@ const faqSchema = {
   activePage="custom-packaging"
   jsonLd={faqSchema}
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="badge badge-gold">{t('pkg.heroBadge')}</span>
-      <h1>{t('pkg.heroTitle')}</h1>
-      <p>
-        {t('pkg.heroDesc')}
-      </p>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">{t('nav.customPackaging')}</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-gold">{t('pkg.heroBadge')}</span>
+          <span class="badge badge-emerald">{t('pkg.card1Badge')}</span>
+        </div>
+
+        <h1 class="grand-hero-title">{t('pkg.heroTitle')}</h1>
+        <p class="grand-hero-lead">
+          {t('pkg.heroDesc')}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('pkg.card1Title')}</span>
+            <strong class="glass-kpi-val">+$0.75 / {t('unit.pc')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('pkg.card2Title')}</span>
+            <strong class="glass-kpi-val">+$0.85 / {t('unit.pc')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('pkg.card3Title')}</span>
+            <strong class="glass-kpi-val">+$1.10 / {t('unit.pc')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Amazon FNSKU</span>
+            <strong class="glass-kpi-val">$0.00 Free</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            {t('pkg.ctaBtn')}
+          </a>
+          <a href={getLocalizedPath('/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide', currentLang)} class="btn btn-secondary-dark btn-hero">
+            {t('guides.readCta')}
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">EVA CASE · TIN BOX · RIGID GIFT BOX</span>
+          <span class="hero-showcase-price">MOQ 100 {t('unit.pcs')}</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/insights/edc-packaging-options-hero.webp"
+            alt={t('pkg.heroTitle')}
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>75-Shore-C EVA Foam</span>
+          <span>FNSKU &amp; 14+ Labels</span>
+          <span>IATA PI-953 Shielded</span>
+        </div>
+      </div>
     </div>
   </section>
 

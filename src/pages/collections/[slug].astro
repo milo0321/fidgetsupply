@@ -159,42 +159,76 @@ const faqSchema = {
   keywords={collection.targetKeywords}
   jsonLd={[itemListSchema, faqSchema]}
 >
-  <section class="collection-hero">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
-        <span>/</span>
-        <a href={getLocalizedPath('/products', currentLang)}>{t('breadcrumb.allCatalog')}</a>
-        <span>/</span>
-        <span>{t(`col.${collection.slug}.short` as any)}</span>
-      </nav>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <a href={getLocalizedPath('/products', currentLang)}>{t('breadcrumb.allCatalog')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">{t(`col.${collection.slug}.short` as any)}</span>
+        </nav>
 
-      <div class="hero-badges">
-        <span class="badge badge-dark">{t(`col.${collection.slug}.short` as any)} · {products.length} {t('nav.modelsCount')}</span>
-        <span class="badge badge-gold">{t('col.heroBadge')}</span>
+        <div class="hero-badges-row">
+          <span class="badge badge-dark">{t(`col.${collection.slug}.short` as any)} · {products.length} {t('nav.modelsCount')}</span>
+          <span class="badge badge-gold">{t('col.heroBadge')}</span>
+        </div>
+
+        <h1 class="grand-hero-title">{t(`col.${collection.slug}.name` as any)}</h1>
+        <p class="grand-hero-lead">{locCol.heroSubtitle}</p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('col.stat1Label')}</span>
+            <strong class="glass-kpi-val">{products.length}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('col.stat2Label')}</span>
+            <strong class="glass-kpi-val">{collection.priceRangeUsd}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('col.stat3Label')}</span>
+            <strong class="glass-kpi-val">{locCol.moq}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('col.stat4Label')}</span>
+            <strong class="glass-kpi-val">{locCol.leadTime}</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            {t('nav.requestQuote')}
+          </a>
+          <a href={getLocalizedPath('/custom-branding', currentLang)} class="btn btn-secondary-dark btn-hero">
+            {t('nav.customBranding')} &rarr;
+          </a>
+        </div>
       </div>
 
-      <h1>{t(`col.${collection.slug}.name` as any)}</h1>
-      <p class="hero-sub">{locCol.heroSubtitle}</p>
-
-      <div class="collection-stats">
-        <div class="stat-pill">
-          <span>{t('col.stat1Label')}</span>
-          <strong>{products.length}</strong>
-        </div>
-        <div class="stat-pill">
-          <span>{t('col.stat2Label')}</span>
-          <strong>{collection.priceRangeUsd}</strong>
-        </div>
-        <div class="stat-pill">
-          <span>{t('col.stat3Label')}</span>
-          <strong>{locCol.moq}</strong>
-        </div>
-        <div class="stat-pill">
-          <span>{t('col.stat4Label')}</span>
-          <strong>{locCol.leadTime}</strong>
-        </div>
-      </div>
+      {products[0] && (
+        <a href={getLocalizedPath(`/products/${products[0].data.slug}`, currentLang)} class="hero-showcase-card" style="text-decoration: none;">
+          <div class="hero-showcase-top">
+            <span class="sku-pill">{products[0].data.skuDisplay} · {t('pdp.readyMold')}</span>
+            <span class="hero-showcase-price">${products[0].data.tier500} – ${products[0].data.tier50}/{t('unit.pc')}</span>
+          </div>
+          <div class="hero-showcase-img-wrap">
+            <img
+              src={products[0].data.featuredImage}
+              alt={localizeTitle(products[0].data.title, currentLang)}
+              width="480"
+              height="360"
+              loading="eager"
+            />
+          </div>
+          <div class="hero-showcase-meta">
+            <span>{localizeTitle(products[0].data.title, currentLang)}</span>
+            <span>{localizeMaterial(products[0].data.material, currentLang).split('(')[0].trim()}</span>
+            <span>{products[0].data.weight}</span>
+          </div>
+        </a>
+      )}
     </div>
   </section>
 

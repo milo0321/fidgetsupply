@@ -72,13 +72,74 @@ const faqSchema = {
   activePage="about"
   jsonLd={faqSchema}
 >
-  <section class="page-hero">
-    <div class="container">
-      <span class="badge badge-dark">{t('about.heroBadge')}</span>
-      <h1>{t('about.heroTitle')}</h1>
-      <p>
-        {t('about.heroDesc')}
-      </p>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">{t('nav.about')}</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-dark">{t('about.heroBadge')}</span>
+          <span class="badge badge-gold">{t('home.hero.badge2')}</span>
+        </div>
+
+        <h1 class="grand-hero-title">{t('about.heroTitle')}</h1>
+        <p class="grand-hero-lead">
+          {t('about.heroDesc')}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('col.stat1Label')}</span>
+            <strong class="glass-kpi-val">140+ Molds</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('home.hero.kpi2Sub')}</span>
+            <strong class="glass-kpi-val">$0.00</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">{t('col.stat3Label')}</span>
+            <strong class="glass-kpi-val">50 / 100 {t('unit.pcs')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Export Hub</span>
+            <strong class="glass-kpi-val">Fuzhou, CN</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            {t('nav.requestQuote')}
+          </a>
+          <a href={getLocalizedPath('/products', currentLang)} class="btn btn-secondary-dark btn-hero">
+            {t('nav.allCatalog')} &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">CNC · DIE-CAST · LASER · QC HUB</span>
+          <span class="hero-showcase-price">100% Pre-Shipment QC</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/factory/showcase-4.webp"
+            alt={t('about.heroTitle')}
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>Zamak #3 Die-Casting</span>
+          <span>5-Axis CNC 304/316 SS</span>
+          <span>Fuzhou Export Hub</span>
+        </div>
+      </div>
     </div>
   </section>
 
