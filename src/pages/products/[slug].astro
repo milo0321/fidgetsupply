@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+import { localizeProduct } from '../../i18n/productLocalization';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
@@ -25,6 +26,7 @@ export async function getStaticPaths() {
 const { product: p, relatedProducts } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const lp = localizeProduct(p, currentLang);
 const rfqBaseUrl = getLocalizedPath('/contact', currentLang);
 
 const allImages = p.galleryImages && p.galleryImages.length > 0 ? p.galleryImages : [p.featuredImage];
@@ -32,16 +34,16 @@ const allImages = p.galleryImages && p.galleryImages.length > 0 ? p.galleryImage
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
-  name: `${p.skuDisplay} ${p.title}`,
+  name: `${p.skuDisplay} ${lp.title}`,
   sku: p.sku,
   mpn: p.sku,
   image: allImages.map((img: string) => `https://fidgetsupply.com${img}`),
-  description: p.overview,
+  description: lp.overview,
   brand: {
     '@type': 'Brand',
     name: 'FidgetSupply.com'
   },
-  material: p.material,
+  material: lp.material,
   weight: {
     '@type': 'QuantitativeValue',
     value: parseFloat(p.weight) || 75,
@@ -64,7 +66,7 @@ const productSchema = {
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: p.faqs.map((f: any) => ({
+  mainEntity: lp.faqs.map((f: any) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
@@ -75,16 +77,16 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://fidgetsupply.com' },
-    { '@type': 'ListItem', position: 2, name: p.primaryCollectionName, item: `https://fidgetsupply.com/collections/${p.primaryCollection}` },
-    { '@type': 'ListItem', position: 3, name: `${p.skuDisplay} ${p.title}`, item: `https://fidgetsupply.com/products/${p.slug}` }
+    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: 'https://fidgetsupply.com' },
+    { '@type': 'ListItem', position: 2, name: t(`col.${p.primaryCollection}.short` as any), item: `https://fidgetsupply.com/collections/${p.primaryCollection}` },
+    { '@type': 'ListItem', position: 3, name: `${p.skuDisplay} ${lp.title}`, item: `https://fidgetsupply.com/products/${p.slug}` }
   ]
 };
 ---
 
 <Layout
-  title={p.metaTitle}
-  description={p.metaDescription}
+  title={lp.metaTitle}
+  description={lp.metaDescription}
   ogImage={p.featuredImage}
   activePage="products"
   jsonLd={[productSchema, faqSchema, breadcrumbSchema]}
@@ -179,31 +181,31 @@ const breadcrumbSchema = {
           <span class="factory-ref">Production Mold #{String(p.rowId).padStart(3, '0')} · {t('pdp.readyMold')}</span>
         </div>
 
-        <h1 class="pdp-title">{p.title}</h1>
+        <h1 class="pdp-title">{lp.title}</h1>
 
-        <p class="pdp-short-overview">{p.overview}</p>
+        <p class="pdp-short-overview">{lp.overview}</p>
 
         <!-- Multi-Material / Multi-Variant Switcher (For merged same-mold models like FS-114/115/132, FS-105/106, FS-107/112, FS-030/031, FS-094/095) -->
-        {p.variants && p.variants.length > 1 && (
+        {lp.variants && lp.variants.length > 1 && (
           <div class="variant-selector-box">
             <div class="selector-label">
-              <strong>{t('pdp.variantSelectTitle')} ({p.variants.length}):</strong>
+              <strong>{t('pdp.variantSelectTitle')} ({lp.variants.length}):</strong>
               <span>{t('pdp.variantSelectSub')}</span>
             </div>
             <div class="variant-buttons">
-              {p.variants.map((v: any, idx: number) => (
+              {lp.variants.map((v: any, idx: number) => (
                 <button
                   type="button"
                   class:list={['variant-btn', { active: idx === 0 }]}
                   data-sku={v.sku}
-                  data-material={v.materialEn}
+                  data-material={v.materialLocalized}
                   data-weight={v.weight}
                   data-t50={v.tier50}
                   data-t200={v.tier200}
                   data-t500={v.tier500}
                   data-rmb={v.rmb}
                 >
-                  <span class="v-sku">{v.sku} · {v.materialEn.split('(')[0].trim()}</span>
+                  <span class="v-sku">{v.sku} · {v.materialLocalized.split('(')[0].trim()}</span>
                   <span class="v-price">${v.tier500} – ${v.tier50} ({v.weight})</span>
                 </button>
               ))}
@@ -314,13 +316,13 @@ const breadcrumbSchema = {
   <section class="section section-light pdp-stage-2">
     <div class="container">
       <GeoDirectAnswer
-        title={`${p.skuDisplay} ${p.title} — ${t('pdp.specsTitle')}`}
-        answer={p.overview}
+        title={`${p.skuDisplay} ${lp.title} — ${t('pdp.specsTitle')}`}
+        answer={lp.overview}
         metrics={[
           { label: 'SKU', value: p.skuDisplay },
-          { label: t('card.material').replace(':', ''), value: p.material.split('/')[0].trim() },
+          { label: t('card.material').replace(':', ''), value: lp.material.split('/')[0].trim() },
           { label: `${t('pdp.dimensions')} / ${t('pdp.netWeight')}`, value: `${p.size} / ${p.weight}` },
-          { label: t('card.magnets').replace(':', ''), value: p.magnetsEn.slice(0, 36) }
+          { label: t('card.magnets').replace(':', ''), value: lp.magnets.slice(0, 36) }
         ]}
       />
 
@@ -339,23 +341,17 @@ const breadcrumbSchema = {
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(p.specs).map(([key, val]) => (
+                {lp.specs.map(([key, val]) => (
                   <tr>
                     <td><strong>{key}</strong></td>
                     <td>{val}</td>
                   </tr>
                 ))}
-                {p.notesZh && (
-                  <tr>
-                    <td><strong>Factory Production Note</strong></td>
-                    <td>{p.notesZh}</td>
-                  </tr>
-                )}
               </tbody>
             </table>
           </div>
 
-          {p.variants && p.variants.length > 1 && (
+          {lp.variants && lp.variants.length > 1 && (
             <div style="margin-top: 2rem;">
               <h3 style="margin-bottom: 0.75rem; font-size: 1.15rem;">{t('pdp.variantMatrixTitle')}</h3>
               <div class="geo-table-wrap">
@@ -372,10 +368,10 @@ const breadcrumbSchema = {
                     </tr>
                   </thead>
                   <tbody>
-                    {p.variants.map((v: any) => (
+                    {lp.variants.map((v: any) => (
                       <tr>
                         <td><strong>{v.sku}</strong></td>
-                        <td>{v.materialEn}</td>
+                        <td>{v.materialLocalized}</td>
                         <td>{v.size}</td>
                         <td>{v.weight}</td>
                         <td>${v.tier50}</td>
@@ -394,7 +390,7 @@ const breadcrumbSchema = {
           <h2 class="stage-heading">{t('pdp.highlightsTitle')}</h2>
           <p class="stage-sub">{t('pdp.highlightsSub')}</p>
           <div class="feature-cards">
-            {p.features.map((feat: string) => (
+            {lp.features.map((feat: string) => (
               <div class="feat-card">
                 <span class="feat-check">✓</span>
                 <p>{feat}</p>
@@ -418,6 +414,9 @@ const breadcrumbSchema = {
           </div>
         </div>
       </div>
+
+      <!-- Localized Product Technical Deep-Dive & Customization Article Section -->
+      <div class="pdp-editorial-card clean-editorial-content" set:html={lp.editorialHtml} />
     </div>
   </section>
 
@@ -429,7 +428,7 @@ const breadcrumbSchema = {
         <h2 class="section-title">{t('pdp.faqTitle')} — {p.skuDisplay}</h2>
       </div>
       <div class="faq-list">
-        {p.faqs.map((faq: any, idx: number) => (
+        {lp.faqs.map((faq: any, idx: number) => (
           <div class:list={['accordion-item', { active: idx === 0 }]}>
             <button type="button" class="accordion-header">
               <span>{faq.question}</span>
@@ -941,6 +940,42 @@ const breadcrumbSchema = {
   }
   .decl-links a {
     color: #fbbf24;
+  }
+  .pdp-editorial-card {
+    margin-top: 2.75rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 2.25rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .pdp-editorial-card :global(h2) {
+    font-size: 1.45rem;
+    color: #0f172a;
+    margin-bottom: 0.85rem;
+  }
+  .pdp-editorial-card :global(h3) {
+    font-size: 1.12rem;
+    color: #0f172a;
+    margin: 1.5rem 0 0.65rem;
+  }
+  .pdp-editorial-card :global(p),
+  .pdp-editorial-card :global(li) {
+    font-size: 0.94rem;
+    color: #334155;
+    line-height: 1.7;
+  }
+  .pdp-editorial-card :global(ul) {
+    padding-left: 1.25rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  @media (max-width: 640px) {
+    .pdp-editorial-card {
+      padding: 1.35rem 1.15rem;
+    }
   }
   @media (max-width: 960px) {
     .pdp-hero-grid,

@@ -5,6 +5,8 @@ import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { COLLECTIONS, type CollectionMeta } from '../../data/collections';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+import { localizeTitle, localizeMaterial, localizeHardwareOrMagnets } from '../../i18n/productLocalization';
+import { localizeCollectionContent } from '../../i18n/insightAndCollectionLocalization';
 
 export async function getStaticPaths() {
   const allProducts = await getCollection('products');
@@ -34,6 +36,7 @@ interface Props {
 const { collection, products } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const locCol = localizeCollectionContent(collection, currentLang);
 
 const itemListSchema = {
   '@context': 'https://schema.org',
@@ -86,7 +89,7 @@ const faqSchema = {
       </div>
 
       <h1>{t(`col.${collection.slug}.name` as any)}</h1>
-      <p class="hero-sub">{collection.heroSubtitle}</p>
+      <p class="hero-sub">{locCol.heroSubtitle}</p>
 
       <div class="collection-stats">
         <div class="stat-pill">
@@ -112,12 +115,12 @@ const faqSchema = {
   <div class="container">
     <GeoDirectAnswer
       title={`${t(`col.${collection.slug}.short` as any)} — ${t('geo.defaultTitle')}`}
-      answer={collection.geoDirectAnswer}
+      answer={locCol.geoDirectAnswer}
     />
 
     <!-- Engineering Highlights Bar -->
     <div class="highlights-box">
-      {collection.engineeringHighlights.map((h) => (
+      {locCol.engineeringHighlights.map((h) => (
         <div class="highlight-item">
           <span class="check-icon">✓</span>
           <p>{h}</p>
@@ -166,10 +169,10 @@ const faqSchema = {
             {products.map((p) => (
               <tr>
                 <td><a href={getLocalizedPath(`/products/${p.data.slug}`, currentLang)}><strong>{p.data.skuDisplay}</strong></a></td>
-                <td><a href={getLocalizedPath(`/products/${p.data.slug}`, currentLang)}>{p.data.title}</a></td>
-                <td>{p.data.material.split('/')[0].trim()}</td>
+                <td><a href={getLocalizedPath(`/products/${p.data.slug}`, currentLang)}>{localizeTitle(p.data.title, currentLang)}</a></td>
+                <td>{localizeMaterial(p.data.material.split('/')[0].trim(), currentLang)}</td>
                 <td>{p.data.size} · {p.data.weight}</td>
-                <td>{p.data.magnetsEn}</td>
+                <td>{localizeHardwareOrMagnets(p.data.magnetsEn, currentLang)}</td>
                 <td>{p.data.logoReady ? '✅' : 'EVA'}</td>
                 <td><strong>${p.data.tier500}</strong></td>
               </tr>

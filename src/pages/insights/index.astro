@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
@@ -89,24 +90,27 @@ const faqSchema = {
 
     <section class="section">
       <div class="grid-3">
-        {guides.map((g) => (
-          <article class="guide-card">
-            <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)} class="guide-img-link">
-              <img src={g.data.featuredImage} alt={g.data.title} width="400" height="300" />
-            </a>
-            <div class="guide-body">
-              <div class="guide-meta">
-                <span class="guide-cat">{g.data.category}</span>
-                <span>{g.data.readTime}</span>
+        {guides.map((g) => {
+          const lm = localizeInsightMeta(g.data, currentLang);
+          return (
+            <article class="guide-card">
+              <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)} class="guide-img-link">
+                <img src={g.data.featuredImage} alt={lm.title} width="400" height="300" />
+              </a>
+              <div class="guide-body">
+                <div class="guide-meta">
+                  <span class="guide-cat">{lm.category}</span>
+                  <span>{g.data.readTime}</span>
+                </div>
+                <h2>
+                  <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)}>{lm.title}</a>
+                </h2>
+                <p>{lm.summary}</p>
+                <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)} class="guide-cta">{t('guides.readCta')}</a>
               </div>
-              <h2>
-                <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)}>{g.data.title}</a>
-              </h2>
-              <p>{g.data.summary}</p>
-              <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)} class="guide-cta">{t('guides.readCta')}</a>
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </section>
 

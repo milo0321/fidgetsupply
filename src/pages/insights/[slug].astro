@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+import { localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
 
 export async function getStaticPaths() {
   const guides = await getCollection('insights');
@@ -23,6 +24,7 @@ export async function getStaticPaths() {
 const { guide, relatedProducts, relatedGuides = [] } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const locGuideMeta = localizeInsightMeta(guide.data, currentLang);
 await render(guide);
 const rawGuideHtml = guide.rendered?.html || guide.body || '';
 const localizedGuideHtml =
@@ -356,8 +358,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title={guide.data.metaTitle}
-  description={guide.data.metaDescription}
+  title={currentLang === 'en' ? guide.data.metaTitle : `${locGuideMeta.title} | FidgetSupply`}
+  description={currentLang === 'en' ? guide.data.metaDescription : locGuideMeta.summary}
   ogImage={guide.data.featuredImage}
   activePage="insights"
   jsonLd={[articleSchema, breadcrumbSchema, faqSchema]}
@@ -366,11 +368,11 @@ const faqSchema = {
     <header class="guide-hero">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a> / <a href={getLocalizedPath('/insights', currentLang)}>{t('breadcrumb.guides')}</a> / <span>{guide.data.category}</span>
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a> / <a href={getLocalizedPath('/insights', currentLang)}>{t('breadcrumb.guides')}</a> / <span>{locGuideMeta.category}</span>
         </nav>
-        <span class="badge badge-dark">{guide.data.category} · {dynamicReadTime}</span>
-        <h1>{guide.data.title}</h1>
-        <p class="guide-lead">{guide.data.summary}</p>
+        <span class="badge badge-dark">{locGuideMeta.category} · {dynamicReadTime}</span>
+        <h1>{locGuideMeta.title}</h1>
+        <p class="guide-lead">{locGuideMeta.summary}</p>
         <div class="guide-byline">
           <span>By <strong>{guide.data.author}</strong></span>
           <span>·</span>
@@ -409,7 +411,7 @@ const faqSchema = {
         <!-- Executive Engineering Summary Callout -->
         <GeoDirectAnswer
           title={t('guide.execBriefTitle')}
-          answer={guide.data.summary}
+          answer={locGuideMeta.summary}
         />
 
         <!-- Main Editorial Content -->
@@ -433,16 +435,19 @@ const faqSchema = {
             <span class="badge">{t('guide.continueBadge')}</span>
             <h2>{t('guide.relatedGuidesTitle')}</h2>
             <div class="related-guides-grid">
-              {relatedGuides.map((rg: any) => (
-                <a href={getLocalizedPath(`/insights/${rg.data.slug}`, currentLang)} class="related-guide-card">
-                  <img src={rg.data.featuredImage} alt={rg.data.title} width="400" height="300" loading="lazy" />
-                  <div class="related-guide-body">
-                    <span class="related-guide-cat">{rg.data.category}</span>
-                    <h3>{rg.data.title}</h3>
-                    <span class="related-guide-cta">{t('guides.readCta')}</span>
-                  </div>
-                </a>
-              ))}
+              {relatedGuides.map((rg: any) => {
+                const rgLoc = localizeInsightMeta(rg.data, currentLang);
+                return (
+                  <a href={getLocalizedPath(`/insights/${rg.data.slug}`, currentLang)} class="related-guide-card">
+                    <img src={rg.data.featuredImage} alt={rgLoc.title} width="400" height="300" loading="lazy" />
+                    <div class="related-guide-body">
+                      <span class="related-guide-cat">{rgLoc.category}</span>
+                      <h3>{rgLoc.title}</h3>
+                      <span class="related-guide-cta">{t('guides.readCta')}</span>
+                    </div>
+                  </a>
+                );
+              })}
             </div>
           </section>
         )}

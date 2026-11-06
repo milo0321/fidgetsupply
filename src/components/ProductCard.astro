@@ -1,6 +1,7 @@
 ---
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
 import type { SupportedLanguage } from '../i18n/config';
+import { localizeTitle, localizeMaterial, localizeHardwareOrMagnets } from '../i18n/productLocalization';
 
 interface Props {
   product: any;
@@ -8,9 +9,12 @@ interface Props {
 }
 
 const { product, lang } = Astro.props;
-const currentLang = (lang || getLanguageFromURL(Astro.url.pathname) || 'en') as SupportedLanguage;
+const currentLang = (lang || getLanguageFromURL(Astro.url) || 'en') as SupportedLanguage;
 const t = useTranslations(currentLang);
 const p = product.data || product;
+const locTitle = localizeTitle(p.title, currentLang);
+const locMaterial = localizeMaterial(p.material.split('/')[0].trim(), currentLang);
+const locMagnets = localizeHardwareOrMagnets(p.magnetsEn, currentLang);
 const pdpUrl = getLocalizedPath(`/products/${p.slug}`, currentLang);
 const rfqUrl = getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}`, currentLang);
 ---
@@ -60,12 +64,12 @@ const rfqUrl = getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}`, cur
     </div>
 
     <h3 class="card-title">
-      <a href={pdpUrl}>{p.title}</a>
+      <a href={pdpUrl}>{locTitle}</a>
     </h3>
 
     <div class="card-specs-mini">
-      <div><strong>{t('card.material')}</strong> {p.material.split('/')[0].trim()}</div>
-      <div><strong>{t('card.magnets')}</strong> {p.magnetsEn.slice(0, 48)}{p.magnetsEn.length > 48 ? '…' : ''}</div>
+      <div><strong>{t('card.material')}</strong> {locMaterial}</div>
+      <div><strong>{t('card.magnets')}</strong> {locMagnets.slice(0, 48)}{locMagnets.length > 48 ? '…' : ''}</div>
     </div>
 
     <div class="card-price-box">
