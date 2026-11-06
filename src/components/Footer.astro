@@ -62,8 +62,41 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
   <div class="container footer-container">
     <!-- Col 1: Brand & Platform Profile -->
     <div class="footer-col brand-col">
-      <a href={getLocalizedPath('/', currentLang)} class="footer-logo">
-        <span class="footer-logo-mark">FS</span>
+      <a href={getLocalizedPath('/', currentLang)} class="footer-logo" aria-label="FidgetSupply.com Homepage">
+        <span class="footer-logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="ftrFsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0f172a" />
+                <stop offset="100%" stop-color="#1e293b" />
+              </linearGradient>
+              <linearGradient id="ftrFsCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#0284c7" />
+              </linearGradient>
+              <linearGradient id="ftrFsSteel" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f8fafc" />
+                <stop offset="100%" stop-color="#94a3b8" />
+              </linearGradient>
+              <linearGradient id="ftrFsAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fbbf24" />
+                <stop offset="100%" stop-color="#d97706" />
+              </linearGradient>
+            </defs>
+            <rect width="100" height="100" rx="22" fill="url(#ftrFsBg)" />
+            <rect x="4" y="4" width="92" height="92" rx="18" stroke="url(#ftrFsCyan)" stroke-width="2.5" stroke-opacity="0.55" />
+            <circle cx="50" cy="50" r="34" stroke="#334155" stroke-width="1.75" stroke-dasharray="6 4" />
+            <rect x="34" y="26" width="44" height="54" rx="10" fill="#1e293b" stroke="url(#ftrFsCyan)" stroke-width="3" />
+            <circle cx="66" cy="37" r="3.2" fill="url(#ftrFsCyan)" />
+            <circle cx="66" cy="53" r="3.2" fill="url(#ftrFsCyan)" />
+            <circle cx="66" cy="69" r="3.2" fill="url(#ftrFsCyan)" />
+            <rect x="22" y="20" width="44" height="54" rx="10" fill="url(#ftrFsBg)" stroke="url(#ftrFsSteel)" stroke-width="3.2" />
+            <rect x="31" y="30" width="26" height="8" rx="4" fill="url(#ftrFsCyan)" />
+            <rect x="31" y="43" width="18" height="7" rx="3.5" fill="#cbd5e1" />
+            <circle cx="35" cy="61" r="4.5" fill="url(#ftrFsAmber)" />
+            <circle cx="53" cy="61" r="3.2" fill="#64748b" />
+          </svg>
+        </span>
         <span class="logo-title">FIDGET<span>SUPPLY</span></span>
       </a>
       <p class="footer-desc">
@@ -265,15 +298,17 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     width: 34px;
     height: 34px;
     border-radius: 0.45rem;
-    background: #0f172a;
-    color: #38bdf8;
-    font-family: var(--font-heading);
-    font-weight: 900;
-    font-size: 0.92rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #0284c7;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .footer-logo-mark svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
 
   .logo-title {

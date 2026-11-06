@@ -88,7 +88,7 @@ const defaultSchemas = [
     description:
       "Your integrated sourcing & supply chain platform for China's metal EDC fidget & kinetic desk toy industry.",
     url: 'https://fidgetsupply.com',
-    logo: 'https://fidgetsupply.com/images/products/fs-001.webp',
+    logo: 'https://fidgetsupply.com/logo.svg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Fuzhou Industrial Zone',
@@ -137,6 +137,8 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
     <title>{localizedTitle}</title>
     <meta name="description" content={localizedDescription} />
     <meta name="keywords" content={keywords} />
