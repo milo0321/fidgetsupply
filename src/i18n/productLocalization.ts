@@ -1228,35 +1228,66 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
 
 export function getRelatedInsightSlugsForProduct(p: any): string[] {
   const slugs: string[] = [];
+  const titleLower = String(p.title || '').toLowerCase();
+  const magLower = String(p.magnetsEn || '').toLowerCase();
+  const accLower = String(p.accessoriesEn || '').toLowerCase();
+  const colLower = String(p.colorsEn || '').toLowerCase();
+
   if (p.tuningFork) {
     slugs.push('acoustic-tuning-fork-fidget-slider-engineering-trend');
   }
+  if (/poker|ace|king|joker|spade|card|mahjong|casino|dice/i.test(titleLower)) {
+    slugs.push('poker-card-mahjong-tile-casino-metal-magnetic-fidget-sliders-guide');
+  }
+  if (/3-layer|triple|48|56|24-magnet|20-magnet/i.test(titleLower + ' ' + magLower)) {
+    slugs.push('triple-layer-stacked-high-density-48-56-magnet-fidget-sliders');
+  }
+  if (/opener|keychain|carabiner|luminous|glow|tritium/i.test(titleLower + ' ' + accLower)) {
+    slugs.push('multi-function-bottle-opener-keychain-luminous-tritium-edc-fidgets');
+  }
+  if (/mecha|armor|skull|cross|dragon|sword|biscuit|toast|corgi|cheese|owl|pirate|shield|relief/i.test(titleLower)) {
+    slugs.push('3d-mecha-armor-gothic-skull-relief-sculpted-metal-edc-fidget-guide');
+  }
+  if (/roller|gyro|ring|top|pei/i.test(titleLower)) {
+    slugs.push('quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide');
+  }
+
   switch (p.primaryCollection) {
     case 'magnetic-fidget-sliders':
+      slugs.push('unlimited-free-floating-ptfe-vs-mechanical-track-fidget-sliders');
       slugs.push('n35-vs-n52-neodymium-magnet-haptic-feel-guide');
       break;
     case 'metal-fidget-spinners-gyros':
       slugs.push('r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide');
+      slugs.push('ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide');
       break;
     case 'mechanical-edc-fidgets':
       slugs.push('multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide');
+      slugs.push('ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide');
       break;
     case 'haptic-fidget-coins':
     case 'edc-gourds-hand-pieces':
     case 'magnetic-fidget-rings':
       slugs.push('haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide');
+      slugs.push('quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide');
       break;
     default:
       slugs.push('n35-vs-n52-neodymium-magnet-haptic-feel-guide');
   }
+
   if (p.cncExotic) {
     slugs.push('zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost');
-  } else {
+  } else if (p.logoReady) {
+    slugs.push('corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide');
     slugs.push('fiber-laser-engraving-vs-uv-printing-metal-fidget-logos');
+  } else if (/pvd|stonewash|antique|anodiz|bronze/i.test(colLower)) {
+    slugs.push('pvd-coating-hard-anodizing-stonewash-antique-metal-fidget-finishes');
   }
+
   slugs.push('custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide');
+  slugs.push('international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide');
   slugs.push('us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance');
-  return Array.from(new Set(slugs)).slice(0, 4);
+  return Array.from(new Set(slugs)).slice(0, 5);
 }
 
 const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
@@ -1269,7 +1300,17 @@ const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
   'r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide': 'R188 Bearing Physics & Multi-Axis Desktop Gyro Spinners: Wholesale Engineering Guide',
   'multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide': 'Multi-Action Mechanical EDC Fidgets: Spring Ratchets, Bolt-Action & Planetary Gears',
   'haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide': 'Haptic Fidget Coins, Baoding EDC Gourds & Magnetic Spinner Rings: Ergonomics Guide',
-  'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide': 'Custom EVA Zipper Cases, Windowed Tin Boxes & Collector Gift Packaging Guide'
+  'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide': 'Custom EVA Zipper Cases, Windowed Tin Boxes & Collector Gift Packaging Guide',
+  'unlimited-free-floating-ptfe-vs-mechanical-track-fidget-sliders': 'Unlimited Free-Floating PTFE Magnetic Sliders vs. Captive Mechanical Track Sliders',
+  'quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide': 'Quiet Office & Executive Desk Fidget Toys: Decibel (dBA) Acoustic Ratings Guide',
+  'triple-layer-stacked-high-density-48-56-magnet-fidget-sliders': '3-Layer Stacked & High-Density 48/56-Magnet Fidget Sliders: Haptic Matrix Engineering',
+  'pvd-coating-hard-anodizing-stonewash-antique-metal-fidget-finishes': 'PVD Coating, Type-III Hard Anodizing, Stonewash & Antique Patina Finishing Guide',
+  'corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide': 'Corporate Executive Gifts, Tech Trade Show VIP Swag & Client Onboarding Fidget Guide',
+  'poker-card-mahjong-tile-casino-metal-magnetic-fidget-sliders-guide': 'Poker Card, Mahjong Tile & Casino Metal Magnetic Fidget Sliders: Enamel & Retail Guide',
+  'multi-function-bottle-opener-keychain-luminous-tritium-edc-fidgets': 'Multi-Function 2-in-1 Bottle Opener, Keychain & Luminous Night-Glow Metal EDC Fidgets',
+  '3d-mecha-armor-gothic-skull-relief-sculpted-metal-edc-fidget-guide': '3D Mecha Armor, Gothic Skull, Mythic Dragon & Pop-Art Relief Sculpted EDC Fidgets',
+  'ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide': 'PTFE Teflon Friction Tape, Si3N4 Ceramic Beads & R188 Bearing Maintenance Guide',
+  'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide': 'International DDP Shipping, HS Codes (9503.00) & IATA PI-953 Magnetic Air Freight Guide'
 };
 
 function buildLocalizedEditorialHtml(

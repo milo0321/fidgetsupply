@@ -814,6 +814,746 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       title: 'حافظات EVA بسحاب مخصصة وعلب معدنية بنافذة وصناديق هدايا فاخرة لأدوات الفيدجت المعدنية بالجملة',
       summary: 'دليل هندسة التغليف بالجملة: حشوات إسفنج EVA عالي الكثافة، حافظات صلبة بسحاب، علب صفيح غير لامعة، ملصقات Amazon FNSKU، والعزل المغناطيسي للشحن الجوي IATA PI-953.'
     }
+  },
+  'unlimited-free-floating-ptfe-vs-mechanical-track-fidget-sliders': {
+    en: {
+      title: 'Unlimited Free-Floating PTFE Magnetic Sliders vs. Captive Mechanical Track Sliders: Kinematics & Retail Return Guide',
+      summary: 'A technical comparison of 360-degree free-floating PTFE magnetic sliders versus captive mechanical rail and ball-detent track sliders across 60+ factory molds, customer return rates, and audience fit.'
+    },
+    de: {
+      title: 'Freischwebende Unlimited-PTFE-Magnetslider vs. Mechanische Track-Slider: Kinematik & Retouren-Leitfaden',
+      summary: 'Technischer Vergleich zwischen 360-Grad-Unlimited-PTFE-Magnetslidern und geführten mechanischen Schienen-Slidern über 60+ Werksformen, Amazon-Retourenquoten und Zielgruppen.'
+    },
+    fr: {
+      title: 'Sliders Magnétiques Libres (Unlimited PTFE) vs Sliders à Rail Mécanique Captif : Cinématique & Guide Retail',
+      summary: 'Comparaison technique entre les sliders magnétiques libres 360° sur plaques PTFE et les sliders à rail mécanique captif sur plus de 60 moules, taux de retour et profils d’acheteurs.'
+    },
+    nl: {
+      title: 'Unlimited Vrijzwevende PTFE-magneetsliders vs. Mechanische Track-sliders: Kinematica & Retourgids',
+      summary: 'Technische vergelijking tussen 360° vrijzwevende PTFE-magneetsliders en mechanische rail-sliders over 60+ fabrieksmallen, retourpercentages en doelgroepen.'
+    },
+    es: {
+      title: 'Sliders Magnéticos Libres (Unlimited PTFE) vs. Sliders con Riel Mecánico Cautivo: Cinemática y Guía Retail',
+      summary: 'Comparativa técnica entre sliders magnéticos libres de 360° con placas PTFE y sliders con riel mecánico cautivo en más de 60 moldes, tasas de devolución y perfiles de usuario.'
+    },
+    it: {
+      title: 'Slider Magnetici Liberi (Unlimited PTFE) vs. Slider a Binario Meccanico Vincolato: Cinematica e Guida Retail',
+      summary: 'Confronto tecnico tra slider magnetici liberi a 360° su piastre in PTFE e slider a binario meccanico vincolato su oltre 60 stampi, tassi di reso e target clienti.'
+    },
+    pt: {
+      title: 'Sliders Magnéticos Livres (Unlimited PTFE) vs. Sliders de Calha Mecânica Cativa: Cinemática e Guia Retail',
+      summary: 'Comparação técnica entre sliders magnéticos livres de 360° com placas PTFE e sliders de calha mecânica cativa em mais de 60 moldes, taxas de devolução e público-alvo.'
+    },
+    sv: {
+      title: 'Frisvävande Unlimited PTFE-magnetsliders vs. Mekaniska Spårsliders: Kinematik & Returguide',
+      summary: 'Teknisk jämförelse mellan 360° frisvävande PTFE-magnetsliders och mekaniska spårsliders över 60+ fabriksformar, returfrekvens och målgruppspassning.'
+    },
+    da: {
+      title: 'Fritliggende Unlimited PTFE-magnetslidere vs. Mekaniske Sporslidere: Kinematik & Returguide',
+      summary: 'Teknisk sammenligning af 360° fritliggende PTFE-magnetslidere og mekaniske sporslidere på tværs af 60+ fabriksforme, returprocenter og målgrupper.'
+    },
+    no: {
+      title: 'Frittliggende Unlimited PTFE-magnetslidere vs. Mekaniske Sporslidere: Kinematikk & Returguide',
+      summary: 'Teknisk sammenligning mellom 360° frittliggende PTFE-magnetslidere og mekaniske sporslidere over 60+ fabrikkformer, returandeler og målgrupper.'
+    },
+    fi: {
+      title: 'Vapaasti Liukuvat Unlimited PTFE -Magneettisliderit vs. Mekaaniset Kiskosliderit: Kinematiikka & Palautusopas',
+      summary: 'Tekninen vertailu 360° vapaasti liukuvien PTFE-magneettislidereiden ja mekaanisten kiskoslidereiden välillä yli 60 tehdasmuotissa.'
+    },
+    pl: {
+      title: 'Swobodne Slidery Magnetyczne Unlimited PTFE vs. Slidery z Prowadnicą Mechaniczną: Kinematyka i Przewodnik',
+      summary: 'Porównanie techniczne swobodnych sliderów magnetycznych 360° na płytkach PTFE oraz sliderów z prowadnicą mechaniczną w ponad 60 formach fabrycznych.'
+    },
+    cs: {
+      title: 'Volně Plovoucí Magnetické Slidery Unlimited PTFE vs. Mechanické Kolejnicové Slidery: Kinematika a Průvodce',
+      summary: 'Technické srovnání 360° volně plovoucích PTFE magnetických sliderů a mechanických kolejnicových sliderů u 60+ výrobních forem.'
+    },
+    ru: {
+      title: 'Свободные Магнитные Слайдеры Unlimited PTFE против Механических Рельсовых Слайдеров: Кинематика и Гид',
+      summary: 'Техническое сравнение свободных 360° магнитных слайдеров на пластинах PTFE и механических трековых слайдеров на примере 60+ пресс-форм.'
+    },
+    ja: {
+      title: 'アンリミテッド自由摺動PTFE磁気スライダー vs 機械式トラックスライダー：キネマティクス＆返品率比較ガイド',
+      summary: '360度自由回転が可能なPTFEプレート式アンリミテッド磁気スライダーと、脱落しない機械式レール・ボールデテントスライダー60種以上を徹底比較。'
+    },
+    ko: {
+      title: '언리미티드 프리플로팅 PTFE 마그네틱 슬라이더 vs 기계식 트랙 슬라이더: 키네마틱스 및 소매 가이드',
+      summary: '360도 자유 회전 PTFE 마그네틱 슬라이더와 이탈 방지 기계식 트랙 슬라이더 60종 이상의 구조, 반품률 및 타겟 고객층 비교 분석.'
+    },
+    id: {
+      title: 'Slider Magnetik Bebas (Unlimited PTFE) vs Slider Jalur Mekanis Tertahan: Panduan Kinematika & Ritel',
+      summary: 'Perbandingan teknis antara slider magnetik bebas 360° berlapis PTFE dan slider rel mekanis tertahan di lebih dari 60 cetakan pabrik.'
+    },
+    ar: {
+      title: 'منزلقات المغناطيس الحرة (Unlimited PTFE) مقابل المنزلقات ذات المسار الميكانيكي: دليل الحركة والمبيعات',
+      summary: 'مقارنة هندسية بين منزلقات المغناطيس الحرة بزاوية 360 درجة على ألواح PTFE والمنزلقات ذات السكك الميكانيكية عبر أكثر من 60 قالباً.'
+    }
+  },
+  'quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide': {
+    en: {
+      title: 'Quiet Office & Executive Desk Fidget Toys: Decibel (dBA) Acoustic Ratings & Silent ADHD Focus Guide',
+      summary: 'An acoustic engineering and decibel-tested guide (<35 dBA to 45 dBA) to silent metal knuckle rollers, R188 desktop gimbal gyros, 16-magnet spinner rings, and PTFE-cushioned sliders for offices and video calls.'
+    },
+    de: {
+      title: 'Leise Büro- & Executive-Schreibtisch-Fidgets: Dezibel-Messwerte (dBA) & Lautloser Fokus-Leitfaden',
+      summary: 'Akustischer Leitfaden (<35 dBA bis 45 dBA) für lautlose Edelstahl-Knuckle-Roller, R188-Tischkreisel, 16-Magnet-Spinner-Ringe und PTFE-gedämpfte Slider im Büro.'
+    },
+    fr: {
+      title: 'Fidgets Silencieux pour Bureau & Cadres : Mesures Décibels (dBA) & Guide de Concentration Sans Bruit',
+      summary: 'Guide acoustique (<35 dBA à 45 dBA) des rouleaux d’articulation en inox, gyroscopes de bureau R188, bagues à 16 aimants et sliders amortis au PTFE pour réunions et bureaux.'
+    },
+    nl: {
+      title: 'Stille Kantoor- & Executive Bureau-fidgets: Decibel (dBA) Akoestische Gids & Geruisloze Focus',
+      summary: 'Akoestisch geteste gids (<35 dBA tot 45 dBA) voor geruisloze RVS knuckle rollers, R188 bureautollen, 16-magneet spinner-ringen en PTFE-gedempte sliders.'
+    },
+    es: {
+      title: 'Fidgets Silenciosos para Oficina y Escritorio Ejecutivo: Guía Acústica de Decibelios (dBA) y Enfoque',
+      summary: 'Guía acústica probada en decibelios (<35 dBA a 45 dBA) de rodillos de nudillos, giroscopios de escritorio R188, anillos magnéticos y sliders amortiguados con PTFE.'
+    },
+    it: {
+      title: 'Fidget Silenziosi da Ufficio e Scrivania Direzionale: Classificazione Decibel (dBA) e Guida Focus',
+      summary: 'Guida acustica testata in decibel (<35 dBA a 45 dBA) per knuckle roller in acciaio, giroscopi da scrivania R188, anelli a 16 magneti e slider ammortizzati in PTFE.'
+    },
+    pt: {
+      title: 'Fidgets Silenciosos para Escritório e Executivos: Classificação em Decibéis (dBA) e Guia de Foco',
+      summary: 'Guia acústico testado em decibéis (<35 dBA a 45 dBA) para knuckle rollers em inox, giroscópios de mesa R188, anéis de 16 ímanes e sliders amortecidos com PTFE.'
+    },
+    sv: {
+      title: 'Tysta Kontors- & Executive-fidgets: Decibelmätningar (dBA) & Guide för Ljudlös Fokus',
+      summary: 'Akustisk guide (<35 dBA till 45 dBA) till ljudlösa knuckle rollers i rostfritt stål, R188-bordssnurror, 16-magnets ringar och PTFE-dämpade sliders.'
+    },
+    da: {
+      title: 'Støjsvage Kontor- & Executive-fidgets: Decibelmålinger (dBA) & Guide til Lydløs Fokus',
+      summary: 'Akustisk guide (<35 dBA til 45 dBA) til lydløse knuckle rollers i rustfrit stål, R188-bordgyroer, 16-magnets ringe og PTFE-dæmpede slidere.'
+    },
+    no: {
+      title: 'Stille Kontor- & Executive-fidgets: Desibelmålinger (dBA) & Guide for Lydløs Fokus',
+      summary: 'Akustisk guide (<35 dBA til 45 dBA) for lydløse knuckle rollers i rustfritt stål, R188-bordgyroer, 16-magnets ringer og PTFE-dempede slidere.'
+    },
+    fi: {
+      title: 'Hiljaiset Toimisto- & Johtajatason Pöytäfidgetit: Desibelimittaukset (dBA) & Äänetön Keskittymisopas',
+      summary: 'Akustinen opas (<35 dBA – 45 dBA) äänettömiin rystysrulliin, R188-pöytägyroihin, 16-magneettisiin sormuksiin ja PTFE-vaimennettuihin slidereihin.'
+    },
+    pl: {
+      title: 'Ciche Fidgety Biurowe i Gabinetowe: Pomiary Decybeli (dBA) oraz Przewodnik Skupienia Bez Hałasu',
+      summary: 'Przewodnik akustyczny (<35 dBA do 45 dBA) po bezgłośnych rollerach ze stali 304, żyroskopach biurkowych R188, pierścieniach 16-magnesowych i wyciszonych sliderach PTFE.'
+    },
+    cs: {
+      title: 'Tiché Kancelářské a Manažerské Stolní Fidgety: Měření Hlučnosti (dBA) a Průvodce Soustředěním',
+      summary: 'Akustický průvodce (<35 dBA až 45 dBA) bezhlučnými ocelovými rollery, stolními gyroskopy R188, 16magnetovými prsteny a PTFE tlumenými slidery.'
+    },
+    ru: {
+      title: 'Бесшумные Офисные и Настольные Фиджеты для Руководителей: Замеры Децибел (dBA) и Гид по Концентрации',
+      summary: 'Акустический гид (<35 дБА – 45 дБА) по бесшумным стальным роллерам, настольным гироскопам R188, магнитным кольцам и слайдерам с демпферами PTFE.'
+    },
+    ja: {
+      title: '静音オフィス＆エグゼクティブデスク用金属フィジェット：デシベル（dBA）騒音測定＆集中ガイド',
+      summary: '35dBA未満〜45dBAの静音設計。リモート会議やオフィスで使えるステンレスナックルローラー、R188卓上ジャイロ、16磁石リング、PTFE静音スライダーを解説。'
+    },
+    ko: {
+      title: '저소음 오피스 & 임원용 데스크 금속 피젯 토이: 데시벨(dBA) 소음 측정 및 집중 가이드',
+      summary: '35dBA 미만~45dBA 정밀 소음 테스트 완료. 화상회의와 사무실에 최적화된 너클 롤러, R188 데스크탑 자이로, 16자석 스핀 링 및 PTFE 완충 슬라이더 가이드.'
+    },
+    id: {
+      title: 'Fidget Meja Eksekutif & Kantor Senyap: Peringkat Akustik Desibel (dBA) & Panduan Fokus Tanpa Suara',
+      summary: 'Panduan akustik teruji desibel (<35 dBA hingga 45 dBA) untuk knuckle roller baja nirkarat, giroskop meja R188, cincin magnet 16-kutub, dan slider berlapis PTFE.'
+    },
+    ar: {
+      title: 'أدوات الفيدجت الهادئة للمكاتب والتنفيذيين: قياسات الديسيبل الصوتية (dBA) ودليل التركيز الصامت',
+      summary: 'دليل هندسي صوتي (<35 إلى 45 ديسيبل) لبكرات الأصابع الصامتة والجيروسكوبات المكتبية R188 والخواتم المغناطيسية ومنزلقات PTFE الهادئة.'
+    }
+  },
+  'triple-layer-stacked-high-density-48-56-magnet-fidget-sliders': {
+    en: {
+      title: '3-Layer Stacked & High-Density 48/56-Magnet Fidget Sliders: Multi-Stage Haptic Matrix Engineering',
+      summary: 'Deep mechanical and magnetostatic breakdown of triple-layer sandwich sliders and ultra-dense 48-magnet to 56-magnet micro-pitch arrays across our flagship collector molds.'
+    },
+    de: {
+      title: '3-Lagen-Stacked & High-Density 48/56-Magnet-Fidget-Slider: Mehrstufige Haptik-Matrix-Technik',
+      summary: 'Mechanische und magnetostatische Analyse dreilagiger Sandwich-Slider und hochdichter 48- bis 56-Magnet-Arrays für anspruchsvolle EDC-Sammler.'
+    },
+    fr: {
+      title: 'Sliders Magnétiques Empilés 3 Couches & Haute Densité 48/56 Aimants : Ingénierie Matrice Haptique',
+      summary: 'Analyse mécanique et magnétostatique des sliders sandwich à 3 couches et des matrices haute densité de 48 à 56 micro-aimants.'
+    },
+    nl: {
+      title: '3-Laags Gestapelde & High-Density 48/56-Magneet Fidget Sliders: Meertraps Haptische Engineering',
+      summary: 'Mechanische en magnetostatische analyse van 3-laags sandwich-sliders en ultradichte 48- tot 56-magneet matrices.'
+    },
+    es: {
+      title: 'Sliders Magnéticos Apilados de 3 Capas y Alta Densidad de 48/56 Imanes: Ingeniería Háptica Multietapa',
+      summary: 'Análisis mecánico y magnetostático de sliders tipo sándwich de 3 capas y matrices ultradensas de 48 a 56 microimanes.'
+    },
+    it: {
+      title: 'Slider Magnetici Impilati a 3 Strati e Alta Densità a 48/56 Magneti: Ingegneria Aptica Multistadio',
+      summary: 'Analisi meccanica e magnetostatica degli slider sandwich a 3 strati e delle matrici ad altissima densità da 48 e 56 micro-magneti.'
+    },
+    pt: {
+      title: 'Sliders Magnéticos Empilhados de 3 Camadas e Alta Densidade de 48/56 Ímanes: Engenharia Háptica Multiestágio',
+      summary: 'Análise mecânica e magnetostática de sliders sanduíche de 3 camadas e matrizes ultradensas de 48 a 56 micro-ímanes.'
+    },
+    sv: {
+      title: '3-Lagers Staplade & Högdensitets 48/56-Magnets Fidget Sliders: Flerstegs Haptisk Teknik',
+      summary: 'Mekanisk och magnetostatisk genomgång av 3-lagers sandwich-sliders och ultratäta 48- till 56-magneters matriser.'
+    },
+    da: {
+      title: '3-Lags Stablede & Højdensitets 48/56-Magnets Fidget Slidere: Flertrins Haptisk Ingeniørkunst',
+      summary: 'Mekanisk og magnetostatisk gennemgang af 3-lags sandwich-slidere og ultratætte 48- til 56-magneters matricer.'
+    },
+    no: {
+      title: '3-Lags Stablede & Høydensitets 48/56-Magnets Fidget Slidere: Flertrinns Haptisk Ingeniørkunst',
+      summary: 'Mekanisk og magnetostatisk gjennomgang av 3-lags sandwich-slidere og ultratette 48- til 56-magneters matriser.'
+    },
+    fi: {
+      title: '3-Kerroksiset & Tiheät 48/56-Magneetin Fidget-Sliderit: Monivaiheinen Haptinen Tekniikka',
+      summary: 'Mekaaninen ja magnetostaattinen analyysi 3-kerroksisista sandwich-slidereista sekä tiheistä 48 ja 56 mikromagneetin matriiseista.'
+    },
+    pl: {
+      title: '3-Warstwowe Slidery Kaskadowe i Matryce Wysokiej Gęstości 48/56 Magnesów: Inżynieria Haptyczna',
+      summary: 'Analiza mechaniczna i magnetostatyczna 3-warstwowych sliderów kanapkowych oraz ultragęstych matryc 48 i 56 mikromagnesów.'
+    },
+    cs: {
+      title: '3vrstvé Skládané a Vysokohustotní 48/56magnetové Fidget Slidery: Vícestupňové Haptické Inženýrství',
+      summary: 'Mechanický a magnetostatický rozbor třívrstvých sendvičových sliderů a ultrahustých matic se 48 až 56 mikromagnety.'
+    },
+    ru: {
+      title: 'Трехслойные Каскадные Слайдеры и Матрицы Высокой Плотности на 48/56 Магнитов: Гаптическая Инженерия',
+      summary: 'Механический и магнитостатический разбор 3-слойных сэндвич-слайдеров и ультраплотных матриц на 48 и 56 микромагнитов.'
+    },
+    ja: {
+      title: '3層スタック構造＆48/56磁石高密度マトリクス・フィジェットスライダー：多段ハプティクス工学ガイド',
+      summary: '2段階スライドを実現する3層サンドイッチ構造スライダーと、極小ピッチで48個・56個のネオジム磁石を配列した高密度マトリクスモデルを解説。'
+    },
+    ko: {
+      title: '3단 스택 구조 & 48/56자석 고밀도 매트릭스 피젯 슬라이더: 다단 햅틱 엔지니어링 가이드',
+      summary: '2단계 캐스케이드 슬라이딩을 구현하는 3단 샌드위치 슬라이더와 48개·56개 마이크로 네오디뮴 자석을 배열한 고밀도 매트릭스 모델 완벽 분석.'
+    },
+    id: {
+      title: 'Slider Fidget 3-Lapis Bertumpuk & Kepadatan Tinggi 48/56-Magnet: Rekayasa Matriks Haptik Multi-Tahap',
+      summary: 'Analisis mekanis dan magnetostatis slider sandwich 3-lapis serta matriks mikro-pitch 48 hingga 56 magnet berkepadatan tinggi.'
+    },
+    ar: {
+      title: 'منزلقات الفيدجت ثلاثية الطبقات ومصفوفات 48/56 مغناطيساً عالية الكثافة: هندسة اللمس متعددة المراحل',
+      summary: 'تحليل ميكانيكي ومغناطيسي للمنزلقات المكدسة ذات 3 طبقات ومصفوفات المغناطيس الدقيقة ذات 48 و56 قطباً.'
+    }
+  },
+  'pvd-coating-hard-anodizing-stonewash-antique-metal-fidget-finishes': {
+    en: {
+      title: 'PVD Coating, Type-III Hard Anodizing, Stonewash & Antique Patina: Metal Fidget Surface Finishing Guide',
+      summary: 'Metallurgical comparison of Vacuum PVD Titanium Nitride, Type-II/III Aluminum Anodizing, Tumbled Acid-Stonewash, and Hand-Relieved Antique Bronze/Silver Electroplating across 140 EDC models.'
+    },
+    de: {
+      title: 'PVD-Beschichtung, Typ-III-Harteloxal, Stonewash & Antik-Patina: Oberflächen-Leitfaden für Metall-Fidgets',
+      summary: 'Metallurgischer Vergleich von Vakuum-PVD-Titannitrid, Typ-II/III-Aluminiumeloxal, Stonewash-Trowalisierung und handpolierter Antik-Bronze/Silber-Galvanik.'
+    },
+    fr: {
+      title: 'Revêtement PVD, Anodisation Dure Type-III, Stonewash & Patine Antique : Guide des Finitions Métal EDC',
+      summary: 'Comparaison métallurgique du PVD sous vide, de l’anodisation aluminium Type-II/III, du stonewash au tonneau et du placage bronze/argent antique brossé à la main.'
+    },
+    nl: {
+      title: 'PVD-Coating, Type-III Hard Anodiseren, Stonewash & Antieke Patina: Oppervlakte-afwerking voor Metalen Fidgets',
+      summary: 'Metallurgische vergelijking van vacuüm-PVD, Type-II/III aluminium anodisatie, getrommelde stonewash en handgepolijste antiek-brons/zilver galvanisatie.'
+    },
+    es: {
+      title: 'Recubrimiento PVD, Anodizado Duro Tipo-III, Stonewash y Pátina Antigua: Guía de Acabados en Metal EDC',
+      summary: 'Comparativa metalúrgica de PVD al vacío, anodizado de aluminio Tipo-II/III, acabado stonewash por tambor y galvanoplastia en bronce y plata antigua.'
+    },
+    it: {
+      title: 'Rivestimento PVD, Anodizzazione Dura Tipo-III, Stonewash e Patina Antica: Guida alle Finiture Metallo EDC',
+      summary: 'Confronto metallurgico tra PVD sottovuoto, anodizzazione alluminio Tipo-II/III, burattatura stonewash e galvanica in bronzo/argento antico rifinita a mano.'
+    },
+    pt: {
+      title: 'Revestimento PVD, Anodização Dura Tipo-III, Stonewash e Pátina Antiga: Guia de Acabamentos em Metal EDC',
+      summary: 'Comparação metalúrgica de PVD a vácuo, anodização de alumínio Tipo-II/III, acabamento stonewash e galvanoplastia em bronze/prata antiga.'
+    },
+    sv: {
+      title: 'PVD-Beläggning, Typ-III Hårdanodisering, Stonewash & Antik Patina: Guide till Ytbehandling för Metallfidgets',
+      summary: 'Metallurgisk jämförelse av vakuum-PVD, Typ-II/III aluminiumanodisering, trumlad stonewash och handpolerad antik brons/silver-plätering.'
+    },
+    da: {
+      title: 'PVD-Belægning, Type-III Hårdanodisering, Stonewash & Antik Patina: Guide til Overfladebehandling af Metalfidgets',
+      summary: 'Metallurgisk sammenligning af vakuum-PVD, Type-II/III aluminiumanodisering, tromlet stonewash og håndpoleret antik bronze/sølv-belægning.'
+    },
+    no: {
+      title: 'PVD-Belegg, Type-III Hardanodisering, Stonewash & Antikk Patina: Guide til Overflatebehandling av Metallfidgets',
+      summary: 'Metallurgisk sammenligning av vakuum-PVD, Type-II/III aluminiumanodisering, tromlet stonewash og håndpolert antikk bronse/sølv-plettering.'
+    },
+    fi: {
+      title: 'PVD-Pinnoitus, Tyypin III Kova-anodisointi, Stonewash & Antiikkipatina: Metallifidgetien Pintakäsittelyopas',
+      summary: 'Metallurginen vertailu tyhjiö-PVD-pinnoituksesta, alumiinin anodisoinnista, rumpukäsitellystä stonewash-pinnasta ja antiikkipronssi/hopeagalvanoinnista.'
+    },
+    pl: {
+      title: 'Powłoka PVD, Twarde Anodowanie Typu III, Stonewash i Antyczna Patyna: Przewodnik Wykończeń Powierzchni EDC',
+      summary: 'Porównanie metalurgiczne próżniowego PVD, anodowania aluminium Typu II/III, bębnowanego wykończenia stonewash oraz antycznego brązu i srebra.'
+    },
+    cs: {
+      title: 'Povlak PVD, Tvrdé Eloxování Typu III, Stonewash a Antická Patina: Průvodce Povrchovými Úpravami Kovových Fidgetů',
+      summary: 'Metalurgické srovnání vakuového PVD, eloxování hliníku typu II/III, omílaného stonewash povrchu a ručně kartáčovaného antického bronzu/stříbra.'
+    },
+    ru: {
+      title: 'PVD-Покрытие, Твердое Анодирование Типа III, Стоунвош и Античная Патина: Гид по Финишной Обработке EDC',
+      summary: 'Металлургическое сравнение вакуумного PVD, анодирования алюминия, галтовки стоунвош и ручного античного бронзового/серебряного гальванопокрытия.'
+    },
+    ja: {
+      title: 'PVDコーティング・硬質アルマイト・ストーンウォッシュ・アンティークメッキ：金属フィジェット表面処理ガイド',
+      summary: '真空PVDチタンコーティング、6063アルミ陽極酸化アルマイト、バレル研磨ストーンウォッシュ、アンティークブロンズ/シルバー古美仕上げの耐摩耗性とレーザー刻印適性を比較。'
+    },
+    ko: {
+      title: 'PVD 코팅, 경질 아노다이징, 스톤워시 및 앤틱 파티나: 금속 피젯 표면 마감 엔지니어링 가이드',
+      summary: '진공 PVD 티타늄 코팅, 타입-II/III 알루미늄 아노다이징, 텀블링 스톤워시 및 수공 앤틱 브론즈/실버 도금의 내식성·경도 및 레이저 각인 대비율 비교.'
+    },
+    id: {
+      title: 'Lapisan PVD, Anodisasi Keras Tipe-III, Stonewash & Patina Antik: Panduan Finishing Permukaan Fidget Logam',
+      summary: 'Perbandingan metalurgi PVD vakum, anodisasi aluminium Tipe-II/III, stonewash, dan elektroplating perunggu/perak antik di 140 model EDC.'
+    },
+    ar: {
+      title: 'طلاء PVD والأكسدة الصلبة Type-III والستون ووش والباتينا العتيقة: دليل تشطيبات أسطح الفيدجت المعدنية',
+      summary: 'مقارنة معدنية لطلاء PVD المفرغ وأكسدة الألومنيوم وتشطيب Stonewash والطلاء البرونزي والفضي العتيق عبر 140 طرازاً.'
+    }
+  },
+  'corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide': {
+    en: {
+      title: 'Corporate Executive Gifts, Tech Trade Show VIP Swag & Client Onboarding Boxes: Metal Fidget Playbook',
+      summary: 'How promotional agencies, SaaS marketing teams, and HR directors select custom-branded metal desk fidgets across 3 budget tiers ($2.50 to $45.00) with 100-piece MOQs and 8-day rush delivery.'
+    },
+    de: {
+      title: 'Executive-Firmengeschenke, Messe-VIP-Swag & Onboarding-Boxen: Der Metall-Fidget-Leitfaden',
+      summary: 'Wie Werbeagenturen, SaaS-Teams und HR-Leiter individuell gebrandete Metall-Tischfidgets in 3 Budgetstufen (2,50 $ bis 45,00 $) ab 100 Stück MOQ auswählen.'
+    },
+    fr: {
+      title: 'Cadeaux d’Entreprise Exécutifs, Goodies VIP Salons Tech & Coffrets Onboarding : Guide Fidgets Métal',
+      summary: 'Comment les agences objets pub, équipes SaaS et DRH sélectionnent des fidgets de bureau en métal personnalisés sur 3 paliers de budget dès 100 pièces.'
+    },
+    nl: {
+      title: 'Zakelijke Executive Relatiegeschenken, Beurs VIP-Swag & Onboarding Boxen: Metalen Fidget Gids',
+      summary: 'Hoe promotiebureaus, SaaS-marketeers en HR-directeuren gepersonaliseerde metalen bureaufidgets kiezen in 3 budgetklassen vanaf 100 stuks MOQ.'
+    },
+    es: {
+      title: 'Regalos Corporativos Ejecutivos, Swag VIP para Ferias Tech y Cajas de Onboarding: Guía de Fidgets de Metal',
+      summary: 'Cómo las agencias promocionales, equipos SaaS y directores de RR. HH. eligen fidgets metálicos personalizados en 3 niveles de presupuesto desde 100 unidades.'
+    },
+    it: {
+      title: 'Regali Aziendali Direzionali, VIP Swag per Fiere Tech e Welcome Box: Guida ai Fidget in Metallo',
+      summary: 'Come agenzie promozionali, team SaaS e direttori HR selezionano fidget da scrivania in metallo personalizzati su 3 fasce di budget a partire da 100 pezzi.'
+    },
+    pt: {
+      title: 'Brindes Corporativos Executivos, Swag VIP para Feiras Tech e Kits de Onboarding: Guia de Fidgets de Metal',
+      summary: 'Como agências promocionais, equipas SaaS e diretores de RH selecionam fidgets de secretária em metal personalizados em 3 escalões de orçamento desde 100 unidades.'
+    },
+    sv: {
+      title: 'Exklusiva Företagsgåvor, Mäss-VIP-Swag & Onboarding-boxar: Guiden till Metallfidgets med Eget Tryck',
+      summary: 'Hur profilföretag, SaaS-team och HR-chefer väljer skräddarsydda skrivbordsfidgets i metall i 3 budgetnivåer från 100 st MOQ.'
+    },
+    da: {
+      title: 'Eksklusive Firmagaver, Messe-VIP-Swag & Onboarding-æsker: Guiden til Metalfidgets med Logo',
+      summary: 'Hvordan reklamebureauer, SaaS-teams og HR-chefer vælger skræddersyede skrivebordsfidgets i metal i 3 budgetniveauer fra 100 stk. MOQ.'
+    },
+    no: {
+      title: 'Eksklusive Firmagaver, Messe-VIP-Swag & Onboarding-esker: Guiden til Metallfidgets med Logo',
+      summary: 'Hvordan profilbyråer, SaaS-team og HR-ledere velger skreddersydde skrivebordsfidgets i metall i 3 budsjettnivåer fra 100 stk. MOQ.'
+    },
+    fi: {
+      title: 'Johdon Liikelahjat, Messujen VIP-Swag & Perehdytyspakkaukset: Metallifidgetien Yritysopas',
+      summary: 'Kuinka mainostoimistot, SaaS-tiimit ja HR-johtajat valitsevat logolla varustetut metalliset pöytäfidgetit 3 budjettitasolla alkaen 100 kpl eristä.'
+    },
+    pl: {
+      title: 'Ekskluzywne Upominki Korporacyjne, VIP Swag na Targi Tech i Pakiety Onboardingowe: Przewodnik po Fidgetach',
+      summary: 'Jak agencje reklamowe, zespoły SaaS i działy HR dobierają metalowe fidgety biurkowe z logo w 3 progach budżetowych od 100 sztuk MOQ.'
+    },
+    cs: {
+      title: 'Manažerské Firemní Dárky, VIP Swag na Tech Veletrhy a Onboarding Boxy: Průvodce Kovovými Fidgety',
+      summary: 'Jak reklamní agentury, SaaS týmy a HR ředitelé vybírají kovové stolní fidgety s vlastním logem ve 3 rozpočtových třídách od 100 ks MOQ.'
+    },
+    ru: {
+      title: 'Корпоративные VIP-Подарки, Мерч для Техно-Выставок и Велком-Паки: Гид по Металлическим Фиджетам с Логотипом',
+      summary: 'Как рекламные агентства, SaaS-команды и HR-директора выбирают брендированные настольные фиджеты из металла в 3 бюджетах от 100 штук.'
+    },
+    ja: {
+      title: '法人エグゼクティブ記念品・展示会VIPノベルティ・入社オンボーディングギフト：金属フィジェット導入ガイド',
+      summary: '広告代理店・IT企業・人事部門向けに、予算3段階（$2.50〜$45.00）・最小100個MOQ・最短8日納期で製作できるロゴ入り金属デスクフィジェットを解説。'
+    },
+    ko: {
+      title: '기업 임원용 VIP 기프트, 테크 박람회 스웨그 및 웰컴 키트: 금속 피젯 판촉 도입 가이드',
+      summary: '판촉 에이전시, SaaS 마케팅팀 및 인사 담당자를 위한 3단계 예산별($2.50~$45.00) 100개 소량 MOQ 커스텀 로고 금속 데스크 피젯 선정 가이드.'
+    },
+    id: {
+      title: 'Hadiah Eksekutif Korporat, Swag VIP Pameran Tech & Kotak Onboarding: Panduan Fidget Logam Kustom',
+      summary: 'Cara agensi promosi, tim pemasaran SaaS, dan direktur HR memilih fidget meja logam berlogo kustom dalam 3 tingkat anggaran mulai MOQ 100 pcs.'
+    },
+    ar: {
+      title: 'هدايا الشركات التنفيذية وهدايا المعارض التقنية VIP وصناديق الترحيب بالموظفين: دليل الفيدجت المعدنية بشعارك',
+      summary: 'كيف تختار وكالات الدعاية وشركات التقنية ومديرو الموارد البشرية أدوات الفيدجت المكتبية المعدنية المخصصة عبر 3 فئات سعرية بحد أدنى 100 قطعة.'
+    }
+  },
+  'poker-card-mahjong-tile-casino-metal-magnetic-fidget-sliders-guide': {
+    en: {
+      title: 'Poker Card, Mahjong Tile & Casino Metal Magnetic Fidget Sliders: Enamel Inlay & Best-Seller Guide',
+      summary: 'Why King/Ace poker cards and Fa/Zhong Mahjong tile magnetic sliders lead global EDC retail velocity—covering recessed baked enamel craft, 1.45:1 card ergonomics, and IP-safe customization.'
+    },
+    de: {
+      title: 'Pokerkarten-, Mahjong- & Casino-Magnetslider aus Metall: Emaille-Inlay & Bestseller-Leitfaden',
+      summary: 'Warum König/Ass-Pokerkarten und Mahjong-Magnetslider den globalen EDC-Handel anführen – inklusive Einbrennemaille-Technik, Karten-Ergonomie und Logo-Branding.'
+    },
+    fr: {
+      title: 'Sliders Magnétiques Cartes de Poker, Tuiles de Mahjong & Casino en Métal : Émail Cuit & Guide Best-Sellers',
+      summary: 'Pourquoi les sliders magnétiques cartes de poker (Roi/As) et tuiles de Mahjong dominent les ventes EDC — émail cuit au four, ergonomie 1,45:1 et personnalisation.'
+    },
+    nl: {
+      title: 'Pokukaart-, Mahjong-tegel & Casino Metalen Magneetsliders: Emaille-inleg & Bestsellergids',
+      summary: 'Waarom Koning/Aas-pokerkaarten en Mahjong-magneetsliders wereldwijd de bestverkochte EDC-modellen zijn — inclusief ovengebakken emaille en maatwerk.'
+    },
+    es: {
+      title: 'Sliders Magnéticos de Cartas de Póker, Fichas de Mahjong y Casino en Metal: Esmalte al Horno y Superventas',
+      summary: 'Por qué los sliders magnéticos de cartas de póker (Rey/As) y fichas de Mahjong lideran las ventas EDC — esmalte horneado en bajorrelieve y personalización.'
+    },
+    it: {
+      title: 'Slider Magnetici Carte da Poker, Tessere Mahjong e Casinò in Metallo: Smalto a Fuoco e Guida Best-Seller',
+      summary: 'Perché gli slider magnetici carte da poker (Re/Asso) e tessere Mahjong guidano le vendite EDC globali — smalto cotto a forno, ergonomia e personalizzazione.'
+    },
+    pt: {
+      title: 'Sliders Magnéticos de Cartas de Póquer, Peças de Mahjong e Casino em Metal: Esmalte a Fogo e Guia Best-Sellers',
+      summary: 'Porque é que os sliders magnéticos de cartas de póquer (Rei/Ás) e peças de Mahjong lideram as vendas EDC — esmalte cozido em baixo-relevo e personalização.'
+    },
+    sv: {
+      title: 'Pokerkort-, Mahjongbricka- & Kasino-magnetsliders i Metall: Bränd Emalj & Bästsäljarguide',
+      summary: 'Varför Kung/Ess-pokerkort och Mahjong-magnetsliders leder den globala EDC-försäljningen — nedsänkt ugnsbränd emalj, kortergonomi och egen märkning.'
+    },
+    da: {
+      title: 'Pokerkort-, Mahjongbrik- & Kasino-magnetslidere i Metal: Brændt Emalje & Bestsellerguide',
+      summary: 'Hvorfor Konge/Es-pokerkort og Mahjong-magnetslidere topper det globale EDC-salg — forsænket ovnbrændt emalje, kortergonomi og logobranding.'
+    },
+    no: {
+      title: 'Pokerkort-, Mahjongbrikke- & Kasino-magnetslidere i Metall: Brent Emalje & Bestselgerguide',
+      summary: 'Hvorfor Konge/Ess-pokerkort og Mahjong-magnetslidere leder det globale EDC-salget — nedsenket ovnsbrent emalje, kortergonomi og logomerking.'
+    },
+    fi: {
+      title: 'Pokerikortti-, Mahjong-tiili- & Kasino-magneettisliderit Metallista: Polttoemalointi & Myyntiopas',
+      summary: 'Miksi Kuningas/Ässä-pokerikortit ja Mahjong-magneettisliderit johtavat EDC-myyntiä — upotettu polttoemali, korttiergonomia ja kustomointi.'
+    },
+    pl: {
+      title: 'Metalowe Slidery Magnetyczne Karty Pokerowe, Płytki Mahjong i Kasyno: Emalia Piecowa i Przewodnik Bestsellerów',
+      summary: 'Dlaczego slidery magnetyczne w kształcie kart pokerowych (Król/As) i płytek Mahjong prowadzą w sprzedaży EDC — wklęsła emalia piecowa i personalizacja.'
+    },
+    cs: {
+      title: 'Kovové Magnetické Slidery Pokerové Karty, Kameny Mahjong a Kasino: Vypalovaný Smalt a Průvodce Bestsellery',
+      summary: 'Proč magnetické slidery v designu pokerových karet (Král/Eso) a kamenů Mahjong vedou prodeje EDC — zapuštěný vypalovaný smalt a zakázkový branding.'
+    },
+    ru: {
+      title: 'Металлические Магнитные Слайдеры Покерные Карты, Кости Маджонга и Казино: Горячая Эмаль и Бестселлеры',
+      summary: 'Почему магнитные слайдеры в виде карт покера (Король/Туз) и плиток маджонга лидируют в продажах EDC — углубленная горячая эмаль и брендирование.'
+    },
+    ja: {
+      title: 'ポーカーカード・麻雀牌・カジノ金属磁気フィジェットスライダー：焼き付けエナメル工芸＆ベストセラーガイド',
+      summary: 'キング/エースのトランプ型や發/中の麻雀牌スライダーが世界中で圧倒的売上を誇る理由と、凹み焼き付けエナメル塗装・100個MOQカスタム刻印を解説。'
+    },
+    ko: {
+      title: '포커 카드, 마작패 및 카지노 금속 마그네틱 피젯 슬라이더: 열경화 에나멜 인레이 & 베스트셀러 가이드',
+      summary: '킹/에이스 트럼프 카드와 마작패 마그네틱 슬라이더가 글로벌 EDC 판매 1위를 기록하는 비결과 음각 열경화 에나멜 공정 및 100개 MOQ 커스텀 브랜딩 가이드.'
+    },
+    id: {
+      title: 'Slider Magnetik Logam Kartu Poker, Ubin Mahjong & Kasino: Inlay Enamel Panggang & Panduan Terlaris',
+      summary: 'Mengapa slider magnetik kartu poker (King/Ace) dan ubin Mahjong memimpin penjualan ritel EDC global — teknik enamel panggang cekung dan kustomisasi.'
+    },
+    ar: {
+      title: 'منزلقات المغناطيس المعدنية بتصميم أوراق البوكر وقطع الماهجونغ والكازينو: طلاء المينا الحراري ودليل الأكثر مبيعاً',
+      summary: 'لماذا تتصدر منزلقات أوراق البوكر (الملك/الآس) وقطع الماهجونغ مبيعات EDC عالمياً — تقنية المينا المخبوزة الغائرة والتخصيص الآمن.'
+    }
+  },
+  'multi-function-bottle-opener-keychain-luminous-tritium-edc-fidgets': {
+    en: {
+      title: 'Multi-Function 2-in-1 Bottle Opener, Keychain Carabiner & Luminous Night-Glow Metal EDC Fidgets Guide',
+      summary: 'Engineering and retail merchandising guide to functional 2-in-1 bottle opener sliders, keyring carabiner clickers, non-radioactive Strontium Aluminate glow inlays, and 1.5×6mm vial slots.'
+    },
+    de: {
+      title: 'Multifunktions-2-in-1-Flaschenöffner, Schlüsselanhänger-Karabiner & Nachtleuchtende Metall-EDC-Fidgets',
+      summary: 'Technik- und Handelsleitfaden für 2-in-1-Flaschenöffner-Slider, Karabiner-Clicker, nicht-radioaktive Strontiumaluminat-Leuchteinlagen und 1,5×6-mm-Slots.'
+    },
+    fr: {
+      title: 'Fidgets EDC Métal Multifonctions 2-en-1 : Décapsuleur, Mousqueton Porte-Clés & Inserts Luminescents Nocturnes',
+      summary: 'Guide technique et retail des sliders décapsuleurs 2-en-1, porte-clés mousquetons, inserts photoluminescents au strontium non radioactifs et rainures 1,5×6 mm.'
+    },
+    nl: {
+      title: 'Multifunctionele 2-in-1 Flessenopener, Sleutelhanger-karabijnhaak & Lichtgevende Metalen EDC-fidgets',
+      summary: 'Technische en retailgids voor functionele 2-in-1 flessenopener-sliders, karabijnhaak-clickers, niet-radioactieve strontiumaluminaat glow-inlays en 1,5×6 mm sleuven.'
+    },
+    es: {
+      title: 'Fidgets EDC de Metal Multifunción 2 en 1: Abrebotellas, Mosquetón Llavero e Insertos Luminiscentes Nocturnos',
+      summary: 'Guía de ingeniería y comercialización de sliders abrebotellas 2 en 1, llaveros mosquetón, incrustaciones fotoluminiscentes de aluminato de estroncio y ranuras de 1,5×6 mm.'
+    },
+    it: {
+      title: 'Fidget EDC in Metallo Multifunzione 2-in-1: Apribottiglie, Moschettone Portachiavi e Inserti Luminescenti Notturni',
+      summary: 'Guida tecnica e commerciale a slider apribottiglie 2-in-1, portachiavi con moschettone, inserti fotoluminescenti in alluminato di stronzio non radioattivi e slot 1,5×6 mm.'
+    },
+    pt: {
+      title: 'Fidgets EDC de Metal Multifunções 2-em-1: Abre-Garrafas, Mosquetão Porta-Chaves e Insertos Luminescentes',
+      summary: 'Guia técnico e comercial de sliders abre-garrafas 2-em-1, porta-chaves mosquetão, incrustações fotoluminescentes de aluminato de estrôncio e ranhuras de 1,5×6 mm.'
+    },
+    sv: {
+      title: 'Multifunktionella 2-i-1 Flasköppnare, Nyckelringskarbin & Självlysande Metall-EDC-fidgets: Produktguide',
+      summary: 'Teknisk och kommersiell guide till 2-i-1 flasköppnarsliders, karbinhake-clickers, icke-radioaktiva strontiumaluminat-lysinlägg och 1,5×6 mm spår.'
+    },
+    da: {
+      title: 'Multifunktionelle 2-i-1 Flaskeåbnere, Nøgleringskarabin & Selvlysende Metal-EDC-fidgets: Produktguide',
+      summary: 'Teknisk og kommerciel guide til 2-i-1 flaskeåbnerslidere, karabinhage-clickere, ikke-radioaktive strontiumaluminat-lysinlæg og 1,5×6 mm riller.'
+    },
+    no: {
+      title: 'Multifunksjonelle 2-i-1 Flaskeåpnere, Nøkkelringkarabin & Selvlysende Metall-EDC-fidgets: Produktguide',
+      summary: 'Teknisk og kommersiell guide til 2-i-1 flaskeåpnerslidere, karabinkrok-clickere, ikke-radioaktive strontiumaluminat-lysinlegg og 1,5×6 mm spor.'
+    },
+    fi: {
+      title: 'Monitoimiset 2-in-1 Pullonavaaja-, Avaimenperä- & Hohtavat Metalliset EDC-Fidgetit: Tuoteopas',
+      summary: 'Tekninen ja kaupallinen opas 2-in-1-pullonavaajaslidereihin, karabiiniavaimenperiin, säteilemättömiin strontiumaluminaatti-hohtoupotuksiin ja 1,5×6 mm uriin.'
+    },
+    pl: {
+      title: 'Wielofunkcyjne Metalowe Fidgety EDC 2-w-1: Otwieracz do Butelek, Karabinek do Kluczy i Wkładki Luminescencyjne',
+      summary: 'Przewodnik techniczny i handlowy po sliderach z otwieraczem do butelek 2-w-1, brelokach z karabinkiem oraz nieradioaktywnych wkładkach świecących w ciemności.'
+    },
+    cs: {
+      title: 'Multifunkční Kovové EDC Fidgety 2v1: Otvírák na Lahve, Karabina na Klíče a Luminiscenční Noční Vložky',
+      summary: 'Technický a obchodní průvodce slidery s otvírákem na lahve 2v1, karabinami na klíče, neradioaktivními luminiscenčními vložkami a drážkami 1,5×6 mm.'
+    },
+    ru: {
+      title: 'Многофункциональные Металлические EDC-Фиджеты 2-в-1: Открывалка для Бутылок, Карабин и Люминесцентные Вставки',
+      summary: 'Инженерный и коммерческий гид по слайдерам-открывалкам 2-в-1, брелокам с карабином, безопасным люминофорным вставкам на алюминате стронция и пазам 1,5×6 мм.'
+    },
+    ja: {
+      title: '多機能2-in-1ボトルオープナー（栓抜き）・キーチェーンカラビナ・蓄光ナイトグロー金属EDCフィジェットガイド',
+      summary: '栓抜き一体型磁気スライダー、キーリングカラビナ、非放射性ストロンチウムアルミネート高輝度蓄光インサート、1.5×6mmトリチウム管スロット設計を徹底解説。'
+    },
+    ko: {
+      title: '다기능 2-in-1 보틀 오프너, 키체인 카라비너 및 야광 루미너스 금속 EDC 피젯 완벽 가이드',
+      summary: '병따개 일체형 마그네틱 슬라이더, 키링 카라비너 클리커, 비방사성 스트론튬 알루미네이트 야광 인서트 및 1.5×6mm 바이알 슬롯 엔지니어링 가이드.'
+    },
+    id: {
+      title: 'Fidget EDC Logam Multifungsi 2-in-1: Pembuka Botol, Karabiner Gantungan Kunci & Inlay Luminous Menyala Malam',
+      summary: 'Panduan rekayasa dan ritel untuk slider pembuka botol 2-in-1, gantungan kunci karabiner, inlay fosfor Strontium Aluminat bebas radiasi, dan slot 1,5×6 mm.'
+    },
+    ar: {
+      title: 'أدوات الفيدجت المعدنية متعددة الوظائف 2 في 1: فتاحة زجاجات وحلقة مفاتيح وإدخالات مضيئة ليلاً',
+      summary: 'دليل هندسي وتجاري لمنزلقات فتاحة الزجاجات 2 في 1 وميداليات المفاتيح وحشوات ألومينات السترونشيوم المضيئة الآمنة للشحن الجوي.'
+    }
+  },
+  '3d-mecha-armor-gothic-skull-relief-sculpted-metal-edc-fidget-guide': {
+    en: {
+      title: '3D Mecha Armor, Gothic Skull, Mythic Dragon & Pop-Art Relief Sculpted Metal EDC Fidgets Guide',
+      summary: 'How high-relief 0.8mm–2.2mm Mirror-EDM die casting and 5-axis CNC engraving create viral Mecha, Skull, Excalibur Sword, and Biscuit/Corgi sculpted EDC fidgets with 100% IP-safe retail clearance.'
+    },
+    de: {
+      title: '3D-Mecha-Rüstung, Gothic-Skull, Drachen & Pop-Art-Relief-Metall-EDC-Fidgets: Design- & Einkaufsleitfaden',
+      summary: 'Wie 0,8–2,2 mm tiefe 3D-Relief-Druckgussformen und 5-Achsen-CNC-Gravuren virale Mecha-, Totenkopf-, Schwert- und Keks/Corgi-Fidgets mit 100 % IP-Sicherheit schaffen.'
+    },
+    fr: {
+      title: 'Fidgets EDC Métal Sculptés 3D : Armure Mecha, Crâne Gothique, Dragon Mythique & Pop-Art',
+      summary: 'Comment le moulage haut-relief EDM (0,8 à 2,2 mm) et l’usinage CNC 5 axes créent des fidgets Mecha, Crâne, Épée Excalibur et Biscuit 100 % libres de droits IP.'
+    },
+    nl: {
+      title: '3D Mecha-pantser, Gothic Skull, Draak & Pop-Art Reliëf Metalen EDC-fidgets: Design- & Inkoopgids',
+      summary: 'Hoe 0,8–2,2 mm diep 3D-reliëf spuitgieten en 5-assig CNC-frezen virale Mecha-, Schedel-, Zwaard- en Koekje/Corgi-fidgets creëren met 100% IP-veiligheid.'
+    },
+    es: {
+      title: 'Fidgets EDC de Metal Esculpidos en Relieve 3D: Armadura Mecha, Calavera Gótica, Dragón y Pop-Art',
+      summary: 'Cómo la fundición de alto relieve EDM (0,8–2,2 mm) y el fresado CNC de 5 ejes crean fidgets virales Mecha, Calavera, Espada Excalibur y Galleta 100 % seguros en IP.'
+    },
+    it: {
+      title: 'Fidget EDC in Metallo Scolpiti a Rilievo 3D: Armatura Mecha, Teschio Gotico, Drago Mitico e Pop-Art',
+      summary: 'Come la pressofusione ad alto rilievo EDM (0,8–2,2 mm) e la fresatura CNC a 5 assi creano fidget Mecha, Teschio, Spada Excalibur e Biscotto 100% IP-safe.'
+    },
+    pt: {
+      title: 'Fidgets EDC de Metal Esculpidos em Relevo 3D: Armadura Mecha, Caveira Gótica, Dragão e Pop-Art',
+      summary: 'Como a fundição de alto-relevo EDM (0,8–2,2 mm) e a maquinagem CNC de 5 eixos criam fidgets Mecha, Caveira, Espada Excalibur e Bolacha 100% seguros em IP.'
+    },
+    sv: {
+      title: '3D-Skulpterade Metall-EDC-fidgets: Mecha-rustning, Gotisk Dödskalle, Drake & Pop-Art i Högrelief',
+      summary: 'Hur 0,8–2,2 mm djup EDM-pressgjutning och 5-axlig CNC skapar virala Mecha-, Dödskalle-, Svärd- och Kex/Corgi-fidgets med 100 % IP-säkerhet.'
+    },
+    da: {
+      title: '3D-Skulpterede Metal-EDC-fidgets: Mecha-rustning, Gotisk Kranie, Drage & Pop-Art i Højrelief',
+      summary: 'Hvordan 0,8–2,2 mm dyb EDM-trykstøbning og 5-akset CNC skaber virale Mecha-, Kranie-, Sværd- og Kiks/Corgi-fidgets med 100 % IP-sikkerhed.'
+    },
+    no: {
+      title: '3D-Skulpterte Metall-EDC-fidgets: Mecha-rustning, Gotisk Hodeskalle, Drage & Pop-Art i Høyrelieff',
+      summary: 'Hvordan 0,8–2,2 mm dyp EDM-trykkstøping og 5-akset CNC skaper virale Mecha-, Hodeskalle-, Sverd- og Kjeks/Corgi-fidgets med 100 % IP-sikkerhet.'
+    },
+    fi: {
+      title: '3D-Veistetyt Metalliset EDC-Fidgetit: Mecha-panssari, Goottikallo, Lohikäärme & Pop-Art Korkeareliefit',
+      summary: 'Kuinka 0,8–2,2 mm syvä EDM-painevalu ja 5-akselinen CNC luovat näyttävät Mecha-, Kallo-, Miekka- ja Keksi/Corgi-fidgetit 100 % IP-turvallisesti.'
+    },
+    pl: {
+      title: 'Rzeźbione 3D Metalowe Fidgety EDC: Pancerz Mecha, Gotycka Czaszka, Smok i Motywy Pop-Art',
+      summary: 'Jak głęboki odlew ciśnieniowy EDM (0,8–2,2 mm) oraz obróbka 5-osiowa CNC tworzą wiralowe fidgety Mecha, Czaszka, Miecz Excalibur i Ciastko w 100% bezpieczne prawnie (IP-safe).'
+    },
+    cs: {
+      title: '3D Reliéfní Kovové EDC Fidgety: Brnění Mecha, Gotická Lebka, Mýtický Drak a Pop-Art Designy',
+      summary: 'Jak hluboké tlakové lití EDM (0,8–2,2 mm) a 5osé CNC obrábění vytvářejí virální fidgety Mecha, Lebka, Meč Excalibur a Sušenka se 100% IP bezpečností.'
+    },
+    ru: {
+      title: 'Металлические EDC-Фиджеты с 3D-Рельефом: Броня Меха, Готический Череп, Дракон и Поп-Арт Скульптура',
+      summary: 'Как глубокое литье EDM (0,8–2,2 мм) и 5-осевая ЧПУ-фрезеровка создают вирусные фиджеты Меха, Череп, Меч Экскалибур и Печенье со 100% IP-чистотой.'
+    },
+    ja: {
+      title: '3Dメカアーマー・ゴシックスカル・ドラゴン・ポップアート立体彫刻金属EDCフィジェット完全ガイド',
+      summary: '深さ0.8〜2.2mmのミラー放電加工ダイカストと5軸CNC彫刻が生み出す、メカ装甲・スカル・聖剣エクスカリバー・ビスケット/コーギー等45種以上のIP安全な立体造形モデルを解説。'
+    },
+    ko: {
+      title: '3D 메카 아머, 고딕 스컬, 드래곤 및 팝아트 입체 부조 금속 EDC 피젯 완벽 가이드',
+      summary: '0.8~2.2mm 고심도 미러 EDM 다이캐스팅과 5축 CNC 조각으로 구현한 메카 아머, 해골, 성검 엑스칼리버, 비스킷/코기 등 45종 이상의 100% IP 안전 입체 피젯 가이드.'
+    },
+    id: {
+      title: 'Fidget EDC Logam Ukiran Relief 3D: Armor Mecha, Tengkorak Gotik, Naga Mitos & Pop-Art',
+      summary: 'Bagaimana die-casting EDM relief tinggi (0,8–2,2 mm) dan CNC 5-sumbu menciptakan fidget Mecha, Tengkorak, Pedang Excalibur, dan Biskuit yang 100% aman secara IP.'
+    },
+    ar: {
+      title: 'أدوات الفيدجت المعدنية المنحوتة بتقنية 3D: دروع الميكا والجماجم القوطية والتنين وفن البوب',
+      summary: 'كيف يصنع الصب العميق (0.8–2.2 ملم) والتفريز CNC خماسي المحاور موديلات الميكا والجمجمة والسيف والبسكويت الآمنة تماماً من حقوق الملكية الفكرية.'
+    }
+  },
+  'ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide': {
+    en: {
+      title: 'PTFE Teflon Friction Tape, Si3N4 Ceramic Detent Beads & R188 Bearing Maintenance: EDC Tuning & Spare Parts Guide',
+      summary: 'Complete tribology and aftermarket tuning guide to 0.13mm/0.18mm PTFE slider tape, Silicon Nitride (Si3N4) ceramic detent balls, phosphor bronze springs, and dry IPA R188 bearing cleaning.'
+    },
+    de: {
+      title: 'PTFE-Teflonband, Si3N4-Keramik-Rastkugeln & R188-Lager-Wartung: EDC-Tuning- & Ersatzteil-Leitfaden',
+      summary: 'Tribologie- und Tuning-Leitfaden für 0,13/0,18 mm PTFE-Gleitband, Siliziumnitrid-Keramikkugeln (Si3N4), Phosphorbronzefedern und trockene R188-Lagerreinigung.'
+    },
+    fr: {
+      title: 'Ruban PTFE Téflon, Billes Céramique Si3N4 & Entretien Roulements R188 : Guide Tuning & Pièces Détachées EDC',
+      summary: 'Guide complet de tribologie et tuning EDC : ruban PTFE 0,13/0,18 mm, billes de détente en nitrure de silicium Si3N4, ressorts bronze phosphoreux et nettoyage à sec R188.'
+    },
+    nl: {
+      title: 'PTFE-Teflontape, Si3N4 Keramische Detent-kogels & R188-Lageronderhoud: EDC-Tuning & Onderdelengids',
+      summary: 'Complete tribologie- en tuninggids voor 0,13/0,18 mm PTFE-slidertape, siliciumnitride (Si3N4) keramische kogels, fosforbrons-veren en droge R188-lagerreiniging.'
+    },
+    es: {
+      title: 'Cinta PTFE Teflón, Esferas Cerámicas Si3N4 y Mantenimiento de Rodamientos R188: Guía de Tuning y Repuestos EDC',
+      summary: 'Guía completa de tribología y ajuste EDC: cinta deslizante PTFE de 0,13/0,18 mm, bolas cerámicas de nitruro de silicio Si3N4, resortes de bronce fosforoso y limpieza en seco R188.'
+    },
+    it: {
+      title: 'Nastro PTFE Teflon, Sfere Ceramiche Si3N4 e Manutenzione Cuscinetti R188: Guida Tuning e Ricambi EDC',
+      summary: 'Guida completa alla tribologia e al tuning EDC: nastro PTFE da 0,13/0,18 mm, sfere in nitruro di silicio Si3N4, molle in bronzo fosforoso e pulizia a secco dei cuscinetti R188.'
+    },
+    pt: {
+      title: 'Fita PTFE Teflon, Esferas Cerâmicas Si3N4 e Manutenção de Rolamentos R188: Guia de Tuning e Peças EDC',
+      summary: 'Guia completo de tribologia e afinação EDC: fita PTFE de 0,13/0,18 mm, esferas cerâmicas de nitreto de silício Si3N4, molas de bronze fosforoso e limpeza a seco de rolamentos R188.'
+    },
+    sv: {
+      title: 'PTFE-Teflontejp, Si3N4 Keramiska Detentkulor & R188-Lagerunderhåll: Guide till EDC-Tuning & Reservdelar',
+      summary: 'Komplett tribologi- och tuningguide för 0,13/0,18 mm PTFE-tejp, kiselnitrid (Si3N4) keramiska kulor, fosforbronsfjädrar och torr IPA-rengöring av R188-lager.'
+    },
+    da: {
+      title: 'PTFE-Teflontape, Si3N4 Keramiske Detentkugler & R188-Lejevedligeholdelse: Guide til EDC-Tuning & Reservedele',
+      summary: 'Komplet tribologi- og tuningguide til 0,13/0,18 mm PTFE-tape, siliciumnitrid (Si3N4) keramiske kugler, fosforbronzefjedre og tør IPA-rensning af R188-lejer.'
+    },
+    no: {
+      title: 'PTFE-Teflontape, Si3N4 Keramiske Detentkuler & R188-Lagervedlikehold: Guide til EDC-Tuning & Reservedeler',
+      summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
+    },
+    fi: {
+      title: 'PTFE-Teflonteippi, Si3N4-Keraamikuulat & R188-Laakerihuolto: EDC-Viritys- & Varaosaopas',
+      summary: 'Kattava tribologia- ja viritysopas: 0,13/0,18 mm PTFE-liukuteippi, piinitridi (Si3N4) -keraamikuulat, fosforipronssijouset ja R188-laakereiden kuivapuhdistus.'
+    },
+    pl: {
+      title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',
+      summary: 'Kompletny przewodnik po trybologii i tuningu EDC: taśma PTFE 0,13/0,18 mm, kulki z azotku krzemu Si3N4, sprężyny z brązu fosforowego oraz czyszczenie łożysk R188.'
+    },
+    cs: {
+      title: 'PTFE Teflonová Páska, Keramické Kuličky Si3N4 a Údržba Ložisek R188: Průvodce Tuningem a Náhradními Díly EDC',
+      summary: 'Kompletní průvodce tribologií a tuningem EDC: kluzná páska PTFE 0,13/0,18 mm, keramické kuličky Si3N4, pružiny z fosforového bronzu a suché čištění ložisek R188.'
+    },
+    ru: {
+      title: 'Тефлоновая Лента PTFE, Керамические Шарики Si3N4 и Обслуживание Подшипников R188: Гид по Тюнингу и Запчастям EDC',
+      summary: 'Полное руководство по трибологии и тюнингу EDC: лента PTFE 0,13/0,18 мм, керамические шарики нитрида кремния Si3N4, бронзовые пружины и сухая чистка подшипников R188.'
+    },
+    ja: {
+      title: 'PTFEテフロンテープ・Si3N4窒化ケイ素セラミックボール・R188ベアリング保守：EDCチューニング＆予備パーツ完全ガイド',
+      summary: '0.13mm/0.18mm PTFE摺動テープ、黒色Si3N4セラミックデテントボール、リン青銅スプリング、R188ベアリングのIPAドライ洗浄および予備パーツキット同梱戦略を解説。'
+    },
+    ko: {
+      title: 'PTFE 테프론 테이프, Si3N4 질화규소 세라믹 비드 및 R188 베어링 유지보수: EDC 튜닝 & 예비 부품 가이드',
+      summary: '0.13mm/0.18mm PTFE 슬라이더 테이프, Si3N4 세라믹 디텐트 볼, 인청동 스프링 및 R188 베어링 건식 세척법과 리테일 예비 부품 키트 패키징 전략.'
+    },
+    id: {
+      title: 'Pita Gesek PTFE Teflon, Manik Keramik Si3N4 & Perawatan Bearing R188: Panduan Tuning & Suku Cadang EDC',
+      summary: 'Panduan lengkap tribologi dan tuning EDC: pita PTFE 0,13/0,18 mm, bola detent keramik Silikon Nitrida (Si3N4), pegas perunggu fosfor, dan pembersihan kering bearing R188.'
+    },
+    ar: {
+      title: 'شريط التفلون PTFE وكرات السيراميك Si3N4 وصيانة محامل R188: دليل ضبط وصيانة وقطع غيار الفيدجت EDC',
+      summary: 'دليل شامل لضبط وصيانة أدوات EDC: شريط PTFE بسماكة 0.13/0.18 ملم، كرات نيتريد السيليكون Si3N4، نوابض البرونز الفسفوري، والتنظيف الجاف لمحامل R188.'
+    }
+  },
+  'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide': {
+    en: {
+      title: 'International DDP Shipping, HS Codes (9503.00) & IATA PI-953 Magnetic Air Freight: Metal Fidget Import Guide',
+      summary: 'Complete customs and logistics playbook for importing wholesale metal fidgets to the US, EU, UK, and Amazon FBA—covering HS tariff codes, IATA PI-953 Gauss shielding, and Air vs. Sea DDP.'
+    },
+    de: {
+      title: 'Internationaler DDP-Versand, HS-Zolltarifnummern (9503.00) & IATA PI-953 Magnet-Luftfracht: Import-Leitfaden',
+      summary: 'Kompletter Zoll- und Logistik-Leitfaden für den Import von Metall-Fidgets in die EU, USA, UK und zu Amazon FBA — inklusive HS-Codes, IATA-PI-953-Abschirmung und Luft-/See-DDP.'
+    },
+    fr: {
+      title: 'Expédition Internationale DDP, Codes Douaniers HS (9503.00) & Fret Aérien Magnétique IATA PI-953 : Guide d’Import',
+      summary: 'Guide complet de douane et logistique pour importer des fidgets en métal vers l’UE, les USA, le Royaume-Uni et Amazon FBA — codes HS, blindage IATA PI-953 et DDP Air/Mer.'
+    },
+    nl: {
+      title: 'Internationale DDP-verzending, HS-goederencodes (9503.00) & IATA PI-953 Magnetische Luchtvracht: Importgids',
+      summary: 'Compleet douane- en logistiek handboek voor de import van metalen fidgets naar de EU, VS, VK en Amazon FBA — inclusief HS-codes, IATA PI-953 afscherming en Air/Sea DDP.'
+    },
+    es: {
+      title: 'Envío Internacional DDP, Códigos Arancelarios HS (9503.00) y Carga Aérea Magnética IATA PI-953: Guía de Importación',
+      summary: 'Manual completo de aduanas y logística para importar fidgets de metal a EE. UU., la UE, Reino Unido y Amazon FBA — códigos HS, blindaje IATA PI-953 y DDP Aéreo vs. Marítimo.'
+    },
+    it: {
+      title: 'Spedizione Internazionale DDP, Codici Doganali HS (9503.00) e Trasporto Aereo Magnetico IATA PI-953: Guida Import',
+      summary: 'Manuale completo di dogana e logistica per importare fidget in metallo in UE, USA, Regno Unito e Amazon FBA — codici HS, schermatura IATA PI-953 e DDP Aereo vs. Mare.'
+    },
+    pt: {
+      title: 'Envio Internacional DDP, Códigos Pautais HS (9503.00) e Carga Aérea Magnética IATA PI-953: Guia de Importação',
+      summary: 'Manual completo de alfândega e logística para importar fidgets de metal para a UE, EUA, Reino Unido e Amazon FBA — códigos HS, blindagem IATA PI-953 e DDP Aéreo vs. Marítimo.'
+    },
+    sv: {
+      title: 'Internationell DDP-frakt, HS-tullkoder (9503.00) & IATA PI-953 Magnetisk Flygfrakt: Importguide för Metallfidgets',
+      summary: 'Komplett tull- och logistikguide för import av metallfidgets till EU, USA, Storbritannien och Amazon FBA — HS-koder, IATA PI-953 magnetisk skärmning och Flyg/Sjö-DDP.'
+    },
+    da: {
+      title: 'International DDP-fragt, HS-toldkoder (9503.00) & IATA PI-953 Magnetisk Luftfragt: Importguide til Metalfidgets',
+      summary: 'Komplet told- og logistikguide til import af metalfidgets til EU, USA, Storbritannien og Amazon FBA — HS-koder, IATA PI-953 magnetisk skærmning og Luft/Sø-DDP.'
+    },
+    no: {
+      title: 'Internasjonal DDP-frakt, HS-tollkoder (9503.00) & IATA PI-953 Magnetisk Flyfrakt: Importguide for Metallfidgets',
+      summary: 'Komplett toll- og logistikkguide for import av metallfidgets til Norge, EU, USA, UK og Amazon FBA — HS-koder, IATA PI-953 magnetisk skjerming og Fly/Sjø-DDP.'
+    },
+    fi: {
+      title: 'Kansainvälinen DDP-toimitus, HS-tullikoodit (9503.00) & IATA PI-953 Magneettinen Lentorahti: Maahantuontiopas',
+      summary: 'Kattava tulli- ja logistiikkaopas metallifidgetien maahantuontiin EU:hun, USA:han, Isoon-Britanniaan ja Amazon FBA -varastoihin — HS-koodit, IATA PI-953 -suojaus ja DDP.'
+    },
+    pl: {
+      title: 'Międzynarodowa Wysyłka DDP, Kody Celne HS (9503.00) i Fracht Lotniczy Magnetyczny IATA PI-953: Przewodnik Importu',
+      summary: 'Kompletny poradnik celno-logistyczny dotyczący importu metalowych fidgetów do UE, USA, UK i Amazon FBA — kody HS, ekranowanie magnetyczne IATA PI-953 oraz DDP Lotnicze/Morskie.'
+    },
+    cs: {
+      title: 'Mezinárodní Doprava DDP, Celní Kódy HS (9503.00) a Magnetická Letecká Přeprava IATA PI-953: Průvodce Importem',
+      summary: 'Kompletní celní a logistický manuál pro dovoz kovových fidgetů do EU, USA, UK a Amazon FBA — celní kódy HS, magnetické stínění IATA PI-953 a letecká/námořní DDP přeprava.'
+    },
+    ru: {
+      title: 'Международная Доставка DDP, Коды ТН ВЭД / HS (9503.00) и Магнитный Авиафрахт IATA PI-953: Гид по Импорту',
+      summary: 'Полное таможенное и логистическое руководство по импорту металлических фиджетов в США, ЕС, Великобританию и на склады Amazon FBA — коды HS, экранирование IATA PI-953 и DDP.'
+    },
+    ja: {
+      title: '国際DDP関税込配送・HSコード（9503.00）・IATA PI-953航空磁気検査：金属フィジェット輸入通関＆FBA納品ガイド',
+      summary: '日米欧・英国およびAmazon FBA倉庫への金属フィジェット輸入におけるHS関税分類（9503.00）、IATA PI-953磁気遮蔽梱包（0.00525ガウス基準）、航空/海上DDP輸送を完全解説。'
+    },
+    ko: {
+      title: '국제 DDP 관세포함 배송, HS 코드(9503.00) 및 IATA PI-953 항공 자기장 검사: 금속 피젯 수입 통관 & FBA 입고 가이드',
+      summary: '미국·유럽·영국·일본 및 아마존 FBA 창고로 금속 피젯을 수입할 때 필요한 HS 세번(9503.00), IATA PI-953 가우스 자기 차폐 포장 및 항공/해상 DDP 물류 완벽 가이드.'
+    },
+    id: {
+      title: 'Pengiriman DDP Internasional, Kode HS (9503.00) & Kargo Udara Magnetik IATA PI-953: Panduan Impor Fidget Logam',
+      summary: 'Panduan lengkap bea cukai dan logistik untuk mengimpor fidget logam ke AS, UE, Inggris, dan Amazon FBA — mencakup kode tarif HS, pelindung magnetik IATA PI-953, dan DDP Udara/Laut.'
+    },
+    ar: {
+      title: 'الشحن الدولي الشامل للرسوم DDP والرموز الجمركية HS (9503.00) والشحن الجوي المغناطيسي IATA PI-953: دليل الاستيراد',
+      summary: 'دليل الجمارك والخدمات اللوجستية الشامل لاستيراد أدوات الفيدجت المعدنية إلى الولايات المتحدة وأوروبا وبريطانيا ومستودعات Amazon FBA.'
+    }
   }
 };
 

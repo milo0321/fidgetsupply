@@ -140,8 +140,8 @@ const aiCliches = [
   'unlock the power'
 ];
 
-if (guideFiles.length < 10) {
-  fail(`Expected at least 10 authoritative Insights, found ${guideFiles.length}`);
+if (guideFiles.length < 20) {
+  fail(`Expected at least 20 authoritative Insights, found ${guideFiles.length}`);
 }
 
 for (const file of guideFiles) {
@@ -392,7 +392,7 @@ if (fs.existsSync(distDir)) {
     }
   }
   if (meshErrors === 0) {
-    pass('100% Bidirectional Semantic Mesh verified across all 140 Products, 9 Collections, and 10 Authoritative Insights.');
+    pass(`100% Bidirectional Semantic Mesh verified across all 140 Products, 9 Collections, and ${guideFiles.length} Authoritative Insights.`);
   }
 } else {
   fail('dist/ directory not found. Run npm run build first.');
