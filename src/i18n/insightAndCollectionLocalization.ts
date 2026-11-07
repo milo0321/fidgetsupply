@@ -71,6 +71,34 @@ const INSIGHT_CATEGORIES: Record<string, Record<SupportedLanguage, string>> = {
     da: 'EVA-etuier & detailemballage', no: 'EVA-etuier & detaljemballasje', fi: 'EVA-kotelot & vähittäismyyntipakkaus', pl: 'Etui EVA i Opakowania Detaliczne',
     cs: 'Pouzdra EVA a maloobchodní balení', ru: 'Кейсы EVA и розничная упаковка', ja: 'カスタムEVAケース・缶ボックス包装設計', ko: '커스텀 EVA 케이스 및 틴박스 패키징',
     id: 'Kotak EVA & Kemasan Ritel', ar: 'حافظات EVA وتغليف التجزئة'
+  },
+  'Supply Chain & Sourcing Strategy': {
+    en: 'Supply Chain & Sourcing Strategy', de: 'Lieferkette & Beschaffungsstrategie', fr: 'Supply Chain & Stratégie d’Achat', nl: 'Supply Chain & Inkoopstrategie',
+    es: 'Cadena de Suministro y Estrategia de Compras', it: 'Filiera Produttiva e Strategia d’Acquisto', pt: 'Cadeia de Abastecimento e Sourcing', sv: 'Leveranskedja & inköpsstrategi',
+    da: 'Forsyningskæde & indkøbsstrategi', no: 'Forsyningskjede & innkjøpsstrategi', fi: 'Toimitusketju & hankintastrategia', pl: 'Łańcuch Dostaw i Strategia Zakupów',
+    cs: 'Dodavatelský řetězec a nákupní strategie', ru: 'Цепочка поставок и стратегия закупок', ja: 'サプライチェーン・直結調達戦略', ko: '공급망 및 직소싱 전략',
+    id: 'Rantai Pasok & Strategi Sourcing', ar: 'سلسلة التوريد واستراتيجية المشتريات'
+  },
+  'Quality Control & Engineering Standards': {
+    en: 'Quality Control & Engineering Standards', de: 'Qualitätskontrolle & Prüfnormen', fr: 'Contrôle Qualité & Normes Techniques', nl: 'Kwaliteitscontrole & Testnormen',
+    es: 'Control de Calidad y Normas de Inspección', it: 'Controllo Qualità e Standard Tecnici', pt: 'Controlo de Qualidade e Normas de Inspeção', sv: 'Kvalitetskontroll & teststandarder',
+    da: 'Kvalitetskontrol & inspektionsstandarder', no: 'Kvalitetskontroll & teststandarder', fi: 'Laadunvalvonta & tarkastusstandardit', pl: 'Kontrola Jakości i Normy Inspekcyjne',
+    cs: 'Kontrola kvality a inspekční normy', ru: 'Контроль качества и стандарты ОТК', ja: '品質管理（QC）・出荷前検査基準', ko: '품질관리(QC) 및 출하 검사 기준',
+    id: 'Kontrol Kualitas & Standar Inspeksi', ar: 'مراقبة الجودة ومعايير الفحص الهندسي'
+  },
+  'Brand Launch & Private Label Playbook': {
+    en: 'Brand Launch & Private Label Playbook', de: 'Markenaufbau & Private-Label-Leitfaden', fr: 'Lancement de Marque & Guide Private Label', nl: 'Merklancering & Private-Label Playbook',
+    es: 'Lanzamiento de Marca Propia y Private Label', it: 'Lancio Brand e Guida Private Label', pt: 'Lançamento de Marca Própria e Private Label', sv: 'Varumärkeslansering & Private Label-guide',
+    da: 'Brandlancering & Private Label-guide', no: 'Merkevarelansering & Private Label-guide', fi: 'Brändilanseeraus & Private Label -opas', pl: 'Budowa Marki Własnej i Private Label',
+    cs: 'Budování vlastní značky a Private Label', ru: 'Запуск собственного бренда (Private Label)', ja: '自社ブランド立ち上げ・OEMプレイブック', ko: '자체 브랜드(PB/OEM) 런칭 플레이북',
+    id: 'Peluncuran Brand & Panduan Private Label', ar: 'إطلاق العلامة التجارية الخاصة (Private Label)'
+  },
+  'Corporate Gifting & Retail Merchandising': {
+    en: 'Corporate Gifting & Retail Merchandising', de: 'Firmengeschenke & Geschenkset-Merchandising', fr: 'Cadeaux d’Entreprise & Coffrets Retail', nl: 'Relatiegeschenken & Cadeauset-Merchandising',
+    es: 'Regalos Corporativos y Packs Minoristas', it: 'Regali Aziendali e Set Regalo Retail', pt: 'Brindes Corporativos e Kits de Retalho', sv: 'Företagsgåvor & presentförpackningar',
+    da: 'Firmagaver & gaveæske-merchandising', no: 'Firmagaver & gaveeske-merchandising', fi: 'Yrityslahjat & lahjasetit', pl: 'Upominki Firmowe i Zestawy Prezentowe',
+    cs: 'Firemní dárky a dárkové sady', ru: 'Корпоративные подарки и подарочные наборы', ja: '法人VIPギフト・複数点セット戦略', ko: '기업 VIP 기프트 및 번들 머천다이징',
+    id: 'Hadiah Korporat & Paket Bundel Ritel', ar: 'هدايا الشركات ومجموعات التجزئة الفاخرة'
   }
 };
 

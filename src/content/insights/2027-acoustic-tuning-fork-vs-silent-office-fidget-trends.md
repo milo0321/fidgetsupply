@@ -5,7 +5,7 @@ updatedDate: "2026-11-07"
 summary: "In 2027, wholesale metal fidget demand splits sharply into two acoustic extremes: Class C High-Resonance Acoustic Tuning Fork Sliders (62–72 dBA, 2,800–4,200 Hz harmonic ring) that drive viral TikTok Shop ASMR conversions, and Class A Whisper-Silent Executive Desk Fidgets (<35 dBA) engineered with Si3N4 hybrid ceramic R188 bearings and PTFE wear pads for open-plan offices and video calls."
 tags: ["2027 Trend Report", "Wholesale EDC", "Ready Molds", "MOQ 50"]
 metaTitle: "2027 Acoustic Tuning Fork vs Silent Office Fidget Trends"
-metaDescription: "2027 acoustic EDC fidget trend report: why wholesale demand splits between 3,800 Hz tuning fork sliders (FS-150, FS-148) and sub-35 dBA silent."
+metaDescription: "2027 acoustic EDC fidget report: why wholesale demand splits between 3,800 Hz tuning fork sliders (FS-150, FS-148) and sub-35 dBA silent desk toys."
 category: "Acoustic EDC Trends"
 publishDate: "2026-11-07"
 readTime: "12 min read"

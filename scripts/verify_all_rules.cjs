@@ -216,22 +216,28 @@ for (const file of prodFiles) {
   seenMetaDescs.set(md, `Product:${file}`);
 }
 
-if (guideFiles.length < 35) {
-  fail(`Expected at least 35 authoritative Insights, found ${guideFiles.length}`);
+if (guideFiles.length < 39) {
+  fail(`Expected at least 39 authoritative Insights, found ${guideFiles.length}`);
 }
+
+const i18nInsightLocSrc = fs.readFileSync(path.join(ROOT, 'src/i18n/insightAndCollectionLocalization.ts'), 'utf8');
 
 for (const file of guideFiles) {
   const raw = fs.readFileSync(path.join(guideDir, file), 'utf8');
   const mt = (raw.match(/metaTitle:\s*"([^"]+)"/) || [])[1] || '';
   const md = (raw.match(/metaDescription:\s*"([^"]+)"/) || [])[1] || '';
+  const cat = (raw.match(/category:\s*"([^"]+)"/) || [])[1] || '';
+  if (!cat || !i18nInsightLocSrc.includes(`'${cat}':`)) {
+    fail(`Guide ${file} category "${cat}" is not localized in src/i18n/insightAndCollectionLocalization.ts`);
+  }
   if (!mt || mt.length >= 60) {
     fail(`Guide ${file} metaTitle length is ${mt.length} (must be < 60 chars): "${mt}"`);
   }
   if (!md || md.length >= 155) {
     fail(`Guide ${file} metaDescription length is ${md.length} (must be < 155 chars): "${md}"`);
   }
-  if (!/[.!)]$/.test(md)) {
-    fail(`Guide ${file} metaDescription is truncated (must end with "." or ")"): "${md}"`);
+  if (!/[.!)]$/.test(md) || /(?:\s&\s?\.|\b(?:and|or|with|for|to|in|of|vs|from)\.$)/i.test(md)) {
+    fail(`Guide ${file} metaDescription is truncated (must end with a complete sentence): "${md}"`);
   }
   if (seenMetaTitles.has(mt)) {
     fail(`Duplicate metaTitle "${mt}" between Guide:${file} and ${seenMetaTitles.get(mt)}`);
