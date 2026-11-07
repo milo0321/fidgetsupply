@@ -373,9 +373,9 @@ for (const l of expectedLangs) {
 pass(`All ${expectedLangs.length} languages have 100% complete dictionaries (${enKeyList.length} keys per language, ${expectedLangs.length * enKeyList.length} total localized entries).`);
 
 // ---------------------------------------------------------------------------
-// RULE 6: Astro Redirects Hygiene (No trailing slash duplicates)
+// RULE 6: Astro Redirects & Sitemap Trailing-Slash Hygiene
 // ---------------------------------------------------------------------------
-console.log('\n=== 6. Astro 301 Redirects Hygiene ===');
+console.log('\n=== 6. Astro 301 Redirects & Sitemap Trailing-Slash Hygiene ===');
 const astroCfg = fs.readFileSync(path.join(ROOT, 'astro.config.mjs'), 'utf8');
 const redirectKeys = [...astroCfg.matchAll(/'(\/[^']+)':\s*'/g)].map((m) => m[1]);
 const seenRedirects = new Set();
@@ -388,7 +388,16 @@ for (const k of redirectKeys) {
   }
   seenRedirects.add(k);
 }
-pass(`All ${redirectKeys.length} redirects in astro.config.mjs are clean and normalized.`);
+const sitemapFile = path.join(ROOT, 'dist/sitemap-0.xml');
+if (fs.existsSync(sitemapFile)) {
+  const smXml = fs.readFileSync(sitemapFile, 'utf8');
+  const smLocs = [...smXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  const badSlashLocs = smLocs.filter((u) => u !== 'https://fidgetsupply.com/' && u.endsWith('/'));
+  if (badSlashLocs.length > 0) {
+    fail(`Found ${badSlashLocs.length} sitemap <loc> URLs with trailing slash (causes Cloudflare 301 redirects): e.g. ${badSlashLocs[0]}`);
+  }
+}
+pass(`All ${redirectKeys.length} redirects in astro.config.mjs and all sitemap <loc> URLs are clean with 0 trailing-slash 301 redirects.`);
 
 // ---------------------------------------------------------------------------
 // RULE 7: 18-Language Full-Site Route Parity & Zero English Link Fallback

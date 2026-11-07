@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://fidgetsupply.com',
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'de', 'fr', 'sv', 'da', 'no', 'fi', 'cs', 'es', 'it', 'nl', 'pl', 'pt', 'ru', 'ja', 'ko', 'id', 'ar'],
@@ -18,6 +18,9 @@ export default defineConfig({
     sitemap({
       filter: (page) => !page.includes('/api/'),
       serialize(item) {
+        if (item.url !== 'https://fidgetsupply.com/' && item.url.endsWith('/')) {
+          item.url = item.url.replace(/\/+$/, '');
+        }
         const url = item.url;
         if (url === 'https://fidgetsupply.com' || url === 'https://fidgetsupply.com/') {
           item.priority = 1.0;
