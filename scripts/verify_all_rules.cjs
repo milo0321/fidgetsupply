@@ -567,20 +567,22 @@ if (fs.existsSync(distDir)) {
     const isEnPage = !nonEnLangs.includes(firstSeg);
     const html = fs.readFileSync(f, 'utf8');
 
-    if (isEnPage) {
+    if (relFile !== '/404.html') {
       const tm = html.match(/<title>([^<]+)<\/title>/);
       const dm = html.match(/<meta name="description" content="([^"]+)"/);
       if (tm) {
-        const decodedTitle = decodeHtmlEntities(tm[1]);
-        if (decodedTitle.length > 60) {
-          fail(`English page ${relFile} <title> exceeds 60 chars (${decodedTitle.length}): "${decodedTitle}"`);
+        const rawTitle = tm[1];
+        const decodedTitle = decodeHtmlEntities(rawTitle);
+        if (decodedTitle.length > 60 || rawTitle.length > 60) {
+          fail(`Page ${relFile} <title> exceeds 60 chars (decoded=${decodedTitle.length}, raw=${rawTitle.length}): "${rawTitle}"`);
           seoGeoErrors++;
         }
       }
       if (dm) {
-        const decodedDesc = decodeHtmlEntities(dm[1]);
-        if (decodedDesc.length > 160) {
-          fail(`English page ${relFile} <meta name="description"> exceeds 160 chars (${decodedDesc.length}): "${decodedDesc}"`);
+        const rawDesc = dm[1];
+        const decodedDesc = decodeHtmlEntities(rawDesc);
+        if (decodedDesc.length > 160 || rawDesc.length > 160) {
+          fail(`Page ${relFile} <meta name="description"> exceeds 160 chars (decoded=${decodedDesc.length}, raw=${rawDesc.length}): "${rawDesc}"`);
           seoGeoErrors++;
         }
       }

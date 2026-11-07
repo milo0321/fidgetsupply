@@ -40,19 +40,94 @@ const langConfig = languages[currentLang];
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || 'G-HHP8CN1M58';
 const gtmId = 'GTM-TH9NHVJ4';
 
-const localizedTitle =
-  currentLang === 'en'
-    ? title
-    : title.includes(langConfig.nativeName)
-      ? title
-      : `${title} (${langConfig.nativeName})`;
+function htmlEncodedLen(s: string): number {
+  return (
+    s.length +
+    (s.match(/&/g) || []).length * 4 +
+    (s.match(/[<>]/g) || []).length * 3
+  );
+}
 
-const localizedDescription =
-  currentLang === 'en'
-    ? description
-    : description.startsWith(`[${langConfig.nativeName}]`)
-      ? description
-      : `[${langConfig.nativeName} · ${t('nav.cta')}] ${description}`;
+function calibrateSeoTitle(raw: string, langCode: SupportedLanguage): string {
+  let clean = (raw || '').replace(/\s+/g, ' ').trim();
+  if (langCode === 'en') {
+    if (htmlEncodedLen(clean) > 60) {
+      clean = clean.replace(/\s&\s/g, ' + ');
+    }
+    if (htmlEncodedLen(clean) > 60) {
+      clean = clean.replace(/\s*\|\s*FidgetSupply(\.com)?$/i, '').trim();
+    }
+    return clean;
+  }
+
+  // Strip redundant brand suffix on localized pages to save character budget
+  clean = clean
+    .replace(/\s*\|\s*FidgetSupply(\.com)?$/i, '')
+    .replace(/\s*\([^)]+\)$/, '')
+    .replace(/\s&\s/g, ' + ')
+    .trim();
+
+  const suffix = ` · ${langCode.toUpperCase()}`;
+  const maxBase = 60 - suffix.length; // 55 chars
+  if (htmlEncodedLen(clean) > maxBase) {
+    if (clean.includes(' ') && !['ja'].includes(langCode)) {
+      const words = clean.split(' ');
+      let acc = '';
+      for (const w of words) {
+        const next = acc ? `${acc} ${w}` : w;
+        if (htmlEncodedLen(next) <= maxBase) {
+          acc = next;
+        } else {
+          break;
+        }
+      }
+      clean = (acc || clean.slice(0, maxBase))
+        .replace(/[\s:,\-–—/+|&]+$/, '')
+        .replace(/\s+(vs\.?|y|i|e|et|und|en|og|och|ja|против|dan|및)$/i, '');
+    } else {
+      clean = clean.slice(0, maxBase).replace(/[\s:,\-–—/+|&、。]+$/, '');
+    }
+  }
+  return `${clean}${suffix}`;
+}
+
+function calibrateSeoDescription(raw: string, langCode: SupportedLanguage): string {
+  let clean = (raw || '').replace(/\s+/g, ' ').trim();
+  if (langCode === 'en') {
+    if (htmlEncodedLen(clean) > 155) {
+      clean = clean.replace(/\s&\s/g, ' + ');
+    }
+    return clean;
+  }
+
+  clean = clean.replace(/\s&\s/g, ' + ');
+  const prefix = `[${langCode.toUpperCase()}] `;
+  const full = clean.startsWith('[') ? clean : `${prefix}${clean}`;
+  if (htmlEncodedLen(full) <= 154) {
+    return full;
+  }
+  const maxLen = 153;
+  if (full.includes(' ') && !['ja'].includes(langCode)) {
+    const words = full.split(' ');
+    let acc = '';
+    for (const w of words) {
+      const next = acc ? `${acc} ${w}` : w;
+      if (htmlEncodedLen(next) <= maxLen) {
+        acc = next;
+      } else {
+        break;
+      }
+    }
+    clean = (acc || full.slice(0, maxLen)).replace(/[\s:,\-–—/+|&.]+$/, '') + '.';
+  } else {
+    const endChar = langCode === 'ja' ? '。' : '.';
+    clean = full.slice(0, maxLen).replace(/[\s:,\-–—/+|&.、。]+$/, '') + endChar;
+  }
+  return clean;
+}
+
+const localizedTitle = calibrateSeoTitle(title, currentLang);
+const localizedDescription = calibrateSeoDescription(description, currentLang);
 
 const fullOgImageUrl = ogImage.startsWith('http') ? ogImage : `https://fidgetsupply.com${ogImage}`;
 
