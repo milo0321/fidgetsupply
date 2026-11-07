@@ -96,6 +96,7 @@ const breadcrumbSchema = {
   title={lp.metaTitle}
   description={lp.metaDescription}
   ogImage={p.featuredImage}
+  preloadImage={p.featuredImage}
   activePage="products"
   jsonLd={[productSchema, faqSchema, breadcrumbSchema]}
 >
@@ -139,6 +140,9 @@ const breadcrumbSchema = {
             alt={`${p.skuDisplay} ${lp.title} - ${lp.material}`}
             width="800"
             height="600"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
           />
           <div class="frame-badges">
             <span class="sku-pill">{p.skuDisplay}</span>

@@ -15,6 +15,7 @@ interface Props {
   keywords?: string;
   canonical?: string;
   ogImage?: string;
+  preloadImage?: string;
   activePage?: string;
   jsonLd?: object | object[];
   noindex?: boolean;
@@ -28,6 +29,7 @@ const {
   keywords = 'metal fidget slider wholesale, custom logo fidget toys, haptic fidget coin bulk, tuning fork fidget slider, CNC stainless steel EDC fidget supply chain, China metal fidget sourcing platform',
   canonical = Astro.url.href,
   ogImage = 'https://fidgetsupply.com/images/hero-metal-edc-showcase.webp',
+  preloadImage,
   activePage = '',
   jsonLd,
   noindex = false
@@ -213,6 +215,9 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {preloadImage && (
+      <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+    )}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     <title>{localizedTitle}</title>
@@ -252,16 +257,38 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     ))}
 
-    <!-- Google Tag Manager & GA4 (GTM-TH9NHVJ4 / G-HHP8CN1M58) -->
-    <script async src={`https://www.googletagmanager.com/gtm.js?id=${gtmId}`}></script>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
+    <!-- Google Tag Manager & GA4 (GTM-TH9NHVJ4 / G-HHP8CN1M58) — Deferred until post-LCP / interaction -->
     <script is:inline define:vars={{ gaMeasurementId, gtmId }}>
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
       function gtag(){window.dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('js', new Date());
       gtag('config', gaMeasurementId);
+      (function () {
+        var loaded = false;
+        function loadAnalytics() {
+          if (loaded) return;
+          loaded = true;
+          ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) {
+            window.removeEventListener(ev, loadAnalytics, { passive: true });
+          });
+          window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var gtmScript = document.createElement('script');
+          gtmScript.async = true;
+          gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
+          document.head.appendChild(gtmScript);
+          var gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaMeasurementId;
+          document.head.appendChild(gaScript);
+        }
+        ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) {
+          window.addEventListener(ev, loadAnalytics, { once: true, passive: true });
+        });
+        window.addEventListener('load', function () {
+          setTimeout(loadAnalytics, 3200);
+        });
+      })();
     </script>
 
     <script is:inline>

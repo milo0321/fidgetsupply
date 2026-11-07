@@ -1580,6 +1580,7 @@ const faqSchema = {
   title={currentLang === 'en' ? guide.data.metaTitle : `${locGuideMeta.title} | FidgetSupply`}
   description={currentLang === 'en' ? guide.data.metaDescription : locGuideMeta.summary}
   ogImage={guide.data.featuredImage}
+  preloadImage={guide.data.featuredImage}
   activePage="insights"
   jsonLd={[articleSchema, breadcrumbSchema, faqSchema]}
 >
@@ -1645,7 +1646,9 @@ const faqSchema = {
             alt={locGuideMeta.title}
             width="800"
             height="600"
+            fetchpriority="high"
             loading="eager"
+            decoding="async"
           />
         </div>
 

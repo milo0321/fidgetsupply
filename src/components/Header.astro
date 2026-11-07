@@ -143,14 +143,6 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
 
             <!-- Column 3: Featured Showcase Card -->
             <div class="mega-featured-area">
-              <img
-                src="/images/hero-metal-edc-showcase.webp"
-                alt="140+ Ready Metal EDC Fidget Molds"
-                class="mega-featured-img"
-                loading="lazy"
-                width="340"
-                height="220"
-              />
               <div class="mega-featured-overlay">
                 <span class="mega-badge">{t('nav.megaBadge')}</span>
                 <h3>{t('nav.megaTitle')}</h3>
@@ -611,20 +603,15 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     position: relative;
     border-radius: 0.75rem;
     overflow: hidden;
-    background: #0f172a;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(2, 132, 199, 0.38), transparent 60%),
+      radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.18), transparent 55%),
+      linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid rgba(56, 189, 248, 0.25);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     min-height: 240px;
-  }
-
-  .mega-featured-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.65;
   }
 
   .mega-featured-overlay {

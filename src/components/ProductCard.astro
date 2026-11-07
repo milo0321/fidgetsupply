@@ -36,6 +36,7 @@ const rfqUrl = getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}`, cur
       src={p.featuredImage}
       alt={`${p.skuDisplay} ${p.title} - ${p.material} Wholesale`}
       loading="lazy"
+      decoding="async"
       width="400"
       height="300"
       class="card-img"

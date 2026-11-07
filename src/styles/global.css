@@ -123,6 +123,11 @@ img {
   background-color: #ffffff;
 }
 
+.section:not(.pdp-stage-1) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
 .section-light {
   background-color: #f8fafc;
   border-top: 1px solid #e2e8f0;

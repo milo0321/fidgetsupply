@@ -86,6 +86,7 @@ const faqSchema = {
 <Layout
   title={currentLang === 'en' ? 'Metal EDC Fidget Wholesale: 140 Ready Molds | FidgetSupply' : `${t('home.hero.title')} | FidgetSupply.com`}
   description={currentLang === 'en' ? 'China metal EDC fidget sourcing platform: 140+ ready molds, $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom fiber laser & deep laser color-fill branding.' : t('home.hero.lead')}
+  preloadImage="/images/hero-metal-edc-showcase.webp"
   activePage="home"
   jsonLd={faqSchema}
 >
@@ -145,6 +146,9 @@ const faqSchema = {
             alt="Precision CNC 304 Stainless Steel Haptic Slider, Amber PEI Ultem Tuning Fork Slider, Knurled Spinner, and Haptic Coin with Black EVA Case"
             width="480"
             height="360"
+            fetchpriority="high"
+            loading="eager"
+            decoding="async"
             class="showcase-img"
           />
           <div class="showcase-meta">
