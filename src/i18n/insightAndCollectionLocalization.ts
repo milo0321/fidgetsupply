@@ -2664,6 +2664,302 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "title": "آفاق الامتثال التنظيمي لعام 2027 لمستوردي أدوات الفيدجت المعدنية: معيار US CPSC 16 CFR 1262 ولائحة الاتحاد الأوروبي TSR والشحن الجوي المغناطيسي IATA PI-953",
       "summary": "دليل الامتثال الجمركي والتنظيمي الشامل لعام 2027: تثبيت المغناطيسات المدمجة وفقًا لمعيار US CPSC 16 CFR 1262، وملصقات مقتنيات البالغين +14 وفقًا للائحة الأوروبية TSR/GPSR، واختبارات RoHS/REACH، والتدريع المغناطيسي للشحن الجوي IATA PI-953."
     }
+  },
+  "china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies": {
+    "en": {
+      "title": "China Metal EDC Fidget Sourcing Guide: Direct Integrated Supply Chain vs. Alibaba & 1688 Trading Companies",
+      "summary": "Why sourcing metal EDC fidgets through an integrated supply chain platform beats both general trading companies and single-machine workshops—saving 22%–38% in middleman markups across 140 $0-tooling molds."
+    },
+    "de": {
+      "title": "China Metall-EDC-Fidget Beschaffungsleitfaden: Integrierte Direkt-Lieferkette vs. Alibaba & 1688 Handelsunternehmen",
+      "summary": "Warum die Beschaffung von Metall-EDC-Fidgets über eine integrierte Lieferkettenplattform allgemeine Händler schlägt — sparen Sie 22–38 % Zwischenhändler-Aufschlag bei 140 $0-Werkzeugformen."
+    },
+    "fr": {
+      "title": "Guide d’Approvisionnement Fidgets EDC Métal en Chine : Chaîne d’Approvisionnement Directe vs Sociétés de Négoce Alibaba & 1688",
+      "summary": "Pourquoi sourcer vos fidgets EDC métal via une plateforme supply chain intégrée surpasse les traders — économisez 22 à 38 % de marges intermédiaires sur 140 moules prêts ($0 outillage)."
+    },
+    "nl": {
+      "title": "China Metalen EDC Fidget Inkoopgids: Direct Geïntegreerde Supply Chain vs. Alibaba & 1688 Handelsbedrijven",
+      "summary": "Waarom het inkopen van metalen EDC-fidgets via een geïntegreerd supply chain-platform algemene handelaren verslaat — bespaar 22%–38% tussenhandel-marge op 140 $0-matrijzen."
+    },
+    "es": {
+      "title": "Guía de Compras de Fidgets EDC de Metal en China: Cadena de Suministro Integrada Directa vs. Intermediarios de Alibaba y 1688",
+      "summary": "Por qué importar fidgets EDC metálicos mediante una cadena de suministro integrada supera a los traders — ahorre entre un 22 % y un 38 % de sobreprecio en 140 moldes listos ($0 utillaje)."
+    },
+    "it": {
+      "title": "Guida all’Approvvigionamento di Fidget EDC in Metallo in Cina: Filiera Diretta Integrata vs. Trading Company Alibaba e 1688",
+      "summary": "Perché acquistare fidget EDC in metallo tramite una piattaforma di fornitura integrata batte le trading company — risparmia il 22%–38% di ricarichi su 140 stampi pronti ($0 attrezzaggio)."
+    },
+    "pt": {
+      "title": "Guia de Sourcing de Fidgets EDC de Metal na China: Cadeia de Abastecimento Integrada Direta vs. Traders do Alibaba e 1688",
+      "summary": "Porque adquirir fidgets EDC metálicos através de uma cadeia integrada supera intermediários — poupe 22% a 38% em margens ocultas em 140 moldes prontos ($0 ferramentas)."
+    },
+    "sv": {
+      "title": "Inköpsguide för Metall-EDC-Fidgets i Kina: Direkt Integrerad Leveranskedja vs. Alibaba & 1688 Handelsbolag",
+      "summary": "Varför inköp av metallfidgets via en integrerad leveranskedja slår mellanhänder — spara 22–38 % i dolda påslag över 140 färdiga formar ($0 verktygskostnad)."
+    },
+    "da": {
+      "title": "Indkøbsguide til Metal-EDC-Fidgets i Kina: Direkte Integreret Forsyningskæde vs. Alibaba & 1688 Handelsfirmaer",
+      "summary": "Hvorfor indkøb af metalfidgets via en integreret forsyningskæde slår mellemhandlere — spar 22–38 % i skjulte avancer på 140 færdige forme ($0 værktøjsgebyr)."
+    },
+    "no": {
+      "title": "Innkjøpsguide for Metall-EDC-Fidgets i Kina: Direkte Integrert Forsyningskjede vs. Alibaba & 1688 Handelsselskaper",
+      "summary": "Hvorfor innkjøp av metallfidgets via en integrert forsyningskjede slår mellommenn — spar 22–38 % i skjulte påslag på 140 ferdige former ($0 verktøykostnad)."
+    },
+    "fi": {
+      "title": "Kiinan Metallisten EDC-Fidgetien Hankintaopas: Suora Integroitu Toimitusketju vs. Alibaba & 1688 Kauppayhtiöt",
+      "summary": "Miksi metallisten EDC-fidgetien hankinta integroidun toimitusketjun kautta voittaa välikädet — säästä 22–38 % välittäjälisissä 140 valmiissa muotissa ($0 muottimaksu)."
+    },
+    "pl": {
+      "title": "Przewodnik Zakupowy Metalowych Fidgetów EDC z Chin: Bezpośredni Zintegrowany Łańcuch Dostaw vs. Firmy Handlowe Alibaba i 1688",
+      "summary": "Dlaczego zamawianie metalowych fidgetów EDC przez zintegrowaną platformę dostaw przewyższa pośredników — oszczędź 22%–38% marży na 140 gotowych formach ($0 kosztów matrycy)."
+    },
+    "cs": {
+      "title": "Průvodce Nákupem Kovových EDC Fidgetů v Číně: Přímý Integrovaný Dodavatelský Řetězec vs. Obchodní Společnosti Alibaba a 1688",
+      "summary": "Proč nákup kovových EDC fidgetů přes integrovaný dodavatelský řetězec překonává překupníky — ušetřete 22–38 % marže u 140 hotových forem ($0 poplatek za formy)."
+    },
+    "ru": {
+      "title": "Гид по закупкам металлических EDC-фиджетов в Китае: прямая интегрированная цепочка поставок против торговых компаний Alibaba и 1688",
+      "summary": "Почему закупка металлических фиджетов через интегрированную платформу выгоднее посредников — экономия 22–38% наценки на 140 готовых пресс-формах ($0 за оснастку)."
+    },
+    "ja": {
+      "title": "中国金属EDCフィジェット調達ガイド：直結統合サプライチェーン vs アリババ・1688商社（トレーダー）徹底比較",
+      "summary": "金属EDCフィジェット調達において、総合商社や単一加工工場よりも統合サプライチェーンが優れる理由。金型代0ドルの完成金型140種で中間マージン22〜38%を削減。"
+    },
+    "ko": {
+      "title": "중국 메탈 EDC 피젯 소싱 가이드: 직접 통합 공급망 vs 알리바바·1688 무역상사 완벽 비교",
+      "summary": "메탈 EDC 피젯 도매 소싱 시 일반 무역상사 대비 통합 공급망 플랫폼이 유리한 이유 — 금형비 $0 기성 금형 140종으로 중간 마진 22%~38% 절감."
+    },
+    "id": {
+      "title": "Panduan Sourcing Fidget EDC Logam China: Rantai Pasok Terintegrasi Langsung vs. Perusahaan Trading Alibaba & 1688",
+      "summary": "Mengapa pengadaan fidget EDC logam melalui platform rantai pasok terintegrasi mengalahkan trader — hemat 22%–38% markup perantara di 140 cetakan siap pakai ($0 biaya cetakan)."
+    },
+    "ar": {
+      "title": "دليل استيراد أدوات الفيدجت المعدنية من الصين: سلسلة التوريد المتكاملة المباشرة مقابل شركات الوساطة في علي بابا و1688",
+      "summary": "لماذا يتفوق التوريد عبر منصة سلسلة إمداد متكاملة على الشركات التجارية الوسيطة — وفّر من 22% إلى 38% من عمولات الوسطاء عبر 140 قالباً جاهزاً بدون رسوم قوالب."
+    }
+  },
+  "metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests": {
+    "en": {
+      "title": "Metal EDC Fidget Quality Control Checklist: 12 Mandatory Pre-Shipment Inspection Tests for Importers",
+      "summary": "Inside FidgetSupply's 12-point pre-shipment QC protocol: digital Gaussmeter magnet verification, 50N epoxy retention tests, R188 spin duration checks, 3M cross-hatch PVD adhesion, and IATA PI-953 carton shielding."
+    },
+    "de": {
+      "title": "Qualitätskontroll-Checkliste für Metall-EDC-Fidgets: 12 Obligatorische Prüfungen vor dem Versand für Importeure",
+      "summary": "Unser 12-Punkte-QC-Protokoll vor dem Versand: digitale Gaussmeter-Magnetprüfung, 50N-Epoxid-Haftungstests, R188-Laufdauerprüfung, 3M-Gitterschnitt-PVD-Test und IATA PI-953 Abschirmung."
+    },
+    "fr": {
+      "title": "Checklist Contrôle Qualité Fidgets EDC Métal : 12 Tests d’Inspection Pré-Expédition Obligatoires pour Importateurs",
+      "summary": "Notre protocole QC en 12 points avant expédition : vérification magnétique au Gaussmètre, test d’arrachement époxy 50N, durée de rotation R188, adhérence PVD 3M et blindage aérien IATA PI-953."
+    },
+    "nl": {
+      "title": "Kwaliteitscontrole Checklist voor Metalen EDC Fidgets: 12 Verplichte Pre-Shipment Inspectietests voor Importeurs",
+      "summary": "Ons 12-punts QC-protocol vóór verzending: digitale Gaussmeter magneetmeting, 50N epoxy-retentietests, R188 draaitijdcontrole, 3M kruissnede PVD-hechting en IATA PI-953 afscherming."
+    },
+    "es": {
+      "title": "Lista de Control de Calidad para Fidgets EDC de Metal: 12 Pruebas de Inspección Pre-Embarque para Importadores",
+      "summary": "Nuestro protocolo QC de 12 puntos antes del envío: medición magnética con Gaussímetro, prueba de retención epoxi de 50N, giro de rodamiento R188, adhesión PVD 3M y blindaje IATA PI-953."
+    },
+    "it": {
+      "title": "Checklist Controllo Qualità Fidget EDC in Metallo: 12 Test di Ispezione Pre-Spedizione per Importatori",
+      "summary": "Il nostro protocollo QC in 12 punti prima della spedizione: verifica magnetica con Gaussmetro, test tenuta epossidica 50N, durata rotazione R188, adesione PVD 3M e schermatura IATA PI-953."
+    },
+    "pt": {
+      "title": "Checklist de Controlo de Qualidade para Fidgets EDC de Metal: 12 Testes de Inspeção Pré-Embarque para Importadores",
+      "summary": "O nosso protocolo QC de 12 pontos pré-envio: medição magnética com Gaussímetro, teste de retenção epóxi 50N, rotação de rolamento R188, adesão PVD 3M e blindagem IATA PI-953."
+    },
+    "sv": {
+      "title": "Kvalitetskontroll-Checklista för Metall-EDC-Fidgets: 12 Obligatoriska Tester Före Leverans för Importörer",
+      "summary": "Vårt 12-punkts QC-protokoll före leverans: digital Gaussmeter-magnetkontroll, 50N epoxihållfasthet, R188-spinntid, 3M gittersnitt PVD-vidhäftning och IATA PI-953 kartongavskärmning."
+    },
+    "da": {
+      "title": "Kvalitetskontrol-Tjekliste for Metal-EDC-Fidgets: 12 Obligatoriske Inspektionstests Før Afsendelse",
+      "summary": "Vores 12-punkts QC-protokol før afsendelse: digital Gaussmeter-magnetmåling, 50N epoxy-fastholdelse, R188-spintid, 3M gittersnit PVD-vedhæftning og IATA PI-953 kartonafskærmning."
+    },
+    "no": {
+      "title": "Sjekkliste for Kvalitetskontroll av Metall-EDC-Fidgets: 12 Obligatoriske Inspeksjonstester Før Forsendelse",
+      "summary": "Vår 12-punkts QC-protokoll før forsendelse: digital Gaussmeter-magnetmåling, 50N epoksyfeste, R188-spinntid, 3M rutekutt PVD-heft og IATA PI-953 kartongskjerming."
+    },
+    "fi": {
+      "title": "Metallisten EDC-Fidgetien Laadunvalvontalista: 12 Pakollista Ennen Toimitusta Tehtävää Tarkastustestiä",
+      "summary": "12-kohtainen QC-protokollamme: digitaalinen Gauss-magneettimittaus, 50N epoksikiinnitystesti, R188-pyörimisaika, 3M PVD-tartuntatesti ja IATA PI-953 lentorahtisuojaus."
+    },
+    "pl": {
+      "title": "Lista Kontroli Jakości Metalowych Fidgetów EDC: 12 Obowiązkowych Testów Przedwysyłkowych dla Importerów",
+      "summary": "Nasz 12-punktowy protokół QC przed wysyłką: pomiar pola magnetycznego teslomierzem, test retencji epoksydowej 50N, czas obrotu R188, test przyczepności PVD 3M i ekranowanie IATA PI-953."
+    },
+    "cs": {
+      "title": "Kontrolní Seznam Kvality Kovových EDC Fidgetů: 12 Povinných Předvývozních Inspekčních Testů pro Dovozce",
+      "summary": "Náš 12bodový QC protokol před odesláním: měření magnetů gaussmetrem, 50N test epoxidového uchycení, doba rotace R188, mřížkový test PVD 3M a stínění IATA PI-953."
+    },
+    "ru": {
+      "title": "Чек-лист контроля качества металлических EDC-фиджетов: 12 обязательных предотгрузочных тестов для импортеров",
+      "summary": "Наш протокол ОТК из 12 тестов перед отгрузкой: проверка магнитов гауссметром, тест удержания эпоксидной смолы 50 Н, вращение подшипника R188 (>180 с), адгезия PVD 3M и экранирование IATA PI-953."
+    },
+    "ja": {
+      "title": "金属EDCフィジェット品質管理（QC）チェックリスト：輸入バイヤー向け出荷前必須12項目検査プロトコル",
+      "summary": "FidgetSupplyの出荷前12項目QC検査：デジタルガウスメーター磁束測定、50Nエポキシ磁石保持テスト、R188ベアリング180秒回転検査、3MクロスカットPVD密着試験、IATA PI-953磁気遮蔽測定。"
+    },
+    "ko": {
+      "title": "메탈 EDC 피젯 품질관리(QC) 체크리스트: 수입업체를 위한 선적 전 필수 12단계 전수 검사 프로토콜",
+      "summary": "FidgetSupply의 선적 전 12단계 QC 검수: 디지털 가우스미터 자력 측정, 50N 에폭시 자석 고정력 테스트, R188 베어링 180초 회전 검사, 3M 크로스해치 PVD 부착력 테스트 및 IATA PI-953 자기 차폐 측정."
+    },
+    "id": {
+      "title": "Checklist Kontrol Kualitas (QC) Fidget EDC Logam: 12 Uji Inspeksi Pra-Pengiriman Wajib bagi Importir",
+      "summary": "Protokol QC 12 poin pra-pengiriman kami: verifikasi magnet Gaussmeter digital, uji retensi epoksi 50N, durasi putar R188, uji adhesi PVD 3M, dan pelindung karton IATA PI-953."
+    },
+    "ar": {
+      "title": "قائمة فحص جودة أدوات الفيدجت المعدنية (QC): 12 اختبار فحص إلزامي قبل الشحن للمستوردين",
+      "summary": "بروتوكول مراقبة الجودة المكون من 12 نقطة قبل الشحن: قياس المغناطيس بجهاز الغاوسميتر، اختبار ثبات الإيبوكسي بقوة 50 نيوتن، فحص دوران محمل R188، اختبار التصاق طلاء PVD، وتدريع الشحن الجوي IATA PI-953."
+    }
+  },
+  "how-to-launch-private-label-metal-edc-fidget-brand-zero-mold-tooling": {
+    "en": {
+      "title": "How to Launch a Private-Label Metal EDC Fidget Brand Under $1,500: The $0 Tooling Ready-Mold Playbook",
+      "summary": "Step-by-step 15-day launch blueprint for Amazon FBA, TikTok Shop, and Shopify founders: launching a custom MOPA laser-engraved metal EDC fidget brand with 100 pcs MOQ, $0 mold fees, and under $1,500 total capital."
+    },
+    "de": {
+      "title": "So Starten Sie eine Eigene Metall-EDC-Fidget-Marke unter 1.500 $: Das 0-$-Werkzeugkosten-Playbook",
+      "summary": "Schritt-für-Schritt-15-Tage-Startplan für Amazon FBA-, TikTok Shop- und Shopify-Gründer: eigene MOPA-lasergravierte Metall-Fidget-Marke ab 100 Stück MOQ, 0 $ Formkosten und unter 1.500 $ Startkapital."
+    },
+    "fr": {
+      "title": "Comment Lancer une Marque Private-Label de Fidgets EDC Métal à Moins de 1 500 $ : Le Guide $0 Outillage",
+      "summary": "Plan de lancement en 15 jours pour créateurs Amazon FBA, TikTok Shop et Shopify : créez votre marque de fidgets métal gravés au laser fibre MOPA dès 100 pcs MOQ, 0 $ de frais de moule et moins de 1 500 $ de budget total."
+    },
+    "nl": {
+      "title": "Zo Lanceert u een Private-Label Metalen EDC Fidget-Merk onder $1.500: Het $0 Matrijskosten Playbook",
+      "summary": "Stapsgewijs 15-dagen lanceerplan voor Amazon FBA-, TikTok Shop- en Shopify-oprichters: start uw eigen MOPA-lasergegraveerde metalen fidget-merk vanaf 100 stuks MOQ, $0 matrijskosten en onder $1.500 startbudget."
+    },
+    "es": {
+      "title": "Cómo Lanzar una Marca Propia de Fidgets EDC de Metal por Menos de $1,500: Guía con $0 Coste de Molde",
+      "summary": "Plan paso a paso en 15 días para emprendedores de Amazon FBA, TikTok Shop y Shopify: lance su marca de fidgets metálicos grabados con láser MOPA desde 100 uds MOQ, $0 en moldes y menos de $1,500 de capital total."
+    },
+    "it": {
+      "title": "Come Lanciare un Brand Private-Label di Fidget EDC in Metallo con Meno di 1.500 $: Guida $0 Costi Stampo",
+      "summary": "Piano di lancio in 15 giorni per founder Amazon FBA, TikTok Shop e Shopify: crea il tuo marchio di fidget metallici incisi al laser MOPA da 100 pz MOQ, 0 $ costi stampo e meno di 1.500 $ di budget totale."
+    },
+    "pt": {
+      "title": "Como Lançar uma Marca Própria de Fidgets EDC de Metal por Menos de $1.500: O Guia com $0 de Molde",
+      "summary": "Plano passo a passo de 15 dias para fundadores na Amazon FBA, TikTok Shop e Shopify: lance a sua marca de fidgets metálicos gravados a laser MOPA com MOQ de 100 un., $0 de molde e menos de $1.500 de investimento."
+    },
+    "sv": {
+      "title": "Så Lanserar Du ett Eget Varumärke för Metall-EDC-Fidgets under 1 500 $: Playbook med 0 $ Verktygskostnad",
+      "summary": "Steg-för-steg 15-dagars lanseringsplan för Amazon FBA-, TikTok Shop- och Shopify-entreprenörer: starta ditt MOPA-lasergraverade metallfidget-varumärke med 100 st MOQ, 0 $ i formavgift och under 1 500 $ i kapital."
+    },
+    "da": {
+      "title": "Sådan Lancerer Du et Private-Label Metal-EDC-Fidget-Brand under 1.500 $: Playbook med 0 $ Værktøjsgebyr",
+      "summary": "Trin-for-trin 15-dages lanceringsplan for Amazon FBA-, TikTok Shop- og Shopify-iværksættere: start dit eget MOPA-lasergraverede metalfidget-brand med 100 stk. MOQ, 0 $ i formgebyr og under 1.500 $ i budget."
+    },
+    "no": {
+      "title": "Slik Lanserer Du et Eget Merke for Metall-EDC-Fidgets under 1 500 $: Playbook med 0 $ Verktøykostnad",
+      "summary": "Trinnvis 15-dagers lanseringsplan for Amazon FBA-, TikTok Shop- og Shopify-gründere: start ditt eget MOPA-lasergraverte metallfidget-merke med 100 stk MOQ, 0 $ i formavgift og under 1 500 $ i totalkapital."
+    },
+    "fi": {
+      "title": "Näin Perustat Oman Metallisen EDC-Fidget-Brändin alle 1 500 Dollarilla: 0 $ Muottimaksun Opas",
+      "summary": "Vaiheittainen 15 päivän lanseerausopas Amazon FBA-, TikTok Shop- ja Shopify-yrittäjille: luo oma MOPA-laserkaiverrettu metallifidget-brändi 100 kpl MOQ:lla, 0 $ muottimaksuilla ja alle 1 500 $ pääomalla."
+    },
+    "pl": {
+      "title": "Jak Stworzyć Własną Markę Metalowych Fidgetów EDC poniżej 1500 USD: Przewodnik z Kosztem Formy 0 USD",
+      "summary": "15-dniowy plan startowy dla sprzedawców Amazon FBA, TikTok Shop i Shopify: uruchom własną markę metalowych fidgetów grawerowanych laserem MOPA od 100 szt. MOQ, 0 USD za matrycę i poniżej 1500 USD budżetu."
+    },
+    "cs": {
+      "title": "Jak Založit Vlastní Značku Kovových EDC Fidgetů do 1 500 USD: Průvodce s Nulovými Náklady na Formy ($0)",
+      "summary": "15denní plán spuštění pro prodejce na Amazon FBA, TikTok Shop a Shopify: vybudujte vlastní značku kovových fidgetů s MOPA laserovým logem od 100 ks MOQ, $0 za formy a s rozpočtem do 1 500 USD."
+    },
+    "ru": {
+      "title": "Как запустить собственный бренд металлических EDC-фиджетов (Private Label) с бюджетом до $1500: гид без затрат на пресс-формы ($0)",
+      "summary": "Пошаговый 15-дневный план для селлеров Amazon FBA, TikTok Shop и Shopify: запуск бренда металлических фиджетов с лазерной гравировкой MOPA при MOQ 100 шт., $0 за оснастку и бюджетом до $1500."
+    },
+    "ja": {
+      "title": "初期費用1,500ドル以下で金属EDCフィジェット自社ブランド（OEM/PB）を立ち上げる方法：金型代0ドル完全プレイブック",
+      "summary": "Amazon FBA・TikTok Shop・Shopify起業家向け15日間ローンチ手順：金型代0ドルの完成金型を活用し、MOQ 100個・MOPAファイバーレーザー刻印・EVAケース付きで総額1,500ドル以下でD2Cブランドを構築。"
+    },
+    "ko": {
+      "title": "초기 자본 $1,500 이하로 메탈 EDC 피젯 자체 브랜드(PB/OEM) 런칭하는 법: 금형비 $0 완벽 플레이북",
+      "summary": "아마존 FBA, 틱톡샵, 쇼피파이 창업자를 위한 15일 런칭 로드맵: 금형비 $0 기성 금형으로 MOQ 100개, MOPA 레이저 각인 및 EVA 케이스 포함 총비용 $1,500 이하로 브랜드 구축하기."
+    },
+    "id": {
+      "title": "Cara Meluncurkan Brand Private-Label Fidget EDC Logam di Bawah $1.500: Panduan $0 Biaya Cetakan",
+      "summary": "Cetak biru peluncuran 15 hari untuk founder Amazon FBA, TikTok Shop, dan Shopify: bangun merek fidget logam ukir laser MOPA dengan MOQ 100 pcs, $0 biaya cetakan, dan total modal di bawah $1.500."
+    },
+    "ar": {
+      "title": "كيف تطلق علامة تجارية خاصة (Private Label) لأدوات الفيدجت المعدنية بأقل من 1,500 دولار: دليل القوالب الجاهزة مجاناً",
+      "summary": "خطة إطلاق عملية خلال 15 يوماً لرواد أعمال Amazon FBA وTikTok Shop وShopify: أطلق علامتك التجارية المحفورة بليزر MOPA بحد أدنى 100 قطعة وبدون رسوم قوالب وبميزانية إجمالية أقل من 1,500 دولار."
+    }
+  },
+  "holiday-q4-corporate-multi-piece-metal-edc-fidget-gift-bundle-playbook": {
+    "en": {
+      "title": "Holiday Q4 & Corporate Multi-Piece Metal EDC Fidget Gift Bundle Playbook: 5 High-AOV Kit Formulas",
+      "summary": "How DTC brands, Amazon FBA sellers, and corporate gifting agencies combine 2 to 3 complementary metal EDC fidgets inside custom die-cut EVA foam gift boxes to double Average Order Value ($69–$149 AOV)."
+    },
+    "de": {
+      "title": "Q4-Weihnachtsgeschäft & Corporate Multi-Piece Metall-EDC-Fidget Geschenkset-Playbook: 5 High-AOV-Bundle-Formeln",
+      "summary": "Wie DTC-Marken, Amazon-FBA-Händler und Werbeartikelagenturen 2 bis 3 komplementäre Metall-EDC-Fidgets in maßgefertigten EVA-Schaumstoff-Geschenkboxen kombinieren, um den Bestellwert ($69–$149 AOV) zu verdoppeln."
+    },
+    "fr": {
+      "title": "Guide des Coffrets Cadeaux Multi-Pièces Fidgets EDC Métal (Q4 & Cadeaux d’Entreprise) : 5 Formules à Fort Panier Moyen",
+      "summary": "Comment les marques DTC, vendeurs Amazon FBA et agences de cadeaux d’entreprise combinent 2 à 3 fidgets EDC métal dans des coffrets à mousse EVA découpée sur mesure pour doubler leur panier moyen (69 $–149 $)."
+    },
+    "nl": {
+      "title": "Q4 Feestdagen & Zakelijke Meerdelige Metalen EDC Fidget Cadeauset Playbook: 5 Hoge-AOV Bundle-Formules",
+      "summary": "Hoe DTC-merken, Amazon FBA-verkopers en relatiegeschenkenbureaus 2 tot 3 complementaire metalen EDC-fidgets combineren in op maat gesneden EVA-schuim geschenkdozen om de orderwaarde ($69–$149) te verdubbelen."
+    },
+    "es": {
+      "title": "Guía de Packs de Regalo Multi-Pieza de Fidgets EDC de Metal para Q4 y Empresas: 5 Fórmulas de Alto Ticket Medio",
+      "summary": "Cómo las marcas DTC, vendedores de Amazon FBA y agencias de regalos corporativos combinan 2 o 3 fidgets metálicos en cajas rígidas con espuma EVA troquelada para duplicar el ticket medio ($69–$149)."
+    },
+    "it": {
+      "title": "Playbook Set Regalo Multi-Pezzo di Fidget EDC in Metallo per Q4 e Regali Aziendali: 5 Formule ad Alto Scontrino Medio",
+      "summary": "Come i brand DTC, i venditori Amazon FBA e le agenzie corporate combinano 2 o 3 fidget EDC in metallo in cofanetti con spugna EVA fustellata su misura per raddoppiare il valore medio dell’ordine ($69–$149)."
+    },
+    "pt": {
+      "title": "Guia de Kits de Presente Multi-Peças de Fidgets EDC de Metal para Q4 e Brindes Corporativos: 5 Fórmulas de Alto AOV",
+      "summary": "Como marcas DTC, vendedores Amazon FBA e agências corporativas combinam 2 a 3 fidgets metálicos em caixas rígidas com espuma EVA recortada à medida para duplicar o ticket médio ($69–$149)."
+    },
+    "sv": {
+      "title": "Q4 Julhandel & Företagsgåvor Flerdelade Metall-EDC-Fidget Presentförpackningar: 5 Paketformler för Högt Snittordervärde",
+      "summary": "Hur DTC-varumärken, Amazon FBA-säljare och profilreklambyråer kombinerar 2 till 3 metall-EDC-fidgets i skräddarsydda EVA-skumpresentlådor för att fördubbla snittordervärdet ($69–$149 AOV)."
+    },
+    "da": {
+      "title": "Q4 Julehandel & Firmagaver Flerdelte Metal-EDC-Fidget Gaveæsker: 5 Pakkeformler til Høj Ordreværdi",
+      "summary": "Hvordan DTC-brands, Amazon FBA-sælgere og firmagavebureauer kombinerer 2 til 3 metal-EDC-fidgets i specialudskårne EVA-skumgaveæsker for at fordoble den gennemsnitlige ordreværdi ($69–$149 AOV)."
+    },
+    "no": {
+      "title": "Q4 Julehandel & Firmagaver Flerdelte Metall-EDC-Fidget Gaveesker: 5 Pakkeformler for Høy Snittordreverdi",
+      "summary": "Hvordan DTC-merker, Amazon FBA-selgere og firmagavebyråer kombinerer 2 til 3 metall-EDC-fidgets i spesialskårne EVA-skumgaveesker for å doble gjennomsnittlig ordreverdi ($69–$149 AOV)."
+    },
+    "fi": {
+      "title": "Q4 Joulusesongin & Yrityslahjojen Moniosaiset Metalliset EDC-Fidget-Lahjapakkaukset: 5 Korkean Keskikaupan Settimallia",
+      "summary": "Kuinka DTC-brändit, Amazon FBA -myyjät ja liikelahjatoimistot yhdistävät 2–3 metallista EDC-fidgetiä muotoonleikattuihin EVA-vaahtomuovilahjarasioihin kaksinkertaistaakseen keskiostoksen ($69–$149)."
+    },
+    "pl": {
+      "title": "Przewodnik po Wieloelementowych Zestawach Prezentowych Metalowych Fidgetów EDC na Q4 i dla Firm: 5 Formuł Wysokiego AOV",
+      "summary": "Jak marki DTC, sprzedawcy Amazon FBA i agencje upominkowe łączą 2–3 metalowe fidgety EDC w pudełkach z wycinaną pianką EVA, podwajając średnią wartość koszyka ($69–$149)."
+    },
+    "cs": {
+      "title": "Průvodce Vícedílnými Dárkovými Sadami Kovových EDC Fidgetů pro Vánoční Q4 a Firemní Dárky: 5 Sestav s Vysokou Hodnotou Objednávky",
+      "summary": "Jak značky DTC, prodejci Amazon FBA a reklamní agentury kombinují 2 až 3 kovové EDC fidgety v dárkových krabičkách s vyřezávanou EVA pěnou a zdvojnásobují průměrnou objednávku ($69–$149)."
+    },
+    "ru": {
+      "title": "Гид по подарочным наборам из нескольких металлических EDC-фиджетов для Q4 и корпоративных подарков: 5 формул высокого среднего чека",
+      "summary": "Как бренды DTC, селлеры Amazon FBA и корпоративные агентства комбинируют 2–3 металлических фиджета в подарочных коробках с ложементом из EVA-пены, удваивая средний чек ($69–$149)."
+    },
+    "ja": {
+      "title": "Q4ホリデー商戦＆法人VIPギフト向け金属EDCフィジェット複数点セット（バンドル）戦略：客単価を倍増させる5つの厳選キット",
+      "summary": "D2Cブランド、Amazon FBAセラー、法人ギフト代理店が2〜3種類の金属EDCフィジェットを専用CNC型抜きEVAフォーム入りギフトボックスに組み合わせ、平均注文額（AOV $69〜$149）を2倍にする実践ガイド。"
+    },
+    "ko": {
+      "title": "Q4 홀리데이 시즌 및 기업용 다중 구성 메탈 EDC 피젯 기프트 번들 플레이북: 객단가(AOV)를 2배 높이는 5가지 세트 공식",
+      "summary": "DTC 브랜드, 아마존 FBA 셀러 및 기업 판촉 에이전시가 2~3종의 메탈 EDC 피젯을 맞춤형 다이컷 EVA 폼 기프트 박스에 구성하여 평균 주문 금액($69~$149 AOV)을 두 배로 높이는 전략."
+    },
+    "id": {
+      "title": "Playbook Paket Hadiah Multi-Piece Fidget EDC Logam untuk Liburan Q4 & Korporat: 5 Formula Kit AOV Tinggi",
+      "summary": "Bagaimana brand DTC, penjual Amazon FBA, dan agensi hadiah korporat menggabungkan 2–3 fidget EDC logam dalam kotak hadiah busa EVA potong khusus untuk menggandakan nilai pesanan rata-rata ($69–$149)."
+    },
+    "ar": {
+      "title": "دليل مجموعات الهدايا المتعددة لأدوات الفيدجت المعدنية لموسم الربع الرابع وهدايا الشركات: 5 صيغ لرفع متوسط قيمة الطلب",
+      "summary": "كيف تجمع علامات التجارة الإلكترونية وبائعو Amazon FBA ووكالات هدايا الشركات بين 2 إلى 3 أدوات فيدجت معدنية داخل صناديق فاخرة مبطنة بفوم EVA مقصوص حسب الطلب لمضاعفة قيمة السلة (69–149 دولاراً)."
+    }
   }
 };
 
