@@ -2513,7 +2513,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "Netthandelsprognose 2027 for de 20 mest lønnsomme metallfidgetene ($2,80–$12,50 fra fabrikk → $27,99–$89,99 utsalgspris, 68 %–82 % margin), Dag & Natt-pakker og gratis FNSKU-merking."
     },
     "fi": {
-      "title": "TikTok Shop ASMR, Amazon FBA & Shopify Myyntimenestysennuste 2027: Top 20 Korkeakatteista Metallifidget-Muottia",
+      "title": "2027 TikTok ASMR, Amazon FBA & Shopify Myyntiennuste: Top 20 Metallifidget-Muottia",
       "summary": "Verkkokaupan 2027 ennuste 20 tuottoisimmasta metallifidgetistä ($2,80–$12,50 tehdashinta → $27,99–$89,99 vähittäishinta, 68 %–82 % kate), Päivä & Yö -tuotepaketit ja ilmainen FNSKU-tarroitus."
     },
     "pl": {

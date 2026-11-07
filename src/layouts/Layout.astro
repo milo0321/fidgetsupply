@@ -90,7 +90,11 @@ function calibrateSeoTitle(raw: string, langCode: SupportedLanguage): string {
       clean = clean.slice(0, maxBase).replace(/[\s:,\-–—/+|&、。]+$/, '');
     }
   }
-  return `${clean}${suffix}`;
+  let result = `${clean}${suffix}`;
+  if (result.length < 35 && htmlEncodedLen(`${clean} | FidgetSupply${suffix}`) <= 60) {
+    result = `${clean} | FidgetSupply${suffix}`;
+  }
+  return result;
 }
 
 function calibrateSeoDescription(raw: string, langCode: SupportedLanguage): string {
@@ -104,7 +108,10 @@ function calibrateSeoDescription(raw: string, langCode: SupportedLanguage): stri
 
   clean = clean.replace(/\s&\s/g, ' + ');
   const prefix = `[${langCode.toUpperCase()}] `;
-  const full = clean.startsWith('[') ? clean : `${prefix}${clean}`;
+  let full = clean.startsWith('[') ? clean : `${prefix}${clean}`;
+  if (full.length < 80) {
+    full = `${full.replace(/[。.]+$/, '')} · 140 Ready Metal Molds, $0 Tooling, MOQ 50–100 pcs | FidgetSupply.com.`;
+  }
   if (htmlEncodedLen(full) <= 154) {
     return full;
   }
