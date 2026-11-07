@@ -1,0 +1,19 @@
+# Cloudflare Pages Edge Caching & Cold-Start Acceleration Headers
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/favicon.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/logo.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/logo-dark.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/llms.txt
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400

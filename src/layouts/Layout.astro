@@ -252,10 +252,38 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
     <meta name="twitter:title" content={localizedTitle} />
     <meta name="twitter:description" content={localizedDescription} />
     <meta name="twitter:image" content={fullOgImageUrl} />
+  </head>
+  <body>
+    <Header activePage={activePage} currentLang={currentLang} />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer currentLang={currentLang} />
 
+    <!-- Ruixing Gifts Interactive Floating WhatsApp Button & Chat Modal -->
+    <WhatsAppWidget currentLang={currentLang} />
+
+    <!-- Structured Data (JSON-LD) placed at end of body for faster Cold-Start HTML head parsing -->
     {allSchemas.map((schema) => (
       <script type="application/ld+json" set:html={JSON.stringify(schema)} />
     ))}
+
+    <!-- Instant Page Navigation Prefetch (Chromium Speculation Rules API) -->
+    <script type="speculationrules" is:inline>
+      {
+        "prefetch": [
+          {
+            "where": {
+              "and": [
+                { "href_matches": "/*" },
+                { "not": { "href_matches": "/contact*" } }
+              ]
+            },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
 
     <!-- Google Tag Manager & GA4 (GTM-TH9NHVJ4 / G-HHP8CN1M58) — Deferred until post-LCP / interaction -->
     <script is:inline define:vars={{ gaMeasurementId, gtmId }}>
@@ -321,16 +349,6 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
         } catch (_) {}
       })();
     </script>
-  </head>
-  <body>
-    <Header activePage={activePage} currentLang={currentLang} />
-    <main id="main-content">
-      <slot />
-    </main>
-    <Footer currentLang={currentLang} />
-
-    <!-- Ruixing Gifts Interactive Floating WhatsApp Button & Chat Modal -->
-    <WhatsAppWidget currentLang={currentLang} />
 
     <!-- Global Accordion, Language Picker & GA4 Full-Funnel Event Delegation -->
     <script is:inline>

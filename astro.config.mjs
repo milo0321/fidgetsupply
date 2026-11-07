@@ -5,6 +5,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://fidgetsupply.com',
   trailingSlash: 'never',
+  build: {
+    inlineStylesheets: 'always'
+  },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'de', 'fr', 'sv', 'da', 'no', 'fi', 'cs', 'es', 'it', 'nl', 'pl', 'pt', 'ru', 'ja', 'ko', 'id', 'ar'],
