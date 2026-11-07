@@ -174,6 +174,8 @@ img {
 .badge {
   display: inline-flex;
   align-items: center;
+  align-self: flex-start;
+  width: fit-content;
   gap: 0.4rem;
   padding: 0.35rem 0.85rem;
   font-size: 0.78rem;
@@ -184,6 +186,10 @@ img {
   background-color: var(--color-brand-light);
   color: var(--color-brand);
   border: 1px solid var(--color-brand-border);
+}
+
+.section-header-center .badge {
+  align-self: center;
 }
 
 .badge-dark {
@@ -283,14 +289,26 @@ img {
 /* Grid Systems */
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.85rem;
 }
 
 .grid-4 {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1.65rem;
+}
+
+@media (max-width: 1120px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Tables (GEO Engineering & Pricing) */
