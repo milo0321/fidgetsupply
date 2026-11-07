@@ -121,7 +121,7 @@ How do private-label brands customize these curved and circular form factors at 
       </tr>
       <tr>
         <td><strong>EDC Gourds &amp; Capsules</strong></td>
-        <td>Rotary-Axis 360° Fiber Laser Engraving or Pad/UV Printing</td>
+        <td>Rotary-Axis 360° Fiber Laser Engraving or Deep Laser + Color Fill</td>
         <td>Flat bottom base (Ø18mm–Ø24mm) or cylindrical waist band</td>
         <td>Hard-Shell EVA Zipper Carry Case with carabiner clip + velvet pouch</td>
       </tr>

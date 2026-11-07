@@ -133,8 +133,24 @@ async function main() {
   ];
   const productUrls = priorityProductSlugs.map((s) => `${BASE_URL}/products/${s}`);
 
-  const allUrls = [...coreUrls, ...collectionUrls, ...insightUrls, ...productUrls];
-  console.log(`\n=== 2. Submitting ${allUrls.length} Priority URLs to Google Indexing API ===`);
+  const isRemainingProductsOnly = process.argv.includes('--remaining-products');
+  const isBatch2 = process.argv.includes('--batch-2');
+  let allUrls = [...coreUrls, ...collectionUrls, ...insightUrls, ...productUrls];
+
+  if (isRemainingProductsOnly || isBatch2) {
+    const prodDir = path.join(__dirname, '../src/content/products');
+    const allProdSlugs = fs
+      .readdirSync(prodDir)
+      .filter((f) => f.endsWith('.json'))
+      .sort()
+      .map((f) => f.replace(/\.json$/, ''));
+    const submittedSet = new Set(priorityProductSlugs);
+    const remainingSlugs = allProdSlugs.filter((s) => !submittedSet.has(s));
+    const slice = isBatch2 ? remainingSlugs.slice(66) : remainingSlugs;
+    allUrls = slice.map((s) => `${BASE_URL}/products/${s}`);
+  }
+
+  console.log(`\n=== 2. Submitting ${allUrls.length} URLs to Google Indexing API ===`);
 
   let successCount = 0;
   let errorCount = 0;

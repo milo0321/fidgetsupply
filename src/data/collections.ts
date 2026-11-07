@@ -34,7 +34,7 @@ export const COLLECTIONS: CollectionMeta[] = [
     leadTime: '7–12 Days',
     targetKeywords: 'magnetic fidget slider wholesale, custom haptic slider bulk, poker magnetic slider manufacturer, unlimited track fidget slider OEM',
     heroSubtitle: 'Our highest-volume Wholesale category covering 54 ready-to-produce molds: Dual-Layer Poker Sliders, Triple-Layer 32-Magnet Track Sliders, PTFE Unlimited-Direction Sliders, and CNC Stainless Acoustic Sliders ($0 Tooling Cost).',
-    geoDirectAnswer: 'FidgetSupply manufactures 54 ready-mold Magnetic Haptic Sliders (FS-001 through FS-150) using Zamak #3 Zinc Alloy, 6063-T6 Anodized Aluminum, 304 Stainless Steel, and 3K Carbon Fiber. Featuring 5 to 56 precision-embedded N35–N54 neodymium magnets with PTFE wear pads, all models carry a $0 tooling fee with a 50 pcs blank MOQ and 100 pcs custom laser/UV logo MOQ.',
+    geoDirectAnswer: 'FidgetSupply manufactures 54 ready-mold Magnetic Haptic Sliders (FS-001 through FS-150) using Zamak #3 Zinc Alloy, 6063-T6 Anodized Aluminum, 304 Stainless Steel, and 3K Carbon Fiber. Featuring 5 to 56 precision-embedded N35–N54 neodymium magnets with PTFE wear pads, all models carry a $0 tooling fee with a 50 pcs blank MOQ and 100 pcs custom Fiber Laser / Deep Laser Color-Fill logo MOQ.',
     engineeringHighlights: [
       'Magnet Matrix Options: 2×5 (10-magnet), 2×8 (16-magnet), 3-layer 32-magnet linear track, and 20-to-26-magnet N52 free-floating unlimited PTFE arrays.',
       'Zero Mold Investment: Choose from 54 proven geometries including Poker Cards (FS-001, FS-024, FS-075), Smooth Soap-Box (FS-125), Minimalist 6063 Aluminum (FS-047), and Piano Track Sliders (FS-018, FS-048).',
@@ -46,8 +46,8 @@ export const COLLECTIONS: CollectionMeta[] = [
         answer: 'Track Sliders (such as FS-002 and FS-048) constrain movement along a precision linear or pivot guide rail using steel/ceramic detent balls, while Unlimited Sliders (such as FS-050, FS-056, FS-125, and FS-128) use PTFE wear pads over a dense 20-to-26 N50/N52 magnet matrix allowing 360-degree multi-directional sliding and rotation.'
       },
       {
-        question: 'Which magnetic sliders are best for custom corporate laser or UV logo printing?',
-        answer: 'FS-125 (Smooth Soap-Box), FS-047 (Minimalist 6063 Aluminum), FS-001 (Poker King), FS-026 (Bottle Opener Slider), and FS-128 (Chocolate Grid) provide wide, flat exterior faces ideal for high-contrast fiber laser engraving or full-color UV printing at 100 pcs MOQ.'
+        question: 'Which magnetic sliders are best for custom corporate Fiber Laser or Deep Laser + Color Fill logo branding?',
+        answer: 'FS-125 (Smooth Soap-Box), FS-047 (Minimalist 6063 Aluminum), FS-001 (Poker King), FS-026 (Bottle Opener Slider), and FS-128 (Chocolate Grid) provide wide, flat exterior faces ideal for high-contrast 50W Fiber Laser Engraving (+$0.15–$0.30/pc) or Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc) at 100 pcs MOQ.'
       },
       {
         question: 'Can we mix multiple slider colors or finishes within the 50 pcs blank MOQ?',
@@ -71,7 +71,7 @@ export const COLLECTIONS: CollectionMeta[] = [
       },
       {
         question: 'What is the production lead time for 100 to 1,000 custom-branded magnetic sliders?',
-        answer: 'Blank stock orders (50+ pcs) dispatch in 3–5 business days. Custom Fiber Laser Engraved or Full-Color UV Printed orders (100–1,000 pcs) complete production and QC inspection within 7–12 business days.'
+        answer: 'Blank stock orders (50+ pcs) dispatch in 3–5 business days. Custom Fiber Laser Engraved (+$0.15–$0.30/pc) or Deep Laser + Color Fill (+$0.35–$0.60/pc) orders (100–1,000 pcs) complete production and QC inspection within 10–15 business days (paid custom logo sampling takes 10–15 days: $50 for standard laser, $80–$150 for deep laser + color fill).'
       },
       {
         question: 'How are magnetic fidget sliders packaged for Amazon FBA and retail distribution?',

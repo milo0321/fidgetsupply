@@ -480,9 +480,9 @@ const isEnabled = cleanDigits.length >= 7;
 
         if (path.indexOf('/products/') !== -1 && skuText) {
           if (greetingText) {
-            greetingText.innerHTML = '👋 <strong>Hi!</strong> Interested in <strong>' + skuText + ' (' + h1 + ')</strong>? Start a chat for instant factory pricing, 100 pcs custom Laser/UV logo proofs, or samples.';
+            greetingText.innerHTML = '👋 <strong>Hi!</strong> Interested in <strong>' + skuText + ' (' + h1 + ')</strong>? Start a chat for instant factory pricing, 100 pcs custom Laser / Color-Fill logo proofs, or samples.';
           }
-          textarea.value = 'Hi FidgetSupply! I would like to inquire about ' + skuText + ' - ' + h1 + ' (' + cleanUrl + ').\n• Target Quantity: ~200 pcs\n• Branding: Custom Laser / UV Logo';
+          textarea.value = 'Hi FidgetSupply! I would like to inquire about ' + skuText + ' - ' + h1 + ' (' + cleanUrl + ').\n• Target Quantity: ~200 pcs\n• Branding: Custom Fiber Laser / Deep Laser Color-Fill Logo';
         } else if (path.indexOf('/collections/') !== -1) {
           if (greetingText) {
             greetingText.innerHTML = '👋 <strong>Hi!</strong> Sourcing from <strong>' + h1 + '</strong>? Message us for our complete SKU price sheet and Sample Evaluation.';

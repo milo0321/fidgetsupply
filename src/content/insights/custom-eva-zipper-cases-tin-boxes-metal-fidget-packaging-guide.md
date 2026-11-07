@@ -153,7 +153,7 @@ Here is how our packaging engineering guarantees 100% pass rates during Hong Kon
 <h2 id="matching-product-branding-with-packaging-branding">6. Coordinating On-Product Logo Engraving with Custom Packaging Artwork</h2>
 
 For maximum brand cohesion across our <a href="/collections/custom-logo-metal-fidgets">Custom Logo Ready Wholesale collection</a>, we synchronize your on-product logo technique (<a href="/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">Fiber Laser Engraving vs. UV Printing Guide</a>) with your outer box branding:
-- **24-Hour Dual Digital Mockup**: Send us a single vector logo file (`.AI`, `.EPS`, or `.SVG`). Within 24 hours, our CAD desk delivers a combined proof sheet showing both the exact laser/UV placement on your chosen fidget SKU and the lid/badge layout on your EVA zipper case or tin presentation box.
+- **24-Hour Dual Digital Mockup**: Send us a single vector logo file (`.AI`, `.EPS`, or `.SVG`). Within 24 hours, our CAD desk delivers a combined proof sheet showing both the exact Fiber Laser / Color-Fill placement on your chosen fidget SKU and the lid/badge layout on your EVA zipper case or tin presentation box.
 - **Mix-and-Match SKU Assortments**: Because our EVA foam inserts are cut in-house via CNC oscillating blade and die-press, you can combine **2 or 3 different fidget SKUs** (for example, `50 pcs FS-001 Slider` + `50 pcs FS-013 Haptic Coin`) under a single **100-piece custom-branded outer tin box or EVA case run**!
 
 <div class="sourcing-cta-box">
