@@ -1,14 +1,18 @@
-# Synchronous Full-Locale Multilingual Update Invariant
+# Synchronous Full-Locale Multilingual Update Invariant (18 Languages)
 
-Whenever ANY page, article, collection hub, product SKU, or core widget is created, updated, or refactored, you MUST simultaneously synchronize and update ALL 10 supported language locales (`en`, `es`, `de`, `fr`, `it`, `pt`, `ru`, `ja`, `ko`, `ar`).
+Whenever ANY page, article, collection hub, product SKU, or core widget is created, updated, or refactored, you MUST simultaneously synchronize and update ALL **18 supported language locales** (`en`, `de`, `fr`, `nl`, `es`, `it`, `pt`, `sv`, `da`, `no`, `fi`, `pl`, `cs`, `ru`, `ja`, `ko`, `id`, `ar`).
 
 ---
 
-## 1. Zero Locale Drift & Complete Parity Invariant
+## 1. Zero Locale Drift, Complete Parity & Zero Stray Chinese Invariant
 
-1. **Simultaneous 10-Locale Synchronization**:
+1. **Simultaneous 18-Locale Synchronization**:
    - Never update an English page or component in isolation while leaving non-English versions stale.
-   - If a page's content, technical specifications, volume pricing tiers, FAQ accordion, or Hero copy changes in English, the corresponding localized translation dictionaries in `src/i18n/translations/pages/` or localized page controllers MUST be updated across all 18 languages in the same task/commit.
+   - If a page's content, technical specifications, volume pricing tiers, custom branding policy (`50W Fiber Laser` & `Deep Laser + Color Fill`), FAQ accordion, or Hero copy changes in English, the corresponding localized translation dictionaries in `src/i18n/ui.ts`, `src/i18n/pageContentLocalization.ts`, `src/i18n/productLocalization.ts`, and `src/i18n/insightAndCollectionLocalization.ts` MUST be updated across all 18 languages in the same commit.
+
+2. **Zero Stray Chinese Characters (`[\u4e00-\u9fff]`) in Non-JA Locales**:
+   - **NEVER** leave Chinese parenthetical notes (e.g., `(附着力不足)`, `(金属表面光滑、惰性大)`) in English source strings (`src/i18n/ui.ts`, `src/i18n/pageContentLocalization.ts`, `src/i18n/productLocalization.ts`, `src/content/insights/*.md`), because fallback/shared dictionary generators will propagate those Chinese characters into all 17 non-Japanese locales.
+   - All 3,180 non-Japanese built HTML pages (`!relFile.startsWith('/ja/')`) MUST have `0` Chinese characters (verified deterministically by Rule 10 of `scripts/verify_all_rules.cjs`).
 
 2. **New Page Creation Protocol**:
    - Whenever creating a new page (e.g. `src/pages/[slug].astro`, `src/content/insights/[slug].md`, or `src/content/products/[slug].json`), you MUST:
