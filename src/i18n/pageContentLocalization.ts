@@ -148,9 +148,15 @@ export function getComplianceTableData(lang: SupportedLanguage) {
         ],
         [
           '4. RoHS 3 & REACH Metallurgy Control',
-          'Virgin Zamak #3 zinc alloy, 6063-T6 aluminum, 304/316 stainless steel, C36000 lead-free brass, and nickel-release compliant PVD/electroplating.',
-          'XRF spectrometer screening on every incoming metal ingot batch',
+          'Virgin Zamak #3/#5/#8 zinc alloy (ASTM B327 / EN 12844), ADC12 & 6061/6063 aluminum (ASTM B85 / EN 1706), 304/316 stainless steel, C36000 lead-free brass, and nickel-release compliant PVD/electroplating.',
+          'XRF spectrometer screening + X-Ray internal porosity flaw detection on every production batch',
           '100% of Catalog (FS-001 to FS-150)'
+        ],
+        [
+          '5. CNC Metrology & Surface Durability Lab',
+          'Machined on German DMG MORI, Japan MAZAK & USA HAAS CNC centers (±0.005mm–±0.01mm tolerance, flatness <=0.1mm, Ra 1.6 um roughness) with Dynamic Balance calibration.',
+          '3D CMM inspection + 96-Hour Salt Spray + 20,000-Cycle Wear + Cross-Cut & 3M Tape Adhesion Test',
+          'All 140 Ready Molds (2-Year Quality Guarantee)'
         ]
       ]
     };
@@ -177,10 +183,16 @@ export function getComplianceTableData(lang: SupportedLanguage) {
         `${t('col.mechanical-edc-fidgets.short')} · ${t('col.metal-fidget-spinners-gyros.short')}`
       ],
       [
-        `4. ${t('pdp.trust2')} (XRF RoHS 3 & REACH)`,
-        `${t('catalog.matZinc')} · ${t('catalog.matAluminum')} · ${t('catalog.matStainless')} · ${t('catalog.matExotic')}`,
-        'EU 2015/863 RoHS 3 & EN 1811 XRF',
+        `4. ${t('pdp.trust2')} (ASTM B327 / B85 & RoHS 3)`,
+        `${t('catalog.matZinc')} (ZA3#/ZA5#/ZA8#) · ${t('catalog.matAluminum')} (ADC12/6063) · ${t('catalog.matStainless')} · ${t('catalog.matExotic')}`,
+        'EU 2015/863 RoHS 3 · EN 1811 XRF · X-Ray NDT',
         'FS-001 – FS-150 (100%)'
+      ],
+      [
+        '5. DMG MORI / MAZAK / HAAS CNC (±0.005mm & Ra 1.6)',
+        '3D CMM · X-Ray Flaw Detector · Dynamic Balance Detector · 96h Salt Spray Chamber',
+        '20,000-Cycle Wear Test · 96h Salt Spray · 3M Cross-Cut Adhesion (ISO 9001:2015)',
+        'FS-001 – FS-150 (140 Ready Molds)'
       ]
     ]
   };
@@ -191,19 +203,19 @@ export function getAboutTableData(lang: SupportedLanguage) {
   if (lang === 'en') {
     return {
       col1: 'Platform Dimension',
-      col2: 'Operations & Export Coordination',
-      row1Label: 'Platform Positioning',
-      row1Val: "Your integrated sourcing & supply chain platform for China's metal EDC fidget & kinetic desk toy industry",
-      row2Label: 'Manufacturing Capabilities',
-      row2Val: 'Zinc Alloy Die-Casting, CNC Machining (Stainless Steel / Aluminum / Brass / PEI / Zirconium), Surface Plating & Anodizing'
+      col2: 'Ready-Mold Light Customization & QC Specifications',
+      row1Label: 'Core Positioning (140 Ready Molds)',
+      row1Val: '100% Ready-Mold Light Customization ($0.00 Tooling Fee, Blank MOQ 50 pcs, Custom Laser / Color-Fill / Packaging MOQ 100 pcs — No Custom Mold Fee)',
+      row2Label: 'CNC Equipment & Lab Testing',
+      row2Val: 'German DMG MORI, Japan MAZAK & USA HAAS CNC (±0.005mm–±0.01mm, Ra 1.6 um) · 3D CMM, X-Ray NDT, Dynamic Balance, 96h Salt Spray & 20,000-Cycle Wear Test (ISO 9001:2015)'
     };
   }
   return {
     col1: t('pdp.specColParam'),
     col2: t('pdp.specColVal'),
-    row1Label: t('about.heroBadge'),
+    row1Label: `${t('about.heroBadge')} ($0.00 Tooling · 140 Ready Molds)`,
     row1Val: t('about.heroDesc'),
-    row2Label: t('about.card1Title').replace(/^1\.\s*/, ''),
-    row2Val: `${t('catalog.matZinc')} · ${t('catalog.matAluminum')} · ${t('catalog.matStainless')} · ${t('catalog.matExotic')}`
+    row2Label: `${t('about.card1Title').replace(/^1\.\s*/, '')} (DMG MORI · MAZAK · HAAS ±0.005mm)`,
+    row2Val: `${t('catalog.matZinc')} (ASTM B327) · ${t('catalog.matAluminum')} (ASTM B85) · ${t('catalog.matStainless')} · 3D CMM / X-Ray / 96h Salt Spray / 20,000-Cycle Wear (ISO 9001:2015)`
   };
 }
