@@ -183,16 +183,28 @@ const aiCliches = [
 
 const seenMetaTitles = new Map();
 const seenMetaDescs = new Map();
+const seenGuideH2s = new Map();
+const seenGuideTables = new Map();
 
 for (const file of prodFiles) {
-  const data = JSON.parse(fs.readFileSync(path.join(prodDir, file), 'utf8'));
+  const rawProd = fs.readFileSync(path.join(prodDir, file), 'utf8');
+  const data = JSON.parse(rawProd);
   const mt = data.metaTitle || '';
   const md = data.metaDescription || '';
   if (!mt || mt.length >= 60) {
     fail(`Product ${file} metaTitle length is ${mt.length} (must be < 60 chars): "${mt}"`);
   }
+  if (/[\s&\-\/|]$/.test(mt)) {
+    fail(`Product ${file} metaTitle ends with trailing symbol/truncation: "${mt}"`);
+  }
   if (!md || md.length >= 155) {
     fail(`Product ${file} metaDescription length is ${md.length} (must be < 155 chars): "${md}"`);
+  }
+  if (!/[.!)]$/.test(md)) {
+    fail(`Product ${file} metaDescription is truncated (must end with "." or ")"): "${md}"`);
+  }
+  if (rawProd.includes('silk-screen printing, or deep laser') || rawProd.includes('pre-shipment pre-shipment')) {
+    fail(`Product ${file} contains outdated silk-screen sampling copy or duplicate pre-shipment typo`);
   }
   if (seenMetaTitles.has(mt)) {
     fail(`Duplicate metaTitle "${mt}" between Product:${file} and ${seenMetaTitles.get(mt)}`);
@@ -204,8 +216,8 @@ for (const file of prodFiles) {
   seenMetaDescs.set(md, `Product:${file}`);
 }
 
-if (guideFiles.length < 30) {
-  fail(`Expected at least 30 authoritative Insights, found ${guideFiles.length}`);
+if (guideFiles.length < 35) {
+  fail(`Expected at least 35 authoritative Insights, found ${guideFiles.length}`);
 }
 
 for (const file of guideFiles) {
@@ -218,6 +230,9 @@ for (const file of guideFiles) {
   if (!md || md.length >= 155) {
     fail(`Guide ${file} metaDescription length is ${md.length} (must be < 155 chars): "${md}"`);
   }
+  if (!/[.!)]$/.test(md)) {
+    fail(`Guide ${file} metaDescription is truncated (must end with "." or ")"): "${md}"`);
+  }
   if (seenMetaTitles.has(mt)) {
     fail(`Duplicate metaTitle "${mt}" between Guide:${file} and ${seenMetaTitles.get(mt)}`);
   }
@@ -226,6 +241,21 @@ for (const file of guideFiles) {
     fail(`Duplicate metaDescription "${md}" between Guide:${file} and ${seenMetaDescs.get(md)}`);
   }
   seenMetaDescs.set(md, `Guide:${file}`);
+
+  for (const hMatch of raw.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)) {
+    const hText = hMatch[1].trim();
+    if (seenGuideH2s.has(hText)) {
+      fail(`Duplicate H2 "${hText}" between Guide:${file} and ${seenGuideH2s.get(hText)}`);
+    }
+    seenGuideH2s.set(hText, `Guide:${file}`);
+  }
+  for (const tMatch of raw.matchAll(/<table class="geo-table">([\s\S]*?)<\/table>/g)) {
+    const tHash = crypto.createHash('md5').update(tMatch[1]).digest('hex');
+    if (seenGuideTables.has(tHash)) {
+      fail(`Duplicate .geo-table content between Guide:${file} and ${seenGuideTables.get(tHash)}`);
+    }
+    seenGuideTables.set(tHash, `Guide:${file}`);
+  }
 
   if (/[\u4e00-\u9fff]/.test(raw)) {
     fail(`Guide ${file} contains Chinese characters in English Markdown`);
