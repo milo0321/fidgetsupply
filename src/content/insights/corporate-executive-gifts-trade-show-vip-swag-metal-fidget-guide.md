@@ -149,5 +149,5 @@ Need board or marketing-director sign-off before releasing a bulk PO?
 <div class="sourcing-cta-box">
   <h3>Get a Free 12-Hour Corporate Gift Mockup &amp; Tiered Quote</h3>
   <p>Planning an upcoming tech conference, employee onboarding box, or VIP executive gift run? Send us your logo and target budget tier—our corporate desk will reply within 12 hours with 3 tailored SKU mockups and DDP landed pricing.</p>
-  <a href="/contact?topic=Corporate+Executive+Gifting+Mockup" class="btn btn-primary">Request Free Corporate Logo Mockup &rarr;</a>
+  <a href="/contact" data-rfq-topic="Corporate Executive Gifting Mockup" class="btn btn-primary">Request Free Corporate Logo Mockup &rarr;</a>
 </div>

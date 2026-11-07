@@ -150,5 +150,5 @@ When listing metal EDC products on Amazon US, UK, or EU, proper age-grading and 
 <div class="sourcing-cta-box">
   <h3>Need CPSC 16 CFR 1262 &amp; RoHS Compliance Documentation for Your Order?</h3>
   <p>Contact our Fuzhou compliance and engineering team to review test reports, request compliant 14+ packaging dielines, or select from our locked-magnet and magnet-free catalog lines.</p>
-  <a href="/contact?mode=Compliance+Inquiry" class="btn btn-primary" rel="nofollow">Request Compliance Packet &amp; Wholesale Quote →</a>
+  <a href="/contact" data-rfq-mode="Compliance Inquiry" class="btn btn-primary">Request Compliance Packet &amp; Wholesale Quote →</a>
 </div>

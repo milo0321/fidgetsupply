@@ -156,5 +156,5 @@ When launching a private-label collection from our <a href="/collections/custom-
 <div class="sourcing-cta-box">
   <h3>Test Unlimited PTFE Sliders &amp; Captive Track Sliders Side-by-Side</h3>
   <p>Want to feel the difference between our 20-magnet N52 Smooth Soap-Box Unlimited Slider (FS-125) and our 32-magnet Piano Track Slider (FS-048)? Request a Dual-Architecture Evaluation Kit with spare PTFE pads and custom logo proofs.</p>
-  <a href="/contact?topic=Unlimited+vs+Track+Slider+Sample+Kit" class="btn btn-primary">Request Dual-Architecture Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="Unlimited vs Track Slider Sample Kit" class="btn btn-primary">Request Dual-Architecture Sample Kit &rarr;</a>
 </div>

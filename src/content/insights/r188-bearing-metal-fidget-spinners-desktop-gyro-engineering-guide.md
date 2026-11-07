@@ -167,5 +167,5 @@ Before any wholesale batch of R188 spinners or desktop gyros leaves our Dongguan
 <div class="sourcing-cta-box">
   <h3>Request Our R188 Kinetic Spinner &amp; Desktop Gyro Evaluation Kit</h3>
   <p>Want to compare 10-ball 440C stainless steel vs. hybrid Si3N4 ceramic R188 bearings side-by-side? Contact our engineering desk to order a pre-configured kinetic sample kit (FS-008, FS-043, FS-061, FS-134, FS-139) with custom laser-engraved center caps.</p>
-  <a href="/contact?topic=Kinetic+Spinner+Sample+Kit" class="btn btn-primary">Request Kinetic Sample Kit &amp; Bulk Quote &rarr;</a>
+  <a href="/contact" data-rfq-topic="Kinetic Spinner Sample Kit" class="btn btn-primary">Request Kinetic Sample Kit &amp; Bulk Quote &rarr;</a>
 </div>

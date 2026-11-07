@@ -138,5 +138,5 @@ In addition to the complimentary maintenance pack bundled inside each retail uni
 <div class="sourcing-cta-box">
   <h3>Inspect Our PTFE Sliders, Ceramic Detent Models &amp; Spare Toolkits</h3>
   <p>Want to test our PTFE-equipped Smooth Soap-Box Slider (FS-125), 10-Spring 18-Bead Harmonic Slider (FS-124), and Dragon-Scale PTFE Slider (FS-111) complete with factory spare-parts kits? Contact our engineering desk today.</p>
-  <a href="/contact?topic=PTFE+And+Ceramic+Bead+Maintenance+Sample+Kit" class="btn btn-primary">Request PTFE &amp; Ceramic Detent Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="PTFE And Ceramic Bead Maintenance Sample Kit" class="btn btn-primary">Request PTFE &amp; Ceramic Detent Sample Kit &rarr;</a>
 </div>

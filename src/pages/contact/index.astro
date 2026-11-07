@@ -684,11 +684,23 @@ const faqSchema = {
       });
     }
 
-    // 1. Pre-fill from URL query parameters (?sku=FS-125&mode=...)
+    // 1. Pre-fill from URL query parameters (?sku=FS-125&mode=...) or data-rfq-* sessionStorage/localStorage
     try {
       var params = new URLSearchParams(window.location.search);
-      var skuParam = params.get('sku');
-      var modeParam = params.get('mode');
+      var skuParam = params.get('sku') || params.get('topic') || '';
+      var modeParam = params.get('mode') || '';
+      if (!skuParam && !modeParam) {
+        var rawPrefill = sessionStorage.getItem('fs_rfq_prefill') || localStorage.getItem('fs_rfq_prefill');
+        if (rawPrefill) {
+          var parsedPrefill = JSON.parse(rawPrefill);
+          if (parsedPrefill && (!parsedPrefill.ts || Date.now() - parsedPrefill.ts < 300000)) {
+            skuParam = parsedPrefill.sku || parsedPrefill.topic || '';
+            modeParam = parsedPrefill.mode || '';
+          }
+          sessionStorage.removeItem('fs_rfq_prefill');
+          localStorage.removeItem('fs_rfq_prefill');
+        }
+      }
       if (skuParam && productInput && !productInput.value) {
         productInput.value = skuParam;
       }

@@ -153,5 +153,5 @@ Multi-action mechanical fidgets often feature exposed screws, skeletal cutouts, 
 <div class="sourcing-cta-box">
   <h3>Build Your Custom Mechanical &amp; Ratchet EDC Assortment</h3>
   <p>Ready to test our bolt-action breeches, 8-spring arachnid sliders, and planetary gear chains? Contact our factory engineering desk for a curated Mechanical EDC Sample Pack and tiered wholesale pricing starting at 50–100 units.</p>
-  <a href="/contact?topic=Mechanical+EDC+Sample+Pack" class="btn btn-primary">Request Mechanical EDC Quote &amp; Samples &rarr;</a>
+  <a href="/contact" data-rfq-topic="Mechanical EDC Sample Pack" class="btn btn-primary">Request Mechanical EDC Quote &amp; Samples &rarr;</a>
 </div>

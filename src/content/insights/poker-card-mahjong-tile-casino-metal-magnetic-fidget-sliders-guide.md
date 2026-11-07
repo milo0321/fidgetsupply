@@ -186,5 +186,5 @@ Instead of selling a single `$19.99` poker slider, top-performing Shopify and Am
 <div class="sourcing-cta-box">
   <h3>Order Our Poker, Tile &amp; Casino Gaming Sample Pack</h3>
   <p>Want to test our #1 volume seller FS-001 ($1.96), 3-Layer QKA Slider FS-062 ($3.82), CNC Stainless AKQ FS-075 ($14.70), and Aluminum Tile Slider FS-097 ($5.40)? Request our Gaming Series Sample Kit today.</p>
-  <a href="/contact?topic=Poker+Tile+Gaming+Sample+Kit" class="btn btn-primary">Request Poker &amp; Gaming Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="Poker Tile Gaming Sample Kit" class="btn btn-primary">Request Poker &amp; Gaming Sample Kit &rarr;</a>
 </div>

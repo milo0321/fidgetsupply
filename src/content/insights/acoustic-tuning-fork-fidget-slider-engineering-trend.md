@@ -226,5 +226,5 @@ If you are launching a dedicated acoustic fidget collection on Shopify, Amazon, 
 <div class="sourcing-cta-box">
   <h3>Evaluate Our 7 Acoustic Tuning Fork Models Firsthand</h3>
   <p>Want to test the 3,800 Hz chime of <strong>FS-150</strong>, <strong>FS-129</strong>, and <strong>FS-148</strong> before placing a 100-piece custom logo order? Contact our engineering desk for sample units and tiered DDP air-freight quotes.</p>
-  <a href="/contact?sku=FS-150" class="btn btn-primary" rel="nofollow">Request Tuning Fork Samples &amp; Wholesale Quote →</a>
+  <a href="/contact" data-rfq-sku="FS-150" class="btn btn-primary">Request Tuning Fork Samples &amp; Wholesale Quote →</a>
 </div>

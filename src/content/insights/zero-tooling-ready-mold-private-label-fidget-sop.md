@@ -182,5 +182,5 @@ What does your actual landed cost per unit look like when ordering **200 custom-
 <div class="sourcing-cta-box">
   <h3>Ready to Launch Your Custom Metal EDC Line in 10 Days?</h3>
   <p>Select your target SKU codes (<code>FS-001</code> to <code>FS-150</code>) and message our Fuzhou sourcing desk for a complete landed DDP quotation and free 12-hour digital logo mock-up.</p>
-  <a href="/contact?sku=FS-125" class="btn btn-primary" rel="nofollow">Start Your 100-pc Custom Branded Order →</a>
+  <a href="/contact" data-rfq-sku="FS-125" class="btn btn-primary">Start Your 100-pc Custom Branded Order →</a>
 </div>

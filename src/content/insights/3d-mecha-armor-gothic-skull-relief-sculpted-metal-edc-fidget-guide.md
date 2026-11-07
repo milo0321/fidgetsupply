@@ -202,5 +202,5 @@ Because 3D mecha and sword models look like miniature museum artifacts, pairing 
 <div class="sourcing-cta-box">
   <h3>Curate Your 3D Mecha, Sword &amp; Gothic Relief Collector Line</h3>
   <p>Ready to inspect the 3D relief depth and spring mechanics of FS-010 Gothic Skull, FS-098 Bionic Mecha Beetle, FS-093 Excalibur Sword, and FS-114 Lake-Light Sword? Contact our desk for a Sculpted Collector Sample Pack.</p>
-  <a href="/contact?topic=3D+Mecha+And+Relief+Collector+Sample+Pack" class="btn btn-primary">Request Sculpted Collector Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="3D Mecha And Relief Collector Sample Pack" class="btn btn-primary">Request Sculpted Collector Sample Kit &rarr;</a>
 </div>

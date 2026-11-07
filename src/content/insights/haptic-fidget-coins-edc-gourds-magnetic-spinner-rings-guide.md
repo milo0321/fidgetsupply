@@ -140,5 +140,5 @@ All magnet-bearing coins, gourds, and spinner rings utilize permanently captured
 <div class="sourcing-cta-box">
   <h3>Sample Our Haptic Coins, CNC Gourds &amp; Spinner Rings</h3>
   <p>Looking to diversify your EDC lineup beyond rectangular sliders? Request our Multi-Form-Factor Evaluation Pack featuring our top-selling 12-magnet haptic coin (FS-013), PEI Ultem gourd (FS-099), and 16-magnet spinner ring (FS-135).</p>
-  <a href="/contact?topic=Coins+Gourds+Rings+Sample+Pack" class="btn btn-primary">Request Multi-Form-Factor Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="Coins Gourds Rings Sample Pack" class="btn btn-primary">Request Multi-Form-Factor Sample Kit &rarr;</a>
 </div>

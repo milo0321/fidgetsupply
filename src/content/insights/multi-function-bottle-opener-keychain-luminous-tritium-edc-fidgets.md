@@ -153,5 +153,5 @@ To turn any utility fidget into a rugged retail product at a **100-piece MOQ**:
 <div class="sourcing-cta-box">
   <h3>Sample Our Bottle Opener, Luminous Carbon Fiber &amp; Keychain Gourds</h3>
   <p>Want to evaluate our 2-in-1 Bottle Opener Slider (FS-026), Luminous 3K Carbon Fiber Slider (FS-038), and Keychain Aluminum Gourd (FS-096)? Contact our engineering desk for a Utility EDC Sample Pack.</p>
-  <a href="/contact?topic=Utility+Opener+Luminous+EDC+Sample+Pack" class="btn btn-primary">Request Utility EDC Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="Utility Opener Luminous EDC Sample Pack" class="btn btn-primary">Request Utility EDC Sample Kit &rarr;</a>
 </div>

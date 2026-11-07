@@ -207,5 +207,5 @@ Because magnet counterbore pockets (`Ø4×2mm` and `Ø5×2mm`) are standardized 
 <div class="sourcing-cta-box">
   <h3>Compare N35 Track Sliders and N52 Unlimited Sliders Side-by-Side</h3>
   <p>Not sure whether your audience prefers effortless N38 track clicks or high-flux N52 free-floating PTFE sliders? Request a curated sample evaluation pack across multiple magnet grades from our engineering desk.</p>
-  <a href="/contact?sku=FS-125" class="btn btn-primary" rel="nofollow">Request Magnet Grade Comparison Samples →</a>
+  <a href="/contact" data-rfq-sku="FS-125" class="btn btn-primary">Request Magnet Grade Comparison Samples →</a>
 </div>

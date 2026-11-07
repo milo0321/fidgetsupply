@@ -163,5 +163,5 @@ Before any electroplated, anodized, or PVD-coated production batch is cleared fo
 <div class="sourcing-cta-box">
   <h3>Order Our 5-Finish Surface Metallurgy Swatch &amp; Sample Kit</h3>
   <p>Want to inspect Vacuum Rainbow PVD (FS-120), Bead-Blasted Hard Anodized Aluminum (FS-047), Ceramic Stonewashed 304SS (FS-086), and Relieved Antique Bronze (FS-001) in person? Contact our engineering desk today.</p>
-  <a href="/contact?topic=Surface+Finish+Metallurgy+Sample+Kit" class="btn btn-primary">Request 5-Finish Sample Kit &amp; Quote &rarr;</a>
+  <a href="/contact" data-rfq-topic="Surface Finish Metallurgy Sample Kit" class="btn btn-primary">Request 5-Finish Sample Kit &amp; Quote &rarr;</a>
 </div>

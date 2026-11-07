@@ -147,5 +147,5 @@ Because air and sea freight rates depend on total gross weight (`kg`) and destin
 <div class="sourcing-cta-box">
   <h3>Calculate Your Door-to-Door DDP Landed Price Today</h3>
   <p>Tell us which metal fidget SKUs you want to import and your destination country (US, UK, EU, Canada, Australia, Japan, or Middle East). Our Fuzhou logistics desk will return an all-inclusive DDP Air &amp; Sea quote within 12 hours.</p>
-  <a href="/contact?topic=DDP+Shipping+And+Landed+Cost+Quote" class="btn btn-primary">Request All-Inclusive DDP Landed Quote &rarr;</a>
+  <a href="/contact" data-rfq-topic="DDP Shipping And Landed Cost Quote" class="btn btn-primary">Request All-Inclusive DDP Landed Quote &rarr;</a>
 </div>

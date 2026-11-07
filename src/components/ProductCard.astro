@@ -16,7 +16,7 @@ const locTitle = localizeTitle(p.title, currentLang);
 const locMaterial = localizeMaterial(p.material.split('/')[0].trim(), currentLang);
 const locMagnets = localizeHardwareOrMagnets(p.magnetsEn, currentLang);
 const pdpUrl = getLocalizedPath(`/products/${p.slug}`, currentLang);
-const rfqUrl = getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}`, currentLang);
+const rfqUrl = getLocalizedPath('/contact', currentLang);
 ---
 
 <article
@@ -88,7 +88,7 @@ const rfqUrl = getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}`, cur
       <a href={pdpUrl} class="btn btn-outline card-btn">
         {t('card.viewSpecs')}
       </a>
-      <a href={rfqUrl} rel="nofollow" class="btn btn-primary card-btn-rfq">
+      <a href={rfqUrl} data-rfq-sku={p.sku} class="btn btn-primary card-btn-rfq">
         {t('card.quote')}
       </a>
     </div>

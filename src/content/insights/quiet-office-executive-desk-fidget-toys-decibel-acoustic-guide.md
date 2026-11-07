@@ -144,5 +144,5 @@ When occupational therapists, university student-accessibility centers, and corp
 <div class="sourcing-cta-box">
   <h3>Order Our Whisper-Quiet (&lt;45 dBA) Office &amp; ADHD Sample Kit</h3>
   <p>Curating a silent productivity line for corporate teams, remote workers, or ADHD sensory stores? Request our pre-calibrated Quiet Office Sample Kit (FS-012, FS-047, FS-064, FS-127, FS-135, FS-139) with custom logo mockup.</p>
-  <a href="/contact?topic=Quiet+Office+Low+Decibel+Sample+Kit" class="btn btn-primary">Request Quiet Office Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="Quiet Office Low Decibel Sample Kit" class="btn btn-primary">Request Quiet Office Sample Kit &rarr;</a>
 </div>

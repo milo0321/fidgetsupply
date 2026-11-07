@@ -159,5 +159,5 @@ For maximum brand cohesion across our <a href="/collections/custom-logo-metal-fi
 <div class="sourcing-cta-box">
   <h3>Get a Free 3D Packaging &amp; Product Logo Mockup in 24 Hours</h3>
   <p>Upload your brand vector logo and tell us which fidget SKUs you are targeting. Our packaging engineers will send you a side-by-side mockup on our EVA zipper case, matte tin box, and rigid collector box along with landed DDP pricing.</p>
-  <a href="/contact?topic=Custom+Packaging+And+Logo+Mockup" class="btn btn-primary">Request Free Packaging Mockup &amp; Quote &rarr;</a>
+  <a href="/contact" data-rfq-topic="Custom Packaging And Logo Mockup" class="btn btn-primary">Request Free Packaging Mockup &amp; Quote &rarr;</a>
 </div>

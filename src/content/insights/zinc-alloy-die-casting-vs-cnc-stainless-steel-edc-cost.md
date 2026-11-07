@@ -168,5 +168,5 @@ If you are building a premium Shopify EDC brand or limited-edition collector dro
 <div class="sourcing-cta-box">
   <h3>Compare All 6 Material Tiers with Physical Sample Units</h3>
   <p>Want to feel the weight and finish difference between Die-Cast Zamak #3, 6063 Anodized Aluminum, 304 Stainless Steel, and Amber PEI (Ultem) before placing your wholesale order? Contact our engineering desk today.</p>
-  <a href="/contact?sku=FS-099" class="btn btn-primary" rel="nofollow">Request Multi-Material Sample Units &amp; Quote →</a>
+  <a href="/contact" data-rfq-sku="FS-099" class="btn btn-primary">Request Multi-Material Sample Units &amp; Quote →</a>
 </div>

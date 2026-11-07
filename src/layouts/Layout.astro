@@ -379,11 +379,22 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
 
         var rfqTarget = e.target.closest('a[href*="/contact"]');
         if (rfqTarget) {
+          var rfqSku = rfqTarget.getAttribute('data-rfq-sku') || '';
+          var rfqMode = rfqTarget.getAttribute('data-rfq-mode') || '';
+          var rfqTopic = rfqTarget.getAttribute('data-rfq-topic') || '';
+          if (rfqSku || rfqMode || rfqTopic) {
+            try {
+              var payload = JSON.stringify({ sku: rfqSku, mode: rfqMode, topic: rfqTopic, ts: Date.now() });
+              sessionStorage.setItem('fs_rfq_prefill', payload);
+              localStorage.setItem('fs_rfq_prefill', payload);
+            } catch (_) {}
+          }
           trackGaEvent('rfq_cta_click', {
             event_category: 'conversion_intent',
             source_page: window.location.pathname,
             cta_text: (rfqTarget.textContent || '').trim().slice(0, 60),
-            target_href: rfqTarget.getAttribute('href') || '/contact'
+            target_href: rfqTarget.getAttribute('href') || '/contact',
+            rfq_sku: rfqSku
           });
         }
 

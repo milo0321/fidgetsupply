@@ -296,9 +296,10 @@ const breadcrumbSchema = {
         <div class="pdp-cta-row">
           <a
             id="pdp-rfq-btn"
-            rel="nofollow"
             data-rfq-base={rfqBaseUrl}
-            href={getLocalizedPath(`/contact?sku=${encodeURIComponent(p.sku)}&mode=Blank+Stock`, currentLang)}
+            data-rfq-sku={p.sku}
+            data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+            href={rfqBaseUrl}
             class="btn btn-primary btn-pdp-main"
           >
             {t('pdp.requestQuote')} ({p.sku}) →
@@ -527,10 +528,10 @@ const breadcrumbSchema = {
 
     function updateRfqHref() {
       if (!rfqBtn) return;
-      const base = rfqBtn.getAttribute('data-rfq-base') || '/contact';
       const checkedRadio = document.querySelector('input[name="custom_mode"]:checked');
       const mode = checkedRadio ? checkedRadio.value : 'Blank Stock';
-      rfqBtn.setAttribute('href', `${base}?sku=${encodeURIComponent(currentSku)}&mode=${encodeURIComponent(mode)}`);
+      rfqBtn.setAttribute('data-rfq-sku', currentSku);
+      rfqBtn.setAttribute('data-rfq-mode', mode);
     }
 
     variantBtns.forEach((btn) => {

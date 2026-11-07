@@ -186,5 +186,5 @@ One of the coolest branding advantages of a 3-layer stacked slider (<a href="/pr
 <div class="sourcing-cta-box">
   <h3>Sample Our 3-Layer Stacked &amp; 56-Magnet High-Density Series</h3>
   <p>Experience the compound telescoping action of FS-002 ($2.65), CNC Stainless FS-075 ($14.70), and our 56-Magnet Abalone Slider FS-091 ($24.50). Contact our engineering desk for a High-Density Sample Kit and 12-hour custom logo proof.</p>
-  <a href="/contact?topic=Triple+Layer+High+Density+Sample+Kit" class="btn btn-primary">Request 3-Layer &amp; 56-Magnet Sample Kit &rarr;</a>
+  <a href="/contact" data-rfq-topic="Triple Layer High Density Sample Kit" class="btn btn-primary">Request 3-Layer &amp; 56-Magnet Sample Kit &rarr;</a>
 </div>

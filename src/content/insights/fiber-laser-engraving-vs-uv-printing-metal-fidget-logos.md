@@ -252,5 +252,5 @@ To ensure your 12-hour digital proof and 10–15 day custom logo sample proceed 
 <div class="sourcing-cta-box">
   <h3>Get a Free 12-Hour Digital Logo Proof on Any Ready Mold</h3>
   <p>Send us your vector logo (<code>.AI</code>, <code>.EPS</code>, <code>.PDF</code>, or <code>.SVG</code>) and target SKU code. Our engineering team returns a free 1:1 digital placement proof within 12 hours, and paid physical sampling takes 10–15 days ($50 USD for standard laser; $80–$150 USD for deep laser + color fill).</p>
-  <a href="/contact?mode=Custom+Logo" class="btn btn-primary" rel="nofollow">Request Free 12h Digital Logo Proof →</a>
+  <a href="/contact" data-rfq-mode="Custom Logo" class="btn btn-primary">Request Free 12h Digital Logo Proof →</a>
 </div>

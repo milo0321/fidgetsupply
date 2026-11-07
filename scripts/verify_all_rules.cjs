@@ -643,19 +643,40 @@ if (fs.existsSync(distDir)) {
     }
   }
   // Check all non-Japanese built HTML pages for any stray Chinese characters
+  // and ensure 0 internal nofollow or /contact? query links exist
   let strayCjkPages = 0;
+  let internalNofollowOrQueryCount = 0;
   for (const f of htmlFiles) {
     const relFile = '/' + path.relative(distDir, f).replace(/\\/g, '/');
+    const fullHtml = fs.readFileSync(f, 'utf8');
+    const aTagRegex = /<a\b[^>]*>/gi;
+    let am;
+    while ((am = aTagRegex.exec(fullHtml)) !== null) {
+      const tag = am[0];
+      const hm = tag.match(/href=["']([^"']+)["']/i);
+      if (!hm) continue;
+      const href = hm[1];
+      if (href.startsWith('/') || href.startsWith('https://fidgetsupply.com')) {
+        if (/rel=["'][^"']*nofollow/i.test(tag)) {
+          fail(`Internal link has rel="nofollow" (${href}) in ${relFile}`);
+          internalNofollowOrQueryCount++;
+        }
+        if (href.includes('/contact?')) {
+          fail(`Internal link has query parameters (${href}) in ${relFile}`);
+          internalNofollowOrQueryCount++;
+        }
+      }
+    }
     if (relFile === '/ja/index.html' || relFile.startsWith('/ja/')) continue;
-    const htmlNoJaLabel = fs.readFileSync(f, 'utf8').replace(/日本語/g, '');
+    const htmlNoJaLabel = fullHtml.replace(/日本語/g, '');
     const cjkMatch = htmlNoJaLabel.match(/[\u4e00-\u9fff]+/g);
     if (cjkMatch) {
       fail(`Stray Chinese/CJK characters [${[...new Set(cjkMatch)].join(', ')}] found in ${relFile}`);
       strayCjkPages++;
     }
   }
-  if (seoGeoErrors === 0 && strayCjkPages === 0) {
-    pass(`All ${checkedProdInsightPages} built Product & Insight pages (170 routes x 18 languages) verified for Canonical, 19 Hreflang tags, GeoDirectAnswer block, JSON-LD, and 0 stray Chinese characters across all non-JA pages.`);
+  if (seoGeoErrors === 0 && strayCjkPages === 0 && internalNofollowOrQueryCount === 0) {
+    pass(`All ${checkedProdInsightPages} built Product & Insight pages (170 routes x 18 languages) verified for Canonical, 19 Hreflang tags, GeoDirectAnswer block, JSON-LD, 0 internal nofollow/query links, and 0 stray Chinese characters.`);
   }
 } else {
   fail('dist/ directory not found. Run npm run build first.');
