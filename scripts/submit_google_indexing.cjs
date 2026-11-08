@@ -107,30 +107,17 @@ async function main() {
     .sort()
     .map((f) => `${BASE_URL}/insights/${f.replace(/\.md$/, '')}`);
 
-  const priorityProductSlugs = [
-    'poker-king-magnetic-slider',
-    '304ss-akq-triple-layer-24-magnet-slider',
-    '10-magnet-textured-armor-slider',
-    '12-constellation-zodiac-haptic-coin',
-    '12-magnet-planetary-gear-linkage-spinner',
-    '12-magnet-push-button-haptic-slider',
-    '24-magnet-mechanical-track-slider',
-    '30-magnet-dual-surface-track-slider',
-    'soap-box-smooth-20-magnet-unlimited-slider',
-    'minimalist-smooth-6063-aluminum-slider',
-    'chocolate-grid-26-magnet-unlimited-slider',
-    'bottle-opener-10-magnet-utility-slider',
-    '304ss-minimalist-smooth-haptic-coin',
-    'knurled-brass-stainless-desktop-gyro',
-    'lake-light-sword-tuning-fork-slider',
-    'compact-20-magnet-acoustic-tuning-fork-slider',
-    'resonance-cnc-stainless-tuning-fork-spinner',
-    'pei-ultem-amber-edc-hand-gourd',
-    'cnc-gourd-twist-storage-stash-edc',
-    'chime-acoustic-bell-edc-gourd',
-    'carbon-fiber-brass-16-magnet-slider',
-    'aluminum-brass-16-magnet-spinner-ring'
-  ];
+  const prodDir = path.join(__dirname, '../src/content/products');
+  const allProdObjects = fs
+    .readdirSync(prodDir)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(fs.readFileSync(path.join(prodDir, f), 'utf8')))
+    .sort((a, b) => a.rowId - b.rowId);
+
+  const priorityProductSlugs = allProdObjects
+    .filter((p) => p.logoReady || p.tuningFork || p.cncExotic)
+    .slice(0, 40)
+    .map((p) => p.slug);
   const productUrls = priorityProductSlugs.map((s) => `${BASE_URL}/products/${s}`);
 
   const isRemainingProductsOnly = process.argv.includes('--remaining-products');
@@ -138,12 +125,7 @@ async function main() {
   let allUrls = [...coreUrls, ...collectionUrls, ...insightUrls, ...productUrls];
 
   if (isRemainingProductsOnly || isBatch2) {
-    const prodDir = path.join(__dirname, '../src/content/products');
-    const allProdSlugs = fs
-      .readdirSync(prodDir)
-      .filter((f) => f.endsWith('.json'))
-      .sort()
-      .map((f) => f.replace(/\.json$/, ''));
+    const allProdSlugs = allProdObjects.map((p) => p.slug);
     const submittedSet = new Set(priorityProductSlugs);
     const remainingSlugs = allProdSlugs.filter((s) => !submittedSet.has(s));
     const slice = isBatch2 ? remainingSlugs.slice(66) : remainingSlugs;

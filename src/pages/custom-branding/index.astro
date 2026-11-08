@@ -159,6 +159,54 @@ const faqSchema = {
         <h2 class="section-title">{t('brand.compTitle')}</h2>
       </div>
 
+      <!-- 3-Tier Ready-Mold Light Customization Delivery Cards -->
+      <div class="brand-tier-grid">
+        <div class="brand-tier-card">
+          <div class="brand-tier-badge badge-slate">TIER 1 · {t('pdp.blankMoq')}</div>
+          <h3>{t('pdp.opt1Title')}</h3>
+          <div class="brand-tier-price">$0.00 <span>/ {t('geo.metricTooling')} · MOQ 50 {t('unit.pcs')}</span></div>
+          <p class="brand-tier-desc">{t('pdp.opt1Desc')}</p>
+          <ul class="brand-tier-list">
+            <li>✓ 140 Ready Molds (FS-001 – FS-150)</li>
+            <li>✓ DMG MORI / MAZAK / HAAS CNC (±0.005mm · Ra 1.6 μm)</li>
+            <li>✓ 3D CMM · X-Ray NDT · Dynamic Balance Tested</li>
+          </ul>
+          <a href={getLocalizedPath('/contact', currentLang)} data-rfq-mode="Blank Stock" data-rfq-qty="50" class="btn btn-outline brand-tier-btn">
+            {t('nav.requestQuote')} →
+          </a>
+        </div>
+
+        <div class="brand-tier-card brand-tier-featured">
+          <div class="brand-tier-badge badge-emerald">★ TIER 2 · 50W MOPA FIBER LASER</div>
+          <h3>{t('pdp.opt2Title')}</h3>
+          <div class="brand-tier-price">+$0.15–$0.30 <span>/ {t('unit.pc')} · MOQ 100 {t('unit.pcs')}</span></div>
+          <p class="brand-tier-desc">{t('pdp.opt2Desc')}</p>
+          <ul class="brand-tier-list">
+            <li>✓ $0.00 Mold &amp; Digital Setup · $50 {t('pdp.orderSample')}</li>
+            <li>✓ Permanent Micron-Depth Metal Substrate Ablation</li>
+            <li>✓ 20,000-Cycle Wear &amp; 96-Hour Salt Spray Verified</li>
+          </ul>
+          <a href={getLocalizedPath('/contact', currentLang)} data-rfq-mode="Fiber Laser Engraved Logo" data-rfq-qty="100" class="btn btn-primary brand-tier-btn">
+            {t('nav.requestQuote')} →
+          </a>
+        </div>
+
+        <div class="brand-tier-card">
+          <div class="brand-tier-badge badge-amber">★ TIER 3 · PANTONE (PMS) COLOR FILL</div>
+          <h3>{t('pdp.opt3Title')}</h3>
+          <div class="brand-tier-price">+$0.35–$0.60 <span>/ {t('unit.pc')} · MOQ 100 {t('unit.pcs')}</span></div>
+          <p class="brand-tier-desc">{t('pdp.opt3Desc')}</p>
+          <ul class="brand-tier-list">
+            <li>✓ $0.00 Mold Setup · $80–$150 {t('pdp.orderSample')}</li>
+            <li>✓ 0.20mm Recessed Cavity Below Thumb Friction Plane</li>
+            <li>✓ Cross-Cut &amp; 3M Tape Adhesion Tested (Zero Peeling)</li>
+          </ul>
+          <a href={getLocalizedPath('/contact', currentLang)} data-rfq-mode="Deep Laser + Color Fill" data-rfq-qty="100" class="btn btn-outline brand-tier-btn">
+            {t('nav.requestQuote')} →
+          </a>
+        </div>
+      </div>
+
       <div class="geo-table-wrap">
         <table class="geo-table">
           <thead>
@@ -240,6 +288,92 @@ const faqSchema = {
     border-radius: 1rem;
     padding: 3rem 2rem;
     margin-bottom: 3.5rem;
+  }
+  .brand-tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.35rem;
+    margin: 2rem 0 2.5rem;
+  }
+  .brand-tier-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 0.9rem;
+    padding: 1.6rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+    transform: translateZ(0);
+  }
+  .brand-tier-featured {
+    border-color: #0284c7;
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
+    box-shadow: 0 10px 28px rgba(2, 132, 199, 0.12);
+  }
+  .brand-tier-badge {
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.28rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03em;
+  }
+  .badge-slate {
+    background: #f1f5f9;
+    color: #334155;
+  }
+  .badge-emerald {
+    background: #d1fae5;
+    color: #065f46;
+  }
+  .badge-amber {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .brand-tier-card h3 {
+    font-size: 1.15rem;
+    color: #0f172a;
+    margin: 0 0 0.45rem;
+  }
+  .brand-tier-price {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #0284c7;
+    margin-bottom: 0.65rem;
+  }
+  .brand-tier-price span {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+  .brand-tier-desc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+  .brand-tier-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1e293b;
+    flex: 1;
+  }
+  .brand-tier-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+  @media (max-width: 960px) {
+    .brand-tier-grid {
+      grid-template-columns: 1fr;
+    }
   }
   @media (max-width: 640px) {
     .brand-picks-box {

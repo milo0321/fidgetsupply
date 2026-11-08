@@ -689,13 +689,15 @@ const faqSchema = {
       var params = new URLSearchParams(window.location.search);
       var skuParam = params.get('sku') || params.get('topic') || '';
       var modeParam = params.get('mode') || '';
-      if (!skuParam && !modeParam) {
+      var qtyParam = params.get('qty') || '';
+      if (!skuParam && !modeParam && !qtyParam) {
         var rawPrefill = sessionStorage.getItem('fs_rfq_prefill') || localStorage.getItem('fs_rfq_prefill');
         if (rawPrefill) {
           var parsedPrefill = JSON.parse(rawPrefill);
           if (parsedPrefill && (!parsedPrefill.ts || Date.now() - parsedPrefill.ts < 300000)) {
             skuParam = parsedPrefill.sku || parsedPrefill.topic || '';
             modeParam = parsedPrefill.mode || '';
+            qtyParam = parsedPrefill.qty || '';
           }
           sessionStorage.removeItem('fs_rfq_prefill');
           localStorage.removeItem('fs_rfq_prefill');
@@ -708,6 +710,17 @@ const faqSchema = {
         for (var i = 0; i < brandingSelect.options.length; i++) {
           if (brandingSelect.options[i].value.toLowerCase().indexOf(modeParam.toLowerCase()) !== -1) {
             brandingSelect.selectedIndex = i;
+            break;
+          }
+        }
+      }
+      var qtySelect = document.getElementById('estimatedQuantity');
+      if (qtyParam && qtySelect) {
+        var qNum = parseInt(qtyParam, 10);
+        var targetVal = qNum >= 2000 ? '2,000+' : qNum >= 500 ? '500 - 1,999' : qNum >= 200 ? '200 - 499' : qNum >= 100 ? '100 - 199' : '50 - 99';
+        for (var j = 0; j < qtySelect.options.length; j++) {
+          if (qtySelect.options[j].value.indexOf(targetVal) !== -1) {
+            qtySelect.selectedIndex = j;
             break;
           }
         }

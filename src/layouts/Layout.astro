@@ -382,9 +382,10 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           var rfqSku = rfqTarget.getAttribute('data-rfq-sku') || '';
           var rfqMode = rfqTarget.getAttribute('data-rfq-mode') || '';
           var rfqTopic = rfqTarget.getAttribute('data-rfq-topic') || '';
-          if (rfqSku || rfqMode || rfqTopic) {
+          var rfqQty = rfqTarget.getAttribute('data-rfq-qty') || '';
+          if (rfqSku || rfqMode || rfqTopic || rfqQty) {
             try {
-              var payload = JSON.stringify({ sku: rfqSku, mode: rfqMode, topic: rfqTopic, ts: Date.now() });
+              var payload = JSON.stringify({ sku: rfqSku, mode: rfqMode, topic: rfqTopic, qty: rfqQty, ts: Date.now() });
               sessionStorage.setItem('fs_rfq_prefill', payload);
               localStorage.setItem('fs_rfq_prefill', payload);
             } catch (_) {}
@@ -394,7 +395,8 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             source_page: window.location.pathname,
             cta_text: (rfqTarget.textContent || '').trim().slice(0, 60),
             target_href: rfqTarget.getAttribute('href') || '/contact',
-            rfq_sku: rfqSku
+            rfq_sku: rfqSku,
+            rfq_qty: rfqQty
           });
         }
 

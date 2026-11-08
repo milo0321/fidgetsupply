@@ -259,7 +259,7 @@ const breadcrumbSchema = {
 
           <div class="radio-grid" id="custom-radio-group">
             <label class="radio-card active">
-              <input type="radio" name="custom_mode" value="Blank Stock (MOQ 50 pcs)" checked />
+              <input type="radio" name="custom_mode" value="Blank Stock (MOQ 50 pcs)" data-addon="0" data-min-qty="50" checked />
               <div class="radio-info">
                 <strong>{t('pdp.opt1Title')}</strong>
                 <span>{t('pdp.opt1Desc')}</span>
@@ -267,7 +267,7 @@ const breadcrumbSchema = {
             </label>
 
             <label class="radio-card">
-              <input type="radio" name="custom_mode" value="Fiber Laser Engraved Logo (MOQ 100 pcs)" />
+              <input type="radio" name="custom_mode" value="Fiber Laser Engraved Logo (MOQ 100 pcs)" data-addon="0.20" data-min-qty="100" />
               <div class="radio-info">
                 <strong>{t('pdp.opt2Title')}</strong>
                 <span>{t('pdp.opt2Desc')}</span>
@@ -275,7 +275,7 @@ const breadcrumbSchema = {
             </label>
 
             <label class="radio-card">
-              <input type="radio" name="custom_mode" value="Deep Laser + Color Fill Logo (+$0.35-$0.60/pc)" />
+              <input type="radio" name="custom_mode" value="Deep Laser + Color Fill Logo (+$0.35-$0.60/pc)" data-addon="0.45" data-min-qty="100" />
               <div class="radio-info">
                 <strong>{t('pdp.opt3Title')}</strong>
                 <span>{t('pdp.opt3Desc')}</span>
@@ -283,12 +283,36 @@ const breadcrumbSchema = {
             </label>
 
             <label class="radio-card">
-              <input type="radio" name="custom_mode" value="Custom Logo + Black EVA Zipper Case (MOQ 100 pcs)" />
+              <input type="radio" name="custom_mode" value="Custom Logo + Black EVA Zipper Case (MOQ 100 pcs)" data-addon="0.95" data-min-qty="100" />
               <div class="radio-info">
                 <strong>{t('pdp.opt4Title')}</strong>
                 <span>{t('pdp.opt4Desc')}</span>
               </div>
             </label>
+          </div>
+
+          <!-- Instant Ready-Mold Light Customization Quote Calculator -->
+          <div class="instant-calc-bar" id="pdp-instant-calc" data-base50={p.tier50} data-base200={p.tier200} data-base500={p.tier500}>
+            <div class="calc-qty-row">
+              <span class="calc-qty-label">{t('contact.quantity')}:</span>
+              <div class="calc-qty-chips" role="group" aria-label={t('contact.quantity')}>
+                <button type="button" class="calc-qty-chip active" data-qty="50">50 {t('unit.pcs')}</button>
+                <button type="button" class="calc-qty-chip" data-qty="100">100 {t('unit.pcs')}</button>
+                <button type="button" class="calc-qty-chip" data-qty="200">200 {t('unit.pcs')}</button>
+                <button type="button" class="calc-qty-chip" data-qty="500">500 {t('unit.pcs')}</button>
+                <button type="button" class="calc-qty-chip" data-qty="1000">1,000 {t('unit.pcs')}</button>
+              </div>
+            </div>
+            <div class="calc-summary-row">
+              <div class="calc-unit-col">
+                <span class="calc-meta-label">{t('pdp.pricingTitle')}</span>
+                <strong class="calc-unit-val" id="calc-unit-display">${p.tier50}<span>/{t('unit.pc')}</span></strong>
+              </div>
+              <div class="calc-total-col">
+                <span class="calc-meta-label">{t('pdp.noMoldFee')} · <span id="calc-qty-display">50</span> {t('unit.pcs')}</span>
+                <strong class="calc-total-val" id="calc-total-display">${(parseFloat(p.tier50) * 50).toFixed(2)} USD</strong>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -299,6 +323,7 @@ const breadcrumbSchema = {
             data-rfq-base={rfqBaseUrl}
             data-rfq-sku={p.sku}
             data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+            data-rfq-qty="50"
             href={rfqBaseUrl}
             class="btn btn-primary btn-pdp-main"
           >
@@ -525,23 +550,83 @@ const breadcrumbSchema = {
     const weightEl = document.getElementById('display-weight');
     const skuEl = document.getElementById('display-sku');
     const rfqBtn = document.getElementById('pdp-rfq-btn');
+    const calcBox = document.getElementById('pdp-instant-calc');
+    const calcUnitEl = document.getElementById('calc-unit-display');
+    const calcQtyEl = document.getElementById('calc-qty-display');
+    const calcTotalEl = document.getElementById('calc-total-display');
+    const qtyChips = document.querySelectorAll('.calc-qty-chip');
+    let currentQty = 50;
 
     function updateRfqHref() {
       if (!rfqBtn) return;
       const checkedRadio = document.querySelector('input[name="custom_mode"]:checked');
       const mode = checkedRadio ? checkedRadio.value : 'Blank Stock';
+      const addon = checkedRadio ? parseFloat(checkedRadio.getAttribute('data-addon') || '0') : 0;
+      const minQty = checkedRadio ? parseInt(checkedRadio.getAttribute('data-min-qty') || '50', 10) : 50;
+
+      if (currentQty < minQty) {
+        currentQty = minQty;
+        qtyChips.forEach((chip) => {
+          chip.classList.toggle('active', parseInt(chip.getAttribute('data-qty') || '0', 10) === currentQty);
+        });
+      }
+
+      if (calcBox) {
+        const b50 = parseFloat(calcBox.getAttribute('data-base50') || '0');
+        const b200 = parseFloat(calcBox.getAttribute('data-base200') || '0');
+        const b500 = parseFloat(calcBox.getAttribute('data-base500') || '0');
+        const basePrice = currentQty >= 500 ? b500 : currentQty >= 200 ? b200 : b50;
+        const unitTotal = basePrice + addon;
+        const subtotal = unitTotal * currentQty;
+        if (calcUnitEl) {
+          const unitSuffix = calcUnitEl.querySelector('span')?.outerHTML || '';
+          calcUnitEl.innerHTML = `$${unitTotal.toFixed(2)}${unitSuffix}`;
+        }
+        if (calcQtyEl) calcQtyEl.textContent = currentQty.toLocaleString();
+        if (calcTotalEl) {
+          calcTotalEl.textContent = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD`;
+        }
+      }
+
       rfqBtn.setAttribute('data-rfq-sku', currentSku);
       rfqBtn.setAttribute('data-rfq-mode', mode);
+      rfqBtn.setAttribute('data-rfq-qty', String(currentQty));
     }
+
+    qtyChips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const selectedQty = parseInt(chip.getAttribute('data-qty') || '50', 10);
+        currentQty = selectedQty;
+        if (selectedQty < 100) {
+          const blankRadio = document.querySelector('input[name="custom_mode"][data-min-qty="50"]');
+          if (blankRadio && !blankRadio.checked) {
+            blankRadio.checked = true;
+            document.querySelectorAll('#custom-radio-group .radio-card').forEach((c) => c.classList.remove('active'));
+            blankRadio.closest('.radio-card')?.classList.add('active');
+          }
+        }
+        qtyChips.forEach((c) => c.classList.remove('active'));
+        chip.classList.add('active');
+        updateRfqHref();
+      });
+    });
 
     variantBtns.forEach((btn) => {
       btn.addEventListener('click', () => {
         variantBtns.forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
         currentSku = btn.getAttribute('data-sku') || currentSku;
-        if (price50) price50.textContent = '$' + btn.getAttribute('data-t50');
-        if (price200) price200.textContent = '$' + btn.getAttribute('data-t200');
-        if (price500) price500.textContent = '$' + btn.getAttribute('data-t500');
+        const t50 = btn.getAttribute('data-t50') || '';
+        const t200 = btn.getAttribute('data-t200') || '';
+        const t500 = btn.getAttribute('data-t500') || '';
+        if (price50) price50.textContent = '$' + t50;
+        if (price200) price200.textContent = '$' + t200;
+        if (price500) price500.textContent = '$' + t500;
+        if (calcBox) {
+          if (t50) calcBox.setAttribute('data-base50', t50);
+          if (t200) calcBox.setAttribute('data-base200', t200);
+          if (t500) calcBox.setAttribute('data-base500', t500);
+        }
         if (weightEl) weightEl.textContent = btn.getAttribute('data-weight') || '';
         if (skuEl) skuEl.textContent = 'SKU: ' + currentSku;
         updateRfqHref();
@@ -888,6 +973,89 @@ const breadcrumbSchema = {
   .radio-info span {
     font-size: 0.72rem;
     color: #475569;
+  }
+  .instant-calc-bar {
+    margin-top: 0.75rem;
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 0.65rem;
+    padding: 0.75rem 0.9rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .calc-qty-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+  .calc-qty-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  .calc-qty-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .calc-qty-chip {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.4rem;
+    padding: 0.28rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .calc-qty-chip:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+  }
+  .calc-qty-chip.active {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff;
+  }
+  .calc-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.55rem;
+    border-top: 1px dashed #cbd5e1;
+    gap: 0.75rem;
+  }
+  .calc-unit-col,
+  .calc-total-col {
+    display: flex;
+    flex-direction: column;
+  }
+  .calc-total-col {
+    text-align: right;
+  }
+  .calc-meta-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+  .calc-unit-val {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .calc-unit-val span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+  .calc-total-val {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #059669;
   }
   .pdp-cta-row {
     display: grid;
