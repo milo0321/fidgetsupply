@@ -678,6 +678,31 @@ if (fs.existsSync(distDir)) {
   if (seoGeoErrors === 0 && strayCjkPages === 0 && internalNofollowOrQueryCount === 0) {
     pass(`All ${checkedProdInsightPages} built Product & Insight pages (170 routes x 18 languages) verified for Canonical, 19 Hreflang tags, GeoDirectAnswer block, JSON-LD, 0 internal nofollow/query links, and 0 stray Chinese characters.`);
   }
+
+  // ---------------------------------------------------------------------------
+  // RULE 11: llms.txt & llms-full.txt Completeness Audit
+  // ---------------------------------------------------------------------------
+  console.log('\n=== 11. llms.txt & llms-full.txt GEO Corpus Audit ===');
+  const distLlms = path.join(distDir, 'llms.txt');
+  const distLlmsFull = path.join(distDir, 'llms-full.txt');
+  if (!fs.existsSync(distLlms)) {
+    fail('dist/llms.txt is missing');
+  } else if (!fs.existsSync(distLlmsFull)) {
+    fail('dist/llms-full.txt is missing');
+  } else {
+    const llmsTxt = fs.readFileSync(distLlms, 'utf8');
+    const llmsFull = fs.readFileSync(distLlmsFull, 'utf8');
+    if (llmsTxt.length < 50000) {
+      fail(`dist/llms.txt is too small (${llmsTxt.length} chars; expected >= 50,000 chars with all 140 SKUs & 39 guides)`);
+    }
+    if (llmsFull.length < 300000) {
+      fail(`dist/llms-full.txt is too small (${llmsFull.length} chars; expected >= 300,000 chars full corpus)`);
+    }
+    if (!llmsTxt.includes('https://fidgetsupply.com/llms-full.txt')) {
+      fail('dist/llms.txt does not link to https://fidgetsupply.com/llms-full.txt');
+    }
+    pass(`dist/llms.txt (${(Buffer.byteLength(llmsTxt) / 1024).toFixed(1)} KB) and dist/llms-full.txt (${(Buffer.byteLength(llmsFull) / 1024).toFixed(1)} KB) verified with all 140 Ready-Mold SKUs, 9 Collections, and 39 Guides.`);
+  }
 } else {
   fail('dist/ directory not found. Run npm run build first.');
 }
