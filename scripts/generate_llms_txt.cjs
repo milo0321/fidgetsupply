@@ -201,7 +201,7 @@ function main() {
     '  - **6-Stage Lab Testing**: (1) **3D Coordinate Measuring Machine (CMM)** (`±0.002mm` accuracy), (2) **X-Ray Non-Destructive Testing (NDT)** for internal casting density, (3) **Dynamic Balance Detector** (`R188` bearing 3–6 min spin verification), (4) **96-Hour Neutral Salt Spray Chamber** (`ISO 9227 / ASTM B117`), (5) **20,000-Cycle Magnetic & Mechanical Fatigue Tester**, and (6) **US CPSC 16 CFR 1262 Drop/Torque Abuse & IATA DGR PI-953 Stray Magnetic Field (`<0.00525 gauss at 4.6m`) Certification**.',
     '',
     '## 2. Key Commercial, Customization & Compliance Hubs',
-    '- Homepage: https://fidgetsupply.com/',
+    '- Homepage: https://fidgetsupply.com',
     '- All 140 Ready Molds Master Catalog: https://fidgetsupply.com/products',
     '- Custom Fiber Laser & Deep Laser Color-Fill Branding SOP: https://fidgetsupply.com/custom-branding',
     '- Custom EVA Zipper Cases & Tin Box Packaging: https://fidgetsupply.com/custom-packaging',

@@ -77,7 +77,7 @@ async function main() {
 
   // 2. Build Priority URL Queue for Google Indexing API
   const coreUrls = [
-    `${BASE_URL}/`,
+    `${BASE_URL}`,
     `${BASE_URL}/products`,
     `${BASE_URL}/insights`,
     `${BASE_URL}/custom-branding`,

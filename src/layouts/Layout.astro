@@ -151,7 +151,7 @@ function toCleanCanonical(raw: string): string {
     if (parsed.pathname.length > 1 && parsed.pathname.endsWith('/')) {
       parsed.pathname = parsed.pathname.slice(0, -1);
     }
-    return parsed.toString();
+    return parsed.toString().replace(/\/+$/, '');
   } catch {
     return raw.replace(/\/+$/, '');
   }

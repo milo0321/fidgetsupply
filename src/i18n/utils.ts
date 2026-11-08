@@ -70,7 +70,7 @@ export function getHreflangTags(currentUrl: URL | string) {
 
   return supportedLanguages.map((lang) => {
     const localizedPath = getLocalizedPath(rawPath, lang);
-    const href = `https://fidgetsupply.com${localizedPath}`;
+    const href = localizedPath === '/' ? 'https://fidgetsupply.com' : `https://fidgetsupply.com${localizedPath}`.replace(/\/+$/, '');
     return {
       lang,
       hreflang: languages[lang].code,

@@ -21,14 +21,14 @@ export default defineConfig({
     sitemap({
       filter: (page) => !page.includes('/api/'),
       serialize(item) {
-        if (item.url !== 'https://fidgetsupply.com/' && item.url.endsWith('/')) {
+        if (item.url.endsWith('/')) {
           item.url = item.url.replace(/\/+$/, '');
         }
         const url = item.url;
-        if (url === 'https://fidgetsupply.com' || url === 'https://fidgetsupply.com/') {
+        if (url === 'https://fidgetsupply.com') {
           item.priority = 1.0;
           item.changefreq = 'daily';
-        } else if (url.includes('/collections/') || url.endsWith('/products') || url.endsWith('/products/')) {
+        } else if (url.includes('/collections/') || url.endsWith('/products')) {
           item.priority = 0.95;
           item.changefreq = 'weekly';
         } else if (url.includes('/products/')) {

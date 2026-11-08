@@ -398,7 +398,7 @@ const sitemapFile = path.join(ROOT, 'dist/sitemap-0.xml');
 if (fs.existsSync(sitemapFile)) {
   const smXml = fs.readFileSync(sitemapFile, 'utf8');
   const smLocs = [...smXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-  const badSlashLocs = smLocs.filter((u) => u !== 'https://fidgetsupply.com/' && u.endsWith('/'));
+  const badSlashLocs = smLocs.filter((u) => u.endsWith('/'));
   if (badSlashLocs.length > 0) {
     fail(`Found ${badSlashLocs.length} sitemap <loc> URLs with trailing slash (causes Cloudflare 301 redirects): e.g. ${badSlashLocs[0]}`);
   }
@@ -665,6 +665,19 @@ if (fs.existsSync(distDir)) {
           fail(`Internal link has query parameters (${href}) in ${relFile}`);
           internalNofollowOrQueryCount++;
         }
+        if ((href.startsWith('/') && href.length > 1 && href.endsWith('/')) || (href.startsWith('https://fidgetsupply.com') && href.endsWith('/'))) {
+          fail(`Internal link has trailing slash (${href}) in ${relFile}`);
+          internalNofollowOrQueryCount++;
+        }
+      }
+    }
+    const linkTagRegex = /<link\b[^>]*href=["']([^"']+)["'][^>]*>/gi;
+    let lm;
+    while ((lm = linkTagRegex.exec(fullHtml)) !== null) {
+      const lHref = lm[1];
+      if ((lHref.startsWith('/') && lHref.length > 1 && lHref.endsWith('/')) || (lHref.startsWith('https://fidgetsupply.com') && lHref.endsWith('/'))) {
+        fail(`<link> tag has trailing slash (${lHref}) in ${relFile}`);
+        internalNofollowOrQueryCount++;
       }
     }
     if (relFile === '/ja/index.html' || relFile.startsWith('/ja/')) continue;
@@ -701,7 +714,12 @@ if (fs.existsSync(distDir)) {
     if (!llmsTxt.includes('https://fidgetsupply.com/llms-full.txt')) {
       fail('dist/llms.txt does not link to https://fidgetsupply.com/llms-full.txt');
     }
-    pass(`dist/llms.txt (${(Buffer.byteLength(llmsTxt) / 1024).toFixed(1)} KB) and dist/llms-full.txt (${(Buffer.byteLength(llmsFull) / 1024).toFixed(1)} KB) verified with all 140 Ready-Mold SKUs, 9 Collections, and 39 Guides.`);
+    const llmsUrls = [...(llmsTxt.match(/https:\/\/fidgetsupply\.com[^\s"'\''<>)\]`]*/g) || []), ...(llmsFull.match(/https:\/\/fidgetsupply\.com[^\s"'\''<>)\]`]*/g) || [])];
+    const badLlmsUrls = llmsUrls.filter((u) => u.endsWith('/'));
+    if (badLlmsUrls.length > 0) {
+      fail(`Found trailing-slash URL(s) in llms.txt or llms-full.txt: ${badLlmsUrls[0]}`);
+    }
+    pass(`dist/llms.txt (${(Buffer.byteLength(llmsTxt) / 1024).toFixed(1)} KB) and dist/llms-full.txt (${(Buffer.byteLength(llmsFull) / 1024).toFixed(1)} KB) verified with all 140 Ready-Mold SKUs, 9 Collections, 39 Guides, and 0 trailing-slash URLs.`);
   }
 } else {
   fail('dist/ directory not found. Run npm run build first.');
