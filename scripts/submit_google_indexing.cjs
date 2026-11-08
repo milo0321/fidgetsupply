@@ -84,7 +84,18 @@ async function main() {
     `${BASE_URL}/custom-packaging`,
     `${BASE_URL}/compliance-safety`,
     `${BASE_URL}/about`,
-    `${BASE_URL}/contact`
+    `${BASE_URL}/contact`,
+    `${BASE_URL}/products/elongated-32-magnet-piano-track-slider`,
+    `${BASE_URL}/no/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos`,
+    `${BASE_URL}/da/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos`,
+    `${BASE_URL}/ja/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos`,
+    `${BASE_URL}/fi/insights/ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide`,
+    `${BASE_URL}/cs/insights/zero-tooling-ready-mold-private-label-fidget-sop`,
+    `${BASE_URL}/it/insights/haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide`,
+    `${BASE_URL}/nl/products/transformable-bow-wing-magnetic-spinner`,
+    `${BASE_URL}/fr/products/retro-camera-ptfe-magnetic-slider`,
+    `${BASE_URL}/ja/products/m-profile-aluminum-16-magnet-ring`,
+    `${BASE_URL}/pt/products/triple-pea-pod-39-magnet-4-bearing-edc`
   ];
 
   const collectionSlugs = [

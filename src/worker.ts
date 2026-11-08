@@ -154,15 +154,25 @@ export default {
       });
     }
 
-    // 1. Force www.fidgetsupply.com to non-www canonical
+    // 1. Force HTTP to HTTPS and www.fidgetsupply.com to non-www canonical
+    let hostOrProtoChanged = false;
+    if (url.protocol === 'http:' && (url.hostname === 'fidgetsupply.com' || url.hostname === 'www.fidgetsupply.com')) {
+      url.protocol = 'https:';
+      hostOrProtoChanged = true;
+    }
     if (url.hostname === 'www.fidgetsupply.com') {
       url.hostname = 'fidgetsupply.com';
-      return Response.redirect(url.toString(), 301);
+      hostOrProtoChanged = true;
     }
 
-    // 2. Normalize .html and trailing slashes: 301 permanent redirect to clean canonical URL
+    // 2. Normalize multiple slashes, .html, and trailing slashes: 301 permanent redirect to clean canonical URL
     let path = url.pathname;
-    let needsRedirect = false;
+    let needsRedirect = hostOrProtoChanged;
+
+    if (path.includes('//')) {
+      path = path.replace(/\/+/g, '/');
+      needsRedirect = true;
+    }
 
     if (path !== '/' && path.endsWith('/')) {
       path = path.replace(/\/+$/, '');
@@ -175,6 +185,24 @@ export default {
         path = path.slice(0, -6) || '/';
       }
       needsRedirect = true;
+    }
+
+    // 3. Legacy Shopify / eCommerce route 301 redirects (e.g. //checkout/ captured in GA4)
+    const lowerPath = path.toLowerCase();
+    if (lowerPath === '/checkout' || lowerPath.startsWith('/checkout/') || lowerPath === '/cart' || lowerPath.startsWith('/cart/')) {
+      url.pathname = '/contact';
+      url.search = '';
+      return Response.redirect(url.toString(), 301);
+    }
+    if (lowerPath === '/collections/all' || lowerPath === '/catalog') {
+      url.pathname = '/products';
+      url.search = '';
+      return Response.redirect(url.toString(), 301);
+    }
+    if (lowerPath === '/account' || lowerPath.startsWith('/account/') || lowerPath === '/password') {
+      url.pathname = '/';
+      url.search = '';
+      return Response.redirect(url.toString(), 301);
     }
 
     if (needsRedirect) {
@@ -229,6 +257,13 @@ export default {
     }
 
     // Pass-through to Cloudflare Static Assets (pre-rendered HTML pages + static files)
-    return env.ASSETS.fetch(request);
+    const assetResponse = await env.ASSETS.fetch(request);
+    const headers = new Headers(assetResponse.headers);
+    headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    return new Response(assetResponse.body, {
+      status: assetResponse.status,
+      statusText: assetResponse.statusText,
+      headers,
+    });
   },
 };

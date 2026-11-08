@@ -172,7 +172,48 @@ const faqSchema = {
     />
   </div>
 
-  <!-- Section 1: 6 Primary Category Collections -->
+  <!-- Section 1: Featured Logo-Ready Custom Branding & Best-Selling Ready Molds (Immediate Visual SKU Grid) -->
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">{t('home.section3.badge')}</span>
+        <h2 class="section-title">{t('home.section3.title')}</h2>
+        <p class="section-subtitle">
+          {t('home.section3.sub')}
+        </p>
+      </div>
+
+      <div class="quick-cat-bar">
+        {primaryCollections.map((col) => (
+          <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="quick-cat-pill">
+            <span>{t(`col.${col.slug}.short` as any)}</span>
+            <strong>{col.skuCount}</strong>
+          </a>
+        ))}
+        <a href={getLocalizedPath('/custom-branding', currentLang)} class="quick-cat-pill quick-cat-pill-gold">
+          <span>★ {t('nav.customBranding')}</span>
+          <strong>$0 Mold</strong>
+        </a>
+      </div>
+
+      <div class="grid-4">
+        {logoFeatured.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
+
+      <div class="section-cta-row">
+        <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-primary">
+          {t('home.section3.cta')}
+        </a>
+        <a href={getLocalizedPath('/products', currentLang)} class="btn btn-outline">
+          {t('home.hero.ctaCatalog')} (140 SKUs) →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: 6 Primary Category Collections (with 3-SKU Visual Previews) -->
   <section class="section">
     <div class="container">
       <div class="section-header-center">
@@ -186,6 +227,9 @@ const faqSchema = {
       <div class="grid-3">
         {primaryCollections.map((col) => {
           const locCol = localizeCollectionContent(col, currentLang);
+          const previewSkus = sortedProducts
+            .filter((p) => p.data.primaryCollection === col.slug)
+            .slice(0, 3);
           return (
             <a href={getLocalizedPath(`/collections/${col.slug}`, currentLang)} class="collection-card">
               <div class="col-card-top">
@@ -194,6 +238,23 @@ const faqSchema = {
               </div>
               <h3 class="col-title">{t(`col.${col.slug}.name` as any)}</h3>
               <p class="col-zh">{t(`col.${col.slug}.short` as any)} · {col.priceRangeUsd}</p>
+              {previewSkus.length > 0 && (
+                <div class="col-thumb-strip">
+                  {previewSkus.map((sku) => (
+                    <div class="col-thumb-item">
+                      <img
+                        src={sku.data.image}
+                        alt={`${sku.data.sku} ${sku.data.title}`}
+                        width="88"
+                        height="66"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <span>{sku.data.sku}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
               <p class="col-desc">{locCol.heroSubtitle}</p>
               <div class="col-footer">
                 <span>MOQ: {locCol.moq}</span>
@@ -206,7 +267,7 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- Section 2: 3 High-Converting Cross-Tag Collections -->
+  <!-- Section 3: 3 High-Converting Cross-Tag Collections -->
   <section class="section section-dark">
     <div class="container">
       <div class="section-header-center">
@@ -237,31 +298,6 @@ const faqSchema = {
             </div>
           );
         })}
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: Featured Logo-Ready Custom Branding Models -->
-  <section class="section section-light">
-    <div class="container">
-      <div class="section-header-center">
-        <span class="badge badge-emerald">{t('home.section3.badge')}</span>
-        <h2 class="section-title">{t('home.section3.title')}</h2>
-        <p class="section-subtitle">
-          {t('home.section3.sub')}
-        </p>
-      </div>
-
-      <div class="grid-4">
-        {logoFeatured.map((p) => (
-          <ProductCard product={p} />
-        ))}
-      </div>
-
-      <div style="text-align: center; margin-top: 2.5rem;">
-        <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-primary">
-          {t('home.section3.cta')}
-        </a>
       </div>
     </div>
   </section>
@@ -503,6 +539,93 @@ const faqSchema = {
     font-size: 1.25rem;
     color: #0f172a;
     margin-bottom: 0.25rem;
+  }
+  .quick-cat-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+  }
+  .quick-cat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.48rem 0.9rem;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0f172a;
+    transition: all 0.18s ease;
+    box-shadow: var(--shadow-sm);
+  }
+  .quick-cat-pill:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+    transform: translateY(-2px);
+  }
+  .quick-cat-pill strong {
+    background: #f0f9ff;
+    color: #0369a1;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.12rem 0.48rem;
+    border-radius: 999px;
+  }
+  .quick-cat-pill-gold {
+    background: #0f172a;
+    border-color: #334155;
+    color: #ffffff;
+  }
+  .quick-cat-pill-gold:hover {
+    background: #1e293b;
+    border-color: #38bdf8;
+    color: #38bdf8;
+  }
+  .quick-cat-pill-gold strong {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+  }
+  .section-cta-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .col-thumb-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+    padding: 0.5rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.6rem;
+  }
+  .col-thumb-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    min-width: 0;
+  }
+  .col-thumb-item img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 0.38rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+  }
+  .col-thumb-item span {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #334155;
   }
   .col-zh {
     font-size: 0.82rem;

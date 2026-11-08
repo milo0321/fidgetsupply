@@ -211,12 +211,12 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Teknisk jämförelse av monokrom fiberlasergravyr (+$0,15–$0,30/st), flerfärgs screentryck ($35/färg + $0,10/färg/st) och djup lasergravyr med emaljfyllning (+$0,35–$0,60/st).'
     },
     da: {
-      title: '50W Fiberlasergravering vs. Serigrafi vs. Dyb Lasergravering med Farvefyld på Metalfidgets',
-      summary: 'Teknisk sammenligning af monokrom fiberlasergravering (+$0,15–$0,30/stk.), flerfarvet serigrafi ($35/farve + $0,10/farve/stk.) og dyb lasergravering med emaljefyld (+$0,35–$0,60/stk.).'
+      title: 'Fiberlasergravering (50W Fiberlaser gravering) vs. Serigrafi vs. Dyb Lasergravering med Farvefyld på Metalfidgets',
+      summary: 'Teknisk sammenligning af 50W fiberlasergravering (fiberlaser gravering, +$0,15–$0,30/stk.), flerfarvet serigrafi ($35/farve + $0,10/farve/stk.) og dyb lasergravering med emaljefyld (+$0,35–$0,60/stk.).'
     },
     no: {
-      title: '50W Fiberlasergravering vs. Silketrykk vs. Dyp Lasergravering med Fargefyll på Metallfidgets',
-      summary: 'Teknisk sammenligning av monokrom fiberlasergravering (+$0,15–$0,30/stk.), flerfarget silketrykk ($35/farge + $0,10/farge/stk.) og dyp lasergravering med emaljefyll (+$0,35–$0,60/stk.).'
+      title: 'Fiberlaser gravering (50W Fiberlasergravering) vs. Silketrykk vs. Dyp Lasergravering med Fargefyll på Metallfidgets',
+      summary: 'Teknisk sammenligning av 50W fiberlaser gravering (monokrom fiberlasergravering, +$0,15–$0,30/stk.), flerfarget silketrykk ($35/farge + $0,10/farge/stk.) og dyp lasergravering med emaljefyll (+$0,35–$0,60/stk.).'
     },
     fi: {
       title: '50W Kuitulaserkaiverrus vs. Silkkipaino vs. Syvä Laserkaiverrus Väritäytöllä Metallifidgeteissä',
@@ -1477,8 +1477,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'PTFE-Teflonteippi, Si3N4-Keraamikuulat & R188-Laakerihuolto: EDC-Viritys- & Varaosaopas',
-      summary: 'Kattava tribologia- ja viritysopas: 0,13/0,18 mm PTFE-liukuteippi, piinitridi (Si3N4) -keraamikuulat, fosforipronssijouset ja R188-laakereiden kuivapuhdistus.'
+      title: 'PTFE-Liukuteippi (Teflonteippi), Si3N4-Keraamikuulat & R188-Laakerihuolto: EDC-Viritys- & Varaosaopas',
+      summary: 'Kattava tribologia- ja viritysopas: 0,13/0,18 mm PTFE-liukuteippi (liukuteippi / teflonteippi), piinitridi (Si3N4) -keraamikuulat, fosforipronssijouset ja R188-laakereiden kuivapuhdistus.'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',
