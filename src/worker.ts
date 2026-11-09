@@ -187,19 +187,31 @@ export default {
       needsRedirect = true;
     }
 
-    // 3. Legacy Shopify / eCommerce route 301 redirects (e.g. //checkout/ captured in GA4)
+    // 3. Legacy Shopify / BigCartel / bare /collections route 301 redirects
     const lowerPath = path.toLowerCase();
     if (lowerPath === '/checkout' || lowerPath.startsWith('/checkout/') || lowerPath === '/cart' || lowerPath.startsWith('/cart/')) {
       url.pathname = '/contact';
       url.search = '';
       return Response.redirect(url.toString(), 301);
     }
-    if (lowerPath === '/collections/all' || lowerPath === '/catalog') {
+    if (
+      lowerPath === '/collections' ||
+      lowerPath === '/collections/all' ||
+      lowerPath === '/catalog' ||
+      lowerPath === '/product' ||
+      lowerPath.startsWith('/product/')
+    ) {
       url.pathname = '/products';
       url.search = '';
       return Response.redirect(url.toString(), 301);
     }
-    if (lowerPath === '/account' || lowerPath.startsWith('/account/') || lowerPath === '/password') {
+    const langCollectionsMatch = lowerPath.match(/^\/(de|fr|nl|es|it|pt|sv|da|no|fi|pl|cs|ru|ja|ko|id|ar)\/collections(?:\/all)?$/);
+    if (langCollectionsMatch) {
+      url.pathname = `/${langCollectionsMatch[1]}/products`;
+      url.search = '';
+      return Response.redirect(url.toString(), 301);
+    }
+    if (lowerPath === '/account' || lowerPath.startsWith('/account/') || lowerPath === '/password' || lowerPath === '/orders' || lowerPath === '/admin') {
       url.pathname = '/';
       url.search = '';
       return Response.redirect(url.toString(), 301);
