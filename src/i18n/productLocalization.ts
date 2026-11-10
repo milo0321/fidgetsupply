@@ -1236,7 +1236,8 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
 
   if (p.tuningFork) {
     slugs.push('acoustic-tuning-fork-fidget-slider-engineering-trend');
-    slugs.push('tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide');
+    slugs.push('2027-acoustic-tuning-fork-vs-silent-office-fidget-trends');
+    slugs.push('2027-tiktok-shop-asmr-amazon-fba-fidget-bestseller-forecast');
   }
   if (/sprocket|chain|planetary|pendulum|tourbillon|roulette/i.test(titleLower)) {
     slugs.push('sprocket-chain-planetary-gear-chaotic-pendulum-metal-fidget-guide');
@@ -1255,12 +1256,14 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
   }
   if (/zirconium|zr702|carbon|abalone|pei|ultem|tri-metal/i.test(titleLower + ' ' + matLower)) {
     slugs.push('zirconium-zr702-carbon-fiber-abalone-inlay-exotic-metal-edc-fidgets');
+    slugs.push('2027-metal-edc-fidget-market-material-trends-report');
   }
   if (/aluminum|6063|6061|heavy|drop-tower|invader|brass/i.test(titleLower + ' ' + matLower)) {
     slugs.push('ultralight-6063-aluminum-vs-heavyweight-brass-stainless-edc-fidget-weight-guide');
   }
   if (/wheel|tire|truck|roulette|trophy|royal|poker/i.test(titleLower)) {
     slugs.push('automotive-wheel-rim-casino-vip-esports-merch-custom-metal-fidget-guide');
+    slugs.push('holiday-q4-corporate-multi-piece-metal-edc-fidget-gift-bundle-playbook');
   }
   if (/silicone|soap|ribbed|bead|ring|gourd/i.test(titleLower)) {
     slugs.push('adult-adhd-focus-sensory-regulation-heavy-metal-fidget-selection-guide');
@@ -1279,6 +1282,7 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
   }
   if (/roller|gyro|ring|top|pei/i.test(titleLower)) {
     slugs.push('quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide');
+    slugs.push('2027-acoustic-tuning-fork-vs-silent-office-fidget-trends');
   }
 
   switch (p.primaryCollection) {
@@ -1307,16 +1311,31 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
 
   if (p.cncExotic) {
     slugs.push('zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost');
+    slugs.push('2027-metal-edc-fidget-market-material-trends-report');
   } else if (p.logoReady) {
     slugs.push('corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide');
+    slugs.push('2027-corporate-vip-swag-custom-laser-metal-fidget-trends');
     slugs.push('fiber-laser-engraving-vs-uv-printing-metal-fidget-logos');
   } else if (/pvd|stonewash|antique|anodiz|bronze/i.test(colLower)) {
     slugs.push('pvd-coating-hard-anodizing-stonewash-antique-metal-fidget-finishes');
   }
 
-  slugs.push('custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide');
-  slugs.push('international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide');
-  slugs.push('us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance');
+  // Rotate BOFU & 2027 compliance/sourcing guides by rowId so all 39 guides receive balanced deep links
+  const bofuPool = [
+    'china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies',
+    'metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests',
+    'how-to-launch-private-label-metal-edc-fidget-brand-zero-mold-tooling',
+    'holiday-q4-corporate-multi-piece-metal-edc-fidget-gift-bundle-playbook',
+    '2027-cpsc-16-cfr-1262-eu-tsr-iata-magnet-fidget-compliance',
+    '2027-tiktok-shop-asmr-amazon-fba-fidget-bestseller-forecast',
+    'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide',
+    'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide',
+    'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance'
+  ];
+  const rIdx = Number(p.rowId || 1) % bofuPool.length;
+  slugs.push(bofuPool[rIdx]);
+  slugs.push(bofuPool[(rIdx + 1) % bofuPool.length]);
+  slugs.push(bofuPool[(rIdx + 2) % bofuPool.length]);
   return Array.from(new Set(slugs)).slice(0, 6);
 }
 
@@ -1350,7 +1369,16 @@ const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
   'ultralight-6063-aluminum-vs-heavyweight-brass-stainless-edc-fidget-weight-guide': 'Ultralight 6063 Anodized Aluminum (<55g) vs. Heavyweight Brass & Stainless Weight Guide',
   'adult-adhd-focus-sensory-regulation-heavy-metal-fidget-selection-guide': 'Adult ADHD Focus, Anxiety Relief & Proprioceptive Sensory Heavy Metal Fidget Guide',
   'automotive-wheel-rim-casino-vip-esports-merch-custom-metal-fidget-guide': 'Automotive Wheel Rim, Casino VIP & Esports Gaming Merch: Custom Metal Fidget Playbook',
-  'tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide': 'TikTok Shop ASMR Viral Hooks, Amazon FBA & Shopify Metal Fidget Reseller Margin Guide'
+  'tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide': 'TikTok Shop ASMR Viral Hooks, Amazon FBA & Shopify Metal Fidget Reseller Margin Guide',
+  '2027-metal-edc-fidget-market-material-trends-report': '2027 Global Metal EDC Fidget Wholesale Market & Material Trends Report: CNC Stainless, PEI Ultem & Zirconium vs. Die-Cast Zinc',
+  '2027-acoustic-tuning-fork-vs-silent-office-fidget-trends': '2027 Acoustic & Haptic Fidget Engineering Forecast: Sub-35 dBA Silent Office Fidgets vs. 3,800 Hz Tuning Fork Sliders',
+  '2027-tiktok-shop-asmr-amazon-fba-fidget-bestseller-forecast': '2027 TikTok Shop ASMR, Amazon FBA & Shopify Metal Fidget Bestseller Forecast: Top 20 Zero-Tooling Ready Molds',
+  '2027-corporate-vip-swag-custom-laser-metal-fidget-trends': '2027 Corporate VIP Swag & Trade Show Giveaway Trend Report: Deep Laser Color-Fill Metal Fidgets',
+  '2027-cpsc-16-cfr-1262-eu-tsr-iata-magnet-fidget-compliance': '2027 US CPSC 16 CFR 1262, EU Toy Safety Regulation (TSR) & IATA PI-953 Magnetic Air-Freight Compliance Outlook',
+  'china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies': 'China Metal EDC Fidget Sourcing Guide: Direct Integrated Supply Chain vs. Alibaba & 1688 Trading Companies',
+  'metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests': 'Metal EDC Fidget Quality Control Checklist: 12 Mandatory Pre-Shipment Inspection Tests for Importers',
+  'how-to-launch-private-label-metal-edc-fidget-brand-zero-mold-tooling': 'How to Launch a Private-Label Metal EDC Fidget Brand Under $1,500: The $0 Tooling Ready-Mold Playbook',
+  'holiday-q4-corporate-multi-piece-metal-edc-fidget-gift-bundle-playbook': 'Holiday Q4 & Corporate Multi-Piece Metal EDC Fidget Gift Bundle Playbook: 5 High-AOV Kit Formulas'
 };
 
 function buildLocalizedEditorialHtml(
@@ -1375,16 +1403,31 @@ function buildLocalizedEditorialHtml(
   const colHref = getLocalizedPath(`/collections/${p.primaryCollection}`, lang);
   const colName = t(`col.${p.primaryCollection}.name` as any);
 
+  const b50 = parseFloat(String(p.tier50 || '4.50')) || 4.5;
+  const b200 = parseFloat(String(p.tier200 || '4.00')) || 4.0;
+  const b500 = parseFloat(String(p.tier500 || '3.80')) || 3.8;
+  const blankEst = `$${b500.toFixed(2)} – $${b50.toFixed(2)}`;
+  const laserEst = `$${(b200 + 0.15).toFixed(2)} – $${(b50 + 0.30).toFixed(2)}`;
+  const silkEst = `$${(b200 + 0.10).toFixed(2)} – $${(b50 + 0.30).toFixed(2)}`;
+  const deepEst = `$${(b500 + 0.35).toFixed(2)} – $${(b200 + 0.60).toFixed(2)}`;
+
+  const dynamicRows = [
+    [ `${c.r1[0]} (${p.skuDisplay} #${p.rowId})`, c.r1[1], c.r1[2], `${c.r1[3]} (${blankEst})`, c.r1[4] ],
+    [ `${c.r2[0]} (${p.size})`, c.r2[1], c.r2[2], `${c.r2[3]} → ${laserEst}`, c.r2[4] ],
+    [ `${c.r3[0]} (${locMat})`, c.r3[1], c.r3[2], `${c.r3[3]} → ${silkEst}`, c.r3[4] ],
+    [ `${c.r4[0]} (${p.weight})`, c.r4[1], c.r4[2], `${c.r4[3]} → ${deepEst}`, c.r4[4] ]
+  ];
+
   return `
     <h2>${c.secTitle(p.skuDisplay, locTitle)}</h2>
     <p>${c.p1(p.skuDisplay, locTitle, locMat, p.size, p.weight, p.rowId)}</p>
-    <h3>${c.h3Mech}</h3>
+    <h3>${c.h3Mech} — ${p.skuDisplay} (${p.size} · ${p.weight})</h3>
     <p>${c.pMech(locMag, locAcc, locColors)}</p>
-    <h3>${c.h3Logo}</h3>
+    <h3>${c.h3Logo} — ${p.skuDisplay}</h3>
     <ul>
       ${c.logoBullets.map((b) => `<li>${b}</li>`).join('')}
     </ul>
-    <h3>${c.h3Table(p.skuDisplay)}</h3>
+    <h3>${c.h3Table(p.skuDisplay)} ($${p.tier500} – $${p.tier50} USD)</h3>
     <div class="geo-table-wrap">
       <table class="geo-table">
         <thead>
@@ -1397,7 +1440,7 @@ function buildLocalizedEditorialHtml(
           </tr>
         </thead>
         <tbody>
-          ${[c.r1, c.r2, c.r3, c.r4]
+          ${dynamicRows
             .map(
               (r) =>
                 `<tr><td><strong>${r[0]}</strong></td><td>${r[1]}</td><td>${r[2]}</td><td><strong>${r[3]}</strong></td><td>${r[4]}</td></tr>`
@@ -1406,7 +1449,7 @@ function buildLocalizedEditorialHtml(
         </tbody>
       </table>
     </div>
-    <h3>4. ${t('breadcrumb.guides')} &amp; <a href="${colHref}">${colName}</a></h3>
+    <h3>4. ${t('breadcrumb.guides')} &amp; <a href="${colHref}">${colName}</a> (${p.skuDisplay})</h3>
     <ul class="editorial-guide-links">
       ${insightLinksHtml}
     </ul>

@@ -14,15 +14,21 @@ export async function getStaticPaths() {
 
   return sorted.map((entry) => {
     const p = entry.data;
-    const related = sorted
-      .filter((other) => other.data.slug !== p.slug && other.data.primaryCollection === p.primaryCollection)
-      .slice(0, 4);
+    const sameCol = sorted.filter((other) => other.data.primaryCollection === p.primaryCollection);
+    const selfIdx = sameCol.findIndex((other) => other.data.slug === p.slug);
+    const related: typeof sorted = [];
+    if (sameCol.length > 1) {
+      const count = Math.min(4, sameCol.length - 1);
+      for (let offset = 1; offset <= count; offset++) {
+        related.push(sameCol[(selfIdx + offset) % sameCol.length]);
+      }
+    }
 
     const targetGuideSlugs = getRelatedInsightSlugsForProduct(p);
     const relatedGuides = targetGuideSlugs
       .map((s) => allGuides.find((g) => g.data.slug === s))
       .filter(Boolean)
-      .slice(0, 3);
+      .slice(0, 4);
 
     return {
       params: { slug: p.slug },
