@@ -360,11 +360,35 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     no: 'Roterende Ring', fi: 'Pyörivä Sormus', pl: 'Pierścień Obrotowy', cs: 'Otočný prsten',
     ru: 'Вращающееся кольцо-спиннер', ja: 'スピナーリング（回転指輪）', ko: '마그네틱 스피너 링', id: 'Cincin Putar Magnetik', ar: 'خاتم دوار مغناطيسي'
   }],
+  [/Acoustic Resonance Chime/gi, {
+    de: 'Akustik-Resonanz-Klangspiel', fr: 'Carillon à Résonance Acoustique', nl: 'Akoestische Resonantie-Chime', es: 'Campana de Resonancia Acústica',
+    it: 'Campana a Risonanza Acustica', pt: 'Sino de Ressonância Acústica', sv: 'Akustisk resonansklang', da: 'Akustisk resonansklang',
+    no: 'Akustisk resonansklang', fi: 'Akustinen resonanssikello', pl: 'Dzwonek Rezonansu Akustycznego', cs: 'Akustická rezonanční zvonkohra',
+    ru: 'Акустический резонансный колокольчик', ja: '音響共鳴チャイム（中空共鳴）', ko: '극성중공 어쿠스틱 공명 차임', id: 'Lonceng Resonansi Akustik', ar: 'رنين الرنين الصوتي'
+  }],
+  [/Resonance Chamber/gi, {
+    de: 'Resonanzkammer', fr: 'Chambre de Résonance', nl: 'Resonantiekamer', es: 'Cámara de Resonancia',
+    it: 'Camera di Risonanza', pt: 'Câmara de Ressonância', sv: 'Resonanskammare', da: 'Resonanskammer',
+    no: 'Resonanskammer', fi: 'Resonanssikammio', pl: 'Komora Rezonansowa', cs: 'Rezonanční komora',
+    ru: 'Резонансная камера', ja: '中空共鳴チャンバー', ko: '극성중공 공명 챔버', id: 'Ruang Resonansi', ar: 'حجرة الرنين الصوتي'
+  }],
+  [/Acoustic Tuning Fork Spinner/gi, {
+    de: 'Akustik-Stimmgabel-Spinner', fr: 'Spinner Diapason Acoustique', nl: 'Akoestische Stemvork-Spinner', es: 'Spinner de Diapasón Acústico',
+    it: 'Spinner Diapason Acustico', pt: 'Spinner Diapasão Acústico', sv: 'Akustisk stämgaffel-spinner', da: 'Akustisk stemmegaffel-spinner',
+    no: 'Akustisk stemmegaffel-spinner', fi: 'Akustinen äänirauta-spinneri', pl: 'Akustyczny Spinner Kamertonowy', cs: 'Akustický ladičkový spinner',
+    ru: 'Акустический камертонный спиннер', ja: '音響音叉（チューニングフォーク）スピナー', ko: '극성중공 어쿠스틱 튜닝포크 스피너', id: 'Spinner Garpu Tala Akustik', ar: 'سبينر الشوكة الرنانة الصوتية'
+  }],
+  [/Dual-Bearing Multi-Metal Gourd/gi, {
+    de: 'Doppellager Multi-Metall-Gourd', fr: 'Gourde Multi-Métaux Double Roulement', nl: 'Dubbellager Multi-Metaal Kalebas', es: 'Calabaza Multimetálica de Doble Rodamiento',
+    it: 'Zucca Multimetallo a Doppio Cuscinetto', pt: 'Cabaça Multimetal de Rolamento Duplo', sv: 'Dubbellagrad metallkalebass', da: 'Dobbeltlejet multimetalkalebas',
+    no: 'Dobbeltlagret multimetallkalebas', fi: 'Kaksoislaakeroitu monimetallikurpitsa', pl: 'Wielometalowa Tykwa Dwoma Łożyskami', cs: 'Dvouložisková vícekovoá tykev',
+    ru: 'Двухподшипниковая мультиметаллическая тыква EDC', ja: 'デュアルベアリング複合金属ひょうたんEDC', ko: '듀얼 베어링 멀티메탈 표주박 핸드피스', id: 'Labu Multi-Logam Bantalan Ganda', ar: 'قرع معدني مزدوج المحامل EDC'
+  }],
   [/Tuning Fork/gi, {
     de: 'Stimmgabel-Resonanz', fr: 'Diapason Acoustique', nl: 'Stemvork-Resonantie', es: 'Diapasón Acústico',
     it: 'Diapason Acustico', pt: 'Diapasão Acústico', sv: 'Stämgaffel-resonans', da: 'Stemmegaffel-resonans',
     no: 'Stemmegaffel-resonans', fi: 'Äänirauta-akustiikka', pl: 'Kamerton Akustyczny', cs: 'Akustická ladička',
-    ru: 'Акустический камертон', ja: '音叉（チューニングフォーク）共鳴', ko: '튜닝포크(음차) 공명', id: 'Garpu Tala Akustik', ar: 'الشوكة الرنانة الصوتية'
+    ru: 'Акустический камертон', ja: '音叉（チューニングフォーク）共鳴', ko: '극성중공 튜닝포크(음차) 공명', id: 'Garpu Tala Akustik', ar: 'الشوكة الرنانة الصوتية'
   }],
   [/EDC Hand Piece|Hand-Piece Gourd|EDC Gourd/gi, {
     de: 'EDC-Handschmeichler-Kalebasse', fr: 'Gourde EDC de Poche', nl: 'EDC Handstuk Kalebas', es: 'Calabaza EDC de Mano',
@@ -597,7 +621,7 @@ const SPEC_STATIC_VALS: Record<SupportedLanguage, {
   de: {
     moldRef: (r) => `Serienform #${r} (Fertiges Produktionswerkzeug)`,
     toolingFee: '$0,00 (Sofort einsatzbereite Serienform)',
-    moq: '50 Stk. (Blanko-Lagerware) / 100 Stk. (Mit Laser- oder Siebdruck-Logo)',
+    moq: '50 Stk. (Blanko-Lagerware) / 100 Stk. (50W-Faserlaser oder Tiefe Laser-Farbfüllung)',
     safety: 'US CPSC 16 CFR 1262 Verriegeltes Magnetgehäuse, EU RoHS & REACH konform',
     sampleFeeTime: 'Lasermuster: $50 USD · Tiefe Lasergravur + Farbfüllung: $80–$150 USD (10–15 Tage)'
   },
@@ -695,7 +719,7 @@ const SPEC_STATIC_VALS: Record<SupportedLanguage, {
   ko: {
     moldRef: (r) => `금형 #${r} (양산 완료 기성 금형)`,
     toolingFee: '$0.00 (기성 양산 금형 사용으로 초기 금형비 무료)',
-    moq: '50개 (무지 기본형) / 100개 (레이저 각인 및 실크스크린 로고)',
+    moq: '50개 (무지 기본형) / 100개 (50W 파이버 레이저 각인 및 심층 컬러 필링)',
     safety: '미국 CPSC 16 CFR 1262 자석 이탈 방지 잠금 구조, EU RoHS & REACH 준수',
     sampleFeeTime: '일반 레이저 샘플: $50 USD · 심층 레이저+컬러 샘플: $80–$150 USD (10–15일)'
   },
@@ -877,16 +901,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Individuelle Logo-Veredelung & Eigenmarken-Optionen ($0 Formgebühr)',
     logoBullets: [
       '<strong>50W MOPA-Faserlasergravur (Monochrom):</strong> MOQ 100 Stk. · $0,00 Einrichtungsgebühr · +$0,15–$0,30/Stk. Dauerhafte, abriebfeste Metallgravur.',
-      '<strong>Siebdruck (Mehrfarbige Markenlogos):</strong> MOQ 100 Stk. · $35 USD Siebgebühr pro Farbe (1 Farbe = $35, 2 Farben = $70, 3 Farben = $105) · +$0,10 USD pro Farbe und Stück (z. B. 5 Farben = +$0,50/Stk.).',
-      '<strong>Tiefe Lasergravur + Farbauslegung (Emaille-Füllung):</strong> MOQ 200–300 Stk. · $0,00 Laser-Setup · +$0,35–$0,60/Stk. Tiefengravur mit anschließender abriebgeschützter Farbfüllung.',
-      '<strong>Vorabmuster mit eigenem Logo:</strong> $80–$150 USD Mustergebühr · 10–15 Tage Musterbauzeit (inkl. kostenlosem digitalem Korrekturabzug binnen 12 Std.).'
+      '<strong>Warum Siebdruck / UV-Druck auf glattem Metall NICHT empfohlen wird:</strong> Polierte und beschichtete Metalloberflächen sind chemisch inert; Oberflächentinte blättert bei Daumenreibung ab.',
+      '<strong>Tiefe Lasergravur + Farbauslegung (Empfohlen für farbige Logos):</strong> MOQ 100–200 Stk. · $0,00 Laser-Setup · +$0,35–$0,60/Stk. Tiefengravur mit dauerhafter Emaille-Farbfüllung.',
+      '<strong>Vorabmuster mit eigenem Logo:</strong> Faserlaser-Muster = $50 USD · Tiefe Lasergravur + Farbfüllung = $80–$150 USD (10–15 Tage inkl. kostenlosem 12-Std.-Digitalproof).'
     ],
     h3Table: (sku) => `3. ${sku} Kostenmatrix für Logo-Veredelung & Serienproduktion`,
-    thOption: 'Veredelungs- / Bestellmodus', thMoq: 'MOQ', thSetup: 'Einrichtungs- / Siebgebühr', thUnitAdd: 'Aufpreis pro Stück', thLead: 'Produktionszeit',
+    thOption: 'Veredelungs- / Bestellmodus', thMoq: 'MOQ', thSetup: 'Einrichtungs- / Mustergebühr', thUnitAdd: 'Aufpreis pro Stück', thLead: 'Produktionszeit',
     r1: ['Blanko-Lagerware ab Serienform', '50 Stk.', '$0,00', 'Im Staffelpreis enthalten', '3–5 Werktage'],
-    r2: ['50W-Faserlasergravur Logo', '100 Stk.', '$0,00', '+$0,15 – $0,30 / Stk.', '10–15 Werktage'],
-    r3: ['Siebdruck Mehrfarben-Logo', '100 Stk.', '$35 / Farbe', '+$0,10 / Farbe / Stk.', '10–15 Werktage'],
-    r4: ['Tiefe Lasergravur + Farbauslegung', '200–300 Stk.', '$0,00', '+$0,35 – $0,60 / Stk.', '12–15 Werktage']
+    r2: ['50W-Faserlasergravur Logo (Monochrom)', '100 Stk.', '$0,00 (Muster $50)', '+$0,15 – $0,30 / Stk.', '10–15 Werktage'],
+    r3: ['Tiefe Lasergravur + Farbauslegung (Farbig)', '100–200 Stk.', '$0,00 (Muster $80–$150)', '+$0,35 – $0,60 / Stk.', '10–15 Werktage'],
+    r4: ['Schwarzes EVA-Reißverschlussetui + Logo', '100 Stk.', '$0,00', '+$0,75 / Stk.', '10–15 Werktage']
   },
   fr: {
     secTitle: (sku, title) => `${sku} ${title} — Architecture Mécanique, Marquage Logo & Conditionnement`,

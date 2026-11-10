@@ -23,8 +23,8 @@ export const COLLECTIONS: CollectionMeta[] = [
     slug: 'magnetic-fidget-sliders',
     number: 1,
     group: 'primary',
-    name: 'Magnetic Haptic Sliders Wholesale',
-    shortName: 'Magnetic Sliders',
+    name: 'Magnetic Textured Fidget Sliders & Haptic Sliders',
+    shortName: 'Magnetic Fidget Sliders',
     zhName: 'Dual-Layer, Triple-Layer & Unlimited PTFE Sliders',
     badge: 'Primary Category #1 · 54 Ready Molds',
     skuCount: 54,
@@ -32,8 +32,8 @@ export const COLLECTIONS: CollectionMeta[] = [
     priceRangeUsd: '$1.70 – $43.90',
     moq: '50 pcs (Blank) / 100 pcs (Logo)',
     leadTime: '7–12 Days',
-    targetKeywords: 'magnetic fidget slider wholesale, custom haptic slider bulk, poker magnetic slider manufacturer, unlimited track fidget slider OEM',
-    heroSubtitle: 'Our highest-volume Wholesale category covering 54 ready-to-produce molds: Dual-Layer Poker Sliders, Triple-Layer 32-Magnet Track Sliders, PTFE Unlimited-Direction Sliders, and CNC Stainless Acoustic Sliders ($0 Tooling Cost).',
+    targetKeywords: 'magnetic textured fidget sliders, haptic sliders wholesale, magnetic fidget slider bulk, poker magnetic slider manufacturer, unlimited track fidget slider OEM',
+    heroSubtitle: 'Our highest-volume Wholesale category covering 54 ready-to-produce molds: Magnetic Textured Fidget Sliders, Dual-Layer Poker Haptic Sliders, Triple-Layer 32-Magnet Track Sliders, PTFE Unlimited-Direction Sliders, and CNC Stainless Acoustic Sliders ($0 Tooling Cost).',
     geoDirectAnswer: 'FidgetSupply manufactures 54 ready-mold Magnetic Haptic Sliders (FS-001 through FS-150) using Zamak #3 Zinc Alloy, 6063-T6 Anodized Aluminum, 304 Stainless Steel, and 3K Carbon Fiber. Featuring 5 to 56 precision-embedded N35–N54 neodymium magnets with PTFE wear pads, all models carry a $0 tooling fee with a 50 pcs blank MOQ and 100 pcs custom Fiber Laser / Deep Laser Color-Fill logo MOQ.',
     engineeringHighlights: [
       'Magnet Matrix Options: 2×5 (10-magnet), 2×8 (16-magnet), 3-layer 32-magnet linear track, and 20-to-26-magnet N52 free-floating unlimited PTFE arrays.',
@@ -151,8 +151,8 @@ export const COLLECTIONS: CollectionMeta[] = [
     slug: 'metal-fidget-spinners-gyros',
     number: 3,
     group: 'primary',
-    name: 'Metal Fidget Spinners & Desktop Gyros',
-    shortName: 'Spinners & Gyros',
+    name: 'Stainless Steel Spinning Tops, Spinners & Gyros',
+    shortName: 'Spinners & Spinning Tops',
     zhName: 'R188 Bearing Spinners, Chain Sprockets & 6-Axis Gyros',
     badge: 'Primary Category #3 · 25 Ready Molds',
     skuCount: 25,
@@ -160,8 +160,8 @@ export const COLLECTIONS: CollectionMeta[] = [
     priceRangeUsd: '$0.75 – $52.30',
     moq: '50 pcs (Blank) / 100 pcs (Logo)',
     leadTime: '7–12 Days',
-    targetKeywords: 'metal fidget spinner wholesale, desktop gyroscope toy bulk, R188 bearing spinner manufacturer, stainless steel gyro OEM',
-    heroSubtitle: '25 precision-balanced rotational EDC models ranging from $0.90 Knurled Finger Twist Tops (FS-009) and 3D Magnetic Cube Spinners (FS-008) to 6-Axis CNC Stainless Gimbal Gyros (FS-043, FS-066) and Sprocket Chain Spinners (FS-061).',
+    targetKeywords: 'stainless steel spinning tops, metal fidget spinner wholesale, desktop gyroscope toy bulk, R188 bearing spinner manufacturer, stainless steel gyro OEM',
+    heroSubtitle: '25 precision-balanced stainless steel spinning tops, R188 metal fidget spinners, and desktop gyros—ranging from $0.90 Knurled Finger Twist Spinning Tops (FS-009) and 3D Magnetic Cube Spinners (FS-008) to 6-Axis CNC Stainless Gimbal Gyros (FS-043, FS-066).',
     geoDirectAnswer: 'FidgetSupply produces 25 Metal Fidget Spinners and Multi-Axis Desktop Gyroscopes utilizing high-precision R188 bearings (Ø12.7×Ø6.35×4.75mm) and dual-bore planetary bearings. From ultra-affordable promotional twist tops (FS-009, 20g) to 316 Stainless Steel Bionics Goose Spinners (FS-063) and Acoustic Tuning Fork Spinners (FS-148), all 25 molds require $0 tooling fees.',
     engineeringHighlights: [
       'High-RPM R188 & Dual-Bearing Assemblies: Removable slotted retention nuts and precision stainless steel/ceramic hybrid bearings achieving 3–6 minute spin times.',
@@ -195,7 +195,7 @@ export const COLLECTIONS: CollectionMeta[] = [
       },
       {
         question: 'Where is the custom logo engraved on a metal fidget spinner or desktop gyro?',
-        answer: 'On classic spinners and twist tops (FS-008, FS-009, FS-015, FS-139), logos are fiber-laser engraved or UV-printed directly on the flat Ø16mm–Ø22mm center finger cap. On gimbal gyros (FS-066), logos are etched along the outer equatorial ring.'
+        answer: 'On classic spinners and twist tops (FS-008, FS-009, FS-015, FS-139), logos are 50W fiber-laser engraved (+$0.15–$0.30/pc) or deep-laser engraved with enamel color fill (+$0.35–$0.60/pc) directly on the flat Ø16mm–Ø22mm center finger cap. On gimbal gyros (FS-066), logos are etched along the outer equatorial ring.'
       },
       {
         question: 'How do you balance spinner rotors to eliminate wobble and vibration?',
@@ -279,7 +279,7 @@ export const COLLECTIONS: CollectionMeta[] = [
     slug: 'haptic-fidget-coins',
     number: 5,
     group: 'primary',
-    name: 'Metal Haptic Fidget Coins Wholesale',
+    name: 'Haptic Coin & Metal Clicker Fidget Coins Wholesale',
     shortName: 'Haptic Coins',
     zhName: 'Concentric Thrust-Bearing & N52/N54 Ratchet Clicker Coins',
     badge: 'Primary Category #5 · 10 Ready Molds',
@@ -288,13 +288,13 @@ export const COLLECTIONS: CollectionMeta[] = [
     priceRangeUsd: '$2.75 – $10.98',
     moq: '50 pcs (Blank) / 100 pcs (Logo)',
     leadTime: '7–10 Days',
-    targetKeywords: 'haptic fidget coin wholesale, custom metal challenge coin spinner, magnetic clicker coin bulk, 304 stainless haptic coin OEM',
-    heroSubtitle: '10 circular magnetic-ratchet clicker coins combining thrust bearings (Ø34.6×20mm or R188) with 12-to-14 neodymium magnets (N40–N54). A top seller for Web3 communities, gaming studios, fintech brands, and commemorative challenge coins.',
+    targetKeywords: 'haptic coin, haptic fidget coin wholesale, custom metal challenge coin spinner, magnetic clicker coin bulk, 304 stainless haptic coin OEM',
+    heroSubtitle: '10 circular magnetic-ratchet haptic coins combining thrust bearings (Ø34.6×20mm or R188) with 12-to-14 neodymium magnets (N40–N54). A top seller for Web3 communities, gaming studios, fintech brands, and commemorative challenge coins ($0 Mold Fee).',
     geoDirectAnswer: 'FidgetSupply offers 10 ready-mold Metal Haptic Fidget Coins (36.8mm to 47.4mm diameter, 42g to 91g) engineered with flat thrust bearings and 12–14 concentric N40/N52/N54 magnets. Flagship models include the 304 Stainless Steel Haptic Coin (FS-013), Automotive Wheel Rim Coin (FS-030/031), Sandwich Cookie Coin (FS-027), and Ceramic-Bead N54 Tiger Coin (FS-041).',
     engineeringHighlights: [
       'Concentric Magnetic Ratchet Action: 12 radially indexed N40–N54 magnets paired with a Ø34.6×20mm flat thrust bearing deliver crisp, bidirectional rotational clicks.',
       'Desensitized & Commercially Safe Naming: Former IP nicknames are replaced with clean industrial descriptors (e.g., FS-027 Sandwich Cookie Textured Haptic Coin) safe for Amazon and global retail.',
-      'Web3 & Corporate Commemorative Favorite: Custom laser-engraved center medallions or full-bleed UV graphics turn existing coin molds into interactive challenge coins with $0 mold cost.'
+      'Web3 & Corporate Commemorative Favorite: Custom 50W fiber-laser engraved center medallions (+$0.15–$0.30/pc) or deep-laser enamel color-fill crests (+$0.35–$0.60/pc) turn existing coin molds into interactive challenge coins with $0 mold cost.'
     ],
     faqs: [
       {
@@ -326,8 +326,8 @@ export const COLLECTIONS: CollectionMeta[] = [
         answer: 'No. Unlike free-floating sliders, haptic coins are mechanically captured around a central retention post or captive Ø34.6×20mm thrust bearing raceway so the two shells rotate concentrically without separating.'
       },
       {
-        question: 'What is the MOQ for a fully custom-molded 3D relief haptic coin with our own artwork?',
-        answer: 'If you prefer to engrave or UV-print your logo onto our existing 10 coin molds, MOQ is 100 pcs with $0 mold cost. If you want a bespoke 3D relief die-cast shell with your custom crest, custom tooling costs $650–$950 with a 500 pcs MOQ.'
+        question: 'What is the MOQ and tooling fee for customizing our brand crest onto your haptic coins?',
+        answer: 'We focus exclusively on Ready-Mold Light Customization across our 10 existing haptic coin molds ($0.00 mold tooling fee, eliminating custom die-casting mold expenses). Blank stock MOQ is 50 pcs, and custom logo MOQ is 100 pcs via 50W MOPA Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) or Deep Laser Engraving + Enamel Color Fill (+$0.35–$0.60/pc, $80–$150 sample).'
       },
       {
         question: 'What display packaging options work best for commemorative haptic coins?',
@@ -335,7 +335,7 @@ export const COLLECTIONS: CollectionMeta[] = [
       },
       {
         question: 'What is the production lead time for 200 to 1,000 custom-branded haptic coins?',
-        answer: 'Custom laser-engraved or UV-printed orders on ready coin molds ship within 7–10 business days after digital proof approval.'
+        answer: 'Custom 50W fiber-laser engraved or deep-laser enamel color-fill orders on ready coin molds ship within 10–15 business days after digital proof approval.'
       }
     ]
   },

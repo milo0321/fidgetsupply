@@ -293,36 +293,103 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       }
     </script>
 
-    <!-- Google Tag Manager & GA4 (GTM-TH9NHVJ4 / G-HHP8CN1M58) — Deferred until post-LCP / interaction -->
-    <script is:inline define:vars={{ gaMeasurementId, gtmId }}>
+    <!-- GA4 Telemetry (G-HHP8CN1M58) — Fast Post-LCP Idle Load + Desktop Engagement Signals -->
+    <script is:inline define:vars={{ gaMeasurementId }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){window.dataLayer.push(arguments);}
       window.gtag = gtag;
       gtag('js', new Date());
-      gtag('config', gaMeasurementId);
+      gtag('config', gaMeasurementId, {
+        send_page_view: true,
+        anonymize_ip: true
+      });
       (function () {
         var loaded = false;
+        var startTs = Date.now();
+        var triggerEvents = ['pointermove', 'mousemove', 'touchstart', 'pointerdown', 'scroll', 'keydown'];
         function loadAnalytics() {
           if (loaded) return;
           loaded = true;
-          ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) {
+          triggerEvents.forEach(function (ev) {
             window.removeEventListener(ev, loadAnalytics, { passive: true });
           });
-          window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-          var gtmScript = document.createElement('script');
-          gtmScript.async = true;
-          gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + gtmId;
-          document.head.appendChild(gtmScript);
           var gaScript = document.createElement('script');
           gaScript.async = true;
           gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaMeasurementId;
           document.head.appendChild(gaScript);
         }
-        ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(function (ev) {
+        triggerEvents.forEach(function (ev) {
           window.addEventListener(ev, loadAnalytics, { once: true, passive: true });
         });
-        window.addEventListener('load', function () {
-          setTimeout(loadAnalytics, 3200);
+        function scheduleIdleLoad() {
+          if ('requestIdleCallback' in window) {
+            window.requestIdleCallback(loadAnalytics, { timeout: 900 });
+          } else {
+            setTimeout(loadAnalytics, 800);
+          }
+        }
+        if (document.readyState === 'complete') {
+          scheduleIdleLoad();
+        } else {
+          window.addEventListener('load', scheduleIdleLoad, { once: true });
+        }
+
+        // Track scroll milestones (25% & 50%) and active reading dwell so desktop sessions register accurate engagement
+        var scrolled25 = false;
+        var scrolled50 = false;
+        window.addEventListener('scroll', function () {
+          var docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+          if (docHeight <= 0) return;
+          var pct = (window.scrollY / docHeight) * 100;
+          if (!scrolled25 && pct >= 25) {
+            scrolled25 = true;
+            gtag('event', 'scroll_depth', { percent_scrolled: 25, page_path: window.location.pathname });
+          }
+          if (!scrolled50 && pct >= 50) {
+            scrolled50 = true;
+            gtag('event', 'scroll_depth', { percent_scrolled: 50, page_path: window.location.pathname });
+          }
+        }, { passive: true });
+
+        // 8-second active reading heartbeat
+        setTimeout(function () {
+          if (document.visibilityState !== 'hidden') {
+            loadAnalytics();
+            gtag('event', 'engaged_read_8s', {
+              page_path: window.location.pathname,
+              dwell_seconds: 8
+            });
+          }
+        }, 8000);
+
+        // Track product / collection / quote CTA clicks
+        document.addEventListener('click', function (e) {
+          var a = e.target && e.target.closest ? e.target.closest('a') : null;
+          if (!a) return;
+          var href = a.getAttribute('href') || '';
+          if (href.indexOf('/products/') !== -1 || href.indexOf('/collections/') !== -1 || href.indexOf('/contact') !== -1 || href.indexOf('/custom-branding') !== -1 || href.indexOf('wa.me') !== -1) {
+            loadAnalytics();
+            gtag('event', 'wholesale_navigation_click', {
+              link_url: href,
+              source_path: window.location.pathname
+            });
+          }
+        }, { passive: true });
+
+        // Flush dwell time when tab hides or navigates away
+        var dwellSent = false;
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'hidden' && !dwellSent) {
+            var sec = Math.round((Date.now() - startTs) / 1000);
+            if (sec >= 4) {
+              dwellSent = true;
+              gtag('event', 'page_dwell', {
+                page_path: window.location.pathname,
+                dwell_seconds: sec,
+                transport_type: 'beacon'
+              });
+            }
+          }
         });
       })();
     </script>

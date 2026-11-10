@@ -183,8 +183,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Why our factory does NOT recommend silk-screen or UV surface printing on smooth, chemically inert metal fidgets (poor ink adhesion leads to peeling)—and why we recommend 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) or Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).'
     },
     de: {
-      title: '50W-Faserlasergravur vs. Siebdruck vs. Tiefe Lasergravur mit Farbauslegung auf Metall-Fidgets',
-      summary: 'Technischer Vergleich von 50W-MOPA-Faserlasergravur (+$0,15–$0,30/Stk.), mehrfarbigem Siebdruck ($35/Farbe + $0,10/Farbe/Stk.) und tiefer Lasergravur mit Emaille-Farbfüllung (+$0,35–$0,60/Stk.).'
+      title: '50W-Faserlasergravur & Tiefe Laser-Farbfüllung vs. UV-Druck / Siebdruck auf Metall-Fidgets',
+      summary: 'Warum unser Werk von Siebdruck & UV-Druck auf glattem Metall abrät (mangelnde Farbhaftung führt zum Abblättern) — und stattdessen 50W-MOPA-Faserlasergravur (+$0,15–$0,30/Stk., Muster $50) oder tiefe Lasergravur mit Emaille-Farbfüllung (+$0,35–$0,60/Stk., Muster $80–$150) empfiehlt.'
     },
     fr: {
       title: 'Gravure Laser Fibre 50W vs Sérigraphie Couleur vs Gravure Laser Profonde + Émail sur Fidgets Métal',
@@ -257,8 +257,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Why mechanical track sliders (FS-002, FS-048) use N35–N40 magnets while PTFE free-floating unlimited sliders (FS-125, FS-075) require high-flux N50–N52 magnets.'
     },
     de: {
-      title: 'N35 vs. N45 vs. N52 Neodym-Magnete in Metall-Fidget-Slidern: Zugkraft & Haptik-Kalibrierung',
-      summary: 'Warum mechanische Schienen-Slider (FS-002, FS-048) N35–N40 Magnete nutzen, während freie PTFE-Slider (FS-125, FS-075) hochstarke N50–N52 Magnete erfordern.'
+      title: 'N35 vs. N52 Neodym-Magnete (N35 / N45 / N52 Vergleich) in Metall-Fidget-Slidern: Zugkraft & Haptik',
+      summary: 'N35 vs. N52 Magnet-Vergleich: Warum mechanische Schienen-Slider (FS-002, FS-048) N35–N40 Magnete nutzen, während freie PTFE-Slider (FS-125, FS-075) hochstarke N50–N52 Neodym-Magnete erfordern.'
     },
     fr: {
       title: 'Aimants Néodyme N35 vs N45 vs N52 dans les Sliders Fidget Métal : Force & Calibrage Haptique',
