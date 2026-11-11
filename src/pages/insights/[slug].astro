@@ -71,7 +71,7 @@ const GUIDE_FAQS_BY_SLUG: Record<string, { question: string; answer: string }[]>
     },
     {
       question: 'What is the wholesale MOQ and lead time for custom-branded Tuning Fork Sliders?',
-      answer: 'Blank stock MOQ is 50 pcs (3–5 days dispatch), and custom Fiber Laser / UV logo MOQ is 100 pcs (7–12 days lead time) with $0 tooling fees.'
+      answer: 'Blank stock MOQ is 50 pcs (3–5 days dispatch), and custom 50W Fiber Laser or Deep Laser + Color Fill logo MOQ is 100 pcs (10–15 days lead time) with $0 tooling fees.'
     },
     {
       question: 'How can we test the acoustic chime in person before placing a bulk order?',
@@ -207,7 +207,7 @@ const GUIDE_FAQS_BY_SLUG: Record<string, { question: string; answer: string }[]>
   'zero-tooling-ready-mold-private-label-fidget-sop': [
     {
       question: 'What is the "Zero-Tooling Ready-Mold Private Label SOP"?',
-      answer: 'Instead of paying $3,000–$4,500 and waiting 40 days to cut a new metal die-casting mold, wholesale buyers select from our 140 proven ready molds (specifically our 28 flat-surface Logo-Ready SKUs), add custom Fiber Laser or UV logo branding at 100 pcs MOQ, and pack in custom EVA zipper cases—launching in 7–10 days with $0 mold cost.'
+      answer: 'Instead of paying $3,000–$4,500 and waiting 40 days to cut a new metal die-casting mold, wholesale buyers select from our 140 proven ready molds (specifically our 28 flat-surface Logo-Ready SKUs), add custom 50W Fiber Laser or Deep Laser + Color Fill branding at 100 pcs MOQ, and pack in custom EVA zipper cases—launching in 10–15 days with $0 mold cost.'
     },
     {
       question: 'How much upfront capital does a new e-commerce or Shopify brand save with this SOP?',
@@ -1705,7 +1705,13 @@ const articleSchema = {
   },
   publisher: {
     '@id': 'https://fidgetsupply.com/#organization'
-  }
+  },
+  mentions: relatedProducts.map((rp: any) => ({
+    '@type': 'Product',
+    sku: rp.data.sku,
+    name: `${rp.data.skuDisplay} ${rp.data.title}`,
+    url: `https://fidgetsupply.com${getLocalizedPath(`/products/${rp.data.slug}`, currentLang)}`
+  }))
 };
 
 const breadcrumbSchema = {

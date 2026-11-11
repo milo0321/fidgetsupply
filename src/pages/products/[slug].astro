@@ -58,11 +58,17 @@ const productSchema = {
     name: 'FidgetSupply.com'
   },
   material: lp.material,
+  category: lp.primaryCollectionName,
   weight: {
     '@type': 'QuantitativeValue',
     value: parseFloat(p.weight) || 75,
     unitCode: 'GRM'
   },
+  additionalProperty: Object.entries(lp.specs || {}).map(([name, value]) => ({
+    '@type': 'PropertyValue',
+    name,
+    value: String(value)
+  })),
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'USD',

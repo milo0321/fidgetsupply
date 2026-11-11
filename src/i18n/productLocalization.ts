@@ -407,6 +407,54 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     it: 'Triplo Strato', pt: 'Tripla Camada', sv: 'Trelagers', da: 'Trelags',
     no: 'Trelags', fi: 'Kolmikerroksinen', pl: 'Trójwarstwowy', cs: 'Třívrstvý',
     ru: 'Трехслойный', ja: '3層構造', ko: '3중 레이어', id: 'Tiga Lapis', ar: 'ثلاثي الطبقات'
+  }],
+  [/Dual-Layer/gi, {
+    de: 'Zweischichtiger', fr: 'Double Couche', nl: 'Tweelaagse', es: 'Doble Capa',
+    it: 'Doppio Strato', pt: 'Dupla Camada', sv: 'Tvålagers', da: 'Tolags',
+    no: 'Tolags', fi: 'Kaksikerroksinen', pl: 'Dwuwarstwowy', cs: 'Dvouvrstvý',
+    ru: 'Двухслойный', ja: '2層構造', ko: '2중 레이어', id: 'Dua Lapis', ar: 'ثنائي الطبقات'
+  }],
+  [/Textured/gi, {
+    de: 'Texturierter', fr: 'Texturé', nl: 'Getextureerde', es: 'Texturizado',
+    it: 'Zigrinato Testurizzato', pt: 'Texturizado', sv: 'Texturerad', da: 'Tekstureret',
+    no: 'Teksturert', fi: 'Pintakuvioitu', pl: 'Teksturowany', cs: 'Texturovaný',
+    ru: 'Текстурированный', ja: 'テクスチャ加工', ko: '텍스처 가공', id: 'Bertekstur', ar: 'محبب الملمس'
+  }],
+  [/Unlimited|Infinite/gi, {
+    de: 'Unbegrenzter Freilauf', fr: 'Direction Illimitée', nl: 'Onbeperkte Vrije', es: 'Dirección Ilimitada',
+    it: 'Direzione Illimitata', pt: 'Direção Ilimitada', sv: 'Obegränsad Frirörelse', da: 'Ubegrænset Friløb',
+    no: 'Ubegrenset Friløp', fi: 'Rajoittamaton Vapaa', pl: 'Nielimitowany Swobodny', cs: 'Neomezený Volný',
+    ru: 'Свободный безграничный', ja: '無制限フリースライド', ko: '무제한 자유 슬라이드', id: 'Arah Tanpa Batas', ar: 'حركة حرة غير محدودة'
+  }],
+  [/Poker King/gi, {
+    de: 'Poker-König', fr: 'Roi de Poker', nl: 'Poker Koning', es: 'Rey de Póker',
+    it: 'Re del Poker', pt: 'Rei do Poker', sv: 'Pokerkung', da: 'Pokerkonge',
+    no: 'Pokerkonge', fi: 'Pokerikuningas', pl: 'Król Pokera', cs: 'Pokerový Král',
+    ru: 'Покерный Король', ja: 'ポーカーキング', ko: '포커 킹', id: 'Raja Poker', ar: 'ملك البوكر'
+  }],
+  [/Gothic Skull/gi, {
+    de: 'Gothic-Totenkopf', fr: 'Crâne Gothique', nl: 'Gotische Schedel', es: 'Calavera Gótica',
+    it: 'Teschio Gotico', pt: 'Caveira Gótica', sv: 'Gotisk Dödskalle', da: 'Gotisk Kranium',
+    no: 'Gotisk Hodeskalle', fi: 'Goottilainen Pääkallo', pl: 'Gotycka Czaszka', cs: 'Gotická Lebka',
+    ru: 'Готический Череп', ja: 'ゴシックスカル', ko: '고딕 스컬 해골', id: 'Tengkorak Gotik', ar: 'جمجمة قوطية'
+  }],
+  [/Bottle Opener/gi, {
+    de: 'Flaschenöffner', fr: 'Décapsuleur', nl: 'Flesopener', es: 'Abrebotellas',
+    it: 'Apribottiglie', pt: 'Abridor de Garrafas', sv: 'Flasköppnare', da: 'Flaskeåbner',
+    no: 'Flaskeåpner', fi: 'Pullonavaaja', pl: 'Otwieracz do Butelek', cs: 'Otvírák na Láhve',
+    ru: 'Открывалка для бутылок', ja: 'ボトルオープナー（栓抜き）', ko: '보틀 오프너 병따개', id: 'Pembuka Botol', ar: 'فتاحة زجاجات'
+  }],
+  [/Gamepad/gi, {
+    de: 'Gamepad-Controller', fr: 'Manette Gamepad', nl: 'Gamepad-Controller', es: 'Mando Gamepad',
+    it: 'Controller Gamepad', pt: 'Comando Gamepad', sv: 'Gamepad-Kontroll', da: 'Gamepad-Controller',
+    no: 'Gamepad-Kontroller', fi: 'Peliohjain Gamepad', pl: 'Kontroler Gamepad', cs: 'Herní Ovladač Gamepad',
+    ru: 'Геймпад-контроллер', ja: 'ゲームパッド型', ko: '게임패드 컨트롤러', id: 'Kontroler Gamepad', ar: 'يد تحكم ألعاب'
+  }],
+  [/Piano Track|Piano/gi, {
+    de: 'Klaviertasten', fr: 'Touches de Piano', nl: 'Pianotoetsen', es: 'Teclas de Piano',
+    it: 'Tasti di Pianoforte', pt: 'Teclas de Piano', sv: 'Pianotangenter', da: 'Klaver-Tangenter',
+    no: 'Pianotangenter', fi: 'Pianokosketin', pl: 'Klawisze Pianina', cs: 'Klavírní Klávesy',
+    ru: 'Клавиши пианино', ja: 'ピアノ鍵盤トラック', ko: '피아노 건반 트랙', id: 'Tuts Piano', ar: 'مفاتيح البيانو'
   }]
 ];
 
@@ -628,91 +676,91 @@ const SPEC_STATIC_VALS: Record<SupportedLanguage, {
   fr: {
     moldRef: (r) => `Moule #${r} (Outillage de Série Prêt)`,
     toolingFee: '0,00 $ (Moule de Série Prêt à Produire)',
-    moq: '50 pcs (Stock Neutre) / 100 pcs (Logo Laser ou Sérigraphie)',
+    moq: '50 pcs (Stock Neutre) / 100 pcs (Logo Laser Fibre 50W ou Laser Profond + Couleur)',
     safety: 'Boîtier Magnétique Verrouillé US CPSC 16 CFR 1262, Conforme RoHS & REACH',
     sampleFeeTime: 'Échantillon Laser : 50 $ USD · Laser Profond + Couleur : 80–150 $ USD (10–15 Jours)'
   },
   nl: {
     moldRef: (r) => `Matrijs #${r} (Productierijp Gereedschap)`,
     toolingFee: '$0,00 (Bestaande Productierijpe Matrijs)',
-    moq: '50 st. (Blanco Voorraad) / 100 st. (Laser- of Zeefdruklogo)',
+    moq: '50 st. (Blanco Voorraad) / 100 st. (50W Fiberlaser of Diepe Laser + Kleurvulling)',
     safety: 'US CPSC 16 CFR 1262 Vergrendelde Magneetbehuizing, RoHS & REACH Conform',
     sampleFeeTime: 'Lasermonster: $50 USD · Diepe Laser + Kleurvulling: $80–$150 USD (10–15 Dagen)'
   },
   es: {
     moldRef: (r) => `Molde #${r} (Herramental de Serie Listo)`,
     toolingFee: '$0.00 (Molde de Producción en Serie Listo)',
-    moq: '50 uds. (Stock en Blanco) / 100 uds. (Logo Láser o Serigrafía)',
+    moq: '50 uds. (Stock en Blanco) / 100 uds. (Láser de Fibra 50W o Láser Profundo + Color)',
     safety: 'Carcasa Magnética Bloqueada US CPSC 16 CFR 1262, Cumple RoHS y REACH',
     sampleFeeTime: 'Muestra Láser: $50 USD · Láser Profundo + Color: $80–$150 USD (10–15 Días)'
   },
   it: {
     moldRef: (r) => `Stampo #${r} (Attrezzatura di Serie Pronta)`,
     toolingFee: '$0,00 (Stampo di Produzione di Serie Pronto)',
-    moq: '50 pz. (Stock Neutro) / 100 pz. (Logo Laser o Serigrafia)',
+    moq: '50 pz. (Stock Neutro) / 100 pz. (Laser Fibra 50W o Laser Profondo + Smalto)',
     safety: 'Scocca Magneti Bloccati US CPSC 16 CFR 1262, Conforme RoHS e REACH',
     sampleFeeTime: 'Campione Laser: $50 USD · Laser Profondo + Colore: $80–$150 USD (10–15 Giorni)'
   },
   pt: {
     moldRef: (r) => `Molde #${r} (Ferramentaria de Série Pronta)`,
     toolingFee: '$0,00 (Molde de Produção de Série Pronto)',
-    moq: '50 un. (Stock Neutro) / 100 un. (Logótipo Laser ou Serigrafia)',
+    moq: '50 un. (Stock Neutro) / 100 un. (Laser de Fibra 50W ou Laser Profundo + Cor)',
     safety: 'Caixa Magnética Bloqueada US CPSC 16 CFR 1262, Conforme RoHS e REACH',
     sampleFeeTime: 'Amostra Laser: $50 USD · Laser Profundo + Cor: $80–$150 USD (10–15 Dias)'
   },
   sv: {
     moldRef: (r) => `Form #${r} (Färdigt produktionsverktyg)`,
     toolingFee: '$0,00 (Färdig serieproduktionsform)',
-    moq: '50 st ( Blankt lager ) / 100 st ( Laser- eller screentryckt logotyp )',
+    moq: '50 st (Blankt lager) / 100 st (50W Fiberlaser eller Djup Laser + Färgfyllning)',
     safety: 'US CPSC 16 CFR 1262 låst magnethölje, RoHS- & REACH-kompatibel',
     sampleFeeTime: 'Laserprov: $50 USD · Djup Laser + Färg: $80–$150 USD (10–15 dagar)'
   },
   da: {
     moldRef: (r) => `Støbeform #${r} (Produktionsklart værktøj)`,
     toolingFee: '$0,00 (Produktionsklar seriestøbeform)',
-    moq: '50 stk. (Neutralt lager) / 100 stk. (Laser- eller serigrafilogo)',
+    moq: '50 stk. (Neutralt lager) / 100 stk. (50W Fiberlaser eller Dyb Laser + Farvefyld)',
     safety: 'US CPSC 16 CFR 1262 låst magnetkabinet, RoHS- & REACH-godkendt',
     sampleFeeTime: 'Laserprøve: $50 USD · Dyb Laser + Farve: $80–$150 USD (10–15 dage)'
   },
   no: {
     moldRef: (r) => `Støpeform #${r} (Produksjonsklart verktøy)`,
     toolingFee: '$0,00 (Produksjonsklar seriestøpeform)',
-    moq: '50 stk. (Nøytralt lager) / 100 stk. (Laser- eller silketrykklogo)',
+    moq: '50 stk. (Nøytralt lager) / 100 stk. (50W Fiberlaser eller Dyp Laser + Fargefyll)',
     safety: 'US CPSC 16 CFR 1262 låst magnetkabinett, RoHS- & REACH-samsvar',
     sampleFeeTime: 'Laserprøve: $50 USD · Dyp Laser + Farge: $80–$150 USD (10–15 dager)'
   },
   fi: {
     moldRef: (r) => `Muotti #${r} (Valmis sarjatuotantotyökalu)`,
     toolingFee: '$0,00 (Valmis sarjatuotantomuotti)',
-    moq: '50 kpl (Ilman merkkausta) / 100 kpl (Laser- tai silkkipainettu logo)',
+    moq: '50 kpl (Ilman merkkausta) / 100 kpl (50W Kuitulaser tai Syvälaser + Väritäyttö)',
     safety: 'US CPSC 16 CFR 1262 lukittu magneettirunko, RoHS- & REACH-yhteensopiva',
     sampleFeeTime: 'Lasermalli: $50 USD · Syvälaser + Väri: $80–$150 USD (10–15 päivää)'
   },
   pl: {
     moldRef: (r) => `Forma #${r} (Gotowe Oprzędziowanie Seryjne)`,
     toolingFee: '0,00 $ (Gotowa Forma Produkcyjna)',
-    moq: '50 szt. (Wersja Czysta) / 100 szt. (Z Logo Laserowym lub Sitodrukiem)',
+    moq: '50 szt. (Wersja Czysta) / 100 szt. (Laser Fibre 50W lub Głęboki Laser + Kolor)',
     safety: 'Zablokowana Komora Magnesów US CPSC 16 CFR 1262, Zgodność z RoHS i REACH',
     sampleFeeTime: 'Próbka Laser: $50 USD · Głęboki Laser + Kolor: $80–$150 USD (10–15 Dni)'
   },
   cs: {
     moldRef: (r) => `Forma #${r} (Hotový sériový nástroj)`,
     toolingFee: '$0,00 (Hotová sériová výrobní forma)',
-    moq: '50 ks (Bez potisku) / 100 ks (Vlastní logo laserem nebo sítotiskem)',
+    moq: '50 ks (Bez potisku) / 100 ks (50W Vláknový laser nebo Hluboký laser + Barva)',
     safety: 'Uzamčené magnetické pouzdro US CPSC 16 CFR 1262, shoda s RoHS a REACH',
     sampleFeeTime: 'Vzorek Laser: $50 USD · Hluboký Laser + Barva: $80–$150 USD (10–15 dní)'
   },
   ru: {
     moldRef: (r) => `Пресс-форма #${r} (Готовая серийная оснастка)`,
     toolingFee: '$0.00 (Готовая серийная пресс-форма)',
-    moq: '50 шт. (Без логотипа) / 100 шт. (Лазерная гравировка или шелкография)',
+    moq: '50 шт. (Без логотипа) / 100 шт. (Лазер 50W или Глубокий лазер + Эмаль)',
     safety: 'Защищенный магнитный корпус US CPSC 16 CFR 1262, соответствие RoHS и REACH',
     sampleFeeTime: 'Образец Лазер: $50 USD · Глубокий лазер + цвет: $80–$150 USD (10–15 дней)'
   },
   ja: {
     moldRef: (r) => `金型 #${r}（量産対応・既存金型）`,
     toolingFee: '$0.00（既存量産金型を使用するため金型代不要）',
-    moq: '50個（無地在庫） / 100個（レーザー刻印・シルク印刷ロゴ）',
+    moq: '50個（無地在庫） / 100個（50Wファイバーレーザー刻印・深彫り色入れ）',
     safety: '米国CPSC 16 CFR 1262 磁石脱落防止ロック構造・EU RoHS & REACH準拠',
     sampleFeeTime: 'レーザー試作：$50 USD · 深彫りレーザー＋色入れ試作：$80〜$150 USD（10〜15日）'
   },
@@ -726,14 +774,14 @@ const SPEC_STATIC_VALS: Record<SupportedLanguage, {
   id: {
     moldRef: (r) => `Cetakan #${r} (Cetakan Produksi Siap Pakai)`,
     toolingFee: '$0,00 (Cetakan Produksi Seri Siap Pakai)',
-    moq: '50 pcs (Stok Polos) / 100 pcs (Logo Laser atau Sablon Silk-Screen)',
+    moq: '50 pcs (Stok Polos) / 100 pcs (Grafir Laser Fiber 50W atau Laser Dalam + Warna)',
     safety: 'Enklosur Magnet Terkunci US CPSC 16 CFR 1262, Sesuai RoHS & REACH',
     sampleFeeTime: 'Sampel Laser: $50 USD · Sampel Laser Dalam + Warna: $80–$150 USD (10–15 Hari)'
   },
   ar: {
     moldRef: (r) => `القالب #${r} (قالب إنتاج متسلسل جاهز)`,
     toolingFee: '0.00 دولار (قالب إنتاج جاهز بدون رسوم تأسيس)',
-    moq: '50 قطعة (بدون شعار) / 100 قطعة (مع شعار بالليزر أو الطباعة الحريرية)',
+    moq: '50 قطعة (بدون شعار) / 100 قطعة (حفر ليزر فايبر 50W أو ليزر عميق + لون)',
     safety: 'هيكل مغناطيسي محكم الإغلاق مطابق لـ US CPSC 16 CFR 1262 و RoHS و REACH',
     sampleFeeTime: 'عينة ليزر عادي: 50$ · عينة حفر ليزر عميق + لون: 80–150$ USD (10–15 يوماً)'
   }
@@ -744,109 +792,109 @@ const FEATURES_BUILDER: Record<SupportedLanguage, (rowId: number, mag: string, a
     `Zero Tooling Cost ($0 Mold Fee): Ready-to-produce factory mold #${rowId} eliminates $2,500+ custom CNC/die-casting tooling expenses.`,
     `Verified Tactile & Acoustic Engineering: Built with ${mag} and ${acc} for repeatable crisp haptic feedback.`,
     `CPSC 16 CFR 1262 Magnet Retention: Internal mechanical screw/structural lock prevents neodymium magnet detachment under heavy drop tests.`,
-    `Turnkey Wholesale Branding & Packaging: Supports 50W Fiber Laser Engraving, Silk-Screen Printing ($0 Setup + $0.10/color/pc), Deep Laser Color Fill, and custom EVA zipper pouches.`
+    `Turnkey Light Customization & Packaging: Supports 50W MOPA Fiber Laser Engraving (+$0.15–$0.30/pc, $0 Setup), Deep Laser Enamel Color Fill (+$0.35–$0.60/pc), and custom EVA zipper pouches.`
   ],
   de: (rowId, mag, acc) => [
     `Null Werkzeugkosten ($0 Formgebühr): Unsere fertige Serienform #${rowId} spart über $2.500 an individuellen Druckguss- oder CNC-Vorrichtungskosten.`,
     `Geprüfte Haptik- & Akustik-Mechanik: Ausgestattet mit ${mag} sowie ${acc} für präzises, reproduzierbares Klick-Feedback.`,
     `US CPSC 16 CFR 1262 Magnetverriegelung: Mechanische Verschraubung und Strukturkleber verhindern das Lösen von Neodym-Magneten bei Falltests.`,
-    `Schlüsselfertiges Logo-Branding & Verpackung: Unterstützt 50W-Faserlasergravur, Siebdruck ($0 Setup + $0,10/Farbe/Stk.), tiefe Lasergravur mit Farbauslegung sowie EVA-Etuis.`
+    `Schlüsselfertiges Logo-Branding & Verpackung: Unterstützt 50W-Faserlasergravur (+$0,15–$0,30/Stk., $0 Setup), tiefe Lasergravur mit Farbauslegung (+$0,35–$0,60/Stk.) sowie EVA-Etuis.`
   ],
   fr: (rowId, mag, acc) => [
     `Zéro Frais de Moule (0 $ d’Outillage) : Notre moule de série prêt #${rowId} élimine plus de 2 500 $ de frais de création de moule sur mesure.`,
     `Ingénierie Tactile & Acoustique Calibrée : Assemblé avec ${mag} et ${acc} pour un retour haptique net et régulier.`,
     `Sécurité Magnétique US CPSC 16 CFR 1262 : Le verrouillage mécanique par vis et résine époxy empêche tout détachement d’aimant lors des tests de chute.`,
-    `Personnalisation Logo & Packaging Clé en Main : Gravure laser fibre 50W, sérigraphie (0 $ Setup + 0,10 $/couleur/pc), gravure profonde émaillée et étuis EVA.`
+    `Personnalisation Logo & Packaging Clé en Main : Gravure laser fibre 50W (+0,15–0,30 $/pc, 0 $ Setup), gravure profonde émaillée (+0,35–0,60 $/pc) et étuis EVA.`
   ],
   nl: (rowId, mag, acc) => [
     `Geen Matrijskosten ($0 Tooling Fee): Onze productierijpe matrijs #${rowId} bespaart meer dan $2.500 aan opstart- en matrijskosten.`,
     `Gekalibreerde Haptische & Akoestische Mechaniek: Gebouwd met ${mag} en ${acc} voor consistente, strakke klikfeedback.`,
     `US CPSC 16 CFR 1262 Magneetbeveiliging: Interne schroefvergrendeling en structurele epoxy voorkomen het losraken van magneten bij valproeven.`,
-    `Turnkey Logo-personalisatie & Verpakking: Ondersteunt 50W fiberlasergravure, zeefdruk ($0 Setup + $0,10/kleur/st.), diepe lasergravure met kleurvulling en EVA-etuis.`
+    `Turnkey Logo-personalisatie & Verpakking: Ondersteunt 50W fiberlasergravure (+$0,15–$0,30/st., $0 Setup), diepe lasergravure met kleurvulling (+$0,35–$0,60/st.) en EVA-etuis.`
   ],
   es: (rowId, mag, acc) => [
     `Cero Costo de Molde ($0 Matricería): Nuestro molde de serie listo #${rowId} elimina más de $2,500 en gastos de moldes personalizados.`,
     `Ingeniería Táctil y Acústica Verificada: Construido con ${mag} y ${acc} para una respuesta háptica nítida y repetible.`,
     `Retención Magnética US CPSC 16 CFR 1262: El bloqueo mecánico interno evita el desprendimiento de imanes de neodimio en pruebas de caída.`,
-    `Personalización de Marca y Empaque Llave en Mano: Admite grabado láser de fibra 50W, serigrafía ($0 Setup + $0.10/color/ud.), láser profundo con color y estuches EVA.`
+    `Personalización de Marca y Empaque Llave en Mano: Admite grabado láser de fibra 50W (+$0.15–$0.30/ud., $0 Setup), láser profundo con color (+$0.35–$0.60/ud.) y estuches EVA.`
   ],
   it: (rowId, mag, acc) => [
     `Zero Costi di Stampo ($0 Attrezzatura): Il nostro stampo di serie pronto #${rowId} elimina oltre $2.500 di spese per stampi personalizzati.`,
     `Ingegneria Tattile e Acustica Calibrata: Costruito con ${mag} e ${acc} per un feedback aptico nitido e costante.`,
     `Sicurezza Magnetica US CPSC 16 CFR 1262: Il bloccaggio meccanico interno impedisce il distacco dei magneti al neodimio nei test di caduta.`,
-    `Personalizzazione Logo e Packaging Chiavi in Mano: Supporta incisione laser a fibra 50W, serigrafia ($0 Setup + $0,10/colore/pz.), laser profondo con smalto e custodie EVA.`
+    `Personalizzazione Logo e Packaging Chiavi in Mano: Supporta incisione laser a fibra 50W (+$0,15–$0,30/pz., $0 Setup), laser profondo con smalto (+$0,35–$0,60/pz.) e custodie EVA.`
   ],
   pt: (rowId, mag, acc) => [
     `Zero Custo de Molde ($0 Ferramentaria): O nosso molde de produção pronto #${rowId} elimina mais de $2.500 em custos de moldes personalizados.`,
-    `Engenharia Tátil e Acústica Verificada: Construído com ${mag} e ${acc} para um feedback háptico nítido e consistente.`,
+    `Engenharia Tátil e Acustica Verificada: Construído com ${mag} e ${acc} para um feedback háptico nítido e consistente.`,
     `Retenção Magnética US CPSC 16 CFR 1262: O bloqueio mecânico interno impede o desprendimento de ímanes de neodímio em testes de queda.`,
-    `Personalização de Logótipo e Embalagem Chave na Mão: Suporta gravação a laser de fibra 50W, serigrafia ($0 Setup + $0,10/cor/un.), laser profundo com cor e bolsas EVA.`
+    `Personalização de Logótipo e Embalagem Chave na Mão: Suporta gravação a laser de fibra 50W (+$0,15–$0,30/un., $0 Setup), laser profundo com cor (+$0,35–$0,60/un.) e bolsas EVA.`
   ],
   sv: (rowId, mag, acc) => [
     `Noll verktygskostnad ($0 formavgift): Vår färdiga produktionsform #${rowId} eliminerar över $2 500 i verktygskostnader.`,
     `Verifierad taktil & akustisk mekanik: Byggd med ${mag} och ${acc} för distinkt och repeterbar haptisk respons.`,
     `US CPSC 16 CFR 1262 magnetlåsning: Intern mekanisk skruv- och epoxilåsning förhindrar att magneter lossnar vid falltester.`,
-    `Nyckelfärdig logotypmärkning & förpackning: Stöder 50W fiberlasergravyr, screentryck ($0 Setup + $0,10/färg/st), djup laser med färgfyllning och EVA-fodral.`
+    `Nyckelfärdig logotypmärkning & förpackning: Stöder 50W fiberlasergravyr (+$0,15–$0,30/st, $0 Setup), djup laser med färgfyllning (+$0,35–$0,60/st) och EVA-fodral.`
   ],
   da: (rowId, mag, acc) => [
     `Nul værktøjsomkostninger ($0 formgebyr): Vores produktionsklare støbeform #${rowId} sparer over $2.500 i værktøjsudgifter.`,
     `Verificeret taktil & akustisk mekanik: Konstrueret med ${mag} og ${acc} for skarp og ensartet haptisk respons.`,
     `US CPSC 16 CFR 1262 magnetlåsning: Intern mekanisk skrue- og epoxylås forhindrer magnetløsning under faldtest.`,
-    `Nøglefærdig logomærkning & emballage: Understøtter 50W fiberlasergravering, serigrafi ($0 Setup + $0,10/farve/stk.), dyb laser med farvefyld og EVA-etuier.`
+    `Nøglefærdig logomærkning & emballage: Understøtter 50W fiberlasergravering (+$0,15–$0,30/stk., $0 Setup), dyb laser med farvefyld (+$0,35–$0,60/stk.) og EVA-etuier.`
   ],
   no: (rowId, mag, acc) => [
     `Null verktøykostnad ($0 støpeformgebyr): Vår produksjonsklare støpeform #${rowId} sparer over $2 500 i verktøykostnader.`,
     `Verifisert taktil & akustisk mekanikk: Bygget med ${mag} og ${acc} for presis og repeterbar haptisk respons.`,
     `US CPSC 16 CFR 1262 magnetlåsing: Intern mekanisk skrue- og epoksylåsing forhindrer at magneter løsner under falltester.`,
-    `Nøkkelferdig logomerking & emballasje: Støtter 50W fiberlasergravering, silketrykk ($0 Setup + $0,10/farge/stk.), dyp laser med fargefyll og EVA-etuier.`
+    `Nøkkelferdig logomerking & emballasje: Støtter 50W fiberlasergravering (+$0,15–$0,30/stk., $0 Setup), dyp laser med fargefyll (+$0,35–$0,60/stk.) og EVA-etuier.`
   ],
   fi: (rowId, mag, acc) => [
     `Nolla muottikulua ($0 työkalumaksu): Valmis sarjatuotantomuottimme #${rowId} säästää yli $2 500 räätälöidyissä muottikuluissa.`,
     `Varmennettu haptinen & akustinen mekaniikka: Rakennettu kokoonpanolla ${mag} ja ${acc} tarkkaa ja toistettavaa tuntumaa varten.`,
     `US CPSC 16 CFR 1262 magneettilukitus: Sisäinen ruuvi- ja epoksilukitus estää neodyymimagneettien irtoamisen pudotustesteissä.`,
-    `Avaimet käteen -logomerkkaus & pakkaus: Tukee 50W kuitulaserkaiverrusta, silkkipainatusta ($0 Setup + $0,10/väri/kpl), syvälaseria väritäytöllä ja EVA-koteloita.`
+    `Avaimet käteen -logomerkkaus & pakkaus: Tukee 50W kuitulaserkaiverrusta (+$0,15–$0,30/kpl, $0 Setup), syvälaseria väritäytöllä (+$0,35–$0,60/kpl) ja EVA-koteloita.`
   ],
   pl: (rowId, mag, acc) => [
     `Zero Kosztów Formy (0 $ Opłaty Narzędziowej): Gotowa forma seryjna #${rowId} eliminuje ponad 2500 $ kosztów budowy własnej matrycy.`,
     `Zweryfikowana Mechanika Haptyczna i Akustyczna: Zbudowany z ${mag} oraz ${acc} dla powtarzalnego, wyraźnego kliku.`,
     `Zabezpieczenie Magnesów US CPSC 16 CFR 1262: Wewnętrzna blokada śrubowa i epoksydowa zapobiega wypadaniu magnesów w testach upadku.`,
-    `Kompleksowe Znakowanie Logo i Opakowania: Obsługuje laser światłowodowy 50W, sitodruk (0 $ Setup + 0,10 $/kolor/szt.), głęboki laser z kolorem oraz etui EVA.`
+    `Kompleksowe Znakowanie Logo i Opakowania: Obsługuje laser światłowodowy 50W (+0,15–0,30 $/szt., 0 $ Setup), głęboki laser z kolorem (+0,35–0,60 $/szt.) oraz etui EVA.`
   ],
   cs: (rowId, mag, acc) => [
     `Nulové náklady na formu ($0 poplatek): Naše hotová sériová forma #${rowId} eliminuje více než $2 500 za výrobu zakázkové formy.`,
     `Ověřená haptická a akustická mechanika: Sestaveno s ${mag} a ${acc} pro přesnou a opakovatelnou odezvu.`,
     `Zajištění magnetů US CPSC 16 CFR 1262: Vnitřní mechanické šroubové a epoxidové jištění zabraňuje uvolnění magnetů při pádových testech.`,
-    `Kompletní branding a balení na klíč: Podporuje 50W vláknový laser, sítotisk ($0 Setup + $0,10/barva/ks), hluboký laser s barvou a pouzdra EVA.`
+    `Kompletní branding a balení na klíč: Podporuje 50W vláknový laser (+$0,15–$0,30/ks, $0 Setup), hluboký laser s barvou (+$0,35–$0,60/ks) a pouzdra EVA.`
   ],
   ru: (rowId, mag, acc) => [
     `Нулевая стоимость пресс-формы ($0 за оснастку): Готовая серийная форма #${rowId} экономит более $2500 на индивидуальной оснастке.`,
     `Выверенная тактильная и акустическая механика: Конструкция включает ${mag} и ${acc} для четкого тактильного отклика.`,
     `Фиксация магнитов US CPSC 16 CFR 1262: Внутренний винтовой и эпоксидный замок исключает выпадение неодимовых магнитов при ударах.`,
-    `Брендирование и упаковка под ключ: Лазерная гравировка 50W, шелкография ($35/цвет + $0.10/цвет/шт.), глубокий лазер с эмалью и чехлы EVA.`
+    `Брендирование и упаковка под ключ: Лазерная гравировка 50W (+$0.15–$0.30/шт., $0 Setup), глубокий лазер с эмалью (+$0.35–$0.60/шт.) и чехлы EVA.`
   ],
   ja: (rowId, mag, acc) => [
     `初期金型代ゼロ（$0 ツール費用）：既存の量産金型 #${rowId} を使用するため、通常 $2,500 以上かかる新規金型製作費が一切不要です。`,
     `精密な触覚（ハプティック）＆音響設計：${mag} と ${acc} を組み込み、心地よいクリック感と耐久性を両立しています。`,
     `米国 CPSC 16 CFR 1262 磁石ロック安全構造：内部ネジ固定と高強度構造用エポキシにより、落下衝撃でもネオジム磁石が脱落しません。`,
-    `OEMロゴ名入れ＆パッケージ一貫対応：50Wファイバーレーザー刻印、シルク印刷（版代$35/色＋単価+$0.10/色）、深彫り色入れ、EVAケース・FNSKUラベル貼付に対応。`
+    `OEMロゴ名入れ＆パッケージ一貫対応：50Wファイバーレーザー刻印（+$0.15〜$0.30/個、版代$0）、深彫りレーザー色入れ（+$0.35〜$0.60/個）、EVAケース・FNSKU貼付に対応。`
   ],
   ko: (rowId, mag, acc) => [
     `금형비 제로 ($0 툴링 비용): 검증된 기성 양산 금형 #${rowId}를 사용하여 $2,500 이상의 신규 금형 제작 비용을 전액 절감합니다.`,
     `검증된 햅틱 손맛 및 음향 설계: ${mag} 및 ${acc} 구성을 통해 균일하고 경쾌한 타건감을 구현합니다.`,
     `미국 CPSC 16 CFR 1262 자석 안전 잠금: 내부 기계식 나사 및 구조용 에폭시 이중 고정으로 낙하 충격 시 자석 이탈을 완벽히 방지합니다.`,
-    `턴키 OEM 로고 브랜딩 및 패키징: 50W 파이버 레이저 각인, 실크스크린($35/색상 + $0.10/색상/개), 심층 레이저 컬러 필링 및 EVA 파우치를 지원합니다.`
+    `턴키 OEM 로고 브랜딩 및 패키징: 50W 파이버 레이저 각인(+$0.15~$0.30/개, 세팅비 $0), 심층 레이저 컬러 필링(+$0.35~$0.60/개) 및 EVA 파우치를 지원합니다.`
   ],
   id: (rowId, mag, acc) => [
     `Bebas Biaya Cetakan ($0 Mold Fee): Cetakan produksi siap pakai #${rowId} menghemat lebih dari $2.500 biaya pembuatan cetakan baru.`,
     `Rekayasa Taktil & Akustik Teruji: Dirancang dengan ${mag} dan ${acc} untuk umpan balik klik haptik yang presisi.`,
     `Keamanan Magnet US CPSC 16 CFR 1262: Penguncian sekrup mekanis internal mencegah lepasnya magnet neodymium saat uji jatuh.`,
-    `Branding Logo & Kemasan Siap Jual: Mendukung Grafir Laser Fiber 50W, Sablon Silk-Screen ($0 Setup + $0,10/warna/pc), Laser Dalam + Isi Warna, dan pouch EVA.`
+    `Branding Logo & Kemasan Siap Jual: Mendukung Grafir Laser Fiber 50W (+$0,15–$0,30/pc, $0 Setup), Laser Dalam + Isi Warna (+$0,35–$0,60/pc), dan pouch EVA.`
   ],
   ar: (rowId, mag, acc) => [
     `صفر رسوم للقالب (0$ تكلفة التجهيز): القالب الجاهز للإنتاج رقم #${rowId} يوفر عليك أكثر من 2,500 دولار من تكاليف فتح قوالب جديدة.`,
     `هندسة لمسية وصوتية معايرة: مزود بـ ${mag} مع ${acc} لمنح استجابة ميكانيكية دقيقة ومتكررة.`,
     `تثبيت المغناطيس وفق US CPSC 16 CFR 1262: إغلاق ميكانيكي داخلي يمنع انفصال مغناطيس النيوديميوم تحت اختبارات السقوط القاسية.`,
-    `تخصيص الشعار والتغليف المتكامل: يدعم حفر ليزر فايبر 50W، والطباعة الحريرية (35$/لون + 0.10$/لون/قطعة)، والحفر العميق الملون وحقائب EVA.`
+    `تخصيص الشعار والتغليف المتكامل: يدعم حفر ليزر فايبر 50W (+0.15–0.30$/قطعة، 0$ إعداد)، والحفر العميق الملون (+0.35–0.60$/قطعة) وحقائب EVA.`
   ]
 };
 
@@ -922,16 +970,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Options de Personnalisation Logo & Marque Privée (0 $ de Moule)',
     logoBullets: [
       '<strong>Gravure Laser Fibre MOPA 50W (Monochrome) :</strong> MOQ 100 pcs · 0,00 $ de frais fixes · +0,15 à 0,30 $/pc. Marquage permanent inaltérable dans le métal.',
-      '<strong>Sérigraphie Couleur (Logo Multicolore) :</strong> MOQ 100 pcs · 35 $ USD de frais d’écran par couleur (1 couleur = 35 $, 2 couleurs = 70 $, 3 couleurs = 105 $) · +0,10 $ USD par couleur et par pièce.',
-      '<strong>Gravure Laser Profonde + Remplissage Couleur :</strong> MOQ 200–300 pcs · 0,00 $ de frais laser · +0,35 à 0,60 $/pc. Gravure en creux remplie d’émail couleur résistant.',
-      '<strong>Échantillon Pré-Série avec Logo :</strong> 80 $ à 150 $ USD · délai d’échantillonnage de 10 à 15 jours (maquette numérique gratuite sous 12h).'
+      '<strong>Pourquoi la Sérigraphie / Impression UV est DÉCONSEILLÉE sur Métal :</strong> Les surfaces métalliques lisses sont chimiquement inertes ; l’encre de surface s’écaille sous le frottement du pouce.',
+      '<strong>Gravure Laser Profonde + Remplissage Couleur (Recommandé pour Logos Colorés) :</strong> MOQ 100–200 pcs · 0,00 $ de frais laser · +0,35 à 0,60 $/pc. Gravure en creux remplie d’émail couleur inaltérable.',
+      '<strong>Échantillon Pré-Série avec Logo :</strong> Échantillon Laser = 50 $ USD · Laser Profond + Couleur = 80 $ à 150 $ USD (10 à 15 jours, maquette numérique gratuite sous 12h).'
     ],
     h3Table: (sku) => `3. Grille Tarifaire de Personnalisation — ${sku}`,
-    thOption: 'Mode de Personnalisation', thMoq: 'MOQ', thSetup: 'Frais Fixes / Écran', thUnitAdd: 'Coût Unitaire Ajouté', thLead: 'Délai de Production',
+    thOption: 'Mode de Personnalisation', thMoq: 'MOQ', thSetup: 'Frais Fixes / Échantillon', thUnitAdd: 'Coût Unitaire Ajouté', thLead: 'Délai de Production',
     r1: ['Stock Neutre (Moule Prêt)', '50 pcs', '0,00 $', 'Inclus dans le tarif de base', '3 à 5 jours ouvrés'],
-    r2: ['Gravure Laser Fibre 50W', '100 pcs', '0,00 $', '+0,15 $ – 0,30 $ / pc', '10 à 15 jours ouvrés'],
-    r3: ['Sérigraphie Multicolore', '100 pcs', '35 $ / couleur', '+0,10 $ / couleur / pc', '10 à 15 jours ouvrés'],
-    r4: ['Laser Profond + Remplissage Couleur', '200–300 pcs', '0,00 $', '+0,35 $ – 0,60 $ / pc', '12 à 15 jours ouvrés']
+    r2: ['Gravure Laser Fibre 50W (Monochrome)', '100 pcs', '0,00 $ (Éch. 50 $)', '+0,15 $ – 0,30 $ / pc', '10 à 15 jours ouvrés'],
+    r3: ['Laser Profond + Remplissage Couleur', '100–200 pcs', '0,00 $ (Éch. 80–150 $)', '+0,35 $ – 0,60 $ / pc', '10 à 15 jours ouvrés'],
+    r4: ['Étui Zippé EVA Noir + Logo', '100 pcs', '0,00 $', '+0,75 $ / pc', '10 à 15 jours ouvrés']
   },
   nl: {
     secTitle: (sku, title) => `${sku} ${title} — Mechanische Opbouw, Logo-personalisatie & Verpakkingsgids`,
@@ -943,16 +991,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Bedrijfslogo & Private-Label Opties ($0 Matrijskosten)',
     logoBullets: [
       '<strong>50W MOPA Fiberlasergravure (Monochroom):</strong> MOQ 100 st. · $0,00 instelkosten · +$0,15–$0,30/st. Slijtvaste permanente metaalgravure.',
-      '<strong>Zeefdruk (Meerkleurig Logo):</strong> MOQ 100 st. · $35 USD zeefkosten per kleur (1 kleur = $35, 2 kleuren = $70, 3 kleuren = $105) · +$0,10 USD per kleur per stuk.',
-      '<strong>Diepe Lasergravure + Kleurvulling:</strong> MOQ 200–300 st. · $0,00 laser-setup · +$0,35–$0,60/st. Diep gegraveerde uitsparing gevuld met duurzame kleuremaille.',
-      '<strong>Pre-productiemonster met eigen logo:</strong> $80–$150 USD monsterkosten · 10–15 dagen levertijd (gratis digitale proef binnen 12 uur).'
+      '<strong>Waarom Zeefdruk / UV-printen NIET wordt aanbevolen op glad metaal:</strong> Gepolijste metalen oppervlakken zijn chemisch inert waardoor oppervlakte-inkt loslaat door duimwrijving.',
+      '<strong>Diepe Lasergravure + Kleurvulling (Aanbevolen voor gekleurde logo’s):</strong> MOQ 100–200 st. · $0,00 laser-setup · +$0,35–$0,60/st. Diep gegraveerde uitsparing gevuld met duurzame kleuremaille.',
+      '<strong>Pre-productiemonster met eigen logo:</strong> Lasermonster = $50 USD · Diepe Laser + Kleur = $80–$150 USD (10–15 dagen levertijd, gratis digitale proef binnen 12 uur).'
     ],
     h3Table: (sku) => `3. ${sku} Overzicht Personalisatie- & Productiekosten`,
-    thOption: 'Personalisatiemethode', thMoq: 'MOQ', thSetup: 'Instel- / Zeefkosten', thUnitAdd: 'Meerprijs per Stuk', thLead: 'Productietijd',
+    thOption: 'Personalisatiemethode', thMoq: 'MOQ', thSetup: 'Instel- / Monsterkosten', thUnitAdd: 'Meerprijs per Stuk', thLead: 'Productietijd',
     r1: ['Blanco Voorraad (Bestaande Matrijs)', '50 st.', '$0,00', 'Inbegrepen in staffelprijs', '3–5 werkdagen'],
-    r2: ['50W Fiberlasergravure Logo', '100 st.', '$0,00', '+$0,15 – $0,30 / st.', '10–15 werkdagen'],
-    r3: ['Zeefdruk Meerkleurenlogo', '100 st.', '$35 / kleur', '+$0,10 / kleur / st.', '10–15 werkdagen'],
-    r4: ['Diepe Lasergravure + Kleurvulling', '200–300 st.', '$0,00', '+$0,35 – $0,60 / st.', '12–15 werkdagen']
+    r2: ['50W Fiberlasergravure Logo', '100 st.', '$0,00 (Monster $50)', '+$0,15 – $0,30 / st.', '10–15 werkdagen'],
+    r3: ['Diepe Lasergravure + Kleurvulling', '100–200 st.', '$0,00 (Monster $80–$150)', '+$0,35 – $0,60 / st.', '10–15 werkdagen'],
+    r4: ['Zwarte EVA-ritsetui + Logo', '100 st.', '$0,00', '+$0,75 / st.', '10–15 werkdagen']
   },
   es: {
     secTitle: (sku, title) => `${sku} ${title} — Arquitectura Mecánica, Personalización de Logo y Empaque`,
@@ -964,16 +1012,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Opciones de Personalización de Marca Privada ($0 Costo de Molde)',
     logoBullets: [
       '<strong>Grabado Láser de Fibra MOPA 50W (Monocromo):</strong> MOQ 100 uds. · $0.00 cargo de configuración · +$0.15–$0.30/ud. Marca permanente en el metal que nunca se borra.',
-      '<strong>Serigrafía (Logo Multicolor Estándar):</strong> MOQ 100 uds. · $35 USD de pantalla por color (1 color = $35, 2 colores = $70, 3 colores = $105) · +$0.10 USD por color por unidad.',
-      '<strong>Grabado Láser Profundo + Relleno de Color:</strong> MOQ 200–300 uds. · $0.00 configuración láser · +$0.35–$0.60/ud. Cavidad grabada a láser rellena con esmalte de color.',
-      '<strong>Muestra Física con Logo Personalizado:</strong> $80–$150 USD tarifa de muestra · 10–15 días de plazo (boceto digital gratuito en 12 horas).'
+      '<strong>Por qué NO se recomienda Serigrafía / Impresión UV en metal liso:</strong> El metal pulido es químicamente inerte y la tinta superficial se desprende con la fricción del pulgar.',
+      '<strong>Grabado Láser Profundo + Relleno de Color (Recomendado para logos a color):</strong> MOQ 100–200 uds. · $0.00 configuración láser · +$0.35–$0.60/ud. Cavidad grabada a láser rellena con esmalte curado.',
+      '<strong>Muestra Física con Logo Personalizado:</strong> Muestra Láser = $50 USD · Láser Profundo + Color = $80–$150 USD (10–15 días, boceto digital gratuito en 12 horas).'
     ],
     h3Table: (sku) => `3. Matriz de Costos de Personalización — ${sku}`,
-    thOption: 'Modo de Personalización', thMoq: 'MOQ', thSetup: 'Cargo de Pantalla / Setup', thUnitAdd: 'Costo Adicional / Ud.', thLead: 'Plazo de Producción',
+    thOption: 'Modo de Personalización', thMoq: 'MOQ', thSetup: 'Setup / Muestra', thUnitAdd: 'Costo Adicional / Ud.', thLead: 'Plazo de Producción',
     r1: ['Stock en Blanco (Molde Listo)', '50 uds.', '$0.00', 'Incluido en precio base', '3–5 días hábiles'],
-    r2: ['Grabado Láser de Fibra 50W', '100 uds.', '$0.00', '+$0.15 – $0.30 / ud.', '10–15 días hábiles'],
-    r3: ['Serigrafía Multicolor', '100 uds.', '$35 / color', '+$0.10 / color / ud.', '10–15 días hábiles'],
-    r4: ['Láser Profundo + Relleno de Color', '200–300 uds.', '$0.00', '+$0.35 – $0.60 / ud.', '12–15 días hábiles']
+    r2: ['Grabado Láser de Fibra 50W', '100 uds.', '$0.00 (Muestra $50)', '+$0.15 – $0.30 / ud.', '10–15 días hábiles'],
+    r3: ['Láser Profundo + Relleno de Color', '100–200 uds.', '$0.00 (Muestra $80–$150)', '+$0.35 – $0.60 / ud.', '10–15 días hábiles'],
+    r4: ['Estuche EVA Negro + Logo', '100 uds.', '$0.00', '+$0.75 / ud.', '10–15 días hábiles']
   },
   it: {
     secTitle: (sku, title) => `${sku} ${title} — Architettura Meccanica, Personalizzazione Logo e Packaging`,
@@ -985,16 +1033,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Opzioni di Personalizzazione Logo e Private Label ($0 Costo Stampo)',
     logoBullets: [
       '<strong>Incisione Laser a Fibra MOPA 50W (Monocromatica):</strong> MOQ 100 pz. · $0,00 costo impianto · +$0,15–$0,30/pz. Marcatura permanente indelebile sul metallo.',
-      '<strong>Serigrafia (Logo Multicolore Standard):</strong> MOQ 100 pz. · $35 USD costo telaio per colore (1 colore = $35, 2 colori = $70, 3 colori = $105) · +$0,10 USD per colore per pezzo.',
-      '<strong>Incisione Laser Profonda + Riempimento Colore:</strong> MOQ 200–300 pz. · $0,00 setup laser · +$0,35–$0,60/pz. Incisione profonda riempita con smalto colorato resistente.',
-      '<strong>Campione Pre-Produzione con Logo:</strong> $80–$150 USD costo campione · 10–15 giorni (bozza digitale gratuita entro 12 ore).'
+      '<strong>Perché Serigrafia / Stampa UV NON sono consigliate su metallo liscio:</strong> Le superfici metalliche lisce sono chimicamente inerti e l’inchiostro superficiale si sfoglia con l’uso.',
+      '<strong>Incisione Laser Profonda + Riempimento Colore (Consigliato per loghi a colori):</strong> MOQ 100–200 pz. · $0,00 setup laser · +$0,35–$0,60/pz. Incisione profonda riempita con smalto colorato permanente.',
+      '<strong>Campione Pre-Produzione con Logo:</strong> Campione Laser = $50 USD · Laser Profondo + Colore = $80–$150 USD (10–15 giorni, bozza digitale gratuita entro 12 ore).'
     ],
     h3Table: (sku) => `3. Tabella Costi di Personalizzazione — ${sku}`,
-    thOption: 'Modalità di Personalizzazione', thMoq: 'MOQ', thSetup: 'Costo Impianto / Telaio', thUnitAdd: 'Supplemento per Pezzo', thLead: 'Tempi di Produzione',
+    thOption: 'Modalità di Personalizzazione', thMoq: 'MOQ', thSetup: 'Setup / Campione', thUnitAdd: 'Supplemento per Pezzo', thLead: 'Tempi di Produzione',
     r1: ['Stock Neutro (Stampo Pronto)', '50 pz.', '$0,00', 'Incluso nel prezzo base', '3–5 giorni lavorativi'],
-    r2: ['Incisione Laser a Fibra 50W', '100 pz.', '$0,00', '+$0,15 – $0,30 / pz.', '10–15 giorni lavorativi'],
-    r3: ['Serigrafia Multicolore', '100 pz.', '$35 / colore', '+$0,10 / colore / pz.', '10–15 giorni lavorativi'],
-    r4: ['Laser Profondo + Smalto Colorato', '200–300 pz.', '$0,00', '+$0,35 – $0,60 / pz.', '12–15 giorni lavorativi']
+    r2: ['Incisione Laser a Fibra 50W', '100 pz.', '$0,00 (Campione $50)', '+$0,15 – $0,30 / pz.', '10–15 giorni lavorativi'],
+    r3: ['Laser Profondo + Smalto Colorato', '100–200 pz.', '$0,00 (Campione $80–$150)', '+$0,35 – $0,60 / pz.', '10–15 giorni lavorativi'],
+    r4: ['Custodia EVA Nera + Logo', '100 pz.', '$0,00', '+$0,75 / pz.', '10–15 giorni lavorativi']
   },
   pt: {
     secTitle: (sku, title) => `${sku} ${title} — Arquitetura Mecânica, Personalização de Logótipo e Embalagem`,
@@ -1006,16 +1054,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Opções de Personalização de Logótipo e Marca Própria ($0 Molde)',
     logoBullets: [
       '<strong>Gravação a Laser de Fibra MOPA 50W (Monocromática):</strong> MOQ 100 un. · $0,00 taxa de configuração · +$0,15–$0,30/un. Marcação permanente no metal que nunca desaparece.',
-      '<strong>Serigrafia (Logótipo Multicor Padrão):</strong> MOQ 100 un. · $35 USD de quadro por cor (1 cor = $35, 2 cores = $70, 3 cores = $105) · +$0,10 USD por cor por unidade.',
-      '<strong>Gravação a Laser Profunda + Preenchimento de Cor:</strong> MOQ 200–300 un. · $0,00 setup laser · +$0,35–$0,60/un. Cavidade gravada a laser preenchida com esmalte colorido.',
-      '<strong>Amostra Física com Logótipo Personalizado:</strong> $80–$150 USD taxa de amostra · 10–15 dias de prazo (maquete digital gratuita em 12 horas).'
+      '<strong>Por que Serigrafia / Impressão UV NÃO é recomendada em metal liso:</strong> Superfícies metálicas lisas são quimicamente inertes e a tinta superficial descasca com a fricção.',
+      '<strong>Gravação a Laser Profunda + Preenchimento de Cor (Recomendado para logótipos a cores):</strong> MOQ 100–200 un. · $0,00 setup laser · +$0,35–$0,60/un. Cavidade gravada a laser preenchida com esmalte colorido.',
+      '<strong>Amostra Física com Logótipo Personalizado:</strong> Amostra Laser = $50 USD · Laser Profundo + Cor = $80–$150 USD (10–15 dias de prazo, maquete digital gratuita em 12 horas).'
     ],
-    h3Table: (sku) => `3. Matriz de Custos de Personalização — ${sku}`,
-    thOption: 'Modo de Personalização', thMoq: 'MOQ', thSetup: 'Taxa de Quadro / Setup', thUnitAdd: 'Custo Adicional / Un.', thLead: 'Prazo de Produção',
+    h3Table: (sku) => `3. Matriz de Costos de Personalização — ${sku}`,
+    thOption: 'Modo de Personalização', thMoq: 'MOQ', thSetup: 'Setup / Amostra', thUnitAdd: 'Custo Adicional / Un.', thLead: 'Prazo de Produção',
     r1: ['Stock Neutro (Molde Pronto)', '50 un.', '$0,00', 'Incluído no preço base', '3–5 dias úteis'],
-    r2: ['Gravação a Laser de Fibra 50W', '100 un.', '$0,00', '+$0,15 – $0,30 / un.', '10–15 dias úteis'],
-    r3: ['Serigrafia Multicor', '100 un.', '$35 / cor', '+$0,10 / cor / un.', '10–15 dias úteis'],
-    r4: ['Laser Profundo + Preenchimento de Cor', '200–300 un.', '$0,00', '+$0,35 – $0,60 / un.', '12–15 dias úteis']
+    r2: ['Gravação a Laser de Fibra 50W', '100 un.', '$0,00 (Amostra $50)', '+$0,15 – $0,30 / un.', '10–15 dias úteis'],
+    r3: ['Laser Profundo + Preenchimento de Cor', '100–200 un.', '$0,00 (Amostra $80–$150)', '+$0,35 – $0,60 / un.', '10–15 dias úteis'],
+    r4: ['Bolsa EVA Preta + Logótipo', '100 un.', '$0,00', '+$0,75 / un.', '10–15 dias úteis']
   },
   sv: {
     secTitle: (sku, title) => `${sku} ${title} — Mekanisk konstruktion, logotypmärkning & förpackningsguide`,
@@ -1027,16 +1075,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Anpassad logotypmärkning & Private Label ($0 formavgift)',
     logoBullets: [
       '<strong>50W MOPA-fiberlasergravyr (Monokrom):</strong> MOQ 100 st · $0,00 startavgift · +$0,15–$0,30/st. Permanent metallgravyr som aldrig nöts bort.',
-      '<strong>Screentryck (Flerfärgslogotyp):</strong> MOQ 100 st · $35 USD schablonavgift per färg (1 färg = $35, 2 färger = $70, 3 färger = $105) · +$0,10 USD per färg och enhet.',
-      '<strong>Djup lasergravyr + färgfyllning:</strong> MOQ 200–300 st · $0,00 laser-setup · +$0,35–$0,60/st. Djupgraverat spår fyllt med slitstark färgemalj.',
-      '<strong>Förproduktionsprov med egen logotyp:</strong> $80–$150 USD provavgift · 10–15 dagars ledtid (fri digital korrektur inom 12 timmar).'
+      '<strong>Varför Screentryck / UV-tryck INTE rekommenderas på slät metall:</strong> Släta metallytor är kemiskt inerta och yttrycksfärg flagnar vid tumfriktion.',
+      '<strong>Djup lasergravyr + färgfyllning (Rekommenderas för färglogotyper):</strong> MOQ 100–200 st · $0,00 laser-setup · +$0,35–$0,60/st. Djupgraverat spår fyllt med slitstark färgemalj.',
+      '<strong>Förproduktionsprov med egen logotyp:</strong> Laserprov = $50 USD · Djup Laser + Färg = $80–$150 USD (10–15 dagars ledtid, fri digital korrektur inom 12 timmar).'
     ],
     h3Table: (sku) => `3. ${sku} Kostnadsmatris för logotypmärkning`,
-    thOption: 'Anpassningsläge', thMoq: 'MOQ', thSetup: 'Start- / Schablonavgift', thUnitAdd: 'Tillägg per enhet', thLead: 'Produktionstid',
+    thOption: 'Anpassningsläge', thMoq: 'MOQ', thSetup: 'Setup / Provavgift', thUnitAdd: 'Tillägg per enhet', thLead: 'Produktionstid',
     r1: ['Blankt lager (Färdig form)', '50 st', '$0,00', 'Ingår i baspriset', '3–5 arbetsdagar'],
-    r2: ['50W Fiberlasergravyr', '100 st', '$0,00', '+$0,15 – $0,30 / st', '10–15 arbetsdagar'],
-    r3: ['Screentryck flerfärg', '100 st', '$35 / färg', '+$0,10 / färg / st', '10–15 arbetsdagar'],
-    r4: ['Djup lasergravyr + färgfyllning', '200–300 st', '$0,00', '+$0,35 – $0,60 / st', '12–15 arbetsdagar']
+    r2: ['50W Fiberlasergravyr', '100 st', '$0,00 (Prov $50)', '+$0,15 – $0,30 / st', '10–15 arbetsdagar'],
+    r3: ['Djup lasergravyr + färgfyllning', '100–200 st', '$0,00 (Prov $80–$150)', '+$0,35 – $0,60 / st', '10–15 arbetsdagar'],
+    r4: ['Svart EVA-fodral + logotyp', '100 st', '$0,00', '+$0,75 / st', '10–15 arbetsdagar']
   },
   da: {
     secTitle: (sku, title) => `${sku} ${title} — Mekanisk opbygning, logomærkning & emballageguide`,
@@ -1048,16 +1096,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Brugerdefineret logomærkning & Private Label ($0 formgebyr)',
     logoBullets: [
       '<strong>50W MOPA-fiberlasergravering (Monokrom):</strong> MOQ 100 stk. · $0,00 opstartsgebyr · +$0,15–$0,30/stk. Permanent, slidstærk metalgravering.',
-      '<strong>Serigrafi (Flerfarvet logo):</strong> MOQ 100 stk. · $35 USD rammegebyr pr. farve (1 farve = $35, 2 farver = $70, 3 farver = $105) · +$0,10 USD pr. farve pr. stk.',
-      '<strong>Dyb lasergravering + farvefyld:</strong> MOQ 200–300 stk. · $0,00 laser-setup · +$0,35–$0,60/stk. Dybgraveret fordybning fyldt med slidstærk emaljefarve.',
-      '<strong>Prøveproduktion med eget logo:</strong> $80–$150 USD prøvegebyr · 10–15 dages leveringstid (gratis digital korrektur inden for 12 timer).'
+      '<strong>Hvorfor Serigrafi / UV-tryk IKKE anbefales på glat metal:</strong> Glatte metaloverflader er kemisk inerte, så overfladeblæk skaller af ved friktion.',
+      '<strong>Dyb lasergravering + farvefyld (Anbefales til farvelogoer):</strong> MOQ 100–200 stk. · $0,00 laser-setup · +$0,35–$0,60/stk. Dybgraveret fordybning fyldt med slidstærk emaljefarve.',
+      '<strong>Prøveproduktion med eget logo:</strong> Laserprøve = $50 USD · Dyb Laser + Farve = $80–$150 USD (10–15 dages leveringstid, gratis digital korrektur inden for 12 timer).'
     ],
     h3Table: (sku) => `3. ${sku} Prisoversigt for logomærkning`,
-    thOption: 'Tilpasningstilstand', thMoq: 'MOQ', thSetup: 'Opstarts- / Rammegebyr', thUnitAdd: 'Tillæg pr. stk.', thLead: 'Produktionstid',
+    thOption: 'Tilpasningstilstand', thMoq: 'MOQ', thSetup: 'Setup / Prøvegebyr', thUnitAdd: 'Tillæg pr. stk.', thLead: 'Produktionstid',
     r1: ['Neutralt lager (Klar form)', '50 stk.', '$0,00', 'Inkluderet i basispris', '3–5 hverdage'],
-    r2: ['50W Fiberlasergravering', '100 stk.', '$0,00', '+$0,15 – $0,30 / stk.', '10–15 hverdage'],
-    r3: ['Serigrafi flerfarvet', '100 stk.', '$35 / farve', '+$0,10 / farve / stk.', '10–15 hverdage'],
-    r4: ['Dyb lasergravering + farvefyld', '200–300 stk.', '$0,00', '+$0,35 – $0,60 / stk.', '12–15 hverdage']
+    r2: ['50W Fiberlasergravering', '100 stk.', '$0,00 (Prøve $50)', '+$0,15 – $0,30 / stk.', '10–15 hverdage'],
+    r3: ['Dyb lasergravering + farvefyld', '100–200 stk.', '$0,00 (Prøve $80–$150)', '+$0,35 – $0,60 / stk.', '10–15 hverdage'],
+    r4: ['Sort EVA-etui + logo', '100 stk.', '$0,00', '+$0,75 / stk.', '10–15 hverdage']
   },
   no: {
     secTitle: (sku, title) => `${sku} ${title} — Mekanisk oppbygning, logomerking & emballasjeguide`,
@@ -1069,16 +1117,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Egendefinert logomerking & Private Label ($0 formgebyr)',
     logoBullets: [
       '<strong>50W MOPA-fiberlasergravering (Monokrom):</strong> MOQ 100 stk. · $0,00 oppstartsgebyr · +$0,15–$0,30/stk. Permanent og slitesterk metallgravering.',
-      '<strong>Silketrykk (Flerfarget logo):</strong> MOQ 100 stk. · $35 USD rammegebyr per farge (1 farge = $35, 2 farger = $70, 3 farger = $105) · +$0,10 USD per farge per stk.',
-      '<strong>Dyp lasergravering + fargefyll:</strong> MOQ 200–300 stk. · $0,00 laser-setup · +$0,35–$0,60/stk. Dypgravert fordypning fylt med slitesterk fargeemalje.',
-      '<strong>Førproduksjonsprøve med eget logo:</strong> $80–$150 USD prøvegebyr · 10–15 dagers leveringstid (gratis digital korrektur innen 12 timer).'
+      '<strong>Hvorfor Silketrykk / UV-trykk IKKE anbefales på glatt metall:</strong> Glatte metalloverflater er kjemisk inerte, slik at overflateblekk flasser av ved bruk.',
+      '<strong>Dyp lasergravering + fargefyll (Anbefales for fargelogoer):</strong> MOQ 100–200 stk. · $0,00 laser-setup · +$0,35–$0,60/stk. Dypgravert fordypning fylt med slitesterk fargeemalje.',
+      '<strong>Førproduksjonsprøve med eget logo:</strong> Laserprøve = $50 USD · Dyp Laser + Farge = $80–$150 USD (10–15 dagers leveringstid, gratis digital korrektur innen 12 timer).'
     ],
     h3Table: (sku) => `3. ${sku} Prisoversikt for logomerking`,
-    thOption: 'Tilpasningsmodus', thMoq: 'MOQ', thSetup: 'Oppstarts- / Rammegebyr', thUnitAdd: 'Tillegg per stk.', thLead: 'Produksjonstid',
+    thOption: 'Tilpasningsmodus', thMoq: 'MOQ', thSetup: 'Setup / Prøvegebyr', thUnitAdd: 'Tillegg per stk.', thLead: 'Produksjonstid',
     r1: ['Nøytralt lager (Klar form)', '50 stk.', '$0,00', 'Inkludert i basispris', '3–5 virkedager'],
-    r2: ['50W Fiberlasergravering', '100 stk.', '$0,00', '+$0,15 – $0,30 / stk.', '10–15 virkedager'],
-    r3: ['Silketrykk flerfarget', '100 stk.', '$35 / farge', '+$0,10 / farge / stk.', '10–15 virkedager'],
-    r4: ['Dyp lasergravering + fargefyll', '200–300 stk.', '$0,00', '+$0,35 – $0,60 / stk.', '12–15 virkedager']
+    r2: ['50W Fiberlasergravering', '100 stk.', '$0,00 (Prøve $50)', '+$0,15 – $0,30 / stk.', '10–15 virkedager'],
+    r3: ['Dyp lasergravering + fargefyll', '100–200 stk.', '$0,00 (Prøve $80–$150)', '+$0,35 – $0,60 / stk.', '10–15 virkedager'],
+    r4: ['Svart EVA-etui + logo', '100 stk.', '$0,00', '+$0,75 / stk.', '10–15 virkedager']
   },
   fi: {
     secTitle: (sku, title) => `${sku} ${title} — Mekaaninen rakenne, logomerkkaus & pakkausopas`,
@@ -1090,16 +1138,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Räätälöity logomerkkaus & Private Label ($0 muottimaksu)',
     logoBullets: [
       '<strong>50W MOPA-kuitulaserkaiverrus (Yksivärinen):</strong> MOQ 100 kpl · $0,00 aloitusmaksu · +$0,15–$0,30/kpl. Pysyvä ja kulumaton metallikaiverrus.',
-      '<strong>Silkkipainatus (Monivärinen logo):</strong> MOQ 100 kpl · $35 USD seulamaksu per väri (1 väri = $35, 2 väriä = $70, 3 väriä = $105) · +$0,10 USD per väri per kpl.',
-      '<strong>Syvälaserkaiverrus + väritäyttö:</strong> MOQ 200–300 kpl · $0,00 laser-setup · +$0,35–$0,60/kpl. Syväkaiverrettu ura täytettynä kestävällä väriemalilla.',
-      '<strong>Esituotantomalli omalla logolla:</strong> $80–$150 USD mallimaksu · 10–15 päivän toimitusaika (ilmainen digitaalinen vedos 12 tunnissa).'
+      '<strong>Miksi Silkkipainatusta / UV-painatusta EI suositella sileälle metallille:</strong> Sileät metallipinnat ovat kemiallisesti inerttejä, joten pintamuste irtoaa käytössä.',
+      '<strong>Syvälaserkaiverrus + väritäyttö (Suositellaan värilogoille):</strong> MOQ 100–200 kpl · $0,00 laser-setup · +$0,35–$0,60/kpl. Syväkaiverrettu ura täytettynä kestävällä väriemalilla.',
+      '<strong>Esituotantomalli omalla logolla:</strong> Lasermalli = $50 USD · Syvälaser + Väri = $80–$150 USD (10–15 päivän toimitusaika, ilmainen digitaalinen vedos 12 tunnissa).'
     ],
     h3Table: (sku) => `3. ${sku} Logomerkkauksen ja pakkauksen hintataulukko`,
-    thOption: 'Merkkaus- / tilaustapa', thMoq: 'MOQ', thSetup: 'Aloitus- / seulamaksu', thUnitAdd: 'Lisähinta / kpl', thLead: 'Tuotantoaika',
+    thOption: 'Merkkaus- / tilaustapa', thMoq: 'MOQ', thSetup: 'Setup / Mallimaksu', thUnitAdd: 'Lisähinta / kpl', thLead: 'Tuotantoaika',
     r1: ['Ilman merkkausta (Valmis muotti)', '50 kpl', '$0,00', 'Sisältyy perushintaan', '3–5 arkipäivää'],
-    r2: ['50W Kuitulaserkaiverrus', '100 kpl', '$0,00', '+$0,15 – $0,30 / kpl', '10–15 arkipäivää'],
-    r3: ['Silkkipainatus moniväri', '100 kpl', '$35 / väri', '+$0,10 / väri / kpl', '10–15 arkipäivää'],
-    r4: ['Syvälaserkaiverrus + väritäyttö', '200–300 kpl', '$0,00', '+$0,35 – $0,60 / kpl', '12–15 arkipäivää']
+    r2: ['50W Kuitulaserkaiverrus', '100 kpl', '$0,00 (Malli $50)', '+$0,15 – $0,30 / kpl', '10–15 arkipäivää'],
+    r3: ['Syvälaserkaiverrus + väritäyttö', '100–200 kpl', '$0,00 (Malli $80–$150)', '+$0,35 – $0,60 / kpl', '10–15 arkipäivää'],
+    r4: ['Musta EVA-kotelo + logo', '100 kpl', '$0,00', '+$0,75 / kpl', '10–15 arkipäivää']
   },
   pl: {
     secTitle: (sku, title) => `${sku} ${title} — Konstrukcja Mechaniczna, Znakowanie Logo i Opakowania`,
@@ -1111,16 +1159,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Personalizacja Logo i Opcje Private Label (0 $ za Formę)',
     logoBullets: [
       '<strong>Grawerowanie Laserem Fibre MOPA 50W (Monochromatyczne):</strong> MOQ 100 szt. · 0,00 $ opłaty przygotowawczej · +0,15–0,30 $/szt. Trwałe znakowanie w metalu.',
-      '<strong>Sitodruk (Kolorowe Logo):</strong> MOQ 100 szt. · 35 $ USD opłaty za matrycę na kolor (1 kolor = 35 $, 2 kolory = 70 $, 3 kolory = 105 $) · +0,10 $ USD za kolor na sztukę.',
-      '<strong>Głębokie Grawerowanie Laserowe + Wypełnienie Kolorem:</strong> MOQ 200–300 szt. · 0,00 $ setup laserowy · +0,35–0,60 $/szt. Głęboki grawer wypełniony trwałą emalią.',
-      '<strong>Próbka Przedprodukcyjna z Własnym Logo:</strong> 80–150 USD koszt próbki · 10–15 dni realizacji (darmowa wizualizacja cyfrowa w 12h).'
+      '<strong>Dlaczego Sitodruk / Druk UV NIE jest zalecany na gładkim metalu:</strong> Gładkie powierzchnie metalowe są chemicznie obojętne, przez co tusz powierzchniowy ściera się pod wpływem tarcia.',
+      '<strong>Głębokie Grawerowanie Laserowe + Wypełnienie Kolorem (Zalecane dla kolorowych logo):</strong> MOQ 100–200 szt. · 0,00 $ setup laserowy · +0,35–0,60 $/szt. Głęboki grawer wypełniony trwałą emalią.',
+      '<strong>Próbka Przedprodukcyjna z Własnym Logo:</strong> Próbka Laser = 50 USD · Głęboki Laser + Kolor = 80–150 USD (10–15 dni realizacji, darmowa wizualizacja w 12h).'
     ],
     h3Table: (sku) => `3. Tabela Kosztów Personalizacji — ${sku}`,
-    thOption: 'Tryb Personalizacji', thMoq: 'MOQ', thSetup: 'Opłata Wstępna / Matryca', thUnitAdd: 'Dopłata Jednostkowa', thLead: 'Czas Produkcji',
+    thOption: 'Tryb Personalizacji', thMoq: 'MOQ', thSetup: 'Setup / Próbka', thUnitAdd: 'Dopłata Jednostkowa', thLead: 'Czas Produkcji',
     r1: ['Wersja Czysta (Gotowa Forma)', '50 szt.', '0,00 $', 'Wliczone w cenę bazową', '3–5 dni roboczych'],
-    r2: ['Grawerowanie Laserem Fibre 50W', '100 szt.', '0,00 $', '+0,15 $ – 0,30 $ / szt.', '10–15 dni roboczych'],
-    r3: ['Sitodruk Wielokolorowy', '100 szt.', '35 $ / kolor', '+0,10 $ / kolor / szt.', '10–15 dni roboczych'],
-    r4: ['Głęboki Laser + Wypełnienie Kolorem', '200–300 szt.', '0,00 $', '+0,35 $ – 0,60 $ / szt.', '12–15 dni roboczych']
+    r2: ['Grawerowanie Laserem Fibre 50W', '100 szt.', '0,00 $ (Próbka 50 $)', '+0,15 $ – 0,30 $ / szt.', '10–15 dni roboczych'],
+    r3: ['Głęboki Laser + Wypełnienie Kolorem', '100–200 szt.', '0,00 $ (Próbka 80–150 $)', '+0,35 $ – 0,60 $ / szt.', '10–15 dni roboczych'],
+    r4: ['Czarne Etui EVA + Logo', '100 szt.', '0,00 $', '+0,75 $ / szt.', '10–15 dni roboczych']
   },
   cs: {
     secTitle: (sku, title) => `${sku} ${title} — Mechanická konstrukce, značení loga a balení`,
@@ -1132,16 +1180,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Zakázkový branding loga a Private Label ($0 poplatek za formu)',
     logoBullets: [
       '<strong>50W MOPA vláknový laser (Monochromatický):</strong> MOQ 100 ks · $0,00 příprava · +$0,15–$0,30/ks. Trvalý, nesmazatelný laserový popis do kovu.',
-      '<strong>Sítotisk (Barevné logo):</strong> MOQ 100 ks · $35 USD šablona za barvu (1 barva = $35, 2 barvy = $70, 3 barvy = $105) · +$0,10 USD za barvu a kus.',
-      '<strong>Hluboké laserové gravírování + barevná výplň:</strong> MOQ 200–300 ks · $0,00 laser setup · +$0,35–$0,60/ks. Hluboký gravír vyplněný odolným barevným smaltem.',
-      '<strong>Předvýrobní vzorek s vlastním logem:</strong> $80–$150 USD poplatek za vzorek · doba výroby 10–15 dní (digitální náhled zdarma do 12 hodin).'
+      '<strong>Proč Sítotisk / UV tisk NENÍ doporučen na hladkém kovu:</strong> Hladké kovové povrchy jsou chemicky inertní a povrchová barva se při tření odlupuje.',
+      '<strong>Hluboké laserové gravírování + barevná výplň (Doporučeno pro barevná loga):</strong> MOQ 100–200 ks · $0,00 laser setup · +$0,35–$0,60/ks. Hluboký gravír vyplněný odolným barevným smaltem.',
+      '<strong>Předvýrobní vzorek s vlastním logem:</strong> Vzorek Laser = $50 USD · Hluboký Laser + Barva = $80–$150 USD (doba výroby 10–15 dní, digitální náhled zdarma do 12 hodin).'
     ],
     h3Table: (sku) => `3. Přehled nákladů na personalizaci — ${sku}`,
-    thOption: 'Režim personalizace', thMoq: 'MOQ', thSetup: 'Příprava / Šablona', thUnitAdd: 'Příplatek za kus', thLead: 'Doba výroby',
+    thOption: 'Režim personalizace', thMoq: 'MOQ', thSetup: 'Příprava / Vzorek', thUnitAdd: 'Příplatek za kus', thLead: 'Doba výroby',
     r1: ['Bez potisku (Hotová forma)', '50 ks', '$0,00', 'V ceně základní hladiny', '3–5 pracovních dnů'],
-    r2: ['50W Vláknový laser', '100 ks', '$0,00', '+$0,15 – $0,30 / ks', '10–15 pracovních dnů'],
-    r3: ['Vícebarevný sítotisk', '100 ks', '$35 / barva', '+$0,10 / barva / ks', '10–15 pracovních dnů'],
-    r4: ['Hluboký laser + barevná výplň', '200–300 ks', '$0,00', '+$0,35 – $0,60 / ks', '12–15 pracovních dnů']
+    r2: ['50W Vláknový laser', '100 ks', '$0,00 (Vzorek $50)', '+$0,15 – $0,30 / ks', '10–15 pracovních dnů'],
+    r3: ['Hluboký laser + barevná výplň', '100–200 ks', '$0,00 (Vzorek $80–$150)', '+$0,35 – $0,60 / ks', '10–15 pracovních dnů'],
+    r4: ['Černé pouzdro EVA + logo', '100 ks', '$0,00', '+$0,75 / ks', '10–15 pracovních dnů']
   },
   ru: {
     secTitle: (sku, title) => `${sku} ${title} — Механическая конструкция, нанесение логотипа и упаковка`,
@@ -1153,16 +1201,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Брендирование и выпуск под собственной маркой ($0 за пресс-форму)',
     logoBullets: [
       '<strong>Оптоволоконная лазерная гравировка 50W MOPA (Монохром):</strong> MOQ 100 шт. · $0.00 настройка · +$0.15–$0.30/шт. Вечная гравировка на металле.',
-      '<strong>Шелкография (Цветной логотип):</strong> MOQ 100 шт. · $35 USD печатная форма за цвет (1 цвет = $35, 2 цвета = $70, 3 цвета = $105) · +$0.10 USD за цвет на штуку.',
-      '<strong>Глубокая лазерная гравировка + заливка эмалью:</strong> MOQ 200–300 шт. · $0.00 настройка лазера · +$0.35–$0.60/шт. Глубокая выборка металла с последующей заливкой стойкой цветной эмалью.',
-      '<strong>Предсерийный образец с логотипом:</strong> $80–$150 USD стоимость образца · 10–15 дней (бесплатный 3D-макет за 12 часов).'
+      '<strong>Почему Шелкография / УФ-печать НЕ рекомендуется на гладком металле:</strong> Полированный металл химически инертен, поэтому поверхностная краска стирается от трения пальцев.',
+      '<strong>Глубокая лазерная гравировка + заливка эмалью (Рекомендуется для цветных логотипов):</strong> MOQ 100–200 шт. · $0.00 настройка лазера · +$0.35–$0.60/шт. Глубокая выборка металла с заливкой стойкой цветной эмалью.',
+      '<strong>Предсерийный образец с логотипом:</strong> Образец Лазер = $50 USD · Глубокий лазер + цвет = $80–$150 USD (10–15 дней, бесплатный 3D-макет за 12 часов).'
     ],
     h3Table: (sku) => `3. Матрица стоимости брендирования — ${sku}`,
-    thOption: 'Вариант брендирования', thMoq: 'MOQ', thSetup: 'Настройка / Матрица', thUnitAdd: 'Доплата за шт.', thLead: 'Срок производства',
+    thOption: 'Вариант брендирования', thMoq: 'MOQ', thSetup: 'Настройка / Образец', thUnitAdd: 'Доплата за шт.', thLead: 'Срок производства',
     r1: ['Без логотипа (Готовая форма)', '50 шт.', '$0.00', 'Включено в базовую цену', '3–5 рабочих дней'],
-    r2: ['Лазерная гравировка 50W', '100 шт.', '$0.00', '+$0.15 – $0.30 / шт.', '10–15 рабочих дней'],
-    r3: ['Многоцветная шелкография', '100 шт.', '$35 / цвет', '+$0.10 / цвет / шт.', '10–15 рабочих дней'],
-    r4: ['Глубокий лазер + заливка цветом', '200–300 шт.', '$0.00', '+$0.35 – $0.60 / шт.', '12–15 рабочих дней']
+    r2: ['Лазерная гравировка 50W', '100 шт.', '$0.00 (Образец $50)', '+$0.15 – $0.30 / шт.', '10–15 рабочих дней'],
+    r3: ['Глубокий лазер + заливка цветом', '100–200 шт.', '$0.00 (Образец $80–$150)', '+$0.35 – $0.60 / шт.', '10–15 рабочих дней'],
+    r4: ['Черный чехол EVA + логотип', '100 шт.', '$0.00', '+$0.75 / шт.', '10–15 рабочих дней']
   },
   ja: {
     secTitle: (sku, title) => `${sku} ${title} — 内部機構設計・カスタムロゴ名入れ・OEMパッケージ仕様ガイド`,
@@ -1174,16 +1222,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. カスタムロゴ名入れ・プライベートブランド（PB）対応（金型代 $0）',
     logoBullets: [
       '<strong>50W MOPAファイバーレーザー刻印（単色・金属コントラスト）：</strong> 最小ロット 100個 · 版代 $0.00 · 単価 +$0.15〜$0.30/個。金属表面をミクロン単位で彫刻するため半永久的に消えません。',
-      '<strong>シルクスクリーン印刷（標準カラーロゴ）：</strong> 最小ロット 100個 · 版代 1色につき $35 USD（1色＝$35、2色＝$70、3色＝$105） · 印刷単価 1色につき +$0.10 USD/個（例：5色ロゴ＝+$0.50/個）。',
-      '<strong>深彫りレーザー彫刻＋色入れ加工（凹部エナメル充填）：</strong> 最小ロット 200〜300個 · レーザー初期費 $0.00 · 単価 +$0.35〜$0.60/個。金属に一定の深さの溝をレーザー彫刻した上でカラー塗料を充填する高耐久仕様です。',
-      '<strong>カスタムロゴ試作サンプル製作：</strong> サンプル費用 $80〜$150 USD · 製作期間 10〜15日（試作前に12時間以内の無料デジタル配置校正をご提供）。'
+      '<strong>平滑な金属表面にシルク印刷・UV印刷を推奨しない理由：</strong> メッキ・研磨された金属表面は化学的に不活性でインク密着性が低く、指の摩擦で剥がれやすいため当工場では非推奨としています。',
+      '<strong>深彫りレーザー彫刻＋色入れ加工（カラーロゴ推奨・凹部エナメル充填）：</strong> 最小ロット 100〜200個 · レーザー初期費 $0.00 · 単価 +$0.35〜$0.60/個。金属に溝をレーザー深彫りした上で硬化エナメル塗料を充填するため剥がれません。',
+      '<strong>カスタムロゴ試作サンプル製作：</strong> レーザー試作＝$50 USD · 深彫り＋色入れ試作＝$80〜$150 USD（製作期間 10〜15日・12時間以内の無料デジタル配置校正付き）。'
     ],
     h3Table: (sku) => `3. ${sku} ロゴ名入れ・OEM加工費用リファレンス表`,
-    thOption: '加工・発注モード', thMoq: '最小ロット (MOQ)', thSetup: '版代・初期セットアップ費', thUnitAdd: '1個あたり追加単価', thLead: '量産納期目安',
+    thOption: '加工・発注モード', thMoq: '最小ロット (MOQ)', thSetup: '初期費・試作費', thUnitAdd: '1個あたり追加単価', thLead: '量産納期目安',
     r1: ['ロゴなし無地在庫（既存金型）', '50個', '$0.00', '基本卸売単価に含む', '3〜5営業日'],
-    r2: ['50Wファイバーレーザー刻印', '100個', '$0.00', '+$0.15 〜 $0.30 / 個', '10〜15営業日'],
-    r3: ['シルクスクリーン多色印刷', '100個', '$35 / 色', '+$0.10 / 色 / 個', '10〜15営業日'],
-    r4: ['深彫りレーザー＋色入れ加工', '200〜300個', '$0.00', '+$0.35 〜 $0.60 / 個', '12〜15営業日']
+    r2: ['50Wファイバーレーザー刻印', '100個', '$0.00 (試作 $50)', '+$0.15 〜 $0.30 / 個', '10〜15営業日'],
+    r3: ['深彫りレーザー＋色入れ加工', '100〜200個', '$0.00 (試作 $80–$150)', '+$0.35 〜 $0.60 / 個', '10〜15営業日'],
+    r4: ['ロゴ入り黒EVAジッパーケース', '100個', '$0.00', '+$0.75 / 個', '10〜15営業日']
   },
   ko: {
     secTitle: (sku, title) => `${sku} ${title} — 내부 기구 설계, 맞춤 로고 각인 및 패키징 가이드`,
@@ -1195,16 +1243,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. 맞춤 브랜드 로고 각인 및 PB 제작 옵션 (금형비 $0)',
     logoBullets: [
       '<strong>50W MOPA 파이버 레이저 각인 (단색 메탈 각인):</strong> MOQ 100개 · 초기 세팅비 $0.00 · 개당 +$0.15~$0.30. 금속 표면을 미세 식각하여 반영구적으로 지워지지 않습니다.',
-      '<strong>실크스크린 인쇄 (표준 컬러 로고):</strong> MOQ 100개 · 색상당 판비 $35 USD (1도=$35, 2도=$70, 3도=$105) · 개당 색상당 +$0.10 USD 추가 (예: 5도 컬러 로고 = 개당 +$0.50).',
-      '<strong>심층 레이저 각인 + 컬러 필링 (음각 에나멜 채움):</strong> MOQ 200~300개 · 레이저 세팅비 $0.00 · 개당 +$0.35~$0.60. 일정 깊이로 레이저 음각 가공 후 컬러 도료를 채워 넣는 고급 사양입니다.',
-      '<strong>맞춤 로고 사전 샘플 제작:</strong> 샘플비 $80–$150 USD · 제작 기간 10–15일 (샘플 제작 전 12시간 이내 무료 디지털 시안 제공).'
+      '<strong>매끄러운 금속 표면에 실크스크린 / UV 인쇄를 권장하지 않는 이유:</strong> 연마 및 도금된 금속 표면은 잉크 부착력이 낮아 엄지 마찰로 쉽게 벗겨지므로 당사 공장에서는 권장하지 않습니다.',
+      '<strong>심층 레이저 각인 + 컬러 필링 (컬러 로고 권장 · 음각 에나멜 채움):</strong> MOQ 100~200개 · 레이저 세팅비 $0.00 · 개당 +$0.35~$0.60. 일정 깊이로 레이저 음각 가공 후 경화 에나멜 컬러를 채워 벗겨지지 않습니다.',
+      '<strong>맞춤 로고 사전 샘플 제작:</strong> 일반 레이저 샘플 = $50 USD · 심층 레이저+컬러 샘플 = $80–$150 USD (제작 10–15일 · 12시간 이내 무료 디지털 시안 제공).'
     ],
     h3Table: (sku) => `3. ${sku} 맞춤 로고 브랜딩 및 제작 비용 안내표`,
-    thOption: '커스텀 / 주문 방식', thMoq: '최소 수량 (MOQ)', thSetup: '판비 / 초기 세팅비', thUnitAdd: '개당 추가 단가', thLead: '양산 소요 기간',
+    thOption: '커스텀 / 주문 방식', thMoq: '최소 수량 (MOQ)', thSetup: '초기 세팅 / 샘플비', thUnitAdd: '개당 추가 단가', thLead: '양산 소요 기간',
     r1: ['무지 기본 재고 (기성 금형)', '50개', '$0.00', '기본 단가에 포함', '3–5 영업일'],
-    r2: ['50W 파이버 레이저 각인', '100개', '$0.00', '+$0.15 – $0.30 / 개', '10–15 영업일'],
-    r3: ['실크스크린 다색 로고 인쇄', '100개', '$35 / 색상', '+$0.10 / 색상 / 개', '10–15 영업일'],
-    r4: ['심층 레이저 음각 + 컬러 필링', '200–300개', '$0.00', '+$0.35 – $0.60 / 개', '12–15 영업일']
+    r2: ['50W 파이버 레이저 각인', '100개', '$0.00 (샘플 $50)', '+$0.15 – $0.30 / 개', '10–15 영업일'],
+    r3: ['심층 레이저 음각 + 컬러 필링', '100–200개', '$0.00 (샘플 $80–$150)', '+$0.35 – $0.60 / 개', '10–15 영업일'],
+    r4: ['로고 인쇄 블랙 EVA 지퍼 케이스', '100개', '$0.00', '+$0.75 / 개', '10–15 영업일']
   },
   id: {
     secTitle: (sku, title) => `${sku} ${title} — Arsitektur Mekanis, Kustomisasi Logo & Panduan Kemasan`,
@@ -1216,16 +1264,16 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Logo: '2. Opsi Kustomisasi Logo & Private Label ($0 Biaya Mold)',
     logoBullets: [
       '<strong>Grafir Laser Fiber MOPA 50W (Monokrom):</strong> MOQ 100 pcs · biaya setup $0,00 · +$0,15–$0,30/pc. Grafir permanen pada permukaan logam yang tidak akan luntur.',
-      '<strong>Sablon Silk-Screen (Logo Berwarna Standar):</strong> MOQ 100 pcs · biaya screen $35 USD per warna (1 warna = $35, 2 warna = $70, 3 warna = $105) · +$0,10 USD per warna per pc.',
-      '<strong>Grafir Laser Dalam + Isi Warna (Enamel Cekung):</strong> MOQ 200–300 pcs · setup laser $0,00 · +$0,35–$0,60/pc. Ukiran laser dengan kedalaman khusus lalu diisi cat warna tahan aus.',
-      '<strong>Sampel Pra-Produksi Logo Kustom:</strong> biaya sampel $80–$150 USD · waktu pengerjaan 10–15 hari (mockup digital gratis dalam 12 jam).'
+      '<strong>Mengapa Sablon Silk-Screen / UV TIDAK Direkomendasikan pada Logam Halus:</strong> Permukaan logam halus bersifat inert secara kimia sehingga tinta permukaan mudah mengelupas akibat gesekan jari.',
+      '<strong>Grafir Laser Dalam + Isi Warna (Direkomendasikan untuk Logo Berwarna):</strong> MOQ 100–200 pcs · setup laser $0,00 · +$0,35–$0,60/pc. Ukiran laser cekung diisi enamel warna tahan aus.',
+      '<strong>Sampel Pra-Produksi Logo Kustom:</strong> Sampel Laser = $50 USD · Laser Dalam + Warna = $80–$150 USD (10–15 hari, mockup digital gratis dalam 12 jam).'
     ],
     h3Table: (sku) => `3. Tabel Biaya Kustomisasi Logo — ${sku}`,
-    thOption: 'Metode Kustomisasi', thMoq: 'MOQ', thSetup: 'Biaya Screen / Setup', thUnitAdd: 'Tambahan Biaya / Pc', thLead: 'Waktu Produksi',
+    thOption: 'Metode Kustomisasi', thMoq: 'MOQ', thSetup: 'Setup / Sampel', thUnitAdd: 'Tambahan Biaya / Pc', thLead: 'Waktu Produksi',
     r1: ['Stok Polos (Cetakan Siap Pakai)', '50 pcs', '$0,00', 'Termasuk harga dasar', '3–5 hari kerja'],
-    r2: ['Grafir Laser Fiber 50W', '100 pcs', '$0,00', '+$0,15 – $0,30 / pc', '10–15 hari kerja'],
-    r3: ['Sablon Silk-Screen Multi-Warna', '100 pcs', '$35 / warna', '+$0,10 / warna / pc', '10–15 hari kerja'],
-    r4: ['Laser Dalam + Isi Warna', '200–300 pcs', '$0,00', '+$0,35 – $0,60 / pc', '12–15 hari kerja']
+    r2: ['Grafir Laser Fiber 50W', '100 pcs', '$0,00 (Sampel $50)', '+$0,15 – $0,30 / pc', '10–15 hari kerja'],
+    r3: ['Laser Dalam + Isi Warna', '100–200 pcs', '$0,00 (Sampel $80–$150)', '+$0,35 – $0,60 / pc', '10–15 hari kerja'],
+    r4: ['Case EVA Hitam + Logo', '100 pcs', '$0,00', '+$0,75 / pc', '10–15 hari kerja']
   },
   ar: {
     secTitle: (sku, title) => `${sku} ${title} — الهندسة الميكانيكية وتخصيص الشعار ودليل التغليف`,
@@ -1234,19 +1282,19 @@ const EDITORIAL_COPY: Record<SupportedLanguage, EditorialCopy> = {
     h3Mech: '1. معايرة الآلية الداخلية اللمسية والصوتية',
     pMech: (mag, acc, colors) =>
       `يدمج النظام الداخلي ${mag} مع ${acc}. جميع حجرات مغناطيس النيوديميوم مؤمنة ميكانيكياً ومثبتة بإيبوكسي هيكلي فائق القوة (>22 ميجاباسكال) لضمان الامتثال لمعيار US CPSC 16 CFR 1262 و EU RoHS/REACH. التشطيبات القياسية: ${colors}.`,
-    h3Logo: '2. خيارات حفر وطباعة الشعار والعلامة الخاصة (0$ رسوم قالب)',
+    h3Logo: '2. خيارات حفر الشعار والعلامة الخاصة (0$ رسوم قالب)',
     logoBullets: [
       '<strong>حفر بالليزر الليفي 50W MOPA (أحادي اللون):</strong> الحد الأدنى 100 قطعة · 0.00$ رسوم إعداد · +0.15 إلى 0.30$/قطعة. وسم دائم في المعدن لا يبهت أبداً.',
-      '<strong>الطباعة الحريرية Silk-Screen (شعار ملون):</strong> الحد الأدنى 100 قطعة · 35$ رسوم شاشة لكل لون (لون واحد = 35$، لونان = 70$، 3 ألوان = 105$) · +0.10$ لكل لون لكل قطعة.',
-      '<strong>حفر ليزر عميق + تعبئة الألوان (مينا غائرة):</strong> الحد الأدنى 200–300 قطعة · 0.00$ إعداد ليزر · +0.35 إلى 0.60$/قطعة. حفر بعمق محدد بالليزر ثم تعبئة التجويف بطلاء ملون متين.',
-      '<strong>عينة ما قبل الإنتاج بشعار مخصص:</strong> رسوم العينة 80–150 دولاراً أمريكياً · مدة التصنيع 10–15 يوماً (مع نموذج رقمي مجاني خلال 12 ساعة).'
+      '<strong>لماذا لا ننصح بالطباعة الحريرية أو UV على المعدن الأملس:</strong> الأسطح المعدنية المصقولة خاملة كيميائياً مما يجعل الحبر السطحي يتقشر مع الاحتكاك.',
+      '<strong>حفر ليزر عميق + تعبئة الألوان (موصى به للشعارات الملونة):</strong> الحد الأدنى 100–200 قطعة · 0.00$ إعداد ليزر · +0.35 إلى 0.60$/قطعة. حفر غائر بالليزر مع تعبئة مينا ملونة دائمة.',
+      '<strong>عينة ما قبل الإنتاج بشعار مخصص:</strong> عينة ليزر = 50$ USD · ليزر عميق + لون = 80–150$ USD (10–15 يوماً مع نموذج رقمي مجاني خلال 12 ساعة).'
     ],
     h3Table: (sku) => `3. جدول تكاليف تخصيص الشعار — ${sku}`,
-    thOption: 'خيار التخصيص', thMoq: 'الحد الأدنى (MOQ)', thSetup: 'رسوم الإعداد / الشاشة', thUnitAdd: 'التكلفة الإضافية للقطعة', thLead: 'مدة الإنتاج',
+    thOption: 'خيار التخصيص', thMoq: 'الحد الأدنى (MOQ)', thSetup: 'الإعداد / العينة', thUnitAdd: 'التكلفة الإضافية للقطعة', thLead: 'مدة الإنتاج',
     r1: ['مخزون بدون شعار (قالب جاهز)', '50 قطعة', '$0.00', 'مشمول في السعر الأساسي', '3–5 أيام عمل'],
-    r2: ['حفر ليزر فايبر 50W', '100 قطعة', '$0.00', '+$0.15 – $0.30 / قطعة', '10–15 يوم عمل'],
-    r3: ['طباعة حريرية متعددة الألوان', '100 قطعة', '$35 / لون', '+$0.10 / لون / قطعة', '10–15 يوم عمل'],
-    r4: ['حفر ليزر عميق + تعبئة لون', '200–300 قطعة', '$0.00', '+$0.35 – $0.60 / قطعة', '12–15 يوم عمل']
+    r2: ['حفر ليزر فايبر 50W', '100 قطعة', '$0.00 (عينة $50)', '+$0.15 – $0.30 / قطعة', '10–15 يوم عمل'],
+    r3: ['حفر ليزر عميق + تعبئة لون', '100–200 قطعة', '$0.00 (عينة $80–$150)', '+$0.35 – $0.60 / قطعة', '10–15 يوم عمل'],
+    r4: ['حقيبة EVA سوداء + شعار', '100 قطعة', '$0.00', '+$0.75 / قطعة', '10–15 يوم عمل']
   }
 };
 
@@ -1432,14 +1480,14 @@ function buildLocalizedEditorialHtml(
   const b500 = parseFloat(String(p.tier500 || '3.80')) || 3.8;
   const blankEst = `$${b500.toFixed(2)} – $${b50.toFixed(2)}`;
   const laserEst = `$${(b200 + 0.15).toFixed(2)} – $${(b50 + 0.30).toFixed(2)}`;
-  const silkEst = `$${(b200 + 0.10).toFixed(2)} – $${(b50 + 0.30).toFixed(2)}`;
-  const deepEst = `$${(b500 + 0.35).toFixed(2)} – $${(b200 + 0.60).toFixed(2)}`;
+  const deepEst = `$${(b200 + 0.35).toFixed(2)} – $${(b50 + 0.60).toFixed(2)}`;
+  const evaEst = `$${(b200 + 0.75).toFixed(2)} – $${(b50 + 0.75).toFixed(2)}`;
 
   const dynamicRows = [
     [ `${c.r1[0]} (${p.skuDisplay} #${p.rowId})`, c.r1[1], c.r1[2], `${c.r1[3]} (${blankEst})`, c.r1[4] ],
     [ `${c.r2[0]} (${p.size})`, c.r2[1], c.r2[2], `${c.r2[3]} → ${laserEst}`, c.r2[4] ],
-    [ `${c.r3[0]} (${locMat})`, c.r3[1], c.r3[2], `${c.r3[3]} → ${silkEst}`, c.r3[4] ],
-    [ `${c.r4[0]} (${p.weight})`, c.r4[1], c.r4[2], `${c.r4[3]} → ${deepEst}`, c.r4[4] ]
+    [ `${c.r3[0]} (${locMat})`, c.r3[1], c.r3[2], `${c.r3[3]} → ${deepEst}`, c.r3[4] ],
+    [ `${c.r4[0]} (${p.weight})`, c.r4[1], c.r4[2], `${c.r4[3]} → ${evaEst}`, c.r4[4] ]
   ];
 
   return `
@@ -1499,11 +1547,11 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
   de: (sku, title, rowId, mat, size, weight, mag, acc, colors, t50, t200, t500) => [
     {
       question: `Wie hoch sind Mindestbestellmenge (MOQ) und Werkzeugkosten für ${sku} ${title}?`,
-      answer: `Da ${sku} unsere fertige Serienform (#${rowId}) nutzt, beträgt die Werkzeug- und Formgebühr $0,00. Die Mindestbestellmenge (MOQ) liegt bei 50 Stk. für Blanko-Lagerware und 100 Stk. für Aufträge mit individueller Lasergravur oder Siebdruck-Logo.`
+      answer: `Da ${sku} unsere fertige Serienform (#${rowId}) nutzt, beträgt die Werkzeug- und Formgebühr $0,00. Die Mindestbestellmenge (MOQ) liegt bei 50 Stk. für Blanko-Lagerware und 100 Stk. für Aufträge mit 50W-Faserlasergravur oder tiefer Laser-Farbfüllung.`
     },
     {
       question: `Können wir unser eigenes Marken- oder Firmenlogo auf ${sku} anbringen?`,
-      answer: `Ja. Wir unterstützen 50W-Faserlasergravur (+$0,15–$0,30/Stk., $0 Einrichtung), mehrfarbigen Siebdruck ($0 Setup Siebgebühr + $0,10/Farbe/Stk., ab 100 Stk.) sowie tiefe Lasergravur mit Farbauslegung (+$0,35–$0,60/Stk., ab 200–300 Stk.).`
+      answer: `Ja. Da glatte Metalloberflächen chemisch inert sind und Oberflächentinte (Siebdruck/UV) bei Reibung abblättert, empfehlen wir zwei dauerhafte Verfahren für ${sku}: (1) 50W-Faserlasergravur (+$0,15–$0,30/Stk., $0 Einrichtung, Muster $50 USD) und (2) tiefe Lasergravur mit Emaille-Farbfüllung (+$0,35–$0,60/Stk., Muster $80–$150 USD).`
     },
     {
       question: `Wie sind die Magnete im Modell ${sku} gemäß US CPSC 16 CFR 1262 gesichert?`,
@@ -1523,7 +1571,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `Können wir vor der Großbestellung ein Muster von ${sku} mit eigenem Logo bestellen?`,
-      answer: `Ja. Die Mustergebühr für ein Vorabmuster mit individuellem Logo beträgt $80–$150 USD (je nach Laser-, Siebdruck- oder Farbauslegungs-Verfahren), und die Musterbauzeit liegt bei 10–15 Tagen.`
+      answer: `Ja. Wir erstellen vorab einen kostenlosen digitalen 3D-Korrekturabzug binnen 12 Std. Physische Logo-Vorabmuster von ${sku} kosten $50 USD für 50W-Faserlasergravur (5–7 Tage) bzw. $80–$150 USD für tiefe Lasergravur mit Farbfüllung (10–15 Tage).`
     },
     {
       question: `Welche Einzelhandels- und Amazon-FBA-Verpackungen passen für ${sku} (${size})?`,
@@ -1531,7 +1579,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `Wie lange dauern Serienproduktion und DDP-Versand für ${sku}?`,
-      answer: `Logo-Muster dauern 10–15 Tage ($80–$150 USD). Blanko-Bestellungen (ab 50 Stk.) werden in 3–5 Werktagen versandt, Logo-Aufträge (ab 100 Stk.) in 10–15 Werktagen. DDP-Luftfracht Express dauert 5–7 Tage, DDP-Seefracht 20–28 Tage.`
+      answer: `Blanko-Bestellungen (ab 50 Stk.) werden in 3–5 Werktagen versandt, Logo-Aufträge (ab 100 Stk.) in 10–15 Werktagen. DDP-Luftfracht Express dauert 5–7 Tage, DDP-Seefracht 20–28 Tage.`
     },
     {
       question: `Welche Qualitätskontrolle (QC) und Ersatzteile sind bei Großbestellungen von ${sku} enthalten?`,
@@ -1541,11 +1589,11 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
   fr: (sku, title, rowId, mat, size, weight, mag, acc, colors, t50, t200, t500) => [
     {
       question: `Quels sont le MOQ et les frais de moule pour ${sku} ${title} ?`,
-      answer: `Le modèle ${sku} utilisant notre moule de série prêt (#${rowId}), les frais de moule sont de 0,00 $. Le MOQ est de 50 pcs en stock neutre et de 100 pcs avec marquage logo par gravure laser ou sérigraphie.`
+      answer: `Le modèle ${sku} utilisant notre moule de série prêt (#${rowId}), les frais de moule sont de 0,00 $. Le MOQ est de 50 pcs en stock neutre et de 100 pcs avec marquage logo par gravure laser fibre 50W ou gravure profonde émaillée.`
     },
     {
       question: `Pouvons-nous personnaliser notre logo sur le modèle ${sku} ?`,
-      answer: `Oui. Nous proposons la gravure laser fibre 50W (+0,15–0,30 $/pc, 0 $ de frais fixes), la sérigraphie couleur (0 $ Setup d’écran + 0,10 $/couleur/pc, MOQ 100 pcs) et la gravure laser profonde avec remplissage émail (+0,35–0,60 $/pc, MOQ 200–300 pcs).`
+      answer: `Oui. Le métal lisse étant chimiquement inerte (l’encre de sérigraphie/UV s’écaille au frottement), nous recommandons deux procédés permanents : (1) Gravure laser fibre 50W (+0,15–0,30 $/pc, 0 $ de frais fixes, échantillon 50 $) et (2) Gravure laser profonde avec remplissage émail (+0,35–0,60 $/pc, échantillon 80–150 $).`
     },
     {
       question: `Comment les aimants sont-ils sécurisés dans ${sku} pour la conformité US CPSC 16 CFR 1262 ?`,
@@ -1565,7 +1613,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `Pouvons-nous commander un échantillon personnalisé de ${sku} avant une commande groupée ?`,
-      answer: `Oui. Les frais d’échantillon pré-série avec logo personnalisé sont de 80 $ à 150 $ USD selon le procédé choisi, avec un délai de fabrication de 10 à 15 jours.`
+      answer: `Oui. L’échantillon laser fibre 50W coûte 50 $ USD (5–7 jours) et l’échantillon laser profond + couleur coûte 80 $ à 150 $ USD (10–15 jours, maquette numérique gratuite sous 12h).`
     },
     {
       question: `Quelles options d’emballage retail et Amazon FBA conviennent à ${sku} (${size}) ?`,
@@ -1573,7 +1621,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `Quels sont les délais de production et de livraison DDP pour ${sku} ?`,
-      answer: `L’échantillonnage avec logo prend 10 à 15 jours (80–150 $ USD). En série, le stock neutre (50+ pcs) part sous 3 à 5 jours ouvrés et les commandes avec logo (100+ pcs) sous 10 à 15 jours ouvrés via expédition DDP Air (5–7 jours) ou DDP Mer (20–28 jours).`
+      answer: `En série, le stock neutre (50+ pcs) part sous 3 à 5 jours ouvrés et les commandes avec logo (100+ pcs) sous 10 à 15 jours ouvrés via expédition DDP Air (5–7 jours) ou DDP Mer (20–28 jours).`
     },
     {
       question: `Quel contrôle qualité (QC) et quelles pièces de rechange sont inclus avec ${sku} ?`,
@@ -1583,11 +1631,11 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
   es: (sku, title, rowId, mat, size, weight, mag, acc, colors, t50, t200, t500) => [
     {
       question: `¿Cuál es el pedido mínimo (MOQ) y el costo de molde para ${sku} ${title}?`,
-      answer: `Dado que ${sku} utiliza nuestro molde de producción listo (#${rowId}), el costo de molde es $0.00. El MOQ es de 50 uds. sin marca y 100 uds. con logotipo personalizado por láser o serigrafía.`
+      answer: `Dado que ${sku} utiliza nuestro molde de producción listo (#${rowId}), el costo de molde es $0.00. El MOQ es de 50 uds. sin marca y 100 uds. con logotipo por láser de fibra 50W o láser profundo con color.`
     },
     {
       question: `¿Podemos personalizar nuestro logotipo corporativo en ${sku}?`,
-      answer: `Sí. Ofrecemos grabado láser de fibra 50W (+$0.15–$0.30/ud., $0 setup), serigrafía en color ($0 Setup de pantalla + $0.10/color/ud., MOQ 100 uds.) y grabado láser profundo con relleno de color (+$0.35–$0.60/ud., MOQ 200–300 uds.).`
+      answer: `Sí. Como el metal liso es químicamente inerte (la serigrafía/tinta UV se desprende con el roce), recomendamos dos métodos permanentes: (1) Grabado láser de fibra 50W (+$0.15–$0.30/ud., $0 setup, muestra $50) y (2) Grabado láser profundo con relleno de color (+$0.35–$0.60/ud., muestra $80–$150).`
     },
     {
       question: `¿Cómo se aseguran los imanes en ${sku} para cumplir con US CPSC 16 CFR 1262?`,
@@ -1607,7 +1655,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `¿Podemos pedir una muestra física de ${sku} con logotipo antes del pedido al por mayor?`,
-      answer: `Sí. La tarifa de muestra con logotipo personalizado es de $80–$150 USD y el plazo de elaboración de la muestra es de 10–15 días.`
+      answer: `Sí. La muestra láser de fibra cuesta $50 USD (5–7 días) y la muestra de láser profundo con color es de $80–$150 USD (10–15 días, con boceto digital gratuito en 12h).`
     },
     {
       question: `¿Qué opciones de empaque minorista y Amazon FBA se adaptan a ${sku} (${size})?`,
@@ -1615,7 +1663,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `¿Cuál es el plazo de producción y envío DDP para ${sku}?`,
-      answer: `Las muestras con logo tardan 10–15 días ($80–$150 USD). En producción masiva, el stock en blanco (50+ uds.) se envía en 3–5 días hábiles y los pedidos con logo (100+ uds.) en 10–15 días hábiles con envío DDP Aéreo (5–7 días) o Marítimo (20–28 días).`
+      answer: `En producción masiva, el stock en blanco (50+ uds.) se envía en 3–5 días hábiles y los pedidos con logo (100+ uds.) en 10–15 días hábiles con envío DDP Aéreo (5–7 días) o Marítimo (20–28 días).`
     },
     {
       question: `¿Qué control de calidad y repuestos se incluyen con los pedidos de ${sku}?`,
@@ -1625,11 +1673,11 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
   ja: (sku, title, rowId, mat, size, weight, mag, acc, colors, t50, t200, t500) => [
     {
       question: `${sku} ${title} の最小注文数量（MOQ）と金型費用はいくらですか？`,
-      answer: `${sku} は当社の既存量産金型（#${rowId}）を使用するため、初期金型費用は $0.00 です。最小注文数量（MOQ）は、ロゴなし無地在庫が 50個〜、カスタムロゴ名入れが 100個〜となります。`
+      answer: `${sku} は当社の既存量産金型（#${rowId}）を使用するため、初期金型費用は $0.00 です。最小注文数量（MOQ）は、ロゴなし無地在庫が 50個〜、カスタムレーザー刻印・深彫り色入れが 100個〜となります。`
     },
     {
       question: `${sku} に自社ブランドや企業ロゴの名入れは可能ですか？`,
-      answer: `はい。50Wファイバーレーザー刻印（+$0.15〜$0.30/個、初期費$0）、シルクスクリーン多色印刷（版代 1色につき$35＋印刷単価 1色につき+$0.10/個、MOQ 100個）、および深彫りレーザー＋色入れ加工（+$0.35〜$0.60/個、MOQ 200〜300個）に対応しています。`
+      answer: `はい。平滑な金属表面はインク密着性が低くシルク印刷やUV印刷では剥がれやすいため、当工場では2つの高耐久方式を推奨しています：(1) 50Wファイバーレーザー刻印（+$0.15〜$0.30/個、初期費$0、試作$50 USD）、(2) 深彫りレーザー＋色入れ加工（+$0.35〜$0.60/個、試作$80〜$150 USD）。`
     },
     {
       question: `${sku} の内部磁石は米国 CPSC 16 CFR 1262 安全基準にどのように適合していますか？`,
@@ -1649,7 +1697,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `量産発注前に ${sku} のカスタムロゴ試作サンプルを注文できますか？`,
-      answer: `はい。量産前に自社ロゴ入りの試作サンプルを製作可能です。カスタムロゴサンプル費用は $80〜$150 USD（レーザー・シルク印刷・深彫り色入れ等の仕様による）、サンプル製作期間は 10〜15日です。`
+      answer: `はい。12時間以内の無料デジタル配置校正後、50Wファイバーレーザー試作サンプルは $50 USD（5〜7日）、深彫りレーザー＋色入れ試作サンプルは $80〜$150 USD（10〜15日）で製作可能です。`
     },
     {
       question: `${sku}（${size}）に対応する小売用・Amazon FBA用パッケージはありますか？`,
@@ -1657,7 +1705,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `${sku} の量産納期とDDP（関税込）配送スケジュールはどのくらいですか？`,
-      answer: `ロゴ試作サンプルは 10〜15日（$80〜$150 USD）。量産は無地在庫（50個〜）が 3〜5営業日、カスタムロゴ注文（100個〜）が 10〜15営業日で出荷されます。福州工業区ハブよりDDP航空便（5〜7日）またはDDP船便（20〜28日）でお届けします。`
+      answer: `量産は無地在庫（50個〜）が 3〜5営業日、カスタムロゴ注文（100個〜）が 10〜15営業日で出荷されます。福州工業区ハブよりDDP航空便（5〜7日）またはDDP船便（20〜28日）でお届けします。`
     },
     {
       question: `${sku} の大口注文にはどのような品質検査（QC）と予備パーツが含まれますか？`,
@@ -1667,11 +1715,11 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
   ko: (sku, title, rowId, mat, size, weight, mag, acc, colors, t50, t200, t500) => [
     {
       question: `${sku} ${title} 모델의 최소 주문 수량(MOQ)과 금형 비용은 얼마인가요?`,
-      answer: `${sku} 모델은 당사의 기성 양산 금형(#${rowId})을 사용하므로 금형 비용은 $0.00입니다. 도매 MOQ는 무지 기본 재고 50개, 맞춤 로고 각인/인쇄 주문 시 100개입니다.`
+      answer: `${sku} 모델은 당사의 기성 양산 금형(#${rowId})을 사용하므로 금형 비용은 $0.00입니다. 도매 MOQ는 무지 기본 재고 50개, 50W 파이버 레이저 각인 및 심층 컬러 필링 주문 시 100개입니다.`
     },
     {
       question: `${sku} 제품에 회사 또는 브랜드 로고를 커스텀할 수 있나요?`,
-      answer: `네. 50W 파이버 레이저 각인(+$0.15~$0.30/개, 초기 세팅비 $0), 실크스크린 컬러 인쇄(색상당 판비 $35 + 개당 색상당 +$0.10, MOQ 100개), 심층 레이저 음각 후 컬러 필링(+$0.35~$0.60/개, MOQ 200~300개)을 모두 지원합니다.`
+      answer: `네. 매끄러운 금속 표면 특성상 실크스크린이나 UV 잉크는 쉽게 벗겨지므로, 당사 공장에서는 2가지 영구 각인 방식을 권장합니다: (1) 50W 파이버 레이저 각인(+$0.15~$0.30/개, 초기 세팅비 $0, 샘플 $50 USD), (2) 심층 레이저 음각 후 컬러 필링(+$0.35~$0.60/개, 샘플 $80~$150 USD).`
     },
     {
       question: `${sku} 내부 자석은 미국 CPSC 16 CFR 1262 안전 규정을 어떻게 충족하나요?`,
@@ -1691,7 +1739,7 @@ const FAQ_BUILDERS: Partial<Record<SupportedLanguage, FaqBuilder>> = {
     },
     {
       question: `대량 발주 전에 ${sku} 맞춤 로고 샘플을 먼저 받아볼 수 있나요?`,
-      answer: `네. 본 생산 전에 맞춤 로고 샘플을 제작할 수 있습니다. 커스텀 로고 샘플 비용은 $80–$150 USD이며, 샘플 제작 기간은 10–15일입니다.`
+      answer: `네. 12시간 이내 무료 디지털 시안 확인 후, 50W 파이버 레이저 샘플은 $50 USD(5~7일), 심층 레이저+컬러 필링 샘플은 $80–$150 USD(10~15일)로 제작 가능합니다.`
     },
     {
       question: `${sku}(${size})에 적합한 소매용 및 아마존 FBA 패키징 옵션은 무엇인가요?`,

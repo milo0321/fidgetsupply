@@ -187,68 +187,68 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Warum unser Werk von Siebdruck & UV-Druck auf glattem Metall abrät (mangelnde Farbhaftung führt zum Abblättern) — und stattdessen 50W-MOPA-Faserlasergravur (+$0,15–$0,30/Stk., Muster $50) oder tiefe Lasergravur mit Emaille-Farbfüllung (+$0,35–$0,60/Stk., Muster $80–$150) empfiehlt.'
     },
     fr: {
-      title: 'Gravure Laser Fibre 50W vs Sérigraphie Couleur vs Gravure Laser Profonde + Émail sur Fidgets Métal',
-      summary: 'Comparatif technique entre gravure laser fibre 50W (+0,15–0,30 $/pc), sérigraphie couleur (35 $/couleur + 0,10 $/couleur/pc) et gravure laser profonde avec remplissage couleur (+0,35–0,60 $/pc).'
+      title: 'Gravure Laser Fibre 50W & Laser Profond + Émail vs Sérigraphie / UV sur Fidgets Métal',
+      summary: 'Pourquoi notre usine déconseille la sérigraphie et l’impression UV sur métal lisse (l’encre s’écaille au frottement) — et recommande la gravure laser fibre 50W (+0,15–0,30 $/pc, éch. 50 $) ou la gravure laser profonde + couleur (+0,35–0,60 $/pc, éch. 80–150 $).'
     },
     nl: {
-      title: '50W Fiberlasergravure vs. Zeefdruk vs. Diepe Lasergravure met Kleurvulling op Metalen Fidgets',
-      summary: 'Technische vergelijking van monochrome fiberlasergravure (+$0,15–$0,30/st.), meerkleuren zeefdruk ($35/kleur + $0,10/kleur/st.) en diepe lasergravure met emaille kleurvulling (+$0,35–$0,60/st.).'
+      title: '50W Fiberlasergravure & Diepe Laser Kleurvulling vs. Zeefdruk / UV op Metalen Fidgets',
+      summary: 'Waarom onze fabriek zeefdruk en UV-print op glad metaal afraadt (inkt laat los door wrijving) — en 50W fiberlasergravure (+$0,15–$0,30/st., monster $50) of diepe lasergravure met emaille kleurvulling (+$0,35–$0,60/st., monster $80–$150) adviseert.'
     },
     es: {
-      title: 'Grabado Láser de Fibra 50W vs. Serigrafía en Color vs. Láser Profundo con Relleno de Color',
-      summary: 'Comparativa técnica entre grabado láser de fibra 50W (+$0.15–$0.30/ud.), serigrafía multicolor ($35/color + $0.10/color/ud.) y grabado láser profundo con esmalte (+$0.35–$0.60/ud.).'
+      title: 'Grabado Láser de Fibra 50W y Láser Profundo + Color vs. Serigrafía / UV en Fidgets Metálicos',
+      summary: 'Por qué nuestra fábrica desaconseja la serigrafía e impresión UV sobre metal liso (la tinta se desprende con el roce) y recomienda el grabado láser de fibra 50W (+$0.15–$0.30/ud., muestra $50) o el láser profundo con esmalte (+$0.35–$0.60/ud., muestra $80–$150).'
     },
     it: {
-      title: 'Incisione Laser Fibra 50W vs. Serigrafia a Colori vs. Incisione Laser Profonda con Smalto',
-      summary: 'Confronto tecnico tra incisione laser fibra 50W (+$0,15–$0,30/pz.), serigrafia multicolore ($35/colore + $0,10/colore/pz.) e incisione profonda con riempimento colore (+$0,35–$0,60/pz.).'
+      title: 'Incisione Laser Fibra 50W e Laser Profondo + Smalto vs. Serigrafia / UV su Fidget in Metallo',
+      summary: 'Perché la nostra fabbrica sconsiglia serigrafia e stampa UV su metallo liscio (l’inchiostro si sfoglia con l’uso) e raccomanda l’incisione laser fibra 50W (+$0,15–$0,30/pz., campione $50) o l’incisione profonda con smalto (+$0,35–$0,60/pz., campione $80–$150).'
     },
     pt: {
-      title: 'Gravação a Laser de Fibra 50W vs. Serigrafia a Cores vs. Laser Profundo com Preenchimento de Cor',
-      summary: 'Comparação técnica entre gravação a laser de fibra 50W (+$0,15–$0,30/un.), serigrafia multicor ($35/cor + $0,10/cor/un.) e laser profundo com esmalte (+$0,35–$0,60/un.).'
+      title: 'Gravação a Laser de Fibra 50W e Laser Profundo + Cor vs. Serigrafia / UV em Fidgets de Metal',
+      summary: 'Por que a nossa fábrica não recomenda serigrafia ou impressão UV em metal liso (a tinta descasca com a fricção) e recomenda gravação a laser de fibra 50W (+$0,15–$0,30/un., amostra $50) ou laser profundo com esmalte (+$0,35–$0,60/un., amostra $80–$150).'
     },
     sv: {
-      title: '50W Fiberlasergravyr vs. Screentryck vs. Djup Lasergravyr med Färgfyllning på Metallfidgets',
-      summary: 'Teknisk jämförelse av monokrom fiberlasergravyr (+$0,15–$0,30/st), flerfärgs screentryck ($35/färg + $0,10/färg/st) och djup lasergravyr med emaljfyllning (+$0,35–$0,60/st).'
+      title: '50W Fiberlasergravyr & Djup Laser Färgfyllning vs. Screentryck / UV på Metallfidgets',
+      summary: 'Varför vår fabrik avråder från screentryck och UV-tryck på slät metall (färgen flagnar vid friktion) och rekommenderar 50W fiberlasergravyr (+$0,15–$0,30/st, prov $50) eller djup lasergravyr med emaljfyllning (+$0,35–$0,60/st, prov $80–$150).'
     },
     da: {
-      title: 'Fiberlasergravering (50W Fiberlaser gravering) vs. Serigrafi vs. Dyb Lasergravering med Farvefyld på Metalfidgets',
-      summary: 'Teknisk sammenligning af 50W fiberlasergravering (fiberlaser gravering, +$0,15–$0,30/stk.), flerfarvet serigrafi ($35/farve + $0,10/farve/stk.) og dyb lasergravering med emaljefyld (+$0,35–$0,60/stk.).'
+      title: 'Fiberlasergravering (50W Fiberlaser gravering) & Dyb Laser Farvefyld vs. Serigrafi / UV på Metalfidgets',
+      summary: 'Hvorfor vores fabrik fraråder serigrafi og UV-tryk på glat metal (blækket skaller af ved friktion) og anbefaler 50W fiberlasergravering (fiberlaser gravering, +$0,15–$0,30/stk., prøve $50) eller dyb lasergravering med emaljefyld (+$0,35–$0,60/stk., prøve $80–$150).'
     },
     no: {
-      title: 'Fiberlaser gravering (50W Fiberlasergravering) vs. Silketrykk vs. Dyp Lasergravering med Fargefyll på Metallfidgets',
-      summary: 'Teknisk sammenligning av 50W fiberlaser gravering (monokrom fiberlasergravering, +$0,15–$0,30/stk.), flerfarget silketrykk ($35/farge + $0,10/farge/stk.) og dyp lasergravering med emaljefyll (+$0,35–$0,60/stk.).'
+      title: 'Fiberlaser gravering (50W Fiberlasergravering) & Dyp Laser Fargefyll vs. Silketrykk / UV på Metallfidgets',
+      summary: 'Hvorfor vår fabrikk fraråder silketrykk og UV-trykk på glatt metall (blekket flasser av ved bruk) og anbefaler 50W fiberlaser gravering (+$0,15–$0,30/stk., prøve $50) eller dyp lasergravering med emaljefyll (+$0,35–$0,60/stk., prøve $80–$150).'
     },
     fi: {
-      title: '50W Kuitulaserkaiverrus vs. Silkkipaino vs. Syvä Laserkaiverrus Väritäytöllä Metallifidgeteissä',
-      summary: 'Tekninen vertailu: yksivärinen kuitulaserkaiverrus (+$0,15–$0,30/kpl), monivärinen silkkipaino ($35/väri + $0,10/väri/kpl) ja syvä laserkaiverrus emalitäytöllä (+$0,35–$0,60/kpl).'
+      title: '50W Kuitulaserkaiverrus & Syvä Laserkaiverrus Väritäytöllä vs. Silkkipaino / UV Metallifidgeteissä',
+      summary: 'Miksi tehtaamme ei suosittele silkkipainoa tai UV-painoa sileälle metallille (muste irtoaa kitkasta) vaan suosittelee 50W kuitulaserkaiverrusta (+$0,15–$0,30/kpl, malli $50) tai syvälaserkaiverrusta emalitäytöllä (+$0,35–$0,60/kpl, malli $80–$150).'
     },
     pl: {
-      title: 'Grawerowanie Laserem Światłowodowym 50W vs. Sitodruk vs. Głęboki Grawer z Wypełnieniem Kolorem',
-      summary: 'Porównanie techniczne: monochromatyczny grawer laserowy (+$0,15–$0,30/szt.), wielokolorowy sitodruk ($35/kolor + $0,10/kolor/szt.) oraz głęboki grawer z emalią (+$0,35–$0,60/szt.).'
+      title: 'Grawerowanie Laserem Światłowodowym 50W i Głęboki Laser + Kolor vs. Sitodruk / UV na Fidgetach',
+      summary: 'Dlaczego nasza fabryka odradza sitodruk i druk UV na gładkim metalu (farba ściera się od tarcia) i zaleca grawer laserowy 50W (+$0,15–$0,30/szt., próbka $50) lub głęboki grawer z emalią (+$0,35–$0,60/szt., próbka $80–$150).'
     },
     cs: {
-      title: '50W Vláknové Laserové Gravírování vs. Sítotisk vs. Hluboký Laser s Barevnou Výplní',
-      summary: 'Technické srovnání jednobarevného laserového gravírování (+$0,15–$0,30/ks), vícebarevného sítotisku ($35/barva + $0,10/barva/ks) a hlubokého laseru s barevným smaltem (+$0,35–$0,60/ks).'
+      title: '50W Vláknové Laserové Gravírování a Hluboký Laser s Barevnou Výplní vs. Sítotisk / UV',
+      summary: 'Proč naše továrna nedoporučuje sítotisk a UV tisk na hladký kov (barva se odlupuje třením) a doporučuje 50W laserové gravírování (+$0,15–$0,30/ks, vzorek $50) nebo hluboký laser s barevným smaltem (+$0,35–$0,60/ks, vzorek $80–$150).'
     },
     ru: {
-      title: 'Волоконная Лазерная Гравировка 50 Вт vs. Шелкография vs. Глубокая Гравировка с Эмалью',
-      summary: 'Инженерное сравнение монохромной лазерной гравировки (+$0.15–$0.30/шт.), многоцветной шелкографии ($35/цвет + $0.10/цвет/шт.) и глубокой гравировки с заливкой цветом (+$0.35–$0.60/шт.).'
+      title: 'Волоконная Лазерная Гравировка 50 Вт и Глубокая Гравировка с Эмалью vs. Шелкография / УФ',
+      summary: 'Почему наш завод не рекомендует шелкографию и УФ-печать на гладком металле (краска стирается от трения) и рекомендует лазерную гравировку 50W (+$0.15–$0.30/шт., образец $50) или глубокую гравировку с заливкой цветом (+$0.35–$0.60/шт., образец $80–$150).'
     },
     ja: {
-      title: '金属フィジェットのロゴ名入れ比較：50Wファイバーレーザー刻印 vs シルクスクリーン印刷 vs 深彫りレーザー色入れ',
-      summary: '単色レーザー刻印（+$0.15〜$0.30/個）、シルクスクリーン多色印刷（版代$35/色＋単価+$0.10/色）、深彫りレーザー＋色入れ加工（+$0.35〜$0.60/個、MOQ 200〜300個）の耐久性とコストを徹底比較。'
+      title: '金属フィジェットのロゴ名入れ比較：50Wファイバーレーザー刻印＆深彫り色入れ vs シルク印刷・UV印刷',
+      summary: '平滑な金属表面でシルク印刷・UV印刷が剥がれやすい理由と、当工場が推奨する50Wファイバーレーザー刻印（+$0.15〜$0.30/個、試作$50）および深彫りレーザー＋色入れ加工（+$0.35〜$0.60/個、試作$80〜$150）の耐久性とコストを徹底解説。'
     },
     ko: {
-      title: '금속 피젯 로고 각인 비교: 50W 파이버 레이저 vs 실크스크린 컬러 인쇄 vs 심층 레이저 컬러 필링',
-      summary: '단색 파이버 레이저 각인(+$0.15~$0.30/개), 다색 실크스크린 인쇄(판비 $35/색상 + 단가 +$0.10/색상), 심층 레이저 음각 + 컬러 필링(+$0.35~$0.60/개, MOQ 200~300개)의 내구성과 비용 분석.'
+      title: '금속 피젯 로고 각인 비교: 50W 파이버 레이저 & 심층 컬러 필링 vs 실크스크린 / UV 인쇄',
+      summary: '매끄러운 금속 표면에서 실크스크린·UV 잉크가 벗겨지는 이유와 당사 공장이 권장하는 50W 파이버 레이저 각인(+$0.15~$0.30/개, 샘플 $50) 및 심층 레이저 음각 + 컬러 필링(+$0.35~$0.60/개, 샘플 $80~$150)의 내구성과 비용 분석.'
     },
     id: {
-      title: 'Grafir Laser Serat 50W vs. Sablon Warna vs. Grafir Laser Dalam + Isi Warna pada Fidget Logam',
-      summary: 'Perbandingan teknis grafir laser serat monokrom (+$0,15–$0,30/pc), sablon multi-warna ($35/warna + $0,10/warna/pc), dan grafir laser dalam dengan isi enamel warna (+$0,35–$0,60/pc).'
+      title: 'Grafir Laser Serat 50W & Laser Dalam + Isi Warna vs. Sablon / UV pada Fidget Logam',
+      summary: 'Mengapa pabrik kami tidak merekomendasikan sablon atau cetak UV pada logam halus (tinta mudah mengelupas) dan merekomendasikan grafir laser serat 50W (+$0,15–$0,30/pc, sampel $50) atau grafir laser dalam + enamel warna (+$0,35–$0,60/pc, sampel $80–$150).'
     },
     ar: {
-      title: 'مقارنة طرق طباعة الشعار: حفر الليزر 50 واط مقابل الطباعة الحريرية مقابل الحفر العميق الملون',
-      summary: 'مقارنة هندسية بين حفر الليزر أحادي اللون (+0.15–0.30 دولار/قطعة)، والطباعة الحريرية متعددة الألوان (35 دولارًا/لون + 0.10 دولار/لون/قطعة)، والحفر العميق بالليزر مع تعبئة اللون (+0.35–0.60 دولار/قطعة).'
+      title: 'مقارنة طرق حفر الشعار: ليزر فايبر 50 واط والحفر العميق الملون مقابل الطباعة الحريرية وUV',
+      summary: 'لماذا لا ينصح مصنعنا بالطباعة الحريرية أو UV على المعدن الأملس (تقشر الحبر بالاحتكاك)، ولماذا نوصي بحفر الليزر 50W (+0.15–0.30 دولار/قطعة، عينة 50$) أو الحفر العميق بالليزر مع تعبئة اللون (+0.35–0.60 دولار/قطعة، عينة 80–150$).'
     }
   },
   'n35-vs-n52-neodymium-magnet-haptic-feel-guide': {
