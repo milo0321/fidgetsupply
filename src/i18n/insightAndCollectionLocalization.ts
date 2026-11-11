@@ -203,8 +203,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Perché la nostra fabbrica sconsiglia serigrafia e stampa UV su metallo liscio (l’inchiostro si sfoglia con l’uso) e raccomanda l’incisione laser fibra 50W (+$0,15–$0,30/pz., campione $50) o l’incisione profonda con smalto (+$0,35–$0,60/pz., campione $80–$150).'
     },
     pt: {
-      title: 'Gravação a Laser de Fibra 50W e Laser Profundo + Cor vs. Serigrafia / UV em Fidgets de Metal',
-      summary: 'Por que a nossa fábrica não recomenda serigrafia ou impressão UV em metal liso (a tinta descasca com a fricção) e recomenda gravação a laser de fibra 50W (+$0,15–$0,30/un., amostra $50) ou laser profundo com esmalte (+$0,35–$0,60/un., amostra $80–$150).'
+      title: 'Benefícios da Máquina Laser de Fibra 50W (Fiber ZLF 50W) & Laser Profundo + Cor vs. Serigrafia / UV',
+      summary: 'Benefícios da máquina laser de fibra 50W (Fiber ZLF-50W, +$0,15–$0,30/un., amostra $50) e laser profundo + esmalte (+$0,35–$0,60/un., amostra $80–$150) vs. serigrafia ou impressão UV que descasca em metal liso.'
     },
     sv: {
       title: '50W Fiberlasergravyr & Djup Laser Färgfyllning vs. Screentryck / UV på Metallfidgets',
@@ -253,8 +253,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
   },
   'n35-vs-n52-neodymium-magnet-haptic-feel-guide': {
     en: {
-      title: 'N35 vs. N45 vs. N52 Neodymium Magnets in Metal Fidget Sliders: Pull Force & Haptic Calibration',
-      summary: 'Why mechanical track sliders (FS-002, FS-048) use N35–N40 magnets while PTFE free-floating unlimited sliders (FS-125, FS-075) require high-flux N50–N52 magnets.'
+      title: 'N35 vs. N52 Neodymium Magnets (N35 / N45 / N52) in Metal Fidget Sliders: Pull Force & Haptic Guide',
+      summary: 'N35 vs. N52 magnet comparison: why mechanical track sliders (FS-002, FS-048) use N35–N40 magnets while PTFE free-floating sliders (FS-125, FS-075) require high-flux N50–N52 magnets.'
     },
     de: {
       title: 'N35 vs. N52 Neodym-Magnete (N35 / N45 / N52 Vergleich) in Metall-Fidget-Slidern: Zugkraft & Haptik',
@@ -277,8 +277,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Perché gli slider su binario meccanico (FS-002, FS-048) usano magneti N35–N40 mentre gli slider liberi in PTFE (FS-125, FS-075) richiedono magneti ad alto flusso N50–N52.'
     },
     pt: {
-      title: 'Ímanes de Neodímio N35 vs. N45 vs. N52 em Sliders Fidget Metálicos: Força de Tração e Calibração Tátil',
-      summary: 'Por que os sliders de trilho mecânico (FS-002, FS-048) usam ímanes N35–N40 enquanto os sliders livres em PTFE (FS-125, FS-075) exigem ímanes N50–N52.'
+      title: 'Ímanes de Neodímio N35 vs. N52 (N35 / N45 / N52) em Sliders Fidget Metálicos: Força e Calibração Tátil',
+      summary: 'Comparação N35 vs. N52: por que os sliders de trilho mecânico (FS-002, FS-048) usam ímanes N35–N40 enquanto os sliders livres em PTFE (FS-125, FS-075) exigem ímanes N50–N52.'
     },
     sv: {
       title: 'N35 vs. N45 vs. N52 Neodymmagneter i Metall Fidget Sliders: Dragkraft & Taktil Kalibrering',
@@ -483,8 +483,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Warum dasselbe EDC-Design im Zinkdruckguss $1,20–$6,00 und in 5-Achsen-CNC-Edelstahl, Bernstein-PEI (Ultem) oder Zr702-Zirkonium $15–$380+ kostet.'
     },
     fr: {
-      title: 'Alliage de Zinc Moulé vs Acier Inox 304/316 CNC, PEI (Ultem) & Zirconium : Coûts & Marges',
-      summary: 'Pourquoi un même design EDC coûte 1,20–6,00 $ en alliage de zinc moulé contre 15–380 $+ en acier inoxydable CNC 5 axes, PEI ambre ou zirconium Zr702.'
+      title: 'Zinc Moulé sous Pression vs Acier Inox 304/316 CNC, PEI (Ultem) & Zirconium : Coûts & Marges',
+      summary: 'Zinc moulé sous pression vs acier inoxydable CNC 5 axes : pourquoi un même design EDC coûte 1,20–6,00 $ en alliage de zinc moulé (0 $ de moule) contre 15–380 $+ en acier inox CNC, PEI ambre ou zirconium Zr702.'
     },
     nl: {
       title: 'Spuitgiet Zinklegering vs. 5-Assig CNC 304/316 Roestvrij Staal, PEI & Zirkonium: Kostenanalyse',
@@ -503,8 +503,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Por que o mesmo design EDC custa $1,20–$6,00 em liga de zinco fundido contra $15–$380+ em aço inox CNC, PEI Âmbar (Ultem) ou Zircónio Zr702.'
     },
     sv: {
-      title: 'Pressgjuten Zinklegering vs. 5-Axlig CNC 304/316 Rostfritt Stål, PEI & Zirkonium: Kostnadsanalys',
-      summary: 'Varför samma EDC-design kostar $1,20–$6,00 i pressgjuten zinklegering jämfört med $15–$380+ i 5-axligt CNC rostfritt stål, PEI eller Zr702 zirkonium.'
+      title: 'Zinklegering (Pressgjuten Zamak #3) vs. 5-Axlig CNC 304/316 Rostfritt Stål, PEI & Zirkonium: Kostnadsanalys',
+      summary: 'Zinklegering vs. rostfritt stål: varför samma EDC-design kostar $1,20–$6,00 i pressgjuten zinklegering ($0 verktygskostnad) jämfört med $15–$380+ i 5-axligt CNC rostfritt stål, PEI eller Zr702 zirkonium.'
     },
     da: {
       title: 'Trykstøbt Zinklegering vs. 5-Akset CNC 304/316 Rustfrit Stål, PEI & Zirkonium: Omkostningsanalyse',
@@ -1477,8 +1477,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'PTFE-Liukuteippi (Teflonteippi), Si3N4-Keraamikuulat & R188-Laakerihuolto: EDC-Viritys- & Varaosaopas',
-      summary: 'Kattava tribologia- ja viritysopas: 0,13/0,18 mm PTFE-liukuteippi (liukuteippi / teflonteippi), piinitridi (Si3N4) -keraamikuulat, fosforipronssijouset ja R188-laakereiden kuivapuhdistus.'
+      title: 'Liukuteippi (PTFE-Teflonteippi), Si3N4-Keraamikuulat & R188-Laakerihuolto: EDC-Viritys- & Varaosaopas',
+      summary: 'Kattava tribologia- ja viritysopas: liukuteippi (0,13/0,18 mm PTFE-liukuteippi / teflonteippi), piinitridi (Si3N4) -keraamikuulat, fosforipronssijouset ja R188-laakereiden kuivapuhdistus.'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',
@@ -2229,8 +2229,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Hotové formy pro automobilové a pneu značky (FS-030, FS-069), kasina (FS-083) a esport týmy (FS-020, FS-040) s nulovým poplatkem za formu od MOQ 50 ks."
     },
     "ru": {
-        "title": "Автомобильные диски, VIP-подарки для казино и мерч киберспорта: Отраслевые металлические фиджеты",
-        "summary": "Готовые пресс-формы для шинных и автобрендов (FS-030, FS-069), VIP-залов казино (FS-083) и киберспорта (FS-020, FS-040) без оплаты оснастки от MOQ 50 шт."
+        "title": "Диски казино, автомобильные диски и VIP-подарки киберспорта: Отраслевые металлические фиджеты",
+        "summary": "Диски казино (рулетка FS-083), автомобильные диски (FS-030, FS-069) и кубки киберспорта (FS-020, FS-040): готовые пресс-формы ($0 за оснастку) от MOQ 50 шт. без логотипа или 100 шт. с лазерной гравировкой."
     },
     "ja": {
         "title": "自動車ホイール＆タイヤ・カジノVIP・eスポーツ公式グッズ：業界別カスタム金属フィジェット企画ガイド",
