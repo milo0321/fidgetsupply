@@ -62,13 +62,20 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
   }))
 };
+const complianceWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'US CPSC 16 CFR 1262 Magnet Fidget Safety & EU RoHS 3 / IATA PI-953 Compliance',
+  description: 'Engineering verification of US CPSC 16 CFR Part 1262 captive magnet retention (<50 kG²mm² flux index, 10x 1.5m concrete drop tests), EU RoHS 3 / REACH XRF screening, and IATA DGR PI-953 magnetic air-cargo shielding.',
+  url: `https://fidgetsupply.com${getLocalizedPath('/compliance-safety', currentLang)}`
+};
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'CPSC 16 CFR 1262 Magnet Safety & Compliance | FidgetSupply' : `${t('comp.heroTitle')} | FidgetSupply`}
-  description={currentLang === 'en' ? 'How FidgetSupply engineers captive magnet cavities, structural epoxy & thread-locked M2 fasteners to comply with US CPSC 16 CFR 1262 and EU RoHS/REACH.' : t('comp.heroDesc')}
+  title={currentLang === 'en' ? 'US CPSC 16 CFR 1262 Magnet Fidget Safety & RoHS Compliance' : `${t('comp.heroTitle')} | FidgetSupply`}
+  description={currentLang === 'en' ? 'US CPSC 16 CFR 1262 captive magnet safety (<50 kG²mm²), 3-layer screw-locked retention, EU RoHS 3 / EN71-3 & IATA PI-953 air freight compliance for 140 molds.' : t('comp.heroDesc')}
   activePage="insights"
-  jsonLd={faqSchema}
+  jsonLd={[complianceWebPageSchema, faqSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">

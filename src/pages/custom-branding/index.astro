@@ -69,13 +69,25 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
   }))
 };
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Laser Engraved Fidget Spinners & Custom Logo Metal Fidget Light Customization',
+  provider: {
+    '@type': 'Organization',
+    name: 'FidgetSupply.com',
+    url: 'https://fidgetsupply.com'
+  },
+  serviceType: '50W MOPA Fiber Laser Engraving & Deep Laser Engraving + Enamel Color Fill',
+  description: 'Ready-mold light customization ($0.00 mold fee) across 140 metal fidget sliders, spinners, haptic coins, and rings. MOQ 100 pcs for 50W fiber laser engraving (+$0.15-$0.30/pc) or deep laser color fill (+$0.35-$0.60/pc).'
+};
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Custom Logo Metal Fidgets: Laser & Color Fill | FidgetSupply' : `${t('brand.heroTitle')} | FidgetSupply`}
-  description={currentLang === 'en' ? 'Custom metal fidget branding on 140 ready molds: 50W Fiber Laser (+$0.15–$0.30/pc, $50 sample) & Deep Laser + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).' : t('brand.heroDesc')}
+  title={currentLang === 'en' ? 'Laser Engraved Fidget Spinners & Custom Logo Metal Fidgets' : `${t('brand.heroTitle')} | FidgetSupply`}
+  description={currentLang === 'en' ? 'Laser engraved fidget spinners & custom logo metal sliders on 140 ready molds ($0 mold fee): 50W Fiber Laser (+$0.15/pc) & Deep Laser Color Fill (MOQ 100).' : t('brand.heroDesc')}
   activePage="custom-branding"
-  jsonLd={faqSchema}
+  jsonLd={[serviceSchema, faqSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">

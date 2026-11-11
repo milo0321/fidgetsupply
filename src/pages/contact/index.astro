@@ -280,6 +280,7 @@ const faqSchema = {
 
                 <div class="quick-product-pills" role="group" aria-label="Popular categories">
                   <span class="pills-label">{t('contact.quickSelect')}</span>
+                  <button type="button" class="prod-pill" data-name="All 140 Ready Molds (Full Catalog & Price List)">★ {t('top.moldsCount')}</button>
                   <button type="button" class="prod-pill" data-name="Logo-Ready Custom Branding Fidgets">{t('card.logoReady')}</button>
                   <button type="button" class="prod-pill" data-name="Magnetic Haptic Sliders">{t('col.magnetic-fidget-sliders.short')}</button>
                   <button type="button" class="prod-pill" data-name="Acoustic Tuning Fork Sliders">{t('card.tuningFork')}</button>
@@ -322,6 +323,12 @@ const faqSchema = {
                 <label class="form-label" for="inquiryDetails">
                   {t('contact.notes')} <span class="optional-badge">{t('contact.optional')}</span>
                 </label>
+                <div class="quick-product-pills" role="group" aria-label="Quick inquiry templates" style="margin-bottom: 0.5rem;">
+                  <button type="button" class="prod-pill rfq-preset-btn" data-qty="50 - 99 pcs (Blank Stock)" data-mode="Blank Unbranded Stock" data-note="Please send the wholesale price sheet for 50 pcs blank trial stock ($0 mold fee) and DDP shipping cost.">50 {t('unit.pcs')} ({t('pdp.blankMoq')})</button>
+                  <button type="button" class="prod-pill rfq-preset-btn" data-qty="100 - 199 pcs (Custom Logo MOQ)" data-mode="Fiber Laser Engraved Logo" data-note="We want to customize 100 pcs with 50W Fiber Laser Engraving (+$0.15-$0.30/pc) and order a $50 pre-production laser sample.">100 {t('unit.pcs')} · 50W Laser ($50 Sample)</button>
+                  <button type="button" class="prod-pill rfq-preset-btn" data-qty="100 - 199 pcs (Custom Logo MOQ)" data-mode="Deep Laser + Color Fill (+$0.35-$0.60/pc)" data-note="We want to customize 100-200 pcs with Deep Laser Engraving + Enamel Color Fill (+$0.35-$0.60/pc) and request a color-fill sample ($80-$150).">100 {t('unit.pcs')} · Deep Color-Fill</button>
+                  <button type="button" class="prod-pill rfq-preset-btn" data-qty="100 - 199 pcs (Custom Logo MOQ)" data-mode="Custom Logo + Black EVA Zipper Case" data-note="We need 100 pcs with custom logo plus custom-branded Black EVA Zipper Cases (+$0.75/pc) and DDP delivery.">100 {t('unit.pcs')} + EVA Case</button>
+                </div>
                 <textarea
                   id="inquiryDetails"
                   name="inquiryDetails"
@@ -737,9 +744,38 @@ const faqSchema = {
       });
     }
 
-    // 3. Popular Category Pills append to productInput
+    // 3. Popular Category Pills & Scenario Presets append to productInput / inquiryDetails
+    var formStartedTracked = false;
+    if (form) {
+      form.addEventListener('focusin', function () {
+        if (!formStartedTracked) {
+          formStartedTracked = true;
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'rfq_form_start', { page_path: window.location.pathname });
+          }
+        }
+      });
+    }
+
     pills.forEach(function (pill) {
       pill.addEventListener('click', function () {
+        if (pill.classList.contains('rfq-preset-btn')) {
+          var presetQty = pill.getAttribute('data-qty') || '';
+          var presetMode = pill.getAttribute('data-mode') || '';
+          var presetNote = pill.getAttribute('data-note') || '';
+          var qtyEl = document.getElementById('estimatedQuantity');
+          var detailsEl = document.getElementById('inquiryDetails');
+          if (presetQty && qtyEl) qtyEl.value = presetQty;
+          if (presetMode && brandingSelect) brandingSelect.value = presetMode;
+          if (presetNote && detailsEl) detailsEl.value = presetNote;
+          if (productInput && !productInput.value.trim()) {
+            productInput.value = 'All 140 Ready Molds (Full Catalog & Price List)';
+          }
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'rfq_preset_click', { preset_mode: presetMode, preset_qty: presetQty });
+          }
+          return;
+        }
         var name = pill.getAttribute('data-name') || '';
         if (!name || !productInput) return;
         var curr = productInput.value.trim();
@@ -747,6 +783,9 @@ const faqSchema = {
           productInput.value = curr ? curr + ', ' + name : name;
         }
         pill.classList.toggle('active');
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'rfq_pill_select', { category_name: name });
+        }
       });
     });
 
@@ -943,8 +982,7 @@ const faqSchema = {
           return;
         }
         if (prodEl && !prodEl.value.trim()) {
-          prodEl.focus();
-          return;
+          prodEl.value = 'All 140 Ready Molds (Full Catalog & Price List)';
         }
 
         var turnstileWidget = form.querySelector('.cf-turnstile');
