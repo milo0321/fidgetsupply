@@ -143,10 +143,14 @@ const t = useTranslations(currentLang);
 const locCol = localizeCollectionContent(collection, currentLang);
 
 const collectionPrices = products
-  .flatMap((p) => [parseFloat(p.data.tier500), parseFloat(p.data.tier50)])
+  .flatMap((p) => [
+    parseFloat(p.data.tier500),
+    parseFloat(p.data.tier50),
+    ...(p.data.variants || []).flatMap((v: any) => [parseFloat(v.tier500), parseFloat(v.tier50)])
+  ])
   .filter((n) => !isNaN(n) && n > 0);
 const minColPrice = collectionPrices.length ? Math.min(...collectionPrices).toFixed(2) : '1.46';
-const maxColPrice = collectionPrices.length ? Math.max(...collectionPrices).toFixed(2) : '52.31';
+const maxColPrice = collectionPrices.length ? Math.max(...collectionPrices).toFixed(2) : '470.77';
 
 const itemListSchema = {
   '@context': 'https://schema.org',
@@ -214,7 +218,7 @@ const enDesc = `${cleanShortName}: ${products.length} ready metal molds (${colle
 ---
 
 <Layout
-  title={currentLang === 'en' ? enTitle : `${t(`col.${collection.slug}.name` as any)} (${products.length} ${t('nav.modelsCount')}) | FidgetSupply`}
+  title={currentLang === 'en' ? enTitle : `${t(`col.${collection.slug}.name` as any)} (${products.length} ${t('nav.modelsCount')} · $${minColPrice}+) | FidgetSupply`}
   description={currentLang === 'en' ? enDesc : locCol.heroSubtitle}
   keywords={collection.targetKeywords}
   ogImage={products[0]?.data.featuredImage}

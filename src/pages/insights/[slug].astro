@@ -5,6 +5,7 @@ import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
 import { localizeInsightMeta, localizeInsightFaqs, localizeInsightHtml } from '../../i18n/insightAndCollectionLocalization';
+import { localizeProduct } from '../../i18n/productLocalization';
 
 export async function getStaticPaths() {
   const guides = await getCollection('insights');
@@ -1832,6 +1833,49 @@ const faqSchema = {
           answer={locGuideMeta.summary}
         />
 
+        <!-- Above-the-Fold Matched Ready-Mold SKUs & Instant Sample Strip -->
+        {relatedProducts.length > 0 && (
+          <div class="guide-fast-track-bar" aria-label={t('guide.refModelsTitle')}>
+            <div class="fast-track-head">
+              <span class="fast-track-title">⚡ {t('guide.refModelsTitle')}</span>
+              <a
+                href={getLocalizedPath('/contact', currentLang)}
+                class="fast-track-rfq-btn"
+                data-rfq-sku={relatedProducts.map((rp: any) => rp.data.sku).join(', ')}
+              >
+                {t('nav.requestQuote')}
+              </a>
+            </div>
+            <div class="fast-track-chips">
+              {relatedProducts.slice(0, 4).map((rp: any) => {
+                const locP = localizeProduct(rp.data, currentLang);
+                return (
+                  <a
+                    href={getLocalizedPath(`/products/${rp.data.slug}`, currentLang)}
+                    class="fast-sku-chip"
+                    data-fast-sku={rp.data.sku}
+                  >
+                    <img src={rp.data.featuredImage} alt={`${rp.data.sku} ${locP.title}`} width="44" height="33" loading="eager" />
+                    <div class="fast-sku-meta">
+                      <span class="fast-sku-code">{rp.data.sku} · ${rp.data.tier500}+</span>
+                      <span class="fast-sku-name">{locP.title}</span>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <!-- Mobile & Tablet Quick-Jump Table of Contents (Visible <= 1180px) -->
+        <details class="mobile-toc-box">
+          <summary class="mobile-toc-summary">
+            <span>📑 {t('guide.tocTitle')}</span>
+            <span class="mobile-toc-chevron">▾</span>
+          </summary>
+          <nav id="mobile-toc-container" class="mobile-toc-nav" aria-label="Mobile Table of Contents"></nav>
+        </details>
+
         <!-- Main Editorial Content -->
         <div class="prose article-body clean-editorial-content" set:html={localizedGuideHtml} />
 
@@ -1950,13 +1994,15 @@ const faqSchema = {
 
 <script is:inline>
   (function () {
-    // 1. Dynamic TOC & Scrollspy
+    // 1. Dynamic TOC & Scrollspy (Desktop + Mobile Accordion)
     var tocNav = document.getElementById('toc-container');
+    var mobileTocNav = document.getElementById('mobile-toc-container');
     var articleBody = document.querySelector('.article-main');
-    if (tocNav && articleBody) {
+    if (articleBody) {
       var headings = articleBody.querySelectorAll('h2');
       if (headings.length) {
         var ul = document.createElement('ul');
+        var mobileUl = document.createElement('ul');
         headings.forEach(function (h, idx) {
           if (!h.id) {
             h.id = 'section-' + (idx + 1);
@@ -1967,11 +2013,26 @@ const faqSchema = {
           a.textContent = h.textContent;
           li.appendChild(a);
           ul.appendChild(li);
-        });
-        tocNav.appendChild(ul);
 
-        var tocLinks = tocNav.querySelectorAll('a');
-        if ('IntersectionObserver' in window) {
+          var mLi = document.createElement('li');
+          var mA = document.createElement('a');
+          mA.href = '#' + h.id;
+          mA.textContent = h.textContent;
+          mA.addEventListener('click', function () {
+            var detailsBox = mA.closest('details');
+            if (detailsBox) detailsBox.removeAttribute('open');
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'guide_toc_click', { section_id: h.id, page_path: window.location.pathname });
+            }
+          });
+          mLi.appendChild(mA);
+          mobileUl.appendChild(mLi);
+        });
+        if (tocNav) tocNav.appendChild(ul);
+        if (mobileTocNav) mobileTocNav.appendChild(mobileUl);
+
+        var tocLinks = tocNav ? tocNav.querySelectorAll('a') : [];
+        if (tocLinks.length && 'IntersectionObserver' in window) {
           var observer = new IntersectionObserver(
             function (entries) {
               entries.forEach(function (entry) {
@@ -1990,6 +2051,29 @@ const faqSchema = {
           });
         }
       }
+    }
+
+    // Track Fast-Track SKU & RFQ clicks
+    document.querySelectorAll('.fast-sku-chip').forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'guide_fast_sku_click', {
+            sku: chip.getAttribute('data-fast-sku') || '',
+            page_path: window.location.pathname
+          });
+        }
+      });
+    });
+    var fastRfqBtn = document.querySelector('.fast-track-rfq-btn');
+    if (fastRfqBtn) {
+      fastRfqBtn.addEventListener('click', function () {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'guide_fast_rfq_click', {
+            skus: fastRfqBtn.getAttribute('data-rfq-sku') || '',
+            page_path: window.location.pathname
+          });
+        }
+      });
     }
 
     // 2. Social Share & Copy Link Dock Buttons
@@ -2476,6 +2560,171 @@ const faqSchema = {
     }
     .article-sidebar {
       display: none;
+    }
+    .mobile-toc-box {
+      display: block;
+    }
+  }
+
+  /* Above-the-Fold Fast-Track SKU Strip & Mobile TOC */
+  .guide-fast-track-bar {
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.15rem;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+  }
+
+  .fast-track-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .fast-track-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #0f172a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .fast-track-rfq-btn {
+    display: inline-flex;
+    align-items: center;
+    background: #0284c7;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.38rem 0.85rem;
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+  }
+
+  .fast-track-rfq-btn:hover {
+    background: #0369a1;
+  }
+
+  .fast-track-chips {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .fast-sku-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.45rem 0.65rem;
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+    min-width: 0;
+  }
+
+  .fast-sku-chip:hover {
+    border-color: #0284c7;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .fast-sku-chip img {
+    width: 44px;
+    height: 33px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+    background: #0f172a;
+  }
+
+  .fast-sku-meta {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  .fast-sku-code {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #0284c7;
+    line-height: 1.2;
+  }
+
+  .fast-sku-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e293b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .mobile-toc-box {
+    display: none;
+    margin: 0 0 1.5rem;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .mobile-toc-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.1rem;
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: #0f172a;
+    cursor: pointer;
+    list-style: none;
+    background: #f1f5f9;
+  }
+
+  .mobile-toc-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-toc-nav {
+    padding: 0.75rem 1.1rem 1rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .mobile-toc-nav :global(ul) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .mobile-toc-nav :global(a) {
+    display: block;
+    font-size: 0.85rem;
+    color: #334155;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .mobile-toc-nav :global(a:hover) {
+    color: #0284c7;
+  }
+
+  @media (max-width: 640px) {
+    .fast-track-chips {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .fast-track-rfq-btn {
+      width: 100%;
+      justify-content: center;
     }
   }
 

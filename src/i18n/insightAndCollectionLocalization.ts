@@ -137,8 +137,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Hur frihängande stämgaffelskänklar och ihåliga resonanskammare skapar den klara 2 800–4 200 Hz metallklangen — jämförelse av alla 7 akustiska formar (FS-150, FS-129, FS-148).'
     },
     da: {
-      title: 'Akustiske Stemmegaffel Fidget Sliders: Resonanskammer-teknik & Engrosguide 2026–2027',
-      summary: 'Hvordan fritbærende stemmegaffelgrene og hule resonanskamre skaber den klare 2.800–4.200 Hz metalklang — sammenligning af alle 7 akustiske forme (FS-150, FS-129, FS-148).'
+      title: 'Akustiske Stemmegaffel Fidget Sliders (2.800–4.200 Hz): Resonanskammer-teknik & Engrosguide ($0 Form / MOQ 50)',
+      summary: 'Hvordan fritbærende stemmegaffelgrene og hule resonanskamre skaber den klare 2.800–4.200 Hz metalklang — sammenligning af alle 7 akustiske forme (FS-150, FS-129, FS-148) med $0 værktøjsgebyr og MOQ 50 stk.'
     },
     no: {
       title: 'Akustiske Stemmegaffel Fidget Sliders: Resonanskammer-teknikk & Engrosguide 2026–2027',
@@ -893,8 +893,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Porównanie techniczne swobodnych sliderów magnetycznych 360° na płytkach PTFE oraz sliderów z prowadnicą mechaniczną w ponad 60 formach fabrycznych.'
     },
     cs: {
-      title: 'Volně Plovoucí Magnetické Slidery Unlimited PTFE vs. Mechanické Kolejnicové Slidery: Kinematika a Průvodce',
-      summary: 'Technické srovnání 360° volně plovoucích PTFE magnetických sliderů a mechanických kolejnicových sliderů u 60+ výrobních forem.'
+      title: 'Volně Plovoucí Magnetické Slidery Unlimited PTFE vs. Mechanické Kolejnicové Slidery (60+ Forem, MOQ 50 ks)',
+      summary: 'Technické srovnání 360° volně plovoucích PTFE magnetických sliderů (FS-125, FS-075) a mechanických kolejnicových sliderů (FS-002, FS-048) u 60+ výrobních forem ($0 poplatek za formu, MOQ 50 ks).'
     },
     ru: {
       title: 'Свободные Магнитные Слайдеры Unlimited PTFE против Механических Рельсовых Слайдеров: Кинематика и Гид',
@@ -1601,8 +1601,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Ontdek rollenketting-spinners, planetaire tandwielen en chaotische slinger-fidgets (FS-061, FS-068, FS-070, FS-090) vanaf MOQ 50 stuks."
     },
     "es": {
-        "title": "Spinners de Cadena de Piñón, Engranaje Planetario y Péndulo Caótico: Guía Mecánica",
-        "summary": "Explore spinners de cadena de rodillos, engranajes planetarios y péndulos caóticos de metal (FS-061, FS-068, FS-070, FS-090) desde MOQ 50 uds."
+        "title": "Spinners de Cadena de Piñón, Engranaje Planetario y Péndulo Caótico de Metal: Guía Mecánica ($0 Molde / MOQ 50)",
+        "summary": "Explore spinners de cadena de rodillos, engranajes planetarios y péndulos caóticos de metal (FS-061, FS-068, FS-070, FS-090) con rodamientos R188, $0 coste de molde y MOQ 50 uds."
     },
     "it": {
         "title": "Fidget in Metallo con Catena a Pignone, Ingranaggi Planetari e Pendolo Caotico: Guida",
@@ -2529,8 +2529,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "Рейтинг 20 самых прибыльных готовых моделей 2027 года ($2.80–$12.50 с фабрики → $27.99–$89.99 розница, маржа 68%–82%), наборы «День и Ночь» и бесплатная маркировка Amazon FNSKU."
     },
     "ja": {
-      "title": "2027年 TikTok Shop ASMR・Amazon FBA＆Shopify 金属フィジェット売れ筋予測：金型代ゼロの高利益率トップ20モデル",
-      "summary": "工場直販$2.80〜$12.50（小売$27.99〜$89.99、粗利率68%〜82%）を誇る2027年ECベストセラー予測トップ20、「静音＋音叉」2個セット戦略、Amazon FNSKU無料ラベル貼付サービス。"
+      "title": "2027年 TikTok Shop ASMR・Amazon FBA 金属フィジェット売れ筋予測：金型代$0・粗利率68%〜82%のトップ20モデル",
+      "summary": "工場直販$2.80〜$12.50（小売$27.99〜$89.99、粗利率68%〜82%）を誇る2027年ECベストセラー予測トップ20（FS-150・FS-125・FS-001）、「静音＋音叉」セット戦略、MOQ 50個・Amazon FNSKU無料貼付。"
     },
     "ko": {
       "title": "2027 틱톡 샵 ASMR, 아마존 FBA 및 쇼피파이 메탈 피젯 베스트셀러 전망: 금형비 없는 고마진 기성 모델 Top 20",
@@ -2763,8 +2763,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "Mengapa pengadaan fidget EDC logam melalui platform rantai pasok terintegrasi mengalahkan trader — hemat 22%–38% markup perantara di 140 cetakan siap pakai ($0 biaya cetakan)."
     },
     "ar": {
-      "title": "دليل استيراد أدوات الفيدجت المعدنية من الصين: سلسلة التوريد المتكاملة المباشرة مقابل شركات الوساطة في علي بابا و1688",
-      "summary": "لماذا يتفوق التوريد عبر منصة سلسلة إمداد متكاملة على الشركات التجارية الوسيطة — وفّر من 22% إلى 38% من عمولات الوسطاء عبر 140 قالباً جاهزاً بدون رسوم قوالب."
+      "title": "دليل استيراد الفيدجت المعدني EDC من الصين: سلسلة التوريد المباشرة مقابل وسطاء علي بابا و1688 (140 قالباً جاهزاً)",
+      "summary": "لماذا يتفوق التوريد عبر منصة سلسلة إمداد متكاملة على الشركات الوسيطة — وفّر 22%–38% من عمولات الوسطاء عبر 140 قالباً جاهزاً (0$ رسوم قوالب، حد أدنى للطلب 50 قطعة)."
     }
   },
   "metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests": {

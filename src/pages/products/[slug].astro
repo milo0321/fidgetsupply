@@ -45,6 +45,15 @@ const rfqBaseUrl = getLocalizedPath('/contact', currentLang);
 
 const allImages = p.galleryImages && p.galleryImages.length > 0 ? p.galleryImages : [p.featuredImage];
 
+const allVariantPrices = [
+  parseFloat(p.tier500),
+  parseFloat(p.tier50),
+  ...(p.variants || []).flatMap((v: any) => [parseFloat(v.tier500), parseFloat(v.tier100), parseFloat(v.tier50)])
+].filter((n) => !isNaN(n) && n > 0);
+const minOfferPrice = allVariantPrices.length ? Math.min(...allVariantPrices).toFixed(2) : p.tier500;
+const maxOfferPrice = allVariantPrices.length ? Math.max(...allVariantPrices).toFixed(2) : p.tier50;
+const canonicalProductUrl = `https://fidgetsupply.com${getLocalizedPath(`/products/${p.slug}`, currentLang)}`;
+
 const productSchema = {
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -72,14 +81,29 @@ const productSchema = {
   offers: {
     '@type': 'AggregateOffer',
     priceCurrency: 'USD',
-    lowPrice: p.tier500,
-    highPrice: p.tier50,
+    lowPrice: minOfferPrice,
+    highPrice: maxOfferPrice,
     offerCount: p.variants.length * 3,
     availability: 'https://schema.org/InStock',
+    url: canonicalProductUrl,
     seller: {
       '@type': 'Organization',
       name: 'FidgetSupply.com — Integrated China Metal EDC Supply Chain'
-    }
+    },
+    offers: (lp.variants || p.variants || []).map((v: any, idx: number) => ({
+      '@type': 'Offer',
+      name: `${p.skuDisplay} — ${v.name}`,
+      sku: `${p.sku}-V${idx + 1}`,
+      priceCurrency: 'USD',
+      price: v.tier500 || p.tier500,
+      availability: 'https://schema.org/InStock',
+      url: canonicalProductUrl,
+      eligibleQuantity: {
+        '@type': 'QuantitativeValue',
+        minValue: 50,
+        unitCode: 'C62'
+      }
+    }))
   }
 };
 
