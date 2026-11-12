@@ -708,6 +708,9 @@ const faqSchema = {
       var skuParam = params.get('sku') || params.get('topic') || '';
       var modeParam = params.get('mode') || '';
       var qtyParam = params.get('qty') || '';
+      if (window.location.search && (skuParam || modeParam || qtyParam) && window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.pathname);
+      }
       if (!skuParam && !modeParam && !qtyParam) {
         var rawPrefill = sessionStorage.getItem('fs_rfq_prefill') || localStorage.getItem('fs_rfq_prefill');
         if (rawPrefill) {
