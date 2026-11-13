@@ -519,6 +519,14 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           allLangWrappers.forEach(function (w) { w.classList.remove('active'); });
         }
       });
+
+      // Normalize trailing slashes in browser URL bar so Google WRS and user bookmarks always match the clean canonical URL
+      try {
+        if (window.location.pathname.length > 1 && window.location.pathname.endsWith('/')) {
+          var cleanPath = window.location.pathname.replace(/\/+$/, '');
+          window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+        }
+      } catch (err) {}
     </script>
   </body>
 </html>

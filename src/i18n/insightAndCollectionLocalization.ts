@@ -113,8 +113,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Wie freitragende Stimmgabel-Zinken und Hohlresonanzkammern den 2.800–4.200 Hz „Ding!“-Klang erzeugen — mit Vergleich unserer 7 Akustik-Serienformen (FS-150, FS-129, FS-148).'
     },
     fr: {
-      title: 'Sliders Fidget Diapason Acoustiques : Ingénierie de Chambre de Résonance & Guide Grossiste 2026–2027',
-      summary: 'Comment les fourches acoustiques usinées CNC génèrent la note métallique « Ding ! » à 2 800–4 200 Hz — comparatif de nos 7 moules acoustiques (FS-150, FS-129, FS-148).'
+      title: 'Sliders Diapason Acoustique (2 800–4 200 Hz) : Ingénierie & Guide Grossiste ($0 Moule / MOQ 50)',
+      summary: 'Comment les fourches acoustiques usinées CNC génèrent la note métallique « Ding ! » à 2 800–4 200 Hz — comparatif de nos 7 moules acoustiques (FS-150, FS-129, FS-148) avec 0 $ de frais de moule et MOQ 50 pcs.'
     },
     nl: {
       title: 'Akoestische Stemvork Fidget Sliders: Resonantiekamer-techniek & Groothandelsgids 2026–2027',
@@ -161,8 +161,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Как консольные зубцы камертона и резонансные полости создают чистый металлический звон 2 800–4 200 Гц — сравнение всех 7 акустических моделей (FS-150, FS-129, FS-148).'
     },
     ja: {
-      title: '音叉（チューニングフォーク）共鳴フィジェットスライダー：音響設計と卸売ガイド 2026–2027',
-      summary: '片持ち音叉プロングと共鳴チャンバーが 2,800〜4,200 Hz の澄んだ金属音「チーン！」を生み出す仕組みと、音叉シリーズ全7モデル（FS-150・FS-129・FS-148等）の徹底比較。'
+      title: '音叉（チューニングフォーク）共鳴フィジェットスライダー：金型代$0・全7モデル音響＆卸売ガイド（MOQ 50）',
+      summary: '片持ち音叉プロングと共鳴チャンバーが 2,800〜4,200 Hz の澄んだ金属音「チーン！」を生み出す仕組みと、音叉シリーズ全7モデル（FS-150・FS-129・FS-148等、金型代$0・MOQ 50個）の徹底比較。'
     },
     ko: {
       title: '어쿠스틱 튜닝포크(음차) 피젯 슬라이더: 공명 챔버 설계 및 2026–2027 도매 가이드',
@@ -535,8 +535,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: '同じ金型デザインのフィジェットでも、亜鉛合金ダイカスト（$1.20〜$6.00）と5軸CNCステンレス・PEI（Ultem）・Zr702ジルコニウム（$15〜$380+）で価格が大きく異なる理由を解説。'
     },
     ko: {
-      title: '아연 합금 다이캐스팅 vs 5축 CNC 304/316 스테인리스·PEI(울템)·지르코늄: 원가 및 마진 분석',
-      summary: '동일한 디자인의 피젯이 아연 합금 다이캐스팅($1.20~$6.00)과 5축 CNC 스테인리스·앰버 PEI·Zr702 지르코늄($15~$380+)에서 원가와 소매 마진이 달라지는 이유.'
+      title: '아연 합금 다이캐스팅($1.20~) vs 5축 CNC 스테인리스·PEI·지르코늄: EDC 피젯 원가·마진 분석(금형비 $0)',
+      summary: '동일한 디자인의 EDC 피젯이 아연 합금 다이캐스팅($1.20~$6.00, 금형비 $0·MOQ 50개)과 5축 CNC 304 스테인리스·앰버 PEI·Zr702 지르코늄($15~$380+)에서 원가와 소매 마진이 달라지는 이유.'
     },
     id: {
       title: 'Die-Cast Paduan Seng vs. CNC 5-Sumbu Baja Tahan Karat 304/316, PEI & Zirkonium: Rincian Biaya',
@@ -959,8 +959,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Akustisk guide (<35 dBA til 45 dBA) for lydløse knuckle rollers i rustfritt stål, R188-bordgyroer, 16-magnets ringer og PTFE-dempede slidere.'
     },
     fi: {
-      title: 'Hiljaiset Toimisto- & Johtajatason Pöytäfidgetit: Desibelimittaukset (dBA) & Äänetön Keskittymisopas',
-      summary: 'Akustinen opas (<35 dBA – 45 dBA) äänettömiin rystysrulliin, R188-pöytägyroihin, 16-magneettisiin sormuksiin ja PTFE-vaimennettuihin slidereihin.'
+      title: 'Hiljaiset Toimistofidgetit (<35 dBA): Desibelimittaukset & Äänetön Keskittymisopas ($0 Muotti / MOQ 50)',
+      summary: 'Akustinen opas (<35 dBA – 45 dBA) äänettömiin rystysrulliin (FS-005), R188-pöytägyroihin (FS-139), 16-magneettisiin sormuksiin ja PTFE-vaimennettuihin slidereihin ($0 muottimaksu, MOQ 50 kpl).'
     },
     pl: {
       title: 'Ciche Fidgety Biurowe i Gabinetowe: Pomiary Decybeli (dBA) oraz Przewodnik Skupienia Bez Hałasu',
@@ -1021,8 +1021,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Análise mecânica e magnetostática de sliders sanduíche de 3 camadas e matrizes ultradensas de 48 a 56 micro-ímanes.'
     },
     sv: {
-      title: '3-Lagers Staplade & Högdensitets 48/56-Magnets Fidget Sliders: Flerstegs Haptisk Teknik',
-      summary: 'Mekanisk och magnetostatisk genomgång av 3-lagers sandwich-sliders och ultratäta 48- till 56-magneters matriser.'
+      title: '3-Lagers Staplade & 48/56-Magnets Fidget Sliders: Flerstegs Haptisk Guide ($0 Verktyg / MOQ 50)',
+      summary: 'Mekanisk och magnetostatisk genomgång av 3-lagers sandwich-sliders (FS-001, FS-058) och ultratäta 48- till 56-magneters matriser (FS-091) med $0 verktygskostnad och MOQ 50 st.'
     },
     da: {
       title: '3-Lags Stablede & Højdensitets 48/56-Magnets Fidget Slidere: Flertrins Haptisk Ingeniørkunst',
@@ -1045,8 +1045,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Mechanický a magnetostatický rozbor třívrstvých sendvičových sliderů a ultrahustých matic se 48 až 56 mikromagnety.'
     },
     ru: {
-      title: 'Трехслойные Каскадные Слайдеры и Матрицы Высокой Плотности на 48/56 Магнитов: Гаптическая Инженерия',
-      summary: 'Механический и магнитостатический разбор 3-слойных сэндвич-слайдеров и ультраплотных матриц на 48 и 56 микромагнитов.'
+      title: '3-Слойные Магнитные Слайдеры и Матрицы на 48/56 Магнитов: Инженерный Гид ($0 Форма / MOQ 50)',
+      summary: 'Механический разбор 3-слойных каскадных сэндвич-слайдеров (FS-001, FS-058) и ультраплотных матриц на 48 и 56 микромагнитов N52 (FS-091) без затрат на пресс-форму ($0) от 50 шт.'
     },
     ja: {
       title: '3層スタック構造＆48/56磁石高密度マトリクス・フィジェットスライダー：多段ハプティクス工学ガイド',
@@ -1247,8 +1247,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Varför Kung/Ess-pokerkort och Mahjong-magnetsliders leder den globala EDC-försäljningen — nedsänkt ugnsbränd emalj, kortergonomi och egen märkning.'
     },
     da: {
-      title: 'Pokerkort-, Mahjongbrik- & Kasino-magnetslidere i Metal: Brændt Emalje & Bestsellerguide',
-      summary: 'Hvorfor Konge/Es-pokerkort og Mahjong-magnetslidere topper det globale EDC-salg — forsænket ovnbrændt emalje, kortergonomi og logobranding.'
+      title: 'Mahjongbrik, Pokerkort & Kasino Metal-Magnetslidere: Brændt Emalje & Engrosguide ($0 Form / MOQ 50)',
+      summary: 'Mahjongbrik (FS-021, FS-074) og Konge/Es-pokerkort magnetslidere (FS-001, FS-075): forsænket ovnbrændt emalje, N52 magneter, $0 værktøjsgebyr og MOQ 50 stk.'
     },
     no: {
       title: 'Pokerkort-, Mahjongbrikke- & Kasino-magnetslidere i Metall: Brent Emalje & Bestselgerguide',
@@ -1633,8 +1633,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Poznaj spinnery łańcuchowe, przekładnie planetarne i wahadła chaotyczne z metalu (FS-061, FS-068, FS-070, FS-090) od MOQ 50 szt."
     },
     "cs": {
-        "title": "Kovové Fidgety s Řetězovým Kolem, Planetovou Převodovkou a Chaotickým Kyvadlem",
-        "summary": "Prozkoumejte řetězové spinnery, planetová soukolí a chaotická kyvadla (FS-061, FS-068, FS-070, FS-090) od MOQ 50 ks."
+        "title": "Kovové Fidgety s Řetězovým Kolem, Planetovou Převodovkou a Kyvadlem ($0 Forma / MOQ 50 ks)",
+        "summary": "Prozkoumejte řetězové spinnery, planetová soukolí a chaotická kyvadla (FS-061, FS-068, FS-070, FS-090) s ložisky R188, nulovým poplatkem za formu ($0) a MOQ 50 ks."
     },
     "ru": {
         "title": "Металлические фиджеты с цепным приводом, планетарной передачей и хаотическим маятником",
@@ -1917,8 +1917,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Oplev storsælgende novelty-metalfidgets: retro-gamepads, labyrinter, klaverer, ærteskulper og kiks (FS-040, FS-022, FS-027) fra MOQ 50 stk."
     },
     "no": {
-        "title": "Retro Gamepad, Arkadelabyrint, Piano & Matinspirerte (Erteskulpe, Kjeks, Sjokolade) Metall-Fidgets",
-        "summary": "Oppdag bestselgende novelty-metallfidgets: retro-gamepads, labyrinter, pianoer, erteskulper og kjeks (FS-040, FS-022, FS-027) fra MOQ 50 stk."
+        "title": "Retro Gamepad, Arkadelabyrint, Piano & Matinspirerte Metall-Fidgets ($0 Form / MOQ 50)",
+        "summary": "Oppdag bestselgende novelty-metallfidgets: retro-gamepads (FS-040), piano-slidere (FS-018), erteskulper (FS-022) og kjeks-mynter (FS-027) med $0 verktøygebyr fra MOQ 50 stk."
     },
     "fi": {
         "title": "Retro-peliohjain, Pelilabyrintti, Piano & Ruoka-aiheiset (Herneenpalko, Keksi, Suklaa) Metallifidgetit",
@@ -2225,8 +2225,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Metalowe fidgety dla marek motoryzacyjnych (FS-030, FS-069), kasyn VIP (FS-083) i drużyn esportowych (FS-020, FS-040) bez kosztów matryc od MOQ 50 szt."
     },
     "cs": {
-        "title": "Automobilové Disky, VIP Dárky pro Kasina a Esport Merch: Oborové Kovové Fidgety s Logem",
-        "summary": "Hotové formy pro automobilové a pneu značky (FS-030, FS-069), kasina (FS-083) a esport týmy (FS-020, FS-040) s nulovým poplatkem za formu od MOQ 50 ks."
+        "title": "Automobilové Disky, VIP Dárky pro Kasina a Esport Merch: Kovové Fidgety s Logem ($0 Forma / MOQ 50)",
+        "summary": "Hotové formy pro automobilové a pneu značky (FS-030, FS-069), kasinové rulety (FS-083) a esport týmy (FS-020, FS-040) s nulovým poplatkem za formu ($0) od MOQ 50 ks."
     },
     "ru": {
         "title": "Диски казино, автомобильные диски и VIP-подарки киберспорта: Отраслевые металлические фиджеты",

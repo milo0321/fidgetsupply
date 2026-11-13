@@ -231,6 +231,36 @@ const breadcrumbSchema = {
 
         <h1 class="pdp-title">{lp.title}</h1>
 
+        <!-- Above-the-Fold Instant Price & Sample Action Bar -->
+        <div class="pdp-fast-action-strip">
+          <div class="fast-price-meta">
+            <strong class="fast-price-pill" id="fast-price-display">${p.tier500} – ${p.tier50}<span>/{t('unit.pc')}</span></strong>
+            <span class="fast-moq-tag">✓ {t('pdp.noMoldFee')} · 50 {t('unit.pcs')} MOQ</span>
+          </div>
+          <div class="fast-action-btns">
+            <a
+              id="pdp-fast-rfq-btn"
+              data-rfq-base={rfqBaseUrl}
+              data-rfq-sku={p.sku}
+              data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+              data-rfq-qty="50"
+              href={rfqBaseUrl}
+              class="btn-fast-rfq"
+            >
+              ⚡ {t('pdp.requestQuote')} →
+            </a>
+            <a
+              id="pdp-fast-wa-btn"
+              href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing & sample info for ${p.sku} (${p.title}).`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-fast-wa"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </div>
+
         <p class="pdp-short-overview">{lp.overview}</p>
 
         <!-- Multi-Material / Multi-Variant Switcher (For merged same-mold models like FS-114/115/132, FS-105/106, FS-107/112, FS-030/031, FS-094/095) -->
@@ -561,6 +591,36 @@ const breadcrumbSchema = {
       </div>
     </section>
   )}
+  <!-- Mobile Fixed Bottom Instant Conversion Bar -->
+  <div class="pdp-mobile-sticky-bar" role="region" aria-label={t('pdp.requestQuote')}>
+    <div class="sticky-sku-col">
+      <strong class="sticky-sku-code" id="sticky-sku-code">{p.skuDisplay}</strong>
+      <span class="sticky-sku-price" id="sticky-sku-price">${p.tier500} – ${p.tier50} · MOQ 50</span>
+    </div>
+    <div class="sticky-action-col">
+      <a
+        id="pdp-sticky-wa-btn"
+        href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing & sample info for ${p.sku} (${p.title}).`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-sticky-wa"
+        aria-label="WhatsApp"
+      >
+        WhatsApp
+      </a>
+      <a
+        id="pdp-sticky-rfq-btn"
+        data-rfq-base={rfqBaseUrl}
+        data-rfq-sku={p.sku}
+        data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+        data-rfq-qty="50"
+        href={rfqBaseUrl}
+        class="btn-sticky-rfq"
+      >
+        {t('pdp.requestQuote')} →
+      </a>
+    </div>
+  </div>
 </Layout>
 
 <script is:inline>
@@ -586,6 +646,11 @@ const breadcrumbSchema = {
     const weightEl = document.getElementById('display-weight');
     const skuEl = document.getElementById('display-sku');
     const rfqBtn = document.getElementById('pdp-rfq-btn');
+    const fastRfqBtn = document.getElementById('pdp-fast-rfq-btn');
+    const stickyRfqBtn = document.getElementById('pdp-sticky-rfq-btn');
+    const fastPriceEl = document.getElementById('fast-price-display');
+    const stickySkuEl = document.getElementById('sticky-sku-code');
+    const stickyPriceEl = document.getElementById('sticky-sku-price');
     const calcBox = document.getElementById('pdp-instant-calc');
     const calcUnitEl = document.getElementById('calc-unit-display');
     const calcQtyEl = document.getElementById('calc-qty-display');
@@ -624,9 +689,12 @@ const breadcrumbSchema = {
         }
       }
 
-      rfqBtn.setAttribute('data-rfq-sku', currentSku);
-      rfqBtn.setAttribute('data-rfq-mode', mode);
-      rfqBtn.setAttribute('data-rfq-qty', String(currentQty));
+      [rfqBtn, fastRfqBtn, stickyRfqBtn].forEach((btn) => {
+        if (!btn) return;
+        btn.setAttribute('data-rfq-sku', currentSku);
+        btn.setAttribute('data-rfq-mode', mode);
+        btn.setAttribute('data-rfq-qty', String(currentQty));
+      });
     }
 
     qtyChips.forEach((chip) => {
@@ -658,6 +726,12 @@ const breadcrumbSchema = {
         if (price50) price50.textContent = '$' + t50;
         if (price200) price200.textContent = '$' + t200;
         if (price500) price500.textContent = '$' + t500;
+        if (fastPriceEl && t500 && t50) {
+          const suffix = fastPriceEl.querySelector('span')?.outerHTML || '';
+          fastPriceEl.innerHTML = `$${t500} – $${t50}${suffix}`;
+        }
+        if (stickySkuEl) stickySkuEl.textContent = currentSku;
+        if (stickyPriceEl && t500 && t50) stickyPriceEl.textContent = `$${t500} – $${t50} · MOQ 50`;
         if (calcBox) {
           if (t50) calcBox.setAttribute('data-base50', t50);
           if (t200) calcBox.setAttribute('data-base200', t200);
@@ -668,6 +742,38 @@ const breadcrumbSchema = {
         updateRfqHref();
       });
     });
+
+    // GA4 Tracking for Fast-Action & Mobile Sticky Conversion Bars
+    if (fastRfqBtn) {
+      fastRfqBtn.addEventListener('click', () => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'pdp_fast_rfq_click', { sku: currentSku, qty: currentQty });
+        }
+      });
+    }
+    if (stickyRfqBtn) {
+      stickyRfqBtn.addEventListener('click', () => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'pdp_sticky_rfq_click', { sku: currentSku, qty: currentQty });
+        }
+      });
+    }
+    const fastWaBtn = document.getElementById('pdp-fast-wa-btn');
+    if (fastWaBtn) {
+      fastWaBtn.addEventListener('click', () => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'pdp_fast_whatsapp_click', { sku: currentSku });
+        }
+      });
+    }
+    const stickyWaBtn = document.getElementById('pdp-sticky-wa-btn');
+    if (stickyWaBtn) {
+      stickyWaBtn.addEventListener('click', () => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'pdp_sticky_whatsapp_click', { sku: currentSku });
+        }
+      });
+    }
 
     // Customization radio cards
     const radioCards = document.querySelectorAll('#custom-radio-group .radio-card');
@@ -1343,6 +1449,168 @@ const breadcrumbSchema = {
   @media (max-width: 900px) {
     .pdp-guides-grid {
       grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .pdp-fast-action-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1px solid #334155;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+    transform: translateZ(0);
+  }
+  .fast-price-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .fast-price-pill {
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #38bdf8;
+    line-height: 1.2;
+  }
+  .fast-price-pill span {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-left: 0.15rem;
+  }
+  .fast-moq-tag {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #a7f3d0;
+  }
+  .fast-action-btns {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .btn-fast-rfq {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    font-size: 0.82rem;
+    font-weight: 800;
+    padding: 0.55rem 0.95rem;
+    border-radius: 0.5rem;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+  .btn-fast-rfq:hover {
+    background: #0369a1 !important;
+    color: #ffffff !important;
+  }
+  .btn-fast-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #059669 !important;
+    color: #ffffff !important;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.55rem 0.8rem;
+    border-radius: 0.5rem;
+    text-decoration: none !important;
+    white-space: nowrap;
+  }
+  .btn-fast-wa:hover {
+    background: #047857 !important;
+    color: #ffffff !important;
+  }
+  .pdp-mobile-sticky-bar {
+    display: none;
+  }
+  @media (max-width: 960px) {
+    .pdp-mobile-sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 990;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      background: #0f172a;
+      border-top: 1px solid #334155;
+      padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom, 0px));
+      box-shadow: 0 -6px 20px rgba(15, 23, 42, 0.28);
+      transform: translateZ(0);
+    }
+    .sticky-sku-col {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .sticky-sku-code {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .sticky-sku-price {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #38bdf8;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sticky-action-col {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      flex-shrink: 0;
+    }
+    .btn-sticky-wa {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #059669 !important;
+      color: #ffffff !important;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 0.58rem 0.75rem;
+      border-radius: 0.5rem;
+      text-decoration: none !important;
+    }
+    .btn-sticky-rfq {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #0284c7 !important;
+      color: #ffffff !important;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.58rem 0.9rem;
+      border-radius: 0.5rem;
+      text-decoration: none !important;
+    }
+  }
+  @media (max-width: 640px) {
+    .pdp-fast-action-strip {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .fast-action-btns {
+      width: 100%;
+    }
+    .btn-fast-rfq {
+      flex: 1;
     }
   }
 </style>
