@@ -421,6 +421,96 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             }
           }
           storage.setItem('rx_active_page', JSON.stringify({ id: pageId, path: currentPath, startTime: now }));
+
+          window.getRxBrowsingJourneySnapshot = function () {
+            try {
+              var rawList = storage.getItem('rx_journey_history') || '[]';
+              var journey = JSON.parse(rawList);
+              if (!Array.isArray(journey)) journey = [];
+              var activeRaw = storage.getItem('rx_active_page');
+              if (activeRaw) {
+                var active = JSON.parse(activeRaw);
+                if (active && active.path) {
+                  var liveDur = Math.max(1, Math.round((Date.now() - (active.startTime || now)) / 1000));
+                  journey = journey.concat([{ id: active.id || pageId, path: active.path, duration: liveDur, isCurrent: true }]);
+                }
+              }
+              return journey.slice(-20);
+            } catch (_) {
+              return [];
+            }
+          };
+
+          window.dispatchWhatsAppLeadTelemetry = function (opts) {
+            try {
+              opts = opts || {};
+              var nowTs = Date.now();
+              if (window.__lastWaTrackTs && nowTs - window.__lastWaTrackTs < 1500) {
+                return;
+              }
+              window.__lastWaTrackTs = nowTs;
+
+              var h1Text = (document.querySelector('h1') && document.querySelector('h1').innerText.trim()) || '';
+              var titleClean = (document.title || '').split('|')[0].split(' - ')[0].trim();
+              var skuEl = document.getElementById('display-sku');
+              var skuText = skuEl ? skuEl.innerText.replace('SKU:', '').trim() : '';
+              var defaultProd = skuText
+                ? skuText + (h1Text ? ' - ' + h1Text : '')
+                : (h1Text || titleClean || 'Wholesale Metal EDC Fidgets');
+
+              var savedEmail = '';
+              var savedName = '';
+              var savedCompany = '';
+              try {
+                savedEmail = opts.userEmail || storage.getItem('rx_user_email') || '';
+                savedName = opts.userName || storage.getItem('rx_user_name') || '';
+                savedCompany = opts.userCompany || storage.getItem('rx_user_company') || '';
+              } catch (_) {}
+
+              var urlParams = new URLSearchParams(window.location.search);
+              var timeSpentSec = Math.max(1, Math.round((nowTs - now) / 1000)) + 's';
+              var journeySnapshot = typeof window.getRxBrowsingJourneySnapshot === 'function' ? window.getRxBrowsingJourneySnapshot() : [];
+
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'generate_lead', {
+                  event_category: 'engagement',
+                  event_label: 'whatsapp_chat_initiated',
+                  page_location: window.location.href,
+                  page_title: document.title
+                });
+              }
+
+              fetch('/api/whatsapp-track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  event: 'message_sent',
+                  triggerSource: opts.triggerSource || 'WhatsApp Direct Click',
+                  userEmail: savedEmail,
+                  userName: savedName,
+                  userCompany: savedCompany,
+                  pageUrl: window.location.href,
+                  pagePath: window.location.pathname,
+                  pageTitle: document.title,
+                  productName: opts.productName || defaultProd,
+                  messageText: opts.messageText || '',
+                  browsingJourney: JSON.stringify(journeySnapshot),
+                  pageReferrer: document.referrer || 'Direct Visit',
+                  browserLanguage: navigator.language || 'en',
+                  screenResolution: window.screen.width + 'x' + window.screen.height + ' (' + (window.devicePixelRatio || 1) + 'x DPR)',
+                  clientTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+                  clientLocalTime: new Date().toLocaleString(),
+                  timeOnPageSeconds: timeSpentSec,
+                  utmSource: urlParams.get('utm_source') || '',
+                  utmMedium: urlParams.get('utm_medium') || '',
+                  utmCampaign: urlParams.get('utm_campaign') || '',
+                  utmTerm: urlParams.get('utm_term') || '',
+                  utmContent: urlParams.get('utm_content') || ''
+                }),
+                keepalive: true
+              }).catch(function () {});
+            } catch (_) {}
+          };
         } catch (_) {}
       })();
     </script>
@@ -443,6 +533,18 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             source_page: window.location.pathname,
             trigger_type: waTarget.className || 'wa_link'
           });
+          var waHref = waTarget.getAttribute('href') || '';
+          if (waHref.indexOf('wa.me') !== -1 && typeof window.dispatchWhatsAppLeadTelemetry === 'function') {
+            var extractedText = '';
+            try {
+              var parsedWaUrl = new URL(waHref, window.location.origin);
+              extractedText = parsedWaUrl.searchParams.get('text') || '';
+            } catch (_) {}
+            window.dispatchWhatsAppLeadTelemetry({
+              triggerSource: 'Direct Page WhatsApp Button (' + (waTarget.textContent || 'WhatsApp CTA').trim().slice(0, 40) + ')',
+              messageText: extractedText
+            });
+          }
         }
 
         var rfqTarget = e.target.closest('a[href*="/contact"]');

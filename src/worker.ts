@@ -1,4 +1,5 @@
 import { onRequestPost as handleContactPost } from '../functions/api/contact.js';
+import { onRequestPost as handleWhatsAppPost, onRequestGet as handleWhatsAppGet } from '../functions/api/whatsapp-track.js';
 
 export interface Env {
   ASSETS: { fetch: (req: Request | string) => Promise<Response> };
@@ -253,6 +254,20 @@ export default {
             headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
           }
         );
+      }
+      return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
+        status: 405,
+        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+      });
+    }
+
+    // Route: /api/whatsapp-track
+    if (pathname === '/api/whatsapp-track') {
+      if (request.method === 'POST') {
+        return handleWhatsAppPost({ request, env, ctx });
+      }
+      if (request.method === 'GET') {
+        return handleWhatsAppGet();
       }
       return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
         status: 405,
