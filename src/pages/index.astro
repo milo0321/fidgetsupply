@@ -243,7 +243,7 @@ const faqSchema = {
                   {previewSkus.map((sku) => (
                     <div class="col-thumb-item">
                       <img
-                        src={sku.data.image}
+                        src={`${sku.data.featuredImage}?v=4k`}
                         alt={`${sku.data.sku} ${sku.data.title}`}
                         width="88"
                         height="66"

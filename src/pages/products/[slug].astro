@@ -131,8 +131,8 @@ const breadcrumbSchema = {
 <Layout
   title={lp.metaTitle}
   description={lp.metaDescription}
-  ogImage={p.featuredImage}
-  preloadImage={p.featuredImage}
+  ogImage={`${p.featuredImage}?v=4k`}
+  preloadImage={`${p.featuredImage}?v=4k`}
   activePage="products"
   jsonLd={[productSchema, faqSchema, breadcrumbSchema]}
 >
@@ -172,7 +172,7 @@ const breadcrumbSchema = {
         <div class="main-image-frame">
           <img
             id="pdp-main-img"
-            src={p.featuredImage}
+            src={`${p.featuredImage}?v=4k`}
             alt={`${p.skuDisplay} ${lp.title} - ${lp.material}`}
             width="800"
             height="600"
@@ -192,10 +192,10 @@ const breadcrumbSchema = {
               <button
                 type="button"
                 class:list={['thumb-btn', { active: idx === 0 }]}
-                data-img={img}
+                data-img={`${img}?v=4k`}
                 aria-label={`View angle ${idx + 1}`}
               >
-                <img src={img} alt={`${p.skuDisplay} ${lp.title} - ${idx + 1}`} width="120" height="90" />
+                <img src={`${img}?v=4k`} alt={`${p.skuDisplay} ${lp.title} - ${idx + 1}`} width="120" height="90" />
               </button>
             ))}
           </div>
