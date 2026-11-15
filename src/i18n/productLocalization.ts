@@ -1560,7 +1560,7 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
     slugs.push('pvd-coating-hard-anodizing-stonewash-antique-metal-fidget-finishes');
   }
 
-  // Rotate BOFU & 2027 compliance/sourcing guides by rowId so all 39 guides receive balanced deep links
+  // Rotate BOFU & 2027 compliance/sourcing/specialty guides by rowId so all 39 guides receive balanced deep links
   const bofuPool = [
     'china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies',
     'metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests',
@@ -1568,17 +1568,28 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
     'holiday-q4-corporate-multi-piece-metal-edc-fidget-gift-bundle-playbook',
     '2027-cpsc-16-cfr-1262-eu-tsr-iata-magnet-fidget-compliance',
     '2027-tiktok-shop-asmr-amazon-fba-fidget-bestseller-forecast',
+    '2027-corporate-vip-swag-custom-laser-metal-fidget-trends',
+    '2027-metal-edc-fidget-market-material-trends-report',
     'custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide',
     'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide',
-    'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance'
+    'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance',
+    'multi-function-bottle-opener-keychain-luminous-tritium-edc-fidgets',
+    'folding-fan-pivot-sliders-magnetic-capsules-knuckle-roller-begleri-guide',
+    'poker-card-mahjong-tile-casino-metal-magnetic-fidget-sliders-guide',
+    'sprocket-chain-planetary-gear-chaotic-pendulum-metal-fidget-guide',
+    'zirconium-zr702-carbon-fiber-abalone-inlay-exotic-metal-edc-fidgets',
+    'automotive-wheel-rim-casino-vip-esports-merch-custom-metal-fidget-guide',
+    'retro-gamepad-arcade-piano-pea-pod-biscuit-novelty-metal-fidgets',
+    'corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide'
   ];
   const rIdx = Number(p.rowId || 1) % bofuPool.length;
   const prioritized = [
-    ...slugs.slice(0, 3),
+    ...slugs.slice(0, 2),
     bofuPool[rIdx],
-    bofuPool[(rIdx + 1) % bofuPool.length],
-    ...slugs.slice(3),
-    bofuPool[(rIdx + 2) % bofuPool.length]
+    bofuPool[(rIdx + 3) % bofuPool.length],
+    bofuPool[(rIdx + 7) % bofuPool.length],
+    ...slugs.slice(2),
+    bofuPool[(rIdx + 11) % bofuPool.length]
   ];
   return Array.from(new Set(prioritized)).slice(0, 6);
 }

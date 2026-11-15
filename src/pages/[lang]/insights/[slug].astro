@@ -8,10 +8,13 @@ export async function getStaticPaths() {
   const allProducts = await getCollection('products');
 
   return nonDefaultLanguages.flatMap((lang) =>
-    guides.map((guide) => {
+    guides.map((guide, idx) => {
       const relatedSkus = guide.data.relatedSkus || [];
-      const relatedProducts = allProducts.filter((p) => relatedSkus.includes(p.data.sku)).slice(0, 4);
-      const relatedGuides = guides.filter((g) => g.data.slug !== guide.data.slug).slice(0, 3);
+      const relatedProducts = allProducts.filter((p) => relatedSkus.includes(p.data.sku)).slice(0, 8);
+      const relatedGuides: typeof guides = [];
+      for (let offset = 1; offset <= 4 && offset < guides.length; offset++) {
+        relatedGuides.push(guides[(idx + offset) % guides.length]);
+      }
       return {
         params: { lang, slug: guide.data.slug },
         props: { guide, relatedProducts, relatedGuides }
