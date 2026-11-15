@@ -64,13 +64,50 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
   }))
 };
+
+const aboutPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  name: currentLang === 'en' ? 'About FidgetSupply | China Metal EDC Fidget Supply Chain' : `${t('about.heroTitle')} | FidgetSupply.com`,
+  url: `https://fidgetsupply.com${getLocalizedPath('/about', currentLang)}`,
+  mainEntity: {
+    '@type': 'Organization',
+    name: 'FidgetSupply.com',
+    url: 'https://fidgetsupply.com',
+    location: {
+      '@type': 'Place',
+      name: 'Fuzhou Industrial Zone, Fujian, China'
+    }
+  }
+};
+
+const ABOUT_META_DESC_MAP: Record<string, string> = {
+  en: 'Integrated China metal EDC fidget supply chain: 140+ ready molds ($1.46–$470.77, $0 tooling, MOQ 50 pcs), 5-axis CNC, zinc die-casting & 50W laser branding.',
+  de: 'Integrierte Metall-EDC-Fidget-Lieferkette in China: 140+ Serienformen ($1.46–$470.77, $0 Werkzeugkosten, MOQ 50 Stk.), 5-Achsen-CNC, Zinkdruckguss & 50W-Laser.',
+  fr: 'Chaîne d’approvisionnement fidgets EDC métal en Chine : 140+ moules ($1.46–$470.77, 0 $ moule, MOQ 50 pcs), usinage CNC 5 axes, zinc moulé et laser 50W.',
+  nl: 'Geïntegreerde metalen EDC-fidget toeleveringsketen: 140+ mallen ($1.46–$470.77, $0 matrijskosten, MOQ 50 st.), 5-assige CNC, zinkspuitgieten & 50W-laser.',
+  es: 'Cadena de suministro de fidgets EDC metálicos en China: 140+ moldes ($1.46–$470.77, $0 molde, MOQ 50 uds.), CNC 5 ejes, fundición de zinc y láser 50W.',
+  it: 'Filiera produttiva fidget EDC in metallo in Cina: 140+ stampi ($1.46–$470.77, $0 stampo, MOQ 50 pz.), CNC a 5 assi, pressofusione di zinco e laser 50W.',
+  pt: 'Cadeia de suprimentos de fidgets EDC metálicos na China: 140+ moldes ($1.46–$470.77, $0 molde, MOQ 50 un.), CNC 5 eixos, fundição de zinco e laser 50W.',
+  sv: 'Integrerad leveranskedja för metall-EDC-fidgets i Kina: 140+ formar ($1.46–$470.77, $0 verktyg, MOQ 50 st), 5-axlig CNC, zinkgjutning och 50W laser.',
+  da: 'Integreret forsyningskæde for metal-EDC-fidgets i Kina: 140+ forme ($1.46–$470.77, $0 værktøj, MOQ 50 stk.), 5-akset CNC, zinkstøbning og 50W laser.',
+  no: 'Integrert leverandørkjede for metall-EDC-fidgets i Kina: 140+ former ($1.46–$470.77, $0 verktøj, MOQ 50 stk.), 5-akset CNC, sinkstøp og 50W laser.',
+  fi: 'Integroitu metallisten EDC-fidgettien toimitusketju: 140+ muottia ($1.46–$470.77, $0 muottikulu, MOQ 50 kpl), 5-akselinen CNC, sinkkivalu ja 50W laser.',
+  pl: 'Zintegrowany łańcuch dostaw metalowych fidgetów EDC: 140+ form ($1.46–$470.77, $0 za formę, MOQ 50 szt.), 5-osiowe CNC, odlewy cynkowe i laser 50W.',
+  cs: 'Integrovaný dodavatelský řetězec kovových EDC fidgetů: 140+ forem ($1.46–$470.77, $0 forma, MOQ 50 ks), 5osé CNC obrábění, zinkové lití a 50W laser.',
+  ru: 'Цепочка поставок металлических EDC-фиджетов в Китае: 140+ пресс-форм ($1.46–$470.77, $0 за форму, от 50 шт.), 5-осевой ЧПУ, литье цинка и лазер 50 Вт.',
+  ja: '中国金属EDCフィジェット統合サプライチェーン：既存金型140種以上（$1.46〜$470.77・金型代$0・MOQ 50個）、5軸CNC加工、亜鉛ダイカスト、50Wレーザー刻印。',
+  ko: '중국 금속 EDC 피젯 통합 공급망: 140종 이상 기성 금형($1.46–$470.77, 금형비 $0, MOQ 50개), 5축 CNC 가공, 아연 다이캐스팅 및 50W 레이저 각인.',
+  id: 'Rantai pasok fidget logam EDC terintegrasi: 140+ cetakan siap pakai ($1.46–$470.77, $0 biaya cetakan, MOQ 50 pcs), CNC 5-sumbu, die-casting seng & laser 50W.',
+  ar: 'سلسلة توريد الفيدجت المعدني المتكاملة في الصين: أكثر من 140 قالباً جاهزاً ($1.46–$470.77، قالب 0$، الحد الأدنى 50 قطعة)، تصنيع CNC خماسي المحاور وليزر 50W.'
+};
 ---
 
 <Layout
   title={currentLang === 'en' ? 'About FidgetSupply | China Metal EDC Fidget Supply Chain' : `${t('about.heroTitle')} | FidgetSupply.com`}
-  description={currentLang === 'en' ? 'Integrated China supply chain platform for metal EDC fidgets: 140+ ready molds, 5-axis CNC machining, zinc die-casting, laser branding & global DDP export.' : t('about.heroDesc')}
+  description={ABOUT_META_DESC_MAP[currentLang] || ABOUT_META_DESC_MAP.en}
   activePage="about"
-  jsonLd={faqSchema}
+  jsonLd={[aboutPageSchema, faqSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">

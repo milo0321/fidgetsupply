@@ -77,13 +77,41 @@ const faqSchema = {
     }
   }))
 };
+
+const contactPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: currentLang === 'en' ? 'Contact Us & Request a Wholesale Quote | FidgetSupply' : `${t('contact.title')} | FidgetSupply`,
+  url: `https://fidgetsupply.com${getLocalizedPath('/contact', currentLang)}`
+};
+
+const CONTACT_META_DESC_MAP: Record<string, string> = {
+  en: 'Request a 12-hour wholesale quote & free 1:1 logo proof for 140+ ready metal fidget molds ($1.46–$470.77, $0 tooling, MOQ 50 pcs blank / 100 pcs 50W laser).',
+  de: '12-Stunden-Großhandelsangebot & kostenloser 1:1-Logokorrekturabzug für 140+ Metall-Fidget-Formen ($1.46–$470.77, $0 Werkzeugkosten, MOQ 50 Stk.).',
+  fr: 'Devis grossiste sous 12h et BAT logo 1:1 gratuit sur 140+ moules fidgets métal ($1.46–$470.77, 0 $ moule, MOQ 50 pcs vierges / 100 pcs gravure laser 50W).',
+  nl: 'Ontvang binnen 12 uur een groothandelsofferte & gratis 1:1 logoproef voor 140+ metalen fidget-mallen ($1.46–$470.77, $0 matrijskosten, MOQ 50 stuks).',
+  es: 'Solicite cotización mayorista en 12h y boceto 1:1 gratis para 140+ moldes de fidgets metálicos ($1.46–$470.77, $0 molde, MOQ 50 uds. / 100 uds. láser 50W).',
+  it: 'Richiedi un preventivo ingrosso in 12 ore e bozza logo 1:1 gratuita su 140+ stampi fidget in metallo ($1.46–$470.77, $0 stampo, MOQ 50 pz. / 100 pz. laser).',
+  pt: 'Peça orçamento por atacado em 12h e prova de logo 1:1 grátis para 140+ moldes de fidgets metálicos ($1.46–$470.77, $0 molde, MOQ 50 un. / 100 un. laser).',
+  sv: 'Begär grossistoffert inom 12 timmar & gratis 1:1 logokorrektur för 140+ metallfidget-formar ($1.46–$470.77, $0 verktygskostnad, MOQ 50 st / 100 st laser).',
+  da: 'Få et engrostilbud inden for 12 timer & gratis 1:1 logokorrektur på 140+ metalfidget-forme ($1.46–$470.77, $0 værktøjsgebyr, MOQ 50 stk. / 100 stk. laser).',
+  no: 'Be om grossisttilbud innen 12 timer & gratis 1:1 logokorrektur på 140+ metallfidget-former ($1.46–$470.77, $0 verktøygebyr, MOQ 50 stk. / 100 stk. laser).',
+  fi: 'Pyydä tukkutarjous 12 tunnissa ja ilmainen 1:1-logovedos 140+ metallifidget-muotille ($1.46–$470.77, $0 muottikulu, MOQ 50 kpl / 100 kpl 50W laser).',
+  pl: 'Poproś o wycenę hurtową w 12h i darmową wizualizację 1:1 dla 140+ form metalowych fidgetów ($1.46–$470.77, $0 za formę, MOQ 50 szt. / 100 szt. laser 50W).',
+  cs: 'Vyžádejte si velkoobchodní nabídku do 12h a 1:1 náhled loga zdarma pro 140+ forem kovových fidgetů ($1.46–$470.77, $0 forma, MOQ 50 ks / 100 ks laser).',
+  ru: 'Оптовый расчет за 12 часов и бесплатный 1:1 макет логотипа для 140+ форм металлических фиджетов ($1.46–$470.77, $0 за форму, от 50 шт. / 100 шт. лазер).',
+  ja: '140種以上の金属EDC既存金型（$1.46〜$470.77・金型代$0・無地50個／レーザー名入れ100個〜）の12時間以内の卸売お見積り＆無料1:1ロゴ配置データ作成。',
+  ko: '140종 이상 금속 피젯 기성 금형($1.46–$470.77, 금형비 $0, 무지 50개/레이저 로고 100개 MOQ) 12시간 내 도매 견적 및 무료 1:1 로고 시안 요청.',
+  id: 'Minta penawaran grosir 12 jam & desain logo 1:1 gratis untuk 140+ cetakan fidget logam ($1.46–$470.77, $0 biaya cetakan, MOQ 50 pcs polos / 100 pcs laser).',
+  ar: 'اطلب عرض أسعار بالجملة خلال 12 ساعة وبروفة شعار 1:1 مجانية لأكثر من 140 قالب فيدجت معدني ($1.46–$470.77، قالب 0$، الحد الأدنى 50 قطعة / 100 قطعة ليزر).'
+};
 ---
 
 <Layout
   title={currentLang === 'en' ? 'Contact Us & Request a Wholesale Quote | FidgetSupply' : `${t('contact.title')} | FidgetSupply`}
-  description={currentLang === 'en' ? 'Request a 12-hour wholesale quote for 140+ ready metal EDC fidget molds (FS-001 to FS-150), custom fiber laser & color-fill branding, and global shipping.' : t('contact.subtitle')}
+  description={CONTACT_META_DESC_MAP[currentLang] || CONTACT_META_DESC_MAP.en}
   activePage="contact"
-  jsonLd={faqSchema}
+  jsonLd={[contactPageSchema, faqSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-centered">

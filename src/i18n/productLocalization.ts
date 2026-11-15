@@ -1573,10 +1573,14 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
     'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance'
   ];
   const rIdx = Number(p.rowId || 1) % bofuPool.length;
-  slugs.push(bofuPool[rIdx]);
-  slugs.push(bofuPool[(rIdx + 1) % bofuPool.length]);
-  slugs.push(bofuPool[(rIdx + 2) % bofuPool.length]);
-  return Array.from(new Set(slugs)).slice(0, 6);
+  const prioritized = [
+    ...slugs.slice(0, 3),
+    bofuPool[rIdx],
+    bofuPool[(rIdx + 1) % bofuPool.length],
+    ...slugs.slice(3),
+    bofuPool[(rIdx + 2) % bofuPool.length]
+  ];
+  return Array.from(new Set(prioritized)).slice(0, 6);
 }
 
 const INSIGHT_DEFAULT_TITLES: Record<string, string> = {

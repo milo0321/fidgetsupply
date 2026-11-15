@@ -37,7 +37,7 @@ export async function getStaticPaths() {
     const relatedGuides = targetGuideSlugs
       .map((s) => allGuides.find((g) => g.data.slug === s))
       .filter(Boolean)
-      .slice(0, 4);
+      .slice(0, 6);
 
     return {
       params: { slug: p.slug },
