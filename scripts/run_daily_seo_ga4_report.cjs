@@ -64,7 +64,8 @@ async function main() {
   const creds = JSON.parse(fs.readFileSync(CREDENTIALS_PATH, 'utf8'));
   const token = await getAccessToken(creds, [
     'https://www.googleapis.com/auth/webmasters.readonly',
-    'https://www.googleapis.com/auth/analytics.readonly'
+    'https://www.googleapis.com/auth/analytics.readonly',
+    'https://www.googleapis.com/auth/analytics.edit'
   ]);
 
   console.log('==============================================================');
@@ -113,7 +114,8 @@ async function main() {
       { name: 'engagementRate' },
       { name: 'averageSessionDuration' },
       { name: 'screenPageViews' },
-      { name: 'eventCount' }
+      { name: 'eventCount' },
+      { name: 'keyEvents' }
     ],
     orderBys: [{ dimension: { dimensionName: 'date' } }]
   });
@@ -121,19 +123,33 @@ async function main() {
   for (const r of byDate.rows || []) {
     const d = r.dimensionValues[0].value;
     const m = r.metricValues.map((x) => x.value);
-    console.log(`• ${d}: Users=${m[0]} (New=${m[1]}), Sessions=${m[2]} (Engaged=${m[3]}, Rate=${(Number(m[4]) * 100).toFixed(1)}%), AvgDur=${Number(m[5]).toFixed(1)}s, Views=${m[6]}, Events=${m[7]}`);
+    console.log(`• ${d}: Users=${m[0]} (New=${m[1]}), Sessions=${m[2]} (Engaged=${m[3]}, Rate=${(Number(m[4]) * 100).toFixed(1)}%), AvgDur=${Number(m[5]).toFixed(1)}s, Views=${m[6]}, Events=${m[7]}, KeyEvents=${m[8]}`);
   }
 
   // 4. GA4 Events Breakdown
   const byEvent = await ga4Report(token, {
     dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],
     dimensions: [{ name: 'eventName' }],
-    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }]
+    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }, { name: 'keyEvents' }]
   });
   console.log('\n--- 4. GA4 Event Funnel ---');
   for (const r of byEvent.rows || []) {
-    console.log(`• ${r.dimensionValues[0].value}: ${r.metricValues[0].value} events (${r.metricValues[1].value} users)`);
+    console.log(`• ${r.dimensionValues[0].value}: ${r.metricValues[0].value} events (${r.metricValues[1].value} users, ${r.metricValues[2].value} keyEvents)`);
   }
+
+  // 5. GA4 Admin Property Configuration Summary
+  const [drRes, keRes, cdRes, cmRes] = await Promise.all([
+    fetch(`https://analyticsadmin.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}/dataRetentionSettings`, { headers: { Authorization: `Bearer ${token}` } }),
+    fetch(`https://analyticsadmin.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}/keyEvents`, { headers: { Authorization: `Bearer ${token}` } }),
+    fetch(`https://analyticsadmin.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}/customDimensions`, { headers: { Authorization: `Bearer ${token}` } }),
+    fetch(`https://analyticsadmin.googleapis.com/v1beta/properties/${GA4_PROPERTY_ID}/customMetrics`, { headers: { Authorization: `Bearer ${token}` } })
+  ]);
+  const [drData, keData, cdData, cmData] = await Promise.all([drRes.json(), keRes.json(), cdRes.json(), cmRes.json()]);
+  console.log('\n--- 5. GA4 Admin Governance (Editor Verified) ---');
+  console.log(`• Event Data Retention: ${drData.eventDataRetention} (Reset on new activity: ${drData.resetUserDataOnNewActivity})`);
+  console.log(`• Active Key Events (${(keData.keyEvents || []).length}): ${(keData.keyEvents || []).map((k) => k.eventName).join(', ')}`);
+  console.log(`• Active Custom Dimensions (${(cdData.customDimensions || []).length}): ${(cdData.customDimensions || []).map((c) => c.parameterName).join(', ')}`);
+  console.log(`• Active Custom Metrics (${(cmData.customMetrics || []).length}): ${(cmData.customMetrics || []).map((c) => c.parameterName).join(', ')}`);
 }
 
 main().catch((err) => {
