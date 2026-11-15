@@ -220,11 +220,32 @@ const medEnTitle = `${collection.name} | FidgetSupply`;
 const shortEnTitle = `${cleanShortName} Wholesale | FidgetSupply`;
 const enTitle = COLLECTION_SEO_TITLES[collection.slug] || (rawEnTitle.length <= 60 ? rawEnTitle : medEnTitle.length <= 60 ? medEnTitle : shortEnTitle);
 const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom 50W fiber laser & color-fill branding.`;
+const locColName = t(`col.${collection.slug}.name` as any);
+const COLLECTION_META_DESC_MAP: Record<string, string> = {
+  en: enDesc,
+  de: `${locColName}: ${products.length} Serienformen ($${minColPrice}–$${maxColPrice}, $0 Werkzeugkosten, MOQ 50 Stk.). 50W-Laserlogo ab 100 Stk.`,
+  fr: `${locColName} : ${products.length} moules prêts ($${minColPrice}–$${maxColPrice}, 0 $ frais de moule, MOQ 50 pcs). Logo laser 50W dès 100 pcs.`,
+  nl: `${locColName}: ${products.length} productiemallen ($${minColPrice}–$${maxColPrice}, $0 matrijskosten, MOQ 50 st.). 50W-laserlogo vanaf 100 st.`,
+  es: `${locColName}: ${products.length} moldes listos ($${minColPrice}–$${maxColPrice}, $0 costo de molde, MOQ 50 uds.). Logo láser 50W desde 100 uds.`,
+  it: `${locColName}: ${products.length} stampi pronti ($${minColPrice}–$${maxColPrice}, $0 costi stampo, MOQ 50 pz.). Logo laser 50W da 100 pz.`,
+  pt: `${locColName}: ${products.length} moldes prontos ($${minColPrice}–$${maxColPrice}, $0 custo de molde, MOQ 50 un.). Logo laser 50W desde 100 un.`,
+  sv: `${locColName}: ${products.length} färdiga formar ($${minColPrice}–$${maxColPrice}, $0 verktygskostnad, MOQ 50 st). 50W laserlogo från 100 st.`,
+  da: `${locColName}: ${products.length} færdige forme ($${minColPrice}–$${maxColPrice}, $0 værktøjsgebyr, MOQ 50 stk.). 50W laserlogo fra 100 stk.`,
+  no: `${locColName}: ${products.length} ferdige former ($${minColPrice}–$${maxColPrice}, $0 verktøygebyr, MOQ 50 stk.). 50W laserlogo fra 100 stk.`,
+  fi: `${locColName}: ${products.length} valmismuottia ($${minColPrice}–$${maxColPrice}, $0 muottikulu, MOQ 50 kpl). 50W laserlogo alkaen 100 kpl.`,
+  pl: `${locColName}: ${products.length} gotowych form ($${minColPrice}–$${maxColPrice}, $0 kosztów formy, MOQ 50 szt.). Logo laserowe 50W od 100 szt.`,
+  cs: `${locColName}: ${products.length} hotových forem ($${minColPrice}–$${maxColPrice}, $0 forma, MOQ 50 ks). 50W laserové logo od 100 ks.`,
+  ru: `${locColName}: ${products.length} готовых пресс-форм ($${minColPrice}–$${maxColPrice}, $0 за форму, MOQ 50 шт.). Лазерный логотип 50W от 100 шт.`,
+  ja: `${locColName}：既存金型${products.length}種（卸売 $${minColPrice}〜$${maxColPrice}、金型代$0、最小50個〜）。100個〜50Wレーザー名入れ対応。`,
+  ko: `${locColName}: 기성 금형 ${products.length}종 (도매가 $${minColPrice}–$${maxColPrice}, 금형비 $0, MOQ 50개). 100개부터 50W 레이저 로고 각인.`,
+  id: `${locColName}: ${products.length} cetakan siap pakai ($${minColPrice}–$${maxColPrice}, $0 biaya cetakan, MOQ 50 pcs). Logo laser 50W mulai 100 pcs.`,
+  ar: `${locColName}: ${products.length} قالبًا جاهزًا ($${minColPrice}–$${maxColPrice}، قالب 0$، الحد الأدنى 50 قطعة). حفر شعار ليزر 50W من 100 قطعة.`
+};
 ---
 
 <Layout
-  title={currentLang === 'en' ? enTitle : `${t(`col.${collection.slug}.name` as any)} (${products.length} ${t('nav.modelsCount')} · $${minColPrice}+) | FidgetSupply`}
-  description={currentLang === 'en' ? enDesc : locCol.heroSubtitle}
+  title={currentLang === 'en' ? enTitle : `${locColName} (${products.length} ${t('nav.modelsCount')} · $${minColPrice}+) | FidgetSupply`}
+  description={COLLECTION_META_DESC_MAP[currentLang] || locCol.heroSubtitle}
   keywords={collection.targetKeywords}
   ogImage={products[0]?.data.featuredImage ? `${products[0].data.featuredImage}?v=4k` : undefined}
   jsonLd={[itemListSchema, faqSchema, breadcrumbSchema]}
@@ -306,7 +327,16 @@ const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${pr
     <!-- Product Grid (Above-the-Fold Immediate Catalog Access) -->
     <section class="collection-products-section" id="collection-catalog">
       <div class="grid-header">
-        <h2>{t('col.gridHeadingPrefix')} {t(`col.${collection.slug}.short` as any)} ({products.length})</h2>
+        <div>
+          <h2>{t('col.gridHeadingPrefix')} {t(`col.${collection.slug}.short` as any)} ({products.length})</h2>
+          <p class="grid-trust-strip">
+            <span>✓ {t('pdp.noMoldFee')}</span>
+            <span>·</span>
+            <span>✓ {locCol.moq}</span>
+            <span>·</span>
+            <a href="#engineering-comparison-matrix">{t('col.matrixBadge')} ↓</a>
+          </p>
+        </div>
         <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary">{t('nav.requestQuote')}</a>
       </div>
 
@@ -333,7 +363,7 @@ const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${pr
     </div>
 
     <!-- Collection Engineering Comparison Table (Top 15 Models) -->
-    <section class="section">
+    <section class="section" id="engineering-comparison-matrix">
       <div class="section-header-center">
         <span class="badge">{t('col.matrixBadge')}</span>
         <h2 class="section-title">{t(`col.${collection.slug}.short` as any)} {t('col.matrixTitleSuffix')}</h2>
@@ -513,6 +543,22 @@ const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${pr
   }
   .grid-header h2 {
     font-size: 1.45rem;
+    margin-bottom: 0.25rem;
+  }
+  .grid-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.84rem;
+    color: #059669;
+    font-weight: 700;
+    margin: 0;
+  }
+  .grid-trust-strip a {
+    color: #0284c7;
+    text-decoration: underline;
+    font-weight: 800;
   }
   .col-guides-grid {
     display: grid;

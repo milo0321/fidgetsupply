@@ -62,13 +62,56 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
   }))
 };
+
+const packagingServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: currentLang === 'en' ? 'Custom Fidget Packaging: EVA Zipper Cases, Window Tin Boxes & FBA Prep' : `${t('pkg.heroTitle')} | FidgetSupply`,
+  provider: {
+    '@type': 'Organization',
+    name: 'FidgetSupply.com',
+    url: 'https://fidgetsupply.com'
+  },
+  serviceType: 'Custom EVA Shockproof Zipper Cases, Window Metal Tin Boxes, Rigid Gift Boxes & Free Amazon FNSKU Labeling',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Wholesale Custom Fidget Packaging Tiers',
+    itemListElement: [
+      { '@type': 'Offer', name: 'Custom Debossed Black EVA Zipper Case (MOQ 100 pcs)', price: '0.75', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Matte Window Metal Tin Box + CNC Foam Insert (MOQ 200 pcs)', price: '0.85', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Two-Piece Rigid Luxury Gift Box (MOQ 300 pcs)', price: '1.10', priceCurrency: 'USD' }
+    ]
+  }
+};
+
+const PACKAGING_META_DESC_MAP: Record<string, string> = {
+  en: 'Turnkey wholesale metal fidget packaging: custom Black EVA Zipper Cases (+$0.75, MOQ 100), Window Tin Boxes (+$0.85), Rigid Gift Boxes (+$1.10) & FNSKU labels.',
+  es: 'Embalaje mayorista para fidgets metálicos: estuches EVA con cremallera (+$0.75, MOQ 100), cajas de hojalata (+$0.85), cajas rígidas (+$1.10) y etiquetas FNSKU.',
+  de: 'Großhandel-Fidget-Verpackungen nach Maß: EVA-Reißverschlussetuis (+$0.75, MOQ 100), Sichtfenster-Blechdosen (+$0.85), Geschenkboxen (+$1.10) & gratis FNSKU.',
+  fr: 'Packaging grossiste pour fidgets métal : étuis zippés EVA (+$0.75, MOQ 100), boîtes métal à fenêtre (+$0.85), coffrets rigides (+$1.10) et étiquettes FNSKU.',
+  ja: '金属フィジェット用OEMパッケージ：カスタムEVAジッパーケース（+$0.75・MOQ 100個）、窓付きブリキ缶（+$0.85）、高級化粧箱（+$1.10）、Amazon FNSKU無料貼付。',
+  ko: '금속 피젯 맞춤형 도매 패키징: 커스텀 EVA 지퍼 케이스(+$0.75, MOQ 100개), 투명창 틴케이스(+$0.85), 고급 하드 기프트 박스(+$1.10) 및 무료 FNSKU 라벨 부착.',
+  ar: 'تغليف فيدجت معدني مخصص بالجملة: حقائب EVA بسحاب (+0.75$، MOQ 100)، علب صفيح بنافذة (+0.85$)، صناديق هدايا صلبة (+1.10$) وملصقات أمازون FNSKU مجاناً.',
+  pt: 'Embalagens por atacado para fidgets metálicos: estojos EVA com zíper (+$0.75, MOQ 100), latas com visor (+$0.85), caixas rígidas (+$1.10) e etiquetas FNSKU.',
+  ru: 'Индивидуальная упаковка для металлических фиджетов: чехлы EVA на молнии (+$0.75, от 100 шт.), жестяные коробки (+$0.85), подарочные боксы (+$1.10) и FNSKU.',
+  it: 'Packaging ingrosso per fidget in metallo: custodie zip in EVA (+$0.75, MOQ 100), scatole in latta (+$0.85), cofanetti rigidi (+$1.10) ed etichette FNSKU.',
+  nl: 'Groothandel-verpakkingen voor metalen fidgets: bedrukte EVA-ritsetuis (+$0.75, MOQ 100), vensterblikken (+$0.85), geschenkdozen (+$1.10) & gratis FNSKU-labels.',
+  pl: 'Opakowania hurtowe do metalowych fidgetów: etui EVA na zamek (+$0.75, MOQ 100), puszki z okienkiem (+$0.85), pudełka prezentowe (+$1.10) i etykiety FNSKU.',
+  tr: 'Toptan metal stres oyuncağı ambalajı: özel logolu EVA fermuarlı çanta (+$0.75, MOQ 100), pencereli teneke kutu (+$0.85), sert hediye kutusu (+$1.10) ve FNSKU.',
+  sv: 'Grossistförpackningar för metallfidgets: EVA-fodral med dragkedja (+$0.75, MOQ 100), plåtaskar med fönster (+$0.85), presentaskar (+$1.10) & FNSKU-etiketter.',
+  no: 'Grossistemballasje for metallfidgets: EVA-etuier med glidelås (+$0.75, MOQ 100), metallbokser med vindu (+$0.85), gaveesker (+$1.10) og gratis FNSKU-etiketter.',
+  da: 'Engrosemballage til metalfidgets: EVA-lynlåsetuier (+$0.75, MOQ 100), metalæsker med vindue (+$0.85), eksklusive gaveæsker (+$1.10) og gratis FNSKU-mærkning.',
+  fi: 'Tukkupakkaukset metallifidgeteille: EVA-vetoketjukotelot (+$0.75, MOQ 100), ikkunalliset peltirasiat (+$0.85), lahjalaatikot (+$1.10) ja FNSKU-tarrojen kiinnitys.',
+  cs: 'Velkoobchodní balení pro kovové fidgety: pouzdra EVA na zip (+$0.75, MOQ 100 ks), plechové krabičky s okénkem (+$0.85), dárkové boxy (+$1.10) a FNSKU štítky.'
+};
+const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_DESC_MAP.en;
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Custom Fidget Packaging: EVA & Tin Boxes | FidgetSupply' : `${t('pkg.heroTitle')} | FidgetSupply`}
-  description={currentLang === 'en' ? 'Turnkey wholesale metal EDC fidget packaging: custom debossed Black EVA Zipper Cases, Window Metal Tin Boxes, Rigid Gift Boxes & free Amazon FNSKU labeling.' : t('pkg.heroDesc')}
+  title={currentLang === 'en' ? 'Custom Fidget Packaging: EVA & Tin Boxes | FidgetSupply' : `${t('pkg.heroTitle')} (+$0.75) | FidgetSupply`}
+  description={pageDescription}
   activePage="custom-packaging"
-  jsonLd={faqSchema}
+  jsonLd={[packagingServiceSchema, faqSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">

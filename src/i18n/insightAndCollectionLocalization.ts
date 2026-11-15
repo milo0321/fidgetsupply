@@ -1103,8 +1103,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Metallurgisk sammenligning af vakuum-PVD, Type-II/III aluminiumanodisering, tromlet stonewash og håndpoleret antik bronze/sølv-belægning.'
     },
     no: {
-      title: 'PVD-Belegg, Type-III Hardanodisering, Stonewash & Antikk Patina: Guide til Overflatebehandling av Metallfidgets',
-      summary: 'Metallurgisk sammenligning av vakuum-PVD, Type-II/III aluminiumanodisering, tromlet stonewash og håndpolert antikk bronse/sølv-plettering.'
+      title: 'PVD-Belegg vs. Hardanodisering & Stonewash (MOQ 50)',
+      summary: 'PVD-belegg (vakuum-titannitrid), Type-III hardanodisering, stonewash og antikk patina på 140 metallfidget-former ($0 verktøykostnad, MOQ 50 stk.).'
     },
     fi: {
       title: 'PVD-Pinnoitus, Tyypin III Kova-anodisointi, Stonewash & Antiikkipatina: Metallifidgetien Pintakäsittelyopas',
@@ -1415,8 +1415,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Jak hluboké tlakové lití EDM (0,8–2,2 mm) a 5osé CNC obrábění vytvářejí virální fidgety Mecha, Lebka, Meč Excalibur a Sušenka se 100% IP bezpečností.'
     },
     ru: {
-      title: 'Металлические EDC-Фиджеты с 3D-Рельефом: Броня Меха, Готический Череп, Дракон и Поп-Арт Скульптура',
-      summary: 'Как глубокое литье EDM (0,8–2,2 мм) и 5-осевая ЧПУ-фрезеровка создают вирусные фиджеты Меха, Череп, Меч Экскалибур и Печенье со 100% IP-чистотой.'
+      title: '3D-Рельефные EDC-Фиджеты: Меха, Череп и Дракон ($2.50+)',
+      summary: 'Металлические EDC-фиджеты с 3D-рельефом (0,8–2,2 мм EDM и 5-осевой ЧПУ): Меха, Готический Череп, Меч Экскалибур ($0 за пресс-форму, MOQ 50 шт.).'
     },
     ja: {
       title: '3Dメカアーマー・ゴシックスカル・ドラゴン・ポップアート立体彫刻金属EDCフィジェット完全ガイド',
@@ -1527,8 +1527,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Compleet douane- en logistiek handboek voor de import van metalen fidgets naar de EU, VS, VK en Amazon FBA — inclusief HS-codes, IATA PI-953 afscherming en Air/Sea DDP.'
     },
     es: {
-      title: 'Envío Internacional DDP, Códigos Arancelarios HS (9503.00) y Carga Aérea Magnética IATA PI-953: Guía de Importación',
-      summary: 'Manual completo de aduanas y logística para importar fidgets de metal a EE. UU., la UE, Reino Unido y Amazon FBA — códigos HS, blindaje IATA PI-953 y DDP Aéreo vs. Marítimo.'
+      title: 'IATA PI-953 (PI953), Código HS 9503.00 y Envío DDP',
+      summary: 'Guía de importación IATA PI-953 (PI953 <0.00525 Gauss), código arancelario HS 9503.00 y envío DDP aéreo/marítimo para fidgets magnéticos (MOQ 50).'
     },
     it: {
       title: 'Spedizione Internazionale DDP, Codici Doganali HS (9503.00) e Trasporto Aereo Magnetico IATA PI-953: Guida Import',
@@ -1543,12 +1543,12 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tull- och logistikguide för import av metallfidgets till EU, USA, Storbritannien och Amazon FBA — HS-koder, IATA PI-953 magnetisk skärmning och Flyg/Sjö-DDP.'
     },
     da: {
-      title: 'International DDP-fragt, HS-toldkoder (9503.00) & IATA PI-953 Magnetisk Luftfragt: Importguide til Metalfidgets',
-      summary: 'Komplet told- og logistikguide til import af metalfidgets til EU, USA, Storbritannien og Amazon FBA — HS-koder, IATA PI-953 magnetisk skærmning og Luft/Sø-DDP.'
+      title: 'IATA PI-953 (PI953), HS-Toldkoder (9503.00) & DDP-Fragt',
+      summary: 'IATA PI-953 (PI953 <0,00525 Gauss) magnetisk luftfragt, HS-toldkoder (9503.00) og dør-til-dør DDP-import af metalfidgets til Danmark & EU (MOQ 50).'
     },
     no: {
-      title: 'Internasjonal DDP-frakt, HS-tollkoder (9503.00) & IATA PI-953 Magnetisk Flyfrakt: Importguide for Metallfidgets',
-      summary: 'Komplett toll- og logistikkguide for import av metallfidgets til Norge, EU, USA, UK og Amazon FBA — HS-koder, IATA PI-953 magnetisk skjerming og Fly/Sjø-DDP.'
+      title: 'Norske Tollkoder (HS 9503.00), IATA PI-953 (PI953) & DDP',
+      summary: 'Norske tollkoder (HS 9503.00), IATA PI-953 (PI953 <0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets til Norge og EU (MOQ 50 stk.).'
     },
     fi: {
       title: 'Kansainvälinen DDP-toimitus, HS-tullikoodit (9503.00) & IATA PI-953 Magneettinen Lentorahti: Maahantuontiopas',
@@ -2081,8 +2081,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Porovnejte ultralehké hliníkové fidgety 6061/6063 (<55g) s těžkými mosaznými a nerezovými modely (120g–185g, FS-047 vs. FS-142)."
     },
     "ru": {
-        "title": "Ультралегкий анодированный алюминий 6063 (<55 г) против тяжелой латуни и стали (120–185 г): Гид по весу",
-        "summary": "Сравнение легких карманных фиджетов из алюминия 6061/6063 (<55 г) и тяжелых моделей из латуни и стали (120–185 г, FS-047 против FS-142)."
+        "title": "Алюминий 6063 (<55 г) vs Латунь и Сталь (120–185 г) EDC",
+        "summary": "Сравнение ультралегких EDC-фиджетов из алюминия 6063 (<55 г, FS-047) и тяжелых моделей из латуни и стали 304 (120–185 г, FS-142). Заказ от 50 шт."
     },
     "ja": {
         "title": "超軽量6063陽極酸化アルミ（55g未満）vs 重量級真鍮・ステンレス（120g〜185g）：EDC重量設計ガイド",
@@ -2217,16 +2217,16 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Spesialtilpassede metallfidgets for dekk-/felgmerker (FS-030, FS-069), casino-VIP (FS-083) og esportslag (FS-020, FS-040) med $0 verktøygebyr fra MOQ 50 stk."
     },
     "fi": {
-        "title": "Autovanteet, Kasino-VIP & Esports-Oheistuotteet: Toimialakohtaiset Kustomoidut Metallifidgetit",
-        "summary": "Valmiit muotit rengas-/vannemerkeille (FS-030, FS-069), kasinoiden VIP-lahjoihin (FS-083) ja esports-tiimeille (FS-020, FS-040) ilman muottimaksua alkaen MOQ 50 kpl."
+        "title": "Autovanteet, Kasino-VIP & Esports Metallifidgetit (MOQ 50)",
+        "summary": "Autovanteet (FS-030, FS-069), kasino-ruletti (FS-083) ja esports-metallifidgetit omalla logolla: 140 valmista muottia ($0 muottikulu, MOQ 50 kpl)."
     },
     "pl": {
         "title": "Felgi Samochodowe, Prezenty VIP dla Kasyn i Merch Esportowy: Branżowe Metalowe Fidgety z Logo",
         "summary": "Metalowe fidgety dla marek motoryzacyjnych (FS-030, FS-069), kasyn VIP (FS-083) i drużyn esportowych (FS-020, FS-040) bez kosztów matryc od MOQ 50 szt."
     },
     "cs": {
-        "title": "Automobilové Disky, VIP Dárky pro Kasina a Esport Merch: Kovové Fidgety s Logem ($0 Forma / MOQ 50)",
-        "summary": "Hotové formy pro automobilové a pneu značky (FS-030, FS-069), kasinové rulety (FS-083) a esport týmy (FS-020, FS-040) s nulovým poplatkem za formu ($0) od MOQ 50 ks."
+        "title": "Automobilové Disky, Kasino VIP & Esport Fidgety (MOQ 50)",
+        "summary": "Kovové fidgety pro automobilové disky/pneu (FS-030, FS-069), kasina (FS-083) a esport týmy (FS-020): $0 poplatek za formu, MOQ 50 ks, 50W laser."
     },
     "ru": {
         "title": "Диски казино, автомобильные диски и VIP-подарки киберспорта: Отраслевые металлические фиджеты",
@@ -2825,8 +2825,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "Наш протокол ОТК из 12 тестов перед отгрузкой: проверка магнитов гауссметром, тест удержания эпоксидной смолы 50 Н, вращение подшипника R188 (>180 с), адгезия PVD 3M и экранирование IATA PI-953."
     },
     "ja": {
-      "title": "金属EDCフィジェット品質管理（QC）チェックリスト：輸入バイヤー向け出荷前必須12項目検査プロトコル",
-      "summary": "FidgetSupplyの出荷前12項目QC検査：デジタルガウスメーター磁束測定、50Nエポキシ磁石保持テスト、R188ベアリング180秒回転検査、3MクロスカットPVD密着試験、IATA PI-953磁気遮蔽測定。"
+      "title": "EDC 品質管理（QC）チェックリスト：金属フィジェット出荷前12項目検査",
+      "summary": "金属EDC品質管理（QC）の出荷前必須12項目検査：ガウスメーター磁束測定、50Nエポキシ保持試験、R188回転検査、3M PVD密着試験、IATA PI-953磁気遮蔽（MOQ 50個）。"
     },
     "ko": {
       "title": "메탈 EDC 피젯 품질관리(QC) 체크리스트: 수입업체를 위한 선적 전 필수 12단계 전수 검사 프로토콜",

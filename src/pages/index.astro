@@ -81,14 +81,48 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
   }))
 };
+
+const homeItemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: `${t('home.hero.title')} | FidgetSupply.com`,
+  numberOfItems: COLLECTIONS.length,
+  itemListElement: COLLECTIONS.map((col, idx) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    url: `https://fidgetsupply.com${getLocalizedPath(`/collections/${col.slug}`, currentLang)}`,
+    name: t(`col.${col.slug}.name` as any)
+  }))
+};
+
+const HOME_META_DESC_MAP: Record<string, string> = {
+  en: 'Wholesale metal EDC fidgets & sliders: 140+ ready molds ($1.46–$470.77, $0 tooling fee). 50 pcs blank MOQ, 100 pcs custom 50W fiber laser & color-fill logo.',
+  de: 'Metall-EDC-Fidgets & Slider Großhandel: 140+ Serienformen ($1.46–$470.77, $0 Werkzeugkosten, MOQ 50 Stk.). 50W-Laserlogo & Farbfüllung ab 100 Stk.',
+  fr: 'Grossiste fidgets EDC métal & sliders : 140+ moules prêts ($1.46–$470.77, 0 $ frais de moule, MOQ 50 pcs). Logo laser fibre 50W dès 100 pcs.',
+  nl: 'Metalen EDC-fidgets & sliders groothandel: 140+ productiemallen ($1.46–$470.77, $0 matrijskosten, MOQ 50 st.). 50W-laserlogo vanaf 100 st.',
+  es: 'Mayorista de fidgets EDC metálicos y sliders: 140+ moldes listos ($1.46–$470.77, $0 molde, MOQ 50 uds.). Grabado láser de fibra 50W desde 100 uds.',
+  it: 'Ingrosso fidget EDC in metallo e slider: 140+ stampi pronti ($1.46–$470.77, $0 costi stampo, MOQ 50 pz.). Logo laser fibra 50W da 100 pz.',
+  pt: 'Atacadista de fidgets EDC metálicos e sliders: 140+ moldes prontos ($1.46–$470.77, $0 molde, MOQ 50 un.). Gravação laser 50W desde 100 un.',
+  sv: 'Metall-EDC-fidgets & sliders grossist: 140+ färdiga formar ($1.46–$470.77, $0 verktygskostnad, MOQ 50 st). 50W fiberlaserlogo från 100 st.',
+  da: 'Metal-EDC-fidgets & sliders engros: 140+ færdige forme ($1.46–$470.77, $0 værktøjsgebyr, MOQ 50 stk.). 50W fiberlaserlogo fra 100 stk.',
+  no: 'Metall-EDC-fidgets & sliders engros: 140+ ferdige former ($1.46–$470.77, $0 verktøygebyr, MOQ 50 stk.). 50W fiberlaserlogo fra 100 stk.',
+  fi: 'Metalliset EDC-fidgetit & sliderit tukkuna: 140+ valmismuottia ($1.46–$470.77, $0 muottikulu, MOQ 50 kpl). 50W kuitulaserlogo alkaen 100 kpl.',
+  pl: 'Hurtownia metalowych fidgetów EDC i sliderów: 140+ gotowych form ($1.46–$470.77, $0 formy, MOQ 50 szt.). Logo laserowe 50W od 100 szt.',
+  cs: 'Velkoobchod kovových EDC fidgetů a sliderů: 140+ hotových forem ($1.46–$470.77, $0 forma, MOQ 50 ks). 50W laserové logo od 100 ks.',
+  ru: 'Металлические EDC-фиджеты и слайдеры оптом: 140+ готовых пресс-форм ($1.46–$470.77, $0 оснастка, MOQ 50 шт.). Лазерный логотип 50W от 100 шт.',
+  ja: '金属製EDCフィジェット・磁気スライダー卸売＆OEM：既存140金型（$1.46〜$470.77、金型代$0、MOQ 50個）。100個〜50Wレーザー刻印対応。',
+  ko: '메탈 EDC 피젯 토이 & 마그네틱 슬라이더 도매/OEM: 기성 금형 140종 ($1.46–$470.77, 금형비 $0, MOQ 50개). 100개부터 50W 레이저 각인.',
+  id: 'Grosir fidget EDC logam & slider magnetik: 140+ cetakan siap pakai ($1.46–$470.77, $0 biaya cetakan, MOQ 50 pcs). Logo laser 50W mulai 100 pcs.',
+  ar: 'أدوات الفيدجت المعدنية EDC والسلايدرات بالجملة: أكثر من 140 قالبًا جاهزًا ($1.46–$470.77، قالب 0$، الحد الأدنى 50 قطعة). حفر شعار ليزر 50W من 100 قطعة.'
+};
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Metal EDC Fidget Wholesale: 140 Ready Molds | FidgetSupply' : `${t('home.hero.title')} | FidgetSupply.com`}
-  description={currentLang === 'en' ? 'China metal EDC fidget sourcing platform: 140+ ready molds, $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom fiber laser & deep laser color-fill branding.' : t('home.hero.lead')}
+  title={currentLang === 'en' ? 'Metal EDC Fidget Wholesale: 140 Ready Molds ($1.46+) | FidgetSupply' : `${t('home.hero.title')} ($1.46+) | FidgetSupply.com`}
+  description={HOME_META_DESC_MAP[currentLang] || t('home.hero.lead')}
   preloadImage="/images/hero-metal-edc-showcase.webp"
   activePage="home"
-  jsonLd={faqSchema}
+  jsonLd={[homeItemListSchema, faqSchema]}
 >
   <!-- Hero Section -->
   <section class="hero-section">
@@ -139,7 +173,7 @@ const faqSchema = {
         <div class="showcase-card">
           <div class="showcase-top">
             <span class="sku-pill">{t('home.hero.showcasePill')}</span>
-            <span class="showcase-price">$0.75 – $382<span>/{t('unit.pc')}</span></span>
+            <span class="showcase-price">$1.46 – $470.77<span>/{t('unit.pc')}</span></span>
           </div>
           <img
             src="/images/hero-metal-edc-showcase.webp"

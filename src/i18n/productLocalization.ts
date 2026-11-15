@@ -482,6 +482,138 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     it: 'Ultrasottile', pt: 'Ultrafino', sv: 'Ultratunn', da: 'Ultratynd',
     no: 'Ultratynn', fi: 'Erittäin Ohut', pl: 'Ultracienki', cs: 'Ultratenký',
     ru: 'Ультратонкий', ja: '極薄ウルトラスリム', ko: '울트라 슬림', id: 'Ultra-Tipis', ar: 'فائق النحافة'
+  }],
+  [/\bStainless Steel\b/gi, {
+    de: 'Edelstahl', fr: 'Acier Inox', nl: 'RVS', es: 'Acero Inoxidable',
+    it: 'Acciaio Inox', pt: 'Aço Inox', sv: 'Rostfritt Stål', da: 'Rustfrit Stål',
+    no: 'Rustfritt Stål', fi: 'Ruostumaton Teräs', pl: 'Stal Nierdzewna', cs: 'Nerezová Ocel',
+    ru: 'Нержавеющая сталь', ja: 'ステンレス鋼', ko: '스테인리스 스틸', id: 'Baja Tahan Karat', ar: 'فولاذ مقاوم للصدأ'
+  }],
+  [/\b(303|304|316)SS\b/gi, {
+    de: '$1-Edelstahl', fr: 'Inox $1', nl: '$1-RVS', es: 'Inox $1',
+    it: 'Inox $1', pt: 'Inox $1', sv: '$1 Rostfritt', da: '$1 Rustfrit',
+    no: '$1 Rustfritt', fi: '$1-Teräs', pl: 'Stal $1', cs: 'Nerez $1',
+    ru: 'Сталь $1', ja: 'SUS$1ステンレス', ko: '$1 스테인리스', id: 'Baja $1', ar: 'فولاذ $1'
+  }],
+  [/\bStainless\b/gi, {
+    de: 'Edelstahl', fr: 'Inox', nl: 'RVS', es: 'Inox',
+    it: 'Inox', pt: 'Inox', sv: 'Rostfri', da: 'Rustfri',
+    no: 'Rustfri', fi: 'Ruostumaton', pl: 'Nierdzewny', cs: 'Nerezový',
+    ru: 'Нержавеющий', ja: 'ステンレス', ko: '스테인리스', id: 'Stainless', ar: 'ستانلس'
+  }],
+  [/\bAnodized Aluminum\b/gi, {
+    de: 'Eloxiertes Aluminium', fr: 'Aluminium Anodisé', nl: 'Geanodiseerd Aluminium', es: 'Aluminio Anodizado',
+    it: 'Alluminio Anodizzato', pt: 'Alumínio Anodizado', sv: 'Anodiserat Aluminium', da: 'Anodiseret Aluminium',
+    no: 'Anodisert Aluminium', fi: 'Anodisoitu Alumiini', pl: 'Anodowane Aluminium', cs: 'Eloxovaný Hliník',
+    ru: 'Анодированный алюминий', ja: 'アルマイトアルミ', ko: '아노다이징 알루미늄', id: 'Aluminium Anodisa', ar: 'ألمنيوم مؤكسد'
+  }],
+  [/\bAluminum\b/gi, {
+    de: 'Aluminium', fr: 'Aluminium', nl: 'Aluminium', es: 'Aluminio',
+    it: 'Alluminio', pt: 'Alumínio', sv: 'Aluminium', da: 'Aluminium',
+    no: 'Aluminium', fi: 'Alumiini', pl: 'Aluminium', cs: 'Hliník',
+    ru: 'Алюминий', ja: 'アルミニウム', ko: '알루미늄', id: 'Aluminium', ar: 'ألمنيوم'
+  }],
+  [/\bBrass\b/gi, {
+    de: 'Messing', fr: 'Laiton', nl: 'Messing', es: 'Latón',
+    it: 'Ottone', pt: 'Latão', sv: 'Mässing', da: 'Messing',
+    no: 'Messing', fi: 'Messinki', pl: 'Mosiądz', cs: 'Mosaz',
+    ru: 'Латунь', ja: '真鍮（ブラス）', ko: '황동(브라스)', id: 'Kuningan', ar: 'نحاس أصفر'
+  }],
+  [/\bMechanical\b/gi, {
+    de: 'Mechanischer', fr: 'Mécanique', nl: 'Mechanische', es: 'Mecánico',
+    it: 'Meccanico', pt: 'Mecânico', sv: 'Mekanisk', da: 'Mekanisk',
+    no: 'Mekanisk', fi: 'Mekaaninen', pl: 'Mechaniczny', cs: 'Mechanický',
+    ru: 'Механический', ja: '機械式', ko: '기계식', id: 'Mekanis', ar: 'ميكانيكي'
+  }],
+  [/\bRatchet\b/gi, {
+    de: 'Ratschen', fr: 'à Cliquet', nl: 'Ratel', es: 'Trinquete',
+    it: 'Cricchetto', pt: 'Catraca', sv: 'Spärr', da: 'Skralde',
+    no: 'Skralle', fi: 'Räikkä', pl: 'Zapadkowy', cs: 'Ráčnový',
+    ru: 'Храповой', ja: 'ラチェット', ko: '라쳇', id: 'Ratchet', ar: 'سقاطة'
+  }],
+  [/\bPlanetary Gear\b/gi, {
+    de: 'Planetengetriebe', fr: 'Engrenage Planétaire', nl: 'Planeetwiel', es: 'Engranaje Planetario',
+    it: 'Ingranaggio Planetario', pt: 'Engrenagem Planetária', sv: 'Planetväxel', da: 'Planetgear',
+    no: 'Planetgir', fi: 'Planeettavaihde', pl: 'Przekładnia Planetarna', cs: 'Planetová Převodovka',
+    ru: 'Планетарная шестерня', ja: '遊星ギア', ko: '유성 기어', id: 'Roda Gigi Planet', ar: 'تروس كوكبية'
+  }],
+  [/\bSprocket Chain\b/gi, {
+    de: 'Kettenrad', fr: 'Chaîne Pignon', nl: 'Kettingwiel', es: 'Cadena de Piñón',
+    it: 'Catena a Pignone', pt: 'Corrente de Pinhão', sv: 'Kedjedrev', da: 'Kædehjul',
+    no: 'Kjedehjul', fi: 'Ketjupyörä', pl: 'Łańcuch Zębaty', cs: 'Řetězové Kolo',
+    ru: 'Цепной привод', ja: 'スプロケットチェーン', ko: '스프로킷 체인', id: 'Rantai Sprocket', ar: 'سلسلة تروس'
+  }],
+  [/\bGimbal Gyro\b/gi, {
+    de: 'Kardan-Gyroskop', fr: 'Gyroscope à Cardan', nl: 'Cardan-Gyroscoop', es: 'Giroscopio Cardán',
+    it: 'Giroscopio Cardanico', pt: 'Giroscópio Cardan', sv: 'Kardangyro', da: 'Kardangyro',
+    no: 'Kardangyro', fi: 'Kardaanigyro', pl: 'Żyroskop Kardana', cs: 'Kardanový Gyroskop',
+    ru: 'Карданный гироскоп', ja: 'ジンバルジャイロ', ko: '짐벌 자이로', id: 'Giroskop Gimbal', ar: 'جيروسكوب جيمبال'
+  }],
+  [/\bChaotic Pendulum\b/gi, {
+    de: 'Chaospendel', fr: 'Pendule Chaotique', nl: 'Chaotische Slinger', es: 'Péndulo Caótico',
+    it: 'Pendolo Caotico', pt: 'Pêndulo Caótico', sv: 'Kaotisk Pendel', da: 'Kaotisk Pendul',
+    no: 'Kaotisk Pendel', fi: 'Kaaosheiluri', pl: 'Wahadło Chaotyczne', cs: 'Chaotické Kyvadlo',
+    ru: 'Хаотический маятник', ja: 'カオス振り子', ko: '카오스 진자', id: 'Pendulum Kaotik', ar: 'بندول فوضوي'
+  }],
+  [/\bBolt-Action\b/gi, {
+    de: 'Bolt-Action', fr: 'Verrou Bolt-Action', nl: 'Bolt-Action Grendel', es: 'Cerrojo Bolt-Action',
+    it: 'Otturatore Bolt-Action', pt: 'Ferrolho Bolt-Action', sv: 'Bolt-Action', da: 'Bolt-Action',
+    no: 'Bolt-Action', fi: 'Pulttilukko', pl: 'Rygiel Bolt-Action', cs: 'Závěr Bolt-Action',
+    ru: 'Продольно-скользящий затвор', ja: 'ボルトアクション', ko: '볼트액션', id: 'Bolt-Action', ar: 'مزلاج تكتيكي'
+  }],
+  [/\bDome-Switch\b/gi, {
+    de: 'Kuppelschalter', fr: 'Dôme Tactile', nl: 'Koepelschakelaar', es: 'Interruptor Domo',
+    it: 'Cupola Tattile', pt: 'Interruptor Domo', sv: 'Kupolbrytare', da: 'Kuppelkontakt',
+    no: 'Kuppelbryter', fi: 'Kupukytkin', pl: 'Przełącznik Kopułkowy', cs: 'Kopulový Spínač',
+    ru: 'Купольный переключатель', ja: 'ドームスイッチ', ko: '돔 스위치', id: 'Sakelar Kubah', ar: 'مفتاح قبة'
+  }],
+  [/\bAbalone Inlay\b/gi, {
+    de: 'Abalone-Perlmutt-Inlay', fr: 'Incrustation d’Ormeau', nl: 'Abalone-Inleg', es: 'Incrustación de Abulón',
+    it: 'Intarsio in Abalone', pt: 'Incrustação de Abalone', sv: 'Abalone-Inlägg', da: 'Abalone-Indlæg',
+    no: 'Abalone-Innlegg', fi: 'Abalone-Helmiäisupotus', pl: 'Inkrustacja Abalone', cs: 'Intarzie Abalone',
+    ru: 'Инкрустация абалоном', ja: 'アワビ貝螺鈿インレイ', ko: '천연 전복 자개 인레이', id: 'Inlay Kerang Abalone', ar: 'تطعيم صدف الأبالون'
+  }],
+  [/\bWheel Rim\b/gi, {
+    de: 'Autofelgen', fr: 'Jante Auto', nl: 'Autovelg', es: 'Llanta Deportiva',
+    it: 'Cerchione Auto', pt: 'Jante Automóvel', sv: 'Bilfälg', da: 'Bilfælg',
+    no: 'Bilfelg', fi: 'Autovanne', pl: 'Felga Samochodowa', cs: 'Autokolo',
+    ru: 'Автомобильный диск', ja: 'ホイールリム', ko: '자동차 휠 림', id: 'Velg Mobil', ar: 'جنط سيارة'
+  }],
+  [/\bTactical\b/gi, {
+    de: 'Taktischer', fr: 'Tactique', nl: 'Tactische', es: 'Táctico',
+    it: 'Tattico', pt: 'Tático', sv: 'Taktisk', da: 'Taktisk',
+    no: 'Taktisk', fi: 'Taktinen', pl: 'Taktyczny', cs: 'Taktický',
+    ru: 'Тактический', ja: 'タクティカル', ko: '택티컬', id: 'Taktis', ar: 'تكتيكي'
+  }],
+  [/\bHeavyweight\b/gi, {
+    de: 'Schwergewichts', fr: 'Poids Lourd', nl: 'Zwaargewicht', es: 'Peso Pesado',
+    it: 'Peso Massimo', pt: 'Peso Pesado', sv: 'Tungvikts', da: 'Sværvægts',
+    no: 'Tungvekts', fi: 'Raskassarjalainen', pl: 'Ciężki', cs: 'Těžkotonážní',
+    ru: 'Тяжеловесный', ja: 'ヘビーウェイト重厚', ko: '헤비웨이트 중량급', id: 'Kelas Berat', ar: 'ثقيل الوزن'
+  }],
+  [/\bHaptic\b/gi, {
+    de: 'Haptik', fr: 'Haptique', nl: 'Haptische', es: 'Háptico',
+    it: 'Aptico', pt: 'Háptico', sv: 'Haptisk', da: 'Haptisk',
+    no: 'Haptisk', fi: 'Haptinen', pl: 'Haptyczny', cs: 'Haptický',
+    ru: 'Тактильный', ja: 'ハプティック', ko: '햅틱', id: 'Haptik', ar: 'لمسي'
+  }],
+  [/\bMagnetic\b/gi, {
+    de: 'Magnet', fr: 'Magnétique', nl: 'Magnetische', es: 'Magnético',
+    it: 'Magnetico', pt: 'Magnético', sv: 'Magnetisk', da: 'Magnetisk',
+    no: 'Magnetisk', fi: 'Magneettinen', pl: 'Magnetyczny', cs: 'Magnetický',
+    ru: 'Магнитный', ja: 'マグネット', ko: '마그네틱', id: 'Magnetik', ar: 'مغناطيسي'
+  }],
+  [/\bSlider\b/gi, {
+    ru: 'слайдер', ja: 'スライダー', ko: '슬라이더', ar: 'سلايدر'
+  }],
+  [/\bSpinner\b/gi, {
+    ru: 'спиннер', ja: 'スピナー', ko: '스피너', ar: 'سبينر'
+  }],
+  [/\bCoin\b/gi, {
+    de: 'Münze', fr: 'Pièce', nl: 'Munt', es: 'Moneda',
+    it: 'Moneta', pt: 'Moeda', sv: 'Mynt', da: 'Mønt',
+    no: 'Mynt', fi: 'Kolikko', pl: 'Moneta', cs: 'Mince',
+    ru: 'монета', ja: 'コイン', ko: '코인', id: 'Koin', ar: 'عملة'
   }]
 ];
 

@@ -84,11 +84,13 @@ const productSchema = {
     lowPrice: minOfferPrice,
     highPrice: maxOfferPrice,
     offerCount: p.variants.length * 3,
+    itemCondition: 'https://schema.org/NewCondition',
     availability: 'https://schema.org/InStock',
     url: canonicalProductUrl,
     seller: {
       '@type': 'Organization',
-      name: 'FidgetSupply.com — Integrated China Metal EDC Supply Chain'
+      name: 'FidgetSupply.com — Integrated China Metal EDC Supply Chain',
+      url: 'https://fidgetsupply.com'
     },
     offers: (lp.variants || p.variants || []).map((v: any, idx: number) => ({
       '@type': 'Offer',
@@ -96,6 +98,7 @@ const productSchema = {
       sku: `${p.sku}-V${idx + 1}`,
       priceCurrency: 'USD',
       price: v.tier500 || p.tier500,
+      itemCondition: 'https://schema.org/NewCondition',
       availability: 'https://schema.org/InStock',
       url: canonicalProductUrl,
       eligibleQuantity: {
@@ -104,7 +107,13 @@ const productSchema = {
         unitCode: 'C62'
       }
     }))
-  }
+  },
+  isRelatedTo: relatedProducts.map((rel: any) => ({
+    '@type': 'Product',
+    sku: rel.sku,
+    name: `${rel.skuDisplay} ${rel.title}`,
+    url: `https://fidgetsupply.com${getLocalizedPath(`/products/${rel.slug}`, currentLang)}`
+  }))
 };
 
 const faqSchema = {
@@ -396,7 +405,7 @@ const breadcrumbSchema = {
             {t('pdp.requestQuote')} ({p.sku}) →
           </a>
           <a
-            href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing & sample info for ${p.sku} (${p.title}).`)}`}
+            href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing ($${p.tier500}–$${p.tier50} USD, MOQ 50 pcs) & sample info for ${p.sku} (${lp.title}).`)}`}
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-whatsapp btn-pdp-sample"

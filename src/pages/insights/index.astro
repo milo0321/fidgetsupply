@@ -67,13 +67,55 @@ const faqSchema = {
     acceptedAnswer: { '@type': 'Answer', text: f.answer }
   }))
 };
+
+const insightsCollectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: currentLang === 'en' ? 'Metal Fidget Engineering & Sourcing Insights | FidgetSupply' : `${t('guides.heroTitle')} | FidgetSupply`,
+  url: `https://fidgetsupply.com${getLocalizedPath('/insights', currentLang)}`,
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: guides.length,
+    itemListElement: guides.slice(0, 20).map((g, idx) => {
+      const locMeta = localizeInsightMeta(g.data, currentLang);
+      return {
+        '@type': 'ListItem',
+        position: idx + 1,
+        url: `https://fidgetsupply.com${getLocalizedPath(`/insights/${g.data.slug}`, currentLang)}`,
+        name: locMeta.title
+      };
+    })
+  }
+};
+
+const INSIGHTS_META_DESC_MAP: Record<string, string> = {
+  en: '39 wholesale engineering guides on N35 vs N52 magnets, Zinc Alloy vs CNC Stainless costs, Tuning Fork sliders, laser branding & CPSC 16 CFR 1262 safety.',
+  es: '39 guías técnicas mayoristas sobre imanes N35 vs N52, aleación de zinc vs acero CNC, sliders de diapasón, grabado láser 50W y seguridad CPSC 16 CFR 1262.',
+  de: '39 Engineering-Leitfäden zu N35- vs. N52-Magneten, Zinkdruckguss vs. CNC-Edelstahl, Stimmgabel-Slidern, 50W-Lasergravur & CPSC 16 CFR 1262 Magnetsicherheit.',
+  fr: '39 guides techniques grossistes : aimants N35 vs N52, coûts alliage de zinc vs inox CNC, sliders diapason, gravure laser 50W et conformité CPSC 16 CFR 1262.',
+  ja: 'N35対N52ネオジム磁石、亜鉛合金対CNCステンレス原価比較、音叉共鳴スライダー、50Wレーザー刻印、米国CPSC 16 CFR 1262安全基準を解説する39本の技術ガイド。',
+  ko: 'N35 대 N52 네오디뮴 자석, 아연합금 대 CNC 스테인리스 원가 비교, 튜닝포크 슬라이더, 50W 레이저 각인 및 CPSC 16 CFR 1262 안전 기준을 다룬 39편의 엔지니어링 가이드.',
+  ar: '39 دليلاً هندسياً بالجملة حول مغناطيس N35 مقابل N52، تكلفة سبائك الزنك مقابل الفولاذ CNC، سلايدرات الشوكة الرنانة، الحفر بالليزر، وسلامة CPSC 16 CFR 1262.',
+  pt: '39 guias técnicos grossistas sobre ímanes N35 vs N52, custos de liga de zinco vs inox CNC, sliders de diapasão, gravação a laser 50W e segurança CPSC 16 CFR 1262.',
+  ru: '39 инженерных руководств оптом: магниты N35 против N52, цинковый сплав против стали ЧПУ, камертонные слайдеры, лазерная гравировка 50 Вт и CPSC 16 CFR 1262.',
+  it: '39 guide tecniche ingrosso su magneti N35 vs N52, costi lega di zinco vs acciaio inox CNC, slider a diapason, incisione laser 50W e sicurezza CPSC 16 CFR 1262.',
+  nl: '39 engineeringgidsen over N35 vs. N52 magneten, zinklegering vs. CNC RVS kosten, stemvork-sliders, 50W lasergravure en CPSC 16 CFR 1262 magneetveiligheid.',
+  pl: '39 poradników inżynieryjnych: magnesy N35 vs N52, koszty stopu cynku vs stali CNC, slidery kamertonowe, grawer laserowy 50W oraz normy CPSC 16 CFR 1262.',
+  tr: 'N35 ve N52 mıknatıslar, çinko alaşımı ve CNC paslanmaz çelik maliyetleri, diyapazon sliderlar, 50W lazer kazıma ve CPSC 16 CFR 1262 üzerine 39 teknik rehber.',
+  sv: '39 ingenjörsguider om N35 vs N52-magneter, zinklegering vs CNC rostfritt stål, stämgaffel-sliders, 50W lasergravyr och US CPSC 16 CFR 1262 magnetsäkerhet.',
+  no: '39 ingeniørguider om N35 vs N52-magneter, sinklegering vs CNC rustfritt stål, stemmegaffel-sliders, 50W lasergravering og US CPSC 16 CFR 1262 sikkerhet.',
+  da: '39 ingeniørguider om N35 vs N52-magneter, zinklegering vs CNC rustfrit stål, stemmegaffel-sliders, 50W lasergravering og US CPSC 16 CFR 1262 sikkerhed.',
+  fi: '39 suunnitteluopasta: N35 vs N52 -magneetit, sinkkiseos vs CNC-teräs, äänirautasliderit, 50W-laserkaiverrus ja US CPSC 16 CFR 1262 -magneettiturvallisuus.',
+  cs: '39 inženýrských průvodců: magnety N35 vs N52, zinková slitina vs CNC nerez, ladičkové slidery, 50W laserové gravírování a bezpečnost CPSC 16 CFR 1262.'
+};
+const pageDescription = INSIGHTS_META_DESC_MAP[currentLang] || INSIGHTS_META_DESC_MAP.en;
 ---
 
 <Layout
   title={currentLang === 'en' ? 'Metal Fidget Engineering & Sourcing Insights | FidgetSupply' : `${t('guides.heroTitle')} | FidgetSupply`}
-  description={currentLang === 'en' ? '39 wholesale engineering guides on N35 vs N52 magnets, Zinc Alloy vs CNC Stainless costs, Tuning Fork sliders, laser branding & CPSC 16 CFR 1262 safety.' : t('guides.heroDesc')}
+  description={pageDescription}
   activePage="insights"
-  jsonLd={faqSchema}
+  jsonLd={[insightsCollectionSchema, faqSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-centered">

@@ -72,20 +72,50 @@ const faqSchema = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Laser Engraved Fidget Spinners & Custom Logo Metal Fidget Light Customization',
+  name: currentLang === 'en' ? 'Laser Engraved Fidget Spinners & Custom Logo Metal Fidget Light Customization' : `${t('brand.heroTitle')} | FidgetSupply`,
   provider: {
     '@type': 'Organization',
     name: 'FidgetSupply.com',
     url: 'https://fidgetsupply.com'
   },
   serviceType: '50W MOPA Fiber Laser Engraving & Deep Laser Engraving + Enamel Color Fill',
-  description: 'Ready-mold light customization ($0.00 mold fee) across 140 metal fidget sliders, spinners, haptic coins, and rings. MOQ 100 pcs for 50W fiber laser engraving (+$0.15-$0.30/pc) or deep laser color fill (+$0.35-$0.60/pc).'
+  description: 'Ready-mold light customization ($0.00 mold fee) across 140 metal fidget sliders, spinners, haptic coins, and rings. MOQ 100 pcs for 50W fiber laser engraving (+$0.15-$0.30/pc) or deep laser color fill (+$0.35-$0.60/pc).',
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Custom Metal Fidget Branding Tiers',
+    itemListElement: [
+      { '@type': 'Offer', name: '50W MOPA Fiber Laser Engraving (MOQ 100 pcs)', price: '0.15', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Deep Laser Engraving + Enamel Color Fill (MOQ 100 pcs)', price: '0.35', priceCurrency: 'USD' }
+    ]
+  }
 };
+
+const BRANDING_META_DESC_MAP: Record<string, string> = {
+  en: 'Laser engraved fidget spinners & custom logo metal sliders on 140 ready molds ($0 mold fee): 50W Fiber Laser (+$0.15/pc) & Deep Laser Color Fill (MOQ 100).',
+  es: 'Fidgets metálicos con logo personalizado en 140 moldes ($0 molde): grabado láser 50W (+$0.15/ud.) y grabado profundo con esmalte a color (MOQ 100 uds.).',
+  de: 'Metall-Fidgets mit Logo auf 140 Bestandsformen ($0 Werkzeugkosten): 50W-Faserlaser (+$0.15/Stk.) & Tiefengravur mit Farbauslegung ab 100 Stück MOQ.',
+  fr: 'Fidgets métal personnalisés avec logo sur 140 moules ($0 moule) : gravure laser 50W (+$0.15/pce) et gravure profonde avec émail couleur dès 100 pièces.',
+  ja: '140種の既存金型（金型代$0）で金属フィジェットに名入れ刻印：50Wファイバーレーザー（+$0.15/個）＆深彫り色入れ加工（MOQ 100個〜・12時間データ校正）。',
+  ko: '140종 기성 금형(금형비 $0) 금속 피젯 로고 각인: 50W 파이버 레이저(+$0.15/개) 및 심층 레이저 컬러 충진(MOQ 100개, 12시간 내 도안 무료 검수).',
+  ar: 'حفر شعار مخصص على 140 قالب فيدجت معدني جاهز (0$ رسوم قالب): ليزر فايبر 50W (+0.15$/قطعة) وحفر عميق مع تعبئة ألوان المينا (الحد الأدنى 100 قطعة).',
+  pt: 'Fidgets metálicos personalizados com logotipo em 140 moldes ($0 molde): gravação a laser 50W (+$0.15/un.) e gravação profunda com cor (MOQ 100 un.).',
+  ru: 'Брендирование металлических фиджетов на 140 готовых формах ($0 за форму): лазерная гравировка 50 Вт (+$0.15/шт.) и глубокая гравировка с эмалью (от 100 шт.).',
+  it: 'Fidget in metallo personalizzati con logo su 140 stampi pronti ($0 stampo): incisione laser 50W (+$0.15/pz) e incisione profonda a colori (MOQ 100 pz).',
+  nl: 'Metalen fidgets met logo op 140 bestaande mallen ($0 matrijskosten): 50W fiberlaser (+$0.15/st.) en diepgravure met kleurvulling vanaf MOQ 100 stuks.',
+  pl: 'Znakowanie metalowych fidgetów na 140 gotowych formach ($0 za formę): grawer laserowy 50W (+$0.15/szt.) i głęboki grawer z wypełnieniem (MOQ 100 szt.).',
+  tr: '140 hazır kalıpta ($0 kalıp ücreti) özel logolu metal stres oyuncakları: 50W fiber lazer kazıma (+$0.15/adet) ve derin lazer renk dolgusu (MOQ 100 adet).',
+  sv: 'Metallfidgets med egen logotyp på 140 färdiga formar ($0 verktygskostnad): 50W fiberlaser (+$0.15/st) och djupgravyr med färgfyllning (MOQ 100 st).',
+  no: 'Metallfidgets med egen logo på 140 ferdige former ($0 verktøykostnad): 50W fiberlaser (+$0.15/stk) og dybdegravering med fargefyll (MOQ 100 stk).',
+  da: 'Metalfidgets med eget logo på 140 færdige forme ($0 værktøjsgebyr): 50W fiberlaser (+$0.15/stk) og dybdegravering med farvefyld (MOQ 100 stk).',
+  fi: 'Metallifidgetit omalla painatuksella ja logolla 140 valmiilla muotilla ($0 muottikulu): 50W kuitulaser (+$0.15/kpl) ja syväkaiverrus värillä (MOQ 100 kpl).',
+  cs: 'Kovové fidgety s vlastním logem na 140 hotových formách ($0 za formu): 50W vláknový laser (+$0.15/ks) a hloubkové gravírování s barvou (MOQ 100 ks).'
+};
+const pageDescription = BRANDING_META_DESC_MAP[currentLang] || BRANDING_META_DESC_MAP.en;
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Laser Engraved Fidget Spinners & Custom Logo Metal Fidgets' : `${t('brand.heroTitle')} | FidgetSupply`}
-  description={currentLang === 'en' ? 'Laser engraved fidget spinners & custom logo metal sliders on 140 ready molds ($0 mold fee): 50W Fiber Laser (+$0.15/pc) & Deep Laser Color Fill (MOQ 100).' : t('brand.heroDesc')}
+  title={currentLang === 'en' ? 'Laser Engraved Fidget Spinners & Custom Logo Metal Fidgets' : `${t('brand.heroTitle')} (+$0.15/pc) | FidgetSupply`}
+  description={pageDescription}
   activePage="custom-branding"
   jsonLd={[serviceSchema, faqSchema]}
 >

@@ -5,7 +5,7 @@ import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
 import { localizeInsightMeta, localizeInsightFaqs, localizeInsightHtml } from '../../i18n/insightAndCollectionLocalization';
-import { localizeProduct } from '../../i18n/productLocalization';
+import { localizeProduct, localizeTitle } from '../../i18n/productLocalization';
 
 export async function getStaticPaths() {
   const guides = await getCollection('insights');
@@ -1710,8 +1710,17 @@ const articleSchema = {
   mentions: relatedProducts.map((rp: any) => ({
     '@type': 'Product',
     sku: rp.data.sku,
-    name: `${rp.data.skuDisplay} ${rp.data.title}`,
-    url: `https://fidgetsupply.com${getLocalizedPath(`/products/${rp.data.slug}`, currentLang)}`
+    name: `${rp.data.skuDisplay} ${localizeTitle(rp.data.title, currentLang)}`,
+    image: `https://fidgetsupply.com${rp.data.primaryImage}?v=4k`,
+    url: `https://fidgetsupply.com${getLocalizedPath(`/products/${rp.data.slug}`, currentLang)}`,
+    offers: {
+      '@type': 'AggregateOffer',
+      priceCurrency: 'USD',
+      lowPrice: String(rp.data.tier500),
+      highPrice: String(rp.data.tier50),
+      offerCount: 3,
+      availability: 'https://schema.org/InStock'
+    }
   }))
 };
 
