@@ -1859,7 +1859,7 @@ const faqSchema = {
               </a>
             </div>
             <div class="fast-track-chips">
-              {relatedProducts.slice(0, 4).map((rp: any) => {
+              {relatedProducts.slice(0, 6).map((rp: any) => {
                 const locP = localizeProduct(rp.data, currentLang);
                 return (
                   <a
@@ -1896,7 +1896,7 @@ const faqSchema = {
           <section class="related-skus-section" id="referenced-factory-models">
             <h2>{t('guide.refModelsTitle')}</h2>
             <div class="grid-3">
-              {relatedProducts.slice(0, 3).map((p: any) => (
+              {relatedProducts.slice(0, 6).map((p: any) => (
                 <ProductCard product={p} />
               ))}
             </div>
