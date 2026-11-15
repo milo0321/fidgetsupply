@@ -60,7 +60,7 @@ const productSchema = {
   name: `${p.skuDisplay} ${lp.title}`,
   sku: p.sku,
   mpn: p.sku,
-  image: allImages.map((img: string) => `https://fidgetsupply.com${img}`),
+  image: allImages.map((img: string) => `https://fidgetsupply.com${img}?v=4k`),
   description: lp.overview,
   brand: {
     '@type': 'Brand',

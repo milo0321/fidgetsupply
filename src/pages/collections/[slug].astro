@@ -173,7 +173,8 @@ const itemListSchema = {
       '@type': 'ListItem',
       position: idx + 1,
       url: `https://fidgetsupply.com${getLocalizedPath(`/products/${p.data.slug}`, currentLang)}`,
-      name: `${p.data.skuDisplay} ${localizeTitle(p.data.title, currentLang)}`
+      name: `${p.data.skuDisplay} ${localizeTitle(p.data.title, currentLang)}`,
+      image: `https://fidgetsupply.com${p.data.featuredImage}?v=4k`
     }))
   }
 };
@@ -203,25 +204,29 @@ const COLLECTION_SEO_TITLES: Record<string, string> = {
   'metal-fidget-spinners-gyros': `Metal Gyro & R188 Fidget Spinners: ${products.length} Molds ($${minColPrice}+)`,
   'mechanical-edc-fidgets': `Multi-Action Mechanical EDC Fidgets: ${products.length} Molds ($${minColPrice}+)`,
   'edc-gourds-hand-pieces': `Metal EDC Gourds & Hand Pieces: ${products.length} Molds ($${minColPrice}+)`,
-  'haptic-fidget-coins': `Magnetic Haptic Coins & Clickers: ${products.length} Molds ($${minColPrice}+)`,
+  'haptic-fidget-coins': `Haptic Fidget Coins & Clickers: ${products.length} Molds ($${minColPrice}+)`,
   'magnetic-fidget-rings': `Magnetic Fidget Rings & Spinners: ${products.length} Molds ($${minColPrice}+)`,
   'custom-logo-metal-fidgets': `Custom Logo Metal Fidgets: ${products.length} Ready Molds ($0 Fee)`,
   'tuning-fork-fidget-sliders': `Acoustic Tuning Fork Fidget Sliders: ${products.length} Molds ($${minColPrice}+)`,
   'cnc-stainless-steel-pei-edc': `5-Axis CNC Stainless, PEI & Zr702 EDC (${products.length} Molds)`
+};
+const COLLECTION_SEO_DESCS: Record<string, string> = {
+  'magnetic-fidget-sliders': `Magnetic textured fidget sliders & haptic sliders: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs 50W laser logo.`,
+  'haptic-fidget-coins': `Haptic fidget coins & magnetic clicker coins: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs custom laser logo.`
 };
 const cleanShortName = collection.shortName.replace(/^[^\w]+/, '').trim();
 const rawEnTitle = `${collection.name} (${products.length} Molds) | FidgetSupply`;
 const medEnTitle = `${collection.name} | FidgetSupply`;
 const shortEnTitle = `${cleanShortName} Wholesale | FidgetSupply`;
 const enTitle = COLLECTION_SEO_TITLES[collection.slug] || (rawEnTitle.length <= 60 ? rawEnTitle : medEnTitle.length <= 60 ? medEnTitle : shortEnTitle);
-const enDesc = `${cleanShortName}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom 50W fiber laser & color-fill branding.`;
+const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${products.length} ready metal molds (${collection.priceRangeUsd}). $0 tooling fee, 50 pcs blank MOQ, 100 pcs custom 50W fiber laser & color-fill branding.`;
 ---
 
 <Layout
   title={currentLang === 'en' ? enTitle : `${t(`col.${collection.slug}.name` as any)} (${products.length} ${t('nav.modelsCount')} · $${minColPrice}+) | FidgetSupply`}
   description={currentLang === 'en' ? enDesc : locCol.heroSubtitle}
   keywords={collection.targetKeywords}
-  ogImage={products[0]?.data.featuredImage}
+  ogImage={products[0]?.data.featuredImage ? `${products[0].data.featuredImage}?v=4k` : undefined}
   jsonLd={[itemListSchema, faqSchema, breadcrumbSchema]}
 >
   <section class="grand-hero">
@@ -298,6 +303,20 @@ const enDesc = `${cleanShortName}: ${products.length} ready metal molds (${colle
   </section>
 
   <div class="container">
+    <!-- Product Grid (Above-the-Fold Immediate Catalog Access) -->
+    <section class="collection-products-section" id="collection-catalog">
+      <div class="grid-header">
+        <h2>{t('col.gridHeadingPrefix')} {t(`col.${collection.slug}.short` as any)} ({products.length})</h2>
+        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary">{t('nav.requestQuote')}</a>
+      </div>
+
+      <div class="grid-4">
+        {products.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
+    </section>
+
     <GeoDirectAnswer
       title={`${t(`col.${collection.slug}.short` as any)} — ${t('geo.defaultTitle')}`}
       answer={locCol.geoDirectAnswer}
@@ -312,20 +331,6 @@ const enDesc = `${cleanShortName}: ${products.length} ready metal molds (${colle
         </div>
       ))}
     </div>
-
-    <!-- Product Grid -->
-    <section class="collection-products-section">
-      <div class="grid-header">
-        <h2>{t('col.gridHeadingPrefix')} {t(`col.${collection.slug}.short` as any)} ({products.length})</h2>
-        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary">{t('nav.requestQuote')}</a>
-      </div>
-
-      <div class="grid-4">
-        {products.map((p) => (
-          <ProductCard product={p} />
-        ))}
-      </div>
-    </section>
 
     <!-- Collection Engineering Comparison Table (Top 15 Models) -->
     <section class="section">

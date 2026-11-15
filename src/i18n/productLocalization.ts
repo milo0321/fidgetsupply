@@ -364,19 +364,25 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     de: 'Akustik-Resonanz-Klangspiel', fr: 'Carillon à Résonance Acoustique', nl: 'Akoestische Resonantie-Chime', es: 'Campana de Resonancia Acústica',
     it: 'Campana a Risonanza Acustica', pt: 'Sino de Ressonância Acústica', sv: 'Akustisk resonansklang', da: 'Akustisk resonansklang',
     no: 'Akustisk resonansklang', fi: 'Akustinen resonanssikello', pl: 'Dzwonek Rezonansu Akustycznego', cs: 'Akustická rezonanční zvonkohra',
-    ru: 'Акустический резонансный колокольчик', ja: '音響共鳴チャイム（中空共鳴）', ko: '극성중공 어쿠스틱 공명 차임', id: 'Lonceng Resonansi Akustik', ar: 'رنين الرنين الصوتي'
+    ru: 'Акустический резонансный колокольчик', ja: '音響共鳴チャイム（中空共鳴）', ko: '중공 어쿠스틱 공명 차임', id: 'Lonceng Resonansi Akustik', ar: 'رنين الرنين الصوتي'
   }],
   [/Resonance Chamber/gi, {
     de: 'Resonanzkammer', fr: 'Chambre de Résonance', nl: 'Resonantiekamer', es: 'Cámara de Resonancia',
     it: 'Camera di Risonanza', pt: 'Câmara de Ressonância', sv: 'Resonanskammare', da: 'Resonanskammer',
     no: 'Resonanskammer', fi: 'Resonanssikammio', pl: 'Komora Rezonansowa', cs: 'Rezonanční komora',
-    ru: 'Резонансная камера', ja: '中空共鳴チャンバー', ko: '극성중공 공명 챔버', id: 'Ruang Resonansi', ar: 'حجرة الرنين الصوتي'
+    ru: 'Резонансная камера', ja: '中空共鳴チャンバー', ko: '중공 어쿠스틱 공명 챔버', id: 'Ruang Resonansi', ar: 'حجرة الرنين الصوتي'
+  }],
+  [/Acoustic Tuning Fork Slider/gi, {
+    de: 'Akustik-Stimmgabel-Slider', fr: 'Slider Diapason Acoustique', nl: 'Akoestische Stemvork-Slider', es: 'Slider de Diapasón Acústico',
+    it: 'Slider Diapason Acustico', pt: 'Slider Diapasão Acústico', sv: 'Akustisk stämgaffel-slider', da: 'Akustisk stemmegaffel-slider',
+    no: 'Akustisk stemmegaffel-slider', fi: 'Akustinen äänirauta-slideri', pl: 'Akustyczny Slider Kamertonowy', cs: 'Akustický ladičkový slider',
+    ru: 'Акустический камертонный слайдер', ja: '音響音叉（チューニングフォーク）スライダー', ko: '어쿠스틱 튜닝포크(음차) 피젯 슬라이더', id: 'Slider Garpu Tala Akustik', ar: 'سلايدر الشوكة الرنانة الصوتية'
   }],
   [/Acoustic Tuning Fork Spinner/gi, {
     de: 'Akustik-Stimmgabel-Spinner', fr: 'Spinner Diapason Acoustique', nl: 'Akoestische Stemvork-Spinner', es: 'Spinner de Diapasón Acústico',
     it: 'Spinner Diapason Acustico', pt: 'Spinner Diapasão Acústico', sv: 'Akustisk stämgaffel-spinner', da: 'Akustisk stemmegaffel-spinner',
     no: 'Akustisk stemmegaffel-spinner', fi: 'Akustinen äänirauta-spinneri', pl: 'Akustyczny Spinner Kamertonowy', cs: 'Akustický ladičkový spinner',
-    ru: 'Акустический камертонный спиннер', ja: '音響音叉（チューニングフォーク）スピナー', ko: '극성중공 어쿠스틱 튜닝포크 스피너', id: 'Spinner Garpu Tala Akustik', ar: 'سبينر الشوكة الرنانة الصوتية'
+    ru: 'Акустический камертонный спиннер', ja: '音響音叉（チューニングフォーク）スピナー', ko: '중공 어쿠스틱 튜닝포크 스피너', id: 'Spinner Garpu Tala Akustik', ar: 'سبينر الشوكة الرنانة الصوتية'
   }],
   [/Dual-Bearing Multi-Metal Gourd/gi, {
     de: 'Doppellager Multi-Metall-Gourd', fr: 'Gourde Multi-Métaux Double Roulement', nl: 'Dubbellager Multi-Metaal Kalebas', es: 'Calabaza Multimetálica de Doble Rodamiento',
@@ -388,7 +394,7 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     de: 'Stimmgabel-Resonanz', fr: 'Diapason Acoustique', nl: 'Stemvork-Resonantie', es: 'Diapasón Acústico',
     it: 'Diapason Acustico', pt: 'Diapasão Acústico', sv: 'Stämgaffel-resonans', da: 'Stemmegaffel-resonans',
     no: 'Stemmegaffel-resonans', fi: 'Äänirauta-akustiikka', pl: 'Kamerton Akustyczny', cs: 'Akustická ladička',
-    ru: 'Акустический камертон', ja: '音叉（チューニングフォーク）共鳴', ko: '극성중공 튜닝포크(음차) 공명', id: 'Garpu Tala Akustik', ar: 'الشوكة الرنانة الصوتية'
+    ru: 'Акустический камертон', ja: '音叉（チューニングフォーク）共鳴', ko: '어쿠스틱 튜닝포크(음차) 공명', id: 'Garpu Tala Akustik', ar: 'الشوكة الرنانة الصوتية'
   }],
   [/EDC Hand Piece|Hand-Piece Gourd|EDC Gourd/gi, {
     de: 'EDC-Handschmeichler-Kalebasse', fr: 'Gourde EDC de Poche', nl: 'EDC Handstuk Kalebas', es: 'Calabaza EDC de Mano',
@@ -455,6 +461,27 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     it: 'Tasti di Pianoforte', pt: 'Teclas de Piano', sv: 'Pianotangenter', da: 'Klaver-Tangenter',
     no: 'Pianotangenter', fi: 'Pianokosketin', pl: 'Klawisze Pianina', cs: 'Klavírní Klávesy',
     ru: 'Клавиши пианино', ja: 'ピアノ鍵盤トラック', ko: '피아노 건반 트랙', id: 'Tuts Piano', ar: 'مفاتيح البيانو'
+  }],
+  [/\bCompact\b/gi, {
+    de: 'Kompakt', fr: 'Compact', nl: 'Compact', es: 'Compacto',
+    it: 'Compatto', pt: 'Compacto', sv: 'Kompakt', da: 'Kompakt',
+    no: 'Kompakt', fi: 'Kompakti', pl: 'Kompaktowy', cs: 'Kompaktní',
+    ru: 'Компактный', ja: 'コンパクト', ko: '컴팩트', id: 'Kompak', ar: 'مدمج'
+  }],
+  [/\bDual-Bearing\b/gi, {
+    de: 'Doppellager', fr: 'Double Roulement', nl: 'Dubbellager', es: 'Doble Rodamiento',
+    it: 'Doppio Cuscinetto', pt: 'Rolamento Duplo', sv: 'Dubbellagrad', da: 'Dobbeltleje',
+    no: 'Dobbeltlager', fi: 'Kaksoislaakeri', pl: 'Dwułożyskowy', cs: 'Dvouložiskový',
+    ru: 'Двухподшипниковый', ja: 'デュアルベアリング', ko: '듀얼 베어링', id: 'Bantalan Ganda', ar: 'مزدوج المحامل'
+  }],
+  [/\bDivine-Realm\b/gi, {
+    ja: 'ディバインレルム', ko: '디바인 렐름', ru: 'Дивайн-Реалм'
+  }],
+  [/\bUltra-Slim\b/gi, {
+    de: 'Ultraflach', fr: 'Ultra-Fin', nl: 'Ultradun', es: 'Ultradelgado',
+    it: 'Ultrasottile', pt: 'Ultrafino', sv: 'Ultratunn', da: 'Ultratynd',
+    no: 'Ultratynn', fi: 'Erittäin Ohut', pl: 'Ultracienki', cs: 'Ultratenký',
+    ru: 'Ультратонкий', ja: '極薄ウルトラスリム', ko: '울트라 슬림', id: 'Ultra-Tipis', ar: 'فائق النحافة'
   }]
 ];
 
@@ -474,6 +501,15 @@ export function localizeTitle(rawTitle: string, lang: SupportedLanguage): string
       ru: `${n}-магнитный`, ja: `${n}磁石`, ko: `${n}자석`, id: `${n}-Magnet`, ar: `${n} مغناطيس`
     };
     return suffix[lang] || `${n}-Magnet`;
+  });
+  out = out.replace(/(\d+)-Bead\b/gi, (_m, n) => {
+    const suffix: Partial<Record<SupportedLanguage, string>> = {
+      de: `${n}-Kugel`, fr: `${n} Billes`, nl: `${n}-Kogel`, es: `${n} Bolas`,
+      it: `${n} Sfere`, pt: `${n} Esferas`, sv: `${n}-Kula`, da: `${n}-Kugle`,
+      no: `${n}-Kule`, fi: `${n}-kuulainen`, pl: `${n}-Kulkowy`, cs: `${n}-kuličkový`,
+      ru: `${n}-шариковый`, ja: `${n}ボール`, ko: `${n}볼`, id: `${n}-Bola`, ar: `${n} كرات`
+    };
+    return suffix[lang] || `${n}-Bead`;
   });
   return out;
 }
@@ -1911,11 +1947,33 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
             p.tier500
           );
 
+  const shortMat = locMat.split('(')[0].trim();
+  const META_DESC_MAP: Record<SupportedLanguage, string> = {
+    en: p.metaDescription && p.metaDescription.length <= 155 ? p.metaDescription : overview.slice(0, 153),
+    de: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 Formkosten, MOQ 50 Stk.). ${shortMat}, ${p.weight}, 50W-Laserlogo ab 100 Stk.`,
+    fr: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 frais de moule, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser fibre 50W dès 100 pcs.`,
+    nl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 matrijskosten, MOQ 50 st.). ${shortMat}, ${p.weight}, 50W-laserlogo vanaf 100 st.`,
+    es: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 uds.). ${shortMat}, ${p.weight}, grabado láser 50W desde 100 uds.`,
+    it: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 stampo, MOQ 50 pz.). ${shortMat}, ${p.weight}, logo laser 50W da 100 pz.`,
+    pt: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 un.). ${shortMat}, ${p.weight}, gravação laser 50W desde 100 un.`,
+    sv: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktygskostnad, MOQ 50 st). ${shortMat}, ${p.weight}, 50W laserlogo från 100 st.`,
+    da: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W laserlogo fra 100 stk.`,
+    no: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktøygebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W laserlogo fra 100 stk.`,
+    fi: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, ${p.weight}, 50W laserlogo alkaen 100 kpl.`,
+    pl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 formy, MOQ 50 szt.). ${shortMat}, ${p.weight}, grawer laserowy 50W od 100 szt.`,
+    cs: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 forma, MOQ 50 ks). ${shortMat}, ${p.weight}, 50W laserové logo od 100 ks.`,
+    ru: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
+    ja: `${p.skuDisplay} ${locTitle}（卸売 $${p.tier500}〜$${p.tier50}、金型代$0、MOQ 50個）。${shortMat}・${p.weight}、100個〜50Wレーザー名入れ対応。`,
+    ko: `${p.skuDisplay} ${locTitle} (도매가 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
+    id: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 biaya cetakan, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser 50W mulai 100 pcs.`,
+    ar: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}، قالب 0$، الحد الأدنى 50 قطعة). ${shortMat}، ${p.weight}، حفر شعار ليزر 50W من 100 قطعة.`
+  };
+
   const metaTitle =
     lang === 'en'
       ? p.metaTitle
-      : `${p.skuDisplay} ${locTitle} | FidgetSupply`;
-  const metaDescription = overview.slice(0, 158);
+      : `${p.skuDisplay} ${locTitle} · $${p.tier500}+ | FidgetSupply`;
+  const metaDescription = META_DESC_MAP[lang] || overview.slice(0, 153);
 
   return {
     title: locTitle,

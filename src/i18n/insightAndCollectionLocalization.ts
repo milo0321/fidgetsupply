@@ -655,12 +655,12 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Teknisk genomgång av fjäderbelastade spärrhakar, bolt-action-mekanismer, 8-fjädrars sliders och keramiska zirkoniakulor i 27+ mekaniska EDC-formar.'
     },
     da: {
-      title: 'Mekaniske Multi-Action EDC Fidgets: Fjederskralder, Bolt-Action-låse & Planetgear',
-      summary: 'Teknisk gennemgang af fjederbelastede skralder, bolt-action-mekanismer, 8-fjedres sliders og keramiske zirkoniakugler på tværs af 27+ mekaniske EDC-forme.'
+      title: 'Mekaniske Multi-Action EDC Fidgets: Fjederskralder, Bolt-Action-låse & Planetgear ($0 Form / MOQ 50)',
+      summary: 'Teknisk gennemgang af fjederbelastede skralder, bolt-action-låse (FS-033, FS-035), 8-fjedres sliders og keramiske ZrO2-kugler på tværs af 27+ mekaniske EDC-forme ($0 værktøjsgebyr, MOQ 50 stk.).'
     },
     no: {
-      title: 'Mekaniske Multi-Action EDC Fidgets: Fjærskraller, Bolt-Action-låser & Planetgir',
-      summary: 'Teknisk gjennomgang av fjærbelastede skraller, bolt-action-mekanismer, 8-fjærs slidere og keramiske zirkoniakuler over 27+ mekaniske EDC-former.'
+      title: 'Mekaniske Multi-Action EDC Fidgets: Fjærskraller, Bolt-Action-låser & Planetgir ($0 Form / MOQ 50)',
+      summary: 'Teknisk gjennomgang av fjærbelastede skraller, bolt-action-låser (FS-033, FS-035), 8-fjærs slidere og keramiske ZrO2-kuler over 27+ mekaniske EDC-former ($0 verktøygebyr, MOQ 50 stk.).'
     },
     fi: {
       title: 'Monitoimiset Mekaaniset EDC-Fidgetit: Jousiräikät, Pulttilukot & Planeettavaihteet',
@@ -2653,12 +2653,12 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "Komplett regel- och tullguide 2027: inkapslad magnetinfästning enligt US CPSC 16 CFR 1262, EU TSR/GPSR 14+ märkning, RoHS/REACH-legeringstester och ferromagnetisk IATA PI-953 flygfraktsavskärmning."
     },
     "da": {
-      "title": "Compliance-Udsigter 2027 for Metalfidget-Importører: US CPSC 16 CFR 1262, EU TSR & IATA PI-953 Magnetisk Luftfragt",
-      "summary": "Komplet lovgivnings- og toldguide 2027: indkapslet magnetfastholdelse iht. US CPSC 16 CFR 1262, EU TSR/GPSR 14+ mærkning, RoHS/REACH-tests og ferromagnetisk IATA PI-953 luftfragtafskærmning."
+      "title": "IATA PI953 (PI-953) Magnetisk Luftfragt, US CPSC 16 CFR 1262 & EU TSR Compliance 2027",
+      "summary": "IATA PI953 (PI-953 < 0,00525 Gauss) magnetisk luftfragtafskærmning, US CPSC 16 CFR 1262 magnetlås, EU TSR/GPSR 14+ mærkning og RoHS/REACH-tests for metalfidget-importører."
     },
     "no": {
-      "title": "Samsvarsutsikter 2027 for Metallfidget-Importører: US CPSC 16 CFR 1262, EU TSR & IATA PI-953 Magnetisk Flyfrakt",
-      "summary": "Komplett regel- og tollguide 2027: innkapslet magnetfeste iht. US CPSC 16 CFR 1262, EU TSR/GPSR 14+ merking, RoHS/REACH-legeringstester og ferromagnetisk IATA PI-953 flyfraktskjerming."
+      "title": "IATA PI953 (PI-953) Magnetisk Flyfrakt, US CPSC 16 CFR 1262 & EU TSR Samsvarsguide 2027",
+      "summary": "IATA PI953 (PI-953 < 0,00525 Gauss) magnetisk flyfraktskjerming, US CPSC 16 CFR 1262 magnetlås, EU TSR/GPSR 14+ merking og RoHS/REACH-tester for metallfidget-importører."
     },
     "fi": {
       "title": "Vuoden 2027 Vaatimustenmukaisuusnäkymät Metallifidget-Maahantuojille: US CPSC 16 CFR 1262, EU TSR & IATA PI-953 Lentorahti",
