@@ -11,10 +11,13 @@ export async function getStaticPaths() {
   const guides = await getCollection('insights');
   const allProducts = await getCollection('products');
 
-  return guides.map((guide) => {
+  return guides.map((guide, idx) => {
     const relatedSkus = guide.data.relatedSkus || [];
-    const relatedProducts = allProducts.filter((p) => relatedSkus.includes(p.data.sku)).slice(0, 4);
-    const relatedGuides = guides.filter((g) => g.data.slug !== guide.data.slug).slice(0, 3);
+    const relatedProducts = allProducts.filter((p) => relatedSkus.includes(p.data.sku)).slice(0, 8);
+    const relatedGuides: typeof guides = [];
+    for (let offset = 1; offset <= 4 && offset < guides.length; offset++) {
+      relatedGuides.push(guides[(idx + offset) % guides.length]);
+    }
     return {
       params: { slug: guide.data.slug },
       props: { guide, relatedProducts, relatedGuides }
@@ -1711,7 +1714,7 @@ const articleSchema = {
     '@type': 'Product',
     sku: rp.data.sku,
     name: `${rp.data.skuDisplay} ${localizeTitle(rp.data.title, currentLang)}`,
-    image: `https://fidgetsupply.com${rp.data.primaryImage}?v=4k`,
+    image: `https://fidgetsupply.com${rp.data.featuredImage}`,
     url: `https://fidgetsupply.com${getLocalizedPath(`/products/${rp.data.slug}`, currentLang)}`,
     offers: {
       '@type': 'AggregateOffer',
@@ -1864,7 +1867,7 @@ const faqSchema = {
                     class="fast-sku-chip"
                     data-fast-sku={rp.data.sku}
                   >
-                    <img src={`${rp.data.featuredImage}?v=4k`} alt={`${rp.data.sku} ${locP.title}`} width="44" height="33" loading="eager" />
+                    <img src={rp.data.featuredImage} alt={`${rp.data.sku} ${locP.title}`} width="44" height="33" loading="eager" />
                     <div class="fast-sku-meta">
                       <span class="fast-sku-code">{rp.data.sku} · ${rp.data.tier500}+</span>
                       <span class="fast-sku-name">{locP.title}</span>

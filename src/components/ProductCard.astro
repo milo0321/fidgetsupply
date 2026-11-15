@@ -33,8 +33,8 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
 >
   <a href={pdpUrl} class="card-img-wrap">
     <img
-      src={`${p.featuredImage}?v=4k`}
-      alt={`${p.skuDisplay} ${p.title} - ${p.material} Wholesale`}
+      src={p.featuredImage}
+      alt={`${p.skuDisplay} ${locTitle} - ${locMaterial}`}
       loading="lazy"
       decoding="async"
       width="400"

@@ -18,9 +18,18 @@ export async function getStaticPaths() {
     const selfIdx = sameCol.findIndex((other) => other.data.slug === p.slug);
     const related: typeof sorted = [];
     if (sameCol.length > 1) {
-      const count = Math.min(4, sameCol.length - 1);
+      const count = Math.min(8, sameCol.length - 1);
       for (let offset = 1; offset <= count; offset++) {
-        related.push(sameCol[(selfIdx + offset) % sameCol.length]);
+        const step = offset <= 4 ? offset : offset * 2 - 3;
+        const candidate = sameCol[(selfIdx + step) % sameCol.length];
+        if (!related.some((r) => r.data.slug === candidate.data.slug) && candidate.data.slug !== p.slug) {
+          related.push(candidate);
+        } else {
+          const fallback = sameCol[(selfIdx + offset) % sameCol.length];
+          if (!related.some((r) => r.data.slug === fallback.data.slug) && fallback.data.slug !== p.slug) {
+            related.push(fallback);
+          }
+        }
       }
     }
 
@@ -60,7 +69,7 @@ const productSchema = {
   name: `${p.skuDisplay} ${lp.title}`,
   sku: p.sku,
   mpn: p.sku,
-  image: allImages.map((img: string) => `https://fidgetsupply.com${img}?v=4k`),
+  image: allImages.map((img: string) => `https://fidgetsupply.com${img}`),
   description: lp.overview,
   brand: {
     '@type': 'Brand',
@@ -108,12 +117,15 @@ const productSchema = {
       }
     }))
   },
-  isRelatedTo: relatedProducts.map((rel: any) => ({
-    '@type': 'Product',
-    sku: rel.sku,
-    name: `${rel.skuDisplay} ${rel.title}`,
-    url: `https://fidgetsupply.com${getLocalizedPath(`/products/${rel.slug}`, currentLang)}`
-  }))
+  isRelatedTo: relatedProducts.map((rel: any) => {
+    const rd = rel.data || rel;
+    return {
+      '@type': 'Product',
+      sku: rd.sku,
+      name: `${rd.skuDisplay} ${rd.title}`,
+      url: `https://fidgetsupply.com${getLocalizedPath(`/products/${rd.slug}`, currentLang)}`
+    };
+  })
 };
 
 const faqSchema = {
@@ -140,8 +152,8 @@ const breadcrumbSchema = {
 <Layout
   title={lp.metaTitle}
   description={lp.metaDescription}
-  ogImage={`${p.featuredImage}?v=4k`}
-  preloadImage={`${p.featuredImage}?v=4k`}
+  ogImage={p.featuredImage}
+  preloadImage={p.featuredImage}
   activePage="products"
   jsonLd={[productSchema, faqSchema, breadcrumbSchema]}
 >
@@ -181,7 +193,7 @@ const breadcrumbSchema = {
         <div class="main-image-frame">
           <img
             id="pdp-main-img"
-            src={`${p.featuredImage}?v=4k`}
+            src={p.featuredImage}
             alt={`${p.skuDisplay} ${lp.title} - ${lp.material}`}
             width="800"
             height="600"
@@ -201,10 +213,10 @@ const breadcrumbSchema = {
               <button
                 type="button"
                 class:list={['thumb-btn', { active: idx === 0 }]}
-                data-img={`${img}?v=4k`}
+                data-img={img}
                 aria-label={`View angle ${idx + 1}`}
               >
-                <img src={`${img}?v=4k`} alt={`${p.skuDisplay} ${lp.title} - ${idx + 1}`} width="120" height="90" />
+                <img src={img} alt={`${p.skuDisplay} ${lp.title} - ${idx + 1}`} width="120" height="90" />
               </button>
             ))}
           </div>

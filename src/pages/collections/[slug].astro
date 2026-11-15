@@ -174,7 +174,7 @@ const itemListSchema = {
       position: idx + 1,
       url: `https://fidgetsupply.com${getLocalizedPath(`/products/${p.data.slug}`, currentLang)}`,
       name: `${p.data.skuDisplay} ${localizeTitle(p.data.title, currentLang)}`,
-      image: `https://fidgetsupply.com${p.data.featuredImage}?v=4k`
+      image: `https://fidgetsupply.com${p.data.featuredImage}`
     }))
   }
 };
@@ -247,7 +247,7 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
   title={currentLang === 'en' ? enTitle : `${locColName} (${products.length} ${t('nav.modelsCount')} · $${minColPrice}+) | FidgetSupply`}
   description={COLLECTION_META_DESC_MAP[currentLang] || locCol.heroSubtitle}
   keywords={collection.targetKeywords}
-  ogImage={products[0]?.data.featuredImage ? `${products[0].data.featuredImage}?v=4k` : undefined}
+  ogImage={products[0]?.data.featuredImage ? products[0].data.featuredImage : undefined}
   jsonLd={[itemListSchema, faqSchema, breadcrumbSchema]}
 >
   <section class="grand-hero">
@@ -306,7 +306,7 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
           </div>
           <div class="hero-showcase-img-wrap">
             <img
-              src={`${products[0].data.featuredImage}?v=4k`}
+              src={products[0].data.featuredImage}
               alt={localizeTitle(products[0].data.title, currentLang)}
               width="480"
               height="360"

@@ -89,7 +89,7 @@ const catalogCollectionSchema = {
       position: idx + 1,
       url: `https://fidgetsupply.com${getLocalizedPath(`/products/${p.data.slug}`, currentLang)}`,
       name: `${p.data.skuDisplay} ${localizeTitle(p.data.title, currentLang)}`,
-      image: `https://fidgetsupply.com${p.data.featuredImage}?v=4k`
+      image: `https://fidgetsupply.com${p.data.featuredImage}`
     }))
   }
 };

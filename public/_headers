@@ -1,4 +1,8 @@
-# Cloudflare Pages Edge Caching & Cold-Start Acceleration Headers
+# Cloudflare Pages Edge Caching, HSTS & SEO Indexing Acceleration Headers
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable

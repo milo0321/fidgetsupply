@@ -25,20 +25,23 @@ export default defineConfig({
           item.url = item.url.replace(/\/+$/, '');
         }
         const url = item.url;
-        if (url === 'https://fidgetsupply.com') {
+        if (url === 'https://fidgetsupply.com' || /^https:\/\/fidgetsupply\.com\/[a-z]{2}$/.test(url)) {
           item.priority = 1.0;
           item.changefreq = 'daily';
-        } else if (url.includes('/collections/') || url.endsWith('/products')) {
+          item.lastmod = '2026-11-15T06:00:00.000Z';
+        } else if (url.includes('/collections/') || url.endsWith('/products') || url.endsWith('/insights')) {
           item.priority = 0.95;
           item.changefreq = 'weekly';
+          item.lastmod = '2026-11-15T05:00:00.000Z';
         } else if (url.includes('/products/')) {
           item.priority = 0.9;
           item.changefreq = 'weekly';
+          item.lastmod = '2026-11-15T04:00:00.000Z';
         } else {
           item.priority = 0.85;
           item.changefreq = 'weekly';
+          item.lastmod = '2026-11-15T03:00:00.000Z';
         }
-        item.lastmod = new Date();
         return item;
       }
     })
