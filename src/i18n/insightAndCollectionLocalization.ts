@@ -137,8 +137,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Hur frihängande stämgaffelskänklar och ihåliga resonanskammare skapar den klara 2 800–4 200 Hz metallklangen — jämförelse av alla 7 akustiska formar (FS-150, FS-129, FS-148).'
     },
     da: {
-      title: 'Akustiske Stemmegaffel Fidget Sliders (2.800–4.200 Hz): Resonanskammer-teknik & Engrosguide ($0 Form / MOQ 50)',
-      summary: 'Hvordan fritbærende stemmegaffelgrene og hule resonanskamre skaber den klare 2.800–4.200 Hz metalklang — sammenligning af alle 7 akustiske forme (FS-150, FS-129, FS-148) med $0 værktøjsgebyr og MOQ 50 stk.'
+      title: 'Akustiske Stemmegaffel Fidget Sliders (2.800–4.200 Hz Slider): Resonanskammer & Engros ($0 Form / MOQ 50)',
+      summary: 'Hvordan fritbærende stemmegaffelgrene og hule resonanskamre skaber den klare 2.800–4.200 Hz slider metalklang — sammenligning af alle 7 akustiske forme (FS-150, FS-129, FS-148) med $0 værktøjsgebyr og MOQ 50 stk.'
     },
     no: {
       title: 'Akustiske Stemmegaffel Fidget Sliders: Resonanskammer-teknikk & Engrosguide 2026–2027',
@@ -3264,6 +3264,34 @@ ${fig2}
 <h2 id="section-4">4. ${t('comp.heroTitle')} &amp; ${t('pkg.heroTitle')}</h2>
 <p>${t('comp.geoAnswer')}</p>
 <p>${t('pkg.geoAnswer')}</p>
+<div class="geo-table-wrap">
+  <table class="geo-table">
+    <thead>
+      <tr>
+        <th>${t('pkg.heroTitle')}</th>
+        <th>MOQ</th>
+        <th>${t('pdp.pricingTitle')}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>${t('pkg.card1Title')}</strong></td>
+        <td>100 ${t('unit.pcs')}</td>
+        <td>+$0.75 / ${t('unit.pc')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pkg.card2Title')}</strong></td>
+        <td>200 ${t('unit.pcs')}</td>
+        <td>+$0.85 / ${t('unit.pc')}</td>
+      </tr>
+      <tr>
+        <td><strong>${t('pkg.card3Title')}</strong></td>
+        <td>300 ${t('unit.pcs')}</td>
+        <td>+$1.10 / ${t('unit.pc')}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 ${meshLinksHtml}
 <ul>
   <li><a href="${productsUrl}">${t('nav.allCatalog')} (FS-001 – FS-150)</a></li>
