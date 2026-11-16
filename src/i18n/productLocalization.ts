@@ -477,6 +477,51 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
   [/\bDivine-Realm\b/gi, {
     ja: 'ディバインレルム', ko: '디바인 렐름', ru: 'Дивайн-Реалм'
   }],
+  [/Pendulum Swing Hammer/gi, {
+    de: 'Pendel-Schwinghammer', fr: 'Marteau Pendulaire', nl: 'Slingerhamer', es: 'Martillo Pendular',
+    it: 'Martello a Pendolo', pt: 'Martelo Pendular', sv: 'Pendelhammare', da: 'Pendulhammer',
+    no: 'Pendelhammer', fi: 'Heilurivasara', pl: 'Młot Wahadłowy', cs: 'Kyvadlové Kladivo',
+    ru: 'Маятниковый Молот', ja: '振り子スイングハンマー', ko: '진자 스윙 해머', id: 'Palu Ayun Pendulum', ar: 'مطرقة البندول المتأرجحة'
+  }],
+  [/Turbine Warhead/gi, {
+    de: 'Turbinen-Gefechtskopf', fr: 'Ogive Turbine', nl: 'Turbine Kernkop', es: 'Ojiva de Turbina',
+    it: 'Testata a Turbina', pt: 'Ogiva de Turbina', sv: 'Turbinkrigsspets', da: 'Turbine-Sprænghoved',
+    no: 'Turbin-Stridshode', fi: 'Turbiinikärki', pl: 'Głowica Turbinowa', cs: 'Turbínová Hlavice',
+    ru: 'Турбинная Боеголовка', ja: 'タービン弾頭型', ko: '터빈 워헤드', id: 'Hulu Ledak Turbin', ar: 'رأس التوربين الدوار'
+  }],
+  [/Ancient Bronze Mask/gi, {
+    de: 'Antike Bronzemaske', fr: 'Masque de Bronze Antique', nl: 'Antiek Bronzen Masker', es: 'Máscara de Bronce Antiguo',
+    it: 'Maschera in Bronzo Antico', pt: 'Máscara de Bronze Antigo', sv: 'Antik Bronsmask', da: 'Antik Bronzemaske',
+    no: 'Antikk Bronsemaske', fi: 'Antiikkipronssinaamio', pl: 'Antyczna Maska z Brązu', cs: 'Antická Bronzová Maska',
+    ru: 'Античная Бронзовая Маска', ja: '古代ブロンズマスク', ko: '고대 청동 가면', id: 'Topeng Perunggu Kuno', ar: 'قناع البرونز القديم'
+  }],
+  [/Asymmetric Sprocket Chain/gi, {
+    de: 'Asymmetrische Kettenrad-Kette', fr: 'Chaîne à Pignon Asymétrique', nl: 'Asymmetrische Tandwielketting', es: 'Cadena de Piñón Asimétrica',
+    it: 'Catena a Pignone Asimmetrica', pt: 'Corrente de Pinhão Assimétrica', sv: 'Asymmetrisk Kedjedrev', da: 'Asymmetrisk Kædehjul',
+    no: 'Asymmetrisk Kjedehjul', fi: 'Epäsymmetrinen Ketjupyörä', pl: 'Asymetryczny Łańcuch Zębaty', cs: 'Asymetrický Řetězový Převod',
+    ru: 'Асимметричная Цепная Передача', ja: '非対称スプロケットチェーン', ko: '비대칭 스프로킷 체인', id: 'Rantai Sprocket Asimetris', ar: 'سلسلة التروس غير المتماثلة'
+  }],
+  [/Magnetic Capsule Pill|Capsule Pill/gi, {
+    de: 'Magnetkapsel-Pille', fr: 'Capsule Magnétique Pilule', nl: 'Magnetische Capsulepil', es: 'Cápsula Magnética Píldora',
+    it: 'Capsula Magnetica Pillola', pt: 'Cápsula Magnética Pílula', sv: 'Magnetisk Kapseltablett', da: 'Magnetisk Kapsel-Pille',
+    no: 'Magnetisk Kapsel-Pille', fi: 'Magneettikapseli', pl: 'Kapsułka Magnetyczna', cs: 'Magnetická Kapsle',
+    ru: 'Магнитная Капсула', ja: '磁気カプセルピル', ko: '마그네틱 캡슐 필', id: 'Kapsul Pil Magnetik', ar: 'كبسولة مغناطيسية'
+  }],
+  [/Chaotic Pendulum/gi, {
+    de: 'Chaospendel', fr: 'Pendule Chaotique', nl: 'Chaotische Slinger', es: 'Péndulo Caótico',
+    it: 'Pendolo Caotico', pt: 'Pêndulo Caótico', sv: 'Kaotisk Pendel', da: 'Kaotisk Pendul',
+    no: 'Kaotisk Pendel', fi: 'Kaaosheiluri', pl: 'Wahadło Chaotyczne', cs: 'Chaotické Kyvadlo',
+    ru: 'Хаотический Маятник', ja: 'カオス振り子', ko: '카오스 진자', id: 'Pendulum Kaotik', ar: 'البندول الفوضوي'
+  }],
+  [/Poker Suit/gi, {
+    de: 'Pokersymbole', fr: 'Enseignes de Poker', nl: 'Pokersymbolen', es: 'Palos de Póker',
+    it: 'Semi del Poker', pt: 'Naipes de Poker', sv: 'Pokersymboler', da: 'Pokerkulører',
+    no: 'Pokersymboler', fi: 'Pokerimaat', pl: 'Kolory Pokerowe', cs: 'Pokerové Barvy',
+    ru: 'Покерные Масти', ja: 'ポーカースート（トランプ柄）', ko: '포커 문양', id: 'Simbol Kartu Poker', ar: 'رموز أوراق البوكر'
+  }],
+  [/Jack-O-Lantern/gi, {
+    es: 'Jack Spinner Calabaza', de: 'Halloween-Kürbis', fr: 'Citrouille Halloween', ja: 'ジャック・オー・ランタン', ko: '잭오랜턴 호박'
+  }],
   [/\bUltra-Slim\b/gi, {
     de: 'Ultraflach', fr: 'Ultra-Fin', nl: 'Ultradun', es: 'Ultradelgado',
     it: 'Ultrasottile', pt: 'Ultrafino', sv: 'Ultratunn', da: 'Ultratynd',

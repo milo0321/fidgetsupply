@@ -710,6 +710,9 @@ const breadcrumbSchema = {
         if (calcTotalEl) {
           calcTotalEl.textContent = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD`;
         }
+        if (stickyPriceEl) {
+          stickyPriceEl.textContent = `$${unitTotal.toFixed(2)}/pc × ${currentQty} ($${subtotal.toFixed(0)} USD)`;
+        }
       }
 
       [rfqBtn, fastRfqBtn, stickyRfqBtn].forEach((btn) => {
