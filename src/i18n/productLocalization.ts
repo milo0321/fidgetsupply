@@ -370,19 +370,19 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     de: 'Resonanzkammer', fr: 'Chambre de Résonance', nl: 'Resonantiekamer', es: 'Cámara de Resonancia',
     it: 'Camera di Risonanza', pt: 'Câmara de Ressonância', sv: 'Resonanskammare', da: 'Resonanskammer',
     no: 'Resonanskammer', fi: 'Resonanssikammio', pl: 'Komora Rezonansowa', cs: 'Rezonanční komora',
-    ru: 'Резонансная камера', ja: '中空共鳴チャンバー', ko: '중공 어쿠스틱 공명 챔버', id: 'Ruang Resonansi', ar: 'حجرة الرنين الصوتي'
+    ru: 'Резонансная камера', ja: '中空共鳴チャンバー', ko: '극성중공 어쿠스틱 공명 챔버', id: 'Ruang Resonansi', ar: 'حجرة الرنين الصوتي'
   }],
   [/Acoustic Tuning Fork Slider/gi, {
     de: 'Akustik-Stimmgabel-Slider', fr: 'Slider Diapason Acoustique', nl: 'Akoestische Stemvork-Slider', es: 'Slider de Diapasón Acústico',
     it: 'Slider Diapason Acustico', pt: 'Slider Diapasão Acústico', sv: 'Akustisk stämgaffel-slider', da: 'Akustisk stemmegaffel-slider',
     no: 'Akustisk stemmegaffel-slider', fi: 'Akustinen äänirauta-slideri', pl: 'Akustyczny Slider Kamertonowy', cs: 'Akustický ladičkový slider',
-    ru: 'Акустический камертонный слайдер', ja: '音響音叉（チューニングフォーク）スライダー', ko: '어쿠스틱 튜닝포크(음차) 피젯 슬라이더', id: 'Slider Garpu Tala Akustik', ar: 'سلايدر الشوكة الرنانة الصوتية'
+    ru: 'Акустический камертонный слайдер', ja: '音響音叉（チューニングフォーク）スライダー', ko: '극성중공 소리굽쇠 피젯 슬라이더', id: 'Slider Garpu Tala Akustik', ar: 'سلايدر الشوكة الرنانة الصوتية'
   }],
   [/Acoustic Tuning Fork Spinner/gi, {
     de: 'Akustik-Stimmgabel-Spinner', fr: 'Spinner Diapason Acoustique', nl: 'Akoestische Stemvork-Spinner', es: 'Spinner de Diapasón Acústico',
     it: 'Spinner Diapason Acustico', pt: 'Spinner Diapasão Acústico', sv: 'Akustisk stämgaffel-spinner', da: 'Akustisk stemmegaffel-spinner',
     no: 'Akustisk stemmegaffel-spinner', fi: 'Akustinen äänirauta-spinneri', pl: 'Akustyczny Spinner Kamertonowy', cs: 'Akustický ladičkový spinner',
-    ru: 'Акустический камертонный спиннер', ja: '音響音叉（チューニングフォーク）スピナー', ko: '중공 어쿠스틱 튜닝포크 스피너', id: 'Spinner Garpu Tala Akustik', ar: 'سبينر الشوكة الرنانة الصوتية'
+    ru: 'Акустический камертонный спиннер', ja: '音響音叉（チューニングフォーク）スピナー', ko: '극성중공 소리굽쇠 피젯 스피너', id: 'Spinner Garpu Tala Akustik', ar: 'سبينر الشوكة الرنانة الصوتية'
   }],
   [/Dual-Bearing Multi-Metal Gourd/gi, {
     de: 'Doppellager Multi-Metall-Gourd', fr: 'Gourde Multi-Métaux Double Roulement', nl: 'Dubbellager Multi-Metaal Kalebas', es: 'Calabaza Multimetálica de Doble Rodamiento',
@@ -394,7 +394,7 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     de: 'Stimmgabel-Resonanz', fr: 'Diapason Acoustique', nl: 'Stemvork-Resonantie', es: 'Diapasón Acústico',
     it: 'Diapason Acustico', pt: 'Diapasão Acústico', sv: 'Stämgaffel-resonans', da: 'Stemmegaffel-resonans',
     no: 'Stemmegaffel-resonans', fi: 'Äänirauta-akustiikka', pl: 'Kamerton Akustyczny', cs: 'Akustická ladička',
-    ru: 'Акустический камертон', ja: '音叉（チューニングフォーク）共鳴', ko: '어쿠스틱 튜닝포크(음차) 공명', id: 'Garpu Tala Akustik', ar: 'الشوكة الرنانة الصوتية'
+    ru: 'Акустический камертон', ja: '音叉（チューニングフォーク）共鳴', ko: '극성중공 소리굽쇠(튜닝포크)', id: 'Garpu Tala Akustik', ar: 'الشوكة الرنانة الصوتية'
   }],
   [/EDC Hand Piece|Hand-Piece Gourd|EDC Gourd/gi, {
     de: 'EDC-Handschmeichler-Kalebasse', fr: 'Gourde EDC de Poche', nl: 'EDC Handstuk Kalebas', es: 'Calabaza EDC de Mano',
@@ -2100,18 +2100,20 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
     de: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 Formkosten, MOQ 50 Stk.). ${shortMat}, ${p.weight}, 50W-Laserlogo ab 100 Stk.`,
     fr: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 frais de moule, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser fibre 50W dès 100 pcs.`,
     nl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 matrijskosten, MOQ 50 st.). ${shortMat}, ${p.weight}, 50W-laserlogo vanaf 100 st.`,
-    es: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 uds.). ${shortMat}, ${p.weight}, grabado láser 50W desde 100 uds.`,
+    es: `${p.skuDisplay} ${locTitle} (Precio $${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 uds.). ${shortMat}, ${p.weight}, láser 50W desde 100 uds.`,
     it: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 stampo, MOQ 50 pz.). ${shortMat}, ${p.weight}, logo laser 50W da 100 pz.`,
-    pt: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 un.). ${shortMat}, ${p.weight}, gravação laser 50W desde 100 un.`,
+    pt: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 un.). ${shortMat} Cinza Cromo, ${p.weight}, laser 50W (100 un.).`,
     sv: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktygskostnad, MOQ 50 st). ${shortMat}, ${p.weight}, 50W laserlogo från 100 st.`,
-    da: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W laserlogo fra 100 stk.`,
+    da: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, SKF/R188 & 50W laserlogo.`,
     no: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktøygebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W laserlogo fra 100 stk.`,
-    fi: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, ${p.weight}, 50W laserlogo alkaen 100 kpl.`,
+    fi: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, ${p.weight}, omalla painatuksella / 50W laser.`,
     pl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 formy, MOQ 50 szt.). ${shortMat}, ${p.weight}, grawer laserowy 50W od 100 szt.`,
     cs: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 forma, MOQ 50 ks). ${shortMat}, ${p.weight}, 50W laserové logo od 100 ks.`,
     ru: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
     ja: `${p.skuDisplay} ${locTitle}（卸売 $${p.tier500}〜$${p.tier50}、金型代$0、MOQ 50個）。${shortMat}・${p.weight}、100個〜50Wレーザー名入れ対応。`,
-    ko: `${p.skuDisplay} ${locTitle} (도매가 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
+    ko: p.tuningFork
+      ? `${p.skuDisplay} 극성중공 ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 2040Hz 소리굽쇠 공명 & 50W 레이저 각인.`
+      : `${p.skuDisplay} ${locTitle} (도매가 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
     id: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 biaya cetakan, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser 50W mulai 100 pcs.`,
     ar: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}، قالب 0$، الحد الأدنى 50 قطعة). ${shortMat}، ${p.weight}، حفر شعار ليزر 50W من 100 قطعة.`
   };

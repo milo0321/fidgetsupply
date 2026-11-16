@@ -1894,7 +1894,17 @@ const faqSchema = {
         <!-- Referenced Ready-to-Produce Factory Models -->
         {relatedProducts.length > 0 && (
           <section class="related-skus-section" id="referenced-factory-models">
-            <h2>{t('guide.refModelsTitle')}</h2>
+            <div class="related-skus-head">
+              <h2>{t('guide.refModelsTitle')}</h2>
+              <a
+                href={getLocalizedPath('/contact', currentLang)}
+                class="btn btn-primary btn-sm"
+                data-rfq-sku={relatedProducts.slice(0, 6).map((rp: any) => rp.data.sku).join(', ')}
+                data-rfq-qty="100"
+              >
+                {t('nav.requestQuote')} ({relatedProducts.slice(0, 6).map((rp: any) => rp.data.sku).join(' · ')}) &rarr;
+              </a>
+            </div>
             <div class="grid-3">
               {relatedProducts.slice(0, 6).map((p: any) => (
                 <ProductCard product={p} />

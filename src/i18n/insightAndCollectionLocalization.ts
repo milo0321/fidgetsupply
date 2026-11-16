@@ -109,8 +109,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'How cantilevered internal tuning-fork prongs and hollow acoustic cavities create the viral 2,800–4,200 Hz metallic "Ding!" chime—comparing all 7 ready molds (FS-150, FS-129, FS-148).'
     },
     de: {
-      title: 'Akustische Stimmgabel-Fidget-Slider: Resonanzkammer-Technik & Großhandels-Leitfaden 2026–2027',
-      summary: 'Wie freitragende Stimmgabel-Zinken und Hohlresonanzkammern den 2.800–4.200 Hz „Ding!“-Klang erzeugen — mit Vergleich unserer 7 Akustik-Serienformen (FS-150, FS-129, FS-148).'
+      title: 'Akustische Stimmgabel-Fidget-Slider (Steiner Stimmgabel-Resonanz): Technik & Großhandel 2026–2027',
+      summary: 'Wie freitragende Stimmgabel-Zinken (Steiner Stimmgabel-Prinzip) und Hohlresonanzkammern den 2.800–4.200 Hz „Ding!“-Klang erzeugen — Vergleich aller 7 Akustik-Serienformen (FS-150, FS-129, FS-148, $0 Formkosten, MOQ 50).'
     },
     fr: {
       title: 'Sliders Diapason Acoustique (2 800–4 200 Hz) : Ingénierie & Guide Grossiste ($0 Moule / MOQ 50)',
@@ -165,8 +165,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: '片持ち音叉プロングと共鳴チャンバーが 2,800〜4,200 Hz の澄んだ金属音「チーン！」を生み出す仕組みと、音叉シリーズ全7モデル（FS-150・FS-129・FS-148等、金型代$0・MOQ 50個）の徹底比較。'
     },
     ko: {
-      title: '어쿠스틱 튜닝포크(음차) 피젯 슬라이더: 공명 챔버 설계 및 2026–2027 도매 가이드',
-      summary: '캔틸레버 음차 프롱과 중공 공명 챔버가 2,800~4,200 Hz 금속 공명음을 내는 원리와 당사 7종 튜닝포크 모델(FS-150, FS-129, FS-148 등) 비교 분석.'
+      title: '극성중공 어쿠스틱 소리굽쇠(튜닝포크) 피젯 슬라이더: 공명 챔버 설계 및 도매 가이드 ($0 금형 / MOQ 50)',
+      summary: '극성중공(Polarity Hollow) 어쿠스틱 공명 챔버와 캔틸레버 소리굽쇠가 2,800~4,200 Hz 맑은 금속 공명음을 내는 원리 — FS-150($10.19+), FS-129($22.29+), FS-148 등 7종 금형비 $0 도매 비교.'
     },
     id: {
       title: 'Slider Fidget Garpu Tala Akustik: Rekayasa Ruang Resonansi & Panduan Grosir 2026–2027',
@@ -1247,8 +1247,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Varför Kung/Ess-pokerkort och Mahjong-magnetsliders leder den globala EDC-försäljningen — nedsänkt ugnsbränd emalj, kortergonomi och egen märkning.'
     },
     da: {
-      title: 'Mahjongbrik, Pokerkort & Kasino Metal-Magnetslidere: Brændt Emalje & Engrosguide ($0 Form / MOQ 50)',
-      summary: 'Mahjongbrik (FS-021, FS-074) og Konge/Es-pokerkort magnetslidere (FS-001, FS-075): forsænket ovnbrændt emalje, N52 magneter, $0 værktøjsgebyr og MOQ 50 stk.'
+      title: 'Mahjongbrik & Pokerkort Magnetiske Fidget Sliders ($1.55–$4.80): Brændt Emalje & Engros (MOQ 50)',
+      summary: 'Mahjongbrik (FS-021, FS-074) og Konge/Es-pokerkort magnetslidere (FS-001, FS-075) i metal: forsænket ovnbrændt emalje, N52 magneter, $0 værktøjsgebyr, MOQ 50 stk. og 50W laserlogo.'
     },
     no: {
       title: 'Pokerkort-, Mahjongbrikke- & Kasino-magnetslidere i Metall: Brent Emalje & Bestselgerguide',
@@ -1477,8 +1477,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'Liukuteippi (PTFE-Teflonteippi), Si3N4-Keraamikuulat & R188-Laakerihuolto: EDC-Viritys- & Varaosaopas',
-      summary: 'Kattava tribologia- ja viritysopas: liukuteippi (0,13/0,18 mm PTFE-liukuteippi / teflonteippi), piinitridi (Si3N4) -keraamikuulat, fosforipronssijouset ja R188-laakereiden kuivapuhdistus.'
+      title: 'Liukuteippi (0,13/0,18 mm PTFE-Teflon), Si3N4-Keraamikuulat & R188-Laakerit: Fidget Huolto & Tukku',
+      summary: 'PTFE-liukuteippi (0,13 mm & 0,18 mm teflon-liukuteippi magneettislidereihin), mustat Si3N4-keraamikuulat ja R188-laakerit — tehdasvaraosat, $0 muottikulu ja MOQ 50 kpl.'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',

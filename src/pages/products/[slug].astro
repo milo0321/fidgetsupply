@@ -319,17 +319,17 @@ const breadcrumbSchema = {
             <span class="tooling-free-tag">✓ {t('pdp.noMoldFee')}</span>
           </div>
           <div class="tiers-grid">
-            <div class="tier-cell">
+            <div class="tier-cell" data-tier-qty="50" role="button" tabindex="0">
               <span class="tier-qty">50 – 199 {t('unit.pcs')}</span>
               <strong class="tier-val" id="price-tier-50">${p.tier50}</strong>
               <span class="tier-sub">{t('pdp.trialBatch')}</span>
             </div>
-            <div class="tier-cell tier-popular">
+            <div class="tier-cell tier-popular" data-tier-qty="200" role="button" tabindex="0">
               <span class="tier-qty">200 – 499 {t('unit.pcs')}</span>
               <strong class="tier-val" id="price-tier-200">${p.tier200}</strong>
               <span class="tier-sub">{t('pdp.customLogoStd')}</span>
             </div>
-            <div class="tier-cell tier-best">
+            <div class="tier-cell tier-best" data-tier-qty="500" role="button" tabindex="0">
               <span class="tier-qty">500+ {t('unit.pcs')}</span>
               <strong class="tier-val" id="price-tier-500">${p.tier500}</strong>
               <span class="tier-sub">{t('pdp.volumeTier')}</span>
@@ -795,6 +795,22 @@ const breadcrumbSchema = {
         }
       });
     }
+
+    // Interactive 3-tier price table cells
+    const tierCells = document.querySelectorAll('.tiers-grid .tier-cell[data-tier-qty]');
+    tierCells.forEach((cell) => {
+      cell.addEventListener('click', () => {
+        const selectedQty = parseInt(cell.getAttribute('data-tier-qty') || '50', 10);
+        currentQty = selectedQty;
+        qtyChips.forEach((c) => {
+          c.classList.toggle('active', parseInt(c.getAttribute('data-qty') || '0', 10) === selectedQty);
+        });
+        updateRfqHref();
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'tier_cell_select', { sku: currentSku, qty: currentQty });
+        }
+      });
+    });
 
     // Customization radio cards
     const radioCards = document.querySelectorAll('#custom-radio-group .radio-card');

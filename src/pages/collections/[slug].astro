@@ -216,7 +216,11 @@ const COLLECTION_SEO_TITLES: Record<string, string> = {
 };
 const COLLECTION_SEO_DESCS: Record<string, string> = {
   'magnetic-fidget-sliders': `Magnetic textured fidget sliders & haptic sliders: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs 50W laser logo.`,
-  'haptic-fidget-coins': `Haptic fidget coins & magnetic clicker coins: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs custom laser logo.`
+  'haptic-fidget-coins': `Haptic fidget coins & magnetic clicker coins: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs custom laser logo.`,
+  'magnetic-fidget-rings': `Wholesale spinner rings & magnetic fidget rings: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs 50W laser logo.`,
+  'metal-fidget-spinners-gyros': `Wholesale metal spinners, R188 hand spinners & desktop gyros: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs laser logo.`,
+  'tuning-fork-fidget-sliders': `Acoustic tuning fork sliders & resonance chamber EDC: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). 2040–4200Hz chime, $0 mold fee, MOQ 50 pcs.`,
+  'custom-logo-metal-fidgets': `Custom logo printed hand spinners & laser-engraved metal fidgets in bulk: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 100 pcs.`
 };
 const cleanShortName = collection.shortName.replace(/^[^\w]+/, '').trim();
 const rawEnTitle = `${collection.name} (${products.length} Molds) | FidgetSupply`;
@@ -227,21 +231,21 @@ const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${pr
 const locColName = t(`col.${collection.slug}.name` as any);
 const COLLECTION_META_DESC_MAP: Record<string, string> = {
   en: enDesc,
-  de: `${locColName}: ${products.length} Serienformen ($${minColPrice}–$${maxColPrice}, $0 Werkzeugkosten, MOQ 50 Stk.). 50W-Laserlogo ab 100 Stk.`,
+  de: `${locColName}: ${products.length} Serienformen ($${minColPrice}–$${maxColPrice}, $0 Werkzeugkosten, MOQ 50 Stk.). Stimmgabel & 50W-Laserlogo ab 100 Stk.`,
   fr: `${locColName} : ${products.length} moules prêts ($${minColPrice}–$${maxColPrice}, 0 $ frais de moule, MOQ 50 pcs). Logo laser 50W dès 100 pcs.`,
-  nl: `${locColName}: ${products.length} productiemallen ($${minColPrice}–$${maxColPrice}, $0 matrijskosten, MOQ 50 st.). 50W-laserlogo vanaf 100 st.`,
-  es: `${locColName}: ${products.length} moldes listos ($${minColPrice}–$${maxColPrice}, $0 costo de molde, MOQ 50 uds.). Logo láser 50W desde 100 uds.`,
-  it: `${locColName}: ${products.length} stampi pronti ($${minColPrice}–$${maxColPrice}, $0 costi stampo, MOQ 50 pz.). Logo laser 50W da 100 pz.`,
+  nl: `${locColName}: ${products.length} metalen mallen ($${minColPrice}–$${maxColPrice}, $0 matrijskosten, MOQ 50 st.). Metalen fidget spinner & 50W-laserlogo.`,
+  es: `${locColName}: ${products.length} moldes listos (Precio $${minColPrice}–$${maxColPrice}, $0 molde, MOQ 50 uds.). Logo láser 50W desde 100 uds.`,
+  it: `${locColName}: ${products.length} stampi metal spinner & slider ($${minColPrice}–$${maxColPrice}, $0 stampo, MOQ 50 pz.). Logo laser 50W da 100 pz.`,
   pt: `${locColName}: ${products.length} moldes prontos ($${minColPrice}–$${maxColPrice}, $0 custo de molde, MOQ 50 un.). Logo laser 50W desde 100 un.`,
-  sv: `${locColName}: ${products.length} färdiga formar ($${minColPrice}–$${maxColPrice}, $0 verktygskostnad, MOQ 50 st). 50W laserlogo från 100 st.`,
-  da: `${locColName}: ${products.length} færdige forme ($${minColPrice}–$${maxColPrice}, $0 værktøjsgebyr, MOQ 50 stk.). 50W laserlogo fra 100 stk.`,
+  sv: `${locColName}: ${products.length} formar med R188 kullager & N52 ($${minColPrice}–$${maxColPrice}, $0 verktyg, MOQ 50 st). 50W laserlogo från 100 st.`,
+  da: `${locColName}: ${products.length} færdige forme ($${minColPrice}–$${maxColPrice}, $0 værktøjsgebyr, MOQ 50 stk.). SKF/R188 & 50W laserlogo fra 100 stk.`,
   no: `${locColName}: ${products.length} ferdige former ($${minColPrice}–$${maxColPrice}, $0 verktøygebyr, MOQ 50 stk.). 50W laserlogo fra 100 stk.`,
-  fi: `${locColName}: ${products.length} valmismuottia ($${minColPrice}–$${maxColPrice}, $0 muottikulu, MOQ 50 kpl). 50W laserlogo alkaen 100 kpl.`,
+  fi: `${locColName} (fidget sormus, slider & spinner): ${products.length} muottia ($${minColPrice}–$${maxColPrice}, $0 muottikulu, MOQ 50 kpl). Omalla painatuksella.`,
   pl: `${locColName}: ${products.length} gotowych form ($${minColPrice}–$${maxColPrice}, $0 kosztów formy, MOQ 50 szt.). Logo laserowe 50W od 100 szt.`,
   cs: `${locColName}: ${products.length} hotových forem ($${minColPrice}–$${maxColPrice}, $0 forma, MOQ 50 ks). 50W laserové logo od 100 ks.`,
   ru: `${locColName}: ${products.length} готовых пресс-форм ($${minColPrice}–$${maxColPrice}, $0 за форму, MOQ 50 шт.). Лазерный логотип 50W от 100 шт.`,
   ja: `${locColName}：既存金型${products.length}種（卸売 $${minColPrice}〜$${maxColPrice}、金型代$0、最小50個〜）。100個〜50Wレーザー名入れ対応。`,
-  ko: `${locColName}: 기성 금형 ${products.length}종 (도매가 $${minColPrice}–$${maxColPrice}, 금형비 $0, MOQ 50개). 100개부터 50W 레이저 로고 각인.`,
+  ko: `${locColName} (극성중공 소리굽쇠 & 메탈 EDC): 기성 금형 ${products.length}종 (도매 $${minColPrice}–$${maxColPrice}, 금형비 $0, MOQ 50개). 50W 레이저 각인.`,
   id: `${locColName}: ${products.length} cetakan siap pakai ($${minColPrice}–$${maxColPrice}, $0 biaya cetakan, MOQ 50 pcs). Logo laser 50W mulai 100 pcs.`,
   ar: `${locColName}: ${products.length} قالبًا جاهزًا ($${minColPrice}–$${maxColPrice}، قالب 0$، الحد الأدنى 50 قطعة). حفر شعار ليزر 50W من 100 قطعة.`
 };
@@ -296,9 +300,18 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
           <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
             {t('nav.requestQuote')}
           </a>
-          <a href={getLocalizedPath('/custom-branding', currentLang)} class="btn btn-secondary-dark btn-hero">
-            {t('nav.customBranding')} &rarr;
+          <a href="#collection-catalog" class="btn btn-secondary-dark btn-hero">
+            {t('col.gridHeadingPrefix')} ({products.length}) &darr;
           </a>
+        </div>
+
+        <div class="hero-fast-sku-strip">
+          {products.slice(0, 5).map((fp) => (
+            <a href={getLocalizedPath(`/products/${fp.data.slug}`, currentLang)} class="hero-sku-chip">
+              <strong>{fp.data.skuDisplay}</strong>
+              <span>${fp.data.tier500}+</span>
+            </a>
+          ))}
         </div>
       </div>
 
@@ -536,6 +549,38 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
   }
   .collection-products-section {
     padding: 2.5rem 0;
+  }
+  .hero-fast-sku-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
+  }
+  .hero-sku-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    color: #f8fafc;
+    font-size: 0.78rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .hero-sku-chip strong {
+    color: #38bdf8;
+    font-weight: 800;
+  }
+  .hero-sku-chip span {
+    color: #fbbf24;
+    font-weight: 700;
+  }
+  .hero-sku-chip:hover {
+    background: rgba(2, 132, 199, 0.35);
+    border-color: #38bdf8;
+    transform: translateY(-1px);
   }
   .grid-header {
     display: flex;
