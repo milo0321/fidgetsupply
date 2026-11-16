@@ -56,8 +56,9 @@ const allImages = p.galleryImages && p.galleryImages.length > 0 ? p.galleryImage
 
 const allVariantPrices = [
   parseFloat(p.tier500),
+  parseFloat(p.tier200),
   parseFloat(p.tier50),
-  ...(p.variants || []).flatMap((v: any) => [parseFloat(v.tier500), parseFloat(v.tier100), parseFloat(v.tier50)])
+  ...(p.variants || []).flatMap((v: any) => [parseFloat(v.tier500), parseFloat(v.tier200), parseFloat(v.tier50)])
 ].filter((n) => !isNaN(n) && n > 0);
 const minOfferPrice = allVariantPrices.length ? Math.min(...allVariantPrices).toFixed(2) : p.tier500;
 const maxOfferPrice = allVariantPrices.length ? Math.max(...allVariantPrices).toFixed(2) : p.tier50;
@@ -76,15 +77,15 @@ const productSchema = {
     name: 'FidgetSupply.com'
   },
   material: lp.material,
-  category: lp.primaryCollectionName,
+  category: t(`col.${p.primaryCollection}.name` as any) || p.primaryCollectionName,
   weight: {
     '@type': 'QuantitativeValue',
     value: parseFloat(p.weight) || 75,
     unitCode: 'GRM'
   },
-  additionalProperty: Object.entries(lp.specs || {}).map(([name, value]) => ({
+  additionalProperty: (Array.isArray(lp.specs) ? lp.specs : Object.entries(lp.specs || {})).map(([name, value]: [string, any]) => ({
     '@type': 'PropertyValue',
-    name,
+    name: String(name),
     value: String(value)
   })),
   offers: {
@@ -103,10 +104,11 @@ const productSchema = {
     },
     offers: (lp.variants || p.variants || []).map((v: any, idx: number) => ({
       '@type': 'Offer',
-      name: `${p.skuDisplay} — ${v.name}`,
-      sku: `${p.sku}-V${idx + 1}`,
+      name: `${p.skuDisplay} (${v.sku || p.sku}) — ${v.materialLocalized || v.materialEn || lp.material}`,
+      sku: v.sku || `${p.sku}-V${idx + 1}`,
       priceCurrency: 'USD',
       price: v.tier500 || p.tier500,
+      priceValidUntil: '2027-12-31',
       itemCondition: 'https://schema.org/NewCondition',
       availability: 'https://schema.org/InStock',
       url: canonicalProductUrl,

@@ -461,8 +461,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: '新規金型費（$3,000以上）をかけずに、既存の140金型＋カスタムロゴ名入れ（最小ロット100個〜・サンプル10〜15日）で高利益なPB商品を展開する実践手順。'
     },
     ko: {
-      title: '금형비 0달러($0 툴링 SOP)로 10~15일 만에 자체 브랜드 금속 피젯을 런칭하는 방법',
-      summary: '$3,000 이상의 신규 금형 투자 없이 140종 기성 금형과 맞춤 로고 각인(MOQ 100개, 샘플 10~15일)을 활용해 고마진 PB 상품을 출시하는 실전 절차.'
+      title: '금형비 $0 기성 금형(극성중공 소리굽쇠 & 슬라이더)으로 10~15일 만에 자체 브랜드 메탈 EDC 런칭하는 법',
+      summary: '$3,000 이상의 신규 금형 투자 없이 140종 기성 금형(FS-150 극성중공 소리굽쇠, FS-001 등)과 50W 레이저 각인(MOQ 100개)을 활용해 고마진 브랜드를 출시하는 절차.'
     },
     id: {
       title: 'Luncurkan Fidget Logam Merek Sendiri dalam 10–15 Hari dengan Biaya Cetakan $0 (SOP)',
@@ -753,8 +753,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Сравнительный обзор 12-магнитных тактильных монет, точеных ЧПУ-тыкв/капсул (включая янтарный PEI Ultem) и 16-магнитных колец в 27+ моделях.'
     },
     ja: {
-      title: 'ハプティックコイン・CNC瓢箪（ひょうたん）ハンドピース・磁気スピナーリング：人間工学＆卸売ガイド',
-      summary: '360度回転12磁石ハプティックコイン、5軸CNC瓢箪・カプセル（アンバーPEI Ultem含む）、16磁石スピナーリング全27モデル以上の設計と名入れ仕様を比較。'
+      title: 'ハプティックコイン・CNC瓢箪ハンドピース・磁気スピナーリング卸売ガイド（$1.46〜・金型代$0・MOQ 50）',
+      summary: '360度回転12磁石ハプティックコイン（FS-013・FS-030）、5軸CNC瓢箪・アンバーPEI（FS-099）、16磁石スピナーリング全27種以上（金型代$0・MOQ 50個）を徹底比較。'
     },
     ko: {
       title: '햅틱 피젯 코인, CNC 조롱박 핸드피스 및 마그네틱 스피너 링: 포켓 인체공학 및 도매 소싱 가이드',
@@ -1009,8 +1009,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Mechanische en magnetostatische analyse van 3-laags sandwich-sliders en ultradichte 48- tot 56-magneet matrices.'
     },
     es: {
-      title: 'Sliders Magnéticos Apilados de 3 Capas y Alta Densidad de 48/56 Imanes: Ingeniería Háptica Multietapa',
-      summary: 'Análisis mecánico y magnetostático de sliders tipo sándwich de 3 capas y matrices ultradensas de 48 a 56 microimanes.'
+      title: 'Sliders Magnéticos de 3 Capas y 48/56 Imanes ($1.85–$6.50): Guía Háptica ($0 Molde / MOQ 50)',
+      summary: 'Análisis mecánico de sliders sándwich de 3 capas (FS-001, FS-058) y matrices ultradensas de 48 a 56 imanes N52 (FS-091) con $0 costo de molde y MOQ 50 uds.'
     },
     it: {
       title: 'Slider Magnetici Impilati a 3 Strati e Alta Densità a 48/56 Magneti: Ingegneria Aptica Multistadio',
@@ -1029,8 +1029,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Mekanisk og magnetostatisk gennemgang af 3-lags sandwich-slidere og ultratætte 48- til 56-magneters matricer.'
     },
     no: {
-      title: '3-Lags Stablede & Høydensitets 48/56-Magnets Fidget Slidere: Flertrinns Haptisk Ingeniørkunst',
-      summary: 'Mekanisk og magnetostatisk gjennomgang av 3-lags sandwich-slidere og ultratette 48- til 56-magneters matriser.'
+      title: 'Slidere med 3-Lags Magnet & 48/56-Magneter ($1.85+ · $0 Form / MOQ 50)',
+      summary: 'Mekanisk gjennomgang av 3-lags magnetiske slidere (FS-001, FS-058) og 48- til 56-magneters matriser (FS-091) med $0 verktøygebyr og MOQ 50 stk.'
     },
     fi: {
       title: '3-Kerroksiset & Tiheät 48/56-Magneetin Fidget-Sliderit: Monivaiheinen Haptinen Tekniikka',
@@ -1411,8 +1411,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Jak głęboki odlew ciśnieniowy EDM (0,8–2,2 mm) oraz obróbka 5-osiowa CNC tworzą wiralowe fidgety Mecha, Czaszka, Miecz Excalibur i Ciastko w 100% bezpieczne prawnie (IP-safe).'
     },
     cs: {
-      title: '3D Reliéfní Kovové EDC Fidgety: Brnění Mecha, Gotická Lebka, Mýtický Drak a Pop-Art Designy',
-      summary: 'Jak hluboké tlakové lití EDM (0,8–2,2 mm) a 5osé CNC obrábění vytvářejí virální fidgety Mecha, Lebka, Meč Excalibur a Sušenka se 100% IP bezpečností.'
+      title: '3D Reliéfní Kovové EDC Fidgety ($1.85+): Mecha, Gotická Lebka a Drak ($0 Forma / MOQ 50 ks)',
+      summary: 'Hluboké tlakové lití EDM (0,8–2,2 mm) a 5osé CNC: virální fidgety Mecha, Gotická Lebka, Meč Excalibur a Sušenka ($0 poplatek za formu, MOQ 50 ks).'
     },
     ru: {
       title: '3D-Рельефные EDC-Фиджеты: Меха, Череп и Дракон ($2.50+)',
@@ -1929,8 +1929,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Odkryj bestsellerowe metalowe fidgety upominkowe: pady retro, pianina, strąki groszku i ciastka (FS-040, FS-022, FS-027) od MOQ 50 szt."
     },
     "cs": {
-        "title": "Kovové Fidgety Retro Gamepad, Labyrint, Klavír a Potraviny (Hrášek, Sušenka, Čokoláda)",
-        "summary": "Objevte dárkové kovové fidgety s vysokou konverzí: retro gamepady, klavíry, lusky hrášku a sušenky (FS-040, FS-022, FS-027) od MOQ 50 ks."
+        "title": "Kovové Fidgety Retro Gamepad, Klavír, Hrášek a Sušenka ($1.46+ · $0 Forma / MOQ 50 ks)",
+        "summary": "Dárkové kovové fidgety s vysokou konverzí: retro gamepady (FS-040), klavíry (FS-048), lusky hrášku (FS-022) a sušenky (FS-027) s $0 za formu od MOQ 50 ks."
     },
     "ru": {
         "title": "Металлические фиджеты в форме ретро-геймпада, лабиринта, пианино и еды (горошек, печенье, шоколад)",
@@ -2089,8 +2089,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "ポケット携帯に最適な55g未満の6061/6063アルミモデル（FS-047、FS-097）と、重厚な120g〜185gの真鍮・ステンレスモデル（FS-142、FS-071）を徹底比較。"
     },
     "ko": {
-        "title": "초경량 6063 아노다이징 알루미늄(<55g) vs 헤비급 황동 및 스테인리스(120g–185g) EDC 피젯 무게 가이드",
-        "summary": "55g 미만 초경량 6061/6063 알루미늄 피젯과 120g–185g 중량급 황동/스테인리스 모델(FS-047 vs FS-142)의 밀도 및 인체공학 비교."
+        "title": "초경량 6063 알루미늄(<55g) vs 중량급 황동·304 스테인리스(120g–185g) EDC 피젯 무게 비교 ($0 금형 / MOQ 50)",
+        "summary": "55g 미만 초경량 6061/6063 알루미늄 피젯(FS-047)과 120g–185g 중량급 황동·스테인리스 모델(FS-142)의 밀도·손맛 및 도매 원가 비교(MOQ 50개)."
     },
     "id": {
         "title": "Aluminium Anodisa 6063 Ultra-Ringan (<55g) vs. Kuningan & Baja Berat (120g–185g): Panduan Berat EDC",
@@ -2825,8 +2825,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "Наш протокол ОТК из 12 тестов перед отгрузкой: проверка магнитов гауссметром, тест удержания эпоксидной смолы 50 Н, вращение подшипника R188 (>180 с), адгезия PVD 3M и экранирование IATA PI-953."
     },
     "ja": {
-      "title": "EDC 品質管理（QC）チェックリスト：金属フィジェット出荷前12項目検査",
-      "summary": "金属EDC品質管理（QC）の出荷前必須12項目検査：ガウスメーター磁束測定、50Nエポキシ保持試験、R188回転検査、3M PVD密着試験、IATA PI-953磁気遮蔽（MOQ 50個）。"
+      "title": "EDC 品質管理（QC）チェックリスト：金属フィジェット出荷前12項目検査（金型代$0・MOQ 50）",
+      "summary": "金属EDC品質管理（QC）の出荷前必須12項目検査：ガウスメーター磁束測定、50Nエポキシ保持試験、R188ベアリング180秒回転検査、3M PVD密着試験、IATA PI-953磁気遮蔽。"
     },
     "ko": {
       "title": "메탈 EDC 피젯 품질관리(QC) 체크리스트: 수입업체를 위한 선적 전 필수 12단계 전수 검사 프로토콜",

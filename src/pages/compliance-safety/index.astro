@@ -80,10 +80,10 @@ const COMPLIANCE_META_DESC_MAP: Record<string, string> = {
   ar: 'معايير سلامة المغناطيس الأمريكية CPSC 16 CFR 1262 (<50 kG²mm²)، تثبيت ثلاثي الطبقات بالبراغي، ومطابقة EU RoHS 3 / REACH والشحن الجوي IATA PI-953 لـ 140 قالباً.',
   pt: 'Segurança magnética US CPSC 16 CFR 1262 (<50 kG²mm²), retenção tripla parafusada, conformidade UE RoHS 3 / REACH e frete aéreo IATA PI-953 em 140 moldes EDC.',
   ru: 'Сертификация безопасности магнитов US CPSC 16 CFR 1262 (<50 kG²mm²), 3-слойная винтовая фиксация, соответствие EU RoHS 3 / REACH и авиаперевозкам IATA PI-953.',
-  it: 'Sicurezza magnetica US CPSC 16 CFR 1262 (<50 kG²mm²), ritenzione a 3 strati avvitata, conformità UE RoHS 3 / REACH e trasporto aereo IATA PI-953 su 140 stampi.',
+  it: '16 CFR 1262 sicurezza magnetica US CPSC (<50 kG²mm²), ritenzione a 3 strati avvitata, conformità UE RoHS 3 / REACH e trasporto aereo IATA PI-953 su 140 stampi.',
   nl: 'US CPSC 16 CFR 1262 magneetveiligheid (<50 kG²mm²), 3-laags geschroefde borging, EU RoHS 3 / REACH en IATA PI-953 luchtvrachtconformiteit voor 140 EDC-mallen.',
   pl: 'Bezpieczeństwo magnesów US CPSC 16 CFR 1262 (<50 kG²mm²), 3-warstwowa blokada śrubowa, zgodność z EU RoHS 3 / REACH oraz transportem lotniczym IATA PI-953.',
-  tr: 'ABD CPSC 16 CFR 1262 mıknatıs güvenliği (<50 kG²mm²), 3 katmanlı vidalı kilit, AB RoHS 3 / REACH ve IATA PI-953 hava kargo uyumluluğuna sahip 140 EDC kalıbı.',
+  id: 'Standar keamanan magnet US CPSC 16 CFR 1262 (<50 kG²mm²), kunci sekrup 3-lapis, kepatuhan EU RoHS 3 / REACH & kargo udara IATA PI-953 untuk 140 cetakan logam.',
   sv: 'US CPSC 16 CFR 1262 magnetsäkerhet (<50 kG²mm²), 3-lagers skruvlåst infästning, EU RoHS 3 / REACH och IATA PI-953 flygfraktskompatibilitet för 140 EDC-formar.',
   no: 'US CPSC 16 CFR 1262 magnetsikkerhet (<50 kG²mm²), 3-lags skrulåst innfesting, EU RoHS 3 / REACH og IATA PI-953 flyfraktkompatibilitet for 140 metallformer.',
   da: 'US CPSC 16 CFR 1262 magnetsikkerhed (<50 kG²mm²), 3-lags skruelåst fastholdelse, EU RoHS 3 / REACH og IATA PI-953 luftfragtkompatibilitet på 140 metalforme.',
@@ -94,7 +94,7 @@ const pageDescription = COMPLIANCE_META_DESC_MAP[currentLang] || COMPLIANCE_META
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'US CPSC 16 CFR 1262 Magnet Fidget Safety & RoHS Compliance' : `${t('comp.heroTitle')} | FidgetSupply`}
+  title={currentLang === 'en' ? '16 CFR 1262 Magnet Safety (US CPSC), RoHS 3 & IATA PI-953' : `16 CFR 1262 · ${t('comp.heroTitle')} | FidgetSupply`}
   description={pageDescription}
   activePage="insights"
   jsonLd={[complianceWebPageSchema, faqSchema]}
