@@ -522,6 +522,22 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
   [/Jack-O-Lantern/gi, {
     es: 'Jack Spinner Calabaza', de: 'Halloween-Kürbis', fr: 'Citrouille Halloween', ja: 'ジャック・オー・ランタン', ko: '잭오랜턴 호박'
   }],
+  [/Night Owl/gi, {
+    de: 'Nachteule', fr: 'Hibou Nocturne', nl: 'Nachtuil', es: 'Búho Nocturno',
+    it: 'Gufo Notturno', pt: 'Coruja Noturna', sv: 'Nattuggla', da: 'Natugle',
+    no: 'Nattugle', fi: 'Yöpöllö', pl: 'Nocna Sowa', cs: 'Noční Sova',
+    ru: 'Ночная Сова', ja: 'ナイトオウル（夜梟）', ko: '나이트 아울 부엉이', id: 'Burung Hantu Malam', ar: 'البومة الليلية'
+  }],
+  [/Blade Scar/gi, {
+    de: 'Klingennarbe', fr: 'Cicatrice de Lame', nl: 'Klinglitteken', es: 'Cicatriz de Espada',
+    ja: 'ブレードスカー（刀傷）', ko: '블레이드 스카', ru: 'Шрам Клинка', cs: 'Jizva Čepele'
+  }],
+  [/Carbon Fiber/gi, {
+    de: '3K-Carbonfaser', fr: 'Fibre de Carbone 3K', nl: '3K-Koolstofvezel', es: 'Fibra de Carbono 3K',
+    it: 'Fibra di Carbonio 3K', pt: 'Fibra de Carbono 3K', sv: '3K-Kolfiber', da: '3K-Kulfiber',
+    no: '3K-Karbonfiber', fi: '3K-Hiilikuitu', pl: 'Włókno Węglowe 3K', cs: '3K Uhlíkové Vlákno',
+    ru: '3K-Карбон', ja: '3Kカーボンファイバー', ko: '3K 카본 파이버', id: 'Serat Karbon 3K', ar: 'ألياف الكربون 3K'
+  }],
   [/\bUltra-Slim\b/gi, {
     de: 'Ultraflach', fr: 'Ultra-Fin', nl: 'Ultradun', es: 'Ultradelgado',
     it: 'Ultrasottile', pt: 'Ultrafino', sv: 'Ultratunn', da: 'Ultratynd',

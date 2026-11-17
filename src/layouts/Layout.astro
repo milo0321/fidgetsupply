@@ -341,26 +341,38 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           var docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
           if (docHeight <= 0) return;
           var pct = (window.scrollY / docHeight) * 100;
+          var elapsedMs = Math.max(100, Date.now() - startTs);
           if (!scrolled25 && pct >= 25) {
             scrolled25 = true;
-            gtag('event', 'scroll_depth', { percent_scrolled: 25, page_path: window.location.pathname });
+            gtag('event', 'scroll_depth', { percent_scrolled: 25, page_path: window.location.pathname, engagement_time_msec: elapsedMs });
           }
           if (!scrolled50 && pct >= 50) {
             scrolled50 = true;
-            gtag('event', 'scroll_depth', { percent_scrolled: 50, page_path: window.location.pathname });
+            gtag('event', 'scroll_depth', { percent_scrolled: 50, page_path: window.location.pathname, engagement_time_msec: elapsedMs });
           }
         }, { passive: true });
 
-        // 8-second active reading heartbeat
+        // 8-second & 12-second active reading heartbeats (12s guarantees >10.0s after deferred gtag.js load so GA4 registers engagedSession=1)
         setTimeout(function () {
           if (document.visibilityState !== 'hidden') {
             loadAnalytics();
             gtag('event', 'engaged_read_8s', {
               page_path: window.location.pathname,
-              dwell_seconds: 8
+              dwell_seconds: 8,
+              engagement_time_msec: 8000
             });
           }
         }, 8000);
+        setTimeout(function () {
+          if (document.visibilityState !== 'hidden') {
+            loadAnalytics();
+            gtag('event', 'engaged_read_8s', {
+              page_path: window.location.pathname,
+              dwell_seconds: 12,
+              engagement_time_msec: 12000
+            });
+          }
+        }, 12000);
 
         // Track product / collection / quote CTA clicks
         document.addEventListener('click', function (e) {

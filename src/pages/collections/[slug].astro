@@ -215,12 +215,12 @@ const COLLECTION_SEO_TITLES: Record<string, string> = {
   'cnc-stainless-steel-pei-edc': `5-Axis CNC Stainless, PEI & Zr702 EDC (${products.length} Molds)`
 };
 const COLLECTION_SEO_DESCS: Record<string, string> = {
-  'magnetic-fidget-sliders': `Magnetic textured fidget sliders & haptic sliders: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs 50W laser logo.`,
-  'haptic-fidget-coins': `Haptic fidget coins & magnetic clicker coins: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs custom laser logo.`,
+  'magnetic-fidget-sliders': `Magnetic textured fidget sliders & magnetic haptic sliders: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs, 50W laser logo.`,
+  'haptic-fidget-coins': `Metal fidget coins, haptic fidget coins & magnetic clicker coins: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs, 50W laser logo.`,
   'magnetic-fidget-rings': `Magnetic fidget rings, magnet fidget rings & wholesale spinner rings: ${products.length} molds ($${minColPrice}–$${maxColPrice}). R188 fidget spinner parts, $0 mold fee, MOQ 50.`,
-  'metal-fidget-spinners-gyros': `Wholesale metal spinners, R188 hand spinners & desktop gyros: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 tooling fee, MOQ 50 pcs blank, 100 pcs laser logo.`,
+  'metal-fidget-spinners-gyros': `Wholesale metal spinners, metal spinning toys, R188 hand spinners & desktop gyros: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs.`,
   'tuning-fork-fidget-sliders': `Acoustic tuning fork sliders & resonance chamber EDC: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). 2040–4200Hz chime, $0 mold fee, MOQ 50 pcs.`,
-  'custom-logo-metal-fidgets': `Custom logo fidget spinners, logo fidget toys & laser-engraved metal sliders: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 100 pcs.`,
+  'custom-logo-metal-fidgets': `Spinners with company logo, custom fidget spinner with logo & laser-engraved metal sliders: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 100.`,
   'edc-gourds-hand-pieces': `Wholesale metal EDC gourds, Baoding hand pieces & stash capsules: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 50W laser logo.`,
   'mechanical-edc-fidgets': `Multi-action mechanical EDC fidgets, ratchet sliders & bolt-action toys: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs.`,
   'cnc-stainless-steel-pei-edc': `5-axis CNC 304/316 stainless steel, Amber PEI Ultem & Zirconium Zr702 EDC fidgets: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs.`
@@ -234,21 +234,21 @@ const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${pr
 const locColName = t(`col.${collection.slug}.name` as any);
 const COLLECTION_META_DESC_MAP: Record<string, string> = {
   en: enDesc,
-  de: `${locColName}: ${products.length} Serienformen ($${minColPrice}–$${maxColPrice}, $0 Werkzeugkosten, MOQ 50 Stk.). Fidget Coin, Stimmgabel & 50W-Laserlogo.`,
+  de: `${locColName}: ${products.length} Serienformen ($${minColPrice}–$${maxColPrice}, $0 Werkzeugkosten, MOQ 50 Stk.). Stimmgabel (Tuning Fork), Fidget Coin & 50W-Laserlogo.`,
   fr: `${locColName} : ${products.length} moules prêts ($${minColPrice}–$${maxColPrice}, 0 $ frais de moule, MOQ 50 pcs). Logo laser 50W dès 100 pcs.`,
-  nl: `${locColName}: ${products.length} metalen mallen ($${minColPrice}–$${maxColPrice}, $0 matrijskosten, MOQ 50 st.). Metalen fidget spinner & 50W-laserlogo.`,
+  nl: `${locColName}: ${products.length} metalen mallen ($${minColPrice}–$${maxColPrice}, $0 matrijskosten, MOQ 50 st.). Zamak spuitgieten, metalen fidget spinner & 50W-laser.`,
   es: `${locColName}: ${products.length} moldes listos (Precio $${minColPrice}–$${maxColPrice}, $0 molde, MOQ 50 uds.). Logo láser 50W desde 100 uds.`,
   it: `${locColName}: ${products.length} stampi metal spinner & slider ($${minColPrice}–$${maxColPrice}, $0 stampo, MOQ 50 pz.). Logo laser 50W da 100 pz.`,
   pt: `${locColName}: ${products.length} moldes prontos ($${minColPrice}–$${maxColPrice}, $0 custo de molde, MOQ 50 un.). Logo laser 50W desde 100 un.`,
-  sv: `${locColName}: ${products.length} formar med R188 kullager & N52 ($${minColPrice}–$${maxColPrice}, $0 verktyg, MOQ 50 st). 50W laserlogo från 100 st.`,
-  da: `${locColName}: ${products.length} færdige forme ($${minColPrice}–$${maxColPrice}, $0 værktøjsgebyr, MOQ 50 stk.). SKF/R188 & 50W laserlogo fra 100 stk.`,
+  sv: `${locColName}: ${products.length} formar med R188 kullager & N52 ($${minColPrice}–$${maxColPrice}, $0 verktyg, MOQ 50 st). Magnetic fidget ring & 50W laserlogo.`,
+  da: `${locColName}: ${products.length} færdige forme ($${minColPrice}–$${maxColPrice}, $0 værktøjsgebyr, MOQ 50 stk.). SKF/R188 & fiber laser gravering 50W.`,
   no: `${locColName}: ${products.length} ferdige former ($${minColPrice}–$${maxColPrice}, $0 verktøygebyr, MOQ 50 stk.). 50W laserlogo fra 100 stk.`,
   fi: `${locColName} (fidget sormus, gyrot, slider & spinner): ${products.length} muottia ($${minColPrice}–$${maxColPrice}, $0 muottikulu, MOQ 50 kpl). Omalla painatuksella.`,
   pl: `${locColName}: ${products.length} gotowych form ($${minColPrice}–$${maxColPrice}, $0 kosztów formy, MOQ 50 szt.). Logo laserowe 50W od 100 szt.`,
-  cs: `${locColName}: ${products.length} hotových forem ($${minColPrice}–$${maxColPrice}, $0 forma, MOQ 50 ks). 50W laserové logo od 100 ks.`,
-  ru: `${locColName}: ${products.length} готовых пресс-форм ($${minColPrice}–$${maxColPrice}, $0 за форму, MOQ 50 шт.). Лазерный логотип 50W от 100 шт.`,
-  ja: `${locColName}：既存金型${products.length}種（卸売 $${minColPrice}〜$${maxColPrice}、金型代$0、最小50個〜）。100個〜50Wレーザー名入れ対応。`,
-  ko: `${locColName} (극성중공 소리굽쇠 & 메탈 EDC): 기성 금형 ${products.length}종 (도매 $${minColPrice}–$${maxColPrice}, 금형비 $0, MOQ 50개). 50W 레이저 각인.`,
+  cs: `${locColName} (spinner prsten, magnetické slidery): ${products.length} forem ($${minColPrice}–$${maxColPrice}, $0 forma, MOQ 50 ks). 50W laserové logo.`,
+  ru: `${locColName} (магнитные слайдеры и спиннеры): ${products.length} пресс-форм ($${minColPrice}–$${maxColPrice}, $0 за форму, MOQ 50 шт.). Лазер 50W.`,
+  ja: `${locColName}（フィジェットコイン・ハプティックコイン・音叉）：既存${products.length}金型（卸売 $${minColPrice}〜$${maxColPrice}、金型代$0、MOQ 50個）。`,
+  ko: `${locColName} (극성중공 소리굽쇠 & 메탈 스피너): 기성 금형 ${products.length}종 (도매 $${minColPrice}–$${maxColPrice}, 금형비 $0, MOQ 50개). 50W 레이저 각인.`,
   id: `${locColName}: ${products.length} cetakan siap pakai ($${minColPrice}–$${maxColPrice}, $0 biaya cetakan, MOQ 50 pcs). Logo laser 50W mulai 100 pcs.`,
   ar: `${locColName}: ${products.length} قالبًا جاهزًا ($${minColPrice}–$${maxColPrice}، قالب 0$، الحد الأدنى 50 قطعة). حفر شعار ليزر 50W من 100 قطعة.`
 };
