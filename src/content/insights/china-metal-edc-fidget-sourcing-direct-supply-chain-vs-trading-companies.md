@@ -9,7 +9,7 @@ readTime: "11 min read"
 author: "FidgetSupply Engineering & Sourcing Desk"
 featuredImage: "/images/insights/china-metal-edc-sourcing-vs-traders-hero.webp"
 heroAlt: "Direct China CNC stainless steel and Zamak 3 die-cast metal EDC fidget supply chain comparison against trading middlemen"
-metaTitle: "China Metal EDC Fidget Sourcing: Factory vs Traders"
+metaTitle: "China Metal EDC Fidget Sourcing: Factory vs Traders ($0)"
 metaDescription: "Compare China metal EDC fidget sourcing channels: direct 140-mold supply chain vs. trading companies. Avoid N30 magnet & recycled zinc pitfalls."
 directAnswer: "Sourcing metal EDC fidgets directly through FidgetSupply.com's integrated 140-mold supply chain eliminates the 22%–38% markup charged by general trading companies while preventing four costly procurement failures: #5 recycled scrap zinc die-casting (which causes plating blisters), uncalibrated N30 magnets substituted for N52 arrays, unbonded friction-fit magnet cavities that fail US CPSC 16 CFR 1262 drop tests, and unshielded air cartons rejected under IATA DGR PI-953."
 relatedSkus:

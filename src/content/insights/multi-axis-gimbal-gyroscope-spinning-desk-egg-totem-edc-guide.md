@@ -4,7 +4,7 @@ slug: "multi-axis-gimbal-gyroscope-spinning-desk-egg-totem-edc-guide"
 updatedDate: "2026-11-06"
 summary: "Multi-axis gimbal gyroscopes, spinning desk eggs, and kinetic totems are precision-turned desktop instruments engineered for zero-wobble dynamic balance (<0.015 mm radial runout). Machined from 303/304 stainless steel and 6063-T6 anodized aluminum, they achieve 4-to-8-minute tabletop rotation and serve as high-retention executive desk gifts at MOQ 50 pcs."
 tags: ["Wholesale EDC", "Metal Fidgets", "Ready Molds", "MOQ 50"]
-metaTitle: "Multi-Axis Gimbal Gyro & Spinning Desk Egg EDC Guide"
+metaTitle: "Multi-Axis Gimbal Gyro & Spinning Desk Egg EDC ($2.55+)"
 metaDescription: "Buyer guide to 6-axis CNC stainless steel gimbal gyroscopes, anodized aluminum spinning desk eggs, and kinetic totems. Compare spin times and MOQ 50."
 category: "Kinetic Bearing & Gyro Engineering"
 publishDate: "2026-11-06"

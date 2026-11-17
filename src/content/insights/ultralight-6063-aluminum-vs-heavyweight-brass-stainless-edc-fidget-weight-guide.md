@@ -4,7 +4,7 @@ slug: "ultralight-6063-aluminum-vs-heavyweight-brass-stainless-edc-fidget-weight
 updatedDate: "2026-11-06"
 summary: "EDC fidget mass directly governs carry ergonomics and proprioceptive feedback. Ultralight 6061/6063-T6 anodized aluminum models (28g–54g, density 2.70 g/cm3) prevent pocket sag and finger fatigue during rapid flicking, while heavyweight C36000 brass, 304 stainless, and thick-wall Zamak-3 models (115g–185g, density 6.6–8.5 g/cm3) deliver deep desk-anchor inertia."
 tags: ["Wholesale EDC", "Metal Fidgets", "Ready Molds", "MOQ 50"]
-metaTitle: "Ultralight 6063 Aluminum vs Heavy Brass Fidget Weight"
+metaTitle: "Ultralight 6063 Aluminum vs Heavy Brass Fidgets ($2.55+)"
 metaDescription: "Compare sub-55g ultralight 6061/6063 anodized aluminum EDC fidgets vs 120g–185g heavyweight brass and stainless steel models. Mass & ergonomics guide."
 category: "Materials & Manufacturing"
 publishDate: "2026-11-06"

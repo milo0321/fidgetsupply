@@ -9,7 +9,7 @@ readTime: "11 min read"
 author: "FidgetSupply Quality Assurance & Metrology Team"
 featuredImage: "/images/insights/metal-edc-quality-control-12-tests-hero.webp"
 heroAlt: "Metal EDC fidget quality control inspection bench with digital gaussmeter, Mitutoyo calipers, decibel meter, and R188 bearings"
-metaTitle: "Metal EDC Fidget QC Checklist: 12 Inspection Tests"
+metaTitle: "Metal EDC Fidget QC Checklist: 12 Factory Tests (MOQ 50)"
 metaDescription: "12-point pre-shipment quality control checklist for wholesale metal EDC fidgets: N52 gaussmeter flux, 1.5m drop, R188 spin & salt-spray tests."
 directAnswer: "Every wholesale shipment leaving FidgetSupply.com undergoes a 12-point pre-shipment quality control (QC) protocol covering four engineering domains: (1) Magnetic Flux & Polarity Verification via digital Tesla gaussmeters (confirming N35–N54 grades and zero inverted poles), (2) 1.5-Meter Captive Magnet Drop & Torque Abuse Testing per US CPSC 16 CFR 1262, (3) Kinematic & Acoustic Calibration (R188 free-spin duration >= 180 seconds at <35 dB), and (4) Surface Coating & Laser Logo Cross-Hatch Adhesion Testing."
 relatedSkus:

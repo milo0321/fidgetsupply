@@ -4,7 +4,7 @@ slug: "retro-gamepad-arcade-piano-pea-pod-biscuit-novelty-metal-fidgets"
 updatedDate: "2026-11-06"
 summary: "Novelty-shaped metal fidgets—spanning retro gamepads, arcade labyrinth mazes, piano keyboards, 3-seed pea pods, sandwich cookies, and chocolate bars—bridge mainstream gift retail and serious EDC collecting. By replacing fragile plastic novelties with 75g–135g Zamak-3 and CNC stainless steel/brass castings, retailers achieve 3.4x higher gift-shop sell-through at MOQ 50 pcs."
 tags: ["Wholesale EDC", "Metal Fidgets", "Ready Molds", "MOQ 50"]
-metaTitle: "Gamepad, Piano, Pea Pod & Cookie Metal Fidget Guide"
+metaTitle: "Gamepad, Piano, Pea Pod & Cookie Metal Fidgets ($1.46+)"
 metaDescription: "Discover high-converting novelty metal fidgets: retro gamepads, arcade mazes, piano sliders, pea pods, sandwich cookies, and chocolate bars. MOQ 50 pcs."
 category: "Pocket Ergonomics & Form Factors"
 publishDate: "2026-11-06"

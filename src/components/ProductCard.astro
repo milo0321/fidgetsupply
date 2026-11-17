@@ -61,7 +61,7 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
   <div class="card-body">
     <div class="card-cat-row">
       <span class="card-cat">{t(`col.${p.primaryCollection}.short` as any)}</span>
-      <span class="card-weight">{p.weight} · {p.size}</span>
+      <span class="card-weight">{p.weight} · {p.size} · $0 Mold</span>
     </div>
 
     <h3 class="card-title">
@@ -88,7 +88,7 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
       <a href={pdpUrl} class="btn btn-outline card-btn">
         {t('card.viewSpecs')}
       </a>
-      <a href={rfqUrl} data-rfq-sku={p.sku} class="btn btn-primary card-btn-rfq">
+      <a href={rfqUrl} data-rfq-sku={p.sku} data-rfq-qty="50" class="btn btn-primary card-btn-rfq">
         {t('card.quote')}
       </a>
     </div>

@@ -4,7 +4,7 @@ slug: "adult-adhd-focus-sensory-regulation-heavy-metal-fidget-selection-guide"
 updatedDate: "2026-11-06"
 summary: "For adults with ADHD, autism, or high-stress cognitive workloads, 80g–150g solid metal fidgets provide deep proprioceptive mechanoreceptor input that 12g plastic toys cannot replicate. By matching sensory profiles—silent <42 dBA rolling beads for video calls or high-force N52 magnetic snaps for solo deep work—buyers optimize sustained executive attention."
 tags: ["Wholesale EDC", "Metal Fidgets", "Ready Molds", "MOQ 50"]
-metaTitle: "Adult ADHD Focus & Sensory Heavy Metal Fidget Guide"
+metaTitle: "Adult ADHD Focus & Heavy Metal Fidget Guide ($1.46+)"
 metaDescription: "Science-backed guide to selecting heavy proprioceptive metal fidgets for adult ADHD focus, executive dysfunction, and anxiety relief vs plastic toys."
 category: "Acoustic EDC Trends"
 publishDate: "2026-11-06"

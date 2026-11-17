@@ -538,6 +538,50 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     no: '3K-Karbonfiber', fi: '3K-Hiilikuitu', pl: 'Włókno Węglowe 3K', cs: '3K Uhlíkové Vlákno',
     ru: '3K-Карбон', ja: '3Kカーボンファイバー', ko: '3K 카본 파이버', id: 'Serat Karbon 3K', ar: 'ألياف الكربون 3K'
   }],
+  [/Crosshair Ratchet/gi, {
+    de: 'Fadenkreuz-Ratsche', fr: 'Cliquet Réticule', nl: 'Vizier-Ratelsysteem', es: 'Trinquete de Mira',
+    it: 'Cricchetto Mirino', pt: 'Catraca de Mira', sv: 'Hårkors-Spärr', da: 'Sigtekorn-Skralde',
+    no: 'Siktekorn-Skralle', fi: 'Ristikkoräikkä', pl: 'Grzechotka Celownicza', cs: 'Zaměřovací Ráčna',
+    ru: 'Прицельный Храповик', ja: 'クロスヘアラチェット', ko: '크로스헤어 래칫', id: 'Ratchet Bidik', ar: 'سقاطة التصويب'
+  }],
+  [/Harmonic Rhythm/gi, {
+    de: 'Harmonischer Rhythmus', fr: 'Rythme Harmonique', nl: 'Harmonisch Ritme', es: 'Ritmo Armónico',
+    da: 'Harmonisk Rytme', sv: 'Harmonisk Rytm', no: 'Harmonisk Rytme', fi: 'Harmoninen Rytmi',
+    cs: 'Harmonický Rytmus', ru: 'Гармонический Ритм', ja: 'ハーモニックリズム', ko: '하모닉 리듬', ar: 'الإيقاع التوافقي'
+  }],
+  [/QKA Royal/gi, {
+    de: 'QKA Royal Poker', fr: 'QKA Royal Poker', es: 'QKA Royal Póker', cs: 'QKA Královský Poker',
+    ru: 'QKA Королевский Покер', ja: 'QKAロイヤルポーカー', ko: 'QKA 로얄 포커', ar: 'بوكر QKA الملكي'
+  }],
+  [/Rotary Haptic Cylinder/gi, {
+    de: 'Rotations-Haptikzylinder', fr: 'Cylindre Haptique Rotatif', nl: 'Roterende Haptische Cilinder', es: 'Cilindro Háptico Rotativo',
+    cs: 'Rotační Haptický Válec', ru: 'Роторный Тактильный Цилиндр', ja: 'ロータリーハプティックシリンダー', ko: '로터리 햅틱 실린더', ar: 'أسطوانة لمسية دوارة'
+  }],
+  [/Crab Claw/gi, {
+    de: 'Krabbenschere', fr: 'Pince de Crabe', es: 'Pinza de Cangrejo', cs: 'Krabí Klepeto',
+    ru: 'Крабья Клешня', ja: 'クラブクロウ（蟹爪）', ko: '크랩 클로 집게', id: 'Capit Kepiting', ar: 'مخلب السلطعون'
+  }],
+  [/Tiger Crest/gi, {
+    de: 'Tigerwappen', fr: 'Blason du Tigre', es: 'Emblema del Tigre', cs: 'Tygří Erb',
+    ru: 'Тигриный Герб', ja: 'タイガークレスト（虎紋）', ko: '타이거 크레스트 호랑이', id: 'Lambang Harimau', ar: 'شعار النمر'
+  }],
+  [/Split-Blade/gi, {
+    de: 'Spaltklinge', fr: 'Lame Fendue', es: 'Hoja Dividida', cs: 'Dělená Čepel',
+    ru: 'Раздвоенный Клинок', ja: 'スプリットブレード', ko: '스플릿 블레이드', id: 'Blade Press Terbelah', ar: 'الشفرة المنقسمة'
+  }],
+  [/Chocolate Grid/gi, {
+    de: 'Schokoladentafel-Raster', fr: 'Grille Tablette de Chocolat', nl: 'Chocoladereep-Rooster', es: 'Rejilla de Chocolate',
+    cs: 'Čokoládová Mřížka', ru: 'Шоколадная Плитка', ja: 'チョコレートグリッド', ko: '초콜릿 그리드', ar: 'شبكة الشوكولاتة'
+  }],
+  [/Pea Pod/gi, {
+    de: 'Erbsenschote', fr: 'Cosse de Pois', nl: 'Erwtjespeul', es: 'Vaina de Guisantes',
+    da: 'Ærtebælg', sv: 'Ärtbalja', fi: 'Herneenpalko', cs: 'Lusk Hrášku',
+    ru: 'Стручок Гороха', ja: 'えんどう豆ポッド', ko: '완두콩 포드', id: 'Polong Kacang', ar: 'قرن البازلاء'
+  }],
+  [/Retro Camera/gi, {
+    de: 'Retro-Kamera', fr: 'Appareil Photo Rétro', nl: 'Retro Camera', es: 'Cámara Retro',
+    pt: 'Câmera Retro', cs: 'Retro Fotoaparát', ru: 'Ретро-Камера', ja: 'レトロカメラ型', ko: '레트로 카메라', ar: 'كاميرا كلاسيكية'
+  }],
   [/\bUltra-Slim\b/gi, {
     de: 'Ultraflach', fr: 'Ultra-Fin', nl: 'Ultradun', es: 'Ultradelgado',
     it: 'Ultrasottile', pt: 'Ultrafino', sv: 'Ultratunn', da: 'Ultratynd',

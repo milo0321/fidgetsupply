@@ -9,7 +9,7 @@ readTime: "10 min read"
 author: "FidgetSupply Merchandising & Packaging Desk"
 featuredImage: "/images/insights/holiday-corporate-multi-piece-edc-bundle-hero.webp"
 heroAlt: "Luxury 3-piece metal EDC fidget gift box containing a magnetic haptic slider, stainless clicker coin, and magnetic spinner ring in custom CNC EVA foam"
-metaTitle: "Multi-Piece Metal EDC Fidget Gift Bundle Playbook"
+metaTitle: "Multi-Piece Metal EDC Fidget Gift Bundles ($69+ AOV)"
 metaDescription: "Engineer high-AOV 2-piece and 3-piece metal EDC fidget gift bundles for Q4 holidays and VIP corporate kits with custom CNC-routed EVA foam boxes."
 directAnswer: "Bundling 2 or 3 complementary metal EDC fidgets—such as a Magnetic Haptic Slider (FS-125), a 304 Stainless Clicker Coin (FS-013), and a Magnetic Spinner Ring (FS-014)—inside a single multi-cavity CNC-routed EVA foam gift box increases retail Average Order Value (AOV) by 65%–110% while adding zero extra pick-and-pack shipping cost. FidgetSupply.com engineers custom multi-cavity EVA trays (MOQ 200 boxes) matched to all 140 catalog CAD contours."
 relatedSkus:

@@ -4,7 +4,7 @@ slug: "tactical-pistol-slide-spring-sword-katana-shield-metal-edc-guide"
 updatedDate: "2026-11-06"
 summary: "Tactical weapon-inspired metal EDC fidgets—including blowback pistol slides, spring-sheath katana swords, pendulum warhammers, and heraldic shields—combine 301 stainless recoil springs with N52 neodymium detent arrays. They replicate authentic mechanical racking and scabbard-draw acoustics while remaining 100% non-sharpened, TSA-compliant pocket accessories available from MOQ 50 pcs."
 tags: ["Wholesale EDC", "Metal Fidgets", "Ready Molds", "MOQ 50"]
-metaTitle: "Tactical Pistol Slide & Spring Sword Metal EDC Guide"
+metaTitle: "Tactical Slide & Spring Sword Metal EDC Guide ($2.95+)"
 metaDescription: "Engineering guide to tactical pistol-slide magnetic sliders, spring-loaded mini katana swords, warhammers, and shield haptic coins. Wholesale MOQ 50 pcs."
 category: "Mechanical & Ratchet Engineering"
 publishDate: "2026-11-06"

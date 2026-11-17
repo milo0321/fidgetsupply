@@ -4,7 +4,7 @@ slug: "tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide"
 updatedDate: "2026-11-06"
 summary: "E-commerce sellers on TikTok Shop, Amazon FBA, and Shopify achieve 68%–82% gross margins by sourcing factory-direct metal fidgets at $2.80–$7.50 USD (MOQ 50 pcs) that retail for $24.99–$69.99 USD. Acoustic tuning-fork sliders and multi-spring ratchets generate the highest 3-second ASMR video hook retention and lowest (<2.1%) return rates."
 tags: ["Wholesale EDC", "Metal Fidgets", "Ready Molds", "MOQ 50"]
-metaTitle: "TikTok Shop ASMR & Amazon FBA Metal Fidget Margin Guide"
+metaTitle: "TikTok ASMR & Amazon FBA Fidget Reseller Guide (68% Margin)"
 metaDescription: "E-commerce reseller guide to sourcing high-margin ($3.20–$7.50) metal fidget sliders for TikTok Shop ASMR videos, Amazon FBA, and Shopify private label."
 category: "Wholesale Sourcing SOP"
 publishDate: "2026-11-06"

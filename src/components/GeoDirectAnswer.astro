@@ -24,12 +24,12 @@ const {
 } = Astro.props;
 ---
 
-<section class="geo-direct-answer" aria-label="Engineering Summary">
+<section class="geo-direct-answer" aria-label="Engineering Summary" itemscope itemtype="https://schema.org/WebPageElement">
   <div class="geo-header">
     <span class="geo-badge">{t('geo.badge')}</span>
-    <h2 class="geo-title">{title}</h2>
+    <h2 class="geo-title" itemprop="headline">{title}</h2>
   </div>
-  <p class="geo-text">{answer}</p>
+  <p class="geo-text" itemprop="description">{answer}</p>
   {metrics.length > 0 && (
     <div class="geo-metrics">
       {metrics.map((m) => (
