@@ -46,8 +46,9 @@ async function submitToEndpoint(endpointName, endpointUrl, urlList) {
 
 async function main() {
   const distClient = path.join(__dirname, '..', 'dist', 'client');
-  const allUrls = collectBuiltUrls(distClient, distClient);
-  console.log(`Collected ${allUrls.length} canonical URLs from dist/client/`);
+  const distRoot = fs.existsSync(distClient) ? distClient : path.join(__dirname, '..', 'dist');
+  const allUrls = collectBuiltUrls(distRoot, distRoot);
+  console.log(`Collected ${allUrls.length} canonical URLs from ${distRoot}`);
 
   if (allUrls.length === 0) {
     console.error('No URLs found in dist/client/. Run npm run build first.');
