@@ -2988,6 +2988,376 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "title": "دليل مجموعات الهدايا المتعددة لأدوات الفيدجت المعدنية لموسم الربع الرابع وهدايا الشركات: 5 صيغ لرفع متوسط قيمة الطلب",
       "summary": "كيف تجمع علامات التجارة الإلكترونية وبائعو Amazon FBA ووكالات هدايا الشركات بين 2 إلى 3 أدوات فيدجت معدنية داخل صناديق فاخرة مبطنة بفوم EVA مقصوص حسب الطلب لمضاعفة قيمة السلة (69–149 دولاراً)."
     }
+  },
+  "custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide": {
+    "en": {
+      "title": "Custom Logo Metal Fidget Spinners & Sliders: 2026–2027 Corporate Promotional Buyer's Guide ($0.74–$10.19, MOQ 100)",
+      "summary": "Complete sourcing guide for custom fidget spinners with company logo and branded magnetic sliders: comparing 28 logo-ready metal molds ($0.74–$10.19, $0 tooling), 50W fiber laser vs. deep laser enamel color fill, and 10-day DDP delivery."
+    },
+    "de": {
+      "title": "Metall-Fidget-Spinner & Slider mit Firmenlogo ($0.74+, MOQ 100): Werbeartikel-Einkaufsführer 2026–2027",
+      "summary": "Kompletter Leitfaden für Metall-Fidget-Spinner und Magnet-Slider mit eigenem Firmenlogo: 28 fertige Formen ($0.74–$10.19, $0 Formkosten), 50W-Faserlaser vs. tiefe Laser-Farbfüllung und 10 Tage DDP-Versand."
+    },
+    "fr": {
+      "title": "Fidget Spinners & Sliders Métal avec Logo Pro ($0.74+, MOQ 100) : Guide Cadeaux Corporate",
+      "summary": "Guide d'achat complet pour fidget spinners et sliders magnétiques personnalisés avec logo : 28 moules métal ($0.74–$10.19, 0 $ moule), gravure laser fibre 50W vs émail couleur et livraison DDP 10 jours."
+    },
+    "nl": {
+      "title": "Metalen Fidget Spinners & Sliders met Bedrijfslogo ($0.74+, MOQ 100): Relatiegeschenken Gids",
+      "summary": "Inkoopgids voor metalen fidget spinners en magnetische sliders met eigen bedrijfslogo: 28 mallen ($0.74–$10.19, $0 matrijskosten), 50W fiberlaser vs. diepe laserkleurvulling en 10 dagen DDP-levering."
+    },
+    "es": {
+      "title": "Fidget Spinners y Sliders Metálicos con Logo de Empresa ($0.74+, MOQ 100): Guía Promocional",
+      "summary": "Guía de compra de fidget spinners personalizados con logo de empresa y sliders magnéticos: 28 moldes metálicos ($0.74–$10.19, $0 molde), láser de fibra 50W vs. esmalte de color y envío DDP en 10 días."
+    },
+    "it": {
+      "title": "Fidget Spinner e Slider in Metallo con Logo Aziendale ($0.74+, MOQ 100): Guida Gadget Promozionali",
+      "summary": "Guida all'acquisto di fidget spinner personalizzati con logo aziendale e slider magnetici: 28 stampi in metallo ($0.74–$10.19, $0 stampo), laser fibra 50W vs. smalto a colori e spedizione DDP in 10 giorni."
+    },
+    "pt": {
+      "title": "Fidget Spinners e Sliders Metálicos com Logótipo de Empresa ($0.74+, MOQ 100): Guia de Brindes",
+      "summary": "Guia de compra de fidget spinners personalizados com logótipo e sliders magnéticos: 28 moldes metálicos ($0.74–$10.19, $0 molde), laser de fibra 50W vs. esmalte colorido e entrega DDP em 10 dias."
+    },
+    "sv": {
+      "title": "Metall Fidget Spinners & Sliders med Företagslogotyp ($0.74+, MOQ 100): Guide för Företagsgåvor",
+      "summary": "Inköpsguide för fidget spinners och magnetiska sliders i metall med företagslogga: 28 formar ($0.74–$10.19, $0 verktygskostnad), 50W fiberlaser vs. djup laser-emaljfärg och 10 dagars DDP-frakt."
+    },
+    "da": {
+      "title": "Metal Fidget Spinners & Sliders med Firmalogo ($0.74+, MOQ 100): Guide til Reklameartikler",
+      "summary": "Indkøbsguide til metalfidget-spinnere og magnetiske slidere med firmalogo: 28 forme ($0.74–$10.19, $0 værktøjsgebyr), 50W fiberlaser vs. dyb laser-emaljefyld og 10 dages DDP-levering."
+    },
+    "no": {
+      "title": "Metall Fidget Spinners & Sliders med Firmalogo ($0.74+, MOQ 100): Guide til Firmagaver",
+      "summary": "Innkjøpsguide for metallfidget-spinnere og magnetiske slidere med firmalogo: 28 former ($0.74–$10.19, $0 verktøygebyr), 50W fiberlaser vs. dyp laser-emaljefyll og 10 dagers DDP-levering."
+    },
+    "fi": {
+      "title": "Metalliset Fidget Spinnerit & Sliderit Yrityslogolla ($0.74+, MOQ 100): Liikelahjaopas",
+      "summary": "Hankintaopas yrityslogolla varustettuihin metallifidget-spinnereihin ja magneettislidereihin: 28 valmista muottia ($0.74–$10.19, $0 muottikulu), 50W kuitulaser vs. syvälaserväritäyttö."
+    },
+    "pl": {
+      "title": "Metalowe Fidget Spinnery i Slidery z Logo Firmy ($0.74+, MOQ 100): Przewodnik Gadżetów Reklamowych",
+      "summary": "Przewodnik zakupu metalowych fidget spinnerów i sliderów magnetycznych z własnym logo: 28 form ($0.74–$10.19, $0 za formę), laser światłowodowy 50W vs. głęboki grawer z emalią."
+    },
+    "cs": {
+      "title": "Kovové Fidget Spinnery a Slidery s Firemním Logem ($0.74+, MOQ 100): Průvodce Reklamními Dárky",
+      "summary": "Průvodce nákupem kovových fidget spinnerů a magnetických sliderů s vlastním logem: 28 forem ($0.74–$10.19, $0 forma), 50W vláknový laser vs. hluboký laser se smaltem a DDP dodání za 10 dní."
+    },
+    "ru": {
+      "title": "Металлические фиджет-спиннеры и слайдеры с логотипом компании ($0.74+, MOQ 100): Гид по мерчу",
+      "summary": "Руководство по заказу металлических фиджет-спиннеров и магнитных слайдеров с логотипом: 28 готовых форм ($0.74–$10.19, $0 за форму), лазер 50 Вт и глубокая гравировка с эмалью."
+    },
+    "ja": {
+      "title": "社名・ロゴ入りカスタム金属フィジェットスピナー＆スライダー（$0.74〜・MOQ 100個）：法人ノベルティ調達ガイド",
+      "summary": "企業ロゴ入り金属製フィジェットスピナー＆磁気スライダー完全ガイド：名入れ対応28金型（$0.74〜$10.19・金型代$0）、50Wファイバーレーザー刻印と深彫りエナメル色入れ比較、10日間DDP納品。"
+    },
+    "ko": {
+      "title": "기업 로고 각인 맞춤형 메탈 피젯 스피너 및 슬라이더($0.74+, MOQ 100개): 기업 판촉물 구매 가이드",
+      "summary": "회사 로고가 각인된 맞춤형 메탈 피젯 스피너 및 마그네틱 슬라이더 소싱 가이드: 로고 전용 28종 금형($0.74~$10.19, 금형비 $0), 50W 파이버 레이저 vs 심층 컬러 필링 비교."
+    },
+    "id": {
+      "title": "Fidget Spinner & Slider Logam Custom Logo Perusahaan ($0.74+, MOQ 100): Panduan Souvenir Korporat",
+      "summary": "Panduan pengadaan fidget spinner logam dan slider magnetik dengan logo perusahaan: 28 cetakan siap pakai ($0.74–$10.19, $0 biaya cetakan), laser serat 50W vs. isi warna enamel."
+    },
+    "ar": {
+      "title": "سبينر وسلايدر فيدجت معدني بشعار الشركة المخصص ($0.74+، MOQ 100): دليل الهدايا الترويجية للشركات",
+      "summary": "دليل شامل لشراء سبينر وسلايدر الفيدجت المعدني بشعار شركتك: مقارنة 28 قالباً جاهزاً ($0.74–$10.19، قالب 0$)، الحفر بالليزر الليفي 50 واط مقابل التعبئة الملونة بالمينا."
+    }
+  },
+  "top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison": {
+    "en": {
+      "title": "Top Wholesale Metal Fidget Toy Manufacturers & Custom OEM Suppliers (2026–2027 Comparison: MOQ, Pricing & Lead Time)",
+      "summary": "Independent engineering and unit-economics comparison of the 4 metal EDC fidget manufacturing channels: 140-mold zero-tooling supply chain platforms ($0.74–$470.77, MOQ 50 pcs) vs. custom CNC/die-cast OEM factories vs. trading intermediaries."
+    },
+    "de": {
+      "title": "Top Metall-Fidget-Hersteller & OEM-Großhandelslieferanten im Vergleich (MOQ 50, $0 Formkosten)",
+      "summary": "Technischer Vergleich der 4 Herstellkanäle für Metall-EDC-Fidgets: 140-Formen-Plattform ohne Werkzeugkosten ($0.74+, MOQ 50 Stk.) vs. klassische OEM-Werke ($3.500 Formkosten) vs. Zwischenhändler."
+    },
+    "fr": {
+      "title": "Comparatif des Meilleurs Fabricants & Fournisseurs Grossistes de Fidgets Métal OEM (MOQ 50, 0 $ Moule)",
+      "summary": "Comparaison technique et économique des 4 canaux de fabrication de fidgets EDC en métal : plateforme directe à 140 moules prêts ($0.74+, MOQ 50 pcs) vs usines OEM sur mesure vs sociétés de négoce."
+    },
+    "nl": {
+      "title": "Top Metalen Fidget Speelgoed Fabrikanten & OEM Groothandel Leveranciers Vergelijking (MOQ 50)",
+      "summary": "Vergelijking van de 4 productiekanalen voor metalen EDC fidgets: 140-mallen platform zonder matrijskosten ($0.74+, MOQ 50 stuks) vs. maatwerk OEM-fabrieken vs. tussenhandelaren."
+    },
+    "es": {
+      "title": "Comparativa de los Mejores Fabricantes y Proveedores Mayoristas OEM de Fidgets Metálicos (MOQ 50)",
+      "summary": "Análisis técnico de los 4 canales de fabricación de fidgets EDC de metal: plataforma directa de 140 moldes listos ($0.74+, $0 molde, MOQ 50 uds.) frente a fábricas OEM a medida e intermediarios."
+    },
+    "it": {
+      "title": "Confronto tra i Migliori Produttori e Fornitori Ingrosso OEM di Fidget in Metallo (MOQ 50, $0 Stampo)",
+      "summary": "Analisi dei 4 canali produttivi di fidget EDC in metallo: piattaforma diretta con 140 stampi pronti ($0.74+, $0 stampo, MOQ 50 pz.) contro fabbriche OEM su misura e intermediari commerciali."
+    },
+    "pt": {
+      "title": "Comparação dos Melhores Fabricantes e Fornecedores Atacadistas OEM de Fidgets Metálicos (MOQ 50)",
+      "summary": "Comparação técnica dos 4 canais de fabrico de fidgets EDC metálicos: plataforma direta com 140 moldes prontos ($0.74+, $0 molde, MOQ 50 un.) vs. fábricas OEM personalizadas vs. intermediários."
+    },
+    "sv": {
+      "title": "Jämförelse av Topp Metallfidget-Tillverkare & OEM-Grossistleverantörer (MOQ 50, $0 Verktyg)",
+      "summary": "Teknisk jämförelse av 4 tillverkningskanaler för metall-EDC-fidgets: direktplattform med 140 färdiga formar ($0.74+, MOQ 50 st) mot skräddarsydda OEM-fabriker och mellanhänder."
+    },
+    "da": {
+      "title": "Sammenligning af Top Metalfidget-Producenter & OEM-Engrosleverandører (MOQ 50, $0 Værktøj)",
+      "summary": "Teknisk sammenligning af 4 produktionskanaler for metal-EDC-fidgets: direkte platform med 140 færdige forme ($0.74+, MOQ 50 stk.) mod traditionelle OEM-fabrikker og mellemhandlere."
+    },
+    "no": {
+      "title": "Sammenligning av Topp Metallfidget-Produsenter & OEM-Grossistleverandører (MOQ 50, $0 Verktøy)",
+      "summary": "Teknisk sammenligning av 4 produksjonskanaler for metall-EDC-fidgets: direkte plattform med 140 ferdige former ($0.74+, MOQ 50 stk.) mot tradisjonelle OEM-fabrikker og mellommenn."
+    },
+    "fi": {
+      "title": "Metallifidget-Valmistajien ja OEM-Tukkutoimittajien Vertailu (MOQ 50, $0 Muottikulu)",
+      "summary": "Neljän metallifidget-valmistuskanavan vertailu: 140 valmiin muotin suora toimitusketju ($0.74+, $0 muottikulu, MOQ 50 kpl) vs. räätälöidyt OEM-tehtaat ja välittäjät."
+    },
+    "pl": {
+      "title": "Porównanie Najlepszych Producentów i Dostawców Hurtowych OEM Metalowych Fidgetów (MOQ 50)",
+      "summary": "Porównanie 4 kanałów produkcji metalowych fidgetów EDC: bezpośrednia platforma 140 gotowych form ($0.74+, $0 za formę, MOQ 50 szt.) kontra tradycyjne fabryki OEM i pośrednicy."
+    },
+    "cs": {
+      "title": "Srovnání Nejlepších Výrobců a Velkoobchodních OEM Dodavatelů Kovových Fidgetů (MOQ 50)",
+      "summary": "Srovnání 4 výrobních kanálů kovových EDC fidgetů: přímá platforma se 140 hotovými formami ($0.74+, $0 forma, MOQ 50 ks) oproti zakázkovým OEM továrnám a obchodním zprostředkovatelům."
+    },
+    "ru": {
+      "title": "Сравнение лучших производителей и оптовых OEM-поставщиков металлических фиджетов (MOQ 50)",
+      "summary": "Инженерное сравнение 4 каналов производства металлических EDC-фиджетов: прямая платформа из 140 готовых форм ($0.74+, $0 за форму, MOQ 50 шт.) против заказных OEM-заводов и посредников."
+    },
+    "ja": {
+      "title": "金属製フィジェット玩具メーカー＆OEM卸売サプライヤー徹底比較（MOQ 50個・金型代$0・納期比較）",
+      "summary": "金属EDCフィジェット調達4大チャネルの比較検証：既存140金型・金型代$0の直結サプライチェーン（$0.74〜、MOQ 50個）vs 特注金型OEM工場（金型代$3,500）vs 商社・仲介業者。"
+    },
+    "ko": {
+      "title": "글로벌 메탈 피젯 토이 제조사 및 OEM 도매 공급업체 비교 가이드(MOQ 50개, 금형비 $0)",
+      "summary": "메탈 EDC 피젯 4대 제조 채널 비교 분석: 140종 기성 금형 직소싱 플랫폼($0.74+, 금형비 $0, MOQ 50개) vs 신규 금형 제작 OEM 공장 vs 무역 중개상."
+    },
+    "id": {
+      "title": "Perbandingan Produsen Mainan Fidget Logam & Pemasok Grosir OEM Terbaik (MOQ 50, $0 Cetakan)",
+      "summary": "Perbandingan teknis 4 jalur manufaktur fidget EDC logam: platform 140 cetakan siap pakai ($0.74+, $0 biaya cetakan, MOQ 50 pcs) vs. pabrik OEM kustom vs. perantara dagang."
+    },
+    "ar": {
+      "title": "مقارنة أفضل مصنعي وموردي الجملة OEM لأدوات الفيدجت المعدنية (MOQ 50، قالب 0$)",
+      "summary": "مقارنة هندسية واقتصادية لقنوات تصنيع الفيدجت المعدني الأربع: منصة 140 قالباً جاهزاً بدون رسوم قوالب ($0.74+، حد أدنى 50 قطعة) مقابل مصانع القوالب المخصصة والوسطاء التجاريين."
+    }
+  },
+  "wholesale-magnetic-fidget-rings-spinner-rings-bulk-sourcing-guide": {
+    "en": {
+      "title": "Wholesale Magnetic Fidget Rings & Stainless Steel Spinner Rings: Bulk Sizing, Pricing ($6.37+) & Custom Logo Guide",
+      "summary": "Definitive wholesale buyer's guide to magnetic fidget rings and mechanical ratcheting spinner rings (FS-014, FS-069, FS-119, FS-135, FS-140): comparing 16-magnet N52 bearing tracks, inner-bore sizing, and 360-degree rotary laser logo engraving ($0 mold fee, MOQ 50)."
+    },
+    "de": {
+      "title": "Magnetische Fidget-Ringe & Edelstahl-Spinner-Ringe im Großhandel ($6.37+, MOQ 50): Einkaufsführer",
+      "summary": "Großhandelsleitfaden für magnetische Fidget-Ringe und Ratschen-Spinner-Ringe (FS-014, FS-069, FS-119, FS-135, FS-140): 16-Magnet-N52-Lager, Größen & 360°-Rotationslasergravur ($0 Formkosten)."
+    },
+    "fr": {
+      "title": "Bagues Fidget Magnétiques & Anneaux Spinner en Acier Inox en Gros ($6.37+, MOQ 50) : Guide",
+      "summary": "Guide grossiste des bagues fidget magnétiques et anneaux spinner à cliquet (FS-014, FS-069, FS-119, FS-135, FS-140) : 16 aimants N52, roulements et gravure laser rotative 360° (0 $ moule)."
+    },
+    "nl": {
+      "title": "Magnetische Fidget Ringen & RVS Spinner Ringen Groothandel ($6.37+, MOQ 50): Inkoopgids",
+      "summary": "Groothandelsgids voor magnetische fidget ringen en ratelende spinner ringen (FS-014, FS-069, FS-119, FS-135, FS-140): 16-magneet N52 lagers en 360° roterende lasergravure ($0 matrijskosten)."
+    },
+    "es": {
+      "title": "Anillos Fidget Magnéticos y Anillos Giratorios Spinner al por Mayor ($6.37+, MOQ 50): Guía",
+      "summary": "Guía mayorista de anillos fidget magnéticos y anillos spinner con trinquete (FS-014, FS-069, FS-119, FS-135, FS-140): 16 imanes N52, rodamientos y grabado láser rotativo 360° ($0 molde)."
+    },
+    "it": {
+      "title": "Anelli Fidget Magnetici e Anelli Spinner in Acciaio all'Ingrosso ($6.37+, MOQ 50): Guida",
+      "summary": "Guida all'ingrosso per anelli fidget magnetici e anelli spinner a cricchetto (FS-014, FS-069, FS-119, FS-135, FS-140): 16 magneti N52, cuscinetti e incisione laser rotativa a 360° ($0 stampo)."
+    },
+    "pt": {
+      "title": "Anéis Fidget Magnéticos e Anéis Giratórios Spinner por Atacado ($6.37+, MOQ 50): Guia",
+      "summary": "Guia atacadista de anéis fidget magnéticos e anéis spinner com catraca (FS-014, FS-069, FS-119, FS-135, FS-140): 16 ímanes N52, rolamentos e gravação a laser rotativa 360° ($0 molde)."
+    },
+    "sv": {
+      "title": "Magnetiska Fidget-Ringar & Rostfria Spinner-Ringar i Grossistledet ($6.37+, MOQ 50): Guide",
+      "summary": "Grossistguide för magnetiska fidget-ringar och spärrande spinner-ringar (FS-014, FS-069, FS-119, FS-135, FS-140): 16-magnet N52-lager och 360° roterande lasergravyr ($0 verktygskostnad)."
+    },
+    "da": {
+      "title": "Magnetiske Fidget-Ringe & Rustfri Spinner-Ringe Engros ($6.37+, MOQ 50): Indkøbsguide",
+      "summary": "Engrosguide til magnetiske fidget-ringe og skralde-spinner-ringe (FS-014, FS-069, FS-119, FS-135, FS-140): 16-magnet N52-lejer og 360° roterende lasergravering ($0 værktøjsgebyr)."
+    },
+    "no": {
+      "title": "Magnetiske Fidget-Ringer & Rustfrie Spinner-Ringer Engros ($6.37+, MOQ 50): Innkjøpsguide",
+      "summary": "Engrosguide for magnetiske fidget-ringer og skralle-spinner-ringer (FS-014, FS-069, FS-119, FS-135, FS-140): 16-magnet N52-lagre og 360° roterende lasergravering ($0 verktøygebyr)."
+    },
+    "fi": {
+      "title": "Magneettiset Fidget-Sormukset & Pyörivät Spinner-Sormukset Tukkukauppa ($6.37+, MOQ 50)",
+      "summary": "Tukkuopas magneettisiin fidget-sormuksiin ja räikkä-spinner-sormuksiin (FS-014, FS-069, FS-119, FS-135, FS-140): 16 N52-magneettia, laakerointi ja 360° laserkaiverrus ($0 muottikulu)."
+    },
+    "pl": {
+      "title": "Magnetyczne Pierścienie Fidget i Stalowe Obrączki Spinner Hurt ($6.37+, MOQ 50): Przewodnik",
+      "summary": "Przewodnik hurtowy po magnetycznych pierścieniach fidget i obrączkach spinner (FS-014, FS-069, FS-119, FS-135, FS-140): 16 magnesów N52, łożyska i obrotowy grawer laserowy 360° ($0 za formę)."
+    },
+    "cs": {
+      "title": "Magnetické Fidget Prsteny a Ocelové Spinner Prsteny Velkoobchod ($6.37+, MOQ 50): Průvodce",
+      "summary": "Velkoobchodní průvodce magnetickými fidget prsteny a ráčnovými spinner prsteny (FS-014, FS-069, FS-119, FS-135, FS-140): 16 magnetů N52, ložiska a 360° rotační laser ($0 forma)."
+    },
+    "ru": {
+      "title": "Магнитные фиджет-кольца и стальные кольца-спиннеры оптом ($6.37+, MOQ 50): Оптовый гид",
+      "summary": "Руководство по оптовой закупке магнитных фиджет-колец и трещоточных колец-спиннеров (FS-014, FS-069, FS-119, FS-135, FS-140): 16 магнитов N52, подшипники и ротационный лазер 360°."
+    },
+    "ja": {
+      "title": "マグネットフィジェットリング＆ステンレススピナーリング卸売ガイド（$6.37〜・MOQ 50個・360°レーザー刻印）",
+      "summary": "16個のN52磁石と精密ベアリングを内蔵した機械式スピナーリング全5モデル（FS-014、FS-069、FS-119、FS-135、FS-140）の卸売価格（$6.37〜・金型代$0）と360度回転レーザー名入れ。"
+    },
+    "ko": {
+      "title": "도매 마그네틱 피젯 링 및 스테인리스 스피너 반지 소싱 가이드($6.37+, MOQ 50개, 360° 레이저 각인)",
+      "summary": "16개 N52 네오디뮴 자석과 정밀 베어링을 탑재한 기계식 스피너 링 5종(FS-014, FS-069, FS-119, FS-135, FS-140) 도매 가격($6.37+, 금형비 $0) 및 360도 회전 레이저 로고 각인 가이드."
+    },
+    "id": {
+      "title": "Grosir Cincin Fidget Magnetik & Cincin Spinner Baja Tahan Karat ($6.37+, MOQ 50): Panduan",
+      "summary": "Panduan grosir cincin fidget magnetik dan cincin spinner ratchet (FS-014, FS-069, FS-119, FS-135, FS-140): 16 magnet N52, bantalan presisi, dan grafir laser putar 360° ($0 biaya cetakan)."
+    },
+    "ar": {
+      "title": "خواتم الفيدجت المغناطيسية وخواتم السبينر المعدنية بالجملة ($6.37+، MOQ 50): دليل الشراء",
+      "summary": "دليل الجملة الشامل لخواتم الفيدجت المغناطيسية وخواتم السبينر المزودة بـ 16 مغناطيس N52 ومحامل دقيقة (FS-014، FS-069، FS-119، FS-135، FS-140) مع حفر ليزر دوار 360 درجة (قالب 0$)."
+    }
+  },
+  "wholesale-metal-haptic-fidget-coins-magnetic-clicker-coins-guide": {
+    "en": {
+      "title": "Wholesale Metal Haptic Fidget Coins & Magnetic Clicker Coins: CNC Stainless vs. Alloy Cost Breakdown ($2.76+)",
+      "summary": "Complete wholesale sourcing and engineering guide to metal haptic fidget coins and magnetic ratcheting clicker coins (FS-013, FS-017, FS-027, FS-030, FS-032, FS-033, FS-034, FS-041, FS-053, FS-071): comparing 12-magnet N52/N54 arrays, CNC 304 stainless vs. alloy costs ($2.76–$8.92, $0 mold fee), and custom medallion laser branding."
+    },
+    "de": {
+      "title": "Metall-Haptik-Fidget-Münzen & Magnet-Klick-Coins im Großhandel ($2.76+, MOQ 50): Preisvergleich",
+      "summary": "Großhandelsleitfaden für alle 10 Metall-Haptik-Fidget-Münzen (FS-013 bis FS-071): 12-Magnet-N52/N54-Ringe, CNC-304-Edelstahl vs. Legierung ($2.76–$8.92, $0 Formkosten) & Medaillon-Lasergravur."
+    },
+    "fr": {
+      "title": "Pièces Fidget Haptiques en Métal & Coins Magnétiques en Gros ($2.76+, MOQ 50) : Comparatif Coûts",
+      "summary": "Guide grossiste des 10 pièces fidget haptiques en métal (FS-013 à FS-071) : 12 aimants N52/N54, comparatif inox 304 CNC vs alliage ($2.76–$8.92, 0 $ moule) et gravure laser médaillon."
+    },
+    "nl": {
+      "title": "Metalen Haptische Fidget Munten & Magnetische Clicker Coins Groothandel ($2.76+, MOQ 50)",
+      "summary": "Groothandelsgids voor alle 10 metalen haptische fidget munten (FS-013 t/m FS-071): 12-magneet N52/N54 ringen, CNC 304 RVS vs. legering ($2.76–$8.92, $0 matrijskosten) & medaillon lasergravure."
+    },
+    "es": {
+      "title": "Monedas Fidget Hápticas de Metal y Clicker Coins Magnéticas al por Mayor ($2.76+, MOQ 50)",
+      "summary": "Guía mayorista de las 10 monedas fidget hápticas de metal (FS-013 a FS-071): 12 imanes N52/N54, comparativa de acero 304 CNC vs. aleación ($2.76–$8.92, $0 molde) y grabado láser en medallón."
+    },
+    "it": {
+      "title": "Monete Fidget Aptiche in Metallo e Clicker Coin Magnetiche all'Ingrosso ($2.76+, MOQ 50)",
+      "summary": "Guida all'ingrosso alle 10 monete fidget aptiche in metallo (da FS-013 a FS-071): 12 magneti N52/N54, acciaio inox 304 CNC vs. lega ($2.76–$8.92, $0 stampo) e incisione laser su medaglione."
+    },
+    "pt": {
+      "title": "Moedas Fidget Hápticas de Metal e Clicker Coins Magnéticas por Atacado ($2.76+, MOQ 50)",
+      "summary": "Guia atacadista das 10 moedas fidget hápticas metálicas (FS-013 a FS-071): 12 ímanes N52/N54, aço inox 304 CNC vs. liga ($2.76–$8.92, $0 molde) e gravação a laser em medalhão."
+    },
+    "sv": {
+      "title": "Haptiska Fidget-Mynt i Metall & Magnetiska Clicker Coins i Grossistledet ($2.76+, MOQ 50)",
+      "summary": "Grossistguide till alla 10 haptiska fidget-mynt i metall (FS-013 till FS-071): 12-magnet N52/N54-ringar, CNC 304 rostfritt stål vs. legering ($2.76–$8.92, $0 verktygskostnad) & medaljonglaser."
+    },
+    "da": {
+      "title": "Haptiske Fidget-Mønter i Metal & Magnetiske Clicker Coins Engros ($2.76+, MOQ 50)",
+      "summary": "Engrosguide til alle 10 haptiske metalfidget-mønter (FS-013 til FS-071): 12-magnet N52/N54-ringe, CNC 304 rustfrit stål vs. legering ($2.76–$8.92, $0 værktøjsgebyr) & medaljonlaser."
+    },
+    "no": {
+      "title": "Haptiske Fidget-Mynter i Metall & Magnetiske Clicker Coins Engros ($2.76+, MOQ 50)",
+      "summary": "Engrosguide til alle 10 haptiske metallfidget-mynter (FS-013 til FS-071): 12-magnet N52/N54-ringer, CNC 304 rustfritt stål vs. legering ($2.76–$8.92, $0 verktøygebyr) & medaljonglaser."
+    },
+    "fi": {
+      "title": "Metalliset Haptiset Fidget-Kolikot & Magneettiset Clicker-Kolikot Tukku ($2.76+, MOQ 50)",
+      "summary": "Tukkuopas kaikkiin 10 metalliseen haptiseen fidget-kolikkoon (FS-013–FS-071): 12 N52/N54-magneettia, CNC 304 ruostumaton teräs vs. metalliseos ($2.76–$8.92, $0 muottikulu) & laserkaiverrus."
+    },
+    "pl": {
+      "title": "Metalowe Monety Haptyczne Fidget i Magnetyczne Clicker Coins Hurt ($2.76+, MOQ 50)",
+      "summary": "Przewodnik hurtowy po 10 metalowych monetach haptycznych fidget (FS-013 do FS-071): 12 magnesów N52/N54, stal nierdzewna 304 CNC kontra stop ($2.76–$8.92, $0 za formę) i grawer laserowy."
+    },
+    "cs": {
+      "title": "Kovové Haptické Fidget Mince a Magnetické Clicker Mince Velkoobchod ($2.76+, MOQ 50)",
+      "summary": "Velkoobchodní průvodce 10 kovovými haptickými fidget mincemi (FS-013 až FS-071): 12 magnetů N52/N54, nerezová ocel 304 CNC vs. slitina ($2.76–$8.92, $0 forma) a laserové gravírování medailonu."
+    },
+    "ru": {
+      "title": "Металлические тактильные фиджет-монеты и магнитные кликер-монеты оптом ($2.76+, MOQ 50)",
+      "summary": "Оптовый гид по 10 металлическим хаптик-монетам (FS-013 — FS-071): 12 магнитов N52/N54, сравнение нержавеющей стали 304 ЧПУ и сплава ($2.76–$8.92, $0 за форму) и лазерная гравировка медальонов."
+    },
+    "ja": {
+      "title": "金属製ハプティックコイン＆マグネットフィジェットコイン卸売ガイド（$2.76〜・MOQ 50個・CNC 304ステンレス比較）",
+      "summary": "全10モデルの金属製ハプティックフィジェットコイン（FS-013〜FS-071）徹底比較：12個N52/N54磁石配列、セラミックビーズ、CNC 304ステンレスvs合金の原価構造（$2.76〜$8.92・金型代$0）と中央メダリオン名入れ。"
+    },
+    "ko": {
+      "title": "도매 메탈 햅틱 피젯 코인 및 마그네틱 클리커 코인 가이드($2.76+, MOQ 50개, CNC 304 스테인리스 비교)",
+      "summary": "메탈 햅틱 피젯 코인 10종(FS-013~FS-071) 도매 소싱 가이드: 12개 N52/N54 자석 배열, 세라믹 비드, CNC 304 스테인리스 vs 합금 원가 비교($2.76~$8.92, 금형비 $0) 및 메달리온 레이저 각인."
+    },
+    "id": {
+      "title": "Grosir Koin Fidget Haptik Logam & Koin Klik Magnetik ($2.76+, MOQ 50): Rincian Biaya CNC vs. Paduan",
+      "summary": "Panduan grosir 10 koin fidget haptik logam (FS-013 hingga FS-071): 12 magnet N52/N54, baja tahan karat 304 CNC vs. paduan ($2.76–$8.92, $0 biaya cetakan), dan grafir laser medali."
+    },
+    "ar": {
+      "title": "عملات الفيدجت اللمسية المعدنية وعملات النقر المغناطيسية بالجملة ($2.76+، MOQ 50): مقارنة التكلفة",
+      "summary": "دليل الجملة الشامل لـ 10 عملات فيدجت لمسية معدنية (FS-013 إلى FS-071): 12 مغناطيس N52/N54، مقارنة الفولاذ المقاوم للصدأ 304 CNC مقابل السبائك ($2.76–$8.92، قالب 0$) وحفر الشعار بالليزر."
+    }
+  },
+  "low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment": {
+    "en": {
+      "title": "$500 vs. $1,500 Wholesale Metal Fidget Starter Pack: Best-Selling 5-SKU Trial Assortment (MOQ 50 Pcs/SKU)",
+      "summary": "Turnkey wholesale starter pack blueprints for Shopify, TikTok Shop, Amazon FBA, and retail gift stores: comparing our $650 (3-SKU, 150 pcs) and $1,680 (5-SKU, 250 pcs) best-selling metal fidget trial assortments with exact unit costs, DDP shipping, and 72%–84% retail margins."
+    },
+    "de": {
+      "title": "$500 vs. $1.500 Metall-Fidget-Starterpaket im Großhandel: Top 5 Bestseller-Sortiment (MOQ 50 Stk./SKU)",
+      "summary": "Schlüsselfertige Starterpaket-Pläne für Shopify, TikTok Shop, Amazon FBA und Einzelhandel: Vergleich unserer 3-SKU (150 Stk.) und 5-SKU (250 Stk.) Bestseller-Testsortimente mit 72%–84% Handelsmarge."
+    },
+    "fr": {
+      "title": "Pack de Démarrage Grossiste Fidgets Métal ($500 vs $1 500) : Assortiment Top 5 Best-Sellers (MOQ 50/SKU)",
+      "summary": "Plans d'assortiment de démarrage clé en main pour Shopify, TikTok Shop, Amazon FBA et boutiques : comparatif des packs d'essai 3-SKU (150 pcs) et 5-SKU (250 pcs) avec 72%–84% de marge retail."
+    },
+    "nl": {
+      "title": "$500 vs. $1.500 Metalen Fidget Groothandel Starterspakket: Top 5 Bestseller Assortiment (MOQ 50/SKU)",
+      "summary": "Kant-en-klare starterspakket-blauwdrukken voor Shopify, TikTok Shop, Amazon FBA en winkels: vergelijk onze 3-SKU (150 stuks) en 5-SKU (250 stuks) proefassortimenten met 72%–84% winkelwinstmarge."
+    },
+    "es": {
+      "title": "Pack Inicial Mayorista de Fidgets Metálicos ($500 vs. $1,500): Surtido de 5 Superventas (MOQ 50/SKU)",
+      "summary": "Planes de surtido inicial llave en mano para Shopify, TikTok Shop, Amazon FBA y tiendas: comparativa de nuestros packs de prueba de 3 SKUs (150 uds.) y 5 SKUs (250 uds.) con márgenes del 72%–84%."
+    },
+    "it": {
+      "title": "Starter Pack Ingrosso Fidget in Metallo ($500 vs. $1.500): Assortimento 5 Bestseller (MOQ 50 Pz./SKU)",
+      "summary": "Piani di assortimento iniziale chiavi in mano per Shopify, TikTok Shop, Amazon FBA e negozi: confronto tra i kit di prova da 3 SKU (150 pz.) e 5 SKU (250 pz.) con margini retail del 72%–84%."
+    },
+    "pt": {
+      "title": "Pack Inicial por Atacado de Fidgets Metálicos ($500 vs. $1.500): Sortido de 5 Mais Vendidos (MOQ 50/SKU)",
+      "summary": "Planos de sortido inicial chave na mão para Shopify, TikTok Shop, Amazon FBA e lojas: comparação dos kits de teste de 3 SKUs (150 un.) e 5 SKUs (250 un.) com margens de retalho de 72%–84%."
+    },
+    "sv": {
+      "title": "$500 vs. $1 500 Grossist Startpaket för Metallfidgets: Bästsäljande 5-SKU Sortiment (MOQ 50 st/SKU)",
+      "summary": "Nyckelfärdiga startpaket för Shopify, TikTok Shop, Amazon FBA och butiker: jämför våra 3-SKU (150 st) och 5-SKU (250 st) bästsäljande provsortiment med DDP-frakt och 72%–84% butiksmarginal."
+    },
+    "da": {
+      "title": "$500 vs. $1.500 Engros Startpakke med Metalfidgets: Bestseller 5-SKU Sortiment (MOQ 50 stk./SKU)",
+      "summary": "Nøglefærdige startpakker til Shopify, TikTok Shop, Amazon FBA og butikker: sammenlign vores 3-SKU (150 stk.) og 5-SKU (250 stk.) bestseller-prøvesortimenter med 72%–84% detailavance."
+    },
+    "no": {
+      "title": "$500 vs. $1 500 Engros Startpakke med Metallfidgets: Bestselger 5-SKU Sortiment (MOQ 50 stk./SKU)",
+      "summary": "Nøkkelferdige startpakker for Shopify, TikTok Shop, Amazon FBA og butikker: sammenlign våre 3-SKU (150 stk.) og 5-SKU (250 stk.) bestselger-prøvesortimenter med 72%–84% utsalgsmargin."
+    },
+    "fi": {
+      "title": "$500 vs. $1 500 Metallifidget Tukkualoituspaketti: 5 Myydyimmän Mallin Lajitelma (MOQ 50 kpl/SKU)",
+      "summary": "Valmiit aloituspaketit Shopify-, TikTok Shop-, Amazon FBA- ja lahjatavarakaupoille: vertailussa 3 mallin (150 kpl) ja 5 mallin (250 kpl) kokeilulajitelmat 72%–84% vähittäismyyntikatteella."
+    },
+    "pl": {
+      "title": "Pakiet Startowy Hurt Metalowych Fidgetów ($500 vs. $1 500): Zestaw 5 Bestsellerów (MOQ 50 szt./SKU)",
+      "summary": "Gotowe plany pakietów startowych dla Shopify, TikTok Shop, Amazon FBA i sklepów: porównanie zestawów próbnych 3-SKU (150 szt.) i 5-SKU (250 szt.) z wysyłką DDP i marżą detaliczną 72%–84%."
+    },
+    "cs": {
+      "title": "Velkoobchodní Startovací Balíček Kovových Fidgetů ($500 vs. $1 500): Výběr 5 Bestsellerů (MOQ 50/SKU)",
+      "summary": "Hotové plány startovacích balíčků pro Shopify, TikTok Shop, Amazon FBA a prodejny: srovnání zkušebních sad 3-SKU (150 ks) a 5-SKU (250 ks) s DDP dopravou a maloobchodní marží 72%–84%."
+    },
+    "ru": {
+      "title": "Оптовый стартовый набор металлических фиджетов ($500 vs. $1 500): Ассортимент из 5 хитов (MOQ 50/SKU)",
+      "summary": "Готовые стартовые наборы для Shopify, TikTok Shop, Amazon FBA и розницы: сравнение пробных партий из 3 моделей (150 шт.) и 5 моделей (250 шт.) с доставкой DDP и розничной маржой 72%–84%."
+    },
+    "ja": {
+      "title": "$500 vs $1,500 金属フィジェット卸売スターターパック：売れ筋5モデル小ロットお試しアソート（各50個〜・金型代$0）",
+      "summary": "Shopify、TikTok Shop、Amazon FBA、雑貨店向けの初回仕入れ設計図：3モデル計150個（約$650）と5モデル計250個（FS-001・FS-125・FS-150・FS-043・FS-014）の卸売原価・DDP送料・粗利率72%〜84%試算。"
+    },
+    "ko": {
+      "title": "$500 vs $1,500 메탈 피젯 도매 스타터 팩: 베스트셀러 5종 소량 혼합 사입 가이드(SKU당 MOQ 50개)",
+      "summary": "쇼피파이, 틱톡 샵, 아마존 FBA 및 기프트샵을 위한 첫 사입 청사진: 3종(150개) 및 5종(250개: FS-001, FS-125, FS-150, FS-043, FS-014) 시험 사입 구성을 통한 72%~84% 소매 마진 분석."
+    },
+    "id": {
+      "title": "Paket Pemula Grosir Fidget Logam ($500 vs. $1.500): Kombinasi 5 SKU Terlaris (MOQ 50 Pcs/SKU)",
+      "summary": "Cetak biru paket pemula grosir untuk Shopify, TikTok Shop, Amazon FBA, dan toko ritel: perbandingan paket uji coba 3-SKU (150 pcs) dan 5-SKU (250 pcs) dengan pengiriman DDP dan margin ritel 72%–84%."
+    },
+    "ar": {
+      "title": "حزمة البداية بالجملة لأدوات الفيدجت المعدنية ($500 مقابل $1,500): تشكيلة أفضل 5 موديلات مبيعاً (MOQ 50/SKU)",
+      "summary": "مخططات جاهزة لحزم البداية بالجملة لمتاجر Shopify و TikTok Shop و Amazon FBA: مقارنة باقات التجربة من 3 موديلات (150 قطعة) و 5 موديلات (250 قطعة) مع شحن DDP وهامش ربح تجزئة 72%–84%."
+    }
   }
 };
 
