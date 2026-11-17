@@ -70,6 +70,19 @@ const isEnabled = cleanDigits.length >= 7;
           {t('whatsapp.templateLabel')}
         </div>
 
+        <!-- 1-CLICK QUICK INQUIRY CHIPS (LOW-FRICTION MICRO-CONVERSIONS) -->
+        <div class="wa-quick-chips" role="group" aria-label="Quick Inquiry Templates">
+          <button type="button" class="wa-quick-chip active" data-wa-preset="catalog">
+            📊 140-SKU Price Sheet PDF
+          </button>
+          <button type="button" class="wa-quick-chip" data-wa-preset="sample">
+            📦 1-Pc Sample + Logo Mockup
+          </button>
+          <button type="button" class="wa-quick-chip" data-wa-preset="logo">
+            ⚡ 100 Pcs Custom Logo Quote
+          </button>
+        </div>
+
         <!-- EDITABLE INQUIRY TEXTAREA CONTAINER -->
         <div class="inquiry-card">
           <textarea
@@ -94,6 +107,15 @@ const isEnabled = cleanDigits.length >= 7;
           {t('whatsapp.footnote')}
         </p>
       </div>
+    </div>
+
+    <!-- 20-SECOND DWELL SMART NUDGE PILL (FOR HIGH-INTENT READERS) -->
+    <div class="whatsapp-smart-nudge" id="whatsappSmartNudge" aria-hidden="true">
+      <button type="button" class="nudge-open-btn" id="whatsappNudgeOpenBtn">
+        <span class="nudge-dot"></span>
+        <span>📊 Get <strong>140-SKU Price Sheet</strong> or <strong>1-Pc Sample</strong></span>
+      </button>
+      <button type="button" class="nudge-dismiss-btn" id="whatsappNudgeDismissBtn" aria-label="Dismiss prompt">&times;</button>
     </div>
 
     <!-- 3. FLOATING ACTION BUTTON (FAB) — EXACT RUIXING GIFTS CIRCULAR GREEN BUTTON -->
@@ -309,6 +331,103 @@ const isEnabled = cleanDigits.length >= 7;
     margin-top: 0.1rem;
   }
 
+  .wa-quick-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .wa-quick-chip {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    padding: 0.32rem 0.65rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #0f172a;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .wa-quick-chip:hover,
+  .wa-quick-chip.active {
+    background: #074d39;
+    border-color: #074d39;
+    color: #ffffff;
+  }
+
+  .whatsapp-smart-nudge {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    right: 72px;
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid #22c55e;
+    border-radius: 999px;
+    padding: 0.35rem 0.55rem 0.35rem 0.85rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.28);
+    align-items: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+    z-index: 25;
+    transform: translateZ(0);
+  }
+
+  .whatsapp-smart-nudge.is-visible {
+    display: inline-flex;
+  }
+
+  .whatsapp-widget-wrapper.is-open .whatsapp-smart-nudge {
+    display: none !important;
+  }
+
+  .nudge-open-btn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .nudge-open-btn strong {
+    color: #4ade80;
+    font-weight: 800;
+  }
+
+  .nudge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+  }
+
+  .nudge-dismiss-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #cbd5e1;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 0.85rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .nudge-dismiss-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+  }
+
   .inquiry-card {
     background: #ffffff;
     border: 1.5px solid #d9d6c7;
@@ -497,7 +616,56 @@ const isEnabled = cleanDigits.length >= 7;
         textarea.dataset.userEdited = textarea.value.trim() ? 'true' : 'false';
       });
 
+      var quickChips = wrapper.querySelectorAll('.wa-quick-chip');
+      quickChips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          quickChips.forEach(function (c) { c.classList.remove('active'); });
+          chip.classList.add('active');
+          var preset = chip.getAttribute('data-wa-preset') || 'catalog';
+          var path = window.location.pathname;
+          var h1 = (document.querySelector('h1') && document.querySelector('h1').innerText.trim()) || document.title.split('|')[0].trim();
+          var skuEl = document.getElementById('display-sku');
+          var skuText = skuEl ? skuEl.innerText.replace('SKU:', '').trim() : '';
+          var cleanUrl = 'https://fidgetsupply.com' + path;
+          var targetLabel = skuText ? skuText + ' (' + h1 + ')' : h1;
+          textarea.dataset.userEdited = 'true';
+          if (preset === 'catalog') {
+            textarea.value = 'Hi FidgetSupply! Please send me your Full 140-SKU Wholesale Price Sheet (PDF/Excel) with 50 / 200 / 500 pcs tier pricing.\n• Viewing: ' + targetLabel + ' (' + cleanUrl + ')';
+          } else if (preset === 'sample') {
+            textarea.value = 'Hi FidgetSupply! I would like to order a 1-Pc Sample and request a Free 1:1 Logo Mockup for ' + targetLabel + ' (' + cleanUrl + ').';
+          } else {
+            textarea.value = 'Hi FidgetSupply! Please quote 100 pcs Custom Logo (50W Fiber Laser / Deep Color-Fill) + DDP shipping for ' + targetLabel + ' (' + cleanUrl + ').';
+          }
+        });
+      });
+
+      var smartNudge = document.getElementById('whatsappSmartNudge');
+      var nudgeOpenBtn = document.getElementById('whatsappNudgeOpenBtn');
+      var nudgeDismissBtn = document.getElementById('whatsappNudgeDismissBtn');
+      if (smartNudge && nudgeOpenBtn && nudgeDismissBtn) {
+        nudgeOpenBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          smartNudge.classList.remove('is-visible');
+          openModal();
+        });
+        nudgeDismissBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          smartNudge.classList.remove('is-visible');
+          try { sessionStorage.setItem('fs_wa_nudge_dismissed', '1'); } catch (_) {}
+        });
+        setTimeout(function () {
+          try {
+            if (sessionStorage.getItem('fs_wa_nudge_dismissed') === '1') return;
+          } catch (_) {}
+          if (!wrapper.classList.contains('is-open') && document.visibilityState !== 'hidden') {
+            smartNudge.classList.add('is-visible');
+            smartNudge.setAttribute('aria-hidden', 'false');
+          }
+        }, 20000);
+      }
+
       function openModal() {
+        if (smartNudge) smartNudge.classList.remove('is-visible');
         updateContextualMessage();
         wrapper.classList.add('is-open');
         fabBtn.setAttribute('aria-expanded', 'true');

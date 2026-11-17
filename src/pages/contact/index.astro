@@ -234,6 +234,42 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
               {t('contact.formDesc')}
             </p>
 
+            <!-- Zero-Friction Express Bar: 1-Click Price Sheet / Sample or Instant WhatsApp -->
+            <div class="express-lead-banner">
+              <div class="express-lead-left">
+                <span class="express-badge">⚡ 10-Second Fast Track</span>
+                <span class="express-text">Just need our <strong>140-SKU Price Sheet PDF</strong> or a <strong>1-Pc Sample</strong>? Click a preset below or grab it directly on WhatsApp:</span>
+              </div>
+              <div class="express-lead-actions">
+                <button
+                  type="button"
+                  class="express-preset-trigger prod-pill rfq-preset-btn"
+                  data-qty="50 - 99 pcs (Blank Stock)"
+                  data-mode="Blank Unbranded Stock"
+                  data-note="Please send the complete 140-SKU Wholesale Price Sheet (PDF/Excel) with 50/200/500 pcs tier pricing."
+                >
+                  📊 Prefill 140-SKU Price Sheet
+                </button>
+                <button
+                  type="button"
+                  class="express-preset-trigger prod-pill rfq-preset-btn"
+                  data-qty="Sample / Prototype Evaluation"
+                  data-mode="Fiber Laser Engraved Logo"
+                  data-note="I would like to order a 1-pc evaluation sample and get a free 1:1 digital logo mockup."
+                >
+                  📦 Prefill 1-Pc Sample Request
+                </button>
+                <a
+                  href="https://wa.me/8618750126315?text=Hi%20FidgetSupply!%20Please%20send%20me%20your%20Full%20140-SKU%20Wholesale%20Price%20Sheet%20(PDF)%20and%201-Pc%20Sample%20details."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="express-wa-link"
+                >
+                  💬 Get Price Sheet on WhatsApp →
+                </a>
+              </div>
+            </div>
+
             <form id="rfqForm" class="rfq-form" action="/api/contact" method="POST" enctype="multipart/form-data" novalidate>
               <!-- Anti-bot Honeypot Field -->
               <div style="position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; pointer-events: none;" aria-hidden="true">
@@ -766,12 +802,18 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
       var qtySelect = document.getElementById('estimatedQuantity');
       if (qtyParam && qtySelect) {
         var qNum = parseInt(qtyParam, 10);
-        var targetVal = qNum >= 2000 ? '2,000+' : qNum >= 500 ? '500 - 1,999' : qNum >= 200 ? '200 - 499' : qNum >= 100 ? '100 - 199' : '50 - 99';
+        var targetVal = (qNum === 1 || String(qtyParam).toLowerCase().indexOf('sample') !== -1)
+          ? 'Sample / Prototype'
+          : qNum >= 2000 ? '2,000+' : qNum >= 500 ? '500 - 1,999' : qNum >= 200 ? '200 - 499' : qNum >= 100 ? '100 - 199' : '50 - 99';
         for (var j = 0; j < qtySelect.options.length; j++) {
           if (qtySelect.options[j].value.indexOf(targetVal) !== -1) {
             qtySelect.selectedIndex = j;
             break;
           }
+        }
+        var detailsEl = document.getElementById('inquiryDetails');
+        if (targetVal === 'Sample / Prototype' && detailsEl && !detailsEl.value) {
+          detailsEl.value = 'I would like to order a 1-pc evaluation sample and request a free 1:1 digital logo mockup for ' + (skuParam || 'this model') + '.';
         }
       }
     } catch (e) {}
@@ -1404,8 +1446,69 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
   .form-desc {
     color: #64748b;
     font-size: 0.96rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.15rem;
     line-height: 1.6;
+  }
+
+  .express-lead-banner {
+    background: #f0f9ff;
+    border: 1.5px solid #bae6fd;
+    border-radius: 12px;
+    padding: 0.9rem 1.05rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+  .express-lead-left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.84rem;
+    color: #0f172a;
+    line-height: 1.45;
+  }
+  .express-badge {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .express-lead-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+  }
+  .express-preset-trigger {
+    background: #ffffff !important;
+    border: 1px solid #0284c7 !important;
+    color: #0369a1 !important;
+    font-weight: 700 !important;
+  }
+  .express-preset-trigger:hover {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+  }
+  .express-wa-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.36rem 0.75rem;
+    border-radius: 999px;
+    background: #16a34a;
+    color: #ffffff !important;
+    font-size: 0.76rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .express-wa-link:hover {
+    background: #15803d;
   }
 
   .rfq-form {

@@ -385,6 +385,7 @@ const breadcrumbSchema = {
             <div class="calc-qty-row">
               <span class="calc-qty-label">{t('contact.quantity')}:</span>
               <div class="calc-qty-chips" role="group" aria-label={t('contact.quantity')}>
+                <button type="button" class="calc-qty-chip chip-sample" data-qty="1">📦 1-{t('unit.pc')} Sample</button>
                 <button type="button" class="calc-qty-chip active" data-qty="50">50 {t('unit.pcs')}</button>
                 <button type="button" class="calc-qty-chip" data-qty="100">100 {t('unit.pcs')}</button>
                 <button type="button" class="calc-qty-chip" data-qty="200">200 {t('unit.pcs')}</button>
@@ -425,6 +426,30 @@ const breadcrumbSchema = {
             class="btn btn-whatsapp btn-pdp-sample"
           >
             {t('pdp.whatsappInquiry')}
+          </a>
+        </div>
+
+        <!-- Low-Friction Micro-Conversion Hooks (1-Pc Sample & Full 140-SKU Price Sheet) -->
+        <div class="pdp-micro-lead-bar">
+          <a
+            id="pdp-sample-rfq-btn"
+            href={rfqBaseUrl}
+            data-rfq-sku={p.sku}
+            data-rfq-mode="Sample / Prototype Evaluation"
+            data-rfq-qty="1"
+            class="micro-lead-link"
+          >
+            📦 {t('pdp.orderSample')} ({p.sku}) + Free 1:1 Logo Mockup →
+          </a>
+          <a
+            id="pdp-catalog-rfq-btn"
+            href={rfqBaseUrl}
+            data-rfq-sku="All 140 Ready Molds (Full Catalog & Price List)"
+            data-rfq-mode="Blank Unbranded Stock"
+            data-rfq-qty="50"
+            class="micro-lead-link"
+          >
+            📊 Get Full 140-SKU Wholesale Price Sheet (PDF/Excel) →
           </a>
         </div>
 
@@ -684,11 +709,11 @@ const breadcrumbSchema = {
     function updateRfqHref() {
       if (!rfqBtn) return;
       const checkedRadio = document.querySelector('input[name="custom_mode"]:checked');
-      const mode = checkedRadio ? checkedRadio.value : 'Blank Stock';
+      const mode = currentQty === 1 ? 'Sample / Prototype Evaluation' : (checkedRadio ? checkedRadio.value : 'Blank Stock');
       const addon = checkedRadio ? parseFloat(checkedRadio.getAttribute('data-addon') || '0') : 0;
       const minQty = checkedRadio ? parseInt(checkedRadio.getAttribute('data-min-qty') || '50', 10) : 50;
 
-      if (currentQty < minQty) {
+      if (currentQty !== 1 && currentQty < minQty) {
         currentQty = minQty;
         qtyChips.forEach((chip) => {
           chip.classList.toggle('active', parseInt(chip.getAttribute('data-qty') || '0', 10) === currentQty);
@@ -701,19 +726,22 @@ const breadcrumbSchema = {
         const b500 = parseFloat(calcBox.getAttribute('data-base500') || '0');
         const basePrice = currentQty >= 500 ? b500 : currentQty >= 200 ? b200 : b50;
         const unitTotal = basePrice + addon;
-        const subtotal = unitTotal * currentQty;
+        const subtotal = currentQty === 1 ? Math.max(unitTotal, 50) : unitTotal * currentQty;
         if (calcUnitEl) {
           const unitSuffix = calcUnitEl.querySelector('span')?.outerHTML || '';
-          calcUnitEl.innerHTML = `$${unitTotal.toFixed(2)}${unitSuffix}`;
+          calcUnitEl.innerHTML = currentQty === 1 ? `$${basePrice.toFixed(2)} – $50.00<span>/sample</span>` : `$${unitTotal.toFixed(2)}${unitSuffix}`;
         }
         if (calcQtyEl) calcQtyEl.textContent = currentQty.toLocaleString();
         if (calcTotalEl) {
-          calcTotalEl.textContent = `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD`;
+          calcTotalEl.textContent = currentQty === 1 ? `1-Pc Sample + Free Logo Proof` : `$${subtotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USD`;
         }
         if (stickyPriceEl) {
-          stickyPriceEl.textContent = `$${unitTotal.toFixed(2)}/pc × ${currentQty} ($${subtotal.toFixed(0)} USD)`;
+          stickyPriceEl.textContent = currentQty === 1 ? `1-Pc Sample (${currentSku}) · Free Logo Proof` : `$${unitTotal.toFixed(2)}/pc × ${currentQty} ($${subtotal.toFixed(0)} USD)`;
         }
       }
+
+      const sampleRfqBtn = document.getElementById('pdp-sample-rfq-btn');
+      if (sampleRfqBtn) sampleRfqBtn.setAttribute('data-rfq-sku', currentSku);
 
       [rfqBtn, fastRfqBtn, stickyRfqBtn].forEach((btn) => {
         if (!btn) return;
@@ -1248,7 +1276,45 @@ const breadcrumbSchema = {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.65rem;
+  }
+  .pdp-micro-lead-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+  }
+  .micro-lead-link {
+    flex: 1 1 220px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.52rem 0.75rem;
+    background: #f0f9ff;
+    border: 1px dashed #38bdf8;
+    border-radius: 8px;
+    color: #0369a1;
+    font-size: 0.77rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+  .micro-lead-link:hover {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0f172a;
+    transform: translateY(-1px);
+  }
+  .calc-qty-chip.chip-sample {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    color: #b45309;
+  }
+  .calc-qty-chip.chip-sample.active {
+    background: #d97706;
+    border-color: #d97706;
+    color: #ffffff;
   }
   .pdp-trust-strip {
     display: flex;
