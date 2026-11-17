@@ -2060,11 +2060,10 @@ const faqSchema = {
           <div class="guide-fast-track-bar" aria-label={t('guide.refModelsTitle')}>
             <div class="fast-track-head">
               <span class="fast-track-title">⚡ {t('guide.refModelsTitle')}</span>
-              <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+              <div class="fast-track-actions">
                 <a
                   href={getLocalizedPath('/contact', currentLang)}
-                  class="fast-track-rfq-btn"
-                  style="background: #fffbeb; color: #b45309; border: 1px solid #f59e0b;"
+                  class="fast-track-rfq-btn btn-track-sample"
                   data-rfq-sku={relatedProducts.map((rp: any) => rp.data.sku).join(', ')}
                   data-rfq-mode="Sample / Prototype Evaluation"
                   data-rfq-qty="1"
@@ -2073,8 +2072,7 @@ const faqSchema = {
                 </a>
                 <a
                   href={getLocalizedPath('/contact', currentLang)}
-                  class="fast-track-rfq-btn"
-                  style="background: #f0f9ff; color: #0369a1; border: 1px solid #38bdf8;"
+                  class="fast-track-rfq-btn btn-track-sheet"
                   data-rfq-sku="All 140 Ready Molds (Full Catalog & Price List)"
                   data-rfq-mode="Blank Unbranded Stock"
                   data-rfq-qty="50"
@@ -2695,6 +2693,16 @@ const faqSchema = {
     padding: 0.15rem 0.4rem;
     border-radius: 0.25rem;
     font-size: 0.86em;
+    color: #0f172a;
+  }
+  .prose :global(a:not(.btn):not(.btn-primary):not(.fast-track-rfq-btn)) {
+    color: #0369a1;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose :global(a:not(.btn):not(.btn-primary):not(.fast-track-rfq-btn):hover) {
+    color: #075985;
   }
 
   /* Referenced Ready-to-Produce Factory Models: Always 3 products per row on desktop */
@@ -2847,6 +2855,13 @@ const faqSchema = {
     letter-spacing: 0.04em;
   }
 
+  .fast-track-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
   .fast-track-rfq-btn {
     display: inline-flex;
     align-items: center;
@@ -2857,11 +2872,35 @@ const faqSchema = {
     font-weight: 700;
     padding: 0.38rem 0.85rem;
     border-radius: 9999px;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   }
 
   .fast-track-rfq-btn:hover {
     background: #0369a1;
+  }
+
+  .fast-track-rfq-btn.btn-track-sample {
+    background: #fffbeb;
+    color: #92400e !important;
+    border: 1px solid #f59e0b;
+  }
+
+  .fast-track-rfq-btn.btn-track-sample:hover {
+    background: #fef3c7;
+    color: #78350f !important;
+    border-color: #d97706;
+  }
+
+  .fast-track-rfq-btn.btn-track-sheet {
+    background: #f0f9ff;
+    color: #075985 !important;
+    border: 1px solid #38bdf8;
+  }
+
+  .fast-track-rfq-btn.btn-track-sheet:hover {
+    background: #e0f2fe;
+    color: #0c4a6e !important;
+    border-color: #0284c7;
   }
 
   .fast-track-chips {
@@ -2976,6 +3015,9 @@ const faqSchema = {
   @media (max-width: 640px) {
     .fast-track-chips {
       grid-template-columns: minmax(0, 1fr);
+    }
+    .fast-track-actions {
+      width: 100%;
     }
     .fast-track-rfq-btn {
       width: 100%;

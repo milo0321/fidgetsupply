@@ -706,7 +706,7 @@ if (fs.existsSync(distDir)) {
     const llmsTxt = fs.readFileSync(distLlms, 'utf8');
     const llmsFull = fs.readFileSync(distLlmsFull, 'utf8');
     if (llmsTxt.length < 50000) {
-      fail(`dist/llms.txt is too small (${llmsTxt.length} chars; expected >= 50,000 chars with all 140 SKUs & 39 guides)`);
+      fail(`dist/llms.txt is too small (${llmsTxt.length} chars; expected >= 50,000 chars with all 140 SKUs & ${guideFiles.length} guides)`);
     }
     if (llmsFull.length < 300000) {
       fail(`dist/llms-full.txt is too small (${llmsFull.length} chars; expected >= 300,000 chars full corpus)`);
@@ -714,12 +714,18 @@ if (fs.existsSync(distDir)) {
     if (!llmsTxt.includes('https://fidgetsupply.com/llms-full.txt')) {
       fail('dist/llms.txt does not link to https://fidgetsupply.com/llms-full.txt');
     }
+    for (const gf of guideFiles) {
+      const gSlug = gf.replace(/\.md$/, '');
+      if (!llmsTxt.includes(`/insights/${gSlug}`) || !llmsFull.includes(`/insights/${gSlug}`)) {
+        fail(`Guide /insights/${gSlug} missing from dist/llms.txt or dist/llms-full.txt`);
+      }
+    }
     const llmsUrls = [...(llmsTxt.match(/https:\/\/fidgetsupply\.com[^\s"'\''<>)\]`]*/g) || []), ...(llmsFull.match(/https:\/\/fidgetsupply\.com[^\s"'\''<>)\]`]*/g) || [])];
     const badLlmsUrls = llmsUrls.filter((u) => u.endsWith('/'));
     if (badLlmsUrls.length > 0) {
       fail(`Found trailing-slash URL(s) in llms.txt or llms-full.txt: ${badLlmsUrls[0]}`);
     }
-    pass(`dist/llms.txt (${(Buffer.byteLength(llmsTxt) / 1024).toFixed(1)} KB) and dist/llms-full.txt (${(Buffer.byteLength(llmsFull) / 1024).toFixed(1)} KB) verified with all 140 Ready-Mold SKUs, 9 Collections, 39 Guides, and 0 trailing-slash URLs.`);
+    pass(`dist/llms.txt (${(Buffer.byteLength(llmsTxt) / 1024).toFixed(1)} KB) and dist/llms-full.txt (${(Buffer.byteLength(llmsFull) / 1024).toFixed(1)} KB) verified with all 140 Ready-Mold SKUs, 9 Collections, ${guideFiles.length} Guides, and 0 trailing-slash URLs.`);
   }
 } else {
   fail('dist/ directory not found. Run npm run build first.');
