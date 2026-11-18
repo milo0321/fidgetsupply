@@ -1,7 +1,7 @@
 ---
 title: "Folding-Fan Pivot Sliders, Magnetic Capsules & Knuckle-Roller Begleri Beads: Pocket EDC Form-Factor Guide"
 slug: "folding-fan-pivot-sliders-magnetic-capsules-knuckle-roller-begleri-guide"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-18"
 summary: "Folding-fan pivot sliders, magnetic pill capsules, and knuckle-roller begleri beads solve pocket bulk by converting linear tracks into radial arcs, compact cylinders, and dual-weight pendulums. Engineered from CNC 304 stainless steel, 6063-T6 aluminum, and Zamak-3 alloy, these sub-75g pocket instruments offer distinct thumb-arc and inter-digital dexterity at MOQ 50 pcs."
 tags: ["Wholesale EDC", "Metal Fidgets", "Ready Molds", "MOQ 50"]
 metaTitle: "Folding-Fan Pivot Sliders, Capsules & Begleri ($1.85+)"
@@ -179,6 +179,9 @@ relatedSkus: ["FS-039", "FS-080", "FS-126", "FS-005", "FS-012", "FS-019", "FS-02
 <p>Every wholesale shipment of <a href="/products/compact-folding-fan-n52-pivot-slider">FS-080 Compact Folding-Fan N52 Pivot Slider</a>, <a href="/products/6063-aluminum-magnetic-capsule-pill">FS-012 6063 Aluminum Magnetic Capsule Pill</a>, <a href="/products/gen2-cat-eye-button-magnetic-slider">FS-054 Gen-2 Cat-Eye Button Magnetic Slider</a>, and <a href="/products/smooth-soap-box-20-magnet-unlimited-slider">FS-125 Smooth Soap-Box 20-Magnet Unlimited Slider</a> undergoes 100% pre-shipment mechanical inspection before leaving our Dongguan assembly floor. Our four-stage quality protocol includes: (1) optical coordinate-measuring checks on sliding plates and bearing bores, (2) ultrasonic hydrocarbon degreasing and dry-running R188 spin-down tests, (3) digital gauss-meter polarity and pull-force verification on all N52 neodymium arrays, and (4) 1.5-meter impact testing to verify zero magnet loosening.</p>
 
 <p>For international buyers shipping via air courier (DHL, FedEx, UPS) or importing directly into Amazon FBA fulfillment centers in the United States, European Union, United Kingdom, Canada, Australia, or Japan, we provide complete <a href="/insights/ultralight-6063-aluminum-vs-heavyweight-brass-stainless-edc-fidget-weight-guide">Ultralight 6063 Aluminum vs. Heavyweight Brass/SS Weight Guide</a> and <a href="/insights/multi-function-bottle-opener-keychain-luminous-tritium-edc-fidgets">Multi-Function Bottle Opener, Keychain & Luminous EDC Guide</a> documentation. This includes ferromagnetic inner-liner cartons that pass IATA Packing Instruction 953 (<0.00525 Gauss stray magnetic field at 2.1 meters), XRF heavy-metal screening for RoHS/REACH compliance, 14+ Adult Collectible age-grading labels, and complimentary Amazon FNSKU barcode application on every outer EVA zipper case or windowed tin box.</p>
+
+
+<p><strong>Next Steps for Wholesale Buyers:</strong> Compare our <a href="/insights/low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment">$500 vs. $1,500 5-SKU Wholesale Starter Pack Blueprint (MOQ 50 pcs/SKU)</a>, review our <a href="/insights/custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide">Custom Logo Spinners &amp; Sliders Corporate Buyer&#39;s Guide ($0.74+)</a>, or evaluate all four supply chain channels in our <a href="/insights/top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison">Top Wholesale Metal Fidget Manufacturers &amp; OEM Comparison</a>.</p>
 
 <div class="sourcing-cta-box">
   <h3>Request a 12-Hour Custom Quote &amp; Sample Kit for This Collection</h3>

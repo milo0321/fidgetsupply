@@ -666,6 +666,78 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     no: 'Kvadratramme', fi: 'Neliökehys', pl: 'Rama Kwadratowa', cs: 'Čtvercový Rám',
     ru: 'Квадратная рамка', ja: 'スクエアフレーム', ko: '스퀘어 프레임', id: 'Bingkai Persegi', ar: 'إطار مربع'
   }],
+  [/\bDelta Triangle\b/gi, {
+    de: 'Delta-Dreieck', fr: 'Triangle Delta', nl: 'Delta-Driehoek', es: 'Triángulo Delta',
+    it: 'Triangolo Delta', pt: 'Triângulo Delta', sv: 'Delta-Triangel', da: 'Delta-Trekant',
+    no: 'Delta-Trekant', fi: 'Delta-Kolmio', pl: 'Trójkąt Delta', cs: 'Delta Trojúhelník',
+    ru: 'Дельта-треугольник', ja: 'デルタトライアングル', ko: '델타 트라이앵글', id: 'Segitiga Delta', ar: 'مثلث دلتا'
+  }],
+  [/\bHeart Matrix\b/gi, {
+    de: 'Herz-Matrix', fr: 'Matrice Cœur', nl: 'Hart-Matrix', es: 'Matriz Corazón',
+    it: 'Matrice Cuore', pt: 'Matriz Coração', sv: 'Hjärt-Matris', da: 'Hjerte-Matrix',
+    no: 'Hjerte-Matrise', fi: 'Sydänmatriisi', pl: 'Matryca Serce', cs: 'Srdcová Matice',
+    ru: 'Матрица-сердце', ja: 'ハートマトリックス', ko: '하트 매트릭스', id: 'Matriks Hati', ar: 'مصفوفة القلب'
+  }],
+  [/\bTri-Ring Geometric\b/gi, {
+    de: 'Drei-Ring Geometrisch', fr: 'Géométrique Tri-Anneaux', nl: 'Drie-Ring Geometrisch', es: 'Geométrico de Tres Anillos',
+    it: 'Geometrico a Tre Anelli', pt: 'Geométrico de Três Anéis', sv: 'Tre-Rings Geometrisk', da: 'Tre-Rings Geometrisk',
+    no: 'Tre-Rings Geometrisk', fi: 'Kolmirengas Geometrinen', pl: 'Geometryczny Trój-Pierścień', cs: 'Geometrický Troj-Prstenec',
+    ru: 'Трехкольцевой геометрический', ja: 'トライリング幾何学', ko: '트라이링 기하학', id: 'Geometris Tiga Cincin', ar: 'هندسي ثلاثي الحلقات'
+  }],
+  [/\bCentrifugal Flick\b/gi, {
+    de: 'Zentrifugal-Flick', fr: 'Flick Centrifuge', nl: 'Centrifugaal-Flick', es: 'Flick Centrífugo',
+    it: 'Flick Centrifugo', pt: 'Flick Centrífugo', sv: 'Centrifugal-Flick', da: 'Centrifugal-Flick',
+    no: 'Sentrifugal-Flick', fi: 'Keskipakois-Flick', pl: 'Odśrodkowy Flick', cs: 'Odstředivý Flick',
+    ru: 'Центробежный флик', ja: '遠心フリック', ko: '원심 플릭', id: 'Flick Sentrifugal', ar: 'نقر طرد مركزي'
+  }],
+  [/\bFortune Oracle\b/gi, {
+    de: 'Glücks-Orakel', fr: 'Oracle de Fortune', nl: 'Geluks-Orakel', es: 'Oráculo de la Fortuna',
+    it: 'Oracolo della Fortuna', pt: 'Oráculo da Fortuna', sv: 'Lycko-Orakel', da: 'Lykke-Orakel',
+    no: 'Lykke-Orakel', fi: 'Onnenoraakkeli', pl: 'Wyrocznia Fortuny', cs: 'Věštba Štěstí',
+    ru: 'Оракул удачи', ja: 'フォーチュンオラクル', ko: '포춘 오라클', id: 'Orakel Keberuntungan', ar: 'تميمة الحظ'
+  }],
+  [/\bDome-Switch Cap\b/gi, {
+    de: 'Dom-Schalter-Kappe', fr: 'Capuchon Commutateur à Dôme', nl: 'Koepelschakelaar-Kap', es: 'Tapa de Interruptor Domo',
+    it: 'Calotta Interruttore a Cupola', pt: 'Tampa de Interruptor Domo', sv: 'Kupolbrytar-Kåpa', da: 'Kuppelkontakt-Kappe',
+    no: 'Kuppelbryter-Kappe', fi: 'Kupukytkinkansi', pl: 'Nasadka Przełącznika Kopułkowego', cs: 'Krytka Kopulového Spínače',
+    ru: 'Купольный переключатель', ja: 'ドームスイッチキャップ', ko: '돔 스위치 캡', id: 'Tutup Sakelar Kubah', ar: 'غطاء مفتاح قبي'
+  }],
+  [/\bBamboo-Joint\b/gi, {
+    de: 'Bambus-Gelenk', fr: 'Nœud de Bambou', nl: 'Bamboe-Gewricht', es: 'Nudo de Bambú',
+    it: 'Nodo di Bambù', pt: 'Nó de Bambu', sv: 'Bambu-Led', da: 'Bambus-Led',
+    no: 'Bambus-Ledd', fi: 'Bambunivel', pl: 'Segment Bambusowy', cs: 'Bambusový Článek',
+    ru: 'Бамбуковое звено', ja: 'バンブージョイント（竹節）', ko: '대나무 마디(밤부 조인트)', id: 'Ruas Bambu', ar: 'مفصل الخيزران'
+  }],
+  [/\bStreamlined Goose\b/gi, {
+    de: 'Stromlinien-Gans', fr: 'Oie Aérodynamique', nl: 'Gestroomlijnde Gans', es: 'Ganso Aerodinámico',
+    it: 'Oca Aerodinamica', pt: 'Ganso Aerodinâmico', sv: 'Strömlinjeformad Gås', da: 'Strømlinet Gås',
+    no: 'Strømlinjeformet Gås', fi: 'Virtaviivainen Hanhi', pl: 'Opływowa Gęś', cs: 'Aerodynamická Husa',
+    ru: 'Обтекаемый гусь', ja: 'ストリームライン・グース', ko: '유선형 구스(거위)', id: 'Angsa Aerodinamis', ar: 'إوزة انسيابية'
+  }],
+  [/\bKnuckle-Roller\b/gi, {
+    de: 'Knöchelroller (Knuckle-Roller)', fr: 'Rouleau de Phalanges (Knuckle-Roller)', nl: 'Knokkelroller (Knuckle-Roller)', es: 'Rodillo de Nudillos (Knuckle-Roller)',
+    it: 'Rullo da Nocche (Knuckle-Roller)', pt: 'Rolo de Nós dos Dedos (Knuckle-Roller)', sv: 'Knogrulle (Knuckle-Roller)', da: 'Kno-Rulle (Knuckle-Roller)',
+    no: 'Knokerulle (Knuckle-Roller)', fi: 'Rystysrulla (Knuckle-Roller)', pl: 'Wałek na Kostki (Knuckle-Roller)', cs: 'Kloubový Válec (Knuckle-Roller)',
+    ru: 'Роллер для пальцев (Knuckle-Roller)', ja: 'ナックルローラー', ko: '너클 롤러', id: 'Knuckle-Roller', ar: 'أسطوانة المفاصل'
+  }],
+  [/\bBegleri Beads\b/gi, {
+    de: 'Begleri-Perlen', fr: 'Perles Begleri', nl: 'Begleri-Kralen', es: 'Cuentas Begleri',
+    it: 'Perle Begleri', pt: 'Contas Begleri', sv: 'Begleri-Pärlor', da: 'Begleri-Perler',
+    no: 'Begleri-Perler', fi: 'Begleri-Helmet', pl: 'Koraliki Begleri', cs: 'Korálky Begleri',
+    ru: 'Бусины Беглери', ja: 'ベグレリビーズ', ko: '베글레리 비즈', id: 'Manik Begleri', ar: 'خرز بيجليري'
+  }],
+  [/\bRing-Magnet Orbit\b/gi, {
+    de: 'Ringmagnet-Orbit', fr: 'Orbite à Aimant Annulaire', nl: 'Ringmagneet-Orbit', es: 'Órbita de Imán Anular',
+    it: 'Orbita a Magnete Anulare', pt: 'Órbita de Íman Anelar', sv: 'Ringmagnet-Omlopp', da: 'Ringmagnet-Orbit',
+    no: 'Ringmagnet-Orbit', fi: 'Rengasmagneetti-Kiertorata', pl: 'Orbita Magnesu Pierścieniowego', cs: 'Dráha Prstencového Magnetu',
+    ru: 'Кольцевая магнитная орбита', ja: 'リングマグネットオービット', ko: '링 마그넷 오빗', id: 'Orbit Magnet Cincin', ar: 'مدار المغناطيس الحلقي'
+  }],
+  [/\bGothic Horned\b/gi, {
+    de: 'Gotisch Gehörnter', fr: 'Gothique à Cornes', nl: 'Gotisch Gehoornde', es: 'Gótico Cornudo',
+    it: 'Gotico Cornuto', pt: 'Gótico Chifrudo', sv: 'Gotisk Be-hornad', da: 'Gotisk Hornet',
+    no: 'Gotisk Hornet', fi: 'Goottilainen Sarvipää', pl: 'Gotycki Rogaty', cs: 'Gotický Rohatý',
+    ru: 'Готический рогатый', ja: 'ゴシックホーン（角）', ko: '고딕 혼(뿔)', id: 'Bertanduk Gotik', ar: 'قوطي ذو قرون'
+  }],
   [/\bGimbal Gyro\b/gi, {
     de: 'Kardan-Gyroskop', fr: 'Gyroscope à Cardan', nl: 'Cardan-Gyroscoop', es: 'Giroscopio Cardán',
     it: 'Giroscopio Cardanico', pt: 'Giroscópio Cardan', sv: 'Kardangyro', da: 'Kardangyro',

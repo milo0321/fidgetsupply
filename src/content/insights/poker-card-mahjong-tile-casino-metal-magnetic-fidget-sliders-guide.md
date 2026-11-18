@@ -2,7 +2,7 @@
 title: "Poker Card, Tile & Casino Gaming Metal Fidget Sliders: Why Card Ergonomics Lead Wholesale Sales"
 slug: "poker-card-mahjong-tile-casino-metal-magnetic-fidget-sliders-guide"
 publishDate: "2026-11-04"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-18"
 author: "FidgetSupply Engineering Team"
 category: "Pocket Ergonomics & Form Factors"
 summary: "Why playing-card and tile-proportioned metal fidget sliders (FS-001, FS-024, FS-025, FS-033, FS-062, FS-075, FS-097) consistently rank #1 in unit reorder volume across Amazon, TikTok Shop, and casino/gaming promotions."
@@ -182,6 +182,9 @@ Review full artwork setup details in our <a href="/insights/fiber-laser-engravin
 <h2 id="bundle-strategy-for-ecommerce-and-promotional-distributors">6. The "Royal Flush Bundle" Strategy to Double Ecommerce Average Order Value (AOV)</h2>
 
 Instead of selling a single `$19.99` poker slider, top-performing Shopify and Amazon sellers combine **1 × <a href="/products/poker-king-magnetic-slider">FS-001 Poker Slider</a> + 1 × <a href="/products/poker-suit-engraved-haptic-coin">FS-033 Poker Suit Haptic Coin</a>** inside a custom 2-cavity EVA foam tin box (<a href="/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide">Custom Packaging Guide</a>). Your combined factory hardware cost is just **$5.34 (`$1.96 + $3.38`)**, yet the 2-piece collector set easily retails at **$39.99 to $49.99**!
+
+
+<p><strong>Next Steps for Wholesale Buyers:</strong> Compare our <a href="/insights/low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment">$500 vs. $1,500 5-SKU Wholesale Starter Pack Blueprint (MOQ 50 pcs/SKU)</a>, review our <a href="/insights/custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide">Custom Logo Spinners &amp; Sliders Corporate Buyer&#39;s Guide ($0.74+)</a>, or evaluate all four supply chain channels in our <a href="/insights/top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison">Top Wholesale Metal Fidget Manufacturers &amp; OEM Comparison</a>.</p>
 
 <div class="sourcing-cta-box">
   <h3>Order Our Poker, Tile &amp; Casino Gaming Sample Pack</h3>

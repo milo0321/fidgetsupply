@@ -91,7 +91,7 @@ const serviceSchema = {
 };
 
 const BRANDING_META_DESC_MAP: Record<string, string> = {
-  en: 'Spinners with company logo & custom fidget spinner with logo on 140 ready metal molds ($0 mold fee): 50W fiber laser (+$0.15/pc) & color fill (MOQ 100).',
+  en: 'Laser engraved fidget spinner, spinners with company logo & custom fidget spinner with logo on 140 metal molds ($0.74+, $0 mold, MOQ 100, +$0.15/pc).',
   es: 'Fidgets metálicos con logo personalizado en 140 moldes ($0 molde): grabado láser 50W (+$0.15/ud.) y grabado profundo con esmalte a color (MOQ 100 uds.).',
   de: 'Metall-Fidgets mit Logo auf 140 Bestandsformen ($0 Werkzeugkosten): 50W-Faserlaser (+$0.15/Stk.) & Tiefengravur mit Farbauslegung ab 100 Stück MOQ.',
   fr: 'Fidgets métal personnalisés avec logo sur 140 moules ($0 moule) : gravure laser 50W (+$0.15/pce) et gravure profonde avec émail couleur dès 100 pièces.',
@@ -163,6 +163,26 @@ const pageDescription = BRANDING_META_DESC_MAP[currentLang] || BRANDING_META_DES
           </a>
           <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-secondary-dark btn-hero">
             {t('home.hero.ctaLogo')}
+          </a>
+        </div>
+
+        <div class="hero-badges-row" style="margin-top: 1rem;">
+          <a
+            href={getLocalizedPath('/contact', currentLang)}
+            data-rfq-sku="FS-125, FS-043, FS-009"
+            data-rfq-mode="Fiber Laser Engraved Logo"
+            data-rfq-qty="1"
+            class="badge badge-gold"
+            style="text-decoration: none;"
+          >
+            📦 1-{t('unit.pc')} Laser Sample + Free 12h Logo Proof →
+          </a>
+          <a
+            href={getLocalizedPath('/insights/custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide', currentLang)}
+            class="badge badge-dark"
+            style="text-decoration: none;"
+          >
+            📖 Custom Logo Buyer's Guide ($0.74+) →
           </a>
         </div>
       </div>

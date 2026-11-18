@@ -3543,6 +3543,11 @@ export function localizeInsightHtml(rawHtml: string, guideData: any, lang: Suppo
   const complianceUrl = getLocalizedPath('/compliance-safety', lang);
   const contactUrl = getLocalizedPath('/contact', lang);
 
+  const starterGuideUrl = getLocalizedPath('/insights/low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment', lang);
+  const logoGuideUrl = getLocalizedPath('/insights/custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide', lang);
+  const oemGuideUrl = getLocalizedPath('/insights/top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison', lang);
+  const relatedSkusStr = Array.isArray(guideData.relatedSkus) && guideData.relatedSkus.length > 0 ? guideData.relatedSkus.join(', ') : 'FS-125, FS-150, FS-043';
+
   return `
 <h2 id="section-1">1. ${meta.title}</h2>
 <p>${meta.summary}</p>
@@ -3623,9 +3628,9 @@ ${fig1}
 <h2 id="section-3">3. ${t('home.section5.title')}</h2>
 <p>${t('home.section5.sub')}</p>
 <ul>
-  <li><strong>${t('catalog.matZinc')}</strong>: FS-001, FS-009, FS-026, FS-125, FS-128 ($0.75 – $9.00)</li>
-  <li><strong>${t('catalog.matAluminum')}</strong>: FS-047, FS-064, FS-096, FS-105 ($3.50 – $15.00)</li>
-  <li><strong>${t('catalog.matStainless')}</strong>: FS-013, FS-075, FS-086, FS-148 ($10.00 – $65.00)</li>
+  <li><strong>${t('catalog.matZinc')}</strong>: FS-001, FS-009, FS-026, FS-125, FS-128 ($0.74 – $9.00)</li>
+  <li><strong>${t('catalog.matAluminum')}</strong>: FS-047, FS-064, FS-096, FS-105 ($2.76 – $15.00)</li>
+  <li><strong>${t('catalog.matStainless')}</strong>: FS-013, FS-075, FS-086, FS-148 ($7.43 – $55.20)</li>
   <li><strong>${t('catalog.matExotic')}</strong>: FS-099 (PEI Ultem), FS-106, FS-107, FS-114 (Zr702)</li>
 </ul>
 
@@ -3664,7 +3669,10 @@ ${fig2}
 </div>
 ${meshLinksHtml}
 <ul>
-  <li><a href="${productsUrl}">${t('nav.allCatalog')} (FS-001 – FS-150)</a></li>
+  <li><a href="${productsUrl}">${t('nav.allCatalog')} (FS-001 – FS-150 · $0.74+)</a></li>
+  <li><a href="${starterGuideUrl}">${INSIGHT_META_ALL['low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment']?.[lang]?.title || 'Wholesale Starter Pack ($500+)'}</a></li>
+  <li><a href="${logoGuideUrl}">${INSIGHT_META_ALL['custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide']?.[lang]?.title || 'Custom Logo Spinners & Sliders ($0.74+)'}</a></li>
+  <li><a href="${oemGuideUrl}">${INSIGHT_META_ALL['top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison']?.[lang]?.title || 'Top Wholesale Metal Fidget Manufacturers'}</a></li>
   <li><a href="${brandingUrl}">${t('brand.heroTitle')}</a></li>
   <li><a href="${packagingUrl}">${t('pkg.heroTitle')}</a></li>
   <li><a href="${complianceUrl}">${t('comp.heroTitle')}</a></li>
@@ -3673,7 +3681,7 @@ ${meshLinksHtml}
 <div class="sourcing-cta-box">
   <h3>${t('home.cta.title')}</h3>
   <p>${t('home.cta.desc')}</p>
-  <a href="${contactUrl}" class="btn btn-primary">${t('nav.requestQuote')}</a>
+  <a href="${contactUrl}" data-rfq-sku="${relatedSkusStr}" data-rfq-qty="50" class="btn btn-primary">${t('nav.requestQuote')} (${relatedSkusStr.split(',')[0]}) →</a>
 </div>
 `;
 }

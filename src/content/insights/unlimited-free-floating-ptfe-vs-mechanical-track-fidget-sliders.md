@@ -2,7 +2,7 @@
 title: "Unlimited Free-Floating PTFE Sliders vs. Mechanical Track Fidget Sliders: Kinematics & Sourcing Guide"
 slug: "unlimited-free-floating-ptfe-vs-mechanical-track-fidget-sliders"
 publishDate: "2026-11-02"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-18"
 author: "FidgetSupply Engineering Team"
 category: "Magnetics & Tactile Engineering"
 summary: "An engineering breakdown of 360-degree free-floating PTFE unlimited magnetic sliders versus captive mechanical rail track sliders—comparing N52 clamping force, laddering trick mechanics, beginner usability, and wholesale return rates."
@@ -152,6 +152,9 @@ What if your customers want the silky-smooth, multi-directional rotational feel 
 When launching a private-label collection from our <a href="/collections/custom-logo-metal-fidgets">Custom Logo Ready Wholesale hub</a> or <a href="/collections/cnc-stainless-steel-pei-edc">CNC Stainless &amp; Exotic Metals collection</a>:
 - **The 60 / 30 / 10 Merchandising Rule**: Allocate **60%** of initial inventory to captive track sliders (<a href="/products/poker-king-magnetic-slider">FS-001</a>, <a href="/products/minimalist-smooth-6063-aluminum-slider">FS-047</a>) for broad conversion, **30%** to 20–26 magnet N52 unlimited sliders (<a href="/products/smooth-soap-box-20-magnet-unlimited-slider">FS-125</a>, <a href="/products/chocolate-grid-20-magnet-n52-unlimited-slider">FS-128</a>) for viral video marketing, and **10%** to acoustic tuning fork or pivot-fan hybrids (<a href="/products/compact-20-magnet-acoustic-tuning-fork-slider">FS-150</a>, <a href="/products/folding-fan-pivot-20-magnet-slider">FS-039</a>).
 - **Dual-Zone Custom Branding**: On unlimited sliders, we can fiber-laser engrave your primary emblem on the outer shell AND etch your brand wordmark or serial number onto the internal stainless magnet track plate (see <a href="/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">Laser Engraving vs. Silk-Screen Guide</a> and <a href="/insights/zero-tooling-ready-mold-private-label-fidget-sop">Zero-Tooling Private-Label SOP</a>).
+
+
+<p><strong>Next Steps for Wholesale Buyers:</strong> Compare our <a href="/insights/low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment">$500 vs. $1,500 5-SKU Wholesale Starter Pack Blueprint (MOQ 50 pcs/SKU)</a>, review our <a href="/insights/custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide">Custom Logo Spinners &amp; Sliders Corporate Buyer&#39;s Guide ($0.74+)</a>, or evaluate all four supply chain channels in our <a href="/insights/top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison">Top Wholesale Metal Fidget Manufacturers &amp; OEM Comparison</a>.</p>
 
 <div class="sourcing-cta-box">
   <h3>Test Unlimited PTFE Sliders &amp; Captive Track Sliders Side-by-Side</h3>

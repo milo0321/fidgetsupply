@@ -16,7 +16,7 @@ const guides = (await getCollection('insights')).sort(
 const guidesHubFaqs = [
   {
     question: 'What topics are covered in the FidgetSupply Engineering & Global Sourcing Insights?',
-    answer: 'Our 39 authoritative technical insights cover: (1) Zero-Tooling Ready-Mold Private Label SOP, (2) N35 vs. N45 vs. N52 Neodymium Magnet Pull Force & Haptic Calibration, (3) Die-Cast Zinc Alloy vs. 5-Axis CNC Stainless Steel/PEI Cost Breakdown, (4) Acoustic Tuning Fork Resonance Slider Engineering, (5) 50W Fiber Laser vs. UV Color Logo Branding Durability, and (6) US CPSC 16 CFR 1262 Magnet Safety Compliance.'
+    answer: 'Our 44 authoritative technical and sourcing insights cover: (1) Zero-Tooling Ready-Mold Private Label SOP, (2) Custom Logo Spinners & Sliders Corporate Buyer Guide ($0.74+), (3) Top Wholesale Metal Fidget Toy Manufacturers & OEM Comparison, (4) N35 vs. N45 vs. N52 Neodymium Magnet Pull Force & Haptic Calibration, (5) Acoustic Tuning Fork Resonance Slider Engineering, and (6) US CPSC 16 CFR 1262 Magnet Safety Compliance.'
   },
   {
     question: 'How do I choose between N35, N45, N52, and N54 neodymium magnets when sourcing sliders?',
@@ -89,30 +89,30 @@ const insightsCollectionSchema = {
 };
 
 const INSIGHTS_META_DESC_MAP: Record<string, string> = {
-  en: '39 wholesale metal fidget engineering guides ($1.46+): N35 vs N45 vs N52 magnets, Zinc vs CNC Stainless costs, Tuning Fork sliders & 16 CFR 1262 safety.',
-  es: '39 guías técnicas mayoristas sobre imanes N35 vs N52, aleación de zinc vs acero CNC, sliders de diapasón, grabado láser 50W y seguridad CPSC 16 CFR 1262.',
-  de: '39 Engineering-Leitfäden zu N35- vs. N52-Magneten, Zinkdruckguss vs. CNC-Edelstahl, Stimmgabel-Slidern, 50W-Lasergravur & CPSC 16 CFR 1262 Magnetsicherheit.',
-  fr: '39 guides techniques grossistes : aimants N35 vs N52, coûts alliage de zinc vs inox CNC, sliders diapason, gravure laser 50W et conformité CPSC 16 CFR 1262.',
-  ja: 'N35対N52ネオジム磁石、亜鉛合金対CNCステンレス原価比較、音叉共鳴スライダー、50Wレーザー刻印、米国CPSC 16 CFR 1262安全基準を解説する39本の技術ガイド。',
-  ko: 'N35 대 N52 네오디뮴 자석, 아연합금 대 CNC 스테인리스 원가 비교, 극성중공 소리굽쇠 슬라이더, 50W 레이저 각인 및 CPSC 16 CFR 1262 안전 기준 39편 가이드.',
-  ar: '39 دليلاً هندسياً بالجملة حول مغناطيس N35 مقابل N52، تكلفة سبائك الزنك مقابل الفولاذ CNC، سلايدرات الشوكة الرنانة، الحفر بالليزر، وسلامة CPSC 16 CFR 1262.',
-  pt: '39 guias técnicos grossistas sobre ímanes N35 vs N52, custos de liga de zinco vs inox CNC, sliders de diapasão, gravação a laser 50W e segurança CPSC 16 CFR 1262.',
-  ru: '39 инженерных руководств оптом: магниты N35 против N52, цинковый сплав против стали ЧПУ, камертонные слайдеры, лазерная гравировка 50 Вт и CPSC 16 CFR 1262.',
-  it: '39 guide tecniche ingrosso su magneti N35 vs N52, costi lega di zinco vs acciaio inox CNC, slider a diapason, incisione laser 50W e sicurezza CPSC 16 CFR 1262.',
-  nl: '39 engineeringgidsen over N35 vs. N52 magneten, zinklegering vs. CNC RVS kosten, stemvork-sliders, 50W lasergravure en CPSC 16 CFR 1262 magneetveiligheid.',
-  pl: '39 poradników inżynieryjnych: magnesy N35 vs N52, koszty stopu cynku vs stali CNC, slidery kamertonowe, grawer laserowy 50W oraz normy CPSC 16 CFR 1262.',
-  id: '39 panduan rekayasa fidget logam grosir: magnet N35 vs N52, biaya paduan seng vs baja CNC, slider garpu tala, laser 50W & standar keamanan CPSC 16 CFR 1262.',
-  sv: '39 ingenjörsguider om N35 vs N52-magneter, zinklegering vs CNC rostfritt stål, stämgaffel-sliders, 50W lasergravyr och US CPSC 16 CFR 1262 magnetsäkerhet.',
-  no: '39 ingeniørguider om N35 vs N52-magneter, sinklegering vs CNC rustfritt stål, stemmegaffel-sliders, 50W lasergravering og US CPSC 16 CFR 1262 sikkerhet.',
-  da: '39 ingeniørguider om N35 vs N52-magneter, zinklegering vs CNC rustfrit stål, stemmegaffel-sliders, 50W lasergravering og US CPSC 16 CFR 1262 sikkerhed.',
-  fi: '39 suunnitteluopasta: N35 vs N52 -magneetit, sinkkiseos vs CNC-teräs, äänirautasliderit, 50W-laserkaiverrus ja US CPSC 16 CFR 1262 -magneettiturvallisuus.',
-  cs: '39 inženýrských průvodců: magnety N35 vs N52, zinková slitina vs CNC nerez, ladičkové slidery, 50W laserové gravírování a bezpečnost CPSC 16 CFR 1262.'
+  en: '44 wholesale metal fidget engineering guides ($0.74+): N35 vs N52 magnets, custom logo spinners, starter packs, tuning fork sliders & 16 CFR 1262 safety.',
+  es: '44 guías técnicas mayoristas sobre imanes N35 vs N52, aleación de zinc vs acero CNC, sliders de diapasón, grabado láser 50W y seguridad CPSC 16 CFR 1262.',
+  de: '44 Engineering-Leitfäden zu N35- vs. N52-Magneten, Zinkdruckguss vs. CNC-Edelstahl, Stimmgabel-Slidern, 50W-Lasergravur & CPSC 16 CFR 1262 Magnetsicherheit.',
+  fr: '44 guides techniques grossistes : aimants N35 vs N52, coûts alliage de zinc vs inox CNC, sliders diapason, gravure laser 50W et conformité CPSC 16 CFR 1262.',
+  ja: 'N35対N52ネオジム磁石、亜鉛合金対CNCステンレス原価比較、音叉共鳴スライダー、50Wレーザー刻印、米国CPSC 16 CFR 1262安全基準を解説する44本の技術ガイド。',
+  ko: 'N35 대 N52 네오디뮴 자석, 아연합금 대 CNC 스테인리스 원가 비교, 극성중공 소리굽쇠 슬라이더, 50W 레이저 각인 및 CPSC 16 CFR 1262 안전 기준 44편 가이드.',
+  ar: '44 دليلاً هندسياً بالجملة حول مغناطيس N35 مقابل N52، تكلفة سبائك الزنك مقابل الفولاذ CNC، سلايدرات الشوكة الرنانة، الحفر بالليزر، وسلامة CPSC 16 CFR 1262.',
+  pt: '44 guias técnicos grossistas sobre ímanes N35 vs N52, custos de liga de zinco vs inox CNC, sliders de diapasão, gravação a laser 50W e segurança CPSC 16 CFR 1262.',
+  ru: '44 инженерных руководства оптом: магниты N35 против N52, цинковый сплав против стали ЧПУ, камертонные слайдеры, лазерная гравировка 50 Вт и CPSC 16 CFR 1262.',
+  it: '44 guide tecniche ingrosso su magneti N35 vs N52, costi lega di zinco vs acciaio inox CNC, slider a diapason, incisione laser 50W e sicurezza CPSC 16 CFR 1262.',
+  nl: '44 engineeringgidsen over N35 vs. N52 magneten, zinklegering vs. CNC RVS kosten, stemvork-sliders, 50W lasergravure en CPSC 16 CFR 1262 magneetveiligheid.',
+  pl: '44 poradniki inżynieryjne: magnesy N35 vs N52, koszty stopu cynku vs stali CNC, slidery kamertonowe, grawer laserowy 50W oraz normy CPSC 16 CFR 1262.',
+  id: '44 panduan rekayasa fidget logam grosir: magnet N35 vs N52, biaya paduan seng vs baja CNC, slider garpu tala, laser 50W & standar keamanan CPSC 16 CFR 1262.',
+  sv: '44 ingenjörsguider om N35 vs N52-magneter, zinklegering vs CNC rostfritt stål, stämgaffel-sliders, 50W lasergravyr och US CPSC 16 CFR 1262 magnetsäkerhet.',
+  no: '44 ingeniørguider om N35 vs N52-magneter, sinklegering vs CNC rustfritt stål, stemmegaffel-sliders, 50W lasergravering og US CPSC 16 CFR 1262 sikkerhet.',
+  da: '44 ingeniørguider om N35 vs N52-magneter, zinklegering vs CNC rustfrit stål, stemmegaffel-sliders, 50W lasergravering og US CPSC 16 CFR 1262 sikkerhed.',
+  fi: '44 suunnitteluopasta: N35 vs N52 -magneetit, sinkkiseos vs CNC-teräs, äänirautasliderit, 50W-laserkaiverrus ja US CPSC 16 CFR 1262 -magneettiturvallisuus.',
+  cs: '44 inženýrských průvodců: magnety N35 vs N52, zinková slitina vs CNC nerez, ladičkové slidery, 50W laserové gravírování a bezpečnost CPSC 16 CFR 1262.'
 };
 const pageDescription = INSIGHTS_META_DESC_MAP[currentLang] || INSIGHTS_META_DESC_MAP.en;
 ---
 
 <Layout
-  title={currentLang === 'en' ? '39 Metal Fidget Engineering & Sourcing Guides ($0 Mold)' : `${t('guides.heroTitle')} (39) | FidgetSupply`}
+  title={currentLang === 'en' ? '44 Metal Fidget Engineering & Sourcing Guides ($0 Mold)' : `${t('guides.heroTitle')} (44) | FidgetSupply`}
   description={pageDescription}
   activePage="insights"
   jsonLd={[insightsCollectionSchema, faqSchema]}
@@ -160,6 +160,29 @@ const pageDescription = INSIGHTS_META_DESC_MAP[currentLang] || INSIGHTS_META_DES
           <span class="glass-kpi-label">{t('nav.compliance')}</span>
           <strong class="glass-kpi-val">CPSC · RoHS · IATA</strong>
         </div>
+      </div>
+
+      <div class="hero-badges-row" style="margin-top: 1.25rem; margin-bottom: 0;">
+        <a
+          href={getLocalizedPath('/contact', currentLang)}
+          data-rfq-sku="All 140 Ready Molds (Full Catalog & Price List)"
+          data-rfq-mode="Blank Unbranded Stock"
+          data-rfq-qty="50"
+          class="badge badge-gold"
+          style="text-decoration: none;"
+        >
+          📊 Get Full 140-SKU Price Sheet (PDF/Excel) →
+        </a>
+        <a
+          href={getLocalizedPath('/contact', currentLang)}
+          data-rfq-sku="FS-125, FS-150, FS-043"
+          data-rfq-mode="Sample / Prototype Evaluation"
+          data-rfq-qty="1"
+          class="badge badge-dark"
+          style="text-decoration: none;"
+        >
+          📦 Order 1-{t('unit.pc')} Evaluation Sample →
+        </a>
       </div>
     </div>
   </section>

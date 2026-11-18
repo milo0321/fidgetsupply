@@ -2,7 +2,7 @@
 title: "PTFE Teflon Friction Pads, Ceramic Detent Beads & R188 Bearing Maintenance: EDC Tribology Guide"
 slug: "ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide"
 publishDate: "2026-11-05"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-18"
 author: "FidgetSupply Engineering & QC Team"
 category: "Kinetic Bearing & Gyro Engineering"
 summary: "A tribology and after-sales engineering guide to 0.30mm virgin PTFE (Teflon) wear pads, Vickers 1,500 HV zirconia/silicon-nitride ceramic detent balls, SUS304 springs, and R188 bearing care—cutting retail returns by 78%."
@@ -134,6 +134,9 @@ On every wholesale order of PTFE unlimited sliders or serviceable spring-detent 
 
 ### Bulk Aftermarket Consumables &amp; Refill Packs for High-Volume E-Commerce Brands
 In addition to the complimentary maintenance pack bundled inside each retail unit, high-volume Shopify and Amazon brands can also order bulk packs of **custom-die-cut 0.30mm Virgin PTFE Teflon replacement stickers** (`$0.08/pair` in rolls of 500 pairs), **Grade 5 $\text{ZrO}_2$/$\text{Si}_3\text{N}_4$ ceramic detent balls**, and **replacement 10-ball 440C stainless or hybrid ceramic R188 bearings** (`$0.45–$1.20/pc`). Offering a `$6.99 "Pro Tuning &amp; Refill Kit"` as a 1-click cart upsell on your storefront not only increases average order value (AOV) at an 85%+ gross margin, but also reinforces your brand's reputation as a genuine engineering house rather than a generic reseller.
+
+
+<p><strong>Next Steps for Wholesale Buyers:</strong> Compare our <a href="/insights/low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment">$500 vs. $1,500 5-SKU Wholesale Starter Pack Blueprint (MOQ 50 pcs/SKU)</a>, review our <a href="/insights/custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide">Custom Logo Spinners &amp; Sliders Corporate Buyer&#39;s Guide ($0.74+)</a>, or evaluate all four supply chain channels in our <a href="/insights/top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison">Top Wholesale Metal Fidget Manufacturers &amp; OEM Comparison</a>.</p>
 
 <div class="sourcing-cta-box">
   <h3>Inspect Our PTFE Sliders, Ceramic Detent Models &amp; Spare Toolkits</h3>

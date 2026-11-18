@@ -117,7 +117,7 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Wholesale Metal EDC Fidgets: 140 Molds ($1.46+) | FidgetSupply' : `${t('catalog.title')} (140 · $1.46+) | FidgetSupply`}
+  title={currentLang === 'en' ? 'Wholesale Metal EDC Fidgets: 140 Molds ($0.74+) | FidgetSupply' : `${t('catalog.title')} (140 · $0.74+) | FidgetSupply`}
   description={CATALOG_META_DESC_MAP[currentLang] || t('catalog.desc')}
   activePage="products"
   jsonLd={[catalogCollectionSchema, faqSchema]}
@@ -155,7 +155,7 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
         </div>
         <div class="glass-kpi-card">
           <span class="glass-kpi-label">{t('col.stat2Label')}</span>
-          <strong class="glass-kpi-val">$1.46 – $470.77</strong>
+          <strong class="glass-kpi-val">$0.74 – $470.77</strong>
         </div>
       </div>
 
@@ -165,6 +165,36 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
         </a>
         <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-secondary-dark btn-hero">
           {t('home.hero.ctaLogo')}
+        </a>
+      </div>
+
+      <div class="hero-badges-row" style="margin-top: 1rem;">
+        <a
+          href={getLocalizedPath('/contact', currentLang)}
+          data-rfq-sku="All 140 Ready Molds (Full Catalog & Price List)"
+          data-rfq-mode="Blank Unbranded Stock"
+          data-rfq-qty="50"
+          class="badge badge-gold"
+          style="text-decoration: none;"
+        >
+          📊 Get Full 140-SKU Price Sheet (PDF/Excel) →
+        </a>
+        <a
+          href={getLocalizedPath('/contact', currentLang)}
+          data-rfq-sku="FS-001, FS-125, FS-150, FS-043"
+          data-rfq-mode="Sample / Prototype Evaluation"
+          data-rfq-qty="1"
+          class="badge badge-dark"
+          style="text-decoration: none;"
+        >
+          📦 Order 1-{t('unit.pc')} Sample Kit →
+        </a>
+        <a
+          href={getLocalizedPath('/insights/low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment', currentLang)}
+          class="badge badge-dark"
+          style="text-decoration: none;"
+        >
+          📖 5-SKU Starter Pack Blueprint →
         </a>
       </div>
     </div>
