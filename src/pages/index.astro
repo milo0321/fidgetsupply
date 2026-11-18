@@ -5,13 +5,68 @@ import ProductCard from '../components/ProductCard.astro';
 import GeoDirectAnswer from '../components/GeoDirectAnswer.astro';
 import { COLLECTIONS } from '../data/collections';
 import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
-import { localizeCollectionContent } from '../i18n/insightAndCollectionLocalization';
+import { localizeCollectionContent, localizeInsightMeta } from '../i18n/insightAndCollectionLocalization';
 import { getLocalizedPageFaqs } from '../i18n/pageContentLocalization';
+import { localizeTitle } from '../i18n/productLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
 const allProducts = await getCollection('products');
 const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
+const allGuides = await getCollection('insights');
+
+const priorityGuideSlugs = [
+  'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
+  'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
+  'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide',
+  'wholesale-metal-haptic-fidget-coins-magnetic-clicker-coins-guide',
+  'wholesale-magnetic-fidget-rings-spinner-rings-bulk-sourcing-guide',
+  'tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide',
+  '2027-corporate-vip-swag-custom-laser-metal-fidget-trends',
+  'folding-fan-pivot-sliders-magnetic-capsules-knuckle-roller-begleri-guide',
+  'retro-gamepad-arcade-piano-pea-pod-biscuit-novelty-metal-fidgets',
+  'tactical-pistol-slide-spring-sword-katana-shield-metal-edc-guide',
+  'china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies',
+  'how-to-launch-private-label-metal-edc-fidget-brand-zero-mold-tooling'
+];
+const featuredCrawlGuides = priorityGuideSlugs
+  .map((slug) => allGuides.find((g) => g.data.slug === slug))
+  .filter(Boolean);
+
+const priorityCrawlProductSlugs = [
+  'smooth-soap-box-20-magnet-unlimited-slider',
+  'wood-tone-acoustic-resonance-slider',
+  '18-magnet-silicone-bumper-fidget-spinner',
+  '3d-multi-axis-stainless-gimbal-gyro',
+  '6-axis-cnc-stainless-gyro-spinner',
+  '6-ball-orbit-rainbow-aluminum-spinner',
+  'aluminum-brass-16-magnet-spinner-ring',
+  'asymmetric-swept-wing-stainless-spinner',
+  'bullseye-target-27-magnet-slider',
+  'championship-trophy-magnetic-slider',
+  'dual-mecha-4-bearing-ratchet-edc',
+  'everlasting-floral-r188-kinetic-spinner',
+  'excalibur-ring-magnet-spring-sword-slider',
+  'folding-fan-pivot-20-magnet-slider',
+  'heavy-chrome-crab-claw-cracker-grip',
+  'infinity-cube-26-magnet-unlimited-slider',
+  'interlocking-planetary-gear-spinner',
+  'luminous-graphic-spring-promo-slider',
+  'mechanical-pumpkin-n54-haptic-coin',
+  'pea-pod-ergonomic-magnetic-slider',
+  'qka-royal-triple-layer-magnetic-slider',
+  'racetrack-triple-layer-magnetic-slider',
+  'retro-camera-ptfe-magnetic-slider',
+  'split-blade-spring-press-sword-edc',
+  'tiger-crest-ceramic-bead-haptic-coin',
+  'tiger-totem-ceramic-detent-slider',
+  'triple-claw-ridge-magnetic-slider',
+  'triple-layer-32-magnet-slider',
+  'triple-layer-wave-32-magnet-slider'
+];
+const priorityCrawlProducts = priorityCrawlProductSlugs
+  .map((slug) => sortedProducts.find((p) => p.data.slug === slug))
+  .filter(Boolean);
 
 const primaryCollections = COLLECTIONS.filter((c) => c.group === 'primary');
 const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
@@ -399,6 +454,43 @@ const HOME_META_DESC_MAP: Record<string, string> = {
         {exoticFeatured.map((p) => (
           <ProductCard product={p} />
         ))}
+      </div>
+
+      <div class="home-crawl-hub-card">
+        <div class="crawl-hub-block">
+          <div class="crawl-hub-head">
+            <span class="badge">{t('nav.insights')}</span>
+            <h3>{t('guide.relatedGuidesTitle')}</h3>
+          </div>
+          <div class="crawl-guides-grid">
+            {featuredCrawlGuides.map((g: any) => {
+              const gLoc = localizeInsightMeta(g.data, currentLang);
+              return (
+                <a href={getLocalizedPath(`/insights/${g.data.slug}`, currentLang)} class="crawl-guide-link">
+                  <span class="crawl-guide-cat">{gLoc.category}</span>
+                  <strong>{gLoc.title}</strong>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+
+        <div class="crawl-hub-divider"></div>
+
+        <div class="crawl-hub-block">
+          <div class="crawl-hub-head">
+            <span class="badge">{t('nav.allCatalog')}</span>
+            <h3>{t('guide.relatedSkusTitle')}</h3>
+          </div>
+          <div class="crawl-skus-pills">
+            {priorityCrawlProducts.map((p: any) => (
+              <a href={getLocalizedPath(`/products/${p.data.slug}`, currentLang)} class="crawl-sku-pill">
+                <span class="crawl-sku-code">{p.data.sku}</span>
+                <span class="crawl-sku-name">{localizeTitle(p.data.title, currentLang)}</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -880,5 +972,111 @@ const HOME_META_DESC_MAP: Record<string, string> = {
       justify-content: center;
       text-align: center;
     }
+    .home-crawl-hub-card {
+      padding: 1.25rem;
+    }
+    .crawl-guides-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  .home-crawl-hub-card {
+    margin-top: 2.5rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+  .crawl-hub-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.15rem;
+  }
+  .crawl-hub-head h3 {
+    margin: 0;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: #0f172a;
+  }
+  .crawl-guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 0.85rem;
+  }
+  .crawl-guide-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.85rem 1rem;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.65rem;
+    text-decoration: none;
+    color: #0f172a;
+    min-width: 0;
+    max-width: 100%;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .crawl-guide-link:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+  }
+  .crawl-guide-cat {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #0369a1;
+  }
+  .crawl-guide-link strong {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: #0f172a;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .crawl-hub-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 1.75rem 0;
+  }
+  .crawl-skus-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+  .crawl-sku-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.42rem 0.75rem;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #1e293b;
+    max-width: 100%;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+  .crawl-sku-pill:hover {
+    border-color: #0284c7;
+    background: #f0f9ff;
+    color: #0f172a;
+  }
+  .crawl-sku-code {
+    font-weight: 800;
+    color: #0369a1;
+    flex-shrink: 0;
+  }
+  .crawl-sku-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 240px;
   }
 </style>
