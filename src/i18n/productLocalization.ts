@@ -648,6 +648,24 @@ const TITLE_TERMS: Array<[RegExp, Partial<Record<SupportedLanguage, string>>]> =
     no: 'Kjedehjul', fi: 'Ketjupyörä', pl: 'Łańcuch Zębaty', cs: 'Řetězové Kolo',
     ru: 'Цепной привод', ja: 'スプロケットチェーン', ko: '스프로킷 체인', id: 'Rantai Sprocket', ar: 'سلسلة تروس'
   }],
+  [/\bSilicone-Bumper\b/gi, {
+    de: 'Silikon-Puffer', fr: 'Pare-Chocs Silicone', nl: 'Siliconen-Bumper', es: 'Borde de Silicona',
+    it: 'Paracolpi in Silicone', pt: 'Borda de Silicone', sv: 'Silikon-Bumper', da: 'Silikone-Bumper',
+    no: 'Silikon-Bumper', fi: 'Silikonipuskuri', pl: 'Odbojnik Silikonowy', cs: 'Silikonový Nárazník',
+    ru: 'Силиконовый бампер', ja: 'シリコンバンパー', ko: '실리콘 범퍼', id: 'Bumper Silikon', ar: 'مصد سيليكون'
+  }],
+  [/\bCat-Eye\b/gi, {
+    de: 'Katzenauge', fr: 'Œil-de-Chat', nl: 'Kattenoog', es: 'Ojo de Gato',
+    it: 'Occhio di Gatto', pt: 'Olho de Gato', sv: 'Kattöga', da: 'Katteøje',
+    no: 'Katteøye', fi: 'Kissansilmä', pl: 'Kocie Oko', cs: 'Kočičí Oko',
+    ru: 'Кошачий глаз', ja: 'キャッツアイ', ko: '캣아이', id: 'Cat-Eye (Mata Kucing)', ar: 'عين القط'
+  }],
+  [/\bSquare Frame\b/gi, {
+    de: 'Quadratrahmen', fr: 'Cadre Carré', nl: 'Vierkant Frame', es: 'Marco Cuadrado',
+    it: 'Telaio Quadrato', pt: 'Estrutura Quadrada', sv: 'Kvadratram (SKF/R188)', da: 'Kvadratramme (SKF/R188)',
+    no: 'Kvadratramme', fi: 'Neliökehys', pl: 'Rama Kwadratowa', cs: 'Čtvercový Rám',
+    ru: 'Квадратная рамка', ja: 'スクエアフレーム', ko: '스퀘어 프레임', id: 'Bingkai Persegi', ar: 'إطار مربع'
+  }],
   [/\bGimbal Gyro\b/gi, {
     de: 'Kardan-Gyroskop', fr: 'Gyroscope à Cardan', nl: 'Cardan-Gyroscoop', es: 'Giroscopio Cardán',
     it: 'Giroscopio Cardanico', pt: 'Giroscópio Cardan', sv: 'Kardangyro', da: 'Kardangyro',
@@ -1632,21 +1650,32 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
 
   switch (p.primaryCollection) {
     case 'magnetic-fidget-sliders':
+      slugs.push('low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment');
       slugs.push('unlimited-free-floating-ptfe-vs-mechanical-track-fidget-sliders');
       slugs.push('n35-vs-n52-neodymium-magnet-haptic-feel-guide');
       slugs.push('tiktok-shop-asmr-amazon-fba-shopify-metal-fidget-reseller-margin-guide');
       break;
     case 'metal-fidget-spinners-gyros':
+      slugs.push('custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide');
       slugs.push('r188-bearing-metal-fidget-spinners-desktop-gyro-engineering-guide');
       slugs.push('ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide');
       break;
     case 'mechanical-edc-fidgets':
+      slugs.push('top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison');
       slugs.push('multi-action-mechanical-ratchet-bolt-action-edc-fidget-guide');
       slugs.push('ptfe-teflon-tape-ceramic-beads-r188-bearing-fidget-maintenance-guide');
       break;
     case 'haptic-fidget-coins':
-    case 'edc-gourds-hand-pieces':
+      slugs.push('wholesale-metal-haptic-fidget-coins-magnetic-clicker-coins-guide');
+      slugs.push('haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide');
+      slugs.push('quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide');
+      break;
     case 'magnetic-fidget-rings':
+      slugs.push('wholesale-magnetic-fidget-rings-spinner-rings-bulk-sourcing-guide');
+      slugs.push('haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide');
+      slugs.push('quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide');
+      break;
+    case 'edc-gourds-hand-pieces':
       slugs.push('haptic-fidget-coins-edc-gourds-magnetic-spinner-rings-guide');
       slugs.push('quiet-office-executive-desk-fidget-toys-decibel-acoustic-guide');
       break;
@@ -1658,6 +1687,7 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
     slugs.push('zinc-alloy-die-casting-vs-cnc-stainless-steel-edc-cost');
     slugs.push('2027-metal-edc-fidget-market-material-trends-report');
   } else if (p.logoReady) {
+    slugs.push('custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide');
     slugs.push('corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide');
     slugs.push('2027-corporate-vip-swag-custom-laser-metal-fidget-trends');
     slugs.push('fiber-laser-engraving-vs-uv-printing-metal-fidget-logos');
@@ -1665,8 +1695,13 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
     slugs.push('pvd-coating-hard-anodizing-stonewash-antique-metal-fidget-finishes');
   }
 
-  // Rotate BOFU & 2027 compliance/sourcing/specialty guides by rowId so all 39 guides receive balanced deep links
+  // Rotate BOFU & 2027 compliance/sourcing/specialty guides by rowId so all 44 guides receive balanced deep links
   const bofuPool = [
+    'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide',
+    'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
+    'wholesale-magnetic-fidget-rings-spinner-rings-bulk-sourcing-guide',
+    'wholesale-metal-haptic-fidget-coins-magnetic-clicker-coins-guide',
+    'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
     'china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies',
     'metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests',
     'how-to-launch-private-label-metal-edc-fidget-brand-zero-mold-tooling',
@@ -1700,6 +1735,11 @@ export function getRelatedInsightSlugsForProduct(p: any): string[] {
 }
 
 const INSIGHT_DEFAULT_TITLES: Record<string, string> = {
+  'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide': "Custom Logo Metal Fidget Spinners & Sliders: 2026–2027 Corporate Promotional Buyer's Guide ($0.74–$10.19, MOQ 100)",
+  'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison': 'Top Wholesale Metal Fidget Toy Manufacturers & Custom OEM Suppliers (2026–2027 Comparison: MOQ, Pricing & Lead Time)',
+  'wholesale-magnetic-fidget-rings-spinner-rings-bulk-sourcing-guide': 'Wholesale Magnetic Fidget Rings & Stainless Steel Spinner Rings: Bulk Sizing, Pricing ($6.37+) & Custom Logo Guide',
+  'wholesale-metal-haptic-fidget-coins-magnetic-clicker-coins-guide': 'Wholesale Metal Haptic Fidget Coins & Magnetic Clicker Coins: CNC Stainless vs. Alloy Cost Breakdown ($2.76+)',
+  'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment': '$500 vs. $1,500 Wholesale Metal Fidget Starter Pack: Best-Selling 5-SKU Trial Assortment (MOQ 50 Pcs/SKU)',
   'acoustic-tuning-fork-fidget-slider-engineering-trend': 'Acoustic Tuning Fork Fidget Sliders: Resonance Chamber Engineering & Wholesale Guide',
   'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos': 'Fiber Laser Engraving & Deep Laser Color Fill vs. Silk-Screen on Metal EDC Fidgets',
   'n35-vs-n52-neodymium-magnet-haptic-feel-guide': 'N35 vs. N45 vs. N52 Neodymium Magnets in Metal Fidget Sliders: Tactile Force Guide',

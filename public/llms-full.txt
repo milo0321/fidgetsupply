@@ -4684,7 +4684,7 @@ By positioning these multi-function models across both the **Everyday Carry Tool
 
 ### Guide #25: N35 vs. N45 vs. N52 Neodymium Magnets in Metal Fidget Sliders: Tactile Force & Acoustic Guide
 - **Canonical URL**: https://fidgetsupply.com/insights/n35-vs-n52-neodymium-magnet-haptic-feel-guide
-- **Category**: Magnetics & Tactile Engineering | **Reading Time**: 12 min read | **Updated**: 2026-11-06
+- **Category**: Magnetics & Tactile Engineering | **Reading Time**: 12 min read | **Updated**: 2026-11-18
 - **Featured Ready-Mold SKUs**: FS-001, FS-047, FS-125, FS-128, FS-150
 - **Executive Summary**: An engineering comparison of N30, N35, N40, N45, N50, N52, and N54 NdFeB rare-earth magnets across 140 metal fidget molds—measuring pull force, acoustic decibels, PTFE wear, and wholesale cost impact.
 

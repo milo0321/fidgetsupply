@@ -265,12 +265,12 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Pourquoi les sliders sur rail mécanique (FS-002, FS-048) utilisent des aimants N35–N40 tandis que les sliders libres PTFE (FS-125, FS-075) exigent des aimants N50–N52.'
     },
     nl: {
-      title: 'N35 vs. N45 vs. N52 Neodymium Magneten in Metalen Fidget Sliders: Trekkracht & Haptiek',
-      summary: 'Waarom mechanische railsliders (FS-002, FS-048) N35–N40 magneten gebruiken terwijl vrije PTFE-sliders (FS-125, FS-075) krachtige N50–N52 magneten vereisen.'
+      title: 'N35 vs. N52 & N45 Neodymium Magneten (+48% Kracht): Trekkracht & Haptiek',
+      summary: 'N35 vs N52 & N52 vs N45 magneten vergeleken (+48% trekkracht): waarom railsliders (FS-002) N35–N40 gebruiken en vrije PTFE-sliders (FS-125) N50–N52 vereisen.'
     },
     es: {
-      title: 'Imanes de Neodimio N35 vs. N45 vs. N52 en Sliders Fidget Metálicos: Fuerza Táctil y Acústica',
-      summary: 'Por qué los sliders de riel mecánico (FS-002, FS-048) usan imanes N35–N40 mientras que los sliders libres de PTFE (FS-125, FS-075) requieren imanes N50–N52.'
+      title: 'Imanes N35 vs. N52 y N45 (+48% Fuerza) en Sliders Fidget Metálicos: Guía',
+      summary: 'Comparativa de imanes N35 vs N52 (+48% fuerza): por qué los sliders de riel (FS-002) usan N35–N40 mientras que los sliders libres de PTFE (FS-125) requieren N50–N52.'
     },
     it: {
       title: 'Magneti al Neodimio N35 vs. N45 vs. N52 negli Slider Fidget in Metallo: Forza e Calibrazione Aptica',
@@ -285,8 +285,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Varför mekaniska spårsliders (FS-002, FS-048) använder N35–N40 magneter medan fria PTFE-sliders (FS-125, FS-075) kräver starka N50–N52 magneter.'
     },
     da: {
-      title: 'N35 vs. N45 vs. N52 Neodymmagneter i Metal Fidget Sliders: Trækkraft & Taktil Kalibrering',
-      summary: 'Hvorfor mekaniske skinnesliders (FS-002, FS-048) bruger N35–N40 magneter, mens frie PTFE-sliders (FS-125, FS-075) kræver kraftige N50–N52 magneter.'
+      title: 'N35 vs. N52 & N45 Neodymmagneter (+48% Trækkraft): Fidget Slider Guide',
+      summary: 'N35 vs N52 & N52 vs N35 magneter (+48% trækkraft): hvorfor skinnesliders (FS-002) bruger N35–N40, mens frie PTFE-sliders (FS-125) kræver kraftige N50–N52.'
     },
     no: {
       title: 'N35 vs. N45 vs. N52 Neodymmagneter i Metall Fidget Sliders: Trekkraft & Taktil Kalibrering',
@@ -1547,8 +1547,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'IATA PI-953 (PI953 <0,00525 Gauss) magnetisk luftfragt, HS-toldkoder (9503.00) og dør-til-dør DDP-import af metalfidgets til Danmark & EU (MOQ 50).'
     },
     no: {
-      title: 'Norske Tollkoder (HS 9503.00), IATA PI-953 (PI953) & DDP',
-      summary: 'Norske tollkoder (HS 9503.00), IATA PI-953 (PI953 <0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets til Norge og EU (MOQ 50 stk.).'
+      title: 'Tollkoder (HS 9503.00), IATA PI-953 (PI953) & DDP Import',
+      summary: 'Tollkoder i Norge (HS 9503.00 / 8306.29), IATA PI-953 (PI953 <0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets til Norge (MOQ 50 stk.).'
     },
     fi: {
       title: 'Kansainvälinen DDP-toimitus, HS-tullikoodit (9503.00) & IATA PI-953 Magneettinen Lentorahti: Maahantuontiopas',
@@ -1571,8 +1571,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: '日米欧・英国およびAmazon FBA倉庫への金属フィジェット輸入におけるHS関税分類（9503.00）、IATA PI-953磁気遮蔽梱包（0.00525ガウス基準）、航空/海上DDP輸送を完全解説。'
     },
     ko: {
-      title: '국제 DDP 관세포함 배송, HS 코드(9503.00) 및 IATA PI-953 항공 자기장 검사: 금속 피젯 수입 통관 & FBA 입고 가이드',
-      summary: '미국·유럽·영국·일본 및 아마존 FBA 창고로 금속 피젯을 수입할 때 필요한 HS 세번(9503.00), IATA PI-953 가우스 자기 차폐 포장 및 항공/해상 DDP 물류 완벽 가이드.'
+      title: 'HS 9503.00 세번, IATA PI-953 자기차폐 & 국제 DDP 통관 가이드',
+      summary: 'HS 코드 9503.00(완구·메탈 피젯 세번), IATA PI-953 항공 자기장 차폐 포장 및 미국·유럽·한국 DDP 관세포함 통관 완벽 가이드(MOQ 50개).'
     },
     id: {
       title: 'Pengiriman DDP Internasional, Kode HS (9503.00) & Kargo Udara Magnetik IATA PI-953: Panduan Impor Fidget Logam',
