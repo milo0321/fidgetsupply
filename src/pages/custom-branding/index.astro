@@ -72,7 +72,7 @@ const faqSchema = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: currentLang === 'en' ? 'Laser Engraved Fidget Spinners & Custom Logo Metal Fidget Light Customization' : `${t('brand.heroTitle')} | FidgetSupply`,
+  name: currentLang === 'en' ? '50W MOPA Fiber Laser Engraving & Deep Enamel Color-Fill OEM Service' : `${t('brand.heroTitle')} | FidgetSupply`,
   provider: {
     '@type': 'Organization',
     name: 'FidgetSupply.com',
@@ -91,7 +91,7 @@ const serviceSchema = {
 };
 
 const BRANDING_META_DESC_MAP: Record<string, string> = {
-  en: 'Laser engraved fidget spinner, spinners with company logo & custom fidget spinner with logo on 140 metal molds ($0.74+, $0 mold, MOQ 100, +$0.15/pc).',
+  en: '50W MOPA fiber laser engraving (+$0.15/pc) & deep laser Pantone enamel color-fill (+$0.35/pc) on 140 metal EDC molds. $0 tooling fee, MOQ 100 pcs, 12h proof.',
   es: 'Fidgets metálicos con logo personalizado en 140 moldes ($0 molde): grabado láser 50W (+$0.15/ud.) y grabado profundo con esmalte a color (MOQ 100 uds.).',
   de: 'Metall-Fidgets mit Logo auf 140 Bestandsformen ($0 Werkzeugkosten): 50W-Faserlaser (+$0.15/Stk.) & Tiefengravur mit Farbauslegung ab 100 Stück MOQ.',
   fr: 'Fidgets métal personnalisés avec logo sur 140 moules ($0 moule) : gravure laser 50W (+$0.15/pce) et gravure profonde avec émail couleur dès 100 pièces.',
@@ -114,7 +114,7 @@ const pageDescription = BRANDING_META_DESC_MAP[currentLang] || BRANDING_META_DES
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Custom Logo Fidget Spinners, Sliders & Coins ($0 Mold Fee)' : `${t('brand.heroTitle')} (+$0.15/pc) | FidgetSupply`}
+  title={currentLang === 'en' ? '50W Fiber Laser Engraving & Color-Fill OEM Service (+$0.15)' : `${t('brand.heroTitle')} (+$0.15/pc) | FidgetSupply`}
   description={pageDescription}
   activePage="custom-branding"
   jsonLd={[serviceSchema, faqSchema]}
@@ -158,11 +158,17 @@ const pageDescription = BRANDING_META_DESC_MAP[currentLang] || BRANDING_META_DES
         </div>
 
         <div class="hero-actions">
-          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+          <a
+            href={getLocalizedPath('/contact', currentLang)}
+            data-rfq-sku="Custom Logo Branding (50W Fiber Laser / Deep Color Fill)"
+            data-rfq-mode="Fiber Laser Engraved Logo (MOQ 100 pcs)"
+            data-rfq-qty="100"
+            class="btn btn-accent btn-hero"
+          >
             {t('nav.requestQuote')}
           </a>
           <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-secondary-dark btn-hero">
-            {t('home.hero.ctaLogo')}
+            {currentLang === 'en' ? 'Custom Logo Fidget Spinners & Sliders (28 Molds) →' : t('home.hero.ctaLogo')}
           </a>
         </div>
 

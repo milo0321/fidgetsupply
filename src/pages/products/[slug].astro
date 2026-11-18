@@ -402,6 +402,15 @@ const breadcrumbSchema = {
                 <span class="calc-meta-label">{t('pdp.noMoldFee')} · <span id="calc-qty-display">50</span> {t('unit.pcs')}</span>
                 <strong class="calc-total-val" id="calc-total-display">${(parseFloat(p.tier50) * 50).toFixed(2)} USD</strong>
               </div>
+              <a
+                id="calc-lock-wa-btn"
+                href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like to lock the quote for 50 pcs of ${p.sku} (Blank Stock) at $${p.tier50}/pc (Est. Total: $${(parseFloat(p.tier50) * 50).toFixed(2)} USD, $0 Mold Fee).`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-calc-lock-wa"
+              >
+                💬 Lock Price on WhatsApp →
+              </a>
             </div>
           </div>
         </div>
@@ -420,6 +429,7 @@ const breadcrumbSchema = {
             {t('pdp.requestQuote')} ({p.sku}) →
           </a>
           <a
+            id="pdp-main-wa-btn"
             href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing ($${p.tier500}–$${p.tier50} USD, MOQ 50 pcs) & sample info for ${p.sku} (${lp.title}).`)}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -738,6 +748,15 @@ const breadcrumbSchema = {
         if (stickyPriceEl) {
           stickyPriceEl.textContent = currentQty === 1 ? `1-Pc Sample (${currentSku}) · Free Logo Proof` : `$${unitTotal.toFixed(2)}/pc × ${currentQty} ($${subtotal.toFixed(0)} USD)`;
         }
+
+        const waMsg = currentQty === 1
+          ? `Hello FidgetSupply, I would like to order a 1-pc evaluation sample of ${currentSku} + Free 1:1 Logo Mockup.`
+          : `Hello FidgetSupply, I would like to lock the quote for ${currentQty} pcs of ${currentSku} (${mode}) at $${unitTotal.toFixed(2)}/pc (Est. Total: $${subtotal.toFixed(2)} USD, $0 Mold Fee).`;
+        const waUrl = `https://wa.me/8618750126315?text=${encodeURIComponent(waMsg)}`;
+        ['calc-lock-wa-btn', 'pdp-fast-wa-btn', 'pdp-main-wa-btn', 'pdp-sticky-wa-btn'].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.setAttribute('href', waUrl);
+        });
       }
 
       const sampleRfqBtn = document.getElementById('pdp-sample-rfq-btn');
@@ -1723,5 +1742,23 @@ const breadcrumbSchema = {
     .btn-fast-rfq {
       flex: 1;
     }
+  }
+  .btn-calc-lock-wa {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #059669 !important;
+    color: #ffffff !important;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.5rem 0.85rem;
+    border-radius: 0.5rem;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: background-color 0.2s ease;
+  }
+  .btn-calc-lock-wa:hover {
+    background: #047857 !important;
+    color: #ffffff !important;
   }
 </style>

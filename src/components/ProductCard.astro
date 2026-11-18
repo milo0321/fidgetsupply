@@ -92,6 +92,26 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
         {t('card.quote')}
       </a>
     </div>
+
+    <div class="card-micro-hooks">
+      <a
+        href={rfqUrl}
+        data-rfq-sku={p.sku}
+        data-rfq-mode="Sample / Prototype Evaluation"
+        data-rfq-qty="1"
+        class="card-micro-link"
+      >
+        📦 1-{t('unit.pc')} Sample
+      </a>
+      <a
+        href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing ($${p.tier500}–$${p.tier50}/pc) & 1-pc sample info for ${p.sku} (${locTitle}).`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="card-micro-link card-micro-wa"
+      >
+        💬 WhatsApp
+      </a>
+    </div>
   </div>
 </article>
 
@@ -275,5 +295,32 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
     text-align: center;
     border-radius: 0.45rem;
     min-width: 0;
+  }
+  .card-micro-hooks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.4rem;
+    padding-top: 0.35rem;
+    border-top: 1px dashed #e2e8f0;
+  }
+  .card-micro-link {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #0369a1;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-micro-link:hover {
+    text-decoration: underline;
+    color: #0284c7;
+  }
+  .card-micro-wa {
+    color: #047857;
+  }
+  .card-micro-wa:hover {
+    color: #059669;
   }
 </style>
