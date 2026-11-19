@@ -2312,9 +2312,13 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
           );
 
   const shortMat = locMat.split('(')[0].trim();
+  const isRing = p.primaryCollection === 'magnetic-fidget-rings';
+  const isSpinner = p.primaryCollection === 'metal-fidget-spinners-gyros';
   const META_DESC_MAP: Record<SupportedLanguage, string> = {
     en: p.metaDescription && p.metaDescription.length <= 155 ? p.metaDescription : overview.slice(0, 153),
-    de: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 Formkosten, MOQ 50 Stk.). ${shortMat}, ${p.weight}, 50W-Laserlogo ab 100 Stk.`,
+    de: isRing
+      ? `${p.skuDisplay} ${locTitle} (Drehring Aluminium & Magnetring: $${p.tier500}–$${p.tier50}, $0 Formkosten, MOQ 50 Stk.). ${shortMat}, ${p.weight}.`
+      : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 Formkosten, MOQ 50 Stk.). ${shortMat}, ${p.weight}, 50W-Laserlogo ab 100 Stk.`,
     fr: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 frais de moule, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser fibre 50W dès 100 pcs.`,
     nl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 matrijskosten, MOQ 50 st.). ${shortMat}, ${p.weight}, 50W-laserlogo vanaf 100 st.`,
     es: `${p.skuDisplay} ${locTitle} (Precio $${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 uds.). ${shortMat}, ${p.weight}, láser 50W desde 100 uds.`,
@@ -2323,22 +2327,29 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
     sv: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktygskostnad, MOQ 50 st). ${shortMat}, ${p.weight}, 50W laserlogo från 100 st.`,
     da: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, SKF/R188 & 50W laserlogo.`,
     no: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktøygebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W laserlogo fra 100 stk.`,
-    fi: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, ${p.weight}, omalla painatuksella / 50W laser.`,
+    fi: isSpinner
+      ? `${p.skuDisplay} ${locTitle} (fidget spinner omalla painatuksella: $${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, 50W laser.`
+      : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, ${p.weight}, omalla painatuksella / 50W laser.`,
     pl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 formy, MOQ 50 szt.). ${shortMat}, ${p.weight}, grawer laserowy 50W od 100 szt.`,
     cs: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 forma, MOQ 50 ks). ${shortMat}, ${p.weight}, 50W laserové logo od 100 ks.`,
     ru: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
     ja: `${p.skuDisplay} ${locTitle}（卸売 $${p.tier500}〜$${p.tier50}、金型代$0、MOQ 50個）。${shortMat}・${p.weight}、100個〜50Wレーザー名入れ対応。`,
     ko: p.tuningFork
       ? `${p.skuDisplay} 극성중공 ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 2040Hz 소리굽쇠 공명 & 50W 레이저 각인.`
-      : `${p.skuDisplay} ${locTitle} (도매가 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
+      : isRing
+        ? `${p.skuDisplay} 피젯 스피너 반지 · ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 50W 레이저 로고 각인.`
+        : `${p.skuDisplay} ${locTitle} (도매가 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
     id: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 biaya cetakan, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser 50W mulai 100 pcs.`,
     ar: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}، قالب 0$، الحد الأدنى 50 قطعة). ${shortMat}، ${p.weight}، حفر شعار ليزر 50W من 100 قطعة.`
   };
 
+  const koTitlePrefix = p.tuningFork && !locTitle.includes('극성중공') ? '극성중공 ' : '';
   const metaTitle =
     lang === 'en'
       ? p.metaTitle
-      : `${p.skuDisplay} ${locTitle} · $${p.tier500}+ | FidgetSupply`;
+      : lang === 'ko' && koTitlePrefix
+        ? `${p.skuDisplay} ${koTitlePrefix}${locTitle} · $${p.tier500}+ | FidgetSupply`
+        : `${p.skuDisplay} ${locTitle} · $${p.tier500}+ | FidgetSupply`;
   const metaDescription = META_DESC_MAP[lang] || overview.slice(0, 153);
 
   return {
