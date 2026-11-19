@@ -1,0 +1,930 @@
+---
+import type { SupportedLanguage } from '../i18n/config';
+import { getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  currentLang?: SupportedLanguage;
+}
+
+const { currentLang = 'en' } = Astro.props;
+const fullContactUrl = getLocalizedPath('/contact', currentLang);
+
+const MODAL_I18N: Record<
+  SupportedLanguage,
+  {
+    badge: string;
+    title: string;
+    subtitle: string;
+    tabSample: string;
+    tabSheet: string;
+    tabQuote: string;
+    contactLabel: string;
+    contactPlaceholder: string;
+    noteLabel: string;
+    submitBtn: string;
+    submittingText: string;
+    waBtn: string;
+    fullFormLink: string;
+    successTitle: string;
+    successSub: string;
+    closeLabel: string;
+  }
+> = {
+  en: {
+    badge: '⚡ 1-Step Instant Factory Desk · No Page Reload',
+    title: 'Get Instant Price Sheet, 1-Pc Sample or Quote',
+    subtitle: '✓ 1-Pc Sample Available · ✓ 50-Pc Mix-SKU Starter Pack · ✓ $0 Mold Fee',
+    tabSample: '📦 1-Pc Sample',
+    tabSheet: '📊 140-SKU PDF Sheet',
+    tabQuote: '⚡ Wholesale Quote',
+    contactLabel: 'Work Email (or WhatsApp / Telegram) *',
+    contactPlaceholder: 'name@company.com or +1 555 019 2834',
+    noteLabel: 'Selected SKU / Quantity / Notes (Optional)',
+    submitBtn: '⚡ Send Price Sheet & Sample Quote Now →',
+    submittingText: 'Sending to Fuzhou Export Desk...',
+    waBtn: '💬 Or Chat Instantly on WhatsApp (15s Reply)',
+    fullFormLink: 'Need to attach logo artwork (.AI/.PDF)? Open Full Form →',
+    successTitle: '✅ Request Received! Check Your Inbox Shortly.',
+    successSub: 'Our Fuzhou export engineering desk has received your request and will send the PDF price sheet, sample invoice, or 1:1 logo proof within 2–12 hours.',
+    closeLabel: 'Continue Browsing'
+  },
+  de: {
+    badge: '⚡ 1-Klick Direkt-Anfrage · Ohne Seitenwechsel',
+    title: 'Sofort-Preisliste, 1-Stk.-Muster oder Angebot anfordern',
+    subtitle: '✓ 1-Stk. Muster möglich · ✓ 50-Stk. Mix-SKU Starterpaket · ✓ $0 Formkosten',
+    tabSample: '📦 1-Stk. Muster',
+    tabSheet: '📊 140-SKU Preisliste (PDF)',
+    tabQuote: '⚡ Großhandelsangebot',
+    contactLabel: 'Geschäftliche E-Mail (oder WhatsApp / Telegram) *',
+    contactPlaceholder: 'name@firma.de oder +49 170 ...',
+    noteLabel: 'Ausgewählte SKU / Menge / Notiz (Optional)',
+    submitBtn: '⚡ Preisliste & Musterangebot jetzt senden →',
+    submittingText: 'Wird gesendet...',
+    waBtn: '💬 Oder direkt per WhatsApp anfragen (15s Antwort)',
+    fullFormLink: 'Logo-Datei (.AI/.PDF) hochladen? Zum vollständigen Formular →',
+    successTitle: '✅ Anfrage erhalten! Wir melden uns in Kürze.',
+    successSub: ' Unser Export-Team sendet Ihnen die PDF-Preisliste, Musterrechnung oder das 1:1-Logo-Layout innerhalb von 2–12 Stunden per E-Mail.',
+    closeLabel: 'Weiter stöbern'
+  },
+  fr: {
+    badge: '⚡ Devis Express en 1 Clic · Sans Quitter la Page',
+    title: 'Recevoir la Grille Tarifaire PDF, un Échantillon 1 Pce ou un Devis',
+    subtitle: '✓ Échantillon 1 pce disponible · ✓ Pack découverte 50 pcs mixtes · ✓ 0 $ frais de moule',
+    tabSample: '📦 Échantillon 1 pce',
+    tabSheet: '📊 Tarifs PDF 140 Modèles',
+    tabQuote: '⚡ Devis Gros & Logo',
+    contactLabel: 'E-mail Professionnel (ou WhatsApp / Telegram) *',
+    contactPlaceholder: 'nom@entreprise.fr ou +33 6 ...',
+    noteLabel: 'SKU sélectionné / Quantité / Notes (Optionnel)',
+    submitBtn: '⚡ Recevoir la Grille PDF & le Devis Maintenant →',
+    submittingText: 'Envoi en cours...',
+    waBtn: '💬 Ou discuter sur WhatsApp (Réponse en 15s)',
+    fullFormLink: 'Joindre un fichier logo (.AI/.PDF) ? Ouvrir le formulaire complet →',
+    successTitle: '✅ Demande reçue ! Vérifiez votre boîte mail.',
+    successSub: 'Notre bureau export vous enverra la grille tarifaire PDF, le devis échantillon ou la maquette logo 1:1 sous 2 à 12 heures.',
+    closeLabel: 'Continuer la visite'
+  },
+  nl: {
+    badge: '⚡ Directe Fabrieksdesk in 1 Stap · Zonder Paginawissel',
+    title: 'Ontvang Direct de Prijslijst, 1-St. Monster of Offerte',
+    subtitle: '✓ 1-St. monster mogelijk · ✓ 50-St. Mix-SKU starterpakket · ✓ $0 matrijskosten',
+    tabSample: '📦 1-St. Monster',
+    tabSheet: '📊 140-SKU Prijslijst (PDF)',
+    tabQuote: '⚡ Groothandelsofferte',
+    contactLabel: 'Zakelijk E-mailadres (of WhatsApp / Telegram) *',
+    contactPlaceholder: 'naam@bedrijf.nl of +31 6 ...',
+    noteLabel: 'Geselecteerde SKU / Aantal / Notities (Optioneel)',
+    submitBtn: '⚡ Stuur Prijslijst & Monsterofferte Nu →',
+    submittingText: 'Bezig met verzenden...',
+    waBtn: '💬 Of chat direct via WhatsApp (15s antwoord)',
+    fullFormLink: 'Logo-bestand (.AI/.PDF) bijvoegen? Open volledig formulier →',
+    successTitle: '✅ Aanvraag ontvangen! Controleer uw inbox.',
+    successSub: 'Onze exportdesk stuurt u binnen 2–12 uur de PDF-prijslijst, monsterfactuur of 1:1 logoproef per e-mail.',
+    closeLabel: 'Verder winkelen'
+  },
+  es: {
+    badge: '⚡ Cotización Express en 1 Paso · Sin Salir de la Página',
+    title: 'Reciba Lista de Precios PDF, Muestra de 1 Ud. o Cotización',
+    subtitle: '✓ Muestra de 1 ud. disponible · ✓ Lote mixto 50 uds. · ✓ $0 costo de molde',
+    tabSample: '📦 Muestra 1 ud.',
+    tabSheet: '📊 Lista PDF 140 Modelos',
+    tabQuote: '⚡ Cotización Mayorista',
+    contactLabel: 'Correo Corporativo (o WhatsApp / Telegram) *',
+    contactPlaceholder: 'nombre@empresa.com o +34 ...',
+    noteLabel: 'SKU seleccionado / Cantidad / Notas (Opcional)',
+    submitBtn: '⚡ Enviar Lista de Precios y Cotización Ahora →',
+    submittingText: 'Enviando solicitud...',
+    waBtn: '💬 O chatear al instante por WhatsApp (Respuesta 15s)',
+    fullFormLink: '¿Adjuntar archivo de logo (.AI/.PDF)? Abrir formulario completo →',
+    successTitle: '✅ ¡Solicitud recibida! Revise su correo en breve.',
+    successSub: 'Nuestro equipo de exportación le enviará el catálogo PDF con precios, cotización de muestra o boceto 1:1 en un plazo de 2 a 12 horas.',
+    closeLabel: 'Seguir explorando'
+  },
+  it: {
+    badge: '⚡ Preventivo Rapido in 1 Passo · Senza Cambio Pagina',
+    title: 'Ricevi Listino Prezzi PDF, Campione 1 Pz o Preventivo',
+    subtitle: '✓ Campione 1 pz disponibile · ✓ Lotto misto 50 pz · ✓ $0 costi di stampo',
+    tabSample: '📦 Campione 1 pz',
+    tabSheet: '📊 Listino PDF 140 Modelli',
+    tabQuote: '⚡ Preventivo Ingrosso',
+    contactLabel: 'Email Aziendale (o WhatsApp / Telegram) *',
+    contactPlaceholder: 'nome@azienda.it o +39 ...',
+    noteLabel: 'SKU selezionato / Quantità / Note (Opzionale)',
+    submitBtn: '⚡ Invia Listino PDF e Preventivo Ora →',
+    submittingText: 'Invio in corso...',
+    waBtn: '💬 Oppure chatta su WhatsApp (Risposta in 15s)',
+    fullFormLink: 'Allegare file logo (.AI/.PDF)? Apri modulo completo →',
+    successTitle: '✅ Richiesta ricevuta! Controlla la tua email.',
+    successSub: 'Il nostro ufficio export ti invierà il listino prezzi PDF, il preventivo campione o la bozza logo 1:1 entro 2–12 ore.',
+    closeLabel: 'Continua a navigare'
+  },
+  pt: {
+    badge: '⚡ Cotação Rápida em 1 Passo · Sem Sair da Página',
+    title: 'Receba Tabela de Preços PDF, Amostra 1 Un. ou Cotação',
+    subtitle: '✓ Amostra de 1 un. disponível · ✓ Lote misto 50 un. · ✓ $0 custo de molde',
+    tabSample: '📦 Amostra 1 un.',
+    tabSheet: '📊 Tabela PDF 140 Modelos',
+    tabQuote: '⚡ Cotação Atacado',
+    contactLabel: 'E-mail Comercial (ou WhatsApp / Telegram) *',
+    contactPlaceholder: 'nome@empresa.com ou +55 / +351 ...',
+    noteLabel: 'SKU selecionado / Quantidade / Notas (Opcional)',
+    submitBtn: '⚡ Enviar Tabela de Preços e Cotação Agora →',
+    submittingText: 'Enviando solicitação...',
+    waBtn: '💬 Ou conversar agora no WhatsApp (Resposta 15s)',
+    fullFormLink: 'Anexar arquivo de logotipo (.AI/.PDF)? Abrir formulário completo →',
+    successTitle: '✅ Solicitação recebida! Verifique seu e-mail.',
+    successSub: 'Nossa equipe de exportação enviará a tabela de preços PDF, cotação de amostra ou prova 1:1 em 2 a 12 horas.',
+    closeLabel: 'Continuar navegando'
+  },
+  sv: {
+    badge: '⚡ Direkt Offert & Prov i 1 Steg · Utan Sidladdning',
+    title: 'Få PDF-Prislista, 1-St. Prov eller Grossistoffert Direkt',
+    subtitle: '✓ 1 st utvärderingsprov · ✓ 50 st Mix-SKU startpaket · ✓ $0 verktygskostnad',
+    tabSample: '📦 1 st Prov',
+    tabSheet: '📊 140-SKU Prislista (PDF)',
+    tabQuote: '⚡ Grossistoffert',
+    contactLabel: 'E-postadress (eller WhatsApp / Telegram) *',
+    contactPlaceholder: 'namn@foretag.se eller +46 ...',
+    noteLabel: 'Vald SKU / Antal / Anteckningar (Valfritt)',
+    submitBtn: '⚡ Skicka PDF-Prislista & Offerter till Min E-post →',
+    submittingText: 'Skickar förfrågan...',
+    waBtn: '💬 Eller chatta direkt på WhatsApp (Svar inom 15s)',
+    fullFormLink: 'Bifoga logotypfil (.AI/.PDF)? Öppna fullständigt formulär →',
+    successTitle: '✅ Förfrågan mottagen! Kontrollera din inkorg.',
+    successSub: 'Vårt exportteam skickar PDF-prislistan, provfakturan eller 1:1 logokorrekturet till din e-post inom 2–12 timmar.',
+    closeLabel: 'Fortsätt bläddra'
+  },
+  da: {
+    badge: '⚡ Hurtigt Tilbud & Prøve i 1 Trin · Uden Sideskift',
+    title: 'Få PDF-Prisliste, 1-Stk. Prøve eller Engrostilbud Nu',
+    subtitle: '✓ 1 stk. prøve mulig · ✓ 50 stk. Mix-SKU startpakke · ✓ $0 værktøjsgebyr',
+    tabSample: '📦 1 stk. Prøve',
+    tabSheet: '📊 140-SKU Prisliste (PDF)',
+    tabQuote: '⚡ Engrostilbud',
+    contactLabel: 'Arbejds-e-mail (eller WhatsApp / Telegram) *',
+    contactPlaceholder: 'navn@firma.dk eller +45 ...',
+    noteLabel: 'Valgt SKU / Antal / Noter (Valgfrit)',
+    submitBtn: '⚡ Send PDF-Prisliste & Prøvetilbud Nu →',
+    submittingText: 'Sender forespørgsel...',
+    waBtn: '💬 Eller chat direkte på WhatsApp (Svar på 15s)',
+    fullFormLink: 'Vedhæft logofil (.AI/.PDF)? Åbn fuld formular →',
+    successTitle: '✅ Forespørgsel modtaget! Tjek din indbakke.',
+    successSub: 'Vores eksportteam sender PDF-prislisten, prøvetilbuddet eller 1:1 logokorrekturen til din e-mail inden for 2–12 timer.',
+    closeLabel: 'Fortsæt med at kigge'
+  },
+  no: {
+    badge: '⚡ Raskt Tilbud & Prøve i 1 Trinn · Uten Sidebytte',
+    title: 'Få PDF-Prisliste, 1-Stk. Prøve eller Grossisttilbud Nå',
+    subtitle: '✓ 1 stk. prøve tilgjengelig · ✓ 50 stk. Mix-SKU startpakke · ✓ $0 verktøygebyr',
+    tabSample: '📦 1 stk. Prøve',
+    tabSheet: '📊 140-SKU Prisliste (PDF)',
+    tabQuote: '⚡ Grossisttilbud',
+    contactLabel: 'E-postadresse (eller WhatsApp / Telegram) *',
+    contactPlaceholder: 'navn@firma.no eller +47 ...',
+    noteLabel: 'Valgt SKU / Antall / Notater (Valgfritt)',
+    submitBtn: '⚡ Send PDF-Prisliste & Prøvetilbud Nå →',
+    submittingText: 'Sender forespørsel...',
+    waBtn: '💬 Eller chat direkte på WhatsApp (Svar på 15s)',
+    fullFormLink: 'Legge ved logofil (.AI/.PDF)? Åpne fullstendig skjema →',
+    successTitle: '✅ Forespørsel mottatt! Sjekk innboksen din.',
+    successSub: 'Vårt eksportteam sender PDF-prislisten, prøvetilbudet eller 1:1 logokorrekturen til e-posten din innen 2–12 timer.',
+    closeLabel: 'Fortsett å bla'
+  },
+  fi: {
+    badge: '⚡ Pikatarjous & Näyte 1 Vaiheessa · Ilman Sivunlatausta',
+    title: 'Tilaa PDF-Hinnasto, 1 Kpl Näyte tai Tukkutarjous Heti',
+    subtitle: '✓ 1 kpl arviointinäyte · ✓ 50 kpl Mix-SKU aloituspaketti · ✓ $0 muottikulu',
+    tabSample: '📦 1 kpl Näyte',
+    tabSheet: '📊 140-SKU Hinnasto (PDF)',
+    tabQuote: '⚡ Tukkutarjous',
+    contactLabel: 'Sähköpostiosoite (tai WhatsApp / Telegram) *',
+    contactPlaceholder: 'nimi@yritys.fi tai +358 ...',
+    noteLabel: 'Valittu SKU / Määrä / Lisätiedot (Valinnainen)',
+    submitBtn: '⚡ Lähetä PDF-Hinnasto & Tarjous Sähköpostiini →',
+    submittingText: 'Lähetetään pyyntöä...',
+    waBtn: '💬 Tai keskustele WhatsAppissa (Vastaus 15 sekunnissa)',
+    fullFormLink: 'Haluatko liittää logotiedoston (.AI/.PDF)? Avaa täysi lomake →',
+    successTitle: '✅ Pyyntö vastaanotettu! Tarkista sähköpostisi.',
+    successSub: 'Vientitiimimme lähettää PDF-tukkuhinnaston, näytetarjouksen tai 1:1-logovedoksen sähköpostiisi 2–12 tunnin kuluessa.',
+    closeLabel: 'Jatka selaamista'
+  },
+  pl: {
+    badge: '⚡ Szybka Wycena w 1 Kroku · Bez Przeładowania Strony',
+    title: 'Odbierz Cennik PDF, Próbkę 1 Szt. lub Wycenę Hurtową',
+    subtitle: '✓ Próbka 1 szt. dostępna · ✓ Pakiet startowy 50 szt. Mix-SKU · ✓ 0 $ za formę',
+    tabSample: '📦 Próbka 1 szt.',
+    tabSheet: '📊 Cennik PDF 140 Modeli',
+    tabQuote: '⚡ Wycena Hurtowa',
+    contactLabel: 'Służbowy E-mail (lub WhatsApp / Telegram) *',
+    contactPlaceholder: 'imie@firma.pl lub +48 ...',
+    noteLabel: 'Wybrany SKU / Ilość / Uwagi (Opcjonalnie)',
+    submitBtn: '⚡ Wyślij Cennik PDF i Wycenę Teraz →',
+    submittingText: 'Wysyłanie zapytania...',
+    waBtn: '💬 Lub napisz na WhatsApp (Odpowiedź w 15s)',
+    fullFormLink: 'Chcesz załączyć plik logo (.AI/.PDF)? Otwórz pełny formularz →',
+    successTitle: '✅ Zapytanie otrzymane! Sprawdź swoją skrzynkę.',
+    successSub: 'Nasz dział eksportu wyśle cennik PDF, wycenę próbki lub wizualizację 1:1 na Twój e-mail w ciągu 2–12 godzin.',
+    closeLabel: 'Kontynuuj przeglądanie'
+  },
+  cs: {
+    badge: '⚡ Rychlá Poptávka v 1 Kroku · Bez Opouštění Stránky',
+    title: 'Získejte Ceník PDF, Vzorek 1 Ks nebo Velkoobchodní Nabídku',
+    subtitle: '✓ Vzorek 1 ks k dispozici · ✓ Startovací mix 50 ks · ✓ $0 poplatek za formu',
+    tabSample: '📦 Vzorek 1 ks',
+    tabSheet: '📊 Ceník PDF 140 Modelů',
+    tabQuote: '⚡ Velkoobchodní Nabídka',
+    contactLabel: 'Firemní E-mail (nebo WhatsApp / Telegram) *',
+    contactPlaceholder: 'jmeno@firma.cz nebo +420 ...',
+    noteLabel: 'Vybrané SKU / Množství / Poznámka (Volitelné)',
+    submitBtn: '⚡ Odeslat PDF Ceník a Nabídku na Můj E-mail →',
+    submittingText: 'Odesílání poptávky...',
+    waBtn: '💬 Nebo napište na WhatsApp (Odpověď do 15s)',
+    fullFormLink: 'Potřebujete přiložit logo (.AI/.PDF)? Otevřít celý formulář →',
+    successTitle: '✅ Poptávka přijata! Zkontrolujte svůj e-mail.',
+    successSub: 'Náš exportní tým vám zašle PDF ceník, nabídku vzorku nebo 1:1 náhled loga do 2–12 hodin.',
+    closeLabel: 'Pokračovat v prohlížení'
+  },
+  ru: {
+    badge: '⚡ Быстрый Запрос в 1 Шаг · Без Перехода со Страницы',
+    title: 'Получить Прайс-лист PDF, Образец 1 Шт. или Оптовый Расчет',
+    subtitle: '✓ Образец 1 шт. доступен · ✓ Микс-заказ от 50 шт. · ✓ $0 за пресс-форму',
+    tabSample: '📦 Образец 1 шт.',
+    tabSheet: '📊 Прайс PDF (140 Моделей)',
+    tabQuote: '⚡ Оптовый Расчет',
+    contactLabel: 'Рабочий Email (или Telegram / WhatsApp) *',
+    contactPlaceholder: 'name@company.ru или @telegram / +7...',
+    noteLabel: 'Выбранный артикул SKU / Тираж / Комментарий',
+    submitBtn: '⚡ Получить Прайс-лист PDF и Расчет на Email →',
+    submittingText: 'Отправка запроса...',
+    waBtn: '💬 Или написать в WhatsApp (Ответ за 15 сек)',
+    fullFormLink: 'Нужно прикрепить макет логотипа (.AI/.PDF)? Открыть полную форму →',
+    successTitle: '✅ Запрос получен! Проверьте вашу почту.',
+    successSub: 'Наш экспортный отдел отправит вам полный PDF прайс-лист на 140 моделей, расчет образца или 1:1 макет логотипа в течение 2–12 часов.',
+    closeLabel: 'Продолжить просмотр'
+  },
+  ja: {
+    badge: '⚡ ページ移動なし・1ステップ即時見積り＆サンプル請求',
+    title: '全140型PDF価格表・1個サンプル・卸売見積りを即時メール受取',
+    subtitle: '✓ 1個サンプル試作OK · ✓ 50個〜複数SKU混載OK · ✓ 金型代 $0（初期費用ゼロ）',
+    tabSample: '📦 1個サンプル請求',
+    tabSheet: '📊 全140型 価格表PDF',
+    tabQuote: '⚡ 卸売・名入れ見積り',
+    contactLabel: 'メールアドレス（またはLINE / WhatsApp） *',
+    contactPlaceholder: 'name@company.co.jp',
+    noteLabel: 'ご希望の型番（SKU）・数量・メモ（任意）',
+    submitBtn: '⚡ PDF価格表＆サンプル見積りをメールで受け取る →',
+    submittingText: '送信中...',
+    waBtn: '💬 または WhatsApp で即時チャット相談（15秒応答）',
+    fullFormLink: 'ロゴデータ（.AI/.PDF）を添付する場合は詳細フォームへ →',
+    successTitle: '✅ リクエストを受け付けました！',
+    successSub: '福州輸出デスクより、2〜12時間以内に全140モデルPDF価格表・サンプルお見積り・1:1ロゴ校正データをメールでお送りいたします。',
+    closeLabel: 'ページに戻る'
+  },
+  ko: {
+    badge: '⚡ 페이지 이동 없는 1단계 즉시 견적 및 1개 샘플 신청',
+    title: '140종 PDF 단가표 · 1개 샘플 · 도매 견적서 즉시 이메일 수령',
+    subtitle: '✓ 1개 샘플 주문 가능 · ✓ 50개 다품종 혼합 주문 가능 · ✓ 금형비 $0 (무료)',
+    tabSample: '📦 1개 샘플 신청',
+    tabSheet: '📊 140종 단가표 PDF',
+    tabQuote: '⚡ 도매·로고 각인 견적',
+    contactLabel: '업무용 이메일 (또는 카카오톡 ID / WhatsApp) *',
+    contactPlaceholder: 'name@company.co.kr 또는 연락처',
+    noteLabel: '선택 모델(SKU) / 수량 / 요청사항 (선택)',
+    submitBtn: '⚡ PDF 단가표 및 샘플 견적서 이메일로 받기 →',
+    submittingText: '전송 중...',
+    waBtn: '💬 또는 WhatsApp 실시간 채팅 문의 (15초 내 응답)',
+    fullFormLink: '로고 파일(.AI/.PDF) 첨부가 필요하신가요? 전체 양식 열기 →',
+    successTitle: '✅ 요청이 접수되었습니다! 이메일을 확인해 주세요.',
+    successSub: '수출 엔지니어링 데스크에서 2~12시간 이내에 140종 전체 PDF 단가표, 샘플 견적서 또는 1:1 로고 시안을 이메일로 보내드립니다.',
+    closeLabel: '계속 둘러보기'
+  },
+  id: {
+    badge: '⚡ Permintaan Instan 1 Langkah · Tanpa Pindah Halaman',
+    title: 'Dapatkan Daftar Harga PDF, Sampel 1 Pc, atau Penawaran Grosir',
+    subtitle: '✓ Sampel 1 pc tersedia · ✓ Paket campuran 50 pcs Mix-SKU · ✓ Biaya cetakan $0',
+    tabSample: '📦 Sampel 1 pc',
+    tabSheet: '📊 Daftar Harga PDF 140 SKU',
+    tabQuote: '⚡ Penawaran Grosir',
+    contactLabel: 'Email Kerja (atau Nomor WhatsApp) *',
+    contactPlaceholder: 'nama@perusahaan.co.id atau +62 ...',
+    noteLabel: 'SKU Terpilih / Jumlah / Catatan (Opsional)',
+    submitBtn: '⚡ Kirim Daftar Harga PDF & Penawaran Sekarang →',
+    submittingText: 'Mengirim permintaan...',
+    waBtn: '💬 Atau Chat Langsung di WhatsApp (Balas 15 Detik)',
+    fullFormLink: 'Perlu melampirkan file logo (.AI/.PDF)? Buka formulir lengkap →',
+    successTitle: '✅ Permintaan diterima! Periksa email Anda.',
+    successSub: 'Tim ekspor kami akan mengirimkan daftar harga PDF 140 SKU, penawaran sampel, atau mockup logo 1:1 dalam 2–12 jam.',
+    closeLabel: 'Lanjut melihat-lihat'
+  },
+  ar: {
+    badge: '⚡ طلب فوري بخطوة واحدة · دون مغادرة الصفحة',
+    title: 'احصل على قائمة الأسعار PDF أو عينة 1 قطعة أو عرض سعر بالجملة',
+    subtitle: '✓ تتوفر عينة 1 قطعة · ✓ باقة مختلطة 50 قطعة · ✓ 0$ رسوم قالب',
+    tabSample: '📦 عينة 1 قطعة',
+    tabSheet: '📊 قائمة أسعار 140 طرازاً PDF',
+    tabQuote: '⚡ عرض سعر بالجملة',
+    contactLabel: 'البريد الإلكتروني للعمل (أو رقم واتساب) *',
+    contactPlaceholder: 'name@company.com أو +966 / +971 ...',
+    noteLabel: 'الطراز المختار (SKU) / الكمية / ملاحظات (اختياري)',
+    submitBtn: '⚡ أرسل قائمة الأسعار PDF وعرض السعر الآن →',
+    submittingText: 'جارٍ الإرسال...',
+    waBtn: '💬 أو تحدث مباشرة عبر واتساب (رد خلال 15 ثانية)',
+    fullFormLink: 'هل تريد إرفاق ملف الشعار (.AI/.PDF)؟ افتح النموذج الكامل →',
+    successTitle: '✅ تم استلام طلبك! يرجى التحقق من بريدك الإلكتروني.',
+    successSub: 'سيرسل لك مكتب التصدير لدينا قائمة الأسعار الكاملة PDF أو فاتورة العينة أو تصميم الشعار 1:1 خلال 2 إلى 12 ساعة.',
+    closeLabel: 'متابعة التصفح'
+  }
+};
+
+const L = MODAL_I18N[currentLang] || MODAL_I18N.en;
+---
+
+<div
+  id="fs-quick-rfq-modal"
+  class="qrfq-overlay"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="qrfq-title"
+  hidden
+>
+  <div class="qrfq-backdrop" data-qrfq-close></div>
+  <div class="qrfq-dialog">
+    <button type="button" class="qrfq-close-btn" data-qrfq-close aria-label={L.closeLabel}>
+      &times;
+    </button>
+
+    <div id="qrfq-form-view">
+      <div class="qrfq-header">
+        <span class="qrfq-badge">{L.badge}</span>
+        <h3 id="qrfq-title" class="qrfq-title">{L.title}</h3>
+        <p class="qrfq-subtitle">{L.subtitle}</p>
+      </div>
+
+      <div class="qrfq-tabs" role="tablist">
+        <button type="button" class="qrfq-tab active" data-qrfq-tab="sample">
+          {L.tabSample}
+        </button>
+        <button type="button" class="qrfq-tab" data-qrfq-tab="sheet">
+          {L.tabSheet}
+        </button>
+        <button type="button" class="qrfq-tab" data-qrfq-tab="quote">
+          {L.tabQuote}
+        </button>
+      </div>
+
+      <form id="qrfq-form" class="qrfq-form" novalidate>
+        <input type="text" id="qrfq-hp" name="rx_bot_trap_hp9" tabindex="-1" autocomplete="off" style="display:none;" />
+        <div class="qrfq-field">
+          <label for="qrfq-contact-input" class="qrfq-label">{L.contactLabel}</label>
+          <input
+            type="text"
+            id="qrfq-contact-input"
+            class="qrfq-input"
+            placeholder={L.contactPlaceholder}
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="qrfq-field">
+          <label for="qrfq-note-input" class="qrfq-label">{L.noteLabel}</label>
+          <input
+            type="text"
+            id="qrfq-note-input"
+            class="qrfq-input qrfq-input-note"
+            value="FS-125 · 1-Pc Sample / 140-SKU Price Sheet"
+          />
+        </div>
+
+        <button
+          type="submit"
+          id="qrfq-submit-btn"
+          class="qrfq-submit-btn"
+          data-default-text={L.submitBtn}
+          data-loading-text={L.submittingText}
+        >
+          {L.submitBtn}
+        </button>
+      </form>
+
+      <div class="qrfq-alt-actions">
+        <a
+          id="qrfq-wa-link"
+          href="https://wa.me/8618750126315"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="qrfq-wa-btn"
+        >
+          {L.waBtn}
+        </a>
+        <a id="qrfq-full-form-link" href={fullContactUrl} class="qrfq-full-link">
+          {L.fullFormLink}
+        </a>
+      </div>
+    </div>
+
+    <div id="qrfq-success-view" class="qrfq-success" hidden>
+      <div class="qrfq-success-icon">✓</div>
+      <h3 class="qrfq-success-title">{L.successTitle}</h3>
+      <p class="qrfq-success-sub">{L.successSub}</p>
+      <div class="qrfq-alt-actions" style="margin-top: 1.25rem;">
+        <a
+          id="qrfq-success-wa-link"
+          href="https://wa.me/8618750126315"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="qrfq-wa-btn"
+        >
+          {L.waBtn}
+        </a>
+        <button type="button" class="qrfq-close-secondary" data-qrfq-close>
+          {L.closeLabel}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var modal = document.getElementById('fs-quick-rfq-modal');
+    if (!modal) return;
+    var formView = document.getElementById('qrfq-form-view');
+    var successView = document.getElementById('qrfq-success-view');
+    var form = document.getElementById('qrfq-form');
+    var contactInput = document.getElementById('qrfq-contact-input');
+    var noteInput = document.getElementById('qrfq-note-input');
+    var submitBtn = document.getElementById('qrfq-submit-btn');
+    var waLink = document.getElementById('qrfq-wa-link');
+    var successWaLink = document.getElementById('qrfq-success-wa-link');
+    var fullFormLink = document.getElementById('qrfq-full-form-link');
+    var tabs = modal.querySelectorAll('.qrfq-tab');
+
+    var state = {
+      sku: 'All 140 Ready Molds',
+      mode: 'Sample / Prototype Evaluation',
+      qty: '1',
+      tab: 'sample'
+    };
+
+    try {
+      var savedEmail = localStorage.getItem('rx_user_email') || sessionStorage.getItem('rx_user_email') || '';
+      if (savedEmail && contactInput) contactInput.value = savedEmail;
+    } catch (_) {}
+
+    function syncModalFields() {
+      var summary = '';
+      if (state.tab === 'sample') {
+        summary = state.sku + ' · 1-Pc Evaluation Sample + Free 1:1 Logo Proof';
+      } else if (state.tab === 'sheet') {
+        summary = 'Full 140-SKU Wholesale Price Sheet (PDF/Excel) + ' + state.sku;
+      } else {
+        summary = state.sku + ' · Qty: ' + (state.qty === '1' ? '50' : state.qty) + ' pcs · ' + state.mode;
+      }
+      if (noteInput) noteInput.value = summary;
+
+      var waMsg = 'Hello FidgetSupply, I would like: ' + summary + ' (Page: ' + window.location.pathname + ')';
+      var waUrl = 'https://wa.me/8618750126315?text=' + encodeURIComponent(waMsg);
+      if (waLink) waLink.setAttribute('href', waUrl);
+      if (successWaLink) successWaLink.setAttribute('href', waUrl);
+
+      tabs.forEach(function (t) {
+        t.classList.toggle('active', t.getAttribute('data-qrfq-tab') === state.tab);
+      });
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        state.tab = t.getAttribute('data-qrfq-tab') || 'sample';
+        syncModalFields();
+      });
+    });
+
+    function openQuickRfqModal(opts) {
+      opts = opts || {};
+      state.sku = opts.sku || state.sku || 'All 140 Ready Molds';
+      state.mode = opts.mode || 'Blank Stock (MOQ 50 pcs)';
+      state.qty = opts.qty || '50';
+
+      if (state.qty === '1' || /sample/i.test(state.mode)) {
+        state.tab = 'sample';
+      } else if (/140|catalog|sheet/i.test(state.sku)) {
+        state.tab = 'sheet';
+      } else {
+        state.tab = 'quote';
+      }
+
+      if (opts.href && fullFormLink) {
+        fullFormLink.setAttribute('href', opts.href);
+      }
+
+      if (formView) formView.hidden = false;
+      if (successView) successView.hidden = true;
+      syncModalFields();
+      modal.hidden = false;
+      setTimeout(function () {
+        if (contactInput) contactInput.focus();
+      }, 60);
+
+      try {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'rfq_form_start', {
+            event_category: 'conversion_intent',
+            source_page: window.location.pathname,
+            rfq_sku: state.sku,
+            rfq_qty: state.qty
+          });
+        }
+      } catch (_) {}
+    }
+
+    function closeQuickRfqModal() {
+      modal.hidden = true;
+    }
+
+    modal.querySelectorAll('[data-qrfq-close]').forEach(function (el) {
+      el.addEventListener('click', closeQuickRfqModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) closeQuickRfqModal();
+    });
+
+    // Intercept clicks on any [data-rfq-sku] element outside the /contact page
+    document.addEventListener(
+      'click',
+      function (e) {
+        if (window.location.pathname.replace(/\/+$/, '').endsWith('/contact')) return;
+        var trigger = e.target.closest('[data-rfq-sku]');
+        if (!trigger || trigger.id === 'qrfq-full-form-link') return;
+
+        var sku = trigger.getAttribute('data-rfq-sku') || '';
+        var mode = trigger.getAttribute('data-rfq-mode') || 'Blank Stock (MOQ 50 pcs)';
+        var qty = trigger.getAttribute('data-rfq-qty') || '50';
+        var href = trigger.getAttribute('href') || '/contact';
+
+        try {
+          var payload = JSON.stringify({ sku: sku, mode: mode, qty: qty, ts: Date.now() });
+          sessionStorage.setItem('fs_rfq_prefill', payload);
+          localStorage.setItem('fs_rfq_prefill', payload);
+        } catch (_) {}
+
+        e.preventDefault();
+        openQuickRfqModal({ sku: sku, mode: mode, qty: qty, href: href });
+      },
+      false
+    );
+
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var rawContact = (contactInput && contactInput.value.trim()) || '';
+        if (!rawContact || rawContact.length < 3) {
+          if (contactInput) {
+            contactInput.style.borderColor = '#ef4444';
+            contactInput.focus();
+          }
+          return;
+        }
+        if (contactInput) contactInput.style.borderColor = '#cbd5e1';
+
+        var hpVal = (document.getElementById('qrfq-hp') && document.getElementById('qrfq-hp').value) || '';
+        var noteVal = (noteInput && noteInput.value.trim()) || '';
+
+        try {
+          localStorage.setItem('rx_user_email', rawContact);
+          sessionStorage.setItem('rx_user_email', rawContact);
+        } catch (_) {}
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = submitBtn.getAttribute('data-loading-text') || 'Sending...';
+        }
+
+        var journeySnapshot =
+          typeof window.getRxBrowsingJourneySnapshot === 'function'
+            ? window.getRxBrowsingJourneySnapshot()
+            : [];
+        var urlParams = new URLSearchParams(window.location.search);
+
+        fetch('/api/whatsapp-track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            event: 'message_sent',
+            triggerSource: '1-Step Instant RFQ Modal (' + state.tab.toUpperCase() + ')',
+            userEmail: rawContact,
+            userName: '',
+            userCompany: '',
+            pageUrl: window.location.href,
+            pagePath: window.location.pathname,
+            pageTitle: document.title,
+            productName: state.sku,
+            messageText:
+              '[1-Step Instant Lead]\nContact: ' +
+              rawContact +
+              '\nRequest Type: ' +
+              state.tab.toUpperCase() +
+              '\nSelected SKU & Details: ' +
+              noteVal,
+            browsingJourney: JSON.stringify(journeySnapshot),
+            rx_bot_trap_hp9: hpVal,
+            pageReferrer: document.referrer || 'Direct Visit',
+            browserLanguage: navigator.language || 'en',
+            screenResolution:
+              window.screen.width +
+              'x' +
+              window.screen.height +
+              ' (' +
+              (window.devicePixelRatio || 1) +
+              'x DPR)',
+            clientTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+            clientLocalTime: new Date().toLocaleString(),
+            timeOnPageSeconds: 'Instant Modal',
+            utmSource: urlParams.get('utm_source') || '',
+            utmMedium: urlParams.get('utm_medium') || '',
+            utmCampaign: urlParams.get('utm_campaign') || '',
+            utmTerm: urlParams.get('utm_term') || '',
+            utmContent: urlParams.get('utm_content') || ''
+          }),
+          keepalive: true
+        })
+          .catch(function () {})
+          .finally(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = submitBtn.getAttribute('data-default-text') || 'Send →';
+            }
+            if (formView) formView.hidden = true;
+            if (successView) successView.hidden = false;
+
+            try {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'generate_lead', {
+                  event_category: 'form_submission',
+                  event_label: 'quick_rfq_modal_' + state.tab,
+                  rfq_sku: state.sku,
+                  rfq_qty: state.qty,
+                  page_location: window.location.href
+                });
+              }
+            } catch (_) {}
+          });
+      });
+    }
+  })();
+</script>
+
+<style>
+  .qrfq-overlay[hidden] {
+    display: none !important;
+  }
+  .qrfq-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .qrfq-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(4px);
+    transform: translateZ(0);
+  }
+  .qrfq-dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 1rem;
+    padding: 1.5rem 1.5rem 1.35rem;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.45);
+    overflow: hidden;
+    transform: translateZ(0);
+  }
+  .qrfq-close-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.85rem;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qrfq-close-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+  }
+  .qrfq-header {
+    padding-right: 2rem;
+    margin-bottom: 1rem;
+  }
+  .qrfq-badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 0.22rem 0.65rem;
+    border-radius: 999px;
+    margin-bottom: 0.45rem;
+  }
+  .qrfq-title {
+    font-size: clamp(1.12rem, 2.5vw, 1.32rem);
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.3;
+    margin: 0 0 0.35rem 0;
+  }
+  .qrfq-subtitle {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #047857;
+    background: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 0.35rem 0.65rem;
+    border-radius: 0.45rem;
+    margin: 0;
+  }
+  .qrfq-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .qrfq-tab {
+    padding: 0.5rem 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    background: #f8fafc;
+    color: #334155;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .qrfq-tab.active {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
+  }
+  .qrfq-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .qrfq-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .qrfq-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+  .qrfq-input {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.92rem;
+    border: 1.5px solid #94a3b8;
+    border-radius: 0.55rem;
+    color: #0f172a;
+    background: #ffffff;
+  }
+  .qrfq-input:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+  }
+  .qrfq-input-note {
+    font-size: 0.82rem;
+    background: #f8fafc;
+    color: #334155;
+  }
+  .qrfq-submit-btn {
+    width: 100%;
+    padding: 0.82rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #ffffff;
+    background: #0284c7;
+    border: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  .qrfq-submit-btn:hover {
+    background: #0369a1;
+  }
+  .qrfq-alt-actions {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .qrfq-wa-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.62rem 0.85rem;
+    background: #059669;
+    color: #ffffff !important;
+    font-size: 0.82rem;
+    font-weight: 800;
+    border-radius: 0.55rem;
+    text-decoration: none !important;
+  }
+  .qrfq-wa-btn:hover {
+    background: #047857;
+  }
+  .qrfq-full-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #475569;
+    text-decoration: underline;
+  }
+  .qrfq-full-link:hover {
+    color: #0284c7;
+  }
+  .qrfq-success {
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+  .qrfq-success-icon {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 0.85rem;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 1.65rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qrfq-success-title {
+    font-size: 1.18rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 0.5rem 0;
+  }
+  .qrfq-success-sub {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .qrfq-close-secondary {
+    padding: 0.55rem;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #334155;
+    cursor: pointer;
+  }
+</style>

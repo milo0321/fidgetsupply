@@ -1,5 +1,5 @@
 ---
-import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../i18n/utils';
 import type { SupportedLanguage } from '../i18n/config';
 import { localizeTitle, localizeMaterial, localizeHardwareOrMagnets } from '../i18n/productLocalization';
 
@@ -11,6 +11,7 @@ interface Props {
 const { product, lang } = Astro.props;
 const currentLang = (lang || getLanguageFromURL(Astro.url) || 'en') as SupportedLanguage;
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const p = product.data || product;
 const locTitle = localizeTitle(p.title, currentLang);
 const locMaterial = localizeMaterial(p.material.split('/')[0].trim(), currentLang);
@@ -101,7 +102,7 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
         data-rfq-qty="1"
         class="card-micro-link"
       >
-        📦 1-{t('unit.pc')} Sample
+        {microHooks.sample1Pc}
       </a>
       <a
         href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing ($${p.tier500}–$${p.tier50}/pc) & 1-pc sample info for ${p.sku} (${locTitle}).`)}`}

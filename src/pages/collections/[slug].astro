@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { COLLECTIONS, type CollectionMeta } from '../../data/collections';
-import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+import { getLanguageFromURL, useTranslations, getLocalizedPath, getMicroHookLabels } from '../../i18n/utils';
 import { localizeTitle, localizeMaterial, localizeHardwareOrMagnets } from '../../i18n/productLocalization';
 import { localizeCollectionContent, localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
 
@@ -167,6 +167,7 @@ interface Props {
 const { collection, products, relatedGuides = [] } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const locCol = localizeCollectionContent(collection, currentLang);
 
 const collectionPrices = products
@@ -418,8 +419,8 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
             data-rfq-mode="Sample / Prototype Evaluation"
             data-rfq-qty="1"
           >
-            <strong>📦 1-{t('unit.pc')} Sample</strong>
-            <span>Free Logo Proof</span>
+            <strong>{microHooks.sample1Pc}</strong>
+            <span>{microHooks.freeLogoProof}</span>
           </a>
           <a
             href={getLocalizedPath('/contact', currentLang)}
@@ -428,7 +429,7 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
             data-rfq-mode="Blank Unbranded Stock"
             data-rfq-qty="50"
           >
-            <strong>📊 140-SKU Sheet</strong>
+            <strong>{microHooks.sheet140}</strong>
             <span>PDF / Excel</span>
           </a>
         </div>

@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
-import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+import { getLanguageFromURL, useTranslations, getLocalizedPath, getMicroHookLabels } from '../../i18n/utils';
 import { localizeProduct, getRelatedInsightSlugsForProduct } from '../../i18n/productLocalization';
 import { localizeInsightMeta } from '../../i18n/insightAndCollectionLocalization';
 
@@ -49,6 +49,7 @@ export async function getStaticPaths() {
 const { product: p, relatedProducts, relatedGuides = [] } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const lp = localizeProduct(p, currentLang);
 const rfqBaseUrl = getLocalizedPath('/contact', currentLang);
 
@@ -258,7 +259,7 @@ const breadcrumbSchema = {
         <div class="pdp-fast-action-strip">
           <div class="fast-price-meta">
             <strong class="fast-price-pill" id="fast-price-display">${p.tier500} – ${p.tier50}<span>/{t('unit.pc')}</span></strong>
-            <span class="fast-moq-tag">✓ {t('pdp.noMoldFee')} · 50 {t('unit.pcs')} MOQ</span>
+            <span class="fast-moq-tag">{microHooks.mixMoqBadge}</span>
           </div>
           <div class="fast-action-btns">
             <a
@@ -385,7 +386,7 @@ const breadcrumbSchema = {
             <div class="calc-qty-row">
               <span class="calc-qty-label">{t('contact.quantity')}:</span>
               <div class="calc-qty-chips" role="group" aria-label={t('contact.quantity')}>
-                <button type="button" class="calc-qty-chip chip-sample" data-qty="1">📦 1-{t('unit.pc')} Sample</button>
+                <button type="button" class="calc-qty-chip chip-sample" data-qty="1">{microHooks.sample1Pc}</button>
                 <button type="button" class="calc-qty-chip active" data-qty="50">50 {t('unit.pcs')}</button>
                 <button type="button" class="calc-qty-chip" data-qty="100">100 {t('unit.pcs')}</button>
                 <button type="button" class="calc-qty-chip" data-qty="200">200 {t('unit.pcs')}</button>
@@ -409,7 +410,7 @@ const breadcrumbSchema = {
                 rel="noopener noreferrer"
                 class="btn-calc-lock-wa"
               >
-                💬 Lock Price on WhatsApp →
+                {microHooks.lockPriceWa}
               </a>
             </div>
           </div>
@@ -449,7 +450,7 @@ const breadcrumbSchema = {
             data-rfq-qty="1"
             class="micro-lead-link"
           >
-            📦 {t('pdp.orderSample')} ({p.sku}) + Free 1:1 Logo Mockup →
+            {microHooks.orderSampleMockup(p.sku)}
           </a>
           <a
             id="pdp-catalog-rfq-btn"
@@ -459,7 +460,7 @@ const breadcrumbSchema = {
             data-rfq-qty="50"
             class="micro-lead-link"
           >
-            📊 Get Full 140-SKU Wholesale Price Sheet (PDF/Excel) →
+            {microHooks.getFullSheetPdf}
           </a>
         </div>
 

@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppWidget from '../components/WhatsAppWidget.astro';
+import QuickRfqModal from '../components/QuickRfqModal.astro';
 import { getLanguageFromURL, getDirection, getHreflangTags, useTranslations } from '../i18n/utils';
 import { languages, type SupportedLanguage } from '../i18n/config';
 import '../styles/global.css';
@@ -271,6 +272,7 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
 
     <!-- Ruixing Gifts Interactive Floating WhatsApp Button & Chat Modal -->
     <WhatsAppWidget currentLang={currentLang} />
+    <QuickRfqModal currentLang={currentLang} />
 
     <!-- Structured Data (JSON-LD) placed at end of body for faster Cold-Start HTML head parsing -->
     {allSchemas.map((schema) => (
