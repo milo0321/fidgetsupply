@@ -2324,8 +2324,12 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
     es: `${p.skuDisplay} ${locTitle} (Precio $${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 uds.). ${shortMat}, ${p.weight}, láser 50W desde 100 uds.`,
     it: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 stampo, MOQ 50 pz.). ${shortMat}, ${p.weight}, logo laser 50W da 100 pz.`,
     pt: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 un.). ${shortMat} Cinza Cromo, ${p.weight}, laser 50W (100 un.).`,
-    sv: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktygskostnad, MOQ 50 st). ${shortMat}, ${p.weight}, 50W laserlogo från 100 st.`,
-    da: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, SKF/R188 & 50W laserlogo.`,
+    sv: isSpinner
+      ? `${p.skuDisplay} ${locTitle} (Kullager Fidget Spinner & SKF/R188: $${p.tier500}–$${p.tier50}, $0 verktyg, MOQ 50 st). ${shortMat}, 50W laser.`
+      : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktygskostnad, MOQ 50 st). ${shortMat}, ${p.weight}, 50W laserlogo från 100 st.`,
+    da: isSpinner
+      ? `${p.skuDisplay} ${locTitle} (SKF/R188 Fidget Spinner: $${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, 50W laserlogo.`
+      : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, SKF/R188 & 50W laserlogo.`,
     no: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktøygebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W laserlogo fra 100 stk.`,
     fi: isSpinner
       ? `${p.skuDisplay} ${locTitle} (fidget spinner omalla painatuksella: $${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, 50W laser.`
@@ -2335,7 +2339,7 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
     ru: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
     ja: `${p.skuDisplay} ${locTitle}（卸売 $${p.tier500}〜$${p.tier50}、金型代$0、MOQ 50個）。${shortMat}・${p.weight}、100個〜50Wレーザー名入れ対応。`,
     ko: p.tuningFork
-      ? `${p.skuDisplay} 극성중공 ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 2040Hz 소리굽쇠 공명 & 50W 레이저 각인.`
+      ? `${p.skuDisplay} 극성중공 소리굽쇠·튜닝포크 ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개 · 1개 샘플). ${shortMat} ${p.weight}, 50W 레이저.`
       : isRing
         ? `${p.skuDisplay} 피젯 스피너 반지 · ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 50W 레이저 로고 각인.`
         : `${p.skuDisplay} ${locTitle} (도매가 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,

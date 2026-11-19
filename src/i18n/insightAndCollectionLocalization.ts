@@ -133,8 +133,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Como as hastes de diapasão internas e cavidades acústicas produzem o toque metálico de 2.800–4.200 Hz — comparando os 7 moldes acústicos (FS-150, FS-129, FS-148).'
     },
     sv: {
-      title: 'Akustiska Stämgaffel Fidget Sliders: Resonanskammar-teknik & Grossistguide 2026–2027',
-      summary: 'Hur frihängande stämgaffelskänklar och ihåliga resonanskammare skapar den klara 2 800–4 200 Hz metallklangen — jämförelse av alla 7 akustiska formar (FS-150, FS-129, FS-148).'
+      title: 'Akustiska Stämgaffel Fidget Sliders ($5.62+ · MOQ 50)',
+      summary: 'Hur frihängande stämgaffelskänklar och ihåliga resonanskammare skapar den klara 2 800–4 200 Hz metallklangen — jämförelse av alla 7 akustiska formar (FS-150, FS-129, FS-148, $0 verktyg, 1 st prov).'
     },
     da: {
       title: 'Akustiske Stemmegaffel Fidget Sliders (2.800–4.200 Hz Slider): Resonanskammer & Engros ($0 Form / MOQ 50)',
@@ -165,8 +165,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: '片持ち音叉プロングと共鳴チャンバーが 2,800〜4,200 Hz の澄んだ金属音「チーン！」を生み出す仕組みと、音叉シリーズ全7モデル（FS-150・FS-129・FS-148等、金型代$0・MOQ 50個）の徹底比較。'
     },
     ko: {
-      title: '극성중공 어쿠스틱 소리굽쇠(튜닝포크) 피젯 슬라이더: 공명 챔버 설계 및 도매 가이드 ($0 금형 / MOQ 50)',
-      summary: '극성중공(Polarity Hollow) 어쿠스틱 공명 챔버와 캔틸레버 소리굽쇠가 2,800~4,200 Hz 맑은 금속 공명음을 내는 원리 — FS-150($10.19+), FS-129($22.29+), FS-148 등 7종 금형비 $0 도매 비교.'
+      title: '극성중공 소리굽쇠(튜닝포크) 피젯 슬라이더 7종 ($5.62+ · 1개 샘플)',
+      summary: '극성중공(Polarity Hollow) 어쿠스틱 공명 챔버와 캔틸레버 소리굽쇠(튜닝포크)가 2,800~4,200 Hz 금속 공명음을 내는 원리 — FS-150($10.19+), FS-129($22.29+), FS-148 등 7종 도매 및 1개 샘플 가이드.'
     },
     id: {
       title: 'Slider Fidget Garpu Tala Akustik: Rekayasa Ruang Resonansi & Panduan Grosir 2026–2027',
@@ -1119,8 +1119,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Metalurgické srovnání vakuového PVD, eloxování hliníku typu II/III, omílaného stonewash povrchu a ručně kartáčovaného antického bronzu/stříbra.'
     },
     ru: {
-      title: 'PVD-Покрытие, Твердое Анодирование Типа III, Стоунвош и Античная Патина: Гид по Финишной Обработке EDC',
-      summary: 'Металлургическое сравнение вакуумного PVD, анодирования алюминия, галтовки стоунвош и ручного античного бронзового/серебряного гальванопокрытия.'
+      title: 'PVD-Покрытие, Анодирование и Стоунвош EDC ($0.74+ · MOQ 50)',
+      summary: 'Вакуумное PVD-покрытие, твердое анодирование Type-III, галтовка стоунвош и античная патина на 140 формах EDC ($0 за форму, от 50 шт., образец 1 шт.).'
     },
     ja: {
       title: 'PVDコーティング・硬質アルマイト・ストーンウォッシュ・アンティークメッキ：金属フィジェット表面処理ガイド',
@@ -1477,8 +1477,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'Liukuteippi (0,13/0,18 mm PTFE-Teflon), Si3N4-Keraamikuulat & R188-Laakerit: Fidget Huolto & Tukku',
-      summary: 'PTFE-liukuteippi (0,13 mm & 0,18 mm teflon-liukuteippi magneettislidereihin), mustat Si3N4-keraamikuulat ja R188-laakerit — tehdasvaraosat, $0 muottikulu ja MOQ 50 kpl.'
+      title: 'Liukuteippi (PTFE-Teflon), R188 & Fidgetit ($0.74+ MOQ 50)',
+      summary: 'PTFE-liukuteippi (0,13/0,18 mm teflon-liukuteippi magneettislidereihin), Si3N4-keraamikuulat, R188-laakerit & metalliset fidgetit ($0 muotti, MOQ 50).'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',
@@ -2229,8 +2229,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
         "summary": "Kovové fidgety pro automobilové disky/pneu (FS-030, FS-069), kasina (FS-083) a esport týmy (FS-020): $0 poplatek za formu, MOQ 50 ks, 50W laser."
     },
     "ru": {
-        "title": "Диски казино, автомобильные диски и VIP-подарки киберспорта: Отраслевые металлические фиджеты",
-        "summary": "Диски казино (рулетка FS-083), автомобильные диски (FS-030, FS-069) и кубки киберспорта (FS-020, FS-040): готовые пресс-формы ($0 за оснастку) от MOQ 50 шт. без логотипа или 100 шт. с лазерной гравировкой."
+        "title": "Спиннер в виде колеса, Диски авто и VIP-казино (MOQ 50)",
+        "summary": "Спиннер в виде колеса и автомобильного диска (FS-030, FS-069), рулетка казино (FS-083) и кубки киберспорта: 140 готовых форм ($0 за форму, от 50 шт.)."
     },
     "ja": {
         "title": "自動車ホイール＆タイヤ・カジノVIP・eスポーツ公式グッズ：業界別カスタム金属フィジェット企画ガイド",
