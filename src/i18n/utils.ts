@@ -97,6 +97,9 @@ export interface MicroHookLabels {
   mixMoqBadge: string;
   unitPriceLabel: string;
   estTotalLabel: string;
+  pdpInputPlaceholder: string;
+  pdpDirectSendBtn: string;
+  pdpSentConfirm: string;
 }
 
 const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
@@ -109,7 +112,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Get Full 140-SKU Wholesale Price Sheet (PDF/Excel) →',
     mixMoqBadge: '✓ 1-Pc Sample OK · ✓ 50-Pc Mix-SKU · ✓ $0 Mold Fee',
     unitPriceLabel: 'Unit Factory Price',
-    estTotalLabel: 'Est. Batch Subtotal'
+    estTotalLabel: 'Est. Batch Subtotal',
+    pdpInputPlaceholder: 'Enter Work Email or WhatsApp for Instant Quote & Sample...',
+    pdpDirectSendBtn: '⚡ Get Quote & PDF Sheet →',
+    pdpSentConfirm: '✅ Received! Our Fuzhou export desk will send your quote & PDF sheet within 2–12h.'
   },
   de: {
     sample1Pc: '📦 1-Stk. Muster',
@@ -120,7 +126,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Komplette 140-SKU Großhandels-Preisliste (PDF/Excel) →',
     mixMoqBadge: '✓ 1-Stk. Muster möglich · ✓ 50-Stk. Mix-SKU · ✓ $0 Formkosten',
     unitPriceLabel: 'Stückpreis ab Werk',
-    estTotalLabel: 'Geschätzte Summe'
+    estTotalLabel: 'Geschätzte Summe',
+    pdpInputPlaceholder: 'Geschäftliche E-Mail oder WhatsApp für Sofort-Angebot & Muster...',
+    pdpDirectSendBtn: '⚡ Angebot & PDF senden →',
+    pdpSentConfirm: '✅ Erhalten! Unser Export-Team sendet Ihr Angebot & die PDF-Liste in 2–12 Std.'
   },
   fr: {
     sample1Pc: '📦 Échantillon 1 pce',
@@ -131,7 +140,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Recevoir la grille tarifaire complète 140 modèles (PDF/Excel) →',
     mixMoqBadge: '✓ Échantillon 1 pce OK · ✓ 50 pcs Mix-SKU · ✓ 0 $ frais de moule',
     unitPriceLabel: 'Prix unitaire usine',
-    estTotalLabel: 'Sous-total estimé'
+    estTotalLabel: 'Sous-total estimé',
+    pdpInputPlaceholder: 'E-mail pro ou WhatsApp pour devis immédiat & échantillon...',
+    pdpDirectSendBtn: '⚡ Recevoir Devis & PDF →',
+    pdpSentConfirm: '✅ Reçu ! Notre bureau export vous enverra le devis & tarifs PDF sous 2–12h.'
   },
   nl: {
     sample1Pc: '📦 1-St. Monster',
@@ -142,7 +154,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Ontvang volledige 140-SKU groothandelsprijslijst (PDF/Excel) →',
     mixMoqBadge: '✓ 1-St. monster OK · ✓ 50-St. Mix-SKU · ✓ $0 matrijskosten',
     unitPriceLabel: 'Fabrieksprijs / st.',
-    estTotalLabel: 'Geschat subtotaal'
+    estTotalLabel: 'Geschat subtotaal',
+    pdpInputPlaceholder: 'Zakelijke e-mail of WhatsApp voor directe offerte & monster...',
+    pdpDirectSendBtn: '⚡ Ontvang Offerte & PDF →',
+    pdpSentConfirm: '✅ Ontvangen! Ons exportteam stuurt uw offerte & PDF-prijslijst binnen 2–12 uur.'
   },
   es: {
     sample1Pc: '📦 Muestra 1 ud.',
@@ -153,7 +168,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Recibir lista completa de precios mayoristas 140 SKU (PDF/Excel) →',
     mixMoqBadge: '✓ Muestra 1 ud. OK · ✓ 50 uds. Mix-SKU · ✓ $0 costo de molde',
     unitPriceLabel: 'Precio unitario fábrica',
-    estTotalLabel: 'Subtotal estimado'
+    estTotalLabel: 'Subtotal estimado',
+    pdpInputPlaceholder: 'Correo corporativo o WhatsApp para cotización y muestra...',
+    pdpDirectSendBtn: '⚡ Recibir Cotización y PDF →',
+    pdpSentConfirm: '✅ ¡Recibido! Nuestro equipo enviará su cotización y lista PDF en 2–12h.'
   },
   it: {
     sample1Pc: '📦 Campione 1 pz',
@@ -164,7 +182,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Scarica il listino prezzi ingrosso completo 140 SKU (PDF/Excel) →',
     mixMoqBadge: '✓ Campione 1 pz OK · ✓ 50 pz Mix-SKU · ✓ $0 costi di stampo',
     unitPriceLabel: 'Prezzo unitario fabbrica',
-    estTotalLabel: 'Subtotale stimato'
+    estTotalLabel: 'Subtotale stimato',
+    pdpInputPlaceholder: 'Email aziendale o WhatsApp per preventivo immediato e campione...',
+    pdpDirectSendBtn: '⚡ Ricevi Preventivo e PDF →',
+    pdpSentConfirm: '✅ Ricevuto! Il nostro team export invierà preventivo e listino PDF entro 2–12h.'
   },
   pt: {
     sample1Pc: '📦 Amostra 1 un.',
@@ -175,7 +196,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Receber tabela completa de preços atacado 140 SKU (PDF/Excel) →',
     mixMoqBadge: '✓ Amostra 1 un. OK · ✓ 50 un. Mix-SKU · ✓ $0 custo de molde',
     unitPriceLabel: 'Preço unitário fábrica',
-    estTotalLabel: 'Subtotal estimado'
+    estTotalLabel: 'Subtotal estimado',
+    pdpInputPlaceholder: 'E-mail corporativo ou WhatsApp para cotação e amostra...',
+    pdpDirectSendBtn: '⚡ Receber Cotação e PDF →',
+    pdpSentConfirm: '✅ Recebido! Nossa equipe enviará sua cotação e tabela PDF em 2–12h.'
   },
   sv: {
     sample1Pc: '📦 1 st Prov',
@@ -186,7 +210,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Få komplett 140-SKU grossistprislista (PDF/Excel) →',
     mixMoqBadge: '✓ 1 st prov OK · ✓ 50 st Mix-SKU · ✓ $0 verktygskostnad',
     unitPriceLabel: 'Fabrikspris / st',
-    estTotalLabel: 'Beräknad delsumma'
+    estTotalLabel: 'Beräknad delsumma',
+    pdpInputPlaceholder: 'Företagsmejladress eller WhatsApp för direkt offert & prov...',
+    pdpDirectSendBtn: '⚡ Få Offert & PDF →',
+    pdpSentConfirm: '✅ Mottaget! Vårt exportteam skickar din offert & PDF-prislista inom 2–12 tim.'
   },
   da: {
     sample1Pc: '📦 1 stk. Prøve',
@@ -197,7 +224,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Få komplet 140-SKU engrosprisliste (PDF/Excel) →',
     mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 værktøjsgebyr',
     unitPriceLabel: 'Fabrikspris / stk.',
-    estTotalLabel: 'Estimeret subtotal'
+    estTotalLabel: 'Estimeret subtotal',
+    pdpInputPlaceholder: 'Firma-e-mail eller WhatsApp for hurtigt tilbud & prøve...',
+    pdpDirectSendBtn: '⚡ Få Tilbud & PDF →',
+    pdpSentConfirm: '✅ Modtaget! Vores eksportteam sender tilbud & PDF-prisliste inden for 2–12 timer.'
   },
   no: {
     sample1Pc: '📦 1 stk. Prøve',
@@ -208,7 +238,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Få komplett 140-SKU grossistprisliste (PDF/Excel) →',
     mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 verktøygebyr',
     unitPriceLabel: 'Fabrikkpris / stk.',
-    estTotalLabel: 'Estimert delsum'
+    estTotalLabel: 'Estimert delsum',
+    pdpInputPlaceholder: 'Firma-e-post eller WhatsApp for raskt tilbud & prøve...',
+    pdpDirectSendBtn: '⚡ Få Tilbud & PDF →',
+    pdpSentConfirm: '✅ Mottatt! Vårt eksportteam sender tilbud & PDF-prisliste innen 2–12 timer.'
   },
   fi: {
     sample1Pc: '📦 1 kpl Näyte',
@@ -219,7 +252,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Tilaa koko 140-SKU tukkuhinnasto (PDF/Excel) →',
     mixMoqBadge: '✓ 1 kpl näyte OK · ✓ 50 kpl Mix-SKU · ✓ $0 muottikulu',
     unitPriceLabel: 'Tehdashinta / kpl',
-    estTotalLabel: 'Arvioitu välisumma'
+    estTotalLabel: 'Arvioitu välisumma',
+    pdpInputPlaceholder: 'Työsähköposti tai WhatsApp pikatarjousta & näytettä varten...',
+    pdpDirectSendBtn: '⚡ Tilaa Tarjous & PDF →',
+    pdpSentConfirm: '✅ Vastaanotettu! Vientitiimimme lähettää tarjouksen ja PDF-hinnaston 2–12h sisällä.'
   },
   pl: {
     sample1Pc: '📦 Próbka 1 szt.',
@@ -230,7 +266,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Pobierz pełny cennik hurtowy 140 modeli (PDF/Excel) →',
     mixMoqBadge: '✓ Próbka 1 szt. OK · ✓ 50 szt. Mix-SKU · ✓ 0 $ za formę',
     unitPriceLabel: 'Cena fabryczna / szt.',
-    estTotalLabel: 'Szacowana suma'
+    estTotalLabel: 'Szacowana suma',
+    pdpInputPlaceholder: 'Służbowy e-mail lub WhatsApp po szybką wycenę i próbkę...',
+    pdpDirectSendBtn: '⚡ Odbierz Wycenę i PDF →',
+    pdpSentConfirm: '✅ Otrzymano! Nasz dział eksportu wyśle wycenę i cennik PDF w 2–12 godz.'
   },
   cs: {
     sample1Pc: '📦 Vzorek 1 ks',
@@ -241,7 +280,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Získat kompletní velkoobchodní ceník 140 SKU (PDF/Excel) →',
     mixMoqBadge: '✓ Vzorek 1 ks OK · ✓ 50 ks Mix-SKU · ✓ $0 poplatek za formu',
     unitPriceLabel: 'Tovární cena / ks',
-    estTotalLabel: 'Odhadovaný mezisoučet'
+    estTotalLabel: 'Odhadovaný mezisoučet',
+    pdpInputPlaceholder: 'Firemní e-mail nebo WhatsApp pro okamžitou nabídku a vzorek...',
+    pdpDirectSendBtn: '⚡ Získat Nabídku a PDF →',
+    pdpSentConfirm: '✅ Přijato! Náš exportní tým vám zašle nabídku a PDF ceník do 2–12 hodin.'
   },
   ru: {
     sample1Pc: '📦 Образец 1 шт.',
@@ -252,7 +294,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Получить полный оптовый прайс-лист на 140 моделей (PDF/Excel) →',
     mixMoqBadge: '✓ Образец 1 шт. · ✓ Микс 50 шт. · ✓ $0 за пресс-форму',
     unitPriceLabel: 'Цена завода / шт.',
-    estTotalLabel: 'Итоговая сумма'
+    estTotalLabel: 'Итоговая сумма',
+    pdpInputPlaceholder: 'Рабочий Email или WhatsApp для расчета цены и образца...',
+    pdpDirectSendBtn: '⚡ Получить Расчет и PDF →',
+    pdpSentConfirm: '✅ Принято! Наш отдел экспорта отправит расчет и PDF прайс за 2–12 часов.'
   },
   ja: {
     sample1Pc: '📦 1個サンプル',
@@ -263,7 +308,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 全140モデルの卸売価格表（PDF/Excel）を即時受け取る →',
     mixMoqBadge: '✓ 1個サンプルOK · ✓ 50個混載OK · ✓ 金型代 $0',
     unitPriceLabel: '工場出荷単価',
-    estTotalLabel: '概算小計（金型$0）'
+    estTotalLabel: '概算小計（金型$0）',
+    pdpInputPlaceholder: '法人メールまたはWhatsAppを入力して即時見積・サンプル請求...',
+    pdpDirectSendBtn: '⚡ 見積とPDF価格表を受取る →',
+    pdpSentConfirm: '✅ 受付完了！輸出担当より2〜12時間以内にお見積りとPDF価格表をお送りします。'
   },
   ko: {
     sample1Pc: '📦 1개 샘플',
@@ -274,7 +322,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 전 제품 140종 도매 단가표 (PDF/Excel) 즉시 받기 →',
     mixMoqBadge: '✓ 1개 샘플 가능 · ✓ 50개 혼합 주문 가능 · ✓ 금형비 $0',
     unitPriceLabel: '공장 출고 단가',
-    estTotalLabel: '예상 합계 (금형비 $0)'
+    estTotalLabel: '예상 합계 (금형비 $0)',
+    pdpInputPlaceholder: '업무용 이메일 또는 WhatsApp 입력 (즉시 견적 및 샘플 신청)...',
+    pdpDirectSendBtn: '⚡ 견적서 및 PDF 단가표 받기 →',
+    pdpSentConfirm: '✅ 접수 완료! 수출팀에서 2~12시간 내에 견적서와 PDF 단가표를 보내드립니다.'
   },
   id: {
     sample1Pc: '📦 Sampel 1 pc',
@@ -285,7 +336,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 Dapatkan Daftar Harga Grosir 140 SKU Lengkap (PDF/Excel) →',
     mixMoqBadge: '✓ Sampel 1 pc OK · ✓ 50 pcs Mix-SKU · ✓ Biaya cetakan $0',
     unitPriceLabel: 'Harga Satuan Pabrik',
-    estTotalLabel: 'Estimasi Subtotal'
+    estTotalLabel: 'Estimasi Subtotal',
+    pdpInputPlaceholder: 'Masukkan Email Kerja atau WhatsApp untuk Penawaran & Sampel...',
+    pdpDirectSendBtn: '⚡ Dapatkan Penawaran & PDF →',
+    pdpSentConfirm: '✅ Diterima! Tim ekspor kami akan mengirimkan penawaran & PDF dalam 2–12 jam.'
   },
   ar: {
     sample1Pc: '📦 عينة 1 قطعة',
@@ -296,7 +350,10 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     getFullSheetPdf: '📊 احصل على قائمة أسعار الجملة الكاملة لـ 140 طرازاً (PDF/Excel) →',
     mixMoqBadge: '✓ عينة 1 قطعة متاحة · ✓ 50 قطعة متنوعة · ✓ 0$ رسوم قالب',
     unitPriceLabel: 'سعر المصنع للقطعة',
-    estTotalLabel: 'المجموع التقديري'
+    estTotalLabel: 'المجموع التقديري',
+    pdpInputPlaceholder: 'أدخل البريد الإلكتروني أو واتساب للحصول على عرض سعر وعينة...',
+    pdpDirectSendBtn: '⚡ احصل على العرض وملف PDF →',
+    pdpSentConfirm: '✅ تم الاستلام! سيرسل مكتب التصدير عرض السعر وقائمة PDF خلال 2–12 ساعة.'
   }
 };
 

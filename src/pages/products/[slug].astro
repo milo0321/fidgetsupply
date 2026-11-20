@@ -271,37 +271,6 @@ const breadcrumbSchema = {
         </div>
 
         <h1 class="pdp-title">{lp.title}</h1>
-
-        <!-- Above-the-Fold Instant Price & Sample Action Bar -->
-        <div class="pdp-fast-action-strip">
-          <div class="fast-price-meta">
-            <strong class="fast-price-pill" id="fast-price-display">${p.tier500} – ${p.tier50}<span>/{t('unit.pc')}</span></strong>
-            <span class="fast-moq-tag">{microHooks.mixMoqBadge}</span>
-          </div>
-          <div class="fast-action-btns">
-            <a
-              id="pdp-fast-rfq-btn"
-              data-rfq-base={rfqBaseUrl}
-              data-rfq-sku={p.sku}
-              data-rfq-mode="Blank Stock (MOQ 50 pcs)"
-              data-rfq-qty="50"
-              href={rfqBaseUrl}
-              class="btn-fast-rfq"
-            >
-              ⚡ {t('pdp.requestQuote')} →
-            </a>
-            <a
-              id="pdp-fast-wa-btn"
-              href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing & sample info for ${p.sku} (${p.title}).`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-fast-wa"
-            >
-              WhatsApp
-            </a>
-          </div>
-        </div>
-
         <p class="pdp-short-overview">{lp.overview}</p>
 
         <!-- Multi-Material / Multi-Variant Switcher (For merged same-mold models like FS-114/115/132, FS-105/106, FS-107/112, FS-030/031, FS-094/095) -->
@@ -420,20 +389,32 @@ const breadcrumbSchema = {
                 <span class="calc-meta-label">{microHooks.estTotalLabel} · <span id="calc-qty-display">50</span> {t('unit.pcs')}</span>
                 <strong class="calc-total-val" id="calc-total-display">${(parseFloat(p.tier50) * 50).toFixed(2)} USD</strong>
               </div>
-              <a
-                id="calc-lock-wa-btn"
-                href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like to lock the quote for 50 pcs of ${p.sku} (Blank Stock) at $${p.tier50}/pc (Est. Total: $${(parseFloat(p.tier50) * 50).toFixed(2)} USD, $0 Mold Fee).`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-calc-lock-wa"
-              >
-                {microHooks.lockPriceWa}
-              </a>
             </div>
           </div>
         </div>
 
-        <!-- Primary Conversion Buttons -->
+        <!-- Zero-Click Exposed 1-Field Instant Quote / Sample / PDF Price Sheet Input -->
+        <form
+          class="inline-quick-sheet-form pdp-direct-lead-box"
+          id="pdp-inline-lead-form"
+          data-inline-sku={`${p.sku} (${lp.title}) — 50 pcs Blank Stock`}
+        >
+          <div class="pdp-direct-input-row">
+            <input
+              type="text"
+              class="inline-qrfq-input pdp-direct-input"
+              placeholder={microHooks.pdpInputPlaceholder}
+              required
+              aria-label={microHooks.pdpInputPlaceholder}
+            />
+            <button type="submit" class="inline-qrfq-btn pdp-direct-submit">
+              {microHooks.pdpDirectSendBtn}
+            </button>
+          </div>
+          <span class="inline-qrfq-status pdp-direct-status" hidden>{microHooks.pdpSentConfirm}</span>
+        </form>
+
+        <!-- Single Focused Primary Conversion Row -->
         <div class="pdp-cta-row">
           <a
             id="pdp-rfq-btn"
@@ -453,38 +434,12 @@ const breadcrumbSchema = {
             rel="noopener noreferrer"
             class="btn btn-whatsapp btn-pdp-sample"
           >
-            {t('pdp.whatsappInquiry')}
-          </a>
-        </div>
-
-        <!-- Low-Friction Micro-Conversion Hooks (1-Pc Sample & Full 140-SKU Price Sheet) -->
-        <div class="pdp-micro-lead-bar">
-          <a
-            id="pdp-sample-rfq-btn"
-            href={rfqBaseUrl}
-            data-rfq-sku={p.sku}
-            data-rfq-mode="Sample / Prototype Evaluation"
-            data-rfq-qty="1"
-            class="micro-lead-link"
-          >
-            {microHooks.orderSampleMockup(p.sku)}
-          </a>
-          <a
-            id="pdp-catalog-rfq-btn"
-            href={rfqBaseUrl}
-            data-rfq-sku="All 140 Ready Molds (Full Catalog & Price List)"
-            data-rfq-mode="Blank Unbranded Stock"
-            data-rfq-qty="50"
-            class="micro-lead-link"
-          >
-            {microHooks.getFullSheetPdf}
+            💬 {t('pdp.whatsappInquiry')}
           </a>
         </div>
 
         <div class="pdp-trust-strip">
-          <span>{t('pdp.trust1')}</span>
-          <span>{t('pdp.trust2')}</span>
-          <span>{t('pdp.trust3')}</span>
+          <span>{microHooks.mixMoqBadge}</span>
         </div>
       </div>
     </div>
@@ -775,16 +730,20 @@ const breadcrumbSchema = {
           ? `Hello FidgetSupply, I would like to order a 1-pc evaluation sample of ${currentSku} + Free 1:1 Logo Mockup.`
           : `Hello FidgetSupply, I would like to lock the quote for ${currentQty} pcs of ${currentSku} (${mode}) at $${unitTotal.toFixed(2)}/pc (Est. Total: $${subtotal.toFixed(2)} USD, $0 Mold Fee).`;
         const waUrl = `https://wa.me/8618750126315?text=${encodeURIComponent(waMsg)}`;
-        ['calc-lock-wa-btn', 'pdp-fast-wa-btn', 'pdp-main-wa-btn', 'pdp-sticky-wa-btn'].forEach((id) => {
+        ['pdp-main-wa-btn', 'pdp-sticky-wa-btn'].forEach((id) => {
           const el = document.getElementById(id);
           if (el) el.setAttribute('href', waUrl);
         });
+        const inlineLeadForm = document.getElementById('pdp-inline-lead-form');
+        if (inlineLeadForm) {
+          inlineLeadForm.setAttribute(
+            'data-inline-sku',
+            `${currentSku} — ${currentQty} pcs (${mode}, $${unitTotal.toFixed(2)}/pc)`
+          );
+        }
       }
 
-      const sampleRfqBtn = document.getElementById('pdp-sample-rfq-btn');
-      if (sampleRfqBtn) sampleRfqBtn.setAttribute('data-rfq-sku', currentSku);
-
-      [rfqBtn, fastRfqBtn, stickyRfqBtn].forEach((btn) => {
+      [rfqBtn, stickyRfqBtn].forEach((btn) => {
         if (!btn) return;
         btn.setAttribute('data-rfq-sku', currentSku);
         btn.setAttribute('data-rfq-mode', mode);
@@ -1334,12 +1293,12 @@ const breadcrumbSchema = {
     color: #ffffff;
   }
   .calc-summary-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) auto;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     padding-top: 0.65rem;
     border-top: 1px dashed #cbd5e1;
-    gap: 0.75rem;
+    gap: 1rem;
   }
   .calc-unit-col,
   .calc-total-col {
@@ -1351,39 +1310,87 @@ const breadcrumbSchema = {
     text-align: right;
   }
   .calc-meta-label {
-    font-size: 0.71rem;
+    font-size: 0.72rem;
     font-weight: 700;
     color: #64748b;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
   .calc-unit-val {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: #0f172a;
     white-space: nowrap;
     line-height: 1.3;
   }
   .calc-unit-val span {
-    font-size: 0.75rem;
+    font-size: 0.76rem;
     font-weight: 600;
     color: #64748b;
   }
   .calc-total-val {
-    font-size: 1.12rem;
+    font-size: 1.25rem;
     font-weight: 900;
     color: #059669;
     white-space: nowrap;
     line-height: 1.3;
   }
+  .pdp-direct-lead-box {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: 1.5px solid #0284c7;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+    transform: translateZ(0);
+  }
+  .pdp-direct-input-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .pdp-direct-input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.68rem 0.85rem;
+    font-size: 0.86rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid #475569;
+    background: #ffffff;
+    color: #0f172a;
+  }
+  .pdp-direct-input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+  }
+  .pdp-direct-submit {
+    padding: 0.68rem 1.05rem;
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    font-size: 0.84rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+  }
+  .pdp-direct-submit:hover {
+    background: #0369a1 !important;
+  }
+  .pdp-direct-status {
+    display: block;
+    margin-top: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #34d399;
+  }
   @media (max-width: 640px) {
-    .calc-summary-row {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 0.55rem;
+    .pdp-direct-input-row {
+      flex-direction: column;
     }
-    .btn-calc-lock-wa {
-      grid-column: 1 / -1;
+    .pdp-direct-submit {
       width: 100%;
     }
   }
