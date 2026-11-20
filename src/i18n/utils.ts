@@ -95,6 +95,8 @@ export interface MicroHookLabels {
   orderSampleMockup: (sku: string) => string;
   getFullSheetPdf: string;
   mixMoqBadge: string;
+  unitPriceLabel: string;
+  estTotalLabel: string;
 }
 
 const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
@@ -102,163 +104,199 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     sample1Pc: '📦 1-Pc Sample',
     freeLogoProof: 'Free Logo Proof',
     sheet140: '📊 140-SKU Sheet',
-    lockPriceWa: '💬 Lock Price on WhatsApp →',
+    lockPriceWa: '💬 WhatsApp Quote →',
     orderSampleMockup: (sku) => `📦 Order 1-Pc Sample (${sku}) + Free 1:1 Logo Mockup →`,
     getFullSheetPdf: '📊 Get Full 140-SKU Wholesale Price Sheet (PDF/Excel) →',
-    mixMoqBadge: '✓ 1-Pc Sample OK · ✓ 50-Pc Mix-SKU · ✓ $0 Mold Fee'
+    mixMoqBadge: '✓ 1-Pc Sample OK · ✓ 50-Pc Mix-SKU · ✓ $0 Mold Fee',
+    unitPriceLabel: 'Unit Factory Price',
+    estTotalLabel: 'Est. Batch Subtotal'
   },
   de: {
     sample1Pc: '📦 1-Stk. Muster',
     freeLogoProof: 'Gratis Logo-Entwurf',
     sheet140: '📊 140-SKU Preisliste',
-    lockPriceWa: '💬 Preis per WhatsApp sichern →',
+    lockPriceWa: '💬 WhatsApp Preis →',
     orderSampleMockup: (sku) => `📦 1-Stk. Muster (${sku}) + Gratis 1:1 Logo-Layout anfordern →`,
     getFullSheetPdf: '📊 Komplette 140-SKU Großhandels-Preisliste (PDF/Excel) →',
-    mixMoqBadge: '✓ 1-Stk. Muster möglich · ✓ 50-Stk. Mix-SKU · ✓ $0 Formkosten'
+    mixMoqBadge: '✓ 1-Stk. Muster möglich · ✓ 50-Stk. Mix-SKU · ✓ $0 Formkosten',
+    unitPriceLabel: 'Stückpreis ab Werk',
+    estTotalLabel: 'Geschätzte Summe'
   },
   fr: {
     sample1Pc: '📦 Échantillon 1 pce',
     freeLogoProof: 'Maquette logo gratuite',
     sheet140: '📊 Tarifs 140 Modèles',
-    lockPriceWa: '💬 Bloquer ce tarif sur WhatsApp →',
+    lockPriceWa: '💬 Tarif WhatsApp →',
     orderSampleMockup: (sku) => `📦 Commander 1 échantillon (${sku}) + Maquette logo 1:1 gratuite →`,
     getFullSheetPdf: '📊 Recevoir la grille tarifaire complète 140 modèles (PDF/Excel) →',
-    mixMoqBadge: '✓ Échantillon 1 pce OK · ✓ 50 pcs Mix-SKU · ✓ 0 $ frais de moule'
+    mixMoqBadge: '✓ Échantillon 1 pce OK · ✓ 50 pcs Mix-SKU · ✓ 0 $ frais de moule',
+    unitPriceLabel: 'Prix unitaire usine',
+    estTotalLabel: 'Sous-total estimé'
   },
   nl: {
     sample1Pc: '📦 1-St. Monster',
     freeLogoProof: 'Gratis logoproef',
     sheet140: '📊 140-SKU Prijslijst',
-    lockPriceWa: '💬 Prijs vastleggen via WhatsApp →',
+    lockPriceWa: '💬 WhatsApp Prijs →',
     orderSampleMockup: (sku) => `📦 Bestel 1-st. monster (${sku}) + Gratis 1:1 logoproef →`,
     getFullSheetPdf: '📊 Ontvang volledige 140-SKU groothandelsprijslijst (PDF/Excel) →',
-    mixMoqBadge: '✓ 1-St. monster OK · ✓ 50-St. Mix-SKU · ✓ $0 matrijskosten'
+    mixMoqBadge: '✓ 1-St. monster OK · ✓ 50-St. Mix-SKU · ✓ $0 matrijskosten',
+    unitPriceLabel: 'Fabrieksprijs / st.',
+    estTotalLabel: 'Geschat subtotaal'
   },
   es: {
     sample1Pc: '📦 Muestra 1 ud.',
     freeLogoProof: 'Boceto logo gratis',
     sheet140: '📊 Lista 140 Modelos',
-    lockPriceWa: '💬 Fijar precio por WhatsApp →',
+    lockPriceWa: '💬 Precio WhatsApp →',
     orderSampleMockup: (sku) => `📦 Pedir muestra de 1 ud. (${sku}) + Boceto de logo 1:1 gratis →`,
     getFullSheetPdf: '📊 Recibir lista completa de precios mayoristas 140 SKU (PDF/Excel) →',
-    mixMoqBadge: '✓ Muestra 1 ud. OK · ✓ 50 uds. Mix-SKU · ✓ $0 costo de molde'
+    mixMoqBadge: '✓ Muestra 1 ud. OK · ✓ 50 uds. Mix-SKU · ✓ $0 costo de molde',
+    unitPriceLabel: 'Precio unitario fábrica',
+    estTotalLabel: 'Subtotal estimado'
   },
   it: {
     sample1Pc: '📦 Campione 1 pz',
     freeLogoProof: 'Bozza logo gratuita',
     sheet140: '📊 Listino 140 Modelli',
-    lockPriceWa: '💬 Blocca il prezzo su WhatsApp →',
+    lockPriceWa: '💬 Prezzo WhatsApp →',
     orderSampleMockup: (sku) => `📦 Richiedi campione 1 pz (${sku}) + Bozza logo 1:1 gratuita →`,
     getFullSheetPdf: '📊 Scarica il listino prezzi ingrosso completo 140 SKU (PDF/Excel) →',
-    mixMoqBadge: '✓ Campione 1 pz OK · ✓ 50 pz Mix-SKU · ✓ $0 costi di stampo'
+    mixMoqBadge: '✓ Campione 1 pz OK · ✓ 50 pz Mix-SKU · ✓ $0 costi di stampo',
+    unitPriceLabel: 'Prezzo unitario fabbrica',
+    estTotalLabel: 'Subtotale stimato'
   },
   pt: {
     sample1Pc: '📦 Amostra 1 un.',
     freeLogoProof: 'Prova de logo grátis',
     sheet140: '📊 Tabela 140 Modelos',
-    lockPriceWa: '💬 Garantir preço no WhatsApp →',
+    lockPriceWa: '💬 Preço WhatsApp →',
     orderSampleMockup: (sku) => `📦 Solicitar amostra 1 un. (${sku}) + Prova de logo 1:1 grátis →`,
     getFullSheetPdf: '📊 Receber tabela completa de preços atacado 140 SKU (PDF/Excel) →',
-    mixMoqBadge: '✓ Amostra 1 un. OK · ✓ 50 un. Mix-SKU · ✓ $0 custo de molde'
+    mixMoqBadge: '✓ Amostra 1 un. OK · ✓ 50 un. Mix-SKU · ✓ $0 custo de molde',
+    unitPriceLabel: 'Preço unitário fábrica',
+    estTotalLabel: 'Subtotal estimado'
   },
   sv: {
     sample1Pc: '📦 1 st Prov',
     freeLogoProof: 'Gratis logokorrektur',
     sheet140: '📊 140-SKU Prislista',
-    lockPriceWa: '💬 Lås pris på WhatsApp →',
+    lockPriceWa: '💬 WhatsApp-pris →',
     orderSampleMockup: (sku) => `📦 Beställ 1 st utvärderingsprov (${sku}) + Gratis 1:1 logokorrektur →`,
     getFullSheetPdf: '📊 Få komplett 140-SKU grossistprislista (PDF/Excel) →',
-    mixMoqBadge: '✓ 1 st prov OK · ✓ 50 st Mix-SKU · ✓ $0 verktygskostnad'
+    mixMoqBadge: '✓ 1 st prov OK · ✓ 50 st Mix-SKU · ✓ $0 verktygskostnad',
+    unitPriceLabel: 'Fabrikspris / st',
+    estTotalLabel: 'Beräknad delsumma'
   },
   da: {
     sample1Pc: '📦 1 stk. Prøve',
     freeLogoProof: 'Gratis logokorrektur',
     sheet140: '📊 140-SKU Prisliste',
-    lockPriceWa: '💬 Lås pris på WhatsApp →',
+    lockPriceWa: '💬 WhatsApp-pris →',
     orderSampleMockup: (sku) => `📦 Bestil 1 stk. prøve (${sku}) + Gratis 1:1 logokorrektur →`,
     getFullSheetPdf: '📊 Få komplet 140-SKU engrosprisliste (PDF/Excel) →',
-    mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 værktøjsgebyr'
+    mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 værktøjsgebyr',
+    unitPriceLabel: 'Fabrikspris / stk.',
+    estTotalLabel: 'Estimeret subtotal'
   },
   no: {
     sample1Pc: '📦 1 stk. Prøve',
     freeLogoProof: 'Gratis logokorrektur',
     sheet140: '📊 140-SKU Prisliste',
-    lockPriceWa: '💬 Lås pris på WhatsApp →',
+    lockPriceWa: '💬 WhatsApp-pris →',
     orderSampleMockup: (sku) => `📦 Bestill 1 stk. prøve (${sku}) + Gratis 1:1 logokorrektur →`,
     getFullSheetPdf: '📊 Få komplett 140-SKU grossistprisliste (PDF/Excel) →',
-    mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 verktøygebyr'
+    mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 verktøygebyr',
+    unitPriceLabel: 'Fabrikkpris / stk.',
+    estTotalLabel: 'Estimert delsum'
   },
   fi: {
     sample1Pc: '📦 1 kpl Näyte',
     freeLogoProof: 'Ilmainen logovedos',
     sheet140: '📊 140-SKU Hinnasto',
-    lockPriceWa: '💬 Lukitse hinta WhatsAppissa →',
+    lockPriceWa: '💬 WhatsApp-hinta →',
     orderSampleMockup: (sku) => `📦 Tilaa 1 kpl näyte (${sku}) + Ilmainen 1:1 logovedos →`,
     getFullSheetPdf: '📊 Tilaa koko 140-SKU tukkuhinnasto (PDF/Excel) →',
-    mixMoqBadge: '✓ 1 kpl näyte OK · ✓ 50 kpl Mix-SKU · ✓ $0 muottikulu'
+    mixMoqBadge: '✓ 1 kpl näyte OK · ✓ 50 kpl Mix-SKU · ✓ $0 muottikulu',
+    unitPriceLabel: 'Tehdashinta / kpl',
+    estTotalLabel: 'Arvioitu välisumma'
   },
   pl: {
     sample1Pc: '📦 Próbka 1 szt.',
     freeLogoProof: 'Darmowy projekt logo',
     sheet140: '📊 Cennik 140 Modeli',
-    lockPriceWa: '💬 Zablokuj cenę na WhatsApp →',
+    lockPriceWa: '💬 Cena WhatsApp →',
     orderSampleMockup: (sku) => `📦 Zamów próbkę 1 szt. (${sku}) + Darmowa wizualizacja logo 1:1 →`,
     getFullSheetPdf: '📊 Pobierz pełny cennik hurtowy 140 modeli (PDF/Excel) →',
-    mixMoqBadge: '✓ Próbka 1 szt. OK · ✓ 50 szt. Mix-SKU · ✓ 0 $ za formę'
+    mixMoqBadge: '✓ Próbka 1 szt. OK · ✓ 50 szt. Mix-SKU · ✓ 0 $ za formę',
+    unitPriceLabel: 'Cena fabryczna / szt.',
+    estTotalLabel: 'Szacowana suma'
   },
   cs: {
     sample1Pc: '📦 Vzorek 1 ks',
     freeLogoProof: 'Náhled loga zdarma',
     sheet140: '📊 Ceník 140 Modelů',
-    lockPriceWa: '💬 Potvrdit cenu přes WhatsApp →',
+    lockPriceWa: '💬 Cena WhatsApp →',
     orderSampleMockup: (sku) => `📦 Objednat vzorek 1 ks (${sku}) + 1:1 náhled loga zdarma →`,
     getFullSheetPdf: '📊 Získat kompletní velkoobchodní ceník 140 SKU (PDF/Excel) →',
-    mixMoqBadge: '✓ Vzorek 1 ks OK · ✓ 50 ks Mix-SKU · ✓ $0 poplatek za formu'
+    mixMoqBadge: '✓ Vzorek 1 ks OK · ✓ 50 ks Mix-SKU · ✓ $0 poplatek za formu',
+    unitPriceLabel: 'Tovární cena / ks',
+    estTotalLabel: 'Odhadovaný mezisoučet'
   },
   ru: {
     sample1Pc: '📦 Образец 1 шт.',
     freeLogoProof: 'Макет лого бесплатно',
     sheet140: '📊 Прайс 140 Моделей',
-    lockPriceWa: '💬 Зафиксировать цену в WhatsApp →',
+    lockPriceWa: '💬 Цена в WhatsApp →',
     orderSampleMockup: (sku) => `📦 Заказать образец 1 шт. (${sku}) + Бесплатный макет логотипа 1:1 →`,
     getFullSheetPdf: '📊 Получить полный оптовый прайс-лист на 140 моделей (PDF/Excel) →',
-    mixMoqBadge: '✓ Образец 1 шт. · ✓ Микс 50 шт. · ✓ $0 за пресс-форму'
+    mixMoqBadge: '✓ Образец 1 шт. · ✓ Микс 50 шт. · ✓ $0 за пресс-форму',
+    unitPriceLabel: 'Цена завода / шт.',
+    estTotalLabel: 'Итоговая сумма'
   },
   ja: {
     sample1Pc: '📦 1個サンプル',
     freeLogoProof: '無料ロゴ校正',
     sheet140: '📊 全140型 価格表',
-    lockPriceWa: '💬 WhatsAppでこの価格を確定 →',
+    lockPriceWa: '💬 WhatsApp見積 →',
     orderSampleMockup: (sku) => `📦 1個サンプル請求（${sku}）＋無料1:1ロゴ校正データ →`,
     getFullSheetPdf: '📊 全140モデルの卸売価格表（PDF/Excel）を即時受け取る →',
-    mixMoqBadge: '✓ 1個サンプルOK · ✓ 50個混載OK · ✓ 金型代 $0'
+    mixMoqBadge: '✓ 1個サンプルOK · ✓ 50個混載OK · ✓ 金型代 $0',
+    unitPriceLabel: '工場出荷単価',
+    estTotalLabel: '概算小計（金型$0）'
   },
   ko: {
     sample1Pc: '📦 1개 샘플',
     freeLogoProof: '무료 로고 시안',
     sheet140: '📊 140종 단가표',
-    lockPriceWa: '💬 WhatsApp으로 이 단가 확정 →',
+    lockPriceWa: '💬 WhatsApp 견적 →',
     orderSampleMockup: (sku) => `📦 1개 평가 샘플 신청 (${sku}) + 무료 1:1 로고 시안 →`,
     getFullSheetPdf: '📊 전 제품 140종 도매 단가표 (PDF/Excel) 즉시 받기 →',
-    mixMoqBadge: '✓ 1개 샘플 가능 · ✓ 50개 혼합 주문 가능 · ✓ 금형비 $0'
+    mixMoqBadge: '✓ 1개 샘플 가능 · ✓ 50개 혼합 주문 가능 · ✓ 금형비 $0',
+    unitPriceLabel: '공장 출고 단가',
+    estTotalLabel: '예상 합계 (금형비 $0)'
   },
   id: {
     sample1Pc: '📦 Sampel 1 pc',
     freeLogoProof: 'Mockup logo gratis',
     sheet140: '📊 Daftar Harga 140 SKU',
-    lockPriceWa: '💬 Kunci Harga di WhatsApp →',
+    lockPriceWa: '💬 Harga WhatsApp →',
     orderSampleMockup: (sku) => `📦 Pesan Sampel 1 Pc (${sku}) + Mockup Logo 1:1 Gratis →`,
     getFullSheetPdf: '📊 Dapatkan Daftar Harga Grosir 140 SKU Lengkap (PDF/Excel) →',
-    mixMoqBadge: '✓ Sampel 1 pc OK · ✓ 50 pcs Mix-SKU · ✓ Biaya cetakan $0'
+    mixMoqBadge: '✓ Sampel 1 pc OK · ✓ 50 pcs Mix-SKU · ✓ Biaya cetakan $0',
+    unitPriceLabel: 'Harga Satuan Pabrik',
+    estTotalLabel: 'Estimasi Subtotal'
   },
   ar: {
     sample1Pc: '📦 عينة 1 قطعة',
     freeLogoProof: 'تصميم شعار مجاني',
     sheet140: '📊 قائمة أسعار 140 طرازاً',
-    lockPriceWa: '💬 تثبيت السعر عبر واتساب →',
+    lockPriceWa: '💬 سعر واتساب →',
     orderSampleMockup: (sku) => `📦 اطلب عينة 1 قطعة (${sku}) + تصميم شعار 1:1 مجاني →`,
     getFullSheetPdf: '📊 احصل على قائمة أسعار الجملة الكاملة لـ 140 طرازاً (PDF/Excel) →',
-    mixMoqBadge: '✓ عينة 1 قطعة متاحة · ✓ 50 قطعة متنوعة · ✓ 0$ رسوم قالب'
+    mixMoqBadge: '✓ عينة 1 قطعة متاحة · ✓ 50 قطعة متنوعة · ✓ 0$ رسوم قالب',
+    unitPriceLabel: 'سعر المصنع للقطعة',
+    estTotalLabel: 'المجموع التقديري'
   }
 };
 
