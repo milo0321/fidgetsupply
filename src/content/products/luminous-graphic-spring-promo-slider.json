@@ -12,8 +12,10 @@
   "primaryCollection": "magnetic-fidget-sliders",
   "primaryCollectionName": "Magnetic Haptic Sliders",
   "primaryCollectionZh": "",
-  "crossCollections": [],
-  "logoReady": false,
+  "crossCollections": [
+    "custom-logo-metal-fidgets"
+  ],
+  "logoReady": true,
   "tuningFork": false,
   "cncExotic": false,
   "materialZh": "",
@@ -66,9 +68,9 @@
   "category": "magnetic-fidget-sliders",
   "badge": "Ready Mold $0 Tooling",
   "sampleTime": "10–15 Days",
-  "metaTitle": "FS-059 Luminous Holiday Graphic Spring ABS Promo ($1.70+)",
-  "metaDescription": "Wholesale FS-059 Luminous Holiday Graphic Spring-Detent ABS Promo Slider (14g, $1.70 – $2.09). $0 mold fee, MOQ 50 pcs blank or 100 pcs 50W laser logo.",
-  "overview": "FS-059 Luminous Holiday Graphic Spring-Detent ABS Promo Slider is an industrial-grade wholesale metal EDC fidget engineered from High-Impact ABS Polymer (45*25*13MM, net weight 14g). Equipped with 2 pcs Machine Screws, 2 pcs 3MMDetent Balls, 2 pcs Coil Springs and 1 pcs Support Post, this model utilizes our mature ready-to-use production mold #59 ($0 Tooling Cost) across our integrated China precision metalworking & CNC supply chain network. Available for immediate blank wholesale (MOQ 50 pcs) or custom corporate branding via 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) and Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).",
+  "metaTitle": "FS-059 Luminous Holiday Promo Fidget Slider ($1.70+)",
+  "metaDescription": "Wholesale FS-059 Luminous Holiday Spring Promo Slider (14g, $1.70–$2.09). 1-Pc Sample OK, $0 mold fee, MOQ 50 pcs blank or 100 pcs custom UV/laser logo.",
+  "overview": "FS-059 Luminous Holiday Graphic Spring-Detent ABS Promo Slider is an affordable corporate promotional & holiday giveaway EDC fidget engineered from High-Impact ABS Polymer with internal metal coil springs and 3mm steel detent balls (45*25*13MM, featherweight 14g, $1.70–$2.09/pc). Equipped with 2 pcs Machine Screws, 2 pcs 3MM Detent Balls, 2 pcs Coil Springs and 1 pcs Support Post, this model utilizes our mature ready-to-use production mold #59 ($0 Tooling Cost) across our integrated China supply chain network. Ideal for European, Nordic (Finland/Sweden/Denmark), and North American holiday corporate gifts, trade show giveaways, and retail starter packs—available for 1-Pc evaluation sample, immediate blank wholesale (MOQ 50 pcs), or custom full-color seasonal UV graphic / 50W laser branding (MOQ 100 pcs).",
   "specs": {
     "Factory SKU Code": "FS-059",
     "Original Mold Reference": "Mold #059 (Ready Production Tooling)",

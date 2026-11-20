@@ -393,7 +393,7 @@ const breadcrumbSchema = {
           </div>
         </div>
 
-        <!-- Zero-Click Exposed 1-Field Instant Quote / Sample / PDF Price Sheet Input -->
+        <!-- Single Focused Conversion Zone (Option A: Direct 1-Field Email/WhatsApp Box + Full Form Link) -->
         <form
           class="inline-quick-sheet-form pdp-direct-lead-box"
           id="pdp-inline-lead-form"
@@ -407,40 +407,26 @@ const breadcrumbSchema = {
               required
               aria-label={microHooks.pdpInputPlaceholder}
             />
-            <button type="submit" class="inline-qrfq-btn pdp-direct-submit">
-              {microHooks.pdpDirectSendBtn}
+            <button type="submit" class="inline-qrfq-btn pdp-direct-submit" id="pdp-direct-submit-btn">
+              {microHooks.pdpDirectSendBtn} ({p.sku})
             </button>
           </div>
           <span class="inline-qrfq-status pdp-direct-status" hidden>{microHooks.pdpSentConfirm}</span>
+          <div class="pdp-direct-footer">
+            <span class="pdp-direct-badge">{microHooks.mixMoqBadge}</span>
+            <a
+              id="pdp-rfq-btn"
+              data-rfq-base={rfqBaseUrl}
+              data-rfq-sku={p.sku}
+              data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+              data-rfq-qty="50"
+              href={rfqBaseUrl}
+              class="pdp-full-form-link"
+            >
+              {t('pdp.requestQuote')} →
+            </a>
+          </div>
         </form>
-
-        <!-- Single Focused Primary Conversion Row -->
-        <div class="pdp-cta-row">
-          <a
-            id="pdp-rfq-btn"
-            data-rfq-base={rfqBaseUrl}
-            data-rfq-sku={p.sku}
-            data-rfq-mode="Blank Stock (MOQ 50 pcs)"
-            data-rfq-qty="50"
-            href={rfqBaseUrl}
-            class="btn btn-primary btn-pdp-main"
-          >
-            {t('pdp.requestQuote')} ({p.sku}) →
-          </a>
-          <a
-            id="pdp-main-wa-btn"
-            href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing ($${p.tier500}–$${p.tier50} USD, MOQ 50 pcs) & sample info for ${p.sku} (${lp.title}).`)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-whatsapp btn-pdp-sample"
-          >
-            💬 {t('pdp.whatsappInquiry')}
-          </a>
-        </div>
-
-        <div class="pdp-trust-strip">
-          <span>{microHooks.mixMoqBadge}</span>
-        </div>
       </div>
     </div>
   </section>
@@ -797,6 +783,10 @@ const breadcrumbSchema = {
           galleryMatEl.textContent = btn.getAttribute('data-material') || '';
         }
         if (skuEl) skuEl.textContent = 'SKU: ' + currentSku;
+        const directSubBtn = document.getElementById('pdp-direct-submit-btn');
+        if (directSubBtn) {
+          directSubBtn.textContent = directSubBtn.textContent.replace(/\([A-Z0-9-]+\)/, `(${currentSku})`);
+        }
         updateRfqHref();
       });
     });
@@ -1397,6 +1387,30 @@ const breadcrumbSchema = {
     font-size: 0.78rem;
     font-weight: 700;
     color: #34d399;
+  }
+  .pdp-direct-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.45rem;
+    margin-top: 0.2rem;
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
+  }
+  .pdp-direct-badge {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #a7f3d0;
+  }
+  .pdp-full-form-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #38bdf8 !important;
+    text-decoration: underline !important;
+  }
+  .pdp-full-form-link:hover {
+    color: #7dd3fc !important;
   }
   @media (max-width: 640px) {
     .pdp-direct-input-row {

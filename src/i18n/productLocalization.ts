@@ -2343,10 +2343,10 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
       : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
     ja: `${p.skuDisplay} ${locTitle}（卸売 $${p.tier500}〜$${p.tier50}、金型代$0、MOQ 50個）。${shortMat}・${p.weight}、100個〜50Wレーザー名入れ対応。`,
     ko: p.tuningFork
-      ? `${p.skuDisplay} 극성중공 소리굽쇠·튜닝포크 ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개 · 1개 샘플). ${shortMat} ${p.weight}, 50W 레이저.`
+      ? `${p.skuDisplay} 극성중공(극성 중공) 소리굽쇠·튜닝포크 ${locTitle} (가격 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개 · 1개 샘플). ${shortMat} ${p.weight}.`
       : isRing
-        ? `${p.skuDisplay} 피젯 스피너 반지 · ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 50W 레이저 로고 각인.`
-        : `${p.skuDisplay} ${locTitle} (도매가 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
+        ? `${p.skuDisplay} 피젯 스피너 반지 · ${locTitle} (가격 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 50W 레이저 로고 각인.`
+        : `${p.skuDisplay} ${locTitle} (도매 가격 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
     id: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 biaya cetakan, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser 50W mulai 100 pcs.`,
     ar: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}، قالب 0$، الحد الأدنى 50 قطعة). ${shortMat}، ${p.weight}، حفر شعار ليزر 50W من 100 قطعة.`
   };
