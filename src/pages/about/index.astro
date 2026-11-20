@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
-import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
 import { getAboutTableData, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const aboutTable = getAboutTableData(currentLang);
 const waUrl =
   'https://wa.me/8618750126315?text=Hello%20FidgetSupply%2C%20I%20would%20like%20to%20inquire%20about%20wholesale%20metal%20fidgets%20and%20custom%20logo%20pricing.';
@@ -185,6 +186,26 @@ const ABOUT_META_DESC_MAP: Record<string, string> = {
       title={t('about.geoTitle')}
       answer={t('about.geoAnswer')}
     />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="FidgetSupply Factory Capabilities · 140 Ready Molds Price Sheet & 1-Pc Sample" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="text"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} / WhatsApp`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
 
     <section class="section">
       <div class="grid-3">

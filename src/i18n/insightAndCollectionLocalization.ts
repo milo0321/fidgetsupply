@@ -253,8 +253,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
   },
   'n35-vs-n52-neodymium-magnet-haptic-feel-guide': {
     en: {
-      title: 'N35 vs. N52 Neodymium Magnets (N35 / N45 / N52) in Metal Fidget Sliders: Pull Force & Haptic Guide',
-      summary: 'N35 vs. N52 magnet comparison: why mechanical track sliders (FS-002, FS-048) use N35–N40 magnets while PTFE free-floating sliders (FS-125, FS-075) require high-flux N50–N52 magnets.'
+      title: 'N35 vs. N45 vs. N52 Magnets in Metal Fidget Sliders: Pull Force & Haptic Guide',
+      summary: 'N35 vs. N45 vs. N52 neodymium magnets compared: why track sliders (FS-002, FS-048) use N35–N40 while PTFE free-floating sliders (FS-125, FS-075) require N45–N52 magnets.'
     },
     de: {
       title: 'N35 vs. N52 Neodym-Magnete (+48% Zugkraft · N35 / N45 / N52)',
@@ -1567,8 +1567,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Полное таможенное и логистическое руководство по импорту металлических фиджетов в США, ЕС, Великобританию и на склады Amazon FBA — коды HS, экранирование IATA PI-953 и DDP.'
     },
     ja: {
-      title: '国際DDP関税込配送・HSコード（9503.00）・IATA PI-953航空磁気検査：金属フィジェット輸入通関＆FBA納品ガイド',
-      summary: '日米欧・英国およびAmazon FBA倉庫への金属フィジェット輸入におけるHS関税分類（9503.00）、IATA PI-953磁気遮蔽梱包（0.00525ガウス基準）、航空/海上DDP輸送を完全解説。'
+      title: 'IATA PI953（PI-953）航空磁気検査・HSコード9503.00・国際DDP輸入ガイド',
+      summary: '日本・欧米およびAmazon FBA倉庫への金属フィジェット輸入におけるIATA PI953（PI-953、0.00525ガウス磁気遮蔽）、HSコード（9503.00）、航空/海上DDP通関を完全解説（1個サンプル可）。'
     },
     ko: {
       title: 'HS 9503.00 세번, IATA PI-953 자기차폐 & 국제 DDP 통관 가이드',

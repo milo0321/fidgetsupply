@@ -84,10 +84,10 @@ function calibrateSeoTitle(raw: string, langCode: SupportedLanguage): string {
         }
       }
       clean = (acc || clean.slice(0, maxBase))
-        .replace(/[\s:,\-–—/+|&]+$/, '')
+        .replace(/[\s:,\-–—/+|&·]+$/, '')
         .replace(/\s+(vs\.?|y|i|e|et|und|en|og|och|ja|против|dan|및)$/i, '');
     } else {
-      clean = clean.slice(0, maxBase).replace(/[\s:,\-–—/+|&、。]+$/, '');
+      clean = clean.slice(0, maxBase).replace(/[\s:,\-–—/+|&·、。]+$/, '');
     }
   }
   let result = `${clean}${suffix}`;

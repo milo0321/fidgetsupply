@@ -723,7 +723,7 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "col.edc-gourds-hand-pieces.short": "Gourds & Handschmeichler",
     "col.edc-gourds-hand-pieces.name": "EDC-Gourds, Kapseln & Handschmeichler",
     "col.haptic-fidget-coins.short": "Haptik-Münzen",
-    "col.haptic-fidget-coins.name": "Haptic Coins & Metall-Klickmünzen (Haptik-Münzen) Großhandel",
+    "col.haptic-fidget-coins.name": "Fidget Coin & Haptic Coins (Metall-Klickmünzen) Großhandel",
     "col.magnetic-fidget-rings.short": "Spinner-Ringe",
     "col.magnetic-fidget-rings.name": "Magnetische & Kugelgelagerte Fidget-Ringe",
     "col.custom-logo-metal-fidgets.short": "★ Logo-Bereit",
