@@ -257,8 +257,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'N35 vs. N52 magnet comparison: why mechanical track sliders (FS-002, FS-048) use N35–N40 magnets while PTFE free-floating sliders (FS-125, FS-075) require high-flux N50–N52 magnets.'
     },
     de: {
-      title: 'N35 vs. N52 Neodym-Magnete (N35 / N45 / N52 Vergleich) in Metall-Fidget-Slidern: Zugkraft & Haptik',
-      summary: 'N35 vs. N52 Magnet-Vergleich: Warum mechanische Schienen-Slider (FS-002, FS-048) N35–N40 Magnete nutzen, während freie PTFE-Slider (FS-125, FS-075) hochstarke N50–N52 Neodym-Magnete erfordern.'
+      title: 'N35 vs. N52 Neodym-Magnete (+48% Zugkraft · N35 / N45 / N52)',
+      summary: 'N35 vs. N52 & N45 Neodym-Magnete Vergleich: Warum mechanische Schienen-Slider (FS-002, FS-048) N35–N40 Magnete nutzen, während freie PTFE-Slider (FS-125, FS-075) N50–N52 erfordern.'
     },
     fr: {
       title: 'Aimants Néodyme N35 vs N45 vs N52 dans les Sliders Fidget Métal : Force & Calibrage Haptique',
@@ -1247,8 +1247,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Varför Kung/Ess-pokerkort och Mahjong-magnetsliders leder den globala EDC-försäljningen — nedsänkt ugnsbränd emalj, kortergonomi och egen märkning.'
     },
     da: {
-      title: 'Mahjongbrik & Pokerkort Magnetiske Fidget Sliders ($1.55–$4.80): Brændt Emalje & Engros (MOQ 50)',
-      summary: 'Mahjongbrik (FS-021, FS-074) og Konge/Es-pokerkort magnetslidere (FS-001, FS-075) i metal: forsænket ovnbrændt emalje, N52 magneter, $0 værktøjsgebyr, MOQ 50 stk. og 50W laserlogo.'
+      title: 'Mahjongbrik & Pokerkort Fidget Sliders ($1.55+ · 1 Stk. Prøve)',
+      summary: 'Mahjongbrik (FS-021, FS-074) og Konge/Es-pokerkort magnetslidere (FS-001, FS-075) i metal: forsænket ovnbrændt emalje, N52 magneter, 1 stk. prøve OK, $0 værktøjsgebyr, MOQ 50 stk.'
     },
     no: {
       title: 'Pokerkort-, Mahjongbrikke- & Kasino-magnetslidere i Metall: Brent Emalje & Bestselgerguide',
@@ -1477,8 +1477,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'Liukuteippi (PTFE-Teflon), R188 & Fidgetit ($0.74+ MOQ 50)',
-      summary: 'PTFE-liukuteippi (0,13/0,18 mm teflon-liukuteippi magneettislidereihin), Si3N4-keraamikuulat, R188-laakerit & metalliset fidgetit ($0 muotti, MOQ 50).'
+      title: 'Liukuteippi (0,13/0,18mm PTFE-Teflon) & Fidget-Huolto-Opas',
+      summary: 'PTFE-liukuteippi (0,13/0,18 mm teflon-liukuteippi magneettislidereihin), Si3N4-keraamikuulat, R188-laakerit & metalliset fidgetit (1 kpl näyte OK, $0 muotti, MOQ 50).'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',
@@ -1547,8 +1547,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'IATA PI-953 (PI953 <0,00525 Gauss) magnetisk luftfragt, HS-toldkoder (9503.00) og dør-til-dør DDP-import af metalfidgets til Danmark & EU (MOQ 50).'
     },
     no: {
-      title: 'Tollkoder (HS 9503.00), IATA PI-953 (PI953) & DDP Import',
-      summary: 'Tollkoder i Norge (HS 9503.00 / 8306.29), IATA PI-953 (PI953 <0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets til Norge (MOQ 50 stk.).'
+      title: 'Norske Tollkoder (HS 9503.00), IATA PI953 & DDP-Import',
+      summary: 'Norske tollkoder (HS 9503.00 / 8306.29), IATA PI953 (PI-953 <0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets til Norge (1 stk. prøve OK, MOQ 50 stk.).'
     },
     fi: {
       title: 'Kansainvälinen DDP-toimitus, HS-tullikoodit (9503.00) & IATA PI-953 Magneettinen Lentorahti: Maahantuontiopas',
@@ -2825,8 +2825,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "Наш протокол ОТК из 12 тестов перед отгрузкой: проверка магнитов гауссметром, тест удержания эпоксидной смолы 50 Н, вращение подшипника R188 (>180 с), адгезия PVD 3M и экранирование IATA PI-953."
     },
     "ja": {
-      "title": "EDC 品質管理（QC）チェックリスト：金属フィジェット出荷前12項目検査（金型代$0・MOQ 50）",
-      "summary": "金属EDC品質管理（QC）の出荷前必須12項目検査：ガウスメーター磁束測定、50Nエポキシ保持試験、R188ベアリング180秒回転検査、3M PVD密着試験、IATA PI-953磁気遮蔽。"
+      "title": "EDC 品質管理（QC）チェックリスト：金属フィジェット出荷前12項目検査",
+      "summary": "金属EDC品質管理（QC）の出荷前必須12項目検査（1個サンプル可・MOQ 50）：ガウスメーター磁束測定、50Nエポキシ保持試験、R188ベアリング180秒回転検査、3M PVD密着試験、IATA PI-953磁気遮蔽。"
     },
     "ko": {
       "title": "메탈 EDC 피젯 품질관리(QC) 체크리스트: 수입업체를 위한 선적 전 필수 12단계 전수 검사 프로토콜",

@@ -289,7 +289,7 @@ export const COLLECTIONS: CollectionMeta[] = [
     moq: '50 pcs (Blank) / 100 pcs (Logo)',
     leadTime: '7–10 Days',
     targetKeywords: 'fidget coin, clicker coin, haptic coins, haptic coin fidget, magnetic haptic coin, haptic coin, haptic fidget coin wholesale, custom metal challenge coin spinner, magnetic clicker coin bulk',
-    heroSubtitle: '10 circular Fidget Coins, Clicker Coins, and Magnetic Haptic Coins ($2.39+ · MOQ 50 pcs) combining thrust bearings (Ø34.6×20mm or R188) with 12-to-14 neodymium magnets (N40–N54). A top seller for Web3 communities, gaming studios, fintech brands, and commemorative challenge coins ($0 Mold Fee).',
+    heroSubtitle: '10 ready-mold Fidget Coins, Clicker Coins, and Magnetic Haptic Coins ($2.39+ · 1-Pc Sample OK · MOQ 50 pcs) combining flat thrust bearings (Ø34.6×20mm or R188) with 12-to-14 neodymium magnets (N40–N54). Top choice for Web3 communities, gaming studios, fintech brands, and commemorative challenge coins ($0 Mold Fee).',
     geoDirectAnswer: 'FidgetSupply offers 10 ready-mold Fidget Coins, Clicker Coins, and Magnetic Haptic Fidget Coins (36.8mm to 47.4mm diameter, 42g to 91g) engineered with flat thrust bearings and 12–14 concentric N40/N52/N54 magnets. Flagship models include the 304 Stainless Steel Magnetic Haptic Coin (FS-013), Automotive Wheel Rim Coin (FS-030/031), Sandwich Cookie Coin (FS-027), and Ceramic-Bead N54 Tiger Coin (FS-041).',
     engineeringHighlights: [
       'Concentric Magnetic Ratchet Action: 12 radially indexed N40–N54 magnets paired with a Ø34.6×20mm flat thrust bearing deliver crisp, bidirectional rotational clicks.',
@@ -480,8 +480,8 @@ export const COLLECTIONS: CollectionMeta[] = [
     priceRangeUsd: '$5.50 – $261.50',
     moq: '50 pcs (Blank) / 100 pcs (Logo)',
     leadTime: '7–12 Days',
-    targetKeywords: 'tuning fork slider fidget, tuning fork fidget, tuning fork slider, tuning fork fidget slider wholesale, acoustic resonance edc slider, ding ding fidget toy manufacturer',
-    heroSubtitle: 'The highest-margin 2026–2027 viral EDC trend on TikTok and YouTube Shorts: 7 precision-machined Tuning Fork Slider Fidgets, acoustic chamber sliders, spinners, and gourds ($5.62+ · MOQ 50 pcs) engineered with cantilevered tuning-fork tines that emit a crystal-clear metallic chime ("Ding!") on every stroke.',
+    targetKeywords: 'tuning fork slider fidget, tuning fork fidget, tuning fork sliders, tuning fork slider, tuning fork fidget slider wholesale, acoustic resonance edc slider, ding ding fidget toy manufacturer',
+    heroSubtitle: 'The highest-margin 2026–2027 viral EDC trend: 7 precision-machined Tuning Fork Fidgets, Tuning Fork Sliders, and Tuning Fork Slider Fidgets ($5.62+ · 1-Pc Sample OK · MOQ 50 pcs) engineered with cantilevered tuning-fork tines that emit a crystal-clear metallic chime ("Ding!") on every stroke.',
     geoDirectAnswer: 'Our Acoustic Tuning Fork Slider Fidget Series aggregates all 7 sound-resonance models from the factory catalog: FS-150 Compact Tuning Fork Slider, FS-129 Divine-Realm Dual-Bearing Tuning Fork EDC, FS-148 Resonance Chamber Stainless Tuning Fork Spinner, FS-107/112 Acoustic Chime Gourd, FS-086 Harmonic Rhythm Stainless Slider, FS-091 Abalone 56-Magnet Stainless Acoustic Slider, and FS-045 Wood-Tone Acoustic Slider.',
     engineeringHighlights: [
       'Cantilevered Tine & Cavity Resonance: Internal U-shaped tuning-fork prongs vibrate freely when struck by N45/N52 magnet snap or 8mm hardened steel balls, producing a sustained 2,800–4,200 Hz metallic ring.',

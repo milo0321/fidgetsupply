@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
-import { getLanguageFromURL, useTranslations, getLocalizedPath } from '../../i18n/utils';
+import { getLanguageFromURL, useTranslations, getLocalizedPath, getMicroHookLabels } from '../../i18n/utils';
 import { localizeInsightMeta, localizeInsightFaqs, localizeInsightHtml } from '../../i18n/insightAndCollectionLocalization';
 import { localizeProduct, localizeTitle } from '../../i18n/productLocalization';
 
@@ -28,6 +28,7 @@ export async function getStaticPaths() {
 const { guide, relatedProducts, relatedGuides = [] } = Astro.props;
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const locGuideMeta = localizeInsightMeta(guide.data, currentLang);
 await render(guide);
 const rawGuideHtml = guide.rendered?.html || guide.body || '';
@@ -2060,34 +2061,6 @@ const faqSchema = {
           <div class="guide-fast-track-bar" aria-label={t('guide.refModelsTitle')}>
             <div class="fast-track-head">
               <span class="fast-track-title">⚡ {t('guide.refModelsTitle')}</span>
-              <div class="fast-track-actions">
-                <a
-                  href={getLocalizedPath('/contact', currentLang)}
-                  class="fast-track-rfq-btn btn-track-sample"
-                  data-rfq-sku={relatedProducts.map((rp: any) => rp.data.sku).join(', ')}
-                  data-rfq-mode="Sample / Prototype Evaluation"
-                  data-rfq-qty="1"
-                >
-                  📦 1-{t('unit.pc')} Sample
-                </a>
-                <a
-                  href={getLocalizedPath('/contact', currentLang)}
-                  class="fast-track-rfq-btn btn-track-sheet"
-                  data-rfq-sku="All 140 Ready Molds (Full Catalog & Price List)"
-                  data-rfq-mode="Blank Unbranded Stock"
-                  data-rfq-qty="50"
-                >
-                  📊 140-SKU Price Sheet
-                </a>
-                <a
-                  href={getLocalizedPath('/contact', currentLang)}
-                  class="fast-track-rfq-btn"
-                  data-rfq-sku={relatedProducts.map((rp: any) => rp.data.sku).join(', ')}
-                  data-rfq-qty="50"
-                >
-                  {t('nav.requestQuote')}
-                </a>
-              </div>
             </div>
             <div class="fast-track-chips">
               {relatedProducts.slice(0, 6).map((rp: any) => {
@@ -2109,6 +2082,30 @@ const faqSchema = {
             </div>
           </div>
         )}
+
+        <form
+          class="inline-quick-sheet-form"
+          data-inline-sku={relatedProducts.length > 0 ? `${relatedProducts.slice(0, 4).map((rp: any) => rp.data.sku).join(', ')} (${guide.data.slug})` : `Guide Inquiry (${guide.data.slug})`}
+          novalidate
+        >
+          <div class="inline-qrfq-text">
+            <strong>{microHooks.getFullSheetPdf}</strong>
+            <span>{microHooks.mixMoqBadge}</span>
+          </div>
+          <div class="inline-qrfq-controls">
+            <input
+              type="text"
+              class="inline-qrfq-input"
+              placeholder={`${t('contact.workEmail')} / WhatsApp`}
+              aria-label={t('contact.workEmail')}
+              required
+            />
+            <button type="submit" class="inline-qrfq-btn">
+              ⚡ {microHooks.sheet140} →
+            </button>
+          </div>
+          <div class="inline-qrfq-status" hidden></div>
+        </form>
 
         <!-- Mobile & Tablet Quick-Jump Table of Contents (Visible <= 1180px) -->
         <details class="mobile-toc-box">

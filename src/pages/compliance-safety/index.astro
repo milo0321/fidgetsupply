@@ -1,17 +1,18 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
-import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
 import { getComplianceTableData, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const compTable = getComplianceTableData(currentLang);
 
 const complianceFaqs = [
   {
-    question: 'What is US CPSC 16 CFR Part 1262 and how does it apply to magnetic fidget sliders?',
-    answer: 'US CPSC 16 CFR Part 1262 (Safety Standard for Magnets) requires that entertainment and stress-relief products containing magnets either not consist of loose small magnets that fit within the CPSC small-parts cylinder (Ø31.7mm × 57.1mm) with a Flux Index >= 50 kG²mm², or ensure embedded magnets never liberate during drop, torque, and tension abuse testing.'
+    question: 'What is US CPSC 16 CFR Part 1262 (16 CFR 1262) and how does it apply to magnetic fidget sliders & spinners?',
+    answer: 'US CPSC 16 CFR Part 1262 (16 CFR 1262 Safety Standard for Magnets) requires that entertainment and stress-relief products containing magnets either not consist of loose small magnets that fit within the CPSC small-parts cylinder (Ø31.7mm × 57.1mm) with a Flux Index >= 50 kG²mm², or ensure embedded magnets never liberate during drop, torque, and tension abuse testing. For US retail and Amazon FBA, we also supply factory CPSIA tracking labels and General Certificates of Conformity (GCC) for metal fidget spinners and sliders.'
   },
   {
     question: 'How does FidgetSupply.com prevent embedded neodymium magnets from coming loose?',
@@ -71,7 +72,7 @@ const complianceWebPageSchema = {
 };
 
 const COMPLIANCE_META_DESC_MAP: Record<string, string> = {
-  en: '16 CFR Part 1262 (US CPSC 16 CFR 1262) captive magnet safety, 3-layer screw-locked retention, EU RoHS 3 / EN71-3 & IATA PI953 (PI-953) air freight compliance.',
+  en: 'US CPSC 16 CFR Part 1262 (16 CFR 1262) magnet safety, CPSIA GCC & tracking labels, EU RoHS 3 / EN71-3 & IATA PI953 air freight compliance for 140 molds.',
   es: 'Seguridad magnética US CPSC 16 CFR 1262 (<50 kG²mm²), retención con tornillos, cumplimiento UE RoHS 3 / REACH e IATA PI-953 para 140 moldes metálicos EDC.',
   de: 'US CPSC 16 CFR 1262 Magnetsicherheit (<50 kG²mm²), 3-fach verschraubte Magnetfixierung, EU RoHS 3 / REACH & IATA PI-953 Luftfracht-Konformität für 140 Formen.',
   fr: 'Sécurité magnétique US CPSC 16 CFR 1262 (<50 kG²mm²), rétention verrouillée par vis, conformité UE RoHS 3 / REACH et fret aérien IATA PI-953 sur 140 moules.',
@@ -175,6 +176,26 @@ const pageDescription = COMPLIANCE_META_DESC_MAP[currentLang] || COMPLIANCE_META
       title={t('comp.geoTitle')}
       answer={t('comp.geoAnswer')}
     />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="16 CFR 1262 / RoHS 3 / IATA PI-953 Compliance Pack & 140-SKU Price Sheet" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="text"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} / WhatsApp`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
 
     <section class="section">
       <h2 style="margin-bottom: 1rem;">{t('comp.matrixTitle')}</h2>

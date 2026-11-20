@@ -3,11 +3,12 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
-import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
 import { getBrandingTableData, getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const brandingTable = getBrandingTableData(currentLang);
 const allProducts = await getCollection('products');
 const logoReadyModels = allProducts
@@ -220,6 +221,26 @@ const pageDescription = BRANDING_META_DESC_MAP[currentLang] || BRANDING_META_DES
       title={t('brand.geoTitle')}
       answer={t('brand.geoAnswer')}
     />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="Custom Logo Branding (50W Fiber Laser / Deep Color Fill · 28 Logo-Ready Molds)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="text"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} / WhatsApp`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
 
     <section class="section">
       <div class="section-header-center">
