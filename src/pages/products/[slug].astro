@@ -1335,6 +1335,10 @@ const breadcrumbSchema = {
     line-height: 1.3;
   }
   .pdp-direct-lead-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.45rem !important;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     border: 1.5px solid #0284c7;
     border-radius: 0.75rem;
@@ -1346,17 +1350,22 @@ const breadcrumbSchema = {
   .pdp-direct-input-row {
     display: flex;
     align-items: stretch;
-    gap: 0.5rem;
+    width: 100%;
+    gap: 0.55rem;
   }
   .pdp-direct-input {
-    flex: 1;
+    flex: 1 1 auto !important;
+    width: 100%;
     min-width: 0;
-    padding: 0.68rem 0.85rem;
-    font-size: 0.86rem;
+    padding: 0.72rem 0.9rem;
+    font-size: 0.88rem;
     border-radius: 0.5rem;
-    border: 1.5px solid #475569;
+    border: 1.5px solid #64748b;
     background: #ffffff;
     color: #0f172a;
+  }
+  .pdp-direct-input::placeholder {
+    color: #64748b;
   }
   .pdp-direct-input:focus {
     outline: none;
@@ -1364,10 +1373,10 @@ const breadcrumbSchema = {
     box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
   }
   .pdp-direct-submit {
-    padding: 0.68rem 1.05rem;
+    padding: 0.72rem 1.15rem;
     background: #0284c7 !important;
     color: #ffffff !important;
-    font-size: 0.84rem;
+    font-size: 0.86rem;
     font-weight: 800;
     border: none;
     border-radius: 0.5rem;
@@ -1379,9 +1388,12 @@ const breadcrumbSchema = {
   .pdp-direct-submit:hover {
     background: #0369a1 !important;
   }
+  .pdp-direct-status[hidden] {
+    display: none !important;
+  }
   .pdp-direct-status {
     display: block;
-    margin-top: 0.45rem;
+    margin-top: 0.1rem;
     font-size: 0.78rem;
     font-weight: 700;
     color: #34d399;
@@ -1396,7 +1408,7 @@ const breadcrumbSchema = {
   }
   .pdp-cta-row {
     display: grid;
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 1.35fr 1fr;
     gap: 0.75rem;
     margin-bottom: 0.65rem;
   }

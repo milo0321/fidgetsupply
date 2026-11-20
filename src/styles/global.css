@@ -275,6 +275,21 @@ img {
   background-color: #f8fafc;
 }
 
+.btn-whatsapp {
+  background-color: #059669 !important;
+  border-color: #047857 !important;
+  color: #ffffff !important;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28);
+}
+
+.btn-whatsapp:hover {
+  background-color: #047857 !important;
+  border-color: #065f46 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
 .btn-secondary-dark {
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.24);
@@ -870,6 +885,10 @@ img {
 }
 
 /* Inline 1-Field Price Sheet & Sample Capture Bar */
+.inline-quick-sheet-form[hidden],
+.inline-qrfq-status[hidden] {
+  display: none !important;
+}
 .inline-quick-sheet-form {
   display: flex;
   align-items: center;
@@ -905,23 +924,25 @@ img {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
+  flex: 1 1 320px;
+  justify-content: flex-end;
 }
 .inline-qrfq-input {
-  min-width: 220px;
-  padding: 0.58rem 0.85rem;
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 0.62rem 0.9rem;
   border-radius: 0.5rem;
   border: 1.5px solid #94a3b8;
   background: #ffffff;
   color: #0f172a;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
 }
 .inline-qrfq-input:focus {
   outline: none;
   border-color: #38bdf8;
 }
 .inline-qrfq-btn {
-  padding: 0.6rem 1rem;
+  padding: 0.62rem 1.05rem;
   border-radius: 0.5rem;
   border: none;
   background: #0284c7;
@@ -930,6 +951,7 @@ img {
   font-weight: 800;
   cursor: pointer;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .inline-qrfq-btn:hover {
   background: #0369a1;
