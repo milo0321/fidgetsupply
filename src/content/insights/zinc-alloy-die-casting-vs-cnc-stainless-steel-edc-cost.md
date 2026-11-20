@@ -16,6 +16,8 @@ relatedSkus: ["FS-114", "FS-105", "FS-099", "FS-075", "FS-038"]
 
 <h2 id="how-material-tiering-segments-customers">1. Why Two Identical Fidget Designs Can Cost $4.00 or $380.00 to Manufacture</h2>
 
+<p><strong>Direct Answer (Is Zinc Alloy Expensive Compared to CNC Stainless Steel?):</strong> No—<strong>Zamak #3 die-cast zinc alloy is not expensive</strong> ($0.75–$12.50/unit wholesale, 15-second hot-chamber casting cycle, $0 mold fee on 110 ready molds), making it <strong>65% to 85% more cost-effective</strong> than 5-axis CNC 304/316 stainless steel ($9.15–$255.00/unit, 20–45 min spindle cycle), Amber PEI Ultem ($15.70–$31.40), or Zr702 zirconium ($180.00–$382.00+).</p>
+
 In the global everyday carry (EDC) market, a **$19.99 entry-level slider** and a **$450.00 collector boutique piece** frequently share the exact same dimensions, magnet count, and mechanical linkage.
 
 What separates them is **metallurgy and spindle cycle time**.

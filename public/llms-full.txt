@@ -4025,6 +4025,8 @@ Whether you are launching your first 100-piece drop around the FS-001 Poker King
 
 #### 1. Why Shipping 100 to 5,000 Magnetic Metal Fidgets Requires Specialized Export Engineering
 
+Direct Answer (IATA PI953 / PI-953 Air Freight & DDP Shipping for Magnetic Metal Fidgets): Under IATA DGR Packing Instruction 953 (PI953 / PI-953, UN 2807), magnetic metal fidgets can ship as unrestricted general air cargo if the carton's stray magnetic field is kept below 0.00525 Gauss at 2.1m. FidgetSupply lines export cartons with 0.35mm ferromagnetic silicon-iron shielding and ships via All-Inclusive DDP Air (7–11 days, $0.75–$1.15/pc) and DDP Sea/Rail (18–26 days, $0.28–$0.48/pc) under HS Code 9503.00.0000.
+
 If you order 200 precision metal magnetic sliders (FS-125, FS-053, or FS-142) from an inexperienced domestic trading shop that simply tosses them into a standard cardboard box and hands them to a local courier, **two expensive logistics bottlenecks** frequently happen:
 
 1. **Airport Magnetic Hold (`IATA DGR Packing Instruction 953`)**: A master carton holding `100 units × 20 N52 magnets = 2,000 rare-earth magnets` generates an unshielded external magnetic field that deflects aircraft navigation compasses—causing DHL/FedEx security scanners at Shenzhen or Hong Kong airport to reject the shipment on the spot.
@@ -4693,7 +4695,7 @@ By positioning these multi-function models across both the **Everyday Carry Tool
 
 #### 1. Why NdFeB Magnet Grade Dictates 80% of a Fidget Slider's Tactile Quality
 
-Direct Answer (Which is Stronger, N35 or N52 Magnet? Difference Between N35 and N52 Magnets): When comparing neodymium magnet N52 vs N35 (or N35 magnet vs N52), sintered N52 neodymium magnets (52 MGOe, 14,500 Gauss) are +48.6% stronger than N35 magnets (35 MGOe, 12,100 Gauss) and +15.6% stronger than N45 magnets (45 MGOe, 13,500 Gauss). In metal fidget engineering, N35–N40 magnets suit low-friction mechanical track sliders (FS-001, $2.08+), N45 magnets drive resonant tuning fork sliders (FS-150, $10.19+), and high-flux N52–N54 magnets lock free-floating PTFE unlimited sliders (FS-125, $3.53+).
+Direct Answer (Which is Stronger, N35, N45, or N52 Magnet? N35 vs N45 Magnet & N35 vs N52): When comparing N35 vs N45 magnet or neodymium magnet N52 vs N35 (N35 magnet vs N52), sintered N45 magnets (45 MGOe, 13,500 Gauss) are +28.6% stronger than N35 magnets (35 MGOe, 12,100 Gauss), while N52 magnets (52 MGOe, 14,500 Gauss) are +48.6% stronger than N35 and +15.6% stronger than N45. In metal fidget engineering, N35–N40 magnets suit low-friction mechanical track sliders (FS-001, $2.08+), N45 magnets drive resonant tuning fork sliders (FS-150, $10.19+), and high-flux N52–N54 magnets lock free-floating PTFE unlimited sliders (FS-125, $3.53+).
 
 When wholesale buyers evaluate a metal magnetic slider, the exterior casting or CNC finish creates the first visual impression. However, the **sintered NdFeB (Neodymium-Iron-Boron) magnet array** determines whether end-users leave a 5-star review or return the product as *"mushy and weak."*
 
@@ -6819,6 +6821,8 @@ Instead of betting your entire launch budget on a single silhouette, top Shopify
 - **Executive Summary**: Compare Zamak #3 die-cast zinc alloy, CNC 6063-T6 aluminum, 304/316 stainless steel, Amber PEI (Ultem), 3K carbon fiber, and Zr702 zirconium across unit cost, CNC cycle time, retail positioning, and branding methods.
 
 #### 1. Why Two Identical Fidget Designs Can Cost $4.00 or $380.00 to Manufacture
+
+Direct Answer (Is Zinc Alloy Expensive Compared to CNC Stainless Steel?): No—Zamak #3 die-cast zinc alloy is not expensive ($0.75–$12.50/unit wholesale, 15-second hot-chamber casting cycle, $0 mold fee on 110 ready molds), making it 65% to 85% more cost-effective than 5-axis CNC 304/316 stainless steel ($9.15–$255.00/unit, 20–45 min spindle cycle), Amber PEI Ultem ($15.70–$31.40), or Zr702 zirconium ($180.00–$382.00+).
 
 In the global everyday carry (EDC) market, a **$19.99 entry-level slider** and a **$450.00 collector boutique piece** frequently share the exact same dimensions, magnet count, and mechanical linkage.
 

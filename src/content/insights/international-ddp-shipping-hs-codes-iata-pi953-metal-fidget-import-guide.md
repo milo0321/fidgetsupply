@@ -16,6 +16,8 @@ relatedSkus: ["FS-001", "FS-013", "FS-047", "FS-053", "FS-075", "FS-114", "FS-12
 
 <h2 id="why-magnetic-metal-hardware-requires-specialized-export-logistics">1. Why Shipping 100 to 5,000 Magnetic Metal Fidgets Requires Specialized Export Engineering</h2>
 
+<p><strong>Direct Answer (IATA PI953 / PI-953 Air Freight &amp; DDP Shipping for Magnetic Metal Fidgets):</strong> Under <strong>IATA DGR Packing Instruction 953 (PI953 / PI-953, UN 2807)</strong>, magnetic metal fidgets can ship as unrestricted general air cargo if the carton's stray magnetic field is kept below <strong>0.00525 Gauss at 2.1m</strong>. FidgetSupply lines export cartons with 0.35mm ferromagnetic silicon-iron shielding and ships via <strong>All-Inclusive DDP Air (7–11 days, $0.75–$1.15/pc)</strong> and <strong>DDP Sea/Rail (18–26 days, $0.28–$0.48/pc)</strong> under <strong>HS Code 9503.00.0000</strong>.</p>
+
 If you order 200 precision metal magnetic sliders (<a href="/products/smooth-soap-box-20-magnet-unlimited-slider">FS-125</a>, <a href="/products/mechanical-pumpkin-n54-haptic-coin">FS-053</a>, or <a href="/products/drop-tower-6-bearing-24-magnet-heavy-edc">FS-142</a>) from an inexperienced domestic trading shop that simply tosses them into a standard cardboard box and hands them to a local courier, **two expensive logistics bottlenecks** frequently happen:
 
 1. **Airport Magnetic Hold (`IATA DGR Packing Instruction 953`)**: A master carton holding `100 units × 20 N52 magnets = 2,000 rare-earth magnets` generates an unshielded external magnetic field that deflects aircraft navigation compasses—causing DHL/FedEx security scanners at Shenzhen or Hong Kong airport to reject the shipment on the spot.

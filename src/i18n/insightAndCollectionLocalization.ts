@@ -165,8 +165,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: '片持ち音叉プロングと共鳴チャンバーが 2,800〜4,200 Hz の澄んだ金属音「チーン！」を生み出す仕組みと、音叉シリーズ全7モデル（FS-150・FS-129・FS-148等、金型代$0・MOQ 50個）の徹底比較。'
     },
     ko: {
-      title: '극성중공 소리굽쇠(튜닝포크) 피젯 슬라이더 7종 ($5.62+ · 1개 샘플)',
-      summary: '극성중공(Polarity Hollow) 어쿠스틱 공명 챔버와 캔틸레버 소리굽쇠(튜닝포크)가 2,800~4,200 Hz 금속 공명음을 내는 원리 — FS-150($10.19+), FS-129($22.29+), FS-148 등 7종 도매 및 1개 샘플 가이드.'
+      title: '극성중공(극성 중공) 소리굽쇠·튜닝포크 피젯 슬라이더 7종 ($5.62+ · 1개 샘플)',
+      summary: '극성중공(극성 중공) 어쿠스틱 공명 챔버와 소리굽쇠(튜닝포크)가 2,800~4,200 Hz 금속 공명음을 내는 원리 — FS-150($10.19+), FS-129($22.29+), FS-148($42.46+) 등 7종 도매 가격 및 1개 샘플 가이드.'
     },
     id: {
       title: 'Slider Fidget Garpu Tala Akustik: Rekayasa Ruang Resonansi & Panduan Grosir 2026–2027',
