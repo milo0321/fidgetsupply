@@ -108,7 +108,7 @@ const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_D
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Custom Fidget Packaging: EVA & Tin Boxes | FidgetSupply' : `${t('pkg.heroTitle')} (+$0.75) | FidgetSupply`}
+  title={currentLang === 'en' ? 'Custom Fidget Packaging: EVA Cases & Tin Boxes (+$0.75)' : `${t('pkg.heroTitle')} (+$0.75) | FidgetSupply`}
   description={pageDescription}
   activePage="custom-packaging"
   jsonLd={[packagingServiceSchema, faqSchema]}
@@ -152,8 +152,14 @@ const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_D
         </div>
 
         <div class="hero-actions">
-          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
-            {t('pkg.ctaBtn')}
+          <a
+            href={getLocalizedPath('/contact', currentLang)}
+            data-rfq-sku="Custom Fidget Packaging (Black EVA Zipper Case / Window Tin Box / Gift Box)"
+            data-rfq-mode="Custom Logo + Black EVA Zipper Case (MOQ 100 pcs)"
+            data-rfq-qty="100"
+            class="btn btn-accent btn-hero"
+          >
+            ⚡ {t('pkg.ctaBtn')}
           </a>
           <a href={getLocalizedPath('/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide', currentLang)} class="btn btn-secondary-dark btn-hero">
             {t('guides.readCta')}

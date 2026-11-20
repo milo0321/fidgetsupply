@@ -95,7 +95,7 @@ const catalogCollectionSchema = {
 };
 
 const CATALOG_META_DESC_MAP: Record<string, string> = {
-  en: 'Browse 140 ready-mold wholesale metal EDC fidgets ($1.46–$470.77/pc, $0 tooling fee). Filter by Zinc, 304SS, Aluminum, PEI, Zirconium & MOQ 50 pcs.',
+  en: '140 ready-mold wholesale metal EDC fidgets, magnetic sliders & precision spinner factory direct ($0.74–$470.77, $0 mold fee, MOQ 50 pcs, 1-pc sample).',
   de: '140 Metall-EDC-Fidget-Serienformen im Großhandel ($1.46–$470.77/Stk., $0 Werkzeugkosten, MOQ 50 Stk.). Stimmgabel, Zink, 304-Edelstahl, PEI & 50W-Laserlogo.',
   fr: 'Catalogue grossiste de 140 moules fidgets EDC métal ($1.46–$470.77/pc, 0 $ frais de moule, MOQ 50 pcs). Zinc, Inox 304, Aluminium, PEI & logo laser 50W.',
   nl: '140 metalen EDC-fidget & metalen fidget spinner mallen ($1.46–$470.77/st., $0 matrijskosten, MOQ 50 st.). Zink, 304 RVS, Aluminium, PEI & 50W-laserlogo.',
@@ -117,7 +117,7 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Wholesale Metal EDC Fidgets: 140 Molds ($0.74+) | FidgetSupply' : `${t('catalog.title')} (140 · $0.74+) | FidgetSupply`}
+  title={currentLang === 'en' ? 'Wholesale Metal EDC Fidgets & Spinners: 140 Molds ($0.74+)' : `${t('catalog.title')} (140 · $0.74+) | FidgetSupply`}
   description={CATALOG_META_DESC_MAP[currentLang] || t('catalog.desc')}
   activePage="products"
   jsonLd={[catalogCollectionSchema, faqSchema]}
@@ -160,8 +160,14 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
       </div>
 
       <div class="hero-actions">
-        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
-          {t('nav.requestQuote')}
+        <a
+          href={getLocalizedPath('/contact', currentLang)}
+          data-rfq-sku="All 140 Ready Molds (Full Catalog & Price List)"
+          data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+          data-rfq-qty="50"
+          class="btn btn-accent btn-hero"
+        >
+          ⚡ {t('nav.requestQuote')}
         </a>
         <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-secondary-dark btn-hero">
           {t('home.hero.ctaLogo')}

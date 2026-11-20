@@ -2320,23 +2320,27 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
       ? `${p.skuDisplay} ${locTitle} (Drehring Aluminium & Magnetring: $${p.tier500}–$${p.tier50}, $0 Formkosten, MOQ 50 Stk.). ${shortMat}, ${p.weight}.`
       : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 Formkosten, MOQ 50 Stk.). ${shortMat}, ${p.weight}, 50W-Laserlogo ab 100 Stk.`,
     fr: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 frais de moule, MOQ 50 pcs). ${shortMat}, ${p.weight}, logo laser fibre 50W dès 100 pcs.`,
-    nl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 matrijskosten, MOQ 50 st.). ${shortMat}, ${p.weight}, 50W-laserlogo vanaf 100 st.`,
+    nl: isSpinner
+      ? `${p.skuDisplay} ${locTitle} (Gyrospinner & Metalen Fidget Spinner: $${p.tier500}–$${p.tier50}, $0 matrijs, MOQ 50 st.). ${shortMat}, 50W-laser.`
+      : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 matrijskosten, MOQ 50 st.). ${shortMat}, ${p.weight}, 50W-laserlogo vanaf 100 st.`,
     es: `${p.skuDisplay} ${locTitle} (Precio $${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 uds.). ${shortMat}, ${p.weight}, láser 50W desde 100 uds.`,
     it: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 stampo, MOQ 50 pz.). ${shortMat}, ${p.weight}, logo laser 50W da 100 pz.`,
     pt: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 molde, MOQ 50 un.). ${shortMat} Cinza Cromo, ${p.weight}, laser 50W (100 un.).`,
     sv: isSpinner
-      ? `${p.skuDisplay} ${locTitle} (Kullager Fidget Spinner & SKF/R188: $${p.tier500}–$${p.tier50}, $0 verktyg, MOQ 50 st). ${shortMat}, 50W laser.`
+      ? `${p.skuDisplay} ${locTitle} (Kullager Fidget Spinner, Sprocket & SKF/R188: $${p.tier500}–$${p.tier50}, $0 verktyg, MOQ 50 st). 50W laser.`
       : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktygskostnad, MOQ 50 st). ${shortMat}, ${p.weight}, 50W laserlogo från 100 st.`,
     da: isSpinner
-      ? `${p.skuDisplay} ${locTitle} (SKF/R188 Fidget Spinner: $${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, 50W laserlogo.`
+      ? `${p.skuDisplay} ${locTitle} (SKF/R188 Fidget Spinner: $${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, fiber laser gravering.`
       : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 værktøjsgebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, SKF/R188 & 50W laserlogo.`,
-    no: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktøygebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W laserlogo fra 100 stk.`,
+    no: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 verktøygebyr, MOQ 50 stk.). ${shortMat}, ${p.weight}, 50W fiberlaser gravering.`,
     fi: isSpinner
       ? `${p.skuDisplay} ${locTitle} (fidget spinner omalla painatuksella: $${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, 50W laser.`
       : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 muottikulu, MOQ 50 kpl). ${shortMat}, ${p.weight}, omalla painatuksella / 50W laser.`,
     pl: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 formy, MOQ 50 szt.). ${shortMat}, ${p.weight}, grawer laserowy 50W od 100 szt.`,
     cs: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 forma, MOQ 50 ks). ${shortMat}, ${p.weight}, 50W laserové logo od 100 ks.`,
-    ru: `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
+    ru: isRing
+      ? `${p.skuDisplay} Кольцо спиннер · ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт. · образец 1 шт.). ${shortMat}, лазер 50W.`
+      : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
     ja: `${p.skuDisplay} ${locTitle}（卸売 $${p.tier500}〜$${p.tier50}、金型代$0、MOQ 50個）。${shortMat}・${p.weight}、100個〜50Wレーザー名入れ対応。`,
     ko: p.tuningFork
       ? `${p.skuDisplay} 극성중공 소리굽쇠·튜닝포크 ${locTitle} (도매 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개 · 1개 샘플). ${shortMat} ${p.weight}, 50W 레이저.`

@@ -211,12 +211,12 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Varför vår fabrik avråder från screentryck och UV-tryck på slät metall (färgen flagnar vid friktion) och rekommenderar 50W fiberlasergravyr (+$0,15–$0,30/st, prov $50) eller djup lasergravyr med emaljfyllning (+$0,35–$0,60/st, prov $80–$150).'
     },
     da: {
-      title: 'Fiberlasergravering (50W Fiberlaser gravering) & Dyb Laser Farvefyld vs. Serigrafi / UV på Metalfidgets',
-      summary: 'Hvorfor vores fabrik fraråder serigrafi og UV-tryk på glat metal (blækket skaller af ved friktion) og anbefaler 50W fiberlasergravering (fiberlaser gravering, +$0,15–$0,30/stk., prøve $50) eller dyb lasergravering med emaljefyld (+$0,35–$0,60/stk., prøve $80–$150).'
+      title: 'Fiber Laser Gravering (50W Fiberlaser) vs. UV (+$0.15/stk)',
+      summary: 'Fiber laser gravering (50W fiberlasergravering, +$0,15/stk., prøve $50) og dyb laser med emaljefyld (+$0,35/stk.) vs. UV-tryk på metal ($0 værktøj, MOQ 100).'
     },
     no: {
-      title: 'Fiberlaser gravering (50W Fiberlasergravering) & Dyp Laser Fargefyll vs. Silketrykk / UV på Metallfidgets',
-      summary: 'Hvorfor vår fabrikk fraråder silketrykk og UV-trykk på glatt metall (blekket flasser av ved bruk) og anbefaler 50W fiberlaser gravering (+$0,15–$0,30/stk., prøve $50) eller dyp lasergravering med emaljefyll (+$0,35–$0,60/stk., prøve $80–$150).'
+      title: 'Fiberlaser Gravering (50W Fiber Laser) vs. UV (+$0.15/stk)',
+      summary: 'Fiberlaser gravering (50W fiber laser gravering, +$0,15/stk., prøve $50) og dyp laser med emaljefyll (+$0,35/stk.) vs. UV-trykk på metall ($0 verktøy, MOQ 100).'
     },
     fi: {
       title: '50W Kuitulaserkaiverrus & Syvä Laserkaiverrus Väritäytöllä vs. Silkkipaino / UV Metallifidgeteissä',

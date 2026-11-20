@@ -241,8 +241,8 @@ const COLLECTION_SEO_TITLES: Record<string, string> = {
 const COLLECTION_SEO_DESCS: Record<string, string> = {
   'magnetic-fidget-sliders': `Wholesale magnetic textured fidget sliders & magnetic haptic sliders: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 1-pc sample.`,
   'haptic-fidget-coins': `Wholesale fidget coins, haptic fidget coins & magnetic clicker coins: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 1-pc sample.`,
-  'magnetic-fidget-rings': `Wholesale spinner rings & magnetic fidget rings in bulk: ${products.length} ready metal molds ($${minColPrice}–$${maxColPrice}). R188 bearings, $0 mold fee, MOQ 50 pcs.`,
-  'metal-fidget-spinners-gyros': `Wholesale metal fidget spinners, R188 hand spinners & desktop gyros: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 1-pc sample.`,
+  'magnetic-fidget-rings': `Wholesale spinner rings, metal fidget rings & magnetic fidget rings: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). R188 bearings, $0 mold fee, MOQ 50 pcs.`,
+  'metal-fidget-spinners-gyros': `Aluminum alloy spinner factory wholesale & precision spinner factory direct: ${products.length} R188 metal spinners & gyros ($${minColPrice}–$${maxColPrice}, $0 mold, MOQ 50).`,
   'tuning-fork-fidget-sliders': `Wholesale acoustic tuning fork sliders & resonance chamber EDC: ${products.length} molds ($${minColPrice}–$${maxColPrice}). 2040–4200Hz chime, $0 mold fee, MOQ 50 pcs.`,
   'custom-logo-metal-fidgets': `Custom logo fidget spinners, spinners with company logo & cheap logo printed fidget spinners in bulk: ${products.length} molds ($${minColPrice}–$${maxColPrice}, $0 mold, MOQ 100).`,
   'edc-gourds-hand-pieces': `Wholesale metal EDC gourds, Baoding hand pieces & stash capsules: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 50W laser logo.`,
@@ -262,20 +262,23 @@ const COL_LOCALE_FOCUS: Record<string, Partial<Record<string, string>>> = {
     nl: ' (magnetic textured fidget sliders & Zamak)',
     fi: ' (liukuteippi PTFE & magneettisliderit)',
     cs: ' (magnetické slidery & PTFE)',
+    ru: ' (магнитные слайдеры и тактильные фиджеты)',
     id: ' (pivot slider & magnetic haptic slider)'
   },
   'metal-fidget-spinners-gyros': {
     de: ' (Metal Fidget Spinners & R188 Kreisel)',
-    nl: ' (metalen fidget spinner & R188 gyro)',
-    sv: ' (kullager fidget spinner, SKF/R188 & metal fidget spinner)',
+    nl: ' (metalen fidget spinner, gyrospinner & R188)',
+    sv: ' (kullager fidget spinner, sprocket & metal fidget spinner)',
     da: ' (SKF/R188 fidget spinner & gyro)',
     no: ' (metal fidget spinner & R188 gyro)',
     fi: ' (gyrot & fidget spinner omalla painatuksella)',
+    ru: ' (металлические спиннеры и гироскопы R188)',
     ja: '（メタルハンドスピナー・R188ジャイロ）',
     ko: ' (메탈 피젯 스피너 & R188 자이로)'
   },
   'mechanical-edc-fidgets': {
     de: ' (Mechanische EDC-Fidgets & Ratschen)',
+    ru: ' (механические EDC-фиджеты и трещотки)',
     ja: '（メカニカルEDC・ナックルローラー）',
     ko: ' (기계식 EDC 피젯 & 래칫 슬라이더)',
     id: ' (blade press & mechanical ratchet EDC)'
@@ -286,6 +289,7 @@ const COL_LOCALE_FOCUS: Record<string, Partial<Record<string, string>>> = {
   },
   'haptic-fidget-coins': {
     de: ' (Fidget Coin & Haptic Clicker Coin)',
+    ru: ' (тактильные фиджет-монеты и кликеры)',
     ja: '（フィジェットコイン・ハプティックコイン）',
     ko: ' (피젯 코인 & 햅틱 클릭커 코인)'
   },
@@ -294,6 +298,7 @@ const COL_LOCALE_FOCUS: Record<string, Partial<Record<string, string>>> = {
     sv: ' (magnetic fidget ring & kullager fidget ring)',
     fi: ' (fidget sormus & magneettisormus)',
     cs: ' (spinner prsten & magnetický prsten)',
+    ru: ' (кольцо спиннер и магнитное кольцо EDC)',
     ja: '（マグネットスピナーリング・指輪）',
     ko: ' (피젯 스피너 반지 & 베어링 반지)'
   },
@@ -328,7 +333,7 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
   fi: `${locColName}${focusTag('fi')}: ${products.length} muottia ($${minColPrice}–$${maxColPrice}, $0 muottikulu, MOQ 50 kpl). 50W kuitulaserlogo.`,
   pl: `${locColName}: ${products.length} gotowych form ($${minColPrice}–$${maxColPrice}, $0 kosztów formy, MOQ 50 szt.). Logo laserowe 50W od 100 szt.`,
   cs: `${locColName}${focusTag('cs')}: ${products.length} forem ($${minColPrice}–$${maxColPrice}, $0 forma, MOQ 50 ks). 50W laserové logo.`,
-  ru: `${locColName} (магнитные слайдеры и спиннеры): ${products.length} пресс-форм ($${minColPrice}–$${maxColPrice}, $0 за форму, MOQ 50 шт.). Лазер 50W.`,
+  ru: `${locColName}${focusTag('ru')}: ${products.length} пресс-форм ($${minColPrice}–$${maxColPrice}, $0 за форму, MOQ 50 шт.). Лазер 50W.`,
   ja: `${locColName}${focusTag('ja')}：既存${products.length}金型（卸売 $${minColPrice}〜$${maxColPrice}、金型代$0、MOQ 50個・50Wレーザー名入れ）。`,
   ko: `${locColName}${focusTag('ko')}: 기성 금형 ${products.length}종 (도매 $${minColPrice}–$${maxColPrice}, 금형비 $0, MOQ 50개). 50W 레이저 로고 각인.`,
   id: `${locColName}${focusTag('id')}: ${products.length} cetakan siap pakai ($${minColPrice}–$${maxColPrice}, $0 biaya cetakan, MOQ 50 pcs). Logo laser 50W.`,
