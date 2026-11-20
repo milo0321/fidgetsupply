@@ -4,12 +4,13 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { COLLECTIONS } from '../../data/collections';
-import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
 import { getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 import { localizeTitle } from '../../i18n/productLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const allProducts = await getCollection('products');
 const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
 const primaryCollections = COLLECTIONS.filter((c) => c.group === 'primary');
@@ -183,7 +184,7 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
           class="badge badge-gold"
           style="text-decoration: none;"
         >
-          📊 Get Full 140-SKU Price Sheet (PDF/Excel) →
+          {microHooks.getFullSheetPdf}
         </a>
         <a
           href={getLocalizedPath('/contact', currentLang)}
@@ -193,7 +194,7 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
           class="badge badge-dark"
           style="text-decoration: none;"
         >
-          📦 Order 1-{t('unit.pc')} Sample Kit →
+          {microHooks.sample1Pc} ({microHooks.freeLogoProof}) →
         </a>
         <a
           href={getLocalizedPath('/insights/low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment', currentLang)}
@@ -211,6 +212,26 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
       title={t('catalog.geoTitle')}
       answer={t('catalog.geoAnswer')}
     />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="All 140 Ready Molds (Full Catalog & Price List)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="text"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} / WhatsApp`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden>✓ Sent! Check your inbox shortly.</div>
+    </form>
 
     <!-- Instant Filter Toolbar -->
     <div class="filter-panel">

@@ -472,15 +472,41 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
         <div>
           <h2>{t('col.gridHeadingPrefix')} {t(`col.${collection.slug}.short` as any)} ({products.length})</h2>
           <p class="grid-trust-strip">
-            <span>✓ {t('pdp.noMoldFee')}</span>
-            <span>·</span>
-            <span>✓ {locCol.moq}</span>
+            <span>{microHooks.mixMoqBadge}</span>
             <span>·</span>
             <a href="#engineering-comparison-matrix">{t('col.matrixBadge')} ↓</a>
           </p>
         </div>
-        <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-primary">{t('nav.requestQuote')}</a>
+        <a
+          href={getLocalizedPath('/contact', currentLang)}
+          data-rfq-sku={`${products.length} Models in ${cleanShortName} ($${minColPrice}–$${maxColPrice})`}
+          data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+          data-rfq-qty="50"
+          class="btn btn-primary"
+        >
+          ⚡ {t('nav.requestQuote')}
+        </a>
       </div>
+
+      <form class="inline-quick-sheet-form" data-inline-sku={`${cleanShortName} (${products.length} Models · $${minColPrice}–$${maxColPrice})`} novalidate>
+        <div class="inline-qrfq-text">
+          <strong>{microHooks.getFullSheetPdf}</strong>
+          <span>{microHooks.mixMoqBadge}</span>
+        </div>
+        <div class="inline-qrfq-controls">
+          <input
+            type="text"
+            class="inline-qrfq-input"
+            placeholder={`${t('contact.workEmail')} / WhatsApp`}
+            aria-label={t('contact.workEmail')}
+            required
+          />
+          <button type="submit" class="inline-qrfq-btn">
+            ⚡ {microHooks.sheet140} →
+          </button>
+        </div>
+        <div class="inline-qrfq-status" hidden>✓ Sent! Check your inbox shortly.</div>
+      </form>
 
       <div class="grid-4">
         {products.map((p) => (
