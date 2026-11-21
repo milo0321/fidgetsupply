@@ -383,6 +383,64 @@ img {
   gap: 0.85rem;
 }
 
+details.faq-item {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+details.faq-item[open] {
+  border-color: var(--color-brand);
+  box-shadow: var(--shadow-md);
+}
+
+summary.faq-question {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 1.35rem;
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #0f172a;
+  cursor: pointer;
+}
+
+summary.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+summary.faq-question::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  line-height: 1;
+}
+
+details.faq-item[open] summary.faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  padding: 0 1.35rem 1.25rem;
+  color: #334155;
+  font-size: 0.96rem;
+  line-height: 1.72;
+  border-top: 1px solid #f1f5f9;
+}
+
+.faq-answer p {
+  margin: 0.85rem 0 0;
+  color: #334155;
+}
+
 .accordion-item {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
