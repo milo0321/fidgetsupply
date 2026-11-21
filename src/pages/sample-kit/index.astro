@@ -282,11 +282,16 @@ const serviceSchema = {
         <h2 class="section-title">Transparent Policies for Paid Evaluation Samples</h2>
       </div>
       <div class="faq-list">
-        {sampleFaqs.map((faq) => (
-          <details class="faq-item">
-            <summary class="faq-question">{faq.question}</summary>
-            <div class="faq-answer"><p>{faq.answer}</p></div>
-          </details>
+        {sampleFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
         ))}
       </div>
     </section>
