@@ -41,6 +41,12 @@ const t = useTranslations(currentLang);
 const langConfig = languages[currentLang];
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || 'G-HHP8CN1M58';
 const gtmId = 'GTM-TH9NHVJ4';
+const turnstileSiteKey = (
+  import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ||
+  import.meta.env.TURNSTILE_SITE_KEY ||
+  (typeof process !== 'undefined' ? process.env?.PUBLIC_TURNSTILE_SITE_KEY || process.env?.TURNSTILE_SITE_KEY : '') ||
+  '0x4AAAAAAF1GTaPVmYSNUcHS'
+).trim();
 
 function htmlEncodedLen(s: string): number {
   return (
@@ -643,9 +649,99 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
         }
       } catch (err) {}
 
-      // Global Inline 1-Field Email/WhatsApp Capture Form Handler (.inline-quick-sheet-form)
+      // Global Inline 1-Field Work Email Capture Form Handler (.inline-quick-sheet-form)
+      // Strict email validation + On-demand Cloudflare Turnstile (interaction-only) -> /api/contact
       (function () {
         var pageEnterTs = Date.now();
+        var TURNSTILE_SITE_KEY = '0x4AAAAAAF1GTaPVmYSNUcHS';
+        var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+        var turnstileLoaderPromise = null;
+
+        function ensureTurnstileLoaded() {
+          if (window.turnstile && typeof window.turnstile.render === 'function') {
+            return Promise.resolve(window.turnstile);
+          }
+          if (turnstileLoaderPromise) return turnstileLoaderPromise;
+          turnstileLoaderPromise = new Promise(function (resolve, reject) {
+            var existing = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
+            if (existing) {
+              var tries = 0;
+              var timer = setInterval(function () {
+                tries++;
+                if (window.turnstile && typeof window.turnstile.render === 'function') {
+                  clearInterval(timer);
+                  resolve(window.turnstile);
+                } else if (tries > 50) {
+                  clearInterval(timer);
+                  reject(new Error('Turnstile timeout'));
+                }
+              }, 100);
+              return;
+            }
+            var s = document.createElement('script');
+            s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+            s.async = true;
+            s.defer = true;
+            s.onload = function () {
+              if (window.turnstile && typeof window.turnstile.render === 'function') {
+                resolve(window.turnstile);
+              } else {
+                reject(new Error('Turnstile API missing'));
+              }
+            };
+            s.onerror = function () { reject(new Error('Turnstile script failed')); };
+            document.head.appendChild(s);
+          });
+          return turnstileLoaderPromise;
+        }
+
+        function getTurnstileToken(formEl) {
+          return ensureTurnstileLoaded().then(function (ts) {
+            return new Promise(function (resolve, reject) {
+              var holder = formEl.querySelector('.inline-cf-turnstile-holder');
+              if (!holder) {
+                holder = document.createElement('div');
+                holder.className = 'inline-cf-turnstile-holder';
+                holder.style.marginTop = '0.5rem';
+                formEl.appendChild(holder);
+              }
+              holder.innerHTML = '';
+              var settled = false;
+              var timer = setTimeout(function () {
+                if (!settled) {
+                  settled = true;
+                  reject(new Error('Security check timed out. Please try again.'));
+                }
+              }, 20000);
+              try {
+                ts.render(holder, {
+                  sitekey: TURNSTILE_SITE_KEY,
+                  action: 'inline_price_sheet',
+                  appearance: 'interaction-only',
+                  theme: 'dark',
+                  callback: function (token) {
+                    if (!settled) {
+                      settled = true;
+                      clearTimeout(timer);
+                      resolve(token);
+                    }
+                  },
+                  'error-callback': function () {
+                    if (!settled) {
+                      settled = true;
+                      clearTimeout(timer);
+                      reject(new Error('Security check failed. Please retry or use /contact.'));
+                    }
+                  }
+                });
+              } catch (err) {
+                clearTimeout(timer);
+                reject(err);
+              }
+            });
+          });
+        }
+
         document.addEventListener('submit', function (e) {
           var inlineForm = e.target && e.target.closest ? e.target.closest('.inline-quick-sheet-form') : null;
           if (!inlineForm) return;
@@ -654,15 +750,31 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           var btn = inlineForm.querySelector('.inline-qrfq-btn');
           var statusEl = inlineForm.querySelector('.inline-qrfq-status');
           var rawVal = (input && input.value.trim()) || '';
-          if (!rawVal || rawVal.length < 3) {
+
+          if (!EMAIL_RE.test(rawVal)) {
             if (input) {
               input.style.borderColor = '#ef4444';
               input.focus();
             }
+            if (statusEl) {
+              if (!statusEl.getAttribute('data-orig-msg')) {
+                statusEl.setAttribute('data-orig-msg', statusEl.textContent || '');
+              }
+              statusEl.textContent = '⚠ Please enter a valid work email address (e.g. name@company.com).';
+              statusEl.style.color = '#fca5a5';
+              statusEl.hidden = false;
+            }
             return;
           }
+
           if (input) input.style.borderColor = '#cbd5e1';
+          if (statusEl && statusEl.getAttribute('data-orig-msg')) {
+            statusEl.textContent = statusEl.getAttribute('data-orig-msg');
+            statusEl.style.color = '';
+            statusEl.hidden = true;
+          }
           var skuTarget = inlineForm.getAttribute('data-inline-sku') || 'All 140 Ready Molds (Full Catalog & Price List)';
+          var origBtnText = btn ? btn.textContent : '';
           try {
             localStorage.setItem('rx_user_email', rawVal);
             sessionStorage.setItem('rx_user_email', rawVal);
@@ -678,50 +790,81 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
               : [];
           var urlParams = new URLSearchParams(window.location.search);
 
-          fetch('/api/whatsapp-track', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              event: 'message_sent',
-              triggerSource: 'Inline 1-Field Direct Quote & Price Sheet Box',
-              userEmail: rawVal,
-              pageUrl: window.location.href,
-              pagePath: window.location.pathname,
-              pageTitle: document.title,
-              productName: skuTarget,
-              messageText: '[Inline 1-Field Lead]\nContact: ' + rawVal + '\nRequested: Instant Quote, 1-Pc Sample & 140-SKU PDF Price Sheet for ' + skuTarget,
-              browsingJourney: JSON.stringify(journeySnapshot),
-              pageReferrer: document.referrer || 'Direct Visit',
-              browserLanguage: navigator.language || 'en',
-              screenResolution: window.screen.width + 'x' + window.screen.height,
-              clientTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
-              clientLocalTime: new Date().toLocaleString(),
-              timeOnPageSeconds: Math.max(1, Math.round((Date.now() - pageEnterTs) / 1000)) + 's',
-              utmSource: urlParams.get('utm_source') || '',
-              utmMedium: urlParams.get('utm_medium') || '',
-              utmCampaign: urlParams.get('utm_campaign') || ''
-            }),
-            keepalive: true
-          })
-            .catch(function () {})
-            .finally(function () {
+          getTurnstileToken(inlineForm)
+            .then(function (turnstileToken) {
+              return fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  workEmail: rawVal,
+                  productName: skuTarget,
+                  quantity: '50-100 pcs (Inline Price Sheet / Sample Request)',
+                  customization: 'Price Sheet / Sample Evaluation',
+                  message: '[Inline Email Price-Sheet Form]\nWork Email: ' + rawVal + '\nRequested: 140-SKU Price Sheet & Quote for ' + skuTarget,
+                  turnstileToken: turnstileToken,
+                  'cf-turnstile-response': turnstileToken,
+                  pageUrl: window.location.href,
+                  pagePath: window.location.pathname,
+                  pageTitle: document.title,
+                  browsingJourney: JSON.stringify(journeySnapshot),
+                  pageReferrer: document.referrer || 'Direct Visit',
+                  browserLanguage: navigator.language || 'en',
+                  screenResolution: window.screen.width + 'x' + window.screen.height,
+                  clientTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone || '',
+                  clientLocalTime: new Date().toLocaleString(),
+                  timeOnPageSeconds: Math.max(1, Math.round((Date.now() - pageEnterTs) / 1000)) + 's',
+                  utmSource: urlParams.get('utm_source') || '',
+                  utmMedium: urlParams.get('utm_medium') || '',
+                  utmCampaign: urlParams.get('utm_campaign') || ''
+                })
+              });
+            })
+            .then(function (res) {
+              return res.json().catch(function () { return { success: false }; }).then(function (json) {
+                if (!res.ok || !json.success) {
+                  throw new Error(json.error || 'Verification failed. Please try again.');
+                }
+                return json;
+              });
+            })
+            .then(function () {
               if (btn) {
                 btn.textContent = '✓';
                 btn.style.background = '#059669';
               }
               if (statusEl) {
+                if (!statusEl.textContent || statusEl.textContent.indexOf('⚠') === 0) {
+                  statusEl.textContent = '✅ Received! Our Fuzhou export desk will email your quote & 140-SKU price sheet shortly.';
+                }
+                statusEl.style.color = '#34d399';
                 statusEl.hidden = false;
               }
+              var holder = inlineForm.querySelector('.inline-cf-turnstile-holder');
+              if (holder) holder.innerHTML = '';
               try {
                 if (typeof window.gtag === 'function') {
                   window.gtag('event', 'generate_lead', {
                     event_category: 'form_submission',
-                    event_label: 'inline_direct_lead_box',
+                    event_label: 'inline_verified_email_box',
                     rfq_sku: skuTarget,
                     page_location: window.location.href
                   });
                 }
               } catch (_) {}
+            })
+            .catch(function (err) {
+              if (btn) {
+                btn.disabled = false;
+                btn.textContent = origBtnText || '→';
+              }
+              if (statusEl) {
+                if (!statusEl.getAttribute('data-orig-msg')) {
+                  statusEl.setAttribute('data-orig-msg', statusEl.textContent || '');
+                }
+                statusEl.textContent = '⚠ ' + (err && err.message ? err.message : 'Security verification failed. Please retry.');
+                statusEl.style.color = '#fca5a5';
+                statusEl.hidden = false;
+              }
             });
         });
       })();

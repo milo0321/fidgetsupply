@@ -186,12 +186,18 @@ export async function onRequestPost(context) {
 
     const turnstileTokenAlt = data['cf-turnstile-response'] || '';
 
-    if (!workEmail || !productName) {
+    const trimmedEmail = String(workEmail || '').trim();
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(trimmedEmail);
+    if (!trimmedEmail || !isValidEmail || !productName) {
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Work Email and Target Product / SKU are required.',
-          message: 'Work Email and Target Product / SKU are required.'
+          error: !isValidEmail
+            ? 'Please enter a valid work email address (e.g. name@company.com).'
+            : 'Work Email and Target Product / SKU are required.',
+          message: !isValidEmail
+            ? 'Please enter a valid work email address (e.g. name@company.com).'
+            : 'Work Email and Target Product / SKU are required.'
         }),
         { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } }
       );

@@ -113,7 +113,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1-Pc Sample OK · ✓ 50-Pc Mix-SKU · ✓ $0 Mold Fee',
     unitPriceLabel: 'Unit Factory Price',
     estTotalLabel: 'Est. Batch Subtotal',
-    pdpInputPlaceholder: 'Work Email or WhatsApp (for Instant Quote & PDF)...',
+    pdpInputPlaceholder: 'Work Email (name@company.com) for Quote & PDF...',
     pdpDirectSendBtn: '⚡ Get Quote & PDF →',
     pdpSentConfirm: '✅ Received! Our Fuzhou export desk will send your quote & PDF sheet within 2–12h.'
   },
