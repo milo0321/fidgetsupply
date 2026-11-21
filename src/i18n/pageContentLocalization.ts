@@ -104,21 +104,21 @@ export function getPackagingBullets(lang: SupportedLanguage) {
   const pcs = t('unit.pcs');
   if (lang === 'en') {
     return {
-      price1: '+$0.75+ / pc · MOQ 100',
-      bullets1: ['✓ Stock-Mold 95 × 65 × 32 mm ($0 EVA Mold)', '✓ Silk-Screen / Heat-Transfer Logo', '✓ FNSKU & CPSC 14+ Ready'],
-      price2: '+$0.95+ / pc · MOQ 300',
-      bullets2: ['✓ Stock-Mold 110 × 80 × 28 mm ($0 Tin Mold)', '✓ 50W Fiber Laser Lid Logo', '✓ Custom-Cut EVA Foam Cavity (1,000+ Full Custom Print)'],
+      price1: '$0.00 Included · MOQ 50',
+      bullets1: ['✓ Individual Textured Vacuum Pouch', '✓ Blocks Ocean/Air Humidity & Oxidation', '✓ Protects R188 Bearings & Finishes'],
+      price2: '+$0.75+ / pc · MOQ 100',
+      bullets2: ['✓ Stock-Mold Black EVA Case ($0 Mold)', '✓ Felt-Lined + Fits Vacuum-Sealed Unit', '✓ Silk-Screen / Heat-Transfer Logo'],
       price3: '+$1.45+ / pc · MOQ 500',
-      bullets3: ['✓ 125 × 90 × 38 mm Rigid Gift Box', '✓ Gold / Silver Hot Foil Stamping', '✓ Custom Foam Tray (1,000+ Full Bespoke Sizing)']
+      bullets3: ['✓ Custom Rigid Gift Box + Foil Logo', '✓ Custom-Cut EVA Foam Tray Included', '✓ Custom Window Tin / Molds (1,000+ pcs)']
     };
   }
   return {
-    price1: `+$0.75+ / ${pc} · MOQ 100 ${pcs}`,
-    bullets1: ['✓ 95 × 65 × 32 mm', `✓ ${t('footer.cert3')}`, `✓ ${t('pdp.trust3')}`],
-    price2: `+$0.95+ / ${pc} · MOQ 300 ${pcs}`,
-    bullets2: ['✓ 110 × 80 × 28 mm', `✓ ${t('pdp.opt2Title')}`, `✓ CNC EVA (FS-001 – FS-150)`],
+    price1: `$0.00 · MOQ 50 ${pcs}`,
+    bullets1: ['✓ Vacuum-Sealed Anti-Oxidation Pouch', `✓ ${t('footer.cert3')}`, `✓ ${t('pdp.trust3')}`],
+    price2: `+$0.75+ / ${pc} · MOQ 100 ${pcs}`,
+    bullets2: ['✓ Stock-Mold EVA Case ($0 Mold)', `✓ ${t('pdp.opt2Title')}`, `✓ FNSKU & CPSC 14+`],
     price3: `+$1.45+ / ${pc} · MOQ 500 ${pcs}`,
-    bullets3: ['✓ 125 × 90 × 38 mm', `✓ 1200g/m² VIP Gift Box`, `✓ ${t('pdp.trust1')}`]
+    bullets3: ['✓ 1200g/m² VIP Gift Box (500+)', `✓ Custom Tin / Molds (1,000+ ${pcs})`, `✓ ${t('pdp.trust1')}`]
   };
 }
 

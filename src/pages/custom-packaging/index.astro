@@ -12,7 +12,7 @@ const pkgBullets = getPackagingBullets(currentLang);
 const packagingFaqs = [
   {
     question: 'What standard packaging is included in the base wholesale price of your metal fidgets?',
-    answer: 'Every unit ships in a scratch-preventive OPP polybag, and over 85% of our sliders, coins, and rings already include a standard unbranded black EVA zipper pouch or acrylic storage box at no extra charge (see the Packaging specification on each product page).'
+    answer: 'Every metal fidget unit is individually sealed in a textured anti-oxidation vacuum-sealed pouch before export to block ocean/air humidity, prevent surface oxidation on brass/alloy finishes, and protect R188 bearings from moisture and micro-scratches—included at $0.00 extra charge.'
   },
   {
     question: 'What is the Minimum Order Quantity (MOQ) for custom-branded Black EVA Zipper Cases?',
@@ -35,8 +35,8 @@ const packagingFaqs = [
     answer: 'Yes. Most private-label brands insert a 350gsm matte-laminated instruction/story card (+$0.08/pc) alongside a mini zip-bag containing 2 spare PTFE Teflon wear pads, 2 stainless/ceramic detent balls, and 1 hex screwdriver inside the internal mesh pocket of the EVA case.'
   },
   {
-    question: 'What is the difference between the Stock-Mold Window Metal Tin Box and the Custom Two-Piece Rigid Gift Box?',
-    answer: 'The Stock-Mold Matte Window Metal Tin Box (+$0.95+/pc, MOQ 300, $0 tin mold fee) features a clear PET top window and custom-cut EVA foam cavity so retail customers can view the metal fidget inside. The Custom Two-Piece Rigid Cardboard Gift Box (+$1.45+/pc, MOQ 500) uses 1200gsm greyboard with soft-touch film, foil stamping, and custom foam trays for luxury unboxing. Full bespoke packaging dimensions or custom-printed tin/EVA molds are also available from 1,000+ pcs.'
+    question: 'What is the difference between the Stock-Mold EVA Zipper Case, Custom Rigid Gift Box, and Custom Window Tin Box?',
+    answer: 'After individual vacuum-sealing, our Stock-Mold Black EVA Shockproof Zipper Case (+$0.75+/pc, MOQ 100, $0 EVA mold fee) is the fastest low-MOQ branded upgrade. For luxury retail unboxing, our Custom Two-Piece Rigid Cardboard Gift Box (+$1.45+/pc, MOQ 500) includes 1200gsm greyboard, foil stamping, and custom foam trays. Bespoke Window Metal Tin Boxes or custom-dimension molds are produced Made-to-Order starting at 1,000+ pcs.'
   },
   {
     question: 'Can we bundle 2 or 3 different fidgets into a single multi-piece collector gift box?',
@@ -78,15 +78,15 @@ const packagingServiceSchema = {
     '@type': 'OfferCatalog',
     name: 'Wholesale Custom Fidget Packaging Tiers',
     itemListElement: [
-      { '@type': 'Offer', name: 'Stock-Mold Black EVA Zipper Case + Logo (MOQ 100 pcs)', price: '0.75', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Stock-Mold Window Metal Tin Box + Cut EVA Foam Insert (MOQ 300 pcs)', price: '0.95', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Anti-Oxidation Vacuum-Sealed Inner Pouch (Included, MOQ 50 pcs)', price: '0.00', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Stock-Mold Black EVA Zipper Case + Custom Logo (MOQ 100 pcs)', price: '0.75', priceCurrency: 'USD' },
       { '@type': 'Offer', name: 'Custom Two-Piece Rigid Luxury Gift Box + Foil Stamping (MOQ 500 pcs)', price: '1.45', priceCurrency: 'USD' }
     ]
   }
 };
 
 const PACKAGING_META_DESC_MAP: Record<string, string> = {
-  en: 'Turnkey wholesale metal fidget packaging: custom Black EVA Zipper Cases (+$0.75, MOQ 100), Window Tin Boxes (+$0.85), Rigid Gift Boxes (+$1.10) & FNSKU labels.',
+  en: 'Metal fidget packaging: anti-oxidation vacuum-sealed pouch (included), stock-mold EVA zipper case (+$0.75+, MOQ 100), rigid gift box (MOQ 500) & FNSKU.',
   es: 'Embalaje mayorista para fidgets metálicos: estuches EVA con cremallera (+$0.75, MOQ 100), cajas de hojalata (+$0.85), cajas rígidas (+$1.10) y etiquetas FNSKU.',
   de: 'Großhandel-Fidget-Verpackungen nach Maß: EVA-Reißverschlussetuis (+$0.75, MOQ 100), Sichtfenster-Blechdosen (+$0.85), Geschenkboxen (+$1.10) & gratis FNSKU.',
   fr: 'Packaging grossiste pour fidgets métal : étuis zippés EVA (+$0.75, MOQ 100), boîtes métal à fenêtre (+$0.85), coffrets rigides (+$1.10) et étiquettes FNSKU.',
@@ -135,15 +135,15 @@ const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_D
 
         <div class="hero-glass-grid">
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">{t('pkg.card1Title')}</span>
+            <span class="glass-kpi-label">Vacuum-Sealed Pouch</span>
+            <strong class="glass-kpi-val">$0.00 Included</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Stock-Mold EVA Case</span>
             <strong class="glass-kpi-val">+$0.75+ / {t('unit.pc')}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">{t('pkg.card2Title')}</span>
-            <strong class="glass-kpi-val">+$0.95+ / {t('unit.pc')}</strong>
-          </div>
-          <div class="glass-kpi-card">
-            <span class="glass-kpi-label">{t('pkg.card3Title')}</span>
+            <span class="glass-kpi-label">Rigid Gift Box (500+)</span>
             <strong class="glass-kpi-val">+$1.45+ / {t('unit.pc')}</strong>
           </div>
           <div class="glass-kpi-card">
@@ -218,6 +218,39 @@ const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_D
     </form>
 
     <section class="section">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">REAL FACTORY PACKING LINE PROOF</span>
+        <h2 class="section-title">Step-by-Step Anti-Oxidation Vacuum Sealing &amp; EVA Case Packing</h2>
+      </div>
+      <div class="packing-proof-grid">
+        <figure class="packing-proof-card">
+          <img
+            src="/images/factory/packing-vacuum-sealed.webp"
+            alt="Real factory photo of precision metal fidget spinners individually vacuum-sealed in textured anti-oxidation pouches"
+            width="800"
+            height="600"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong>Step 1 — Individual Anti-Oxidation Vacuum Sealing (Included):</strong> Every metal fidget is vacuum-sealed in a heavy-duty textured barrier pouch prior to export, protecting R188 bearings and plated/CNC surfaces from ocean &amp; air humidity.
+          </figcaption>
+        </figure>
+        <figure class="packing-proof-card">
+          <img
+            src="/images/factory/packing-eva-zipper-case.webp"
+            alt="Real factory photo of a vacuum-sealed metal fidget placed inside a black shockproof felt-lined EVA zipper case"
+            width="800"
+            height="600"
+            loading="lazy"
+          />
+          <figcaption>
+            <strong>Step 2 — Stock-Mold Shockproof EVA Zipper Case (MOQ 100 Logo):</strong> Vacuum-sealed units seat snugly inside felt-lined black EVA zipper cases ($0 EVA mold fee) for dual impact + moisture protection.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="grid-3">
         <div class="pkg-card">
           <span class="badge badge-emerald">{t('pkg.card1Badge')}</span>
@@ -285,6 +318,42 @@ const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_D
 </Layout>
 
 <style>
+  .packing-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .packing-proof-card {
+    margin: 0;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .packing-proof-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    background: #0f172a;
+  }
+  .packing-proof-card figcaption {
+    padding: 1.1rem 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #334155;
+  }
+  .packing-proof-card figcaption strong {
+    color: #0f172a;
+  }
+  @media (max-width: 768px) {
+    .packing-proof-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
   .page-hero {
     background: linear-gradient(135deg, #090d16 0%, #1e293b 100%);
     color: #ffffff;
