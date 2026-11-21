@@ -162,7 +162,7 @@ relatedSkus: ["FS-150","FS-148","FS-129","FS-114","FS-107","FS-005","FS-043","FS
       </tr>
       <tr>
         <td><strong>Pre-Production Sample Policy</strong></td>
-        <td>Stock Evaluation Kit Available (3–5 Days)</td>
+        <td>Paid 1-Pc Evaluation Samples (Fuzhou Dispatch)</td>
         <td>Free 12h 3D Digital Proof; Paid Physical Sample ($50 Laser / $80–$150 Color Fill)</td>
         <td>Sample Fee Credited on 500+ pcs Bulk Order Confirmation</td>
       </tr>

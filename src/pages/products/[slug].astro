@@ -413,7 +413,7 @@ const breadcrumbSchema = {
           </div>
           <span class="inline-qrfq-status pdp-direct-status" hidden>{microHooks.pdpSentConfirm}</span>
           <div class="pdp-direct-footer">
-            <span class="pdp-direct-badge">{microHooks.mixMoqBadge}</span>
+            <a href={getLocalizedPath('/sample-kit', currentLang)} class="pdp-direct-badge" style="text-decoration: none;">{microHooks.mixMoqBadge}</a>
             <a
               id="pdp-rfq-btn"
               data-rfq-base={rfqBaseUrl}

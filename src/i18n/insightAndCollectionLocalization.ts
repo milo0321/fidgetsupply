@@ -1511,75 +1511,75 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
   },
   'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide': {
     en: {
-      title: 'International DDP Shipping, HS Codes (9503.00) & IATA PI-953 Magnetic Air Freight: Metal Fidget Import Guide',
-      summary: 'Complete customs and logistics playbook for importing wholesale metal fidgets to the US, EU, UK, and Amazon FBA—covering HS tariff codes, IATA PI-953 Gauss shielding, and Air vs. Sea DDP.'
+      title: 'International DDP Shipping, HS Codes (9503.00) & IATA PI953 (PI-953) Magnetic Air Freight: Metal Fidget Import Guide',
+      summary: 'Complete customs and logistics playbook for importing wholesale metal fidgets to the US, EU, UK, and Amazon FBA—covering HS tariff codes, IATA PI953 (PI-953) Gauss shielding, and Air vs. Sea DDP.'
     },
     de: {
-      title: 'Internationaler DDP-Versand, HS-Zolltarifnummern (9503.00) & IATA PI-953 Magnet-Luftfracht: Import-Leitfaden',
+      title: 'Internationaler DDP-Versand, HS-Zolltarifnummern (9503.00) & IATA PI953 (PI-953) Magnet-Luftfracht: Import-Leitfaden',
       summary: 'Kompletter Zoll- und Logistik-Leitfaden für den Import von Metall-Fidgets in die EU, USA, UK und zu Amazon FBA — inklusive HS-Codes, IATA-PI-953-Abschirmung und Luft-/See-DDP.'
     },
     fr: {
-      title: 'Expédition Internationale DDP, Codes Douaniers HS (9503.00) & Fret Aérien Magnétique IATA PI-953 : Guide d’Import',
-      summary: 'Guide complet de douane et logistique pour importer des fidgets en métal vers l’UE, les USA, le Royaume-Uni et Amazon FBA — codes HS, blindage IATA PI-953 et DDP Air/Mer.'
+      title: 'Expédition Internationale DDP, Codes Douaniers HS (9503.00) & Fret Aérien Magnétique IATA PI953 (PI-953) : Guide d’Import',
+      summary: 'Guide complet de douane et logistique pour importer des fidgets en métal vers l’UE, les USA, le Royaume-Uni et Amazon FBA — codes HS, blindage IATA PI953 (PI-953) et DDP Air/Mer.'
     },
     nl: {
-      title: 'Internationale DDP-verzending, HS-goederencodes (9503.00) & IATA PI-953 Magnetische Luchtvracht: Importgids',
-      summary: 'Compleet douane- en logistiek handboek voor de import van metalen fidgets naar de EU, VS, VK en Amazon FBA — inclusief HS-codes, IATA PI-953 afscherming en Air/Sea DDP.'
+      title: 'Internationale DDP-verzending, HS-goederencodes (9503.00) & IATA PI953 (PI-953) Magnetische Luchtvracht: Importgids',
+      summary: 'Compleet douane- en logistiek handboek voor de import van metalen fidgets naar de EU, VS, VK en Amazon FBA — inclusief HS-codes, IATA PI953 (PI-953) afscherming en Air/Sea DDP.'
     },
     es: {
       title: 'IATA PI-953 (PI953), Código HS 9503.00 y Envío DDP',
-      summary: 'Guía de importación IATA PI-953 (PI953 <0.00525 Gauss), código arancelario HS 9503.00 y envío DDP aéreo/marítimo para fidgets magnéticos (MOQ 50).'
+      summary: 'Guía de importación IATA PI953 (PI-953) (PI953 <0.00525 Gauss), código arancelario HS 9503.00 y envío DDP aéreo/marítimo para fidgets magnéticos (MOQ 50).'
     },
     it: {
-      title: 'Spedizione Internazionale DDP, Codici Doganali HS (9503.00) e Trasporto Aereo Magnetico IATA PI-953: Guida Import',
-      summary: 'Manuale completo di dogana e logistica per importare fidget in metallo in UE, USA, Regno Unito e Amazon FBA — codici HS, schermatura IATA PI-953 e DDP Aereo vs. Mare.'
+      title: 'Spedizione Internazionale DDP, Codici Doganali HS (9503.00) e Trasporto Aereo Magnetico IATA PI953 (PI-953): Guida Import',
+      summary: 'Manuale completo di dogana e logistica per importare fidget in metallo in UE, USA, Regno Unito e Amazon FBA — codici HS, schermatura IATA PI953 (PI-953) e DDP Aereo vs. Mare.'
     },
     pt: {
-      title: 'Envio Internacional DDP, Códigos Pautais HS (9503.00) e Carga Aérea Magnética IATA PI-953: Guia de Importação',
-      summary: 'Manual completo de alfândega e logística para importar fidgets de metal para a UE, EUA, Reino Unido e Amazon FBA — códigos HS, blindagem IATA PI-953 e DDP Aéreo vs. Marítimo.'
+      title: 'Envio Internacional DDP, Códigos Pautais HS (9503.00) e Carga Aérea Magnética IATA PI953 (PI-953): Guia de Importação',
+      summary: 'Manual completo de alfândega e logística para importar fidgets de metal para a UE, EUA, Reino Unido e Amazon FBA — códigos HS, blindagem IATA PI953 (PI-953) e DDP Aéreo vs. Marítimo.'
     },
     sv: {
-      title: 'Internationell DDP-frakt, HS-tullkoder (9503.00) & IATA PI-953 Magnetisk Flygfrakt: Importguide för Metallfidgets',
-      summary: 'Komplett tull- och logistikguide för import av metallfidgets till EU, USA, Storbritannien och Amazon FBA — HS-koder, IATA PI-953 magnetisk skärmning och Flyg/Sjö-DDP.'
+      title: 'Internationell DDP-frakt, HS-tullkoder (9503.00) & IATA PI953 (PI-953) Magnetisk Flygfrakt: Importguide för Metallfidgets',
+      summary: 'Komplett tull- och logistikguide för import av metallfidgets till EU, USA, Storbritannien och Amazon FBA — HS-koder, IATA PI953 (PI-953) magnetisk skärmning och Flyg/Sjö-DDP.'
     },
     da: {
       title: 'IATA PI-953 (PI953), HS-Toldkoder (9503.00) & DDP-Fragt',
-      summary: 'IATA PI-953 (PI953 <0,00525 Gauss) magnetisk luftfragt, HS-toldkoder (9503.00) og dør-til-dør DDP-import af metalfidgets til Danmark & EU (MOQ 50).'
+      summary: 'IATA PI953 (PI-953) (PI953 <0,00525 Gauss) magnetisk luftfragt, HS-toldkoder (9503.00) og dør-til-dør DDP-import af metalfidgets til Danmark & EU (MOQ 50).'
     },
     no: {
       title: 'Norske Tollkoder (HS 9503.00), IATA PI953 & DDP-Import',
       summary: 'Norske tollkoder (HS 9503.00 / 8306.29), IATA PI953 (PI-953 <0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets til Norge (1 stk. prøve OK, MOQ 50 stk.).'
     },
     fi: {
-      title: 'Kansainvälinen DDP-toimitus, HS-tullikoodit (9503.00) & IATA PI-953 Magneettinen Lentorahti: Maahantuontiopas',
-      summary: 'Kattava tulli- ja logistiikkaopas metallifidgetien maahantuontiin EU:hun, USA:han, Isoon-Britanniaan ja Amazon FBA -varastoihin — HS-koodit, IATA PI-953 -suojaus ja DDP.'
+      title: 'Kansainvälinen DDP-toimitus, HS-tullikoodit (9503.00) & IATA PI953 (PI-953) Magneettinen Lentorahti: Maahantuontiopas',
+      summary: 'Kattava tulli- ja logistiikkaopas metallifidgetien maahantuontiin EU:hun, USA:han, Isoon-Britanniaan ja Amazon FBA -varastoihin — HS-koodit, IATA PI953 (PI-953) -suojaus ja DDP.'
     },
     pl: {
-      title: 'Międzynarodowa Wysyłka DDP, Kody Celne HS (9503.00) i Fracht Lotniczy Magnetyczny IATA PI-953: Przewodnik Importu',
-      summary: 'Kompletny poradnik celno-logistyczny dotyczący importu metalowych fidgetów do UE, USA, UK i Amazon FBA — kody HS, ekranowanie magnetyczne IATA PI-953 oraz DDP Lotnicze/Morskie.'
+      title: 'Międzynarodowa Wysyłka DDP, Kody Celne HS (9503.00) i Fracht Lotniczy Magnetyczny IATA PI953 (PI-953): Przewodnik Importu',
+      summary: 'Kompletny poradnik celno-logistyczny dotyczący importu metalowych fidgetów do UE, USA, UK i Amazon FBA — kody HS, ekranowanie magnetyczne IATA PI953 (PI-953) oraz DDP Lotnicze/Morskie.'
     },
     cs: {
-      title: 'Mezinárodní Doprava DDP, Celní Kódy HS (9503.00) a Magnetická Letecká Přeprava IATA PI-953: Průvodce Importem',
-      summary: 'Kompletní celní a logistický manuál pro dovoz kovových fidgetů do EU, USA, UK a Amazon FBA — celní kódy HS, magnetické stínění IATA PI-953 a letecká/námořní DDP přeprava.'
+      title: 'Mezinárodní Doprava DDP, Celní Kódy HS (9503.00) a Magnetická Letecká Přeprava IATA PI953 (PI-953): Průvodce Importem',
+      summary: 'Kompletní celní a logistický manuál pro dovoz kovových fidgetů do EU, USA, UK a Amazon FBA — celní kódy HS, magnetické stínění IATA PI953 (PI-953) a letecká/námořní DDP přeprava.'
     },
     ru: {
-      title: 'Международная Доставка DDP, Коды ТН ВЭД / HS (9503.00) и Магнитный Авиафрахт IATA PI-953: Гид по Импорту',
-      summary: 'Полное таможенное и логистическое руководство по импорту металлических фиджетов в США, ЕС, Великобританию и на склады Amazon FBA — коды HS, экранирование IATA PI-953 и DDP.'
+      title: 'Международная Доставка DDP, Коды ТН ВЭД / HS (9503.00) и Магнитный Авиафрахт IATA PI953 (PI-953): Гид по Импорту',
+      summary: 'Полное таможенное и логистическое руководство по импорту металлических фиджетов в США, ЕС, Великобританию и на склады Amazon FBA — коды HS, экранирование IATA PI953 (PI-953) и DDP.'
     },
     ja: {
       title: 'IATA PI953（PI-953）航空磁気検査・HSコード9503.00・国際DDP輸入ガイド',
       summary: '日本・欧米およびAmazon FBA倉庫への金属フィジェット輸入におけるIATA PI953（PI-953、0.00525ガウス磁気遮蔽）、HSコード（9503.00）、航空/海上DDP通関を完全解説（1個サンプル可）。'
     },
     ko: {
-      title: 'HS 9503.00 세번, IATA PI-953 자기차폐 & 국제 DDP 통관 가이드',
-      summary: 'HS 코드 9503.00(완구·메탈 피젯 세번), IATA PI-953 항공 자기장 차폐 포장 및 미국·유럽·한국 DDP 관세포함 통관 완벽 가이드(MOQ 50개).'
+      title: 'HS 9503.00 세번, IATA PI953 (PI-953) 자기차폐 & 국제 DDP 통관 가이드',
+      summary: 'HS 코드 9503.00(완구·메탈 피젯 세번), IATA PI953 (PI-953) 항공 자기장 차폐 포장 및 미국·유럽·한국 DDP 관세포함 통관 완벽 가이드(MOQ 50개).'
     },
     id: {
-      title: 'Pengiriman DDP Internasional, Kode HS (9503.00) & Kargo Udara Magnetik IATA PI-953: Panduan Impor Fidget Logam',
-      summary: 'Panduan lengkap bea cukai dan logistik untuk mengimpor fidget logam ke AS, UE, Inggris, dan Amazon FBA — mencakup kode tarif HS, pelindung magnetik IATA PI-953, dan DDP Udara/Laut.'
+      title: 'Pengiriman DDP Internasional, Kode HS (9503.00) & Kargo Udara Magnetik IATA PI953 (PI-953): Panduan Impor Fidget Logam',
+      summary: 'Panduan lengkap bea cukai dan logistik untuk mengimpor fidget logam ke AS, UE, Inggris, dan Amazon FBA — mencakup kode tarif HS, pelindung magnetik IATA PI953 (PI-953), dan DDP Udara/Laut.'
     },
     ar: {
-      title: 'الشحن الدولي الشامل للرسوم DDP والرموز الجمركية HS (9503.00) والشحن الجوي المغناطيسي IATA PI-953: دليل الاستيراد',
+      title: 'الشحن الدولي الشامل للرسوم DDP والرموز الجمركية HS (9503.00) والشحن الجوي المغناطيسي IATA PI953 (PI-953): دليل الاستيراد',
       summary: 'دليل الجمارك والخدمات اللوجستية الشامل لاستيراد أدوات الفيدجت المعدنية إلى الولايات المتحدة وأوروبا وبريطانيا ومستودعات Amazon FBA.'
     }
   },
@@ -3055,8 +3055,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "회사 로고가 각인된 맞춤형 메탈 피젯 스피너 및 마그네틱 슬라이더 소싱 가이드: 로고 전용 28종 금형($0.74~$10.19, 금형비 $0), 50W 파이버 레이저 vs 심층 컬러 필링 비교."
     },
     "id": {
-      "title": "Fidget Spinner & Slider Logam Custom Logo Perusahaan ($0.74+, MOQ 100): Panduan Souvenir Korporat",
-      "summary": "Panduan pengadaan fidget spinner logam dan slider magnetik dengan logo perusahaan: 28 cetakan siap pakai ($0.74–$10.19, $0 biaya cetakan), laser serat 50W vs. isi warna enamel."
+      "title": "Custom Fidget Spinner & Slider Logam Logo ($0.74+ · 1 Pc Sampel)",
+      "summary": "Panduan grosir custom fidget spinner & slider magnetik dengan logo perusahaan: 28 cetakan siap pakai ($0.74–$10.19, $0 biaya cetakan, MOQ 100), grafir laser serat 50W."
     },
     "ar": {
       "title": "سبينر وسلايدر فيدجت معدني بشعار الشركة المخصص ($0.74+، MOQ 100): دليل الهدايا الترويجية للشركات",

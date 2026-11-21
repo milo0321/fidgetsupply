@@ -5419,7 +5419,7 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "whatsapp.startChat": "Начать чат в WhatsApp",
     "whatsapp.footnote": "Прямая связь с нашим инженерным и экспортным отделом в Фучжоу (+86 187 5012 6315).",
     "col.magnetic-fidget-sliders.short": "Магнитные слайдеры",
-    "col.magnetic-fidget-sliders.name": "Магнитные тактильные слайдеры и фиджеты для взрослых оптом",
+    "col.magnetic-fidget-sliders.name": "Магнитные слайдеры и металлические тактильные фиджеты оптом",
     "col.mechanical-edc-fidgets.short": "Механические EDC",
     "col.mechanical-edc-fidgets.name": "Многофункциональные механические EDC-фиджеты",
     "col.metal-fidget-spinners-gyros.short": "Спиннеры и гироскопы",
