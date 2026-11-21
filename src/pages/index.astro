@@ -4,13 +4,14 @@ import Layout from '../layouts/Layout.astro';
 import ProductCard from '../components/ProductCard.astro';
 import GeoDirectAnswer from '../components/GeoDirectAnswer.astro';
 import { COLLECTIONS } from '../data/collections';
-import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../i18n/utils';
 import { localizeCollectionContent, localizeInsightMeta } from '../i18n/insightAndCollectionLocalization';
 import { getLocalizedPageFaqs } from '../i18n/pageContentLocalization';
 import { localizeTitle } from '../i18n/productLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const allProducts = await getCollection('products');
 const sortedProducts = allProducts.sort((a, b) => a.data.rowId - b.data.rowId);
 const allGuides = await getCollection('insights');
@@ -152,7 +153,7 @@ const homeItemListSchema = {
 
 const HOME_META_DESC_MAP: Record<string, string> = {
   en: 'Metal EDC fidget & EDC wholesale factory: 140+ ready molds ($0.74–$470.77, $0 mold fee). 1-Pc Sample OK, MOQ 50 blank, 100 pcs 50W fiber laser logo.',
-  de: 'Fidget Metall, Metal Fidget Spinners & EDC-Slider Großhandel: 140+ Serienformen ($0.74–$470.77, $0 Werkzeugkosten, MOQ 50). Stimmgabel & 50W-Laser.',
+  de: 'Fidget Metall & EDC-Slider Großhandel: 140+ Serienformen ($0.74–$470.77, $0 Werkzeugkosten, 1 Stk. Probe OK, MOQ 50). Stimmgabel & 50W-Laser.',
   fr: 'Fidget EDC métal, spinners & sliders en gros : 140+ moules prêts ($0.74–$470.77, 0 $ frais de moule, MOQ 50 pcs). Logo laser fibre 50W dès 100 pcs.',
   nl: 'Metalen EDC-fidgets, Zamak spuitgieten & metalen fidget spinner groothandel: 140+ mallen ($0.74–$470.77, $0 matrijskosten, MOQ 50 st.). 50W-laserlogo.',
   es: 'Mayorista de fidgets EDC metálicos y sliders (Precio $0.74–$470.77, $0 molde, MOQ 50 uds.): 140+ moldes listos y grabado láser 50W desde 100 uds.',
@@ -288,6 +289,26 @@ const HOME_META_DESC_MAP: Record<string, string> = {
       title={t('home.geo.title')}
       answer={t('home.geo.answer')}
     />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="All 140 Ready Metal Molds ($0.74–$470.77 · Full Price Sheet & 1-Pc Sample)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="text"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} / WhatsApp`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
   </div>
 
   <!-- Section 1: Featured Logo-Ready Custom Branding & Best-Selling Ready Molds (Immediate Visual SKU Grid) -->
