@@ -104,20 +104,20 @@ export function getPackagingBullets(lang: SupportedLanguage) {
   const pcs = t('unit.pcs');
   if (lang === 'en') {
     return {
-      price1: '+$0.75 / pc · MOQ 100',
-      bullets1: ['✓ 95 × 65 × 32 mm', '✓ Silicone / Silk-Screen Logo', '✓ FNSKU & CPSC 14+ Ready'],
-      price2: '+$0.85 / pc · MOQ 200',
-      bullets2: ['✓ 110 × 80 × 28 mm', '✓ Fiber Laser / UV Lid Logo', '✓ Custom CNC Foam Cavity'],
-      price3: '+$1.10 / pc · MOQ 300',
-      bullets3: ['✓ 125 × 90 × 38 mm', '✓ Gold / Silver Hot Foil Stamping', '✓ Velvet-Flocked EVA Interior']
+      price1: '+$0.75+ / pc · MOQ 100',
+      bullets1: ['✓ Stock-Mold 95 × 65 × 32 mm ($0 EVA Mold)', '✓ Silk-Screen / Heat-Transfer Logo', '✓ FNSKU & CPSC 14+ Ready'],
+      price2: '+$0.95+ / pc · MOQ 300',
+      bullets2: ['✓ Stock-Mold 110 × 80 × 28 mm ($0 Tin Mold)', '✓ 50W Fiber Laser Lid Logo', '✓ Custom-Cut EVA Foam Cavity (1,000+ Full Custom Print)'],
+      price3: '+$1.45+ / pc · MOQ 500',
+      bullets3: ['✓ 125 × 90 × 38 mm Rigid Gift Box', '✓ Gold / Silver Hot Foil Stamping', '✓ Custom Foam Tray (1,000+ Full Bespoke Sizing)']
     };
   }
   return {
-    price1: `+$0.75 / ${pc} · MOQ 100 ${pcs}`,
+    price1: `+$0.75+ / ${pc} · MOQ 100 ${pcs}`,
     bullets1: ['✓ 95 × 65 × 32 mm', `✓ ${t('footer.cert3')}`, `✓ ${t('pdp.trust3')}`],
-    price2: `+$0.85 / ${pc} · MOQ 200 ${pcs}`,
+    price2: `+$0.95+ / ${pc} · MOQ 300 ${pcs}`,
     bullets2: ['✓ 110 × 80 × 28 mm', `✓ ${t('pdp.opt2Title')}`, `✓ CNC EVA (FS-001 – FS-150)`],
-    price3: `+$1.10 / ${pc} · MOQ 300 ${pcs}`,
+    price3: `+$1.45+ / ${pc} · MOQ 500 ${pcs}`,
     bullets3: ['✓ 125 × 90 × 38 mm', `✓ 1200g/m² VIP Gift Box`, `✓ ${t('pdp.trust1')}`]
   };
 }

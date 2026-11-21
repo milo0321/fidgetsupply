@@ -22,6 +22,28 @@ const {
     { label: t('geo.metricSafety'), value: t('geo.metricSafetyVal') }
   ]
 } = Astro.props;
+
+// Auto-format inline numbered lists like "(1) ... (2) ... (3) ..." into scannable vertical lines
+let introText = answer;
+let listItems: string[] = [];
+let outroText = '';
+
+if (answer && /\(1\)\s+/.test(answer) && /\(2\)\s+/.test(answer)) {
+  const firstIdx = answer.indexOf('(1)');
+  introText = answer.slice(0, firstIdx).trim();
+  const rest = answer.slice(firstIdx);
+  const parts = rest.split(/\(\d+\)\s+/).map((s) => s.trim()).filter(Boolean);
+  if (parts.length >= 2) {
+    const lastPart = parts[parts.length - 1];
+    // Split trailing sentence after the last numbered item if present (e.g. "). Free Amazon...")
+    const splitMatch = lastPart.match(/^(.+?\)\.)\s+([A-Z].+)$/);
+    if (splitMatch) {
+      parts[parts.length - 1] = splitMatch[1].trim();
+      outroText = splitMatch[2].trim();
+    }
+    listItems = parts.map((item) => item.replace(/[,;]\s*(and\s+)?$/i, '').replace(/\.$/, '').trim());
+  }
+}
 ---
 
 <section class="geo-direct-answer" aria-label="Engineering Summary" itemscope itemtype="https://schema.org/WebPageElement">
@@ -29,7 +51,19 @@ const {
     <span class="geo-badge">{t('geo.badge')}</span>
     <h2 class="geo-title" itemprop="headline">{title}</h2>
   </div>
-  <p class="geo-text" itemprop="description">{answer}</p>
+  {listItems.length >= 2 ? (
+    <div class="geo-structured-answer" itemprop="description">
+      {introText && <p class="geo-text geo-text-intro">{introText}</p>}
+      <ol class="geo-answer-list">
+        {listItems.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ol>
+      {outroText && <p class="geo-text geo-text-outro">{outroText}</p>}
+    </div>
+  ) : (
+    <p class="geo-text" itemprop="description">{answer}</p>
+  )}
   {metrics.length > 0 && (
     <div class="geo-metrics">
       {metrics.map((m) => (
@@ -80,6 +114,52 @@ const {
     font-size: 0.96rem;
     line-height: 1.72;
     margin-bottom: 1.25rem;
+  }
+  .geo-text-intro {
+    margin-bottom: 0.7rem;
+  }
+  .geo-text-outro {
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.92rem;
+    color: #334155;
+  }
+  .geo-answer-list {
+    margin: 0 0 0.85rem;
+    padding: 0;
+    list-style: none;
+    counter-reset: geo-item;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .geo-answer-list li {
+    counter-increment: geo-item;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid #dbeafe;
+    border-radius: 0.5rem;
+    padding: 0.6rem 0.85rem;
+    color: #0f172a;
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+  .geo-answer-list li::before {
+    content: counter(geo-item);
+    flex-shrink: 0;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 999px;
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
   }
   .geo-metrics {
     display: grid;

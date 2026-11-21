@@ -35,8 +35,8 @@ const packagingFaqs = [
     answer: 'Yes. Most private-label brands insert a 350gsm matte-laminated instruction/story card (+$0.08/pc) alongside a mini zip-bag containing 2 spare PTFE Teflon wear pads, 2 stainless/ceramic detent balls, and 1 hex screwdriver inside the internal mesh pocket of the EVA case.'
   },
   {
-    question: 'What is the difference between the Window Metal Tin Box and the Two-Piece Rigid Gift Box?',
-    answer: 'The Matte Window Metal Tin Box (+$0.85/pc, MOQ 200) features a clear PET top window so retail customers can see the metal fidget inside without opening the lid. The Two-Piece Rigid Cardboard Gift Box (+$1.10/pc, MOQ 300) uses 1200gsm greyboard with soft-touch film and metallic foil stamping for luxury unboxing.'
+    question: 'What is the difference between the Stock-Mold Window Metal Tin Box and the Custom Two-Piece Rigid Gift Box?',
+    answer: 'The Stock-Mold Matte Window Metal Tin Box (+$0.95+/pc, MOQ 300, $0 tin mold fee) features a clear PET top window and custom-cut EVA foam cavity so retail customers can view the metal fidget inside. The Custom Two-Piece Rigid Cardboard Gift Box (+$1.45+/pc, MOQ 500) uses 1200gsm greyboard with soft-touch film, foil stamping, and custom foam trays for luxury unboxing. Full bespoke packaging dimensions or custom-printed tin/EVA molds are also available from 1,000+ pcs.'
   },
   {
     question: 'Can we bundle 2 or 3 different fidgets into a single multi-piece collector gift box?',
@@ -78,9 +78,9 @@ const packagingServiceSchema = {
     '@type': 'OfferCatalog',
     name: 'Wholesale Custom Fidget Packaging Tiers',
     itemListElement: [
-      { '@type': 'Offer', name: 'Custom Debossed Black EVA Zipper Case (MOQ 100 pcs)', price: '0.75', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Matte Window Metal Tin Box + CNC Foam Insert (MOQ 200 pcs)', price: '0.85', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Two-Piece Rigid Luxury Gift Box (MOQ 300 pcs)', price: '1.10', priceCurrency: 'USD' }
+      { '@type': 'Offer', name: 'Stock-Mold Black EVA Zipper Case + Logo (MOQ 100 pcs)', price: '0.75', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Stock-Mold Window Metal Tin Box + Cut EVA Foam Insert (MOQ 300 pcs)', price: '0.95', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Custom Two-Piece Rigid Luxury Gift Box + Foil Stamping (MOQ 500 pcs)', price: '1.45', priceCurrency: 'USD' }
     ]
   }
 };
@@ -136,15 +136,15 @@ const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_D
         <div class="hero-glass-grid">
           <div class="glass-kpi-card">
             <span class="glass-kpi-label">{t('pkg.card1Title')}</span>
-            <strong class="glass-kpi-val">+$0.75 / {t('unit.pc')}</strong>
+            <strong class="glass-kpi-val">+$0.75+ / {t('unit.pc')}</strong>
           </div>
           <div class="glass-kpi-card">
             <span class="glass-kpi-label">{t('pkg.card2Title')}</span>
-            <strong class="glass-kpi-val">+$0.85 / {t('unit.pc')}</strong>
+            <strong class="glass-kpi-val">+$0.95+ / {t('unit.pc')}</strong>
           </div>
           <div class="glass-kpi-card">
             <span class="glass-kpi-label">{t('pkg.card3Title')}</span>
-            <strong class="glass-kpi-val">+$1.10 / {t('unit.pc')}</strong>
+            <strong class="glass-kpi-val">+$1.45+ / {t('unit.pc')}</strong>
           </div>
           <div class="glass-kpi-card">
             <span class="glass-kpi-label">Amazon FNSKU</span>
