@@ -1,0 +1,293 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
+const allProducts = await getCollection('products');
+
+const sampleSkus = ['FS-001', 'FS-009', 'FS-013', 'FS-047', 'FS-125', 'FS-150', 'FS-043', 'FS-135'];
+const sampleProducts = sampleSkus
+  .map((sku) => allProducts.find((p) => p.data.sku === sku))
+  .filter(Boolean) as typeof allProducts;
+
+const PAGE_TITLES: Record<string, string> = {
+  en: '1-Pc Metal Fidget Sample Kit & Mix-SKU Evaluation Program',
+  de: '1-Stück Metall-Fidget Musterpaket & Testmuster bestellen',
+  fr: 'Échantillon 1 Pièce Fidget Métal & Kit d’Évaluation OEM',
+  nl: '1-Stuk Metalen Fidget Sample Kit & Proefmonster Bestellen',
+  es: 'Muestra de 1 Unidad Fidget Metálico y Kit de Evaluación',
+  it: 'Campione 1 Pezzo Fidget Metallo e Kit di Valutazione',
+  pt: 'Amostra 1 Unidade Fidget Metálico e Kit de Avaliação',
+  sv: '1-St Metallfidget Provpaket & Utvärderingsprov Direkt',
+  da: '1-Stk Metalfidget Prøvepakke & Vareprøver til Evaluering',
+  no: '1-Stk Metallfidget Prøvepakke & Evalueringsprøver',
+  fi: '1 Kpl Metallifidget Näytepaketti & Arviointinäytteet',
+  pl: 'Próbka 1 Szt. Metalowy Fidget i Zestaw Testowy OEM',
+  cs: 'Vzorek 1 Ks Kovový Fidget a Hodnotící Sada z Továrny',
+  ru: 'Образец 1 шт. металлических фиджетов и набор для оценки',
+  ja: '金属フィジェット1個サンプル注文＆評価用サンプルキット',
+  ko: '금속 피젯 토이 1개 샘플 주문 & 소재별 평가 샘플 키트',
+  id: 'Pesan Sampel 1 Pc Fidget Logam & Paket Evaluasi Pabrik',
+  ar: 'طلب عينة قطعة واحدة فيدجت معدني ومجموعة التقييم'
+};
+
+const PAGE_DESCS: Record<string, string> = {
+  en: 'Order paid 1-piece metal fidget evaluation samples across 140 ready molds ($0.74–$470.77). Buyer-paid unit & courier shipping, combined parcel from Fuzhou.',
+  de: 'Bestellen Sie kostenpflichtige 1-Stück-Bewertungsmuster aus 140 Serienformen. Muster- und Versandkosten trägt der Käufer, Sammelversand ab Fuzhou.',
+  fr: 'Commandez des échantillons payants dès 1 pièce sur 140 moules métal prêts. Frais d’échantillon et de transport à la charge de l’acheteur, colis groupé.',
+  nl: 'Bestel betaalde 1-stuk proefmonsters uit 140 metalen mallen. Monster- en verzendkosten voor koper; gecombineerde zending vanuit Fuzhou via DHL/FedEx.',
+  es: 'Solicite muestras pagadas de 1 unidad entre 140 moldes metálicos listos. Costo de muestra y envío internacional a cargo del comprador en paquete combinado.',
+  it: 'Ordina campioni a pagamento da 1 pezzo su 140 stampi in metallo. Costo campione e spedizione a carico dell’acquirente, spedizione combinata da Fuzhou.',
+  pt: 'Solicite amostras pagas a partir de 1 unidade em 140 moldes metálicos. Custo da amostra e frete internacional por conta do comprador em envio combinado.',
+  sv: 'Beställ betalda 1-stycksprover från 140 färdiga metallformar. Prov- och fraktkostnad betalas av köparen med samfrakt från Fuzhou via DHL/FedEx.',
+  da: 'Bestil betalte 1-styks vareprøver fra 140 færdige metalforme. Prøve- og fragtomkostninger betales af køber med samlet forsendelse fra Fuzhou.',
+  no: 'Bestill betalte 1-stykks evalueringsprøver fra 140 metallformer. Prøve- og fraktkostnader dekkes av kjøper med samlet forsendelse fra Fuzhou.',
+  fi: 'Tilaa maksulliset 1 kpl arviointinäytteet 140 valmiista metallimuotista. Näyte- ja rahtikulut ostajan vastuulla, yhdistetty lähetys Fuzhousta.',
+  pl: 'Zamów płatne próbki od 1 sztuki ze 140 gotowych form metalowych. Koszt próbki i wysyłki kurierskiej pokrywa kupujący, jedna paczka z Fuzhou.',
+  cs: 'Objednejte placené vzorky od 1 kusu ze 140 hotových kovových forem. Náklady na vzorek a mezinárodní dopravu hradí kupující v jednom balíku z Fuzhou.',
+  ru: 'Закажите платные образцы от 1 шт. из 140 готовых металлических форм. Образцы и курьерскую доставку оплачивает покупатель, сборная посылка из Фучжоу.',
+  ja: '140種の既存金属金型から1個単位で有償評価サンプルを注文可能。サンプル代・国際送料は買い手様負担、福州倉庫より複数型を1箱同梱発送。',
+  ko: '140종 기성 금속 금형에서 1개 단위로 유상 평가 샘플을 주문하세요. 샘플비 및 국제 배송비는 구매자 부담이며 푸저우 창고에서 합포장 출고됩니다.',
+  id: 'Pesan sampel evaluasi berbayar 1 pcs dari 140 cetakan logam siap pakai. Biaya sampel & ongkir ditanggung pembeli, kirim gabungan dari gudang Fuzhou.',
+  ar: 'اطلب عينات تقييم مدفوعة بدءاً من قطعة واحدة من 140 قالباً معدنياً جاهزاً. تكلفة العينة والشحن الدولي على المشتري مع شحن مجمّع من مستودع فوتشو.'
+};
+
+const sampleFaqs = [
+  {
+    question: 'Can I order just 1 piece of a ready-mold metal fidget before committing to a 50-piece wholesale order?',
+    answer: 'Yes. Every one of our 140 ready-mold SKUs (FS-001 to FS-150) is available for paid 1-piece physical evaluation so you can test magnetic pull force, PTFE glide smoothness, acoustic chime resonance, and surface finish in hand before placing a bulk order.'
+  },
+  {
+    question: 'Who pays for evaluation samples and international courier shipping, and are sample fees refundable?',
+    answer: 'Because all 140 catalog items are ready-mold stock products rather than new custom tooling, evaluation samples are paid and non-refundable. Both the sample unit cost and international courier shipping (DHL, FedEx, UPS, or air parcel) are paid by the buyer.'
+  },
+  {
+    question: 'Can I mix 3 to 10 different SKU models into a single sample shipment to save on international shipping?',
+    answer: 'Yes. Consolidating 3 to 10 models (for example, 1 Zamak-3 slider, 1 6063 aluminum slider, 1 304 stainless steel coin, 1 acoustic tuning fork, and 1 pocket spinner) into one shielded parcel from our Fuzhou Export Hub significantly lowers the per-piece courier cost compared to shipping single units separately.'
+  },
+  {
+    question: 'How fast do you dispatch evaluation samples, and how long does international delivery take?',
+    answer: 'In-stock blank evaluation samples are inspected and dispatched from our Fuzhou warehouse once payment is confirmed. Final door-to-door transit time is determined by the selected courier company (DHL, FedEx, UPS, or regional air line) and destination customs clearance—we provide full tracking immediately upon handoff.'
+  },
+  {
+    question: 'Do magnetic fidget sample parcels require special air-freight packaging?',
+    answer: 'Yes. Even small parcels containing multiple high-flux N52/N54 neodymium fidgets can trigger airport magnetic screening under IATA PI953 (PI-953). Our Fuzhou logistics desk packs multi-unit magnetic samples with ferromagnetic shielding liners to help prevent carrier holds.'
+  },
+  {
+    question: 'Can I request a custom laser-engraved sample with my company logo before ordering 100 pieces?',
+    answer: 'Yes. Custom logo pre-production samples are paid and take 10–15 days to prepare: 50W fiber laser engraving sample setup is $50 USD, and Deep Laser Engraving + Pantone Enamel Color Fill sample setup is $80–$150 USD depending on color count, plus buyer-paid courier shipping. A 1:1 digital vector proof is provided free within 12 hours first.'
+  },
+  {
+    question: 'Which sample models do you recommend for comparing entry-level zinc alloy vs. precision CNC stainless steel?',
+    answer: 'We recommend pairing FS-001 (Zamak-3 Poker Slider, $2.50 tier) or FS-009 (Classic Pocket Twist Spinner, $0.74 tier) with FS-047 (6063 Anodized Aluminum Slider) and FS-043 or FS-075 (CNC 304 Stainless Steel) so your team can feel the exact mass, tolerance, and finish differences.'
+  },
+  {
+    question: 'Which sample models should we test if we want to compare loud acoustic tuning forks vs. quiet office fidgets?',
+    answer: 'Compare FS-150 (Compact 20-Magnet Acoustic Tuning Fork Slider) for a crisp metallic ring against FS-125 (Smooth PTFE Unlimited Slider) or FS-009 (Silent R188 Pocket Spinner) for low-decibel executive desk use.'
+  },
+  {
+    question: 'What payment methods are accepted for paid 1-piece sample orders?',
+    answer: 'We accept PayPal, Wise, corporate bank wire (T/T), and major international transfer rails for sample orders. Contact our Fuzhou export desk via the inline box or WhatsApp with your SKU list and shipping postal code to get an exact sample + courier quote.'
+  },
+  {
+    question: 'After testing samples, what is the minimum order quantity (MOQ) for our first production order?',
+    answer: 'Blank unbranded stock starts at 50 pieces per SKU (or a 50-piece Mix-SKU starter assortment across ready-stock models), while custom 50W fiber laser engraving or custom-branded Black EVA zipper cases start at 100 pieces per SKU with $0.00 mold tooling fees.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: sampleFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: '1-Pc Ready-Mold Metal Fidget Physical Sample Evaluation Program',
+  provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
+  description: 'Paid 1-piece evaluation samples across 140 ready-mold metal fidget sliders, spinners, haptic coins, and rings. Buyer pays sample unit fee and international courier shipping from Fuzhou.'
+};
+---
+
+<Layout
+  title={PAGE_TITLES[currentLang] || PAGE_TITLES.en}
+  description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+  activePage="products"
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <a href={getLocalizedPath('/products', currentLang)}>{t('breadcrumb.allCatalog')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">1-{t('unit.pc')} Sample Kit</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-gold">1-{t('unit.pc')} Paid Evaluation Sample</span>
+          <span class="badge badge-emerald">140 Ready Molds · Consolidated Parcel</span>
+        </div>
+
+        <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
+        <p class="grand-hero-lead">
+          {PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Min Sample Qty</span>
+            <strong class="glass-kpi-val">1 {t('unit.pc')} / SKU</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Sample &amp; Freight</span>
+            <strong class="glass-kpi-val">Buyer-Paid (Net)</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Parcel Packing</span>
+            <strong class="glass-kpi-val">Multi-SKU Combined</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Courier Handoff</span>
+            <strong class="glass-kpi-val">DHL / FedEx / UPS</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            {t('nav.requestQuote')}
+          </a>
+          <a href={getLocalizedPath('/wholesale-catalog', currentLang)} class="btn btn-secondary-dark btn-hero">
+            140-SKU Price Matrix →
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">PHYSICAL EVALUATION DESK</span>
+          <span class="hero-showcase-price">140 Ready Molds</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/factory/showcase-1.webp"
+            alt="1-piece metal fidget physical evaluation sample kit across zinc alloy, aluminum, and stainless steel"
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>Paid Sample · No Hidden Terms</span>
+          <span>PI953 Shielded Parcel</span>
+          <span>Fuzhou Direct Dispatch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title="Direct Answer: How 1-Pc Metal Fidget Sample Ordering Works"
+      answer="Every one of FidgetSupply's 140 ready-mold metal fidgets (FS-001 to FS-150) can be ordered as a paid 1-piece physical evaluation sample before committing to 50-piece blank or 100-piece custom logo bulk orders. Because all items use existing production molds, sample unit fees and international courier shipping (DHL, FedEx, UPS, or air parcel) are paid by the buyer and are non-refundable. Multiple SKUs are consolidated into one magnetically shielded parcel from our Fuzhou Hub, and final transit speed is governed by the selected courier and destination customs."
+    />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="1-Pc Paid Evaluation Sample Request (Specify SKUs & Postal Code)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="text"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} / WhatsApp`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">CURATED EVALUATION COMBINATIONS</span>
+        <h2 class="section-title">3 Proven Sample Assortments to Test Before Bulk Ordering</h2>
+      </div>
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>Evaluation Kit Theme</th>
+              <th>Recommended SKUs</th>
+              <th>What Your Team Evaluates</th>
+              <th>Sample &amp; Shipping Terms</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Material &amp; Weight Benchmark (5 Pcs)</strong></td>
+              <td>FS-001 (Zamak-3), FS-047 (6063 Aluminum), FS-013 (304 Stainless), FS-043 (CNC Gyro), FS-135 (Brass/Alu Ring)</td>
+              <td>Compare die-cast alloy mass vs. CNC stainless steel tolerances, anodized vs. electroplated finish durability.</td>
+              <td>Buyer-paid units + consolidated courier shipping (DHL/FedEx/UPS).</td>
+            </tr>
+            <tr>
+              <td><strong>2. Corporate Swag &amp; Logo Surface Pack (4 Pcs)</strong></td>
+              <td>FS-009 ($0.74+ Pocket Spinner), FS-125 (42×26mm Flat Slider), FS-047 (Anodized Slider), FS-013 (Ø28mm Coin)</td>
+              <td>Verify flat engraving zones, desk presentation weight, and EVA zipper pouch fit prior to 100-pc logo runs.</td>
+              <td>Blank stock samples dispatched from Fuzhou; optional paid laser sample ($50 setup).</td>
+            </tr>
+            <tr>
+              <td><strong>3. Viral Acoustic vs. Quiet Office Pack (4 Pcs)</strong></td>
+              <td>FS-150 (Acoustic Tuning Fork), FS-129 (Dual-Bearing Tuning Fork), FS-125 (PTFE Silent Slider), FS-009 (Quiet R188)</td>
+              <td>Test metallic chime acoustics for TikTok/e-commerce vs. low-decibel office sliders for corporate gifting.</td>
+              <td>Packed with IATA PI953 magnetic shielding; carrier determines transit time.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-light" style="padding: 2.5rem 1.75rem; border-radius: 1rem;">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">TOP-SAMPLED READY MOLDS</span>
+        <h2 class="section-title">Most Requested 1-Pc Evaluation Models</h2>
+      </div>
+      <div class="grid-4">
+        {sampleProducts.map((p) => (
+          <ProductCard product={p.data} lang={currentLang} />
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">SAMPLE &amp; LOGISTICS FAQ</span>
+        <h2 class="section-title">Transparent Policies for Paid Evaluation Samples</h2>
+      </div>
+      <div class="faq-list">
+        {sampleFaqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question">{faq.question}</summary>
+            <div class="faq-answer"><p>{faq.answer}</p></div>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

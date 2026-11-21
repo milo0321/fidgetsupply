@@ -3358,6 +3358,376 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "title": "حزمة البداية بالجملة لأدوات الفيدجت المعدنية ($500 مقابل $1,500): تشكيلة أفضل 5 موديلات مبيعاً (MOQ 50/SKU)",
       "summary": "مخططات جاهزة لحزم البداية بالجملة لمتاجر Shopify و TikTok Shop و Amazon FBA: مقارنة باقات التجربة من 3 موديلات (150 قطعة) و 5 موديلات (250 قطعة) مع شحن DDP وهامش ربح تجزئة 72%–84%."
     }
+  },
+  "aluminum-alloy-vs-zinc-stainless-fidget-spinner-wholesale-guide": {
+    "en": {
+      "title": "Aluminum Alloy vs. Zinc Alloy vs. Stainless Steel Fidget Spinners: Factory Cost & Bulk Order Guide",
+      "summary": "Engineering and wholesale cost breakdown comparing 6063 anodized aluminum alloy spinners ($2.55–$9.13), Zamak-3 die-cast zinc alloy spinners ($0.74–$4.25), and 5-axis CNC 304/316 stainless steel gyros ($8.49–$42.46) with $0 mold fees and MOQ 50 pcs."
+    },
+    "de": {
+      "title": "Aluminiumlegierung vs. Zink & Edelstahl Fidget Spinner Großhandel ($0.74–$42.46)",
+      "summary": "Fabrikkosten-Vergleich: 6063 eloxierte Aluminium-Spinner ($2.55–$9.13), Zamak-3 Zinkdruckguss ($0.74–$4.25) und CNC-Edelstahl-Gyros ($8.49–$42.46) ohne Werkzeugkosten ab MOQ 50."
+    },
+    "fr": {
+      "title": "Fidget Spinner Alliage d’Aluminium vs Zinc & Acier Inox en Gros ($0.74–$42.46)",
+      "summary": "Comparatif usine des spinners métal : aluminium anodisé 6063 ($2.55–$9.13), alliage de zinc Zamak-3 ($0.74–$4.25) et acier inox CNC 304/316 ($8.49–$42.46), 0 $ moule, MOQ 50."
+    },
+    "nl": {
+      "title": "Aluminium vs. Zink & RVS Metalen Fidget Spinner Groothandel ($0.74–$42.46)",
+      "summary": "Fabriekskosten vergeleken: 6063 geanodiseerd aluminium ($2.55–$9.13), Zamak-3 zink spuitgieten ($0.74–$4.25) en CNC 304/316 RVS gyrospinners ($8.49–$42.46), $0 matrijs, MOQ 50."
+    },
+    "es": {
+      "title": "Fidget Spinner Aleación de Aluminio vs Zinc y Acero Inox al por Mayor ($0.74+)",
+      "summary": "Comparativa de costos de fábrica entre spinners de aluminio anodizado 6063 ($2.55–$9.13), aleación de zinc Zamak-3 ($0.74–$4.25) y acero inoxidable CNC ($8.49–$42.46), $0 molde, MOQ 50."
+    },
+    "it": {
+      "title": "Fidget Spinner Lega di Alluminio vs Zinco e Acciaio Inox Ingrosso ($0.74+)",
+      "summary": "Analisi costi fabbrica: spinner in alluminio anodizzato 6063 ($2.55–$9.13), lega di zinco Zamak-3 ($0.74–$4.25) e acciaio inox CNC ($8.49–$42.46), $0 stampo, MOQ 50."
+    },
+    "pt": {
+      "title": "Fidget Spinner Liga de Alumínio vs Zinco e Aço Inox Atacado ($0.74–$42.46)",
+      "summary": "Comparativo de custo de fábrica: alumínio anodizado 6063 ($2.55–$9.13), liga de zinco Zamak-3 ($0.74–$4.25) e aço inox CNC ($8.49–$42.46), $0 molde, MOQ 50 unidades."
+    },
+    "sv": {
+      "title": "Aluminium vs. Zink & Rostfritt Stål Fidget Spinner Grossist ($0.74–$42.46)",
+      "summary": "Fabriksprisjämförelse: 6063 anodiserad aluminium ($2.55–$9.13), Zamak-3 zinklegering ($0.74–$4.25) och CNC rostfritt stål ($8.49–$42.46), $0 verktygskostnad, MOQ 50 st."
+    },
+    "da": {
+      "title": "Aluminiumslegering vs. Zink & Rustfrit Stål Fidget Spinner Engros ($0.74+)",
+      "summary": "Fabriksprissammenligning: 6063 anodiseret aluminium ($2.55–$9.13), Zamak-3 zinkstøbning ($0.74–$4.25) og CNC rustfrit stål ($8.49–$42.46), $0 værktøj, MOQ 50 stk."
+    },
+    "no": {
+      "title": "Aluminiumslegering vs. Sink & Rustfritt Stål Fidget Spinner Grossist ($0.74+)",
+      "summary": "Fabrikkprissammenligning: 6063 anodisert aluminium ($2.55–$9.13), Zamak-3 sinklegering ($0.74–$4.25) og CNC rustfritt stål ($8.49–$42.46), $0 verktøy, MOQ 50 stk."
+    },
+    "fi": {
+      "title": "Alumiini vs. Sinkki & Ruostumaton Teräs Fidget Spinner Tukku ($0.74–$42.46)",
+      "summary": "Tehdashintavertailu: 6063 anodisoitu alumiini ($2.55–$9.13), Zamak-3 sinkkiseos ($0.74–$4.25) ja CNC ruostumaton teräs ($8.49–$42.46), $0 muottikulu, MOQ 50 kpl."
+    },
+    "pl": {
+      "title": "Fidget Spinner Stop Aluminium vs Cynk i Stal Nierdzewna Hurt ($0.74–$42.46)",
+      "summary": "Porównanie kosztów fabrycznych: anodowane aluminium 6063 ($2.55–$9.13), stop cynku Zamak-3 ($0.74–$4.25) oraz stal CNC 304/316 ($8.49–$42.46), $0 za formę, MOQ 50 szt."
+    },
+    "cs": {
+      "title": "Hliníková Slitina vs. Zinek a Nerez Fidget Spinner Velkoobchod ($0.74+)",
+      "summary": "Tovární srovnání cen: eloxovaný hliník 6063 ($2.55–$9.13), slitina zinku Zamak-3 ($0.74–$4.25) a CNC nerezová ocel ($8.49–$42.46), $0 za formu, MOQ 50 ks."
+    },
+    "ru": {
+      "title": "Спиннеры из алюминия, цинка и стали оптом с завода: сравнение цен ($0.74+)",
+      "summary": "Сравнение заводских цен: анодированный алюминий 6063 ($2.55–$9.13), цинковый сплав Zamak-3 ($0.74–$4.25) и CNC сталь 304/316 ($8.49–$42.46), $0 за пресс-форму, MOQ 50 шт."
+    },
+    "ja": {
+      "title": "アルミ合金 vs 亜鉛合金 vs ステンレス製フィジェットスピナー工場卸売コスト比較",
+      "summary": "6063アルマイトアルミ（$2.55〜）、Zamak-3亜鉛ダイカスト（$0.74〜）、CNC 304/316ステンレス（$8.49〜）の重量・回転慣性・原価を徹底比較（金型代$0・MOQ 50）。"
+    },
+    "ko": {
+      "title": "알루미늄 합금 vs 아연 합금 vs 스테인리스 피젯 스피너 공장 도매 원가 비교",
+      "summary": "6063 아노다이징 알루미늄($2.55–$9.13), Zamak-3 아연 다이캐스팅($0.74–$4.25), CNC 스테인리스($8.49–$42.46) 스피너의 무게·원가·마진 분석(금형비 $0, MOQ 50)."
+    },
+    "id": {
+      "title": "Fidget Spinner Paduan Aluminium vs Seng & Baja Tahan Karat Grosir ($0.74+)",
+      "summary": "Perbandingan biaya pabrik: aluminium anodisasi 6063 ($2.55–$9.13), seng Zamak-3 ($0.74–$4.25), dan baja tahan karat CNC ($8.49–$42.46), $0 biaya cetakan, MOQ 50 pcs."
+    },
+    "ar": {
+      "title": "مقارنة سبينر الألومنيوم والزنك والفولاذ المقاوم للصدأ بالجملة ($0.74–$42.46)",
+      "summary": "تحليل تكاليف المصنع بين سبينر الألومنيوم المؤكسد 6063 ($2.55–$9.13) وسبائك الزنك Zamak-3 ($0.74–$4.25) والفولاذ CNC ($8.49–$42.46) بدون رسوم قوالب MOQ 50."
+    }
+  },
+  "fidget-spinner-bearings-r188-hybrid-ceramic-skf-parts-guide": {
+    "en": {
+      "title": "Fidget Spinner Bearings & Spare Parts Wholesale Guide: R188 vs. 608, Hybrid Ceramic, SKF Standards & Stiffness Solutions",
+      "summary": "Technical sourcing and troubleshooting guide covering R188 vs. 608 bearings, Si3N4 hybrid ceramic balls, ABEC/SKF precision tolerances, hybrid spinner stiffness solutions, and bulk spare-parts kits."
+    },
+    "de": {
+      "title": "Fidget Spinner Kugellager (R188 vs 608), Hybrid-Keramik & Ersatzteile Guide",
+      "summary": "Technischer Leitfaden zu R188- vs. 608-Lagern, Si3N4-Hybridkeramik, SKF/ABEC-Toleranzen, Lösungen gegen schwergängige Lager (Stiffness) und Großhandel-Ersatzteilen."
+    },
+    "fr": {
+      "title": "Roulements Fidget Spinner (R188 vs 608), Céramique Hybride & Pièces Détachées",
+      "summary": "Guide technique sur les roulements R188 vs 608, billes céramique hybride Si3N4, normes SKF/ABEC, solutions contre la raideur de rotation et kits de pièces en gros."
+    },
+    "nl": {
+      "title": "Fidget Spinner Lagers (R188 vs 608), Hybride Keramiek & Onderdelen Gids",
+      "summary": "Technische gids over R188 vs. 608 lagers, Si3N4 hybride keramische kogels, SKF/ABEC-toleranties, oplossingen voor stroeve spinners en groothandel-onderdelen."
+    },
+    "es": {
+      "title": "Rodamientos Fidget Spinner (R188 vs 608), Cerámica Híbrida y Repuestos",
+      "summary": "Guía técnica sobre rodamientos R188 vs 608, bolas cerámicas Si3N4, tolerancias SKF/ABEC, soluciones para rigidez de giro y kits de repuestos al por mayor."
+    },
+    "it": {
+      "title": "Cuscinetti Fidget Spinner (R188 vs 608), Ceramica Ibrida e Ricambi Ingrosso",
+      "summary": "Guida tecnica a cuscinetti R188 vs 608, sfere in ceramica ibrida Si3N4, standard SKF/ABEC, soluzioni per rigidità di rotazione e kit ricambi all’ingrosso."
+    },
+    "pt": {
+      "title": "Rolamentos Fidget Spinner (R188 vs 608), Cerâmica Híbrida e Peças Atacado",
+      "summary": "Guia técnico de rolamentos R188 vs 608, esferas cerâmicas híbridas Si3N4, padrões SKF/ABEC, soluções para rigidez de rotação e kits de peças no atacado."
+    },
+    "sv": {
+      "title": "Kullager Fidget Spinner (R188 vs 608), SKF-Standard & Hybridkeramik Guide",
+      "summary": "Teknisk guide för kullager fidget spinner: R188 vs 608, Si3N4 hybridkeramik, SKF-toleranser, lösningar mot tröga lager (stiffness) och reservdelar i grossistled."
+    },
+    "da": {
+      "title": "SKF Fidget Spinner Kuglelejer (R188 vs 608), Keramik & Reservedele Guide",
+      "summary": "Teknisk guide til fidget spinner kuglelejer: R188 vs. 608, Si3N4 hybridkeramik, SKF/ABEC-præcision, fejlfinding ved stive lejer og engros reservedelssæt."
+    },
+    "no": {
+      "title": "Fidget Spinner Kulelager (R188 vs 608), SKF-Standard & Hybridkeramikk Guide",
+      "summary": "Teknisk guide for R188 vs. 608 kulelager, Si3N4 hybridkeramikk, SKF-toleranser, feilsøking av trege lagre og grossist-reservedeler til metallspinnere."
+    },
+    "fi": {
+      "title": "Fidget Spinner Laakerit (R188 vs 608), Hybridikeraami & Varaosat Opas",
+      "summary": "Tekninen opas R188- ja 608-laakereihin, Si3N4-hybridikeraamikuuliin, SKF-toleransseihin, jäykän hybridispinnerin huoltoon ja tukkuvaraosiin."
+    },
+    "pl": {
+      "title": "Łożyska Fidget Spinner (R188 vs 608), Ceramika Hybrydowa i Części Hurt",
+      "summary": "Poradnik techniczny: łożyska R188 vs 608, kulki ceramiczne Si3N4, normy SKF/ABEC, rozwiązywanie problemów z oporem obrotu oraz zestawy części hurtowo."
+    },
+    "cs": {
+      "title": "Ložiska Fidget Spinner (R188 vs 608), Hybridní Keramika a Náhradní Díly",
+      "summary": "Technický průvodce ložisky R188 vs. 608, hybridními keramickými kuličkami Si3N4, tolerancemi SKF/ABEC, odstraněním tuhosti chodu a velkoobchodními díly."
+    },
+    "ru": {
+      "title": "Подшипники для спиннеров (R188 vs 608), гибридная керамика и запчасти оптом",
+      "summary": "Техническое руководство: подшипники R188 против 608, гибридная керамика Si3N4, стандарты SKF/ABEC, устранение тугого хода и оптовые ремкомплекты."
+    },
+    "ja": {
+      "title": "フィジェットスピナー用R188・608ベアリング・セラミック球＆パーツ卸売ガイド",
+      "summary": "R188と608の比較、Si3N4ハイブリッドセラミック球、SKF/ABEC公差、回転渋り（Stiffness）の無水IPA洗浄修復手順、予備パーツ卸売を徹底解説。"
+    },
+    "ko": {
+      "title": "피젯 스피너 R188 vs 608 베어링·하이브리드 세라믹·부품 도매 및 뻑뻑함 해결",
+      "summary": "R188·608 베어링 비교, Si3N4 하이브리드 세라믹, SKF/ABEC 공차, 회전 뻑뻑함(Stiffness) 무수 IPA 세척 해결법 및 도매 예비 부품 가이드."
+    },
+    "id": {
+      "title": "Panduan Bearing Fidget Spinner (R188 vs 608), Keramik Hibrida & Suku Cadang",
+      "summary": "Panduan teknis bearing R188 vs. 608, bola keramik Si3N4, toleransi SKF/ABEC, solusi spinner seret (stiffness), dan grosir suku cadang spinner logam."
+    },
+    "ar": {
+      "title": "دليل محامل سبينر R188 و608 والسيراميك الهجين وقطع الغيار بالجملة",
+      "summary": "دليل هندسي شامل لمحامل R188 مقابل 608، كرات السيراميك Si3N4، معايير SKF/ABEC، حلول تيبّس الدوران، وتوريد قطع الغيار بالجملة."
+    }
+  },
+  "factory-direct-metal-fidget-swag-vs-flashbay-4imprint-comparison": {
+    "en": {
+      "title": "Factory-Direct Custom Metal Fidget Swag vs. Flashbay, 4Imprint & Promotional Agencies: 2026–2027 Cost Comparison",
+      "summary": "Transparent unit-cost, imprint durability, and MOQ comparison between sourcing custom logo metal fidget spinners and sliders factory-direct ($0.74–$10.19, $0 mold fee) versus promotional distributors like Flashbay and 4Imprint."
+    },
+    "de": {
+      "title": "Metall-Fidget Werbeartikel Direkt ab Werk vs. Flashbay & 4Imprint Vergleich",
+      "summary": "Kosten- und Qualitätsvergleich: Metall-Fidget-Spinner & Slider mit 50W-Laserlogo ab Werk ($0.74+, $0 Formkosten, MOQ 100) vs. Werbeartikel-Agenturen wie Flashbay."
+    },
+    "fr": {
+      "title": "Fidget Métal Personnalisé Usine Directe vs Flashbay & 4Imprint : Comparatif",
+      "summary": "Comparatif prix, gravure laser 50W et MOQ entre l’achat direct usine de fidgets métal avec logo ($0.74+, 0 $ moule, MOQ 100) et les distributeurs d’objets pub."
+    },
+    "nl": {
+      "title": "Metalen Fidget Relatiegeschenken Fabriek vs. Flashbay & 4Imprint Vergelijking",
+      "summary": "Kosten- en kwaliteitsvergelijking: metalen fidgets met 50W fiberlaserlogo direct uit de fabriek ($0.74+, $0 matrijs, MOQ 100) vs. relatiegeschenk-tussenpersonen."
+    },
+    "es": {
+      "title": "Fidgets Metálicos con Logo Directo de Fábrica vs Flashbay y 4Imprint",
+      "summary": "Comparativa transparente de costos, grabado láser 50W y MOQ entre comprar fidgets metálicos con logo directo de fábrica ($0.74+, $0 molde) frente a distribuidores."
+    },
+    "it": {
+      "title": "Fidget in Metallo con Logo Diretto Fabbrica vs Flashbay e 4Imprint",
+      "summary": "Confronto trasparente su prezzi, incisione laser 50W e MOQ tra fidget in metallo personalizzati direttamente dalla fabbrica ($0.74+, $0 stampo) e agenzie promozionali."
+    },
+    "pt": {
+      "title": "Brindes Fidget Metálico Direto da Fábrica vs Flashbay e 4Imprint",
+      "summary": "Comparativo de custo unitário, gravação a laser 50W e MOQ entre fidgets metálicos com logo direto da fábrica ($0.74+, $0 molde) e distribuidores promocionais."
+    },
+    "sv": {
+      "title": "Metallfidget Företagspresenter Direkt från Fabrik vs Flashbay & 4Imprint",
+      "summary": "Pris- och kvalitetsjämförelse mellan fabriksdirekta metallfidgets med 50W fiberlaserlogo ($0.74+, $0 verktyg, MOQ 100) och reklambyråer som Flashbay och 4Imprint."
+    },
+    "da": {
+      "title": "Firmagaver Metalfidget Direkte fra Fabrik vs. Flashbay & 4Imprint",
+      "summary": "Prissammenligning på metalfidgets med 50W laserlogo direkte fra fabrik ($0.74+, $0 værktøj, MOQ 100) versus reklamebureauer og distributører som Flashbay."
+    },
+    "no": {
+      "title": "Firmagaver Metallfidget Direkte fra Fabrikk vs. Flashbay & 4Imprint",
+      "summary": "Kostnads- og kvalitetssammenligning mellom fabrikkdirekte metallfidgets med 50W fiberlaserlogo ($0.74+, $0 verktøy, MOQ 100) og tradisjonelle profileringsbyråer."
+    },
+    "fi": {
+      "title": "Metallifidget Yrityslahjat Suoraan Tehtaalta vs. Flashbay & 4Imprint",
+      "summary": "Hinta- ja laatuvertailu: 50W laserkaiverretut metallifidgetit omalla logolla suoraan tehtaalta ($0.74+, $0 muotti, MOQ 100) vs. mainoslahjatoimistot."
+    },
+    "pl": {
+      "title": "Metalowe Fidgety z Logo Prosto z Fabryki vs Flashbay i 4Imprint",
+      "summary": "Porównanie cen jednostkowych, trwałości graweru laserowego 50W i MOQ dla firmowych metalowych fidgetów z fabryki ($0.74+, $0 za formę) wobec agencji reklamowych."
+    },
+    "cs": {
+      "title": "Firemní Kovové Fidgety Přímo z Továrny vs. Flashbay a 4Imprint",
+      "summary": "Srovnání cen, odolnosti 50W laserového gravírování a MOQ při nákupu kovových fidgetů s logem přímo z továrny ($0.74+, $0 za formu) oproti reklamním agenturám."
+    },
+    "ru": {
+      "title": "Металлические фиджеты с лого с завода против Flashbay и 4Imprint",
+      "summary": "Сравнение цен, стойкости лазерной гравировки 50 Вт и MOQ при заказе корпоративных металлических фиджетов напрямую с завода ($0.74+, $0 форма) и через агентства."
+    },
+    "ja": {
+      "title": "法人名入れ金属フィジェット：工場直販 vs Flashbay・4Imprint価格比較",
+      "summary": "既存28金型（$0.74〜・金型代$0・MOQ 100個・50Wレーザー刻印）の工場直販と、欧米ノベルティ代理店（Flashbay/4Imprint）の単価・耐久性を徹底比較。"
+    },
+    "ko": {
+      "title": "기업 로고 메탈 피젯 판촉물: 공장 직거래 vs Flashbay·4Imprint 단가 비교",
+      "summary": "기성 금형 28종($0.74+, 금형비 $0, MOQ 100개, 50W 레이저 각인) 공장 직거래와 해외 판촉 에이전시(Flashbay/4Imprint)의 단가 및 내구성 비교."
+    },
+    "id": {
+      "title": "Souvenir Fidget Logam Langsung Pabrik vs. Flashbay & 4Imprint",
+      "summary": "Perbandingan biaya satuan, ketahanan grafir laser 50W, dan MOQ antara pesan fidget logam berlogo langsung pabrik ($0.74+, $0 cetakan) vs. agensi promosi."
+    },
+    "ar": {
+      "title": "هدايا الشركات الفيدجت المعدني من المصنع مباشرة مقابل Flashbay و4Imprint",
+      "summary": "مقارنة شفافة للأسعار وثبات الحفر بالليزر 50W والحد الأدنى للطلب بين المصنع المباشر (0.74$+، قالب 0$) وموزعي الهدايا الدعائية."
+    }
+  },
+  "cpsia-tracking-label-gcc-certificate-amazon-fba-fidget-compliance": {
+    "en": {
+      "title": "CPSIA Tracking Labels, GCC Certificates & Amazon FBA Compliance for Metal Fidget Spinners & Magnetic Sliders (2026–2027)",
+      "summary": "Actionable US Amazon FBA & retail compliance playbook covering CPSIA tracking labels, General Certificates of Conformity (GCC), US CPSC 16 CFR Part 1262 magnet retention abuse tests, and 14+ Adult EDC age-grading."
+    },
+    "de": {
+      "title": "CPSIA Tracking-Label, GCC-Zertifikat & 16 CFR 1262 Amazon FBA Leitfaden",
+      "summary": "Praxisleitfaden für US-Amazon-FBA-Händler: CPSIA-Tracking-Etiketten, GCC-Konformitätszertifikate, 16 CFR Part 1262 Magnettests und 14+ Adult EDC Kennzeichnung."
+    },
+    "fr": {
+      "title": "Étiquette CPSIA, Certificat GCC & 16 CFR 1262 : Guide Amazon FBA Fidget",
+      "summary": "Guide pratique Amazon FBA USA : étiquettes de traçabilité CPSIA, certificat GCC, sécurité magnétique 16 CFR Part 1262 et classification Adulte EDC 14+."
+    },
+    "nl": {
+      "title": "CPSIA Tracking Label, GCC-Certificaat & 16 CFR 1262 Amazon FBA Gids",
+      "summary": "Praktische compliance-gids voor Amazon FBA US: CPSIA-trackinglabels, GCC-certificaatvelden, 16 CFR Part 1262 magneetveiligheid en 14+ Adult EDC classificatie."
+    },
+    "es": {
+      "title": "Etiqueta CPSIA, Certificado GCC y 16 CFR 1262 para Amazon FBA Fidget",
+      "summary": "Guía práctica de cumplimiento para Amazon FBA EE. UU.: etiquetas de rastreo CPSIA, certificado GCC, pruebas magnéticas 16 CFR Part 1262 y clasificación Adulto 14+."
+    },
+    "it": {
+      "title": "Etichetta CPSIA, Certificato GCC e 16 CFR 1262: Guida Amazon FBA Fidget",
+      "summary": "Manuale operativo Amazon FBA USA: etichette CPSIA, certificato GCC, test ritenzione magneti 16 CFR Part 1262 e classificazione Adult EDC 14+."
+    },
+    "pt": {
+      "title": "Etiqueta CPSIA, Certificado GCC e 16 CFR 1262 para Amazon FBA Fidget",
+      "summary": "Guia prático de conformidade Amazon FBA EUA: etiquetas CPSIA, certificado GCC, segurança magnética 16 CFR Part 1262 e classificação Adulto EDC 14+."
+    },
+    "sv": {
+      "title": "CPSIA Spårningsetikett, GCC-Certifikat & 16 CFR 1262 Amazon FBA Guide",
+      "summary": "Praktisk efterlevnadsguide för Amazon FBA USA: CPSIA-etiketter, GCC-certifikat, 16 CFR Part 1262 magnetsäkerhet och 14+ Adult EDC märkning."
+    },
+    "da": {
+      "title": "CPSIA Sporingsmærkat, GCC-Certifikat & 16 CFR 1262 Amazon FBA Guide",
+      "summary": "Praktisk compliance-guide til Amazon FBA USA: CPSIA-mærkning, GCC-certifikatfelter, 16 CFR Part 1262 magnetsikkerhed og 14+ Adult EDC aldersmærkning."
+    },
+    "no": {
+      "title": "CPSIA Sporingsetikett, GCC-Sertifikat & 16 CFR 1262 Amazon FBA Guide",
+      "summary": "Praktisk samsvarsguide for Amazon FBA USA: CPSIA-etiketter, GCC-sertifikat, 16 CFR Part 1262 magnetsikkerhet og 14+ Adult EDC merking."
+    },
+    "fi": {
+      "title": "CPSIA-Seurantatarra, GCC-Todistus & 16 CFR 1262 Amazon FBA Opas",
+      "summary": "Käytännön opas Amazon FBA USA -myyjille: CPSIA-merkinnät, GCC-vaatimustenmukaisuustodistus, 16 CFR Part 1262 magneettiturvallisuus ja 14+ Adult EDC luokitus."
+    },
+    "pl": {
+      "title": "Etykieta CPSIA, Certyfikat GCC i 16 CFR 1262: Poradnik Amazon FBA Fidget",
+      "summary": "Praktyczny przewodnik zgodności dla Amazon FBA USA: etykiety śledzenia CPSIA, certyfikat GCC, testy magnesów 16 CFR Part 1262 i oznaczenie 14+ Adult EDC."
+    },
+    "cs": {
+      "title": "CPSIA Štítky, Certifikát GCC a 16 CFR 1262 pro Amazon FBA Fidgety",
+      "summary": "Praktický návod pro prodejce na Amazon FBA USA: CPSIA sledovací štítky, náležitosti certifikátu GCC, testy magnetů 16 CFR Part 1262 a označení 14+ Adult EDC."
+    },
+    "ru": {
+      "title": "Маркировка CPSIA, сертификат GCC и 16 CFR 1262 для Amazon FBA фиджетов",
+      "summary": "Практическое руководство по комплаенсу Amazon FBA США: этикетки CPSIA, поля сертификата GCC, безопасность магнитов 16 CFR Part 1262 и маркировка 14+ Adult EDC."
+    },
+    "ja": {
+      "title": "米国Amazon FBA向け金属フィジェットCPSIA追跡ラベル・GCC証明書・16 CFR 1262実務ガイド",
+      "summary": "出品停止を防ぐCPSIA追跡ラベル記載事項、GCC適合証明書の必須7項目、16 CFR Part 1262磁石安全基準、14歳以上Adult EDC表記ルールを解説。"
+    },
+    "ko": {
+      "title": "미국 Amazon FBA 메탈 피젯 CPSIA 추적 라벨·GCC 인증서·16 CFR 1262 실무 가이드",
+      "summary": "리스팅 정지를 예방하는 CPSIA 추적 라벨, GCC 적합성 인증서 필수 7항목, 16 CFR Part 1262 자석 안전 기준 및 14+ 성인용 EDC 표기 가이드."
+    },
+    "id": {
+      "title": "Label Pelacakan CPSIA, Sertifikat GCC & 16 CFR 1262 untuk Amazon FBA",
+      "summary": "Panduan kepatuhan Amazon FBA AS: template label CPSIA, 7 kolom wajib sertifikat GCC, uji keamanan magnet 16 CFR Part 1262, dan aturan usia 14+ Adult EDC."
+    },
+    "ar": {
+      "title": "ملصقات تتبع CPSIA وشهادة GCC ومعيار 16 CFR 1262 لبائعي Amazon FBA",
+      "summary": "دليل عملي لبائعي Amazon FBA الأمريكيين لتفادي حظر القوائم: ملصقات CPSIA، شهادة المطابقة GCC، اختبارات مغناطيس 16 CFR Part 1262 وتصنيف +14 للبالغين."
+    }
+  },
+  "folding-hub-spinner-mechanical-fidget-gun-customs-wholesale-guide": {
+    "en": {
+      "title": "Folding Hub Spinners, Bolt-Action Mechanical EDC & Fidget Gun Wholesale Guide: Customs Safety & Retail Bestsellers",
+      "summary": "Sourcing blueprint for multi-action mechanical EDC fidgets—covering folding hub and dual-bearing spinners, bolt-action spring sliders, ratchet mechanisms, customs-safe non-replica nomenclature, and wholesale pricing ($3.82–$29.72)."
+    },
+    "de": {
+      "title": "Falt-Hub-Spinner, Bolt-Action & Mechanische EDC Großhandel & Zoll-Guide",
+      "summary": "Einkaufsleitfaden für mechanische EDC-Fidgets ($3.82–$29.72, $0 Formkosten): Gelenk- & Kettenspinner, Feder-Ratschen, Bolt-Action-Slider und zollsichere Deklaration."
+    },
+    "fr": {
+      "title": "Spinners Articulés, Bolt-Action & EDC Mécaniques en Gros : Guide Douane",
+      "summary": "Guide d’achat pour fidgets EDC mécaniques ($3.82–$29.72, 0 $ moule) : spinners à chaîne, sliders à ressort bolt-action, cliquets et conformité douanière hors réplique."
+    },
+    "nl": {
+      "title": "Vouw-Hub Spinners, Bolt-Action & Mechanische EDC Groothandel & Douane",
+      "summary": "Inkoopgids voor mechanische EDC-fidgets ($3.82–$29.72, $0 matrijs): ketting- en dubbellager spinners, veerratels, bolt-action sliders en douaneveilige naamgeving."
+    },
+    "es": {
+      "title": "Spinners Articulados, Bolt-Action y EDC Mecánicos al por Mayor y Aduanas",
+      "summary": "Guía mayorista de fidgets EDC mecánicos ($3.82–$29.72, $0 molde): spinners de cadena, deslizadores de resorte bolt-action y nomenclatura segura para aduanas."
+    },
+    "it": {
+      "title": "Spinner Snodati, Bolt-Action ed EDC Meccanici Ingrosso e Dogana",
+      "summary": "Guida all’ingrosso per fidget EDC meccanici ($3.82–$29.72, $0 stampo): spinner a catena, slider a molla bolt-action e nomenclatura sicura per dogana e marketplace."
+    },
+    "pt": {
+      "title": "Spinners Articulados, Bolt-Action e EDC Mecânicos Atacado e Alfândega",
+      "summary": "Guia atacadista de fidgets EDC mecânicos ($3.82–$29.72, $0 molde): spinners de corrente, sliders bolt-action com mola e conformidade alfandegária sem réplicas."
+    },
+    "sv": {
+      "title": "Vikbara Hub-Spinners, Bolt-Action & Mekaniska EDC Grossist & Tullguide",
+      "summary": "Inköpsguide för mekaniska EDC-fidgets ($3.82–$29.72, $0 verktyg): kedjespinnare, fjäderspärrmekanismer, bolt-action-sliders och tullsäker klassificering."
+    },
+    "da": {
+      "title": "Folde-Hub Spinnere, Bolt-Action & Mekaniske EDC Engros & Toldguide",
+      "summary": "Engrosguide til mekaniske EDC-fidgets ($3.82–$29.72, $0 værktøj): kædespinnere, fjederskralder, bolt-action sliders og toldsikker ikke-replika navngivning."
+    },
+    "no": {
+      "title": "Foldbare Hub-Spinnere, Bolt-Action & Mekaniske EDC Grossist & Tollguide",
+      "summary": "Innkjøpsguide for mekaniske EDC-fidgets ($3.82–$29.72, $0 verktøy): kjededrevne spinnere, fjærskralder, bolt-action sliders og tollsikkert industridesign."
+    },
+    "fi": {
+      "title": "Taittuvat Spinnerit, Bolt-Action & Mekaaniset EDC-Fidgetit Tukkuopas",
+      "summary": "Tukkuopas mekaanisiin EDC-fidgeteihin ($3.82–$29.72, $0 muotti): ketjuspinnerit, jousiräikät, bolt-action-sliderit ja tulliturvallinen nimeäminen."
+    },
+    "pl": {
+      "title": "Składane Spinnery, Bolt-Action i Mechaniczne EDC Hurt oraz Bezpieczeństwo Celne",
+      "summary": "Przewodnik hurtowy po mechanicznych EDC ($3.82–$29.72, $0 za formę): spinnery łańcuchowe, slidery sprężynowe bolt-action i bezpieczna odprawa celna."
+    },
+    "cs": {
+      "title": "Skládací Spinnery, Bolt-Action a Mechanické EDC Velkoobchod a Celní Průvodce",
+      "summary": "Velkoobchodní průvodce mechanickými EDC ($3.82–$29.72, $0 za formu): řetězové spinnery, pružinové slidery bolt-action a celně bezpečné názvosloví."
+    },
+    "ru": {
+      "title": "Складные спиннеры, болт-экшн и механические EDC оптом: таможня и хиты",
+      "summary": "Оптовый гид по механическим EDC ($3.82–$29.72, $0 за форму): цепные спиннеры, пружинные трещотки, болт-экшн слайдеры и безопасное таможенное оформление."
+    },
+    "ja": {
+      "title": "折りたたみハブスピナー・ボルトアクション機械式EDC卸売＆通関安全ガイド",
+      "summary": "チェーン駆動スピナー、スプリング式ラチェット、ボルトアクション機械式EDC（$3.82〜$29.72・金型代$0）の選品と模造銃規制を回避する通関ノウハウ。"
+    },
+    "ko": {
+      "title": "폴딩 허브 스피너·볼트액션 기계식 EDC 도매 및 세관 통관 안전 가이드",
+      "summary": "체인 스피너, 스프링 라쳇, 볼트액션 기계식 EDC($3.82–$29.72, 금형비 $0) 도매 소싱 전략과 모의총기 오인을 피하는 안전한 세관 통관 명칭 가이드."
+    },
+    "id": {
+      "title": "Panduan Grosir Folding Hub Spinner, Bolt-Action & EDC Mekanis Aman Bea Cukai",
+      "summary": "Panduan grosir fidget EDC mekanis ($3.82–$29.72, $0 cetakan): spinner rantai, slider pegas bolt-action, dan penamaan komersial aman bea cukai."
+    },
+    "ar": {
+      "title": "دليل الجملة لسبينر المحور القابل للطي والـ EDC الميكانيكي وسلامة الجمارك",
+      "summary": "دليل استيراد أدوات EDC الميكانيكية ($3.82–$29.72، قالب 0$): سبينرات السلسلة، السلايدرات النابضية، والتصنيف الجمركي الآمن بعيداً عن قيود الأسلحة المقلدة."
+    }
   }
 };
 

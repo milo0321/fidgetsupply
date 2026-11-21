@@ -1,0 +1,293 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
+const allProducts = await getCollection('products');
+
+const corporateProducts = allProducts
+  .filter((p) => p.data.logoReady)
+  .sort((a, b) => parseFloat(a.data.tier500) - parseFloat(b.data.tier500))
+  .slice(0, 8);
+
+const PAGE_TITLES: Record<string, string> = {
+  en: 'Corporate Metal Fidget Gifts & Custom Logo Swag ($0.74+)',
+  de: 'Metall-Fidget Werbegeschenke & Firmenlogo Swag ($0.74+)',
+  fr: 'Cadeaux d’Entreprise Fidget Métal & Logo Laser ($0.74+)',
+  nl: 'Zakelijke Metalen Fidget Relatiegeschenken met Logo ($0.74+)',
+  es: 'Regalos Corporativos Fidget Metálico con Logo ($0.74+)',
+  it: 'Regali Aziendali Fidget in Metallo con Logo Laser ($0.74+)',
+  pt: 'Brindes Corporativos Fidget Metálico com Logo ($0.74+)',
+  sv: 'Företagspresenter Metallfidget med Egen Logotyp ($0.74+)',
+  da: 'Firmagaver Metalfidget med Eget Logo & Lasergravering ($0.74+)',
+  no: 'Firmagaver Metallfidget med Egen Logo & Lasergravering ($0.74+)',
+  fi: 'Yrityslahjat Metallifidget Omalla Logolla ($0.74+)',
+  pl: 'Gadżety Firmowe Metalowe Fidgety z Logo Laserowym ($0.74+)',
+  cs: 'Firemní Dárky Kovové Fidgety s Vlastním Logem ($0.74+)',
+  ru: 'Корпоративные подарки металлические фиджеты с лого ($0.74+)',
+  ja: '企業ノベルティ・法人ギフト用名入れ金属フィジェット（$0.74〜）',
+  ko: '기업 판촉물 & VIP 기프트 로고 각인 메탈 피젯 ($0.74+)',
+  id: 'Souvenir Perusahaan & Hadiah Klien Fidget Logam Logo ($0.74+)',
+  ar: 'هدايا شركات فاخرة فيدجت معدني بحفر شعار مخصص ($0.74+)'
+};
+
+const PAGE_DESCS: Record<string, string> = {
+  en: 'Factory-direct custom logo metal fidget spinners & sliders for trade shows, tech onboarding, and VIP swag ($0.74+, $0 mold fee, MOQ 100, 12h proof).',
+  de: 'Direkt ab Werk: Metall-Fidget-Spinner & Slider mit Firmenlogo für Messen, Onboarding & VIP-Geschenke ($0.74+, $0 Werkzeugkosten, MOQ 100, 12h Korrektur).',
+  fr: 'Fidget spinners et sliders métal avec logo d’entreprise pour salons, onboarding et cadeaux VIP (0,74 $+, 0 $ moule, MOQ 100, BAT gratuit en 12h).',
+  nl: 'Metalen fidget spinners & sliders met bedrijfslogo voor beurzen, onboarding en VIP-geschenken ($0.74+, $0 matrijskosten, MOQ 100, 12u drukproef).',
+  es: 'Fidget spinners y sliders metálicos con logo de empresa para ferias, eventos y regalos VIP ($0.74+, $0 molde, MOQ 100, prueba digital en 12h).',
+  it: 'Fidget spinner e slider in metallo con logo aziendale per fiere, eventi e regali VIP ($0.74+, $0 stampo, MOQ 100, bozza digitale gratis in 12h).',
+  pt: 'Fidget spinners e sliders metálicos com logo corporativo para feiras, eventos e brindes VIP ($0.74+, $0 molde, MOQ 100, arte digital em 12h).',
+  sv: 'Metallfidgets och sliders med företagslogotyp för mässor, onboarding och VIP-gåvor ($0.74+, $0 verktyg, MOQ 100, digital korrektur inom 12 timmar).',
+  da: 'Metalfidgets og sliders med firmalogo til messer, konferencer og VIP-gaver ($0.74+, $0 værktøj, MOQ 100, gratis digital korrektur inden 12 timer).',
+  no: 'Metallfidgets og sliders med firmalogo til messer, onboarding og VIP-gaver ($0.74+, $0 verktøy, MOQ 100, gratis digital korrektur innen 12 timer).',
+  fi: 'Metallifidgetit ja sliderit yrityksen logolla messuille ja VIP-lahjoiksi ($0.74+, $0 muotti, MOQ 100, maksuton digitaalinen vedos 12 tunnissa).',
+  pl: 'Metalowe spinnery i slidery z logo firmy na targi, konferencje i prezenty VIP ($0.74+, $0 za formę, MOQ 100, bezpłatna wizualizacja w 12h).',
+  cs: 'Kovové fidget spinnery a slidery s firemním logem na veletrhy a VIP dárky ($0.74+, $0 za formu, MOQ 100 ks, náhled zdarma do 12 hodin).',
+  ru: 'Металлические спиннеры и слайдеры с логотипом компании для выставок и VIP-подарков ($0.74+, $0 форма, MOQ 100 шт., макет за 12 часов).',
+  ja: '展示会ノベルティ・社員ウェルカムキット・VIPギフト向け名入れ金属フィジェット（$0.74〜・金型代$0・MOQ 100個・12時間データ校正無料）。',
+  ko: '전시회 기념품, 임직원 온보딩 키트, VIP 기업 선물용 로고 각인 메탈 피젯 ($0.74+, 금형비 $0, MOQ 100개, 12시간 무료 시안 제공).',
+  id: 'Fidget spinner & slider logam dengan logo perusahaan untuk pameran, onboarding & hadiah VIP ($0.74+, $0 cetakan, MOQ 100, bukti desain 12 jam).',
+  ar: 'سبينر وسلايدر معدني بشعار الشركة للمعارض وهدايا كبار الشخصيات (0.74$+، قالب 0$، الحد الأدنى 100 قطعة، معاينة تصميم مجانية خلال 12 ساعة).'
+};
+
+const corporateFaqs = [
+  {
+    question: 'Why do enterprise teams choose metal fidget sliders and spinners over plastic promotional giveaways?',
+    answer: 'Plastic spinners ($0.45–$0.80) feel disposable and have pad-printed ink that rubs off within weeks. Solid metal EDC instruments (20g–130g Zamak-3, 6063 aluminum, or 304 stainless steel) with permanent 50W fiber laser engraving stay on executive desks for years, generating far higher brand impressions per dollar.'
+  },
+  {
+    question: 'What is the minimum order quantity (MOQ) for corporate logo metal fidgets?',
+    answer: 'Custom logo orders start at 100 pieces per SKU with $0.00 mold tooling fees across 28 flat-surface Logo-Ready molds. Blank unbranded stock starts at 50 pieces per SKU.'
+  },
+  {
+    question: 'How much does a custom logo metal fidget cost across different corporate budget tiers?',
+    answer: 'Conference handout tier starts at $0.74–$2.50/pc (e.g., FS-009 Knurled Pocket Spinner Top, FS-059 Promo Slider), employee onboarding tier runs $2.80–$6.50/pc (FS-001 Poker Slider, FS-013 Stainless Coin, FS-047 Aluminum Slider), and executive VIP tier runs $8.49–$18.00/pc (FS-043 6-Axis CNC Stainless Gyro, FS-150 Tuning Fork Slider), plus +$0.15–$0.30/pc for 50W fiber laser engraving.'
+  },
+  {
+    question: 'How does FidgetSupply compare to promotional swag distributors like Flashbay, 4Imprint, or GS-JJ?',
+    answer: 'Promotional distributors typically mark up imported stock by 80%–180% and offer limited plastic or basic metal shapes. Sourcing directly through FidgetSupply’s integrated Fuzhou supply chain gives you access to 140 precision metal EDC molds at direct factory EXW tiers with $0 mold fee and in-house 50W MOPA laser and deep color-fill lines.'
+  },
+  {
+    question: 'How fast can you prepare a digital logo proof and complete production for a trade show deadline?',
+    answer: 'We deliver a 1:1 vector placement proof free within 12 hours of receiving your .AI/.EPS/.SVG/.PDF logo file. Standard custom logo production for 100–500 units completes in 10–15 business days at our Fuzhou Hub before handoff to your chosen international courier (DHL, FedEx, UPS, or DDP air freight).'
+  },
+  {
+    question: 'Can you engrave individual employee or VIP client names onto each metal fidget?',
+    answer: 'Yes. Our Galvo fiber laser workstations support automated CSV variable-data engraving, allowing unique VIP recipient names or sequential edition numbers (e.g., 001/250) for +$0.20/pc.'
+  },
+  {
+    question: 'Can we match our brand’s Pantone color on a metal fidget?',
+    answer: 'Yes. For colored logos on metal, we use Deep Laser Engraving + Thermally Cured Pantone Enamel Color Fill (+$0.35–$0.60/pc, MOQ 100–200 pcs) so the colored crest sits recessed below the metal friction plane and never peels off.'
+  },
+  {
+    question: 'What corporate gift packaging options are available?',
+    answer: 'Choose from Custom-Branded Black EVA Shockproof Zipper Cases (+$0.75/pc, MOQ 100), Matte Window Metal Tin Boxes (+$0.85/pc, MOQ 200), or Two-Piece Rigid Luxury Gift Boxes with CNC-cut foam trays (+$1.10/pc, MOQ 300). Multi-piece executive gift bundles (e.g., 1 Slider + 1 Coin) are also supported.'
+  },
+  {
+    question: 'Can we order a paid physical sample before approving our corporate bulk order?',
+    answer: 'Yes. Paid 1-piece blank stock samples are available across all 140 models (buyer pays sample fee and international courier shipping, non-refundable). Paid custom laser pre-production samples are $50 USD setup (or $80–$150 USD for multi-color deep enamel fill) plus shipping.'
+  },
+  {
+    question: 'Are your metal corporate gifts compliant with US CPSC 16 CFR 1262, Prop 65, and EU RoHS 3?',
+    answer: 'Yes. Every magnetic model uses captive 3-layer retention engineered for US CPSC 16 CFR Part 1262, all metal finishes pass EU RoHS 3 / REACH and California Prop 65 heavy-metal screening, and we also offer 30+ 100% magnet-free mechanical models.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: corporateFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+
+const corpServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Corporate Metal Fidget Gifts & Custom Logo Promotional Swag Supply',
+  provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
+  description: 'Factory-direct custom logo metal fidget spinners, sliders, and haptic coins for corporate gifting, tech onboarding, and trade show giveaways. $0 mold fee, MOQ 100 pcs, 12h free vector proof.'
+};
+---
+
+<Layout
+  title={PAGE_TITLES[currentLang] || PAGE_TITLES.en}
+  description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+  activePage="custom-branding"
+  jsonLd={[corpServiceSchema, faqSchema]}
+>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <a href={getLocalizedPath('/custom-branding', currentLang)}>{t('nav.customBranding')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">Corporate Gifts</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-gold">CORPORATE SWAG &amp; VIP GIFTS</span>
+          <span class="badge badge-emerald">28 Logo-Ready Molds · $0 Tooling</span>
+        </div>
+
+        <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
+        <p class="grand-hero-lead">
+          {PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Entry Swag Tier</span>
+            <strong class="glass-kpi-val">$0.74 – $2.50</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">50W Laser Logo</span>
+            <strong class="glass-kpi-val">+$0.15 / {t('unit.pc')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Digital Proof</span>
+            <strong class="glass-kpi-val">Free in 12h</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Logo Production</span>
+            <strong class="glass-kpi-val">10–15 Days</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            Get Free 12h Logo Proof →
+          </a>
+          <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-secondary-dark btn-hero">
+            View 28 Logo-Ready Molds →
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">EXECUTIVE DESK RETENTION</span>
+          <span class="hero-showcase-price">MOQ 100 {t('unit.pcs')}</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/insights/corporate-swag-laser-comparison-hero.webp"
+            alt="Custom laser-engraved metal fidget sliders and pocket spinners for corporate gifts and trade show swag"
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>50W Fiber Laser</span>
+          <span>Deep Enamel Fill</span>
+          <span>Custom EVA Cases</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title="Direct Answer: Factory-Direct Corporate Metal Fidget Gifts by Budget Tier"
+      answer="FidgetSupply supplies custom logo metal fidget spinners, magnetic sliders, and haptic coins directly from 28 flat-surface ready molds ($0.00 tooling fee, MOQ 100 pcs) across three corporate budget tiers: Conference Swag ($0.74–$2.50/pc), Employee Onboarding Kits ($2.80–$6.50/pc), and Executive VIP Gifts ($8.49–$18.00/pc). Every order includes a free 12-hour 1:1 vector proof, permanent 50W fiber laser engraving (+$0.15–$0.30/pc) or recessed Pantone color fill (+$0.35–$0.60/pc), and optional custom EVA cases or luxury gift boxes."
+    />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="Corporate Logo Metal Fidget Quote & Free 12h Proof (MOQ 100+)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="text"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} / WhatsApp`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">CORPORATE BUDGET MATRIX</span>
+        <h2 class="section-title">Match Your Event Budget to Permanent Metal Desk Swag</h2>
+      </div>
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>Corporate Use Case</th>
+              <th>Factory Unit Budget (EXW)</th>
+              <th>Top Recommended Molds</th>
+              <th>Branding &amp; Packaging Pairing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Trade Shows &amp; Tech Conferences (500–5,000 pcs)</strong></td>
+              <td>$0.74 – $2.50 / pc</td>
+              <td>FS-009 Knurled Pocket Spinner ($0.74+), FS-059 Promo Slider ($1.70+), FS-006 Delta Slider</td>
+              <td>50W Fiber Laser (+$0.15/pc) + Stock OPP/EVA Pouch</td>
+            </tr>
+            <tr>
+              <td><strong>Employee Onboarding &amp; SaaS Welcome Kits (100–500 pcs)</strong></td>
+              <td>$2.80 – $6.50 / pc</td>
+              <td>FS-001 Poker Slider, FS-047 6063 Aluminum Slider, FS-013 304SS Coin, FS-125 Smooth Slider</td>
+              <td>Deep Laser + Pantone Enamel (+$0.35/pc) + Custom EVA Case (+$0.75/pc)</td>
+            </tr>
+            <tr>
+              <td><strong>Executive VIP &amp; Boardroom Holiday Bundles (100–300 pcs)</strong></td>
+              <td>$8.49 – $18.00 / pc</td>
+              <td>FS-043 6-Axis CNC Stainless Gyro, FS-150 Tuning Fork Slider, FS-075 CNC 304SS Slider</td>
+              <td>Serialized VIP Name Engraving (+$0.20/pc) + Rigid Luxury Gift Box (+$1.10/pc)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-light" style="padding: 2.5rem 1.75rem; border-radius: 1rem;">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">28 LOGO-READY MOLDS · TOP 8 CORPORATE PICKS</span>
+        <h2 class="section-title">Best-Selling Flat-Surface Models for Company Logos</h2>
+      </div>
+      <div class="grid-4">
+        {corporateProducts.map((p) => (
+          <ProductCard product={p.data} lang={currentLang} />
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">CORPORATE GIFTING FAQ</span>
+        <h2 class="section-title">Logo Proofing, Pricing &amp; Event Turnaround Questions</h2>
+      </div>
+      <div class="faq-list">
+        {corporateFaqs.map((faq) => (
+          <details class="faq-item">
+            <summary class="faq-question">{faq.question}</summary>
+            <div class="faq-answer"><p>{faq.answer}</p></div>
+          </details>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
