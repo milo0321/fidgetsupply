@@ -75,3 +75,16 @@ Every action item in your execution plan MUST cite the exact GA4 event count or 
 Every optimization report must conclude with clear, falsifiable telemetry targets for the next 24–72 hours:
 - Track whether `proactive_rfq_prompt`, `rfq_form_start`, or inline `.inline-quick-sheet-form` submissions (`generate_lead`) trigger on engaged sessions (`>24s`).
 - Track the ranking movement (`Pos`) and CTR of the newly sniped B2B commercial queries in GSC.
+
+---
+
+## 2. Mandatory GA4 Owner Self-Test Traffic Filtering (Before Any 5W Conclusion)
+- Always include `operatingSystem`, `browser`, and `language` alongside `country` and `city` in GA4 session and conversion queries.
+- Explicitly flag and exclude owner/developer self-test sessions (e.g., `Macintosh + Chrome + language: Chinese` routed through a US/overseas proxy node such as Los Angeles) before counting real overseas inquiries or diagnosing drop-off.
+
+---
+
+## 3. UI Component Parity, Security & Scannability Invariants
+- **Unified FAQ Markup**: Never introduce ad-hoc unstyled `<details class="faq-item">` blocks on new landing pages when the site uses a global `.accordion-item` + `.accordion-header` + `.accordion-content` component (which guarantees both visual contrast and automatic GA4 `faq_expand` telemetry).
+- **No Wall-of-Text Numbered Lists**: Whenever a summary or `GeoDirectAnswer` block enumerates 3+ tiers (`(1) ... (2) ... (3) ...`), render them as a vertical structured numbered list rather than a single dense paragraph.
+- **Email-Only Inline Capture + Anti-Bot Parity**: Inline quick capture bars (`.inline-quick-sheet-form`) MUST validate strict email format (`type="email"`) and route through on-demand Cloudflare Turnstile verification (`POST /api/contact`) rather than accepting arbitrary numeric strings or bypassing human verification.
