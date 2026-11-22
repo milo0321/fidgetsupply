@@ -1478,7 +1478,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
     },
     fi: {
       title: 'Liukuteippi (0,13/0,18mm PTFE-Teflon) & Fidget-Huolto-Opas',
-      summary: 'PTFE-liukuteippi (0,13/0,18 mm teflon-liukuteippi magneettislidereihin), Si3N4-keraamikuulat, R188-laakerit & metalliset fidgetit (1 kpl näyte OK, $0 muotti, MOQ 50).'
+      summary: 'Liukuteippi (0,13/0,18 mm PTFE-teflon), Si3N4-keraamikuulat & R188-laakerit metallifidgeteihin. 1 kpl näyte OK, $0 muotti, MOQ 50.'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',
