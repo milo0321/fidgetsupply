@@ -215,8 +215,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Fiber laser gravering (50W fiberlasergravering, +$0,15/stk., prøve $50) og dyb laser med emaljefyld (+$0,35/stk.) vs. UV-tryk på metal ($0 værktøj, MOQ 100).'
     },
     no: {
-      title: 'Fiberlaser Gravering (50W Fiber Laser) vs. UV (+$0.15/stk)',
-      summary: 'Fiberlaser gravering (50W fiber laser gravering, +$0,15/stk., prøve $50) og dyp laser med emaljefyll (+$0,35/stk.) vs. UV-trykk på metall ($0 verktøy, MOQ 100).'
+      title: 'Fiberlaser Gravering på Metall (+$0.15/stk · MOQ 100)',
+      summary: 'Fiberlaser gravering (50W MOPA, +$0,15/stk., prøve $50) og dyp laser med emaljefyll (+$0,35/stk.) på metallfidgets vs. UV-trykk ($0 verktøy, MOQ 100).'
     },
     fi: {
       title: '50W Kuitulaserkaiverrus & Syvä Laserkaiverrus Väritäytöllä vs. Silkkipaino / UV Metallifidgeteissä',
@@ -491,8 +491,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Waarom exact hetzelfde EDC-ontwerp $1,20–$6,00 kost in zinklegering tegenover $15–$380+ in 5-assig CNC roestvrij staal, Amber PEI of Zr702 zirkonium.'
     },
     es: {
-      title: 'Aleación de Zinc Fundido vs. Acero Inoxidable 304/316 CNC, PEI y Circonio: Costos y Márgenes',
-      summary: 'Por qué un mismo diseño EDC cuesta $1.20–$6.00 en fundición de zinc frente a $15–$380+ en acero inoxidable CNC de 5 ejes, PEI ámbar o circonio Zr702.'
+      title: 'Aleación de Zinc vs. Acero Inoxidable: Costos y Peso',
+      summary: '¿Aleación de zinc o acero inoxidable? Compara densidad, durabilidad y costo CNC 5 ejes ($15–$380+) vs. fundición Zamak #3 ($1.20–$6.00, $0 molde).'
     },
     it: {
       title: 'Lega di Zinco Pressofusa vs. Acciaio Inox 304/316 CNC a 5 Assi, PEI e Zirconio: Analisi dei Costi',

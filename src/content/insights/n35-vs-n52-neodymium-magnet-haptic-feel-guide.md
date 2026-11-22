@@ -7,7 +7,7 @@ author: "FidgetSupply Engineering Team"
 category: "Magnetics & Tactile Engineering"
 summary: "An engineering comparison of N30, N35, N40, N45, N50, N52, and N54 NdFeB rare-earth magnets across 140 metal fidget molds—measuring pull force, acoustic decibels, PTFE wear, and wholesale cost impact."
 metaTitle: "N35 vs N52 Magnets (+48% Stronger) & N45 Pull Force Chart"
-metaDescription: "Which is stronger: N35 vs N52 magnets? N52 delivers +48% stronger pull force (52 vs 35 MGOe). Compare N35, N45 & N52 Gauss chart ($0.74+, MOQ 50)."
+metaDescription: "N52 vs N35 magnets: N52 is +48% stronger (52 vs 35 MGOe, 14,500 vs 12,100 Gauss). Compare N35, N45 & N52 pull force chart ($0.74+, MOQ 50)."
 featuredImage: "/images/insights/n35-vs-n52-magnets-hero.webp"
 readTime: "12 min read"
 tags: ["Neodymium Magnets", "N35 vs N52", "Haptic Sliders", "Magnetics Engineering"]

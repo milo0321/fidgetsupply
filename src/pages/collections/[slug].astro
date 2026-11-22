@@ -18,6 +18,7 @@ export async function getStaticPaths() {
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
       'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide',
       'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
+      'cpsia-tracking-label-gcc-certificate-amazon-fba-fidget-compliance',
       '2027-tiktok-shop-asmr-amazon-fba-fidget-bestseller-forecast',
       '2027-acoustic-tuning-fork-vs-silent-office-fidget-trends',
       'n35-vs-n52-neodymium-magnet-haptic-feel-guide',
@@ -30,6 +31,8 @@ export async function getStaticPaths() {
       'us-cpsc-16-cfr-1262-magnet-fidget-safety-compliance'
     ],
     'metal-fidget-spinners-gyros': [
+      'aluminum-alloy-vs-zinc-stainless-fidget-spinner-wholesale-guide',
+      'fidget-spinner-bearings-r188-hybrid-ceramic-skf-parts-guide',
       'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide',
       'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
@@ -44,6 +47,7 @@ export async function getStaticPaths() {
       'international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide'
     ],
     'mechanical-edc-fidgets': [
+      'folding-hub-spinner-mechanical-fidget-gun-customs-wholesale-guide',
       'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
       '2027-metal-edc-fidget-market-material-trends-report',
@@ -57,6 +61,7 @@ export async function getStaticPaths() {
       'metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests'
     ],
     'edc-gourds-hand-pieces': [
+      'folding-hub-spinner-mechanical-fidget-gun-customs-wholesale-guide',
       'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
       '2027-acoustic-tuning-fork-vs-silent-office-fidget-trends',
@@ -70,6 +75,7 @@ export async function getStaticPaths() {
     ],
     'haptic-fidget-coins': [
       'wholesale-metal-haptic-fidget-coins-magnetic-clicker-coins-guide',
+      'factory-direct-metal-fidget-swag-vs-flashbay-4imprint-comparison',
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
       'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide',
       '2027-corporate-vip-swag-custom-laser-metal-fidget-trends',
@@ -83,6 +89,7 @@ export async function getStaticPaths() {
     ],
     'magnetic-fidget-rings': [
       'wholesale-magnetic-fidget-rings-spinner-rings-bulk-sourcing-guide',
+      'fidget-spinner-bearings-r188-hybrid-ceramic-skf-parts-guide',
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
       'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide',
       '2027-acoustic-tuning-fork-vs-silent-office-fidget-trends',
@@ -95,6 +102,7 @@ export async function getStaticPaths() {
       'fiber-laser-engraving-vs-uv-printing-metal-fidget-logos'
     ],
     'custom-logo-metal-fidgets': [
+      'factory-direct-metal-fidget-swag-vs-flashbay-4imprint-comparison',
       'custom-logo-metal-fidget-spinners-sliders-corporate-promotional-guide',
       'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
@@ -108,6 +116,7 @@ export async function getStaticPaths() {
       'china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies'
     ],
     'tuning-fork-fidget-sliders': [
+      'cpsia-tracking-label-gcc-certificate-amazon-fba-fidget-compliance',
       'low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment',
       'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
       '2027-acoustic-tuning-fork-vs-silent-office-fidget-trends',
@@ -120,6 +129,7 @@ export async function getStaticPaths() {
       'metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests'
     ],
     'cnc-stainless-steel-pei-edc': [
+      'aluminum-alloy-vs-zinc-stainless-fidget-spinner-wholesale-guide',
       'top-wholesale-metal-fidget-toy-manufacturers-oem-suppliers-comparison',
       'wholesale-metal-haptic-fidget-coins-magnetic-clicker-coins-guide',
       'china-metal-edc-fidget-sourcing-direct-supply-chain-vs-trading-companies',
@@ -233,7 +243,7 @@ const COLLECTION_SEO_TITLES: Record<string, string> = {
   'mechanical-edc-fidgets': `Mechanical Fidget Toys & Ratchet EDC ($${minColPrice}+ · 1-Pc Sample)`,
   'edc-gourds-hand-pieces': `Wholesale Metal EDC Gourds & Hand Pieces ($${minColPrice}+ · MOQ 50)`,
   'haptic-fidget-coins': `Fidget Coin & Haptic Coins ($${minColPrice}+ · 1-Pc Sample)`,
-  'magnetic-fidget-rings': `Wholesale Spinner Rings & Magnetic Fidget Rings ($${minColPrice}+)`,
+  'magnetic-fidget-rings': `Magnetic Fidget Rings & Spinner Rings ($${minColPrice}+ · 1-Pc)`,
   'custom-logo-metal-fidgets': `Wholesale Fidget Spinners With Logos & Sliders ($${minColPrice}+)`,
   'tuning-fork-fidget-sliders': `Acoustic Tuning Fork Fidget Sliders Bulk ($${minColPrice}+ · MOQ 50)`,
   'cnc-stainless-steel-pei-edc': `5-Axis CNC Stainless, PEI & Zr702 Wholesale EDC ($${minColPrice}+)`
@@ -241,10 +251,10 @@ const COLLECTION_SEO_TITLES: Record<string, string> = {
 const COLLECTION_SEO_DESCS: Record<string, string> = {
   'magnetic-fidget-sliders': `Wholesale magnetic textured fidget sliders & magnetic haptic sliders: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 1-pc sample.`,
   'haptic-fidget-coins': `Wholesale fidget coins, haptic fidget coins & magnetic clicker coins: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 1-pc sample.`,
-  'magnetic-fidget-rings': `Wholesale spinner rings, metal fidget rings & magnetic fidget rings: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). R188 bearings, $0 mold fee, MOQ 50 pcs.`,
+  'magnetic-fidget-rings': `Wholesale magnetic fidget rings, magnetic rings fidget & R188 spinner rings: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold, MOQ 50, 1-pc sample.`,
   'metal-fidget-spinners-gyros': `Aluminum alloy spinner factory wholesale & precision spinner factory direct: ${products.length} R188 metal spinners & gyros ($${minColPrice}–$${maxColPrice}, $0 mold, MOQ 50).`,
   'tuning-fork-fidget-sliders': `Wholesale acoustic tuning fork sliders & resonance chamber EDC: ${products.length} molds ($${minColPrice}–$${maxColPrice}). 2040–4200Hz chime, $0 mold fee, MOQ 50 pcs.`,
-  'custom-logo-metal-fidgets': `Custom logo fidget spinners, spinners with company logo & cheap logo printed fidget spinners in bulk: ${products.length} molds ($${minColPrice}–$${maxColPrice}, $0 mold, MOQ 100).`,
+  'custom-logo-metal-fidgets': `Wholesale affordable custom fidget spinners with logos & sliders: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold, 1-pc sample, 50W laser MOQ 100.`,
   'edc-gourds-hand-pieces': `Wholesale metal EDC gourds, Baoding hand pieces & stash capsules: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 50W laser logo.`,
   'mechanical-edc-fidgets': `Wholesale mechanical EDC fidgets, ratchet sliders & bolt-action desk toys: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 1-pc sample.`,
   'cnc-stainless-steel-pei-edc': `5-axis CNC 304/316 stainless steel, Amber PEI Ultem & Zirconium Zr702 wholesale EDC: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50.`
@@ -259,6 +269,7 @@ const locColName = t(`col.${collection.slug}.name` as any);
 const COL_LOCALE_FOCUS: Record<string, Partial<Record<string, string>>> = {
   'magnetic-fidget-sliders': {
     de: ' (Magnet-Slider & Fidget Metall)',
+    fr: ' (magnetic textured fidget sliders & N52)',
     nl: ' (magnetic textured fidget sliders & Zamak)',
     fi: ' (liukuteippi PTFE & magneettisliderit)',
     cs: ' (magnetické slidery & PTFE)',
