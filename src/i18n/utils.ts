@@ -127,7 +127,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1-Stk. Muster möglich · ✓ 50-Stk. Mix-SKU · ✓ $0 Formkosten',
     unitPriceLabel: 'Stückpreis ab Werk',
     estTotalLabel: 'Geschätzte Summe',
-    pdpInputPlaceholder: 'Geschäftliche E-Mail oder WhatsApp (für Angebot & PDF)...',
+    pdpInputPlaceholder: 'Geschäftliche E-Mail (name@firma.de) für Angebot & PDF...',
     pdpDirectSendBtn: '⚡ Angebot & PDF →',
     pdpSentConfirm: '✅ Erhalten! Unser Export-Team sendet Ihr Angebot & die PDF-Liste in 2–12 Std.'
   },
@@ -141,7 +141,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Échantillon 1 pce OK · ✓ 50 pcs Mix-SKU · ✓ 0 $ frais de moule',
     unitPriceLabel: 'Prix unitaire usine',
     estTotalLabel: 'Sous-total estimé',
-    pdpInputPlaceholder: 'E-mail pro ou WhatsApp (pour devis & tarifs PDF)...',
+    pdpInputPlaceholder: 'E-mail professionnel (nom@societe.fr) pour devis & PDF...',
     pdpDirectSendBtn: '⚡ Devis & PDF →',
     pdpSentConfirm: '✅ Reçu ! Notre bureau export vous enverra le devis & tarifs PDF sous 2–12h.'
   },
@@ -155,7 +155,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1-St. monster OK · ✓ 50-St. Mix-SKU · ✓ $0 matrijskosten',
     unitPriceLabel: 'Fabrieksprijs / st.',
     estTotalLabel: 'Geschat subtotaal',
-    pdpInputPlaceholder: 'Zakelijke e-mail of WhatsApp (voor offerte & PDF)...',
+    pdpInputPlaceholder: 'Zakelijke e-mail (naam@bedrijf.nl) voor offerte & PDF...',
     pdpDirectSendBtn: '⚡ Offerte & PDF →',
     pdpSentConfirm: '✅ Ontvangen! Ons exportteam stuurt uw offerte & PDF-prijslijst binnen 2–12 uur.'
   },
@@ -169,7 +169,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Muestra 1 ud. OK · ✓ 50 uds. Mix-SKU · ✓ $0 costo de molde',
     unitPriceLabel: 'Precio unitario fábrica',
     estTotalLabel: 'Subtotal estimado',
-    pdpInputPlaceholder: 'Correo corporativo o WhatsApp (para cotización y PDF)...',
+    pdpInputPlaceholder: 'Correo corporativo (nombre@empresa.com) para cotización y PDF...',
     pdpDirectSendBtn: '⚡ Cotización y PDF →',
     pdpSentConfirm: '✅ ¡Recibido! Nuestro equipo enviará su cotización y lista PDF en 2–12h.'
   },
@@ -183,7 +183,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Campione 1 pz OK · ✓ 50 pz Mix-SKU · ✓ $0 costi di stampo',
     unitPriceLabel: 'Prezzo unitario fabbrica',
     estTotalLabel: 'Subtotale stimato',
-    pdpInputPlaceholder: 'Email aziendale o WhatsApp (per preventivo e PDF)...',
+    pdpInputPlaceholder: 'Email aziendale (nome@azienda.it) per preventivo e PDF...',
     pdpDirectSendBtn: '⚡ Preventivo e PDF →',
     pdpSentConfirm: '✅ Ricevuto! Il nostro team export invierà preventivo e listino PDF entro 2–12h.'
   },
@@ -197,7 +197,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Amostra 1 un. OK · ✓ 50 un. Mix-SKU · ✓ $0 custo de molde',
     unitPriceLabel: 'Preço unitário fábrica',
     estTotalLabel: 'Subtotal estimado',
-    pdpInputPlaceholder: 'E-mail corporativo ou WhatsApp (para cotação e PDF)...',
+    pdpInputPlaceholder: 'E-mail corporativo (nome@empresa.com) para cotação e PDF...',
     pdpDirectSendBtn: '⚡ Cotação e PDF →',
     pdpSentConfirm: '✅ Recebido! Nossa equipe enviará sua cotação e tabela PDF em 2–12h.'
   },
@@ -211,7 +211,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1 st prov OK · ✓ 50 st Mix-SKU · ✓ $0 verktygskostnad',
     unitPriceLabel: 'Fabrikspris / st',
     estTotalLabel: 'Beräknad delsumma',
-    pdpInputPlaceholder: 'Företagsmejl eller WhatsApp (för offert & PDF)...',
+    pdpInputPlaceholder: 'Företagsmejl (namn@foretag.se) för offert & PDF...',
     pdpDirectSendBtn: '⚡ Offert & PDF →',
     pdpSentConfirm: '✅ Mottaget! Vårt exportteam skickar din offert & PDF-prislista inom 2–12 tim.'
   },
@@ -225,7 +225,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 værktøjsgebyr',
     unitPriceLabel: 'Fabrikspris / stk.',
     estTotalLabel: 'Estimeret subtotal',
-    pdpInputPlaceholder: 'Firma-e-mail eller WhatsApp (for tilbud & PDF)...',
+    pdpInputPlaceholder: 'Firma-e-mail (navn@firma.dk) for tilbud & PDF...',
     pdpDirectSendBtn: '⚡ Tilbud & PDF →',
     pdpSentConfirm: '✅ Modtaget! Vores eksportteam sender tilbud & PDF-prisliste inden for 2–12 timer.'
   },
@@ -239,7 +239,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1 stk. prøve OK · ✓ 50 stk. Mix-SKU · ✓ $0 verktøygebyr',
     unitPriceLabel: 'Fabrikkpris / stk.',
     estTotalLabel: 'Estimert delsum',
-    pdpInputPlaceholder: 'Firma-e-post eller WhatsApp (for tilbud & PDF)...',
+    pdpInputPlaceholder: 'Firma-e-post (navn@firma.no) for tilbud & PDF...',
     pdpDirectSendBtn: '⚡ Tilbud & PDF →',
     pdpSentConfirm: '✅ Mottatt! Vårt eksportteam sender tilbud & PDF-prisliste innen 2–12 timer.'
   },
@@ -253,7 +253,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1 kpl näyte OK · ✓ 50 kpl Mix-SKU · ✓ $0 muottikulu',
     unitPriceLabel: 'Tehdashinta / kpl',
     estTotalLabel: 'Arvioitu välisumma',
-    pdpInputPlaceholder: 'Työsähköposti tai WhatsApp (tarjous & PDF)...',
+    pdpInputPlaceholder: 'Työsähköposti (nimi@yritys.fi) tarjousta & PDF:ää varten...',
     pdpDirectSendBtn: '⚡ Tarjous & PDF →',
     pdpSentConfirm: '✅ Vastaanotettu! Vientitiimimme lähettää tarjouksen ja PDF-hinnaston 2–12h sisällä.'
   },
@@ -267,7 +267,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Próbka 1 szt. OK · ✓ 50 szt. Mix-SKU · ✓ 0 $ za formę',
     unitPriceLabel: 'Cena fabryczna / szt.',
     estTotalLabel: 'Szacowana suma',
-    pdpInputPlaceholder: 'Służbowy e-mail lub WhatsApp (po wycenę i PDF)...',
+    pdpInputPlaceholder: 'Służbowy e-mail (imie@firma.pl) po wycenę i PDF...',
     pdpDirectSendBtn: '⚡ Wycena i PDF →',
     pdpSentConfirm: '✅ Otrzymano! Nasz dział eksportu wyśle wycenę i cennik PDF w 2–12 godz.'
   },
@@ -281,7 +281,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Vzorek 1 ks OK · ✓ 50 ks Mix-SKU · ✓ $0 poplatek za formu',
     unitPriceLabel: 'Tovární cena / ks',
     estTotalLabel: 'Odhadovaný mezisoučet',
-    pdpInputPlaceholder: 'Firemní e-mail nebo WhatsApp (pro nabídku a PDF)...',
+    pdpInputPlaceholder: 'Firemní e-mail (jmeno@firma.cz) pro nabídku a PDF...',
     pdpDirectSendBtn: '⚡ Nabídka a PDF →',
     pdpSentConfirm: '✅ Přijato! Náš exportní tým vám zašle nabídku a PDF ceník do 2–12 hodin.'
   },
@@ -295,7 +295,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Образец 1 шт. · ✓ Микс 50 шт. · ✓ $0 за пресс-форму',
     unitPriceLabel: 'Цена завода / шт.',
     estTotalLabel: 'Итоговая сумма',
-    pdpInputPlaceholder: 'Рабочий Email или WhatsApp (расчет и PDF прайс)...',
+    pdpInputPlaceholder: 'Рабочий Email (name@company.com) для расчета и PDF...',
     pdpDirectSendBtn: '⚡ Расчет и PDF →',
     pdpSentConfirm: '✅ Принято! Наш отдел экспорта отправит расчет и PDF прайс за 2–12 часов.'
   },
@@ -309,7 +309,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1個サンプルOK · ✓ 50個混載OK · ✓ 金型代 $0',
     unitPriceLabel: '工場出荷単価',
     estTotalLabel: '概算小計（金型$0）',
-    pdpInputPlaceholder: '法人メールまたはWhatsApp（即時見積・PDF価格表）...',
+    pdpInputPlaceholder: '法人メールアドレス（name@company.jp）で即時見積・PDF価格表を受取...',
     pdpDirectSendBtn: '⚡ 見積＆PDF受取 →',
     pdpSentConfirm: '✅ 受付完了！輸出担当より2〜12時間以内にお見積りとPDF価格表をお送りします。'
   },
@@ -323,7 +323,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ 1개 샘플 가능 · ✓ 50개 혼합 주문 가능 · ✓ 금형비 $0',
     unitPriceLabel: '공장 출고 단가',
     estTotalLabel: '예상 합계 (금형비 $0)',
-    pdpInputPlaceholder: '업무용 이메일 또는 WhatsApp (즉시 견적 및 PDF 단가표)...',
+    pdpInputPlaceholder: '업무용 이메일(name@company.co.kr)로 즉시 견적 및 PDF 단가표 받기...',
     pdpDirectSendBtn: '⚡ 견적 및 PDF 받기 →',
     pdpSentConfirm: '✅ 접수 완료! 수출팀에서 2~12시간 내에 견적서와 PDF 단가표를 보내드립니다.'
   },
@@ -337,7 +337,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ Sampel 1 pc OK · ✓ 50 pcs Mix-SKU · ✓ Biaya cetakan $0',
     unitPriceLabel: 'Harga Satuan Pabrik',
     estTotalLabel: 'Estimasi Subtotal',
-    pdpInputPlaceholder: 'Email Kerja atau WhatsApp (Penawaran & PDF)...',
+    pdpInputPlaceholder: 'Email Kerja (nama@perusahaan.com) untuk Penawaran & PDF...',
     pdpDirectSendBtn: '⚡ Penawaran & PDF →',
     pdpSentConfirm: '✅ Diterima! Tim ekspor kami akan mengirimkan penawaran & PDF dalam 2–12 jam.'
   },
@@ -351,7 +351,7 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
     mixMoqBadge: '✓ عينة 1 قطعة متاحة · ✓ 50 قطعة متنوعة · ✓ 0$ رسوم قالب',
     unitPriceLabel: 'سعر المصنع للقطعة',
     estTotalLabel: 'المجموع التقديري',
-    pdpInputPlaceholder: 'البريد الإلكتروني أو واتساب (لعرض السعر وPDF)...',
+    pdpInputPlaceholder: 'البريد الإلكتروني للعمل (name@company.com) لعرض السعر وPDF...',
     pdpDirectSendBtn: '⚡ عرض السعر وPDF →',
     pdpSentConfirm: '✅ تم الاستلام! سيرسل مكتب التصدير عرض السعر وقائمة PDF خلال 2–12 ساعة.'
   }

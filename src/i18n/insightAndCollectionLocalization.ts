@@ -1548,7 +1548,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
     },
     no: {
       title: 'Norske Tollkoder (HS 9503.00), IATA PI953 & DDP-Import',
-      summary: 'Norske tollkoder (HS 9503.00 / 8306.29), IATA PI953 (PI-953 <0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets til Norge (1 stk. prøve OK, MOQ 50 stk.).'
+      summary: 'Norske tollkoder (HS 9503.00 / 8306.29), IATA PI953 (<0,00525 Gauss) magnetisk flyfrakt og DDP-import av metallfidgets (1 stk. prøve, MOQ 50).'
     },
     fi: {
       title: 'Kansainvälinen DDP-toimitus, HS-tullikoodit (9503.00) & IATA PI953 (PI-953) Magneettinen Lentorahti: Maahantuontiopas',
