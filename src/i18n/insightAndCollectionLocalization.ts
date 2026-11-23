@@ -281,8 +281,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Comparação N35 vs. N52: por que os sliders de trilho mecânico (FS-002, FS-048) usam ímanes N35–N40 enquanto os sliders livres em PTFE (FS-125, FS-075) exigem ímanes N50–N52.'
     },
     sv: {
-      title: 'N35 vs. N45 vs. N52 Neodymmagneter i Metall Fidget Sliders: Dragkraft & Taktil Kalibrering',
-      summary: 'Varför mekaniska spårsliders (FS-002, FS-048) använder N35–N40 magneter medan fria PTFE-sliders (FS-125, FS-075) kräver starka N50–N52 magneter.'
+      title: 'N45 vs N52 & N35 Neodymmagneter (+48% Kraft): Guide',
+      summary: 'N45 vs N52 & N35 magneter: N52 ger +48% starkare dragkraft än N35 och +15,6% mer än N45. Jämför spårsliders (FS-002) & PTFE-sliders (FS-125).'
     },
     da: {
       title: 'N35 vs. N52 & N45 Neodymmagneter (+48% Trækkraft): Fidget Slider Guide',
@@ -301,8 +301,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Dlaczego mechaniczne slidery szynowe (FS-002, FS-048) wykorzystują magnesy N35–N40, a swobodne slidery PTFE (FS-125, FS-075) wymagają silnych magnesów N50–N52.'
     },
     cs: {
-      title: 'Neodymové Magnety N35 vs. N45 vs. N52 v Kovových Fidget Sliderech: Tažná Síla a Haptika',
-      summary: 'Proč mechanické kolejnicové slidery (FS-002, FS-048) využívají magnety N35–N40, zatímco volné PTFE slidery (FS-125, FS-075) vyžadují silné magnety N50–N52.'
+      title: 'N45 vs N52 & N35 Neodymové Magnety (+48% Síla): Průvodce',
+      summary: 'N45 vs N52 a N35 magnety: N52 má o +48 % vyšší tažnou sílu než N35 a +15,6 % oproti N45. Srovnání kolejnicových (FS-002) a PTFE sliderů (FS-125).'
     },
     ru: {
       title: 'Неодимовые Магниты N35 vs. N45 vs. N52 в Металлических Слайдерах: Сила Сцепления и Тактильный Отклик',
@@ -1107,8 +1107,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'PVD-belegg (vakuum-titannitrid), Type-III hardanodisering, stonewash og antikk patina på 140 metallfidget-former ($0 verktøykostnad, MOQ 50 stk.).'
     },
     fi: {
-      title: 'PVD-Pinnoitus, Tyypin III Kova-anodisointi, Stonewash & Antiikkipatina: Metallifidgetien Pintakäsittelyopas',
-      summary: 'Metallurginen vertailu tyhjiö-PVD-pinnoituksesta, alumiinin anodisoinnista, rumpukäsitellystä stonewash-pinnasta ja antiikkipronssi/hopeagalvanoinnista.'
+      title: 'PVD Pinnoitus vs. Anodisointi & Stonewash (MOQ 50)',
+      summary: 'PVD pinnoitus (tyhjiö-PVD), Type-III kova-anodisointi, stonewash & antiikkipatina 140 metallifidget-muotissa ($0 muottikulu, 1 kpl näyte OK, MOQ 50).'
     },
     pl: {
       title: 'Powłoka PVD, Twarde Anodowanie Typu III, Stonewash i Antyczna Patyna: Przewodnik Wykończeń Powierzchni EDC',
