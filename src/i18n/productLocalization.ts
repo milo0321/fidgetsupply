@@ -1869,7 +1869,7 @@ function buildLocalizedEditorialHtml(
     .map((slug) => {
       const meta = localizeInsightMeta({ slug, title: INSIGHT_DEFAULT_TITLES[slug] || slug, summary: '', category: '' }, lang);
       const href = getLocalizedPath(`/insights/${slug}`, lang);
-      return `<li><a href="${href}">${meta.title}</a></li>`;
+      return `<li class="guide-link-card"><a href="${href}"><span class="guide-card-icon" aria-hidden="true">📄</span><span class="guide-card-title">${meta.title}</span><span class="guide-card-arrow" aria-hidden="true">→</span></a></li>`;
     })
     .join('');
   const colHref = getLocalizedPath(`/collections/${p.primaryCollection}`, lang);
@@ -1894,10 +1894,28 @@ function buildLocalizedEditorialHtml(
     <h2>${c.secTitle(p.skuDisplay, locTitle)}</h2>
     <p>${c.p1(p.skuDisplay, locTitle, locMat, p.size, p.weight, p.rowId)}</p>
     <h3>${c.h3Mech} — ${p.skuDisplay} (${p.size} · ${p.weight})</h3>
-    <p>${c.pMech(locMag, locAcc, locColors)}</p>
+    <div class="editorial-mech-box">
+      <div class="editorial-mech-chips">
+        <span class="mech-chip">${p.skuDisplay} · #${p.rowId}</span>
+        <span class="mech-chip">${p.size}</span>
+        <span class="mech-chip">${p.weight}</span>
+        <span class="mech-chip">${locMat}</span>
+      </div>
+      <p>${c.pMech(locMag, locAcc, locColors)}</p>
+    </div>
     <h3>${c.h3Logo} — ${p.skuDisplay}</h3>
-    <ul>
-      ${c.logoBullets.map((b) => `<li>${b}</li>`).join('')}
+    <ul class="editorial-logo-grid">
+      ${c.logoBullets
+        .map((b, idx) => {
+          const cls =
+            idx === 1
+              ? 'logo-card logo-card-warn'
+              : idx === 3
+                ? 'logo-card logo-card-info'
+                : 'logo-card logo-card-primary';
+          return `<li class="${cls}"><span class="logo-card-num">0${idx + 1}</span><div class="logo-card-body">${b}</div></li>`;
+        })
+        .join('')}
     </ul>
     <h3>${c.h3Table(p.skuDisplay)} ($${p.tier500} – $${p.tier50} USD)</h3>
     <div class="geo-table-wrap">
