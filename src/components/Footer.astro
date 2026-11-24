@@ -243,6 +243,23 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
             <p class="network-card-desc">{t('footer.carryDesc')}</p>
           </div>
         </a>
+
+        <!-- Sister Site 4: MedalPinSupply -->
+        <a href="https://medalpinsupply.com" target="_blank" rel="noopener noreferrer" class="network-link network-card network-card-medalpin">
+          <div class="network-card-icon icon-medalpin" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="network-card-body">
+            <div class="network-card-top">
+              <strong>MedalPinSupply</strong>
+              <span class="network-domain-pill">
+                medalpinsupply.com
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+            <p class="network-card-desc">{t('footer.medalpinDesc')}</p>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -549,7 +566,7 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
 
   .network-cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
 
@@ -585,6 +602,11 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     box-shadow: 0 8px 20px -6px rgba(59, 130, 246, 0.22);
   }
 
+  .network-card-medalpin:hover {
+    border-color: rgba(251, 191, 36, 0.42);
+    box-shadow: 0 8px 20px -6px rgba(245, 158, 11, 0.22);
+  }
+
   .network-card-icon {
     display: flex;
     align-items: center;
@@ -612,6 +634,12 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     background: rgba(59, 130, 246, 0.12);
     color: #60a5fa;
     border: 1px solid rgba(96, 165, 250, 0.26);
+  }
+
+  .icon-medalpin {
+    background: rgba(245, 158, 11, 0.12);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.26);
   }
 
   .network-card-body {
@@ -660,6 +688,10 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     color: #60a5fa;
   }
 
+  .network-card-medalpin .network-domain-pill {
+    color: #fbbf24;
+  }
+
   .network-card:hover .network-domain-pill {
     background: rgba(56, 189, 248, 0.14);
     border-color: rgba(56, 189, 248, 0.32);
@@ -676,6 +708,12 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     background: rgba(59, 130, 246, 0.15);
     border-color: rgba(96, 165, 250, 0.34);
     color: #93c5fd;
+  }
+
+  .network-card-medalpin:hover .network-domain-pill {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(251, 191, 36, 0.34);
+    color: #fde68a;
   }
 
   .network-card-desc {
@@ -745,8 +783,7 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
       max-width: 650px;
     }
     .network-cards-grid {
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
   }
 
@@ -767,6 +804,10 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     .trust-bar-grid,
     .footer-container {
       grid-template-columns: 1fr;
+    }
+    .network-cards-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.75rem;
     }
     .brand-col,
     .contact-col {
