@@ -3495,8 +3495,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       "summary": "R188と608の比較、Si3N4ハイブリッドセラミック球、SKF/ABEC公差、回転渋り（Stiffness）の無水IPA洗浄修復手順、予備パーツ卸売を徹底解説。"
     },
     "ko": {
-      "title": "피젯 스피너 R188 vs 608 베어링·하이브리드 세라믹·부품 도매 및 뻑뻑함 해결",
-      "summary": "R188·608 베어링 비교, Si3N4 하이브리드 세라믹, SKF/ABEC 공차, 회전 뻑뻑함(Stiffness) 무수 IPA 세척 해결법 및 도매 예비 부품 가이드."
+      "title": "피젯스피너 베어링 (R188 vs 608)·하이브리드 세라믹·부품 도매 가이드",
+      "summary": "피젯스피너 베어링 & 피젯 스피너 R188 vs 608 비교, Si3N4 하이브리드 세라믹, SKF 공차, 회전 뻑뻑함 무수 IPA 세척 해결법 및 도매 부품 가이드."
     },
     "id": {
       "title": "Panduan Bearing Fidget Spinner (R188 vs 608), Keramik Hibrida & Suku Cadang",
