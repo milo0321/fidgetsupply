@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppWidget from '../components/WhatsAppWidget.astro';
-import { getLanguageFromURL, getDirection, getHreflangTags, useTranslations } from '../i18n/utils';
+import { getLanguageFromURL, getDirection, getHreflangTags, useTranslations, getMicroHookLabels } from '../i18n/utils';
 import { languages, type SupportedLanguage } from '../i18n/config';
 import '../styles/global.css';
 import '../styles/rtl.css';
@@ -38,6 +38,7 @@ const {
 const currentLang = (lang || getLanguageFromURL(Astro.url.pathname) || 'en') as SupportedLanguage;
 const currentDir = dir || getDirection(currentLang);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const langConfig = languages[currentLang];
 const gaMeasurementId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() || 'G-HHP8CN1M58';
 const gtmId = 'GTM-TH9NHVJ4';
@@ -274,6 +275,31 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       <slot />
     </main>
     <Footer currentLang={currentLang} />
+
+    {activePage !== 'contact' && (
+      <aside id="proactive-sheet-card" class="proactive-sheet-card" hidden aria-label={microHooks.getFullSheetPdf}>
+        <button type="button" class="proactive-sheet-close" id="proactive-sheet-close" aria-label="Close">&times;</button>
+        <form class="inline-quick-sheet-form proactive-inline-form" data-inline-sku="Proactive Engaged Buyer — Full 140-SKU Price Sheet & Sample Quote" novalidate>
+          <div class="proactive-sheet-head">
+            <strong>{microHooks.getFullSheetPdf}</strong>
+            <span>{microHooks.mixMoqBadge}</span>
+          </div>
+          <div class="proactive-sheet-row">
+            <input
+              type="email"
+              class="inline-qrfq-input proactive-sheet-input"
+              placeholder={microHooks.pdpInputPlaceholder}
+              aria-label={t('contact.workEmail')}
+              required
+            />
+            <button type="submit" class="inline-qrfq-btn proactive-sheet-btn">
+              {microHooks.pdpDirectSendBtn}
+            </button>
+          </div>
+          <div class="inline-qrfq-status" hidden>{microHooks.pdpSentConfirm}</div>
+        </form>
+      </aside>
+    )}
 
     <!-- Ruixing Gifts Interactive Floating WhatsApp Button & Chat Modal -->
     <WhatsAppWidget currentLang={currentLang} />
@@ -866,6 +892,94 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
                 statusEl.hidden = false;
               }
             });
+        });
+      })();
+
+      // GA4 rfq_form_start focus telemetry + Session-Capped Engaged-Reader / Exit-Intent Price-Sheet Prompt
+      (function () {
+        var rfqStartSent = false;
+        document.addEventListener('focusin', function (e) {
+          if (rfqStartSent) return;
+          var inp = e.target && e.target.closest ? e.target.closest('.inline-qrfq-input, #contact-form input, #contact-form textarea, #contact-form select') : null;
+          if (!inp) return;
+          rfqStartSent = true;
+          try {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'rfq_form_start', {
+                event_category: 'conversion_intent',
+                source_page: window.location.pathname
+              });
+            }
+          } catch (_) {}
+        });
+
+        var card = document.getElementById('proactive-sheet-card');
+        var closeBtn = document.getElementById('proactive-sheet-close');
+        if (!card) return;
+        if (closeBtn) {
+          closeBtn.addEventListener('click', function () {
+            card.hidden = true;
+          });
+        }
+        var shownKey = 'fs_proactive_shown';
+        try {
+          if (sessionStorage.getItem(shownKey) === '1' || localStorage.getItem('rx_user_email')) return;
+        } catch (_) {}
+
+        var triggered = false;
+        var enterTs = Date.now();
+        var maxScrollPct = 0;
+
+        function getScrollPct() {
+          var docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+          if (docH <= 0) return 0;
+          return (window.scrollY / docH) * 100;
+        }
+
+        function showProactive(reason) {
+          if (triggered) return;
+          try {
+            if (sessionStorage.getItem(shownKey) === '1' || localStorage.getItem('rx_user_email')) return;
+            sessionStorage.setItem(shownKey, '1');
+          } catch (_) {}
+          triggered = true;
+          card.hidden = false;
+          try {
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'proactive_rfq_prompt', {
+                event_category: 'conversion_intent',
+                trigger_type: reason,
+                page_path: window.location.pathname
+              });
+            }
+          } catch (_) {}
+        }
+
+        function evaluateDwellTrigger() {
+          if (triggered) return;
+          maxScrollPct = Math.max(maxScrollPct, getScrollPct());
+          var elapsedSec = (Date.now() - enterTs) / 1000;
+          var isDesktop = window.innerWidth > 768;
+          if (isDesktop && elapsedSec >= 24 && maxScrollPct >= 25) {
+            showProactive('desktop_24s_scroll25');
+          } else if (!isDesktop && elapsedSec >= 32 && maxScrollPct >= 50) {
+            showProactive('mobile_32s_scroll50');
+          }
+        }
+
+        window.addEventListener('scroll', function () {
+          maxScrollPct = Math.max(maxScrollPct, getScrollPct());
+          evaluateDwellTrigger();
+        }, { passive: true });
+
+        setTimeout(evaluateDwellTrigger, 24200);
+        setTimeout(evaluateDwellTrigger, 32200);
+
+        document.addEventListener('mouseleave', function (e) {
+          if (triggered || window.innerWidth <= 768) return;
+          if (e.clientY <= 8 && Date.now() - enterTs >= 12000) {
+            showProactive('desktop_exit_intent');
+          }
         });
       })();
     </script>

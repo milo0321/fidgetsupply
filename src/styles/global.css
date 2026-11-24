@@ -977,4 +977,102 @@ img {
   }
 }
 
+/* Session-Capped Engaged-Buyer & Exit-Intent Price-Sheet Card */
+.proactive-sheet-card[hidden] {
+  display: none !important;
+}
+.proactive-sheet-card {
+  position: fixed;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  width: min(370px, calc(100vw - 2rem));
+  z-index: 990;
+  background: #0f172a;
+  border: 1px solid rgba(56, 189, 248, 0.38);
+  border-radius: 0.85rem;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.45);
+  transform: translateZ(0);
+  overflow: hidden;
+}
+.proactive-sheet-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.6rem;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.15rem 0.35rem;
+}
+.proactive-sheet-close:hover {
+  color: #ffffff;
+}
+.proactive-sheet-card .proactive-inline-form {
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  overflow: visible;
+  transform: none;
+}
+.proactive-sheet-head strong {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  display: block;
+  padding-right: 1.5rem;
+  line-height: 1.35;
+}
+.proactive-sheet-head span {
+  color: #34d399;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: block;
+  margin-top: 0.2rem;
+}
+.proactive-sheet-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.65rem;
+}
+.proactive-sheet-card .proactive-sheet-input {
+  width: 100%;
+  flex: none;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.85rem;
+}
+.proactive-sheet-card .proactive-sheet-btn {
+  width: 100%;
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.58rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.proactive-sheet-card .proactive-sheet-btn:hover {
+  background: #0369a1;
+}
+@media (max-width: 640px) {
+  .proactive-sheet-card {
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 5rem;
+    width: auto;
+  }
+}
+
 
