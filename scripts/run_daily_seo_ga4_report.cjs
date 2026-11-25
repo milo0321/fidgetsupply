@@ -176,6 +176,54 @@ async function main() {
     }
   }
 
+  // 3c. GA4 Real-Human vs Datacenter-Crawler Breakdown (Last 2 Days)
+  const byCityBot = await ga4Report(token, {
+    dateRanges: [{ startDate: '2daysAgo', endDate: 'today' }],
+    dimensionFilter: prodHostFilter,
+    dimensions: [
+      { name: 'date' },
+      { name: 'country' },
+      { name: 'city' },
+      { name: 'operatingSystem' },
+      { name: 'browser' },
+      { name: 'language' },
+      { name: 'sessionSourceMedium' }
+    ],
+    metrics: [
+      { name: 'sessions' },
+      { name: 'engagedSessions' },
+      { name: 'screenPageViews' },
+      { name: 'keyEvents' }
+    ],
+    limit: 200
+  });
+  const BOT_CITIES = new Set(['Council Bluffs', 'Ashburn', 'Boardman', 'Prineville', 'Mountain View']);
+  let ownerSessions = 0, botSessions = 0, humanSessions = 0, humanViews = 0, humanKeyEvents = 0;
+  const humanRows = [];
+  for (const r of byCityBot.rows || []) {
+    const [d, country, city, os, browser, lang, srcMed] = r.dimensionValues.map((x) => x.value);
+    const sessions = Number(r.metricValues[0].value || 0);
+    const engaged = Number(r.metricValues[1].value || 0);
+    const views = Number(r.metricValues[2].value || 0);
+    const keys = Number(r.metricValues[3].value || 0);
+    if (os === 'Macintosh' && browser === 'Chrome' && /chinese|zh/i.test(lang)) {
+      ownerSessions += sessions;
+    } else if (BOT_CITIES.has(city)) {
+      botSessions += sessions;
+    } else {
+      humanSessions += sessions;
+      humanViews += views;
+      humanKeyEvents += keys;
+      humanRows.push({ d, country, city, os, lang, srcMed, sessions, engaged, views, keys });
+    }
+  }
+  console.log('\n--- 3c. GA4 Real-Human vs Datacenter-Crawler Breakdown (Last 2 Days) ---');
+  console.log(`• Real Overseas Visitors: Sessions=${humanSessions}, Views=${humanViews}, KeyEvents=${humanKeyEvents}`);
+  console.log(`• Datacenter Crawlers: Sessions=${botSessions} | Owner Self-Test: Sessions=${ownerSessions}`);
+  for (const h of humanRows.sort((a, b) => (b.d.localeCompare(a.d)) || (b.keys - a.keys) || (b.sessions - a.sessions)).slice(0, 15)) {
+    console.log(`  - ${h.d} | ${h.country}/${h.city || '-'} | ${h.os}/${h.lang} | ${h.srcMed} | Sess=${h.sessions}, Views=${h.views}, Keys=${h.keys}`);
+  }
+
   // 4. GA4 Events Breakdown (Pure fidgetsupply.com only)
   const byEvent = await ga4Report(token, {
     dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],

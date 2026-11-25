@@ -491,7 +491,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Waarom exact hetzelfde EDC-ontwerp $1,20–$6,00 kost in zinklegering tegenover $15–$380+ in 5-assig CNC roestvrij staal, Amber PEI of Zr702 zirkonium.'
     },
     es: {
-      title: 'Aleación de Zinc vs. Acero Inoxidable: Costos y Peso',
+      title: '¿Aleación de Zinc es Acero Inoxidable? Costos y Peso',
       summary: '¿Aleación de zinc o acero inoxidable? Compara densidad, durabilidad y costo CNC 5 ejes ($15–$380+) vs. fundición Zamak #3 ($1.20–$6.00, $0 molde).'
     },
     it: {
@@ -1099,7 +1099,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Metallurgisk jämförelse av vakuum-PVD, Typ-II/III aluminiumanodisering, trumlad stonewash och handpolerad antik brons/silver-plätering.'
     },
     da: {
-      title: 'PVD-Belægning, Type-III Hårdanodisering, Stonewash & Antik Patina: Guide til Overfladebehandling af Metalfidgets',
+      title: 'Hårdanodisering (Type-III), PVD & Stonewash Guide',
       summary: 'Metallurgisk sammenligning af vakuum-PVD, Type-II/III aluminiumanodisering, tromlet stonewash og håndpoleret antik bronze/sølv-belægning.'
     },
     no: {
@@ -1477,8 +1477,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'Liukuteippi (0,13/0,18mm PTFE-Teflon) & Fidget-Huolto-Opas',
-      summary: 'Liukuteippi (0,13/0,18 mm PTFE-teflon), Si3N4-keraamikuulat & R188-laakerit metallifidgeteihin. 1 kpl näyte OK, $0 muotti, MOQ 50.'
+      title: 'Liukuteippi (0,13/0,18mm PTFE-Teflon) & Fidget-Opas',
+      summary: 'Liukuteippi (0,13/0,18 mm PTFE-teflon), Si3N4-keraamikuulat & R188-laakerit metallifidgeteihin ($0 muotti, MOQ 50, maksullinen näyte).'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',

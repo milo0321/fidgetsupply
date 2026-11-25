@@ -71,11 +71,11 @@ export const COLLECTIONS: CollectionMeta[] = [
       },
       {
         question: 'What is the production lead time for 100 to 1,000 custom-branded magnetic sliders?',
-        answer: 'Blank stock orders (50+ pcs) dispatch in 3–5 business days. Custom Fiber Laser Engraved (+$0.15–$0.30/pc) or Deep Laser + Color Fill (+$0.35–$0.60/pc) orders (100–1,000 pcs) complete production and QC inspection within 10–15 business days (paid custom logo sampling takes 10–15 days: $50 for standard laser, $80–$150 for deep laser + color fill).'
+        answer: 'Blank stock orders (50+ pcs) complete factory dispatch preparation in 5–7 business days (international courier transit varies by destination customs). Custom Fiber Laser Engraved (+$0.15–$0.30/pc) or Deep Laser + Color Fill (+$0.35–$0.60/pc) orders (100–1,000 pcs) complete production and QC inspection within 10–15 business days (paid custom logo sampling takes 10–15 days: $50 for standard laser, $80–$150 for deep laser + color fill).'
       },
       {
         question: 'How are magnetic fidget sliders packaged for Amazon FBA and retail distribution?',
-        answer: 'Each slider is individually sealed in a scratch-proof polybag nested inside a shock-absorbent black EVA zipper case (65×65×25mm or 90×65×28mm). We apply Amazon FNSKU barcodes directly to the outer pouch or gift box at no extra handling labor cost.'
+        answer: 'Each slider is individually sealed in an anti-oxidation vacuum pouch ($0.00 included). Optional upgrades include stock-mold black EVA zipper cases (+$0.75+, MOQ 100), custom rigid gift boxes (+$1.45+, MOQ 500), and Made-to-Order window tin boxes (MOQ 1,000+), with free Amazon FNSKU barcode labeling.'
       },
       {
         question: 'How are magnetic sliders shipped internationally by air courier (DHL/FedEx/UPS)?',
@@ -143,7 +143,7 @@ export const COLLECTIONS: CollectionMeta[] = [
       },
       {
         question: 'What is the wholesale MOQ and lead time for complex multi-bearing mechanical models?',
-        answer: 'Standard blank MOQ is 50 pcs (3–5 days for in-stock models) and 100 pcs for custom laser-engraved logos (8–14 days lead time including multi-point manual mechanical calibration).'
+        answer: 'Standard blank MOQ is 50 pcs (5–7 business days ex-factory dispatch for in-stock models) and 100 pcs for custom laser-engraved logos (8–14 days lead time including multi-point manual mechanical calibration).'
       }
     ]
   },
@@ -271,7 +271,7 @@ export const COLLECTIONS: CollectionMeta[] = [
       },
       {
         question: 'Can we order custom silk-lined rigid gift boxes for high-end Gourd corporate gifts?',
-        answer: 'Yes. At a 200 pcs MOQ, we supply custom gold-foil-stamped rigid magnetic book boxes with die-cut high-density EVA foam inserts tailored to the 61×33.5mm gourd profile.'
+        answer: 'Yes. At a 500 pcs MOQ, we supply custom gold-foil-stamped rigid magnetic book boxes with die-cut high-density EVA foam inserts tailored to the 61×33.5mm gourd profile.'
       }
     ]
   },
@@ -331,7 +331,7 @@ export const COLLECTIONS: CollectionMeta[] = [
       },
       {
         question: 'What display packaging options work best for commemorative haptic coins?',
-        answer: 'Beyond our standard black EVA zipper case, we offer transparent 70×70mm silicone-membrane floating display frames (+$0.55/unit) and velvet-lined magnetic coin presentation boxes (+$1.40/unit).'
+        answer: 'Beyond our included vacuum anti-oxidation pouch and optional stock-mold black EVA zipper case (+$0.75+, MOQ 100), we offer transparent 70×70mm silicone-membrane floating display frames (+$0.55/unit) and velvet-lined magnetic coin presentation boxes (+$1.40/unit).'
       },
       {
         question: 'What is the production lead time for 200 to 1,000 custom-branded haptic coins?',
