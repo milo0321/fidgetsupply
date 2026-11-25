@@ -102,9 +102,40 @@ async function main() {
     console.log(`• ${r.keys[0]}: Clicks=${r.clicks}, Impressions=${r.impressions}, CTR=${(r.ctr * 100).toFixed(2)}%, Pos=${r.position.toFixed(1)}`);
   }
 
-  // 3. GA4 Daily Trend
+  // 2b. GSC Latest 2 Days Top Queries & Pages
+  const qpStart = new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10);
+  const qpRes = await fetch(`https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(GSC_SITE)}/searchAnalytics/query`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      startDate: qpStart,
+      endDate,
+      dimensions: ['query', 'page'],
+      rowLimit: 50,
+      dataState: 'all'
+    })
+  });
+  const qpData = await qpRes.json();
+  const topQp = (qpData.rows || [])
+    .sort((a, b) => (b.clicks - a.clicks) || (b.impressions - a.impressions))
+    .slice(0, 15);
+  console.log('\n--- 2b. GSC Latest 2 Days Top Queries ---');
+  for (const r of topQp) {
+    const cleanPath = (r.keys[1] || '').replace('https://fidgetsupply.com', '') || '/';
+    console.log(`• "${r.keys[0]}" -> ${cleanPath} | Clicks=${r.clicks}, Imp=${r.impressions}, Pos=${r.position.toFixed(1)}`);
+  }
+
+  const prodHostFilter = {
+    filter: {
+      fieldName: 'hostName',
+      stringFilter: { value: 'fidgetsupply.com' }
+    }
+  };
+
+  // 3. GA4 Daily Trend (Pure fidgetsupply.com only)
   const byDate = await ga4Report(token, {
     dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],
+    dimensionFilter: prodHostFilter,
     dimensions: [{ name: 'date' }],
     metrics: [
       { name: 'activeUsers' },
@@ -119,20 +150,40 @@ async function main() {
     ],
     orderBys: [{ dimension: { dimensionName: 'date' } }]
   });
-  console.log('\n--- 3. GA4 Daily Trend (properties/562887745) ---');
+  console.log('\n--- 3. GA4 Daily Trend (Pure fidgetsupply.com, properties/562887745) ---');
   for (const r of byDate.rows || []) {
     const d = r.dimensionValues[0].value;
     const m = r.metricValues.map((x) => x.value);
     console.log(`• ${d}: Users=${m[0]} (New=${m[1]}), Sessions=${m[2]} (Engaged=${m[3]}, Rate=${(Number(m[4]) * 100).toFixed(1)}%), AvgDur=${Number(m[5]).toFixed(1)}s, Views=${m[6]}, Events=${m[7]}, KeyEvents=${m[8]}`);
   }
 
-  // 4. GA4 Events Breakdown
+  // 3b. GA4 Hostname Hygiene Check (Last 3 Days)
+  const byHost = await ga4Report(token, {
+    dateRanges: [{ startDate: '3daysAgo', endDate: 'today' }],
+    dimensions: [{ name: 'date' }, { name: 'hostName' }],
+    metrics: [{ name: 'sessions' }, { name: 'screenPageViews' }],
+    orderBys: [{ dimension: { dimensionName: 'date' }, desc: true }]
+  });
+  console.log('\n--- 3b. GA4 Hostname Hygiene Check (Last 3 Days) ---');
+  const pollutedRows = (byHost.rows || []).filter((r) => r.dimensionValues[1].value !== 'fidgetsupply.com');
+  if (pollutedRows.length === 0) {
+    console.log('✅ Clean: 100% of GA4 sessions originate from fidgetsupply.com');
+  } else {
+    for (const r of byHost.rows || []) {
+      const host = r.dimensionValues[1].value || '(not set)';
+      const flag = host === 'fidgetsupply.com' ? '✅' : '⚠️ POLLUTION DETECTED';
+      console.log(`${flag} | ${r.dimensionValues[0].value} | ${host} | Sessions=${r.metricValues[0].value}, Views=${r.metricValues[1].value}`);
+    }
+  }
+
+  // 4. GA4 Events Breakdown (Pure fidgetsupply.com only)
   const byEvent = await ga4Report(token, {
     dateRanges: [{ startDate: '7daysAgo', endDate: 'today' }],
+    dimensionFilter: prodHostFilter,
     dimensions: [{ name: 'eventName' }],
     metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }, { name: 'keyEvents' }]
   });
-  console.log('\n--- 4. GA4 Event Funnel ---');
+  console.log('\n--- 4. GA4 Event Funnel (Pure fidgetsupply.com) ---');
   for (const r of byEvent.rows || []) {
     console.log(`• ${r.dimensionValues[0].value}: ${r.metricValues[0].value} events (${r.metricValues[1].value} users, ${r.metricValues[2].value} keyEvents)`);
   }

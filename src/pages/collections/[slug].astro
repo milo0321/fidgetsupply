@@ -247,21 +247,21 @@ const breadcrumbSchema = {
 };
 
 const COLLECTION_SEO_TITLES: Record<string, string> = {
-  'magnetic-fidget-sliders': `Magnetic Textured Fidget Sliders ($${minColPrice}+ · 1-Pc Sample)`,
-  'metal-fidget-spinners-gyros': `Metal Fidget Spinner & Stainless Spinners ($${minColPrice}+)`,
+  'magnetic-fidget-sliders': `Magnetic Textured Fidget Sliders Wholesale ($${minColPrice}+)`,
+  'metal-fidget-spinners-gyros': `Wholesale Metal Fidget Spinners & R188 Gyros ($${minColPrice}+)`,
   'mechanical-edc-fidgets': `Mechanical Fidget Toys & Ratchet EDC ($${minColPrice}+ · 1-Pc Sample)`,
   'edc-gourds-hand-pieces': `Wholesale Metal EDC Gourds & Hand Pieces ($${minColPrice}+ · MOQ 50)`,
   'haptic-fidget-coins': `Fidget Coin & Haptic Coins Wholesale ($${minColPrice}+ · 1-Pc)`,
-  'magnetic-fidget-rings': `Magnetic Fidget Rings & Spinner Rings ($${minColPrice}+ · 1-Pc)`,
+  'magnetic-fidget-rings': `Magnetic Fidget Rings Wholesale & Spinner Rings ($${minColPrice}+)`,
   'custom-logo-metal-fidgets': `Wholesale Fidget Spinners With Logos & Sliders ($${minColPrice}+)`,
-  'tuning-fork-fidget-sliders': `Tuning Fork Slider & Acoustic Fidgets ($${minColPrice}+ · 1-Pc)`,
+  'tuning-fork-fidget-sliders': `Tuning Fork Slider Wholesale & Acoustic Fidgets ($${minColPrice}+)`,
   'cnc-stainless-steel-pei-edc': `PEI EDC, 5-Axis CNC Stainless & Zr702 ($${minColPrice}+ · 1-Pc)`
 };
 const COLLECTION_SEO_DESCS: Record<string, string> = {
   'magnetic-fidget-sliders': `Wholesale magnetic haptic slider & magnetic textured fidget sliders: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold, MOQ 50, 1-pc sample.`,
   'haptic-fidget-coins': `Wholesale metal fidget coin, magnetic haptic coin & haptic coins: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold, MOQ 50, 1-pc sample.`,
-  'magnetic-fidget-rings': `Wholesale magnetic fidget spinner rings & magnetic rings fidget: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold, MOQ 50, 1-pc sample.`,
-  'metal-fidget-spinners-gyros': `Metal fidget spinner, stainless steel spinning & R188 gyros wholesale: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold, MOQ 50, 1-pc sample.`,
+  'magnetic-fidget-rings': `Wholesale magnetic fidget ring, magnetic fidget rings & magnet fidget rings: ${products.length} molds ($${minColPrice}–$${maxColPrice}). $0 mold, MOQ 50, 1-pc sample.`,
+  'metal-fidget-spinners-gyros': `Wholesale fidget spinners, bulk fidget spinner & R188 spinner parts: ${products.length} metal molds ($${minColPrice}–$${maxColPrice}). $0 mold, MOQ 50, 1-pc sample.`,
   'tuning-fork-fidget-sliders': `Wholesale tuning fork slider & acoustic resonance chamber EDC: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). 2040–4200Hz chime, $0 mold, MOQ 50, 1-pc sample.`,
   'custom-logo-metal-fidgets': `Laser engraved fidget spinner, custom logo spinners & sliders: ${products.length} molds ($${minColPrice}–$${maxColPrice}). 50W laser +$0.15/pc, $0 mold, MOQ 100, 1-pc sample.`,
   'edc-gourds-hand-pieces': `Wholesale metal EDC gourds, Baoding hand pieces & stash capsules: ${products.length} ready molds ($${minColPrice}–$${maxColPrice}). $0 mold fee, MOQ 50 pcs, 50W laser logo.`,
@@ -277,9 +277,11 @@ const enDesc = COLLECTION_SEO_DESCS[collection.slug] || `${cleanShortName}: ${pr
 const locColName = t(`col.${collection.slug}.name` as any);
 const COL_LOCALE_FOCUS: Record<string, Partial<Record<string, string>>> = {
   'magnetic-fidget-sliders': {
-    de: ' (Magnet-Slider & Fidget Metall)',
+    de: ' (Magnetic Textured Fidget Sliders & Metall-Slider)',
     fr: ' (magnetic textured fidget sliders & N52)',
     nl: ' (magnetic textured fidget sliders & Zamak)',
+    es: ' (magnetic textured fidget sliders & N52)',
+    sv: ' (magnetic textured fidget sliders & N52)',
     fi: ' (magnet fidget, liukuteippi PTFE & magneettisliderit)',
     cs: ' (magnetické slidery & PTFE)',
     ru: ' (магнитные слайдеры и тактильные фиджеты · 1 шт. образец)',
@@ -347,7 +349,7 @@ const COLLECTION_META_DESC_MAP: Record<string, string> = {
   de: `${locColName}${focusTag('de')}: ${products.length} Serienformen ($${minColPrice}–$${maxColPrice}, $0 Werkzeugkosten, MOQ 50 Stk.). 50W-Laserlogo ab 100 Stk.`,
   fr: `${locColName} (Fidget EDC métal) : ${products.length} moules prêts ($${minColPrice}–$${maxColPrice}, 0 $ frais de moule, MOQ 50 pcs). Logo laser 50W dès 100 pcs.`,
   nl: `${locColName}${focusTag('nl')}: ${products.length} mallen ($${minColPrice}–$${maxColPrice}, $0 matrijskosten, MOQ 50 st.). 50W-laserlogo vanaf 100 st.`,
-  es: `${locColName}: ${products.length} moldes listos (Precio $${minColPrice}–$${maxColPrice}, $0 molde, MOQ 50 uds.). Logo láser 50W desde 100 uds.`,
+  es: `${locColName}${focusTag('es')}: ${products.length} moldes listos (Precio $${minColPrice}–$${maxColPrice}, $0 molde, MOQ 50 uds.). Logo láser 50W desde 100 uds.`,
   it: `${locColName}: ${products.length} stampi pronti ($${minColPrice}–$${maxColPrice}, $0 stampo, MOQ 50 pz.). Logo laser 50W da 100 pz.`,
   pt: `${locColName}: ${products.length} moldes prontos ($${minColPrice}–$${maxColPrice}, $0 custo de molde, MOQ 50 un.). Logo laser 50W desde 100 un.`,
   sv: `${locColName}${focusTag('sv')}: ${products.length} formar ($${minColPrice}–$${maxColPrice}, $0 verktyg, MOQ 50 st). 50W fiberlaserlogo från 100 st.`,

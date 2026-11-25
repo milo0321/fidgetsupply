@@ -67,7 +67,7 @@ const faqSchema = {
 const packagingServiceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: currentLang === 'en' ? 'Custom Fidget Packaging: EVA Zipper Cases, Window Tin Boxes & FBA Prep' : `${t('pkg.heroTitle')} | FidgetSupply`,
+  name: currentLang === 'en' ? 'Fidget Spinner Packaging & Metal EDC Cases: EVA Zipper Cases, Tin Boxes & FBA Prep' : `${t('pkg.heroTitle')} | FidgetSupply`,
   provider: {
     '@type': 'Organization',
     name: 'FidgetSupply.com',
@@ -109,7 +109,7 @@ const pageDescription = PACKAGING_META_DESC_MAP[currentLang] || PACKAGING_META_D
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Custom Fidget Packaging: EVA Cases & Tin Boxes (+$0.75)' : `${t('pkg.heroTitle')} (+$0.75) | FidgetSupply`}
+  title={currentLang === 'en' ? 'Fidget Spinner Packaging: EVA Cases & Tin Boxes (+$0.75)' : `${t('pkg.heroTitle')} (+$0.75) | FidgetSupply`}
   description={pageDescription}
   activePage="custom-packaging"
   jsonLd={[packagingServiceSchema, faqSchema]}

@@ -326,17 +326,22 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       }
     </script>
 
-    <!-- GA4 Telemetry (G-HHP8CN1M58) — Fast Post-LCP Idle Load + Desktop Engagement Signals -->
+    <!-- GA4 Telemetry (G-HHP8CN1M58) — Strict Production Hostname Guard + Post-LCP Idle Load -->
     <script is:inline define:vars={{ gaMeasurementId }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){window.dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-      gtag('config', gaMeasurementId, {
-        send_page_view: true,
-        anonymize_ip: true
-      });
       (function () {
+        var isProdHost = /^(www\.)?fidgetsupply\.com$/i.test(window.location.hostname);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){
+          if (!isProdHost) return;
+          window.dataLayer.push(arguments);
+        }
+        window.gtag = gtag;
+        if (!isProdHost) return;
+        gtag('js', new Date());
+        gtag('config', gaMeasurementId, {
+          send_page_view: true,
+          anonymize_ip: true
+        });
         var loaded = false;
         var startTs = Date.now();
         var triggerEvents = ['pointermove', 'mousemove', 'touchstart', 'pointerdown', 'scroll', 'keydown'];
