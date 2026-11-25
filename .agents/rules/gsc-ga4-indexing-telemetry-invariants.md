@@ -25,8 +25,14 @@ In addition to the primary macro-conversion `generate_lead` fired on `/contact` 
 
 ## 3. Closed-Loop Google Indexing & Sitemap Automation Scripts
 - **Daily Telemetry Report**: Run `node scripts/run_daily_seo_ga4_report.cjs` (zero external npm dependencies; uses native Node `crypto` + `fetch`) to inspect GSC Sitemaps, GSC Search Analytics (`dataState: "all"`), GA4 daily user/session trends, and GA4 event funnels.
-- **Google Indexing API & Sitemap Push**: Run `node scripts/submit_google_indexing.cjs`:
-  - Default (`node scripts/submit_google_indexing.cjs`): Re-submits `sitemap-index.xml` and `sitemap-0.xml` to GSC (`HTTP 204`) and pushes the 69 highest-priority URLs (8 static hubs + 9 collections + 30 insights + 22 flagship/unindexed products) to `https://indexing.googleapis.com/v3/urlNotifications:publish`.
-  - Remaining Products Batch 1 (`node scripts/submit_google_indexing.cjs --remaining-products`): Pushes the remaining product SKU URLs up to the 200-request/day Google Indexing API quota (includes an automatic `HTTP 429` circuit breaker).
-  - Remaining Products Batch 2 (`node scripts/submit_google_indexing.cjs --batch-2`): Pushes the final slice of product SKU URLs from index 66 onward on the next day's quota window.
+- **Strict Delta-Only Google Indexing API Invariant**: Run `node scripts/submit_google_indexing.cjs`:
+  - **Delta-Only Mandate (`200 requests/day` hard quota)**: Every Google Indexing API (`URL_UPDATED`) submission MUST submit **ONLY newly added pages (`A`) and modified pages (`M`/`R*`)** from the latest pushed commit(s) or an explicit `--urls` / `--urls-file` list.
+  - **NEVER Pad with Untouched Pages**: NEVER backfill or pad the Google Indexing API queue with untouched historical products, insights, collections, or core pages.
+  - **Sitewide Edits & Long-Tail Discovery**: When modifying shared CSS, layouts, components, or all-locale i18n dictionaries, do NOT blast all routes to the Indexing API — rely on GSC Sitemap resubmission (`sitemap-index.xml` / `sitemap-0.xml`) and IndexNow (`scripts/submit_indexnow.cjs`), or explicitly pass targeted URLs with `--urls=...`.
+  - **Supported CLI Modes**:
+    - Default (`node scripts/submit_google_indexing.cjs`): Re-submits GSC Sitemaps (`HTTP 204`) and diffs `scratch/google_indexing_state.json`'s `lastSubmittedCommit..HEAD` (falling back to `HEAD~1..HEAD`) to push ONLY newly added/modified concrete page URLs.
+    - Explicit Git Range (`node scripts/submit_google_indexing.cjs --since=<git-ref>`): Diffs `<git-ref>..HEAD` for delta URLs.
+    - Explicit URL List (`--urls=u1,u2,...` or `--urls-file=<path>`): Submits exact comma-separated or file-listed new/modified URLs/paths.
+    - Optional Locale Expansion (`--locales=de,fr,...`): Expands delta canonical URLs into selected localized variants (defaults to empty — EN canonicals only).
+    - Safety & Control Flags: `--dry-run` (preview resolved delta URLs without hitting Google APIs or writing reports), `--skip-sitemap`, `--limit=N` (defaults to `200`).
 - **`/llms.txt` Synchronization**: Whenever new Insights (`/insights/[slug]`) or Collections (`/collections/[slug]`) are added, `public/llms.txt` MUST be updated simultaneously so AI search crawlers (`GPTBot`, `ClaudeBot`, `PerplexityBot`, `Google-Extended`) discover the full URL index.

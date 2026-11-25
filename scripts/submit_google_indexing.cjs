@@ -1,13 +1,18 @@
 #!/usr/bin/env node
 /**
- * Closed-Loop Google Indexing API & Sitemap Submission Script (Zero-Dependency Native Node.js)
- * Submits sitemaps to GSC and publishes URL_UPDATED notifications to Google Indexing API.
+ * Delta-Only Google Indexing API & Sitemap Submission Script (Zero-Dependency Native Node.js)
+ * Strictly submits ONLY newly added and modified page URLs (from git diff or explicit --urls / --urls-file).
+ * Never pads the 200/day Google Indexing API quota with untouched historical pages.
  */
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 
-const CREDENTIALS_PATH = process.env.GSC_CREDENTIALS_PATH || path.join(__dirname, '../scratch/gsc_credentials.json');
+const ROOT_DIR = path.resolve(__dirname, '..');
+const CREDENTIALS_PATH = process.env.GSC_CREDENTIALS_PATH || path.join(ROOT_DIR, 'scratch/gsc_credentials.json');
+const STATE_PATH = path.join(ROOT_DIR, 'scratch/google_indexing_state.json');
+const REPORT_PATH = path.join(ROOT_DIR, 'scratch/google_indexing_submit_report.json');
 const SITE_URL = 'sc-domain:fidgetsupply.com';
 const BASE_URL = 'https://fidgetsupply.com';
 
@@ -67,14 +72,225 @@ async function discoverSitemaps() {
   return Array.from(sitemaps);
 }
 
-function parseLimitArg(defaultLimit = 190) {
-  const arg = process.argv.find((a) => a.startsWith('--limit='));
-  if (!arg) return defaultLimit;
-  const val = Number.parseInt(arg.split('=')[1], 10);
+function getArgValue(prefix) {
+  const arg = process.argv.find((a) => a.startsWith(`${prefix}=`));
+  return arg ? arg.slice(prefix.length + 1).trim() : null;
+}
+
+function parseLimitArg(defaultLimit = 200) {
+  const raw = getArgValue('--limit');
+  if (!raw) return defaultLimit;
+  const val = Number.parseInt(raw, 10);
   return Number.isFinite(val) && val > 0 ? val : defaultLimit;
 }
 
+function normalizeUrl(raw) {
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed.replace(/\/+$/, '');
+  }
+  const cleanPath = trimmed.replace(/^\/+/, '').replace(/\/+$/, '');
+  return cleanPath ? `${BASE_URL}/${cleanPath}` : BASE_URL;
+}
+
+function runGit(args) {
+  return execFileSync('git', args, { cwd: ROOT_DIR, encoding: 'utf8' }).trim();
+}
+
+function isValidGitRev(rev) {
+  if (!rev) return false;
+  try {
+    execFileSync('git', ['rev-parse', '--verify', `${rev}^{commit}`], { cwd: ROOT_DIR, stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function resolveDefaultSinceRef() {
+  if (fs.existsSync(STATE_PATH)) {
+    try {
+      const state = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
+      if (state.lastSubmittedCommit && isValidGitRev(state.lastSubmittedCommit)) {
+        return state.lastSubmittedCommit;
+      }
+    } catch {
+      // Ignore corrupt state file and fall back
+    }
+  }
+  return isValidGitRev('HEAD~1') ? 'HEAD~1' : 'HEAD';
+}
+
+function resolveGitDiffUrls(sinceRef) {
+  const diffOutput = runGit(['diff', '--name-status', '-z', `${sinceRef}..HEAD`]);
+  const tokens = diffOutput.split('\0').filter((t) => t.length > 0);
+  const deltaUrls = [];
+  const sharedChanges = [];
+
+  for (let i = 0; i < tokens.length; ) {
+    const status = tokens[i++];
+    if (!status) break;
+
+    let filePath = '';
+    if (status.startsWith('R') || status.startsWith('C')) {
+      i++; // skip old path
+      filePath = tokens[i++] || '';
+    } else {
+      filePath = tokens[i++] || '';
+    }
+
+    if (!filePath || status.startsWith('D')) continue;
+
+    // Concrete insights markdown -> /insights/<slug>
+    const insightMatch = filePath.match(/^src\/content\/insights\/([^/]+)\.md$/);
+    if (insightMatch) {
+      deltaUrls.push(`${BASE_URL}/insights/${insightMatch[1]}`);
+      continue;
+    }
+
+    // Concrete product JSON -> /products/<slug>
+    const productMatch = filePath.match(/^src\/content\/products\/([^/]+)\.json$/);
+    if (productMatch) {
+      const fullProdPath = path.join(ROOT_DIR, filePath);
+      let slug = productMatch[1];
+      if (fs.existsSync(fullProdPath)) {
+        try {
+          const data = JSON.parse(fs.readFileSync(fullProdPath, 'utf8'));
+          if (data && data.slug) slug = String(data.slug).trim();
+        } catch {
+          // Fall back to filename
+        }
+      }
+      deltaUrls.push(`${BASE_URL}/products/${slug}`);
+      continue;
+    }
+
+    // Root index page -> https://fidgetsupply.com
+    if (filePath === 'src/pages/index.astro') {
+      deltaUrls.push(BASE_URL);
+      continue;
+    }
+
+    // Static concrete Astro pages -> /<dir> or /<name> (skipping dynamic [param] and api/)
+    if (filePath.startsWith('src/pages/') && filePath.endsWith('.astro')) {
+      const rel = filePath.slice('src/pages/'.length);
+      if (rel.includes('[') || rel.includes(']') || rel.startsWith('api/') || rel === '404.astro') {
+        if (rel.includes('[') || rel.includes(']')) {
+          sharedChanges.push(filePath);
+        }
+        continue;
+      }
+      if (rel.endsWith('/index.astro')) {
+        const dirRoute = rel.slice(0, -'/index.astro'.length);
+        deltaUrls.push(dirRoute ? `${BASE_URL}/${dirRoute}` : BASE_URL);
+      } else {
+        const pageRoute = rel.slice(0, -'.astro'.length);
+        deltaUrls.push(`${BASE_URL}/${pageRoute}`);
+      }
+      continue;
+    }
+
+    // Track shared/template files without auto-expanding across all 3,900+ routes
+    if (
+      filePath.startsWith('src/components/') ||
+      filePath.startsWith('src/layouts/') ||
+      filePath.startsWith('src/styles/') ||
+      filePath.startsWith('src/i18n/')
+    ) {
+      sharedChanges.push(filePath);
+    }
+  }
+
+  return {
+    deltaUrls: Array.from(new Set(deltaUrls)),
+    sharedChanges: Array.from(new Set(sharedChanges))
+  };
+}
+
+function expandLocales(urls, locales) {
+  if (!locales.length) return urls;
+  const expanded = [...urls];
+  for (const rawUrl of urls) {
+    let pathname = '/';
+    try {
+      pathname = new URL(rawUrl).pathname;
+    } catch {
+      continue;
+    }
+    for (const loc of locales) {
+      const cleanLoc = loc.trim().toLowerCase();
+      if (!cleanLoc || cleanLoc === 'en') continue;
+      if (pathname === `/${cleanLoc}` || pathname.startsWith(`/${cleanLoc}/`)) continue;
+      expanded.push(`${BASE_URL}/${cleanLoc}${pathname === '/' ? '' : pathname}`);
+    }
+  }
+  return Array.from(new Set(expanded));
+}
+
 async function main() {
+  const dryRun = process.argv.includes('--dry-run');
+  const skipSitemap = process.argv.includes('--skip-sitemap');
+  const explicitUrlsArg = getArgValue('--urls');
+  const urlsFileArg = getArgValue('--urls-file');
+  const sinceArg = getArgValue('--since');
+  const localesArg = getArgValue('--locales');
+  const locales = localesArg ? localesArg.split(',').map((l) => l.trim()).filter(Boolean) : [];
+  const limit = parseLimitArg(200);
+
+  let mode = 'git-diff';
+  let sinceRef = null;
+  let sharedChanges = [];
+  let candidateUrls = [];
+
+  if (explicitUrlsArg || urlsFileArg) {
+    mode = 'explicit';
+    const rawItems = [];
+    if (explicitUrlsArg) {
+      rawItems.push(...explicitUrlsArg.split(','));
+    }
+    if (urlsFileArg) {
+      const resolvedFile = path.isAbsolute(urlsFileArg) ? urlsFileArg : path.join(ROOT_DIR, urlsFileArg);
+      if (!fs.existsSync(resolvedFile)) {
+        console.error(`URLs file not found: ${resolvedFile}`);
+        process.exit(1);
+      }
+      const lines = fs.readFileSync(resolvedFile, 'utf8').split(/\r?\n/);
+      for (const line of lines) {
+        const clean = line.trim();
+        if (clean && !clean.startsWith('#')) rawItems.push(clean);
+      }
+    }
+    candidateUrls = Array.from(new Set(rawItems.map(normalizeUrl).filter(Boolean)));
+  } else {
+    sinceRef = sinceArg || resolveDefaultSinceRef();
+    if (!isValidGitRev(sinceRef)) {
+      console.error(`Invalid git revision for --since: ${sinceRef}`);
+      process.exit(1);
+    }
+    const diffRes = resolveGitDiffUrls(sinceRef);
+    candidateUrls = diffRes.deltaUrls;
+    sharedChanges = diffRes.sharedChanges;
+  }
+
+  const allUrls = expandLocales(candidateUrls, locales).slice(0, limit);
+
+  if (dryRun) {
+    console.log(`=== Dry Run: Delta-Only Google Indexing Queue (${mode}${sinceRef ? `, since ${sinceRef}..HEAD` : ''}) ===`);
+    console.log(`Resolved ${allUrls.length} newly added / modified URL(s) (limit=${limit}):`);
+    for (let i = 0; i < allUrls.length; i++) {
+      console.log(`  [${i + 1}] ${allUrls[i]}`);
+    }
+    if (sharedChanges.length > 0) {
+      console.log(`\nShared/template files modified (${sharedChanges.length}, NOT auto-expanded across all routes):`);
+      for (const f of sharedChanges) {
+        console.log(`  - ${f}`);
+      }
+      console.log('Hint: Rely on GSC Sitemap + IndexNow for sitewide updates, or pass --urls=... to target specific localized/collection URLs.');
+    }
+    return;
+  }
+
   if (!fs.existsSync(CREDENTIALS_PATH)) {
     console.error(`Credentials file not found at ${CREDENTIALS_PATH}`);
     process.exit(1);
@@ -87,207 +303,100 @@ async function main() {
   ]);
 
   // 1. Re-submit Sitemaps to GSC
-  console.log('=== 1. Re-Submitting Sitemaps to Google Search Console ===');
-  const sitemapUrls = await discoverSitemaps();
   const sitemapResults = [];
-  for (const sm of sitemapUrls) {
-    const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps/${encodeURIComponent(sm)}`;
-    const res = await fetch(endpoint, {
-      method: 'PUT',
-      headers: { Authorization: `Bearer ${token}` }
-    });
-    if (res.ok || res.status === 204) {
-      console.log(`✅ Submitted sitemap (${res.status}): ${sm}`);
-      sitemapResults.push({ sitemap: sm, status: res.status, ok: true });
-    } else {
-      const txt = await res.text();
-      console.error(`❌ Failed to submit sitemap ${sm} (${res.status}): ${txt}`);
-      sitemapResults.push({ sitemap: sm, status: res.status, ok: false, error: txt });
+  if (!skipSitemap) {
+    console.log('=== 1. Re-Submitting Sitemaps to Google Search Console ===');
+    const sitemapUrls = await discoverSitemaps();
+    for (const sm of sitemapUrls) {
+      const endpoint = `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/sitemaps/${encodeURIComponent(sm)}`;
+      const res = await fetch(endpoint, {
+        method: 'PUT',
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (res.ok || res.status === 204) {
+        console.log(`✅ Submitted sitemap (${res.status}): ${sm}`);
+        sitemapResults.push({ sitemap: sm, status: res.status, ok: true });
+      } else {
+        const txt = await res.text();
+        console.error(`❌ Failed to submit sitemap ${sm} (${res.status}): ${txt}`);
+        sitemapResults.push({ sitemap: sm, status: res.status, ok: false, error: txt });
+      }
     }
   }
 
-  // 2. Build Priority URL Queue for Google Indexing API
-  const tier1CommercialUrls = [
-    `${BASE_URL}/promotional-fidget-toys`,
-    `${BASE_URL}/private-label-oem`,
-    `${BASE_URL}/bulk-adult-office-fidgets`,
-    `${BASE_URL}/landed-cost-calculator`
-  ];
-
-  const newGuideSlugs = [
-    'umburry-haptic-coin-vs-factory-oem-magnetic-clicker-coins',
-    'magnus-aura-sand-style-vs-ready-mold-stainless-titanium-fidget-sliders',
-    'magnetic-pill-capsule-fidget-sliders-wholesale-sourcing-guide',
-    'promotional-branded-fidget-toys-trade-show-swag-buyer-guide',
-    'bulk-fidget-toys-for-adults-office-wellness-wholesale-guide',
-    'stainless-steel-vs-brass-heavy-metal-fidget-spinners-wholesale'
-  ];
-  const tier2NewGuideUrls = newGuideSlugs.map((s) => `${BASE_URL}/insights/${s}`);
-
-  const collectionSlugs = [
-    'magnetic-fidget-sliders',
-    'mechanical-edc-fidgets',
-    'metal-fidget-spinners-gyros',
-    'edc-gourds-hand-pieces',
-    'haptic-fidget-coins',
-    'magnetic-fidget-rings',
-    'custom-logo-metal-fidgets',
-    'tuning-fork-fidget-sliders',
-    'cnc-stainless-steel-pei-edc'
-  ];
-
-  const tier3UpdatedUrls = [
-    `${BASE_URL}`,
-    `${BASE_URL}/nl`,
-    `${BASE_URL}/products`,
-    `${BASE_URL}/insights`,
-    `${BASE_URL}/custom-branding`,
-    `${BASE_URL}/custom-packaging`,
-    `${BASE_URL}/compliance-safety`,
-    `${BASE_URL}/corporate-gifts`,
-    `${BASE_URL}/wholesale-catalog`,
-    `${BASE_URL}/sample-kit`,
-    `${BASE_URL}/about`,
-    `${BASE_URL}/contact`,
-    `${BASE_URL}/no/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide`,
-    ...collectionSlugs.map((s) => `${BASE_URL}/collections/${s}`)
-  ];
-
-  const topLocales = ['de', 'fr', 'nl', 'es', 'it', 'sv', 'no', 'fi', 'ja', 'ko'];
-  const newCommercialPaths = [
-    '/promotional-fidget-toys',
-    '/private-label-oem',
-    '/bulk-adult-office-fidgets',
-    '/landed-cost-calculator'
-  ];
-  const tier4LocalizedUrls = [
-    ...newCommercialPaths.flatMap((p) => topLocales.map((l) => `${BASE_URL}/${l}${p}`)),
-    ...newGuideSlugs.flatMap((s) => topLocales.map((l) => `${BASE_URL}/${l}/insights/${s}`))
-  ];
-
-  const prodDir = path.join(__dirname, '../src/content/products');
-  const allProdObjects = fs
-    .readdirSync(prodDir)
-    .filter((f) => f.endsWith('.json'))
-    .map((f) => JSON.parse(fs.readFileSync(path.join(prodDir, f), 'utf8')))
-    .sort((a, b) => a.rowId - b.rowId);
-
-  const referencedSkuSet = new Set([
-    'FS-013', 'FS-041', 'FS-075', 'FS-086', 'FS-144', 'FS-108',
-    'FS-012', 'FS-019', 'FS-096', 'FS-099', 'FS-009', 'FS-059',
-    'FS-006', 'FS-026', 'FS-125', 'FS-047', 'FS-135', 'FS-064',
-    'FS-063', 'FS-072', 'FS-082', 'FS-142'
-  ]);
-  const referencedProds = allProdObjects.filter(
-    (p) => p.sku && referencedSkuSet.has(String(p.sku).toUpperCase())
-  );
-  const flagshipProds = allProdObjects
-    .filter((p) => (p.logoReady || p.tuningFork || p.cncExotic) && !(p.sku && referencedSkuSet.has(String(p.sku).toUpperCase())))
-    .slice(0, 40);
-  const priorityProductSlugs = [...referencedProds, ...flagshipProds].map((p) => p.slug);
-  const productUrls = priorityProductSlugs.map((s) => `${BASE_URL}/products/${s}`);
-
-  const insightsDir = path.join(__dirname, '../src/content/insights');
-  const insightUrls = fs
-    .readdirSync(insightsDir)
-    .filter((f) => f.endsWith('.md'))
-    .sort()
-    .map((f) => `${BASE_URL}/insights/${f.replace(/\.md$/, '')}`);
-
-  const isRemainingProductsOnly = process.argv.includes('--remaining-products');
-  const isBatch2 = process.argv.includes('--batch-2');
-
-  let allUrls;
-  if (isRemainingProductsOnly || isBatch2) {
-    const allProdSlugs = allProdObjects.map((p) => p.slug);
-    const submittedSet = new Set(priorityProductSlugs);
-    const remainingSlugs = allProdSlugs.filter((s) => !submittedSet.has(s));
-    const slice = isBatch2 ? remainingSlugs.slice(66) : remainingSlugs;
-    allUrls = Array.from(new Set(slice.map((s) => `${BASE_URL}/products/${s}`)));
-  } else {
-    const combined = [
-      ...tier1CommercialUrls,
-      ...tier2NewGuideUrls,
-      ...tier3UpdatedUrls,
-      ...tier4LocalizedUrls,
-      ...productUrls,
-      ...insightUrls
-    ];
-    const limit = parseLimitArg(190);
-    allUrls = Array.from(new Set(combined)).slice(0, limit);
+  // 2. Submit ONLY newly added / modified URLs to Google Indexing API
+  console.log(`\n=== 2. Submitting ${allUrls.length} Delta URL(s) to Google Indexing API (${mode}${sinceRef ? `: ${sinceRef}..HEAD` : ''}) ===`);
+  if (sharedChanges.length > 0) {
+    console.log(`Note: ${sharedChanges.length} shared/template file(s) changed; skipped auto-expansion to protect daily quota.`);
   }
-
-  const urlToTier = new Map();
-  const assignTier = (urls, tierName) => {
-    for (const u of urls) {
-      if (!urlToTier.has(u)) urlToTier.set(u, tierName);
-    }
-  };
-  assignTier(tier1CommercialUrls, 'tier1_new_commercial');
-  assignTier(tier2NewGuideUrls, 'tier2_new_guides');
-  assignTier(tier3UpdatedUrls, 'tier3_updated_core_collections');
-  assignTier(tier4LocalizedUrls, 'tier4_new_pages_localized');
-  assignTier([...productUrls, ...insightUrls], 'tier5_featured_products_and_insights');
-
-  const tierSummary = {};
-  for (const u of allUrls) {
-    const tier = urlToTier.get(u) || 'other';
-    tierSummary[tier] = (tierSummary[tier] || 0) + 1;
-  }
-
-  console.log(`\n=== 2. Submitting ${allUrls.length} URLs to Google Indexing API ===`);
 
   let successCount = 0;
   let errorCount = 0;
   let quotaHit = false;
   const results = [];
 
-  for (let i = 0; i < allUrls.length; i++) {
-    const url = allUrls[i];
-    const res = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        url,
-        type: 'URL_UPDATED'
-      })
-    });
-    const data = await res.json().catch(() => ({}));
-    if (res.ok) {
-      successCount++;
-      const notifyTime = data?.urlNotificationMetadata?.latestUpdate?.notifyTime || 'OK';
-      results.push({ url, tier: urlToTier.get(url) || 'other', status: res.status, notifyTime });
-      console.log(`[${i + 1}/${allUrls.length}] ✅ 200 URL_UPDATED -> ${url} (${notifyTime})`);
-    } else {
-      errorCount++;
-      const msg = data?.error?.message || JSON.stringify(data);
-      results.push({ url, tier: urlToTier.get(url) || 'other', status: res.status, error: msg });
-      console.error(`[${i + 1}/${allUrls.length}] ❌ ${res.status} -> ${url}: ${msg}`);
-      if (res.status === 429) {
-        quotaHit = true;
-        console.warn('⚠️ Quota limit reached (HTTP 429). Stopping batch.');
-        break;
+  if (allUrls.length === 0) {
+    console.log('No newly added or modified page URLs detected — 0 Indexing API requests sent.');
+  } else {
+    for (let i = 0; i < allUrls.length; i++) {
+      const url = allUrls[i];
+      const res = await fetch('https://indexing.googleapis.com/v3/urlNotifications:publish', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          url,
+          type: 'URL_UPDATED'
+        })
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok) {
+        successCount++;
+        const notifyTime = data?.urlNotificationMetadata?.latestUpdate?.notifyTime || 'OK';
+        results.push({ url, status: res.status, notifyTime });
+        console.log(`[${i + 1}/${allUrls.length}] ✅ 200 URL_UPDATED -> ${url} (${notifyTime})`);
+      } else {
+        errorCount++;
+        const msg = data?.error?.message || JSON.stringify(data);
+        results.push({ url, status: res.status, error: msg });
+        console.error(`[${i + 1}/${allUrls.length}] ❌ ${res.status} -> ${url}: ${msg}`);
+        if (res.status === 429) {
+          quotaHit = true;
+          console.warn('⚠️ Quota limit reached (HTTP 429). Stopping batch.');
+          break;
+        }
       }
     }
   }
 
-  const reportPath = path.join(__dirname, '../scratch/google_indexing_submit_report.json');
-  fs.mkdirSync(path.dirname(reportPath), { recursive: true });
+  fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
   const report = {
     timestamp: new Date().toISOString(),
     siteUrl: SITE_URL,
+    mode,
+    sinceRef,
     sitemaps: sitemapResults,
     totalQueued: allUrls.length,
     successCount,
     errorCount,
     quotaHit,
-    tierSummary,
+    sharedChanges,
     results
   };
-  fs.writeFileSync(reportPath, JSON.stringify(report, null, 2));
+  fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));
+
+  if (errorCount === 0 && !quotaHit && allUrls.length > 0) {
+    const currentHead = runGit(['rev-parse', 'HEAD']);
+    const state = {
+      lastSubmittedCommit: currentHead,
+      lastSubmittedAt: new Date().toISOString(),
+      lastSubmittedCount: successCount
+    };
+    fs.writeFileSync(STATE_PATH, JSON.stringify(state, null, 2));
+  }
+
   console.log(`\n=== Summary: ${successCount} succeeded, ${errorCount} failed (report saved to scratch/google_indexing_submit_report.json) ===`);
 }
 
