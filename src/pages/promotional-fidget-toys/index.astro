@@ -1,0 +1,304 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
+const allProducts = await getCollection('products');
+
+const promoProducts = allProducts
+  .filter((p) => p.data.logoReady)
+  .sort((a, b) => parseFloat(a.data.tier500) - parseFloat(b.data.tier500))
+  .slice(0, 8);
+
+const PAGE_TITLES: Record<string, string> = {
+  en: 'Promotional Fidget Toys With Logo & Branded Swag ($0.74+)',
+  de: 'Werbeartikel Fidget Toys mit Logo & Gravur ($0.74+)',
+  fr: 'Fidget Toys Promotionnels avec Logo & Gravure ($0.74+)',
+  nl: 'Promotionele Fidget Toys met Logo & Lasergravure ($0.74+)',
+  es: 'Fidget Toys Promocionales con Logo de Marca ($0.74+)',
+  it: 'Fidget Promozionali con Logo Aziendale & Laser ($0.74+)',
+  pt: 'Fidget Toys Promocionais com Logotipo a Laser ($0.74+)',
+  sv: 'Reklamfidgets med Egen Logotyp & Lasergravyr ($0.74+)',
+  da: 'Reklame Fidgets med Logo & 50W Lasergravering ($0.74+)',
+  no: 'Reklame-fidgets med Logo & 50W Fiberlaser ($0.74+)',
+  fi: 'Mainos-Fidgetit Omalla Logolla & Laserilla ($0.74+)',
+  pl: 'Fidgety Reklamowe z Logo i Grawerem 50W ($0.74+)',
+  cs: 'Reklamní Fidgety s Vlastním Logem & Laserem ($0.74+)',
+  ru: 'Промо-фиджеты с логотипом компании оптом ($0.74+)',
+  ja: '企業ノベルティ・販促用名入れ金属フィジェット（$0.74〜）',
+  ko: '기업 홍보용 판촉물 로고 각인 메탈 피젯 ($0.74+)',
+  id: 'Fidget Promosi dengan Logo Perusahaan & Laser ($0.74+)',
+  ar: 'ألعاب فيدجت ترويجية بشعار الشركة وحفر ليزر ($0.74+)'
+};
+
+const PAGE_DESCS: Record<string, string> = {
+  en: 'Branded fidget toys, promotional fidget spinners & sliders with custom 50W fiber laser logo ($0.74+, $0 mold fee, MOQ 100 pcs, free 12h vector proof).',
+  de: 'Werbeartikel Metall-Fidget-Spinner & Slider mit Logo: 50W-Faserlaser (+$0.15/Stk.), $0 Werkzeugkosten, MOQ 100 Stk., kostenlose 12h-Druckvorschau.',
+  fr: 'Fidgets publicitaires en métal avec logo : gravure laser 50W (+$0.15/pce), 0 $ moule, MOQ 100 pcs, BAT vectoriel gratuit sous 12h dès $0.74/pce.',
+  nl: 'Promotionele metalen fidget spinners & sliders met logo: 50W fiberlaser (+$0.15/st.), $0 matrijs, MOQ 100 st., gratis 12u proefontwerp.',
+  es: 'Fidget spinners y sliders promocionales metálicos con logo: láser 50W (+$0.15/ud.), $0 molde, MOQ 100 uds., boceto digital gratuito en 12h.',
+  it: 'Fidget promozionali in metallo personalizzati con logo: laser 50W (+$0.15/pz), $0 stampo, MOQ 100 pz., prova digitale gratuita in 12 ore.',
+  pt: 'Fidgets promocionais em metal com logotipo: gravação laser 50W (+$0.15/un.), $0 molde, MOQ 100 un., prova digital grátis em 12h.',
+  sv: 'Reklamfidgets och metallspinners med företagslogotyp: 50W fiberlaser (+$0.15/st), $0 verktyg, MOQ 100 st., gratis digital korrektur inom 12h.',
+  da: 'Reklamefidgets i metal med logo: 50W fiberlaser (+$0.15/stk.), $0 værktøj, MOQ 100 stk., gratis digital logokorrektur inden 12 timer.',
+  no: 'Reklame-fidgets i metall med logo: 50W fiberlaser (+$0.15/stk.), $0 verktøy, MOQ 100 stk., gratis digital forhåndsvisning på 12 timer.',
+  fi: 'Metalliset mainosfidgetit ja spinnerit omalla logolla: 50W laser (+$0.15/kpl), $0 muotti, MOQ 100 kpl, maksuton digitaalinen vedos 12 tunnissa.',
+  pl: 'Reklamowe spinnery i slidery metalowe z logo: grawer laserowy 50W (+$0.15/szt.), $0 formy, MOQ 100 szt., bezpłatna wizualizacja w 12h.',
+  cs: 'Reklamní kovové fidgety s logem: 50W vláknový laser (+$0.15/ks), $0 za formu, MOQ 100 ks, bezplatný grafický náhled do 12 hodin.',
+  ru: 'Рекламные металлические фиджеты с логотипом: лазер 50 Вт (+$0.15/шт.), $0 за форму, от 100 шт., бесплатный макет за 12 часов.',
+  ja: '展示会・販促向けのブランド名入れ金属フィジェット：50Wレーザー刻印(+$0.15〜)、金型代$0、MOQ 100個、12時間データ校正無料。',
+  ko: '전시회 및 브랜드 판촉물 로고 각인 메탈 피젯: 50W 레이저(+$0.15/개), 금형비 $0, MOQ 100개, 12시간 무료 시안 제공.',
+  id: 'Mainan fidget promosi & branding logo logam: laser serat 50W (+$0.15/pc), $0 biaya cetakan, MOQ 100 pcs, bukti desain gratis 12 jam.',
+  ar: 'أدوات فيدجت ترويجية بشعارك على 140 قالباً معدنياً: حفر ليزر 50W (+$0.15)، قالب 0$، الحد الأدنى 100 قطعة، معاينة مجانية خلال 12 ساعة.'
+};
+
+const promoFaqs = [
+  {
+    question: 'Why are promotional metal fidget toys replacing plastic giveaways at trade shows?',
+    answer: 'Disposable plastic giveaways are frequently discarded after events. Solid Zamak-3 zinc alloy, 6063 aluminum, and 304 stainless steel fidget toys with permanent fiber laser logos stay on buyers and engineers desks for years at $0.74–$4.50 factory EXW pricing.'
+  },
+  {
+    question: 'What is the minimum order quantity for promotional fidget spinners and sliders with company logo?',
+    answer: 'Custom logo promotional orders start at 100 pieces per SKU across all 28 flat-surface Logo-Ready molds with $0.00 new mold fees. Blank unbranded stock starts at 50 pieces per SKU.'
+  },
+  {
+    question: 'Why does FidgetSupply use 50W fiber laser or deep color fill instead of silk-screen or UV ink?',
+    answer: 'Smooth anodized aluminum, chrome-plated zinc, and brushed steel surfaces are chemically inert, so surface UV or pad-printed ink lacks mechanical bite and peels under thumb friction. Our 50W MOPA fiber laser (+$0.15–$0.30/pc) permanently etches the metal, while Deep Laser + Enamel Color Fill (+$0.35–$0.60/pc) locks color below the wear plane.'
+  },
+  {
+    question: 'How fast can you deliver a digital logo mockup for an upcoming trade show?',
+    answer: 'Send your .AI, .EPS, .SVG, or vector .PDF file to sales@fidgetsupply.com or WhatsApp and receive a 1:1 CAD vector placement proof free within 12 hours before paying for sampling or bulk production.'
+  },
+  {
+    question: 'What is the custom logo pre-production sample fee and lead time?',
+    answer: 'Custom pre-production samples are paid and require 10–15 days to produce: Standard 50W Fiber Laser sample setup is $50 USD, and Deep Laser Engraving + Color Fill sample setup is $80–$150 USD depending on color count, plus buyer-paid courier shipping.'
+  },
+  {
+    question: 'Can I order a paid 1-piece blank metal fidget sample first to verify weight and spin quality?',
+    answer: 'Yes. Paid 1-piece blank evaluation samples are available on all 140 molds (buyer pays unit fee plus international courier shipping, non-refundable). Multiple SKUs consolidate into one parcel from Fuzhou.'
+  },
+  {
+    question: 'Which branded fidget models give the lowest cost per impression under $2.50/pc?',
+    answer: 'Top sub-$2.50 promotional molds include FS-009 Knurled Pocket Twist Spinner ($0.74+), FS-059 Luminous Spring Promo Slider ($1.70+), and FS-006 Delta Triangle Slider ($2.34+)—all with crisp flat engraving faces.'
+  },
+  {
+    question: 'What packaging tiers are available for branded promotional swag distribution?',
+    answer: 'Every unit includes an individual anti-oxidation vacuum pouch ($0.00, MOQ 50). Optional branded upgrades are Stock-Mold Black EVA Zipper Cases (+$0.75+/pc, MOQ 100), Custom Rigid Gift Boxes (+$1.45+/pc, MOQ 500), and Window Metal Tin Boxes (MOQ 1,000+ MTO).'
+  },
+  {
+    question: 'Do you work directly with ASI, PPAI, and corporate event merchandising agencies?',
+    answer: 'Yes. We supply promotional agencies and swag distributors directly at EXW tiers from our Fuzhou Export Logistics Hub, supporting neutral blind export documentation and multi-drop packaging.'
+  },
+  {
+    question: 'What is the factory production turnaround for bulk promotional orders and how is freight handled?',
+    answer: 'Custom 50W laser orders (100–2,000 pcs) finish in-house machining, engraving, and QC in 10–15 business days after proof approval. International door-to-door air express (DHL/FedEx/UPS or DDP freight) transit timing is governed by the selected carrier and destination customs.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: promoFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Promotional Fidget Toys & Branded Metal Swag Manufacturing',
+  provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
+  description: 'Custom promotional fidget spinners, sliders, and branded metal swag with 50W fiber laser engraving (+$0.15/pc) across 28 flat-surface ready molds ($0 tooling fee, MOQ 100).'
+};
+---
+
+<Layout
+  title={PAGE_TITLES[currentLang] || PAGE_TITLES.en}
+  description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+  ogImage="/images/insights/custom-logo-spinners-sliders-hero.webp"
+  activePage="custom-branding"
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <a href={getLocalizedPath('/custom-branding', currentLang)}>{t('nav.customLogo')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">Promotional Swag</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-gold">PROMOTIONAL &amp; BRANDED SWAG</span>
+          <span class="badge badge-emerald">28 Logo-Ready Molds · MOQ 100</span>
+        </div>
+
+        <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
+        <p class="grand-hero-lead">
+          {PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Promo Unit Floor</span>
+            <strong class="glass-kpi-val">$0.74 / {t('unit.pc')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">50W Laser Mark</span>
+            <strong class="glass-kpi-val">+$0.15 – $0.30</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Color-Fill Enamel</span>
+            <strong class="glass-kpi-val">+$0.35 – $0.60</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Digital Mockup</span>
+            <strong class="glass-kpi-val">Free in 12h</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            {t('nav.requestQuote')} →
+          </a>
+          <a href={getLocalizedPath('/landed-cost-calculator', currentLang)} class="btn btn-secondary-dark btn-hero">
+            Estimate Promo Batch Cost →
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">BRANDED METAL SWAG</span>
+          <span class="hero-showcase-price">$0.00 Mold Fee</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/insights/custom-logo-spinners-sliders-hero.webp"
+            alt="Promotional fidget toys and custom metal fidget spinners with 50W fiber laser company logos"
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>50W Fiber Laser</span>
+          <span>Deep Enamel Fill</span>
+          <span>MOQ 100 pcs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title="Direct Answer: Promotional Fidget Toys & Custom Spinner Swag Direct From Ready Molds"
+      answer="FidgetSupply supplies promotional fidget toys, branded fidget spinners, and magnetic desk sliders directly from 28 flat-surface ready molds starting at $0.74/pc with $0.00 mold fees and a 100-piece custom logo MOQ. Permanent 50W MOPA fiber laser engraving adds +$0.15–$0.30/pc (or +$0.35–$0.60/pc for recessed Pantone enamel color fill), eliminates silk-screen ink peeling, and includes a free 12-hour 1:1 digital vector proof."
+    />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="Promotional Branded Fidget Swag Quote + 12h Free Vector Proof (MOQ 100)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="email"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} (name@company.com)`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">PROMOTIONAL CAMPAIGN MATRIX</span>
+        <h2 class="section-title">Select Branded Metal Fidgets by Campaign Volume &amp; Unit Budget</h2>
+      </div>
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>Promotional Tier &amp; Audience</th>
+              <th>Factory EXW Base</th>
+              <th>Permanent Logo Option</th>
+              <th>Packaging Tier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>High-Volume Trade Show Handouts (FS-009, FS-059, FS-006)</strong></td>
+              <td>$0.74 – $2.88 / pc</td>
+              <td>50W Fiber Laser (+$0.15–$0.30/pc)</td>
+              <td>Vacuum Anti-Oxidation Pouch ($0.00 · MOQ 50)</td>
+            </tr>
+            <tr>
+              <td><strong>Branded SaaS &amp; Fintech Swag (FS-001, FS-047, FS-125)</strong></td>
+              <td>$3.18 – $6.50 / pc</td>
+              <td>Deep Laser + Enamel Color Fill (+$0.35–$0.60/pc)</td>
+              <td>Stock Black EVA Zipper Case (+$0.75+/pc · MOQ 100)</td>
+            </tr>
+            <tr>
+              <td><strong>VIP Sponsor &amp; Partner Gifts (FS-013, FS-075, FS-150)</strong></td>
+              <td>$7.43 – $17.80 / pc</td>
+              <td>Serialized VIP Laser Engraving (+$0.20/pc)</td>
+              <td>Custom Rigid Box (+$1.45+ · MOQ 500) / Tin (1,000+)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-light" style="padding: 2.5rem 1.75rem; border-radius: 1rem;">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">28 FLAT-SURFACE READY MOLDS</span>
+        <h2 class="section-title">Top 8 Promotional Fidget Models for Company Logo Engraving</h2>
+      </div>
+      <div class="grid-4">
+        {promoProducts.map((p) => (
+          <ProductCard product={p.data} lang={currentLang} />
+        ))}
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href={getLocalizedPath('/collections/custom-logo-metal-fidgets', currentLang)} class="btn btn-primary">
+          Browse All 28 Logo-Ready Models →
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">PROMOTIONAL SOURCING FAQ</span>
+        <h2 class="section-title">Logo Durability, Sample Fees &amp; MOQ Questions</h2>
+      </div>
+      <div class="faq-list">
+        {promoFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

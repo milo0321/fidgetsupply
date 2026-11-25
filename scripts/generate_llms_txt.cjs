@@ -206,6 +206,10 @@ function main() {
     '- 140-SKU Wholesale Price Matrix & Volume Tiers ($0.74–$470.77): https://fidgetsupply.com/wholesale-catalog',
     '- 1-Pc Paid Evaluation Sample Program (Buyer-Paid Unit & Courier Shipping): https://fidgetsupply.com/sample-kit',
     '- Corporate Metal Fidget Gifts & Custom Logo Swag ($0.74+, MOQ 100): https://fidgetsupply.com/corporate-gifts',
+    '- Promotional Branded Fidget Toys & Trade Show Swag ($0.74+, MOQ 100): https://fidgetsupply.com/promotional-fidget-toys',
+    '- Private Label Metal Fidget OEM & Amazon FBA SOP ($0 Mold): https://fidgetsupply.com/private-label-oem',
+    '- Bulk Fidget Toys for Adults & Quiet <35 dBA Office EDC (MOQ 50): https://fidgetsupply.com/bulk-adult-office-fidgets',
+    '- Interactive Wholesale Cost, Laser Logo & Packaging Margin Calculator: https://fidgetsupply.com/landed-cost-calculator',
     '- Custom Fiber Laser & Deep Laser Color-Fill Branding SOP: https://fidgetsupply.com/custom-branding',
     '- Custom EVA Zipper Cases & Tin Box Packaging: https://fidgetsupply.com/custom-packaging',
     '- US CPSC 16 CFR 1262, EU RoHS/REACH & Lab Testing Compliance: https://fidgetsupply.com/compliance-safety',
@@ -261,10 +265,10 @@ function main() {
     '  - **Why Surface Silk-Screen / UV Printing Is Not Recommended**: Electroplated zinc alloy, anodized aluminum, and PVD stainless steel surfaces are ultra-smooth and chemically inert (`Ra <= 1.6 μm`), causing surface-printed inks to peel off under daily thumb friction.',
     '- **Tier 2 Light Customization — Existing-Mold Surface Finishes & Colorways (MOQ 300 pcs per SKU)**:',
     '  - Custom PVD Vacuum Titanium Coating (Matte Tactical Black, Gunmetal Grey, Champagne Gold, Iridescent Rainbow), Type II/III Hard Anodizing on 6063-T6 Aluminum, Brushed Antique Bronze/Silver/Copper Electroplating, and Ceramic Media Tumbled Stonewash.',
-    '- **Tier 3 Light Customization — Custom Packaging & Retail Readiness (MOQ 100–300 pcs)**:',
-    '  - Custom Logo Black Shockproof 75-Shore-C EVA Zipper Case (`+$0.75/pc`, MOQ 100 pcs).',
-    '  - Custom Windowed Matte Metal Tin Box with Die-Cut EVA Insert (`+$0.85/pc`, MOQ 200 pcs).',
-    '  - Custom Two-Piece Rigid Magnetic Presentation Gift Box (`+$1.10/pc`, MOQ 300 pcs).',
+    '- **Tier 3 Light Customization — Anti-Oxidation Vacuum Packing & Custom Retail Packaging**:',
+    '  - Standard Included: Individual Anti-Oxidation Vacuum-Sealed Pouch (`$0.00`, MOQ 50 pcs).',
+    '  - Low-MOQ Branded Upgrade: Stock-Mold Black Shockproof EVA Zipper Case + Logo (`+$0.75+/pc`, MOQ 100 pcs, $0 EVA mold fee).',
+    '  - High-Volume Custom: Custom Two-Piece Rigid Luxury Gift Box (`+$1.45+/pc`, MOQ 500 pcs) or Windowed Metal Tin Boxes / bespoke packaging molds (`MOQ 1,000+ pcs MTO`).',
     '  - Complimentary Amazon FNSKU barcode sticker application and 14+ age grading / CPSC magnet warning labels.',
     '',
     '### 1.2 CNC Machining Equipment & 6-Stage Metrology / Reliability Lab Standards',
@@ -330,7 +334,7 @@ function main() {
   }
 
   fullLines.push('================================================================================');
-  fullLines.push(`## SECTION 4: 39 AUTHORITATIVE ENGINEERING, SOURCING & 2027 TREND GUIDES`);
+  fullLines.push(`## SECTION 4: ${insights.length} AUTHORITATIVE ENGINEERING, SOURCING & 2027 TREND GUIDES`);
   fullLines.push('================================================================================');
   fullLines.push('');
 

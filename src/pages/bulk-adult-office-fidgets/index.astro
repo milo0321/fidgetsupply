@@ -1,0 +1,299 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
+const allProducts = await getCollection('products');
+
+const officeSkus = ['FS-125', 'FS-047', 'FS-135', 'FS-014', 'FS-009', 'FS-064', 'FS-013', 'FS-150'];
+const officeProducts = officeSkus
+  .map((sku) => allProducts.find((p) => p.data.sku === sku))
+  .filter(Boolean) as typeof allProducts;
+
+const PAGE_TITLES: Record<string, string> = {
+  en: 'Bulk Fidget Toys for Adults & Silent Office EDC ($0.74+)',
+  de: 'Metall Fidget Toys für Erwachsene & Büro Großhandel ($0.74+)',
+  fr: 'Fidget Toys Métal pour Adultes & Bureau en Gros ($0.74+)',
+  nl: 'Metalen Fidget Toys voor Volwassenen Groothandel ($0.74+)',
+  es: 'Fidget Toys Metálicos para Adultos y Oficina ($0.74+)',
+  it: 'Fidget in Metallo per Adulti e Ufficio Ingrosso ($0.74+)',
+  pt: 'Fidget Toys Metálicos para Adultos e Escritório ($0.74+)',
+  sv: 'Metallfidgets för Vuxna & Tyst Kontor Grossist ($0.74+)',
+  da: 'Metalfidgets til Voksne & Stille Kontor Engros ($0.74+)',
+  no: 'Metallfidgets for Voksne & Stille Kontor Engros ($0.74+)',
+  fi: 'Metallifidgetit Aikuisille & Toimistoon Tukku ($0.74+)',
+  pl: 'Metalowe Fidgety dla Dorosłych i Biura Hurt ($0.74+)',
+  cs: 'Kovové Fidgety pro Dospělé & Kancelář Velkoobchod ($0.74+)',
+  ru: 'Металлические фиджеты для взрослых и офиса оптом ($0.74+)',
+  ja: '大人・オフィス向け静音金属フィジェット卸売（$0.74〜）',
+  ko: '성인용 & 무소음 사무실 메탈 피젯 토이 대량 도매 ($0.74+)',
+  id: 'Grosir Fidget Logam untuk Dewasa & Kantor ($0.74+)',
+  ar: 'ألعاب فيدجت معدنية للكبار والمكتب بالجملة ($0.74+)'
+};
+
+const PAGE_DESCS: Record<string, string> = {
+  en: 'Bulk fidget toys for adults, silent PTFE desk sliders (<35 dBA), and ADHD sensory metal spinners direct from 140 molds ($0.74+, MOQ 50, 1-pc sample).',
+  de: 'Metall-Fidgets für Erwachsene im Großhandel: leise Büro-Slider (<35 dBA), Drehringe & CNC-Kreisel ab Werk ($0.74+, MOQ 50, 1-Stück-Muster).',
+  fr: 'Fidgets métal pour adultes en gros : sliders silencieux de bureau (<35 dBA), bagues rotatives et toupies CNC ($0.74+, MOQ 50, échantillon 1 pce).',
+  nl: 'Metalen fidgets voor volwassenen in bulk: stille kantoor-sliders (<35 dBA) en roestvrijstalen spinners ($0.74+, MOQ 50, 1-stuk proefmonster).',
+  es: 'Fidget toys metálicos para adultos al por mayor: sliders silenciosos de oficina (<35 dBA) y spinners CNC ($0.74+, MOQ 50 uds., muestra 1 ud.).',
+  it: 'Fidget in metallo per adulti all’ingrosso: slider silenziosi da ufficio (<35 dBA) e spinner in acciaio inox ($0.74+, MOQ 50 pz., campione 1 pz.).',
+  pt: 'Fidgets metálicos para adultos em atacado: sliders silenciosos de escritório (<35 dBA) e spinners CNC ($0.74+, MOQ 50 un., amostra 1 un.).',
+  sv: 'Metallfidgets för vuxna i bulk: tysta kontorssliders (<35 dBA) och rostfria spinners ($0.74+, MOQ 50 st, 1-st utvärderingsprov).',
+  da: 'Metalfidgets til voksne i bulk: støjsvage kontor-sliders (<35 dBA) og spinnerringe ($0.74+, MOQ 50 stk., 1-stk vareprøve).',
+  no: 'Metallfidgets for voksne i bulk: stillegående kontorslidere (<35 dBA) og CNC-spinnere ($0.74+, MOQ 50 stk., 1-stk prøve).',
+  fi: 'Metallifidgetit aikuisille tukkuhintaan: hiljaiset toimisto-sliderit (<35 dBA) ja sormukset ($0.74+, MOQ 50 kpl, 1 kpl näyte).',
+  pl: 'Metalowe fidgety dla dorosłych w hurcie: ciche slidery biurowe (<35 dBA) i spinnery ze stali ($0.74+, MOQ 50 szt., próbka 1 szt.).',
+  cs: 'Kovové fidgety pro dospělé velkoobchodně: tiché kancelářské slidery (<35 dBA) a spinnery ($0.74+, MOQ 50 ks, vzorek 1 ks).',
+  ru: 'Металлические фиджеты для взрослых оптом: бесшумные офисные слайдеры (<35 дБА) и спиннеры ($0.74+, MOQ 50 шт., образец от 1 шт.).',
+  ja: '大人向け・静音オフィス用金属フィジェット卸売：35dBA以下のPTFEスライダーやスピナーリングなど140金型（$0.74〜、MOQ 50個、1個サンプル）。',
+  ko: '성인용 ADHD 집중 및 조용한 사무실용 메탈 피젯 대량 도매: 35dBA 미만 무소음 PTFE 슬라이더 & 스피너 반지 ($0.74+, MOQ 50개, 1개 샘플).',
+  id: 'Grosir mainan fidget logam untuk dewasa: slider PTFE senyap kantor (<35 dBA) & spinner CNC ($0.74+, MOQ 50 pcs, sampel 1 pcs).',
+  ar: 'أدوات فيدجت معدنية للكبار بالجملة: سلايدرات مكتب صامتة (<35 ديسيبل) وخواتم دوارة ($0.74+، الحد الأدنى 50 قطعة، عينة قطعة واحدة).'
+};
+
+const bulkAdultFaqs = [
+  {
+    question: 'Which bulk metal fidget toys are quietest (<35 dBA) for open offices and Zoom calls?',
+    answer: 'Silent office leaders include FS-125 (Smooth Soap-Box PTFE Slider), FS-047 (6063 Anodized Aluminum Slider with PTFE pads), FS-135 (16-Magnet Bearing Ring), and FS-009 / FS-064 oil-free R188 desk spinners—all engineered to glide or spin below 35 dBA without disturbing coworkers.'
+  },
+  {
+    question: 'Why do HR wellness buyers and therapists prefer solid metal fidgets for adult ADHD and anxiety?',
+    answer: 'Unlike lightweight plastic trinkets, solid Zamak-3 (55–95g), aluminum, and CNC stainless steel (80–160g) tools deliver stronger proprioceptive tactile feedback, calibrated magnetic detents, and durable precision bearings suited for sustained adult focus.'
+  },
+  {
+    question: 'What is the minimum order quantity for bulk adult fidget toys across mixed models?',
+    answer: 'Blank stock starts at 50 pieces per SKU (with finish mixing available), or teams can bundle multiple SKUs into one Fuzhou export order to hit volume tier discounts.'
+  },
+  {
+    question: 'Can we order 1-piece samples across silent vs. tactile models before buying in bulk?',
+    answer: 'Yes. Paid 1-piece physical evaluation samples are available on all 140 molds (buyer pays unit cost + international courier shipping, non-refundable). We often ship an acoustic comparison trio (e.g., FS-125 + FS-013 + FS-150) in one parcel.'
+  },
+  {
+    question: 'How much do bulk adult metal fidget toys cost at 50, 200, and 500+ unit volumes?',
+    answer: 'Factory EXW pricing spans $0.74–$0.92 for pocket twist spinners (FS-009), $3.18–$6.00 for signature Zamak/Aluminum magnetic sliders (FS-001, FS-047, FS-125), and $7.43–$21.45 for heavy CNC 304 stainless steel coins and multi-layer sliders.'
+  },
+  {
+    question: 'Can we add our company wellness program logo onto silent office fidget sliders?',
+    answer: 'Yes. At MOQ 100 pcs per SKU, permanent 50W fiber laser engraving adds +$0.15–$0.30/pc ($0 setup fee), or Deep Laser Engraving + Color Fill adds +$0.35–$0.60/pc with a free 12-hour digital proof.'
+  },
+  {
+    question: 'What weight range works best for discreet everyday office desk use vs. heavy sensory grounding?',
+    answer: 'For lightweight pocket carry without pulling trousers, 6063 Aluminum sliders (FS-047, ~35–48g) and spinner rings (FS-135) are ideal. For grounded desk sensory regulation, choose 60–115g Zamak-3 or 304 stainless steel models (FS-125, FS-013, FS-075).'
+  },
+  {
+    question: 'Do any bulk adult fidget options avoid magnets completely for pacemaker or sensitive environments?',
+    answer: 'Yes. Over 30 purely mechanical models—including oil-free R188 spinners (FS-009, FS-043, FS-064), dual-bearing ratchet bars (FS-085, FS-087), and sprocket chains (FS-079)—contain zero magnets.'
+  },
+  {
+    question: 'What packaging comes standard on bulk office wellness orders?',
+    answer: 'Every unit ships in an individual anti-oxidation vacuum pouch ($0.00 included at MOQ 50). Teams can upgrade to Stock Black EVA Zipper Cases (+$0.75+/pc, MOQ 100), Rigid Gift Boxes (+$1.45+/pc, MOQ 500), or Window Tin Boxes (MOQ 1,000+ MTO).'
+  },
+  {
+    question: 'What are the production and dispatch timelines for bulk office wellness orders?',
+    answer: 'Blank stock orders (50+ pcs) complete inspection and dispatch from Fuzhou in 3–7 business days; custom logo orders (100+ pcs) take 10–15 business days after proof approval. Door-to-door courier delivery times are set by DHL, FedEx, UPS, or DDP carriers.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: bulkAdultFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Bulk Adult & Silent Office Metal Fidget Toys Supply',
+  provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
+  description: 'Wholesale bulk metal fidget toys for adults, silent <35 dBA PTFE office sliders, spinner rings, and sensory EDC tools directly from 140 ready molds ($0.74+, MOQ 50).'
+};
+---
+
+<Layout
+  title={PAGE_TITLES[currentLang] || PAGE_TITLES.en}
+  description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+  ogImage="/images/insights/quiet-office-decibel-fidgets-hero.webp"
+  activePage="products"
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <a href={getLocalizedPath('/products', currentLang)}>{t('breadcrumb.allCatalog')}</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">Adult &amp; Office Bulk</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-gold">ADULT SENSORY &amp; OFFICE EDC</span>
+          <span class="badge badge-emerald">&lt;35 dBA Silent &amp; Heavyweight Tiers</span>
+        </div>
+
+        <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
+        <p class="grand-hero-lead">
+          {PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Office Decibel Floor</span>
+            <strong class="glass-kpi-val">&lt;35 dBA Silent</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Bulk Unit Range</span>
+            <strong class="glass-kpi-val">$0.74 – $21.45</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Blank Bulk MOQ</span>
+            <strong class="glass-kpi-val">50 {t('unit.pcs')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Non-Magnetic Option</span>
+            <strong class="glass-kpi-val">30+ Molds</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            Request Bulk Adult Catalog →
+          </a>
+          <a href={getLocalizedPath('/landed-cost-calculator', currentLang)} class="btn btn-secondary-dark btn-hero">
+            Open Cost Calculator →
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">QUIET OFFICE CALIBRATED</span>
+          <span class="hero-showcase-price">MOQ 50 {t('unit.pcs')}</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/insights/quiet-office-decibel-fidgets-hero.webp"
+            alt="Silent office metal fidget sliders, spinner rings, and haptic coins for adult focus and wellness"
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>PTFE Whisper Glide</span>
+          <span>6063 Al / 304 SS</span>
+          <span>1-Pc Sample OK</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title="Direct Answer: Choosing Bulk Metal Fidget Toys for Adults & Office Teams"
+      answer="For corporate offices, ADHD neurodiversity programs, and adult retail stores, FidgetSupply classifies all 140 metal molds by acoustic output: Silent <35 dBA PTFE Sliders & Spinner Rings (FS-125, FS-047, FS-135, FS-009) for calls and open desks; Soft Tactile Coins (FS-013, FS-027) at 35–50 dBA; and Crisp Tuning Fork / Ratchet EDC (FS-150, FS-085) for private focus. Blank wholesale starts at 50 pcs ($0.74+) with paid 1-pc evaluation samples available."
+    />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="Bulk Adult & Office Silent Metal Fidget Quote (MOQ 50+)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="email"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} (name@company.com)`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">ACOUSTIC &amp; SENSORY CALIBRATION</span>
+        <h2 class="section-title">Acoustic Decibel Matrix for Workplace, Therapy &amp; Collector Tiers</h2>
+      </div>
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>Acoustic Profile &amp; Setting</th>
+              <th>Sound Output</th>
+              <th>Recommended Ready Molds</th>
+              <th>Wholesale Tier (EXW)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Silent Open-Office &amp; Call-Safe</strong></td>
+              <td>&lt; 35 dBA (Whisper PTFE / R188)</td>
+              <td>FS-125 Smooth Slider, FS-047 Aluminum Slider, FS-135 Ring, FS-009 Top</td>
+              <td>$0.74 – $12.90 / pc</td>
+            </tr>
+            <tr>
+              <td><strong>Soft Executive Desk Tactile</strong></td>
+              <td>35 – 50 dBA (Muted Detent)</td>
+              <td>FS-013 304SS Coin, FS-027 Cookie Coin, FS-064 Aluminum Desk Egg</td>
+              <td>$2.76 – $11.50 / pc</td>
+            </tr>
+            <tr>
+              <td><strong>Crisp Acoustic &amp; Mechanical Feedback</strong></td>
+              <td>55 – 68 dBA (2,800–4,200 Hz Ring)</td>
+              <td>FS-150 Tuning Fork Slider, FS-129 Divine Realm, FS-085 Ratchet EDC</td>
+              <td>$10.19 – $21.45 / pc</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-light" style="padding: 2.5rem 1.75rem; border-radius: 1rem;">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">ADULT FOCUS &amp; OFFICE BESTSELLERS</span>
+        <h2 class="section-title">Top 8 Metal Fidget Molds for Adult Bulk &amp; Office Wellness</h2>
+      </div>
+      <div class="grid-4">
+        {officeProducts.map((p) => (
+          <ProductCard product={p.data} lang={currentLang} />
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">ADULT BULK SOURCING FAQ</span>
+        <h2 class="section-title">Decibel Ratings, Magnet-Free Models &amp; Volume Questions</h2>
+      </div>
+      <div class="faq-list">
+        {bulkAdultFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

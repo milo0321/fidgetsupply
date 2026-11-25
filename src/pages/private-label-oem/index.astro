@@ -1,0 +1,310 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+
+const currentLang = getLanguageFromURL(Astro.url);
+const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
+const allProducts = await getCollection('products');
+
+const oemSkus = ['FS-125', 'FS-047', 'FS-001', 'FS-013', 'FS-075', 'FS-150', 'FS-009', 'FS-135'];
+const oemProducts = oemSkus
+  .map((sku) => allProducts.find((p) => p.data.sku === sku))
+  .filter(Boolean) as typeof allProducts;
+
+const PAGE_TITLES: Record<string, string> = {
+  en: 'Private Label Metal Fidget OEM & Amazon FBA ($0 Mold Fee)',
+  de: 'Private Label Metall-Fidget OEM & Amazon FBA ($0 Form)',
+  fr: 'OEM Fidget Métal Marque Blanche & Amazon FBA ($0 Moule)',
+  nl: 'Private Label Metalen Fidget OEM & Amazon FBA ($0 Mal)',
+  es: 'Fabricante OEM Fidget Metálico Marca Blanca ($0 Molde)',
+  it: 'OEM Fidget Metallo Private Label & Amazon FBA ($0)',
+  pt: 'Fidget Metálico Marca Própria OEM & FBA ($0 Molde)',
+  sv: 'Private Label Metallfidget OEM & Amazon FBA ($0 Form)',
+  da: 'Private Label Metalfidget OEM & Amazon FBA ($0 Form)',
+  no: 'Private Label Metallfidget OEM & Amazon FBA ($0 Form)',
+  fi: 'Private Label Metallifidget OEM & FBA ($0 Muotti)',
+  pl: 'Private Label Metalowy Fidget OEM & FBA ($0 Forma)',
+  cs: 'Private Label Kovový Fidget OEM & Amazon FBA ($0)',
+  ru: 'OEM производство металлических фиджетов STM ($0 форма)',
+  ja: '金属フィジェットOEM・Amazon FBA向けPB製造（金型代$0）',
+  ko: '메탈 피젯 토이 PB/OEM 제조 & 아마존 FBA (금형비 $0)',
+  id: 'Pabrik OEM Fidget Logam Private Label & FBA ($0 Cetakan)',
+  ar: 'تصنيع فيدجت معدني علامة خاصة OEM و Amazon FBA ($0)'
+};
+
+const PAGE_DESCS: Record<string, string> = {
+  en: 'Launch a private label metal fidget brand with $0 tooling fees across 140 ready molds: 50W laser OEM, 3-tier EVA/gift packaging, FNSKU & CPSC 16 CFR 1262.',
+  de: 'Starten Sie Ihre Metall-Fidget-Eigenmarke ohne Werkzeugkosten ($0) auf 140 Serienformen: 50W-Laser, EVA-Etuis, Amazon FNSKU & US CPSC 16 CFR 1262.',
+  fr: 'Lancez votre marque privée de fidgets métal à 0 $ de moule sur 140 modèles : laser 50W, étuis EVA, étiquettes FNSKU et conformité CPSC 16 CFR 1262.',
+  nl: 'Lanceer uw private-label metalen fidget merk met $0 matrijskosten op 140 mallen: 50W laser, EVA-cases, Amazon FNSKU & CPSC 16 CFR 1262.',
+  es: 'Lance su marca blanca de fidgets metálicos sin costo de molde ($0) en 140 modelos: láser 50W, estuches EVA, FNSKU Amazon y norma CPSC 16 CFR 1262.',
+  it: 'Lancia il tuo brand Private Label di fidget in metallo a $0 costi stampo su 140 modelli: laser 50W, custodie EVA, FNSKU e CPSC 16 CFR 1262.',
+  pt: 'Lance sua marca própria de fidgets metálicos com $0 custo de molde em 140 modelos: laser 50W, estojos EVA, FNSKU e conformidade CPSC 16 CFR 1262.',
+  sv: 'Starta eget varumärke för metallfidgets med $0 verktygskostnad på 140 formar: 50W laser, EVA-fodral, FNSKU & US CPSC 16 CFR 1262.',
+  da: 'Start dit eget metalfidget-brand med $0 værktøjsgebyr på 140 forme: 50W laser, EVA-etui, Amazon FNSKU & US CPSC 16 CFR 1262.',
+  no: 'Lanser ditt eget metallfidget-merke med $0 verktøykostnad på 140 former: 50W laser, EVA-etui, Amazon FNSKU & CPSC 16 CFR 1262.',
+  fi: 'Käynnistä oma metallifidget-brändi ilman muottikuluja ($0) 140 valmiilla muotilla: 50W laser, EVA-kotelot, FNSKU & CPSC 16 CFR 1262.',
+  pl: 'Uruchom własną markę metalowych fidgetów bez kosztów formy ($0) na 140 modelach: laser 50W, etui EVA, Amazon FNSKU i CPSC 16 CFR 1262.',
+  cs: 'Spusťte vlastní značku kovových fidgetů s poplatkem $0 za formu ze 140 modelů: 50W laser, EVA pouzdra, Amazon FNSKU & CPSC 16 CFR 1262.',
+  ru: 'Запустите бренд металлических фиджетов (Private Label) без платы за форму ($0) на 140 моделях: лазер 50 Вт, кейсы EVA, FNSKU и CPSC 16 CFR 1262.',
+  ja: '既存140金型で金型代$0の金属フィジェットPB/OEMブランドを立ち上げ：50Wレーザー刻印、3段階パッケージ、FNSKU貼付＆CPSC規制対応。',
+  ko: '140종 기성 금형(금형비 $0)으로 메탈 피젯 PB 브랜드 런칭: 50W 레이저 각인, 3단계 패키징, 아마존 FNSKU & CPSC 16 CFR 1262 준수.',
+  id: 'Bangun merek fidget logam private label tanpa biaya cetakan ($0) di 140 model: laser 50W, kotak EVA, label FNSKU & kepatuhan CPSC 16 CFR 1262.',
+  ar: 'أطلق علامتك التجارية لأدوات الفيدجت المعدنية برسوم قالب 0$ عبر 140 قالباً جاهزاً: ليزر 50W، حافظات EVA، ملصقات FNSKU ومعيار CPSC.'
+};
+
+const oemFaqs = [
+  {
+    question: 'Does FidgetSupply build new custom molds from buyer 3D CAD drawings?',
+    answer: 'No. FidgetSupply focuses 100% on Ready-Mold Light Customization across 140 existing active production molds (FS-001 through FS-150). That eliminates $3,000–$5,000 USD tooling capex and 45-day mold cutting delays so private label sellers launch in days.'
+  },
+  {
+    question: 'What light customization options are available on existing metal fidget molds?',
+    answer: 'We support 3 light-customization tiers: (1) Permanent logo engraving via 50W MOPA Fiber Laser (+$0.15–$0.30/pc, MOQ 100) or Deep Laser + Pantone Enamel Fill (+$0.35–$0.60/pc, MOQ 100–200); (2) Custom PVD, anodized, or stonewashed finishes (MOQ 300); (3) Branded Stock Black EVA Cases (MOQ 100), Rigid Gift Boxes (MOQ 500), or Window Tin Boxes (MOQ 1,000+).'
+  },
+  {
+    question: 'How do Amazon FBA and Shopify sellers test quality before a private label bulk run?',
+    answer: 'Sellers can order paid 1-piece blank evaluation samples across multiple SKUs (buyer pays unit fee + international shipping, non-refundable). For logo testing, paid custom pre-production samples take 10–15 days ($50 USD fiber laser / $80–$150 USD deep laser + color fill, plus shipping).'
+  },
+  {
+    question: 'Do you apply Amazon FNSKU barcodes and small-parts / high-powered magnet warnings?',
+    answer: 'Yes. We print and affix buyer-supplied Amazon FNSKU barcode stickers onto vacuum pouches, EVA zipper cases, or gift boxes alongside mandatory US CPSC 16 CFR Part 1262 magnet safety and 14+ age grading labels.'
+  },
+  {
+    question: 'How are neodymium magnets secured for US CPSC 16 CFR Part 1262 FBA compliance?',
+    answer: 'All magnetic models utilize precision blind counterbores, structural epoxy bonding, and mechanically fastened cover plates so magnets cannot liberate during accidental pocket or floor drops. We also stock 30+ 100% magnet-free mechanical fidgets.'
+  },
+  {
+    question: 'What is the minimum order quantity to start a multi-SKU Amazon or DTC store?',
+    answer: 'Blank stock starts at 50 pieces per SKU (with finish mixing supported), and private-label custom logo runs start at 100 pieces per SKU. That lets sellers test 3 to 5 flagship metal SKUs under one consolidated Fuzhou export invoice.'
+  },
+  {
+    question: 'Can we customize surface coatings or colorways on existing ready molds?',
+    answer: 'Yes. At MOQ 300 pieces per SKU, we customize existing-mold finishes including tactical matte black PVD, gunmetal, champagne gold, Type III hard anodizing (6063-T6 aluminum), and ceramic media stonewash.'
+  },
+  {
+    question: 'Why are individual vacuum pouches included as standard on every SKU?',
+    answer: 'Metal EDC alloys and precision R188 bearings are sensitive to ocean-transit humidity and salt air. Individual anti-oxidation vacuum pouches ($0.00 included at MOQ 50) protect surface PVD and steel bearings throughout warehousing and FBA storage.'
+  },
+  {
+    question: 'What is the production lead time for private label OEM bulk batches?',
+    answer: 'Blank unbranded stock (50+ pcs) dispatches from Fuzhou in 3–7 business days. Custom 50W fiber laser or deep color-fill OEM production (100+ pcs) completes in 10–15 business days after digital vector proof and sample confirmation.'
+  },
+  {
+    question: 'How do magnetic air-freight shipments pass DHL/FedEx security under IATA PI-953?',
+    answer: 'Master export cartons holding high-flux neodymium fidgets are lined with steel magnetic shielding sheets so surface stray magnetic flux measures below IATA PI-953 limits. Final international delivery speed depends on the selected carrier and destination customs clearance.'
+  }
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: oemFaqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer }
+  }))
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Private Label Metal Fidget OEM & Amazon FBA Manufacturing SOP',
+  provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
+  description: 'Ready-mold private label metal fidget manufacturing ($0 tooling fee) for Amazon FBA and DTC EDC brands: 50W fiber laser OEM, custom EVA/gift packaging, FNSKU labeling, and CPSC compliance.'
+};
+---
+
+<Layout
+  title={PAGE_TITLES[currentLang] || PAGE_TITLES.en}
+  description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+  ogImage="/images/insights/zero-tooling-sop-hero.webp"
+  activePage="custom-branding"
+  jsonLd={[serviceSchema, faqSchema]}
+>
+  <section class="grand-hero">
+    <div class="container grand-hero-grid">
+      <div class="grand-hero-info">
+        <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+          <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
+          <span class="bc-sep">/</span>
+          <a href={getLocalizedPath('/wholesale-catalog', currentLang)}>Wholesale Matrix</a>
+          <span class="bc-sep">/</span>
+          <span class="bc-current">Private Label OEM</span>
+        </nav>
+
+        <div class="hero-badges-row">
+          <span class="badge badge-gold">PRIVATE LABEL &amp; FBA OEM</span>
+          <span class="badge badge-emerald">140 Ready Molds · $0.00 Tooling</span>
+        </div>
+
+        <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
+        <p class="grand-hero-lead">
+          {PAGE_DESCS[currentLang] || PAGE_DESCS.en}
+        </p>
+
+        <div class="hero-glass-grid">
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">New Mold Cost</span>
+            <strong class="glass-kpi-val">$0.00 USD</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Custom Logo MOQ</span>
+            <strong class="glass-kpi-val">100 {t('unit.pcs')}</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">FBA Labeling</span>
+            <strong class="glass-kpi-val">FNSKU + CPSC</strong>
+          </div>
+          <div class="glass-kpi-card">
+            <span class="glass-kpi-label">Custom Colorway</span>
+            <strong class="glass-kpi-val">MOQ 300 {t('unit.pcs')}</strong>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
+            Start Private Label Quote →
+          </a>
+          <a href={getLocalizedPath('/sample-kit', currentLang)} class="btn btn-secondary-dark btn-hero">
+            Order 1-Pc Evaluation Samples →
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-showcase-card">
+        <div class="hero-showcase-top">
+          <span class="sku-pill">ZERO-TOOLING LAUNCH SOP</span>
+          <span class="hero-showcase-price">MOQ 50 / 100 {t('unit.pcs')}</span>
+        </div>
+        <div class="hero-showcase-img-wrap">
+          <img
+            src="/images/insights/zero-tooling-sop-hero.webp"
+            alt="Ready-mold private label metal EDC fidget OEM lineup for Amazon FBA and Shopify brands"
+            width="480"
+            height="360"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-showcase-meta">
+          <span>50W Laser Logo</span>
+          <span>Stock EVA MOQ 100</span>
+          <span>PI-953 Air Freight</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <GeoDirectAnswer
+      title="Direct Answer: How to Launch a Private Label Metal Fidget Line With $0 Mold Fees"
+      answer="FidgetSupply enables Amazon FBA sellers, Kickstarter creators, and DTC EDC brands to launch private label metal fidget products using 140 amortized molds ($0.00 tooling fee). Buyers evaluate 1-pc paid blank or custom laser samples ($50/$80–$150 setup + shipping), apply permanent 50W fiber laser (+$0.15–$0.30/pc) or recessed enamel fill (+$0.35–$0.60/pc) at MOQ 100, and scale with stock EVA cases (+$0.75+, MOQ 100), rigid boxes (MOQ 500), and FNSKU + CPSC 16 CFR 1262 labeling."
+    />
+
+    <form class="inline-quick-sheet-form" data-inline-sku="Private Label OEM & Amazon FBA Launch Quote (MOQ 100)" novalidate>
+      <div class="inline-qrfq-text">
+        <strong>{microHooks.getFullSheetPdf}</strong>
+        <span>{microHooks.mixMoqBadge}</span>
+      </div>
+      <div class="inline-qrfq-controls">
+        <input
+          type="email"
+          class="inline-qrfq-input"
+          placeholder={`${t('contact.workEmail')} (name@company.com)`}
+          aria-label={t('contact.workEmail')}
+          required
+        />
+        <button type="submit" class="inline-qrfq-btn">
+          ⚡ {microHooks.sheet140} →
+        </button>
+      </div>
+      <div class="inline-qrfq-status" hidden></div>
+    </form>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">5-STAGE LAUNCH ROADMAP</span>
+        <h2 class="section-title">Ready-Mold Private Label Production Workflow &amp; Factory MOQs</h2>
+      </div>
+      <div class="geo-table-wrap">
+        <table class="geo-table">
+          <thead>
+            <tr>
+              <th>Private Label Stage</th>
+              <th>Factory Specification &amp; Real Fees</th>
+              <th>MOQ / Turnaround</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Ready-Mold SKU Selection</strong></td>
+              <td>Choose from 140 active CNC &amp; Zamak-3 molds ($0.74–$470.77 EXW, $0.00 tooling capex)</td>
+              <td>50 pcs Blank Stock (3–7 business days dispatch)</td>
+            </tr>
+            <tr>
+              <td><strong>2. Physical Verification</strong></td>
+              <td>Paid 1-pc blank samples or paid custom laser ($50) / deep color fill ($80–$150) + buyer freight</td>
+              <td>1 pc+ Blank / 10–15 days Custom Sample</td>
+            </tr>
+            <tr>
+              <td><strong>3. Permanent Metal Branding</strong></td>
+              <td>50W MOPA Fiber Laser (+$0.15–$0.30/pc) or Deep Laser + Enamel Fill (+$0.35–$0.60/pc)</td>
+              <td>100 pcs (10–15 business days production)</td>
+            </tr>
+            <tr>
+              <td><strong>4. Retail Packaging &amp; Barcodes</strong></td>
+              <td>Vacuum Pouch ($0.00), Stock EVA (+$0.75+, MOQ 100), Rigid Box (+$1.45+, MOQ 500), Tin (1,000+)</td>
+              <td>Includes free FNSKU &amp; CPSC 14+ labeling</td>
+            </tr>
+            <tr>
+              <td><strong>5. Compliance &amp; Global Freight</strong></td>
+              <td>US CPSC 16 CFR 1262 drop-tested retention, EU RoHS 3 &amp; IATA PI-953 shielded cartons</td>
+              <td>DHL / FedEx / UPS / DDP Air &amp; Sea</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section-light" style="padding: 2.5rem 1.75rem; border-radius: 1rem;">
+      <div class="section-header-center">
+        <span class="badge badge-emerald">FLAGSHIP PRIVATE LABEL PICKS</span>
+        <h2 class="section-title">8 Proven Ready Molds Built for Branded DTC &amp; Amazon FBA</h2>
+      </div>
+      <div class="grid-4">
+        {oemProducts.map((p) => (
+          <ProductCard product={p.data} lang={currentLang} />
+        ))}
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href={getLocalizedPath('/compliance-safety', currentLang)} class="btn btn-primary">
+          Review CPSC 16 CFR 1262 &amp; IATA PI-953 Docs →
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header-center">
+        <span class="badge">PRIVATE LABEL FAQ</span>
+        <h2 class="section-title">Tooling, FNSKU Barcoding &amp; Sampling Questions</h2>
+      </div>
+      <div class="faq-list">
+        {oemFaqs.map((faq, idx) => (
+          <div class:list={['accordion-item', { active: idx === 0 }]}>
+            <button type="button" class="accordion-header">
+              <span>{faq.question}</span>
+              <span class="accordion-icon">+</span>
+            </button>
+            <div class="accordion-content">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
