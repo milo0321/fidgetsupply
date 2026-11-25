@@ -92,7 +92,7 @@ const serviceSchema = {
 };
 
 const BRANDING_META_DESC_MAP: Record<string, string> = {
-  en: '50W MOPA fiber laser engraving (+$0.15/pc) & deep laser Pantone enamel color-fill (+$0.35/pc) on 140 metal EDC molds. $0 tooling fee, MOQ 100 pcs, 12h proof.',
+  en: 'Laser engraved fidget spinner & metal EDC logo OEM: 50W fiber laser (+$0.15/pc) & color-fill (+$0.35/pc) across 140 molds. $0 mold, MOQ 100, 12h proof.',
   es: 'Fidgets metálicos con logo personalizado en 140 moldes ($0 molde): grabado láser 50W (+$0.15/ud.) y grabado profundo con esmalte a color (MOQ 100 uds.).',
   de: 'Metall-Fidgets mit Logo auf 140 Bestandsformen ($0 Werkzeugkosten): 50W-Faserlaser (+$0.15/Stk.) & Tiefengravur mit Farbauslegung ab 100 Stück MOQ.',
   fr: 'Fidgets métal personnalisés avec logo sur 140 moules ($0 moule) : gravure laser 50W (+$0.15/pce) et gravure profonde avec émail couleur dès 100 pièces.',
@@ -115,7 +115,7 @@ const pageDescription = BRANDING_META_DESC_MAP[currentLang] || BRANDING_META_DES
 ---
 
 <Layout
-  title={currentLang === 'en' ? '50W Fiber Laser Engraving & Color-Fill OEM Service (+$0.15)' : `${t('brand.heroTitle')} (+$0.15/pc) | FidgetSupply`}
+  title={currentLang === 'en' ? 'Laser Engraved Fidget Spinner & 50W Logo OEM (+$0.15/pc)' : `${t('brand.heroTitle')} (+$0.15/pc) | FidgetSupply`}
   description={pageDescription}
   activePage="custom-branding"
   jsonLd={[serviceSchema, faqSchema]}

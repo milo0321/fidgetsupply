@@ -807,8 +807,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Emballageguide til metal-EDC: højdensitets EVA-skumindsatser, hard-shell lynlåsetuier, matte metalæsker, Amazon FNSKU-stregkoder og IATA PI-953 magnetisk luftfragtsskærmning.'
     },
     no: {
-      title: 'Spesialtilpassede EVA-glidelåsetuier, Metallbokser med Vindu & Samlergaveesker for Metallfidgets',
-      summary: 'Emballasjeguide for metall-EDC: høydensitets EVA-skuminnsatser, hard-shell glidelåsetuier, matte metallbokser, Amazon FNSKU-strekkoder og IATA PI-953 magnetisk flyfraktskjerming.'
+      title: 'Detaljemballasje for Metallfidgets: EVA-etui & Gaveesker',
+      summary: 'Guide til detaljemballasje for metall-EDC: vakuumpose (MOQ 50), EVA-etui (MOQ 100), gaveeske (MOQ 500), tinnboks (1000+), FNSKU & IATA PI-953.'
     },
     fi: {
       title: 'Räätälöidyt EVA-vetoketjukotelot, Ikkunalliset Peltirasiat & Keräilylahjapakkaukset Metallifidgeteille',
