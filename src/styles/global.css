@@ -7,13 +7,13 @@
   /* Brand Palette - Industrial Gunmetal Slate, Precision Cyan Blue & Brass Gold */
   --color-primary: #0f172a;
   --color-primary-light: #1e293b;
-  --color-brand: #0284c7;
-  --color-brand-hover: #0369a1;
+  --color-brand: #0369a1;
+  --color-brand-hover: #075985;
   --color-brand-light: #f0f9ff;
   --color-brand-border: #bae6fd;
   --color-accent: #f59e0b;
   --color-accent-hover: #d97706;
-  --color-emerald: #059669;
+  --color-emerald: #047857;
   --color-emerald-light: #ecfdf5;
 
   /* Neutral Spectrum */
@@ -276,11 +276,11 @@ img {
 }
 
 .btn-whatsapp {
-  background-color: #059669 !important;
-  border-color: #047857 !important;
+  background-color: #047857 !important;
+  border-color: #065f46 !important;
   color: #ffffff !important;
   font-weight: 800;
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28);
+  box-shadow: 0 4px 14px rgba(4, 120, 87, 0.28);
 }
 
 .btn-whatsapp:hover {
@@ -483,14 +483,14 @@ img {
 
 .sourcing-cta-box a.btn,
 .sourcing-cta-box .btn-primary {
-  background-color: #0284c7 !important;
+  background-color: #0369a1 !important;
   color: #ffffff !important;
   font-weight: 700;
 }
 
 .sourcing-cta-box a.btn:hover,
 .sourcing-cta-box .btn-primary:hover {
-  background-color: #0369a1 !important;
+  background-color: #075985 !important;
   color: #ffffff !important;
 }
 
@@ -945,7 +945,7 @@ img {
   padding: 0.62rem 1.05rem;
   border-radius: 0.5rem;
   border: none;
-  background: #0284c7;
+  background: #0369a1;
   color: #ffffff;
   font-size: 0.84rem;
   font-weight: 800;
@@ -954,7 +954,7 @@ img {
   flex-shrink: 0;
 }
 .inline-qrfq-btn:hover {
-  background: #0369a1;
+  background: #075985;
 }
 .inline-qrfq-status {
   width: 100%;
@@ -1054,7 +1054,7 @@ img {
 }
 .proactive-sheet-card .proactive-sheet-btn {
   width: 100%;
-  background: #0284c7;
+  background: #0369a1;
   color: #ffffff;
   border: none;
   border-radius: 0.5rem;
@@ -1064,7 +1064,7 @@ img {
   cursor: pointer;
 }
 .proactive-sheet-card .proactive-sheet-btn:hover {
-  background: #0369a1;
+  background: #075985;
 }
 @media (max-width: 640px) {
   .proactive-sheet-card {

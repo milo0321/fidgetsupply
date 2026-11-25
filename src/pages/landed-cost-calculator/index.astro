@@ -111,6 +111,16 @@ const appSchema = {
   url: `https://fidgetsupply.com${getLocalizedPath('/landed-cost-calculator', currentLang)}`,
   description: 'Interactive factory EXW cost, permanent 50W fiber laser branding, packaging MOQ, and retail gross margin estimator for 140 ready-mold metal fidgets.'
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
+    { '@type': 'ListItem', position: 2, name: 'Wholesale Matrix', item: `https://fidgetsupply.com${getLocalizedPath('/wholesale-catalog', currentLang)}` },
+    { '@type': 'ListItem', position: 3, name: 'Cost Calculator', item: `https://fidgetsupply.com${getLocalizedPath('/landed-cost-calculator', currentLang)}` }
+  ]
+};
 ---
 
 <Layout
@@ -118,7 +128,7 @@ const appSchema = {
   description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
   ogImage="/images/insights/zinc-vs-cnc-metallurgy-hero.webp"
   activePage="wholesale-catalog"
-  jsonLd={[appSchema, faqSchema]}
+  jsonLd={[appSchema, faqSchema, breadcrumbSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">
@@ -477,9 +487,9 @@ const appSchema = {
   }
   .qty-pill.active,
   .qty-pill:hover {
-    background: #0284c7;
+    background: #0369a1;
     color: #ffffff;
-    border-color: #0284c7;
+    border-color: #0369a1;
   }
   .calc-alert {
     padding: 0.75rem 1rem;

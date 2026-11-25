@@ -117,6 +117,16 @@ const serviceSchema = {
   provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
   description: 'Custom promotional fidget spinners, sliders, and branded metal swag with 50W fiber laser engraving (+$0.15/pc) across 28 flat-surface ready molds ($0 tooling fee, MOQ 100).'
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
+    { '@type': 'ListItem', position: 2, name: t('nav.customLogo'), item: `https://fidgetsupply.com${getLocalizedPath('/custom-branding', currentLang)}` },
+    { '@type': 'ListItem', position: 3, name: 'Promotional Swag', item: `https://fidgetsupply.com${getLocalizedPath('/promotional-fidget-toys', currentLang)}` }
+  ]
+};
 ---
 
 <Layout
@@ -124,7 +134,7 @@ const serviceSchema = {
   description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
   ogImage="/images/insights/custom-logo-spinners-sliders-hero.webp"
   activePage="custom-branding"
-  jsonLd={[serviceSchema, faqSchema]}
+  jsonLd={[serviceSchema, faqSchema, breadcrumbSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">

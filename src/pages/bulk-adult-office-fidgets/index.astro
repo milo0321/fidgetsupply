@@ -117,6 +117,16 @@ const serviceSchema = {
   provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
   description: 'Wholesale bulk metal fidget toys for adults, silent <35 dBA PTFE office sliders, spinner rings, and sensory EDC tools directly from 140 ready molds ($0.74+, MOQ 50).'
 };
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
+    { '@type': 'ListItem', position: 2, name: t('breadcrumb.allCatalog'), item: `https://fidgetsupply.com${getLocalizedPath('/products', currentLang)}` },
+    { '@type': 'ListItem', position: 3, name: 'Adult & Office Bulk', item: `https://fidgetsupply.com${getLocalizedPath('/bulk-adult-office-fidgets', currentLang)}` }
+  ]
+};
 ---
 
 <Layout
@@ -124,7 +134,7 @@ const serviceSchema = {
   description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
   ogImage="/images/insights/quiet-office-decibel-fidgets-hero.webp"
   activePage="products"
-  jsonLd={[serviceSchema, faqSchema]}
+  jsonLd={[serviceSchema, faqSchema, breadcrumbSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">
