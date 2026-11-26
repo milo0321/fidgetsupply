@@ -1108,7 +1108,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
     },
     fi: {
       title: 'PVD Pinnoitus vs. Anodisointi & Stonewash (MOQ 50)',
-      summary: 'PVD pinnoitus (tyhjiö-PVD), Type-III kova-anodisointi, stonewash & antiikkipatina 140 metallifidget-muotissa ($0 muottikulu, MOQ 50, maksullinen näyte).'
+      summary: 'PVD pinnoitus (tyhjiö-PVD), Type-III anodisointi & stonewash 140 muotissa ($0 muotti, MOQ 50, maksullinen 1 kpl näyte).'
     },
     pl: {
       title: 'Powłoka PVD, Twarde Anodowanie Typu III, Stonewash i Antyczna Patyna: Przewodnik Wykończeń Powierzchni EDC',
