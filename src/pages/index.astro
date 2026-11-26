@@ -151,6 +151,27 @@ const homeItemListSchema = {
   }))
 };
 
+const HOME_SEO_TITLE_MAP: Record<string, string> = {
+  en: 'Metal EDC Fidget Wholesale: 140 Ready Molds ($0.74+)',
+  de: 'Fidget Metall + Metal EDC Großhandel ($0.74+)',
+  fr: 'Fidget EDC Métal Grossiste: 140 Moules ($0.74+)',
+  nl: 'Metalen Fidget Spinner + EDC Groothandel ($0.74+)',
+  es: 'Fidget EDC Metal Mayorista: 140 Moldes ($0.74+)',
+  it: 'Fidget EDC Metallo Ingrosso: 140 Stampi ($0.74+)',
+  pt: 'Metal EDC Fidget Atacado: 140 Moldes ($0.74+)',
+  sv: 'Metal Fidget Toys + EDC Grossist: 140 Formar ($0.74+)',
+  da: 'Metal EDC Fidget Engros: 140 Færdige Forme ($0.74+)',
+  no: 'Metal EDC Fidget Engros: 140 Ferdige Former ($0.74+)',
+  fi: 'Metalliset EDC Fidgetit Tukku: 140 Muottia ($0.74+)',
+  pl: 'Metalowe Fidgety EDC Hurtownia: 140 Form ($0.74+)',
+  cs: 'Kovové EDC Fidgety Velkoobchod: 140 Forem ($0.74+)',
+  ru: 'Металлические EDC Фиджеты Опт: 140 Форм ($0.74+)',
+  ja: '金属製EDCフィジェット卸売・既製140金型 ($0.74+)',
+  ko: '메탈 EDC 피젯 토이 도매 · 기성 140금형 ($0.74+)',
+  id: 'Grosir Fidget EDC Logam: 140 Cetakan ($0.74+)',
+  ar: 'جملة فيدجت معدني EDC وسبينر: 140 قالباً ($0.74+)'
+};
+
 const HOME_META_DESC_MAP: Record<string, string> = {
   en: 'Metal EDC, EDC metal & heavy metal fidget wholesale: 140+ molds ($0.74–$470.77, $0 mold, MOQ 50, paid sample, 50W laser logo).',
   de: 'Fidget Metall, Metal EDC & Spinners Großhandel: 140+ Formen ($0.74–$470.77, $0 Werkzeug, MOQ 50, Muster kostenpflichtig, 50W-Laser).',
@@ -158,7 +179,7 @@ const HOME_META_DESC_MAP: Record<string, string> = {
   nl: 'Metalen fidget spinner, EDC-fidgets & Zamak spuitgieten groothandel: 140+ mallen ($0.74–$470.77, $0 matrijs, 1 st. sample, MOQ 50). 50W-laserlogo.',
   es: 'Mayorista de fidgets EDC metálicos y sliders (Precio $0.74–$470.77, $0 molde, MOQ 50 uds.): 140+ moldes listos y grabado láser 50W desde 100 uds.',
   it: 'Ingrosso fidget EDC in metallo, metal spinner e slider: 140+ stampi pronti ($0.74–$470.77, $0 costi stampo, MOQ 50 pz.). Logo laser 50W da 100 pz.',
-  pt: 'Atacadista de fidgets EDC metálicos e sliders (Cinza Cromo / PVD): 140+ moldes prontos ($0.74–$470.77, $0 molde, MOQ 50 un.). Laser 50W desde 100 un.',
+  pt: 'Metal EDC fidget e sliders metálicos no atacado: 140+ moldes prontos ($0.74–$470.77, $0 molde, MOQ 50 un.). Laser 50W desde 100 un.',
   sv: 'Metal fidget spinner, kullager fidget & metall-EDC-sliders grossist: 140+ formar ($0.74–$470.77, $0 verktyg, MOQ 50 st). 50W fiberlaserlogo.',
   da: 'Metal-EDC-fidgets, SKF/R188 spinners & sliders engros: 140+ færdige forme ($0.74–$470.77, $0 værktøjsgebyr, MOQ 50 stk.). Fiber laser gravering 50W.',
   no: 'Metall-EDC-fidgets & sliders engros: 140+ ferdige former ($0.74–$470.77, $0 verktøygebyr, MOQ 50 stk.). Fiberlaser gravering 50W fra 100 stk.',
@@ -174,7 +195,7 @@ const HOME_META_DESC_MAP: Record<string, string> = {
 ---
 
 <Layout
-  title={currentLang === 'en' ? 'Metal EDC Fidget Wholesale: 140 Ready Molds ($0.74+) | FidgetSupply' : `${t('home.hero.title')} ($0.74+) | FidgetSupply.com`}
+  title={HOME_SEO_TITLE_MAP[currentLang] || HOME_SEO_TITLE_MAP.en}
   description={HOME_META_DESC_MAP[currentLang] || t('home.hero.lead')}
   preloadImage="/images/hero-metal-edc-showcase.webp"
   activePage="home"

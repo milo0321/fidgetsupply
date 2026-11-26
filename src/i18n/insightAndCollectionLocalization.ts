@@ -165,8 +165,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: '片持ち音叉プロングと共鳴チャンバーが 2,800〜4,200 Hz の澄んだ金属音「チーン！」を生み出す仕組みと、音叉シリーズ全7モデル（FS-150・FS-129・FS-148等、金型代$0・MOQ 50個）の徹底比較。'
     },
     ko: {
-      title: '극성중공(극성 중공) 소리굽쇠·튜닝포크 피젯 슬라이더 7종 ($5.62+ · 1개 샘플)',
-      summary: '극성중공(극성 중공) 어쿠스틱 공명 챔버와 소리굽쇠(튜닝포크)가 2,800~4,200 Hz 금속 공명음을 내는 원리 — FS-150($10.19+), FS-129($22.29+), FS-148($42.46+) 등 7종 도매 가격 및 1개 샘플 가이드.'
+      title: '극성중공(극성 중공) 소리굽쇠 피젯 도매·공장 직거래 구매처 ($5.62+)',
+      summary: '극성중공(극성 중공) 소리굽쇠·튜닝포크 피젯 공장 직거래 구매처 — FS-150($10.19+), FS-129($22.29+), FS-148($42.46+) 7종 도매가, MOQ 50, 유료 샘플 안내.'
     },
     id: {
       title: 'Slider Fidget Garpu Tala Akustik: Rekayasa Ruang Resonansi & Panduan Grosir 2026–2027',
@@ -1108,7 +1108,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
     },
     fi: {
       title: 'PVD Pinnoitus vs. Anodisointi & Stonewash (MOQ 50)',
-      summary: 'PVD pinnoitus (tyhjiö-PVD), Type-III kova-anodisointi, stonewash & antiikkipatina 140 metallifidget-muotissa ($0 muottikulu, 1 kpl näyte OK, MOQ 50).'
+      summary: 'PVD pinnoitus (tyhjiö-PVD), Type-III kova-anodisointi, stonewash & antiikkipatina 140 metallifidget-muotissa ($0 muottikulu, MOQ 50, maksullinen näyte).'
     },
     pl: {
       title: 'Powłoka PVD, Twarde Anodowanie Typu III, Stonewash i Antyczna Patyna: Przewodnik Wykończeń Powierzchni EDC',

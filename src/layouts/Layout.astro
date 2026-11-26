@@ -69,10 +69,10 @@ function calibrateSeoTitle(raw: string, langCode: SupportedLanguage): string {
     return clean;
   }
 
-  // Strip redundant brand suffix on localized pages to save character budget
+  // Strip redundant brand suffix and non-price parenthetical notes on localized pages to save character budget
   clean = clean
     .replace(/\s*\|\s*FidgetSupply(\.com)?$/i, '')
-    .replace(/\s*\([^)]+\)$/, '')
+    .replace(/\s*\((?!\$)[^)]+\)$/, '')
     .replace(/\s&\s/g, ' + ')
     .trim();
 
@@ -91,10 +91,12 @@ function calibrateSeoTitle(raw: string, langCode: SupportedLanguage): string {
         }
       }
       clean = (acc || clean.slice(0, maxBase))
-        .replace(/[\s:,\-–—/+|&·]+$/, '')
-        .replace(/\s+(vs\.?|y|i|e|et|und|en|og|och|ja|против|dan|및)$/i, '');
+        .replace(/[\s:,\-–—/+|&·.]+$/, '')
+        .replace(/\s+(vs\.?|y|i|e|et|und|en|og|och|ja|против|dan|및|para|per|pour|für|voor|til|de|del|di|da|do|la|le|les|el|a|à)$/i, '')
+        .replace(/\s+(para|per|pour|de|del|di)$/i, '')
+        .replace(/[\s:,\-–—/+|&·.]+$/, '');
     } else {
-      clean = clean.slice(0, maxBase).replace(/[\s:,\-–—/+|&·、。]+$/, '');
+      clean = clean.slice(0, maxBase).replace(/[\s:,\-–—/+|&·、。.]+$/, '');
     }
   }
   let result = `${clean}${suffix}`;
