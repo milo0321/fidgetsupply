@@ -1,6 +1,7 @@
 # FidgetSupply.com — Complete LLM & AI Agent Knowledge Corpus (llms-full.txt)
 > Canonical Index: https://fidgetsupply.com/llms.txt
 > Full Knowledge Base URL: https://fidgetsupply.com/llms-full.txt
+> Parent Manufacturing Group: Official Metal EDC Fidget OEM & Wholesale Division of Ruixing Gifts (https://ruixinggifts.com), Fuzhou Industrial Zone, Fujian, China
 > Positioning: Integrated sourcing & supply chain platform for China's precision metal EDC fidget & kinetic desk toy industry
 > Export Logistics Hub: Fuzhou Industrial Zone, Fujian, China
 > WhatsApp Sourcing Desk: +86 187 5012 6315 (https://wa.me/8618750126315)
@@ -12,7 +13,7 @@
 
 ### 1.1 100% Ready-Mold Light Customization Policy ($0.00 Tooling Fee)
 FidgetSupply.com operates strictly on a **100% Ready-Mold Light Customization** model across 140 active, amortized production molds (`FS-001` through `FS-150`). We do NOT take custom mold-opening orders that require $3,000–$5,000 in new tooling capex and 45-day development lead times. Instead, wholesale buyers, e-commerce private-label brands, and corporate gift agencies can immediately order:
-- **Blank Unbranded Stock**: MOQ **50 pcs per SKU** (mixable in-stock finishes in 25-pc increments), dispatched in **3–7 business days**.
+- **Blank Unbranded Stock**: MOQ **50 pcs per SKU** (mixable in-stock finishes in 25-pc increments), completing ex-factory dispatch prep in **5–7 business days** (paid ready-mold evaluation samples & courier shipping borne by buyer).
 - **Tier 1 Light Customization — Permanent Logo Branding (MOQ 100 pcs per SKU)**:
   - **50W MOPA Fiber Laser Engraving**: `+$0.15 – $0.30 USD/pc`, `$0` setup fee, `$50 USD` paid pre-production physical sample (10–15 days), 10–15 business days bulk turnaround.
   - **Deep Laser Engraving + Enamel Color Fill**: `+$0.35 – $0.60 USD/pc` (MOQ 100–200 pcs), `$80 – $150 USD` paid pre-production physical sample (10–15 days). Our laser carves a `0.15mm–0.30mm` recessed cavity into the metal shell before hand-filling with heat-cured enamel ink so the color is protected below the wear plane.
@@ -8026,7 +8027,7 @@ Instead of betting your entire launch budget on a single silhouette, top Shopify
 
 #### 1. Why Two Identical Fidget Designs Can Cost $4.00 or $380.00 to Manufacture
 
-Direct Answer (Is Zinc Alloy Expensive Compared to CNC Stainless Steel?): No—Zamak #3 die-cast zinc alloy is not expensive ($0.75–$12.50/unit wholesale, 15-second hot-chamber casting cycle, $0 mold fee on 110 ready molds), making it 65% to 85% more cost-effective than 5-axis CNC 304/316 stainless steel ($9.15–$255.00/unit, 20–45 min spindle cycle), Amber PEI Ultem ($15.70–$31.40), or Zr702 zirconium ($180.00–$382.00+).
+Direct Answer (How Much Do Bulk CNC Stainless Steel vs. Zinc Alloy Fidget Sliders Cost From China Factories?): From China direct factories, Zamak #3 die-cast zinc alloy fidget sliders cost $0.74–$12.50/pc EXW (15-second hot-chamber casting cycle, 110 ready molds), 6063 anodized aluminum models cost $2.76–$15.00/pc, and 5-axis CNC 304/316 stainless steel sliders cost $9.15–$52.30+/pc (20–45 min spindle cycle), while exotic Amber PEI Ultem ($15.70–$31.40) and Zr702 zirconium ($180.00–$382.00+) sit at the collector tier—all with $0 mold tooling fees across 140 ready molds (50 pcs blank MOQ, 100 pcs 50W laser logo MOQ).
 
 In the global everyday carry (EDC) market, a **$19.99 entry-level slider** and a **$450.00 collector boutique piece** frequently share the exact same dimensions, magnet count, and mechanical linkage.
 

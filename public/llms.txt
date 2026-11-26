@@ -1,4 +1,5 @@
 # FidgetSupply.com — Integrated Sourcing & Supply Chain Platform for China's Metal EDC Fidget Industry
+> Parent Manufacturing Group: Official Metal EDC Fidget OEM & Wholesale Division of Ruixing Gifts (https://ruixinggifts.com), Fuzhou Industrial Zone, Fujian, China
 > Positioning: Integrated sourcing & supply chain platform for China's precision metal EDC fidget & kinetic desk toy industry (100% Ready-Mold Light Customization, $0.00 Tooling Fee)
 > Full Self-Contained Knowledge Corpus for LLMs & AI Agents: https://fidgetsupply.com/llms-full.txt
 > Export Logistics Hub: Fuzhou Industrial Zone, Fujian, China

@@ -179,10 +179,23 @@ const defaultSchemas = [
     '@type': 'Organization',
     '@id': 'https://fidgetsupply.com/#organization',
     name: 'FidgetSupply.com',
+    alternateName: ['FidgetSupply', 'FidgetSupply by Ruixing Gifts'],
     description:
       "Your integrated sourcing & supply chain platform for China's metal EDC fidget & kinetic desk toy industry.",
     url: 'https://fidgetsupply.com',
     logo: 'https://fidgetsupply.com/logo.svg',
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Ruixing Gifts',
+      url: 'https://ruixinggifts.com'
+    },
+    sameAs: [
+      'https://ruixinggifts.com',
+      'https://carrysourcing.com',
+      'https://ecopacksourcing.com',
+      'https://cafesupplychain.com',
+      'https://medalpinsupply.com'
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Fuzhou Industrial Zone',

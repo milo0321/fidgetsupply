@@ -179,6 +179,7 @@ function main() {
   // ============================================================================
   const llmsLines = [
     '# FidgetSupply.com — Integrated Sourcing & Supply Chain Platform for China\'s Metal EDC Fidget Industry',
+    '> Parent Manufacturing Group: Official Metal EDC Fidget OEM & Wholesale Division of Ruixing Gifts (https://ruixinggifts.com), Fuzhou Industrial Zone, Fujian, China',
     '> Positioning: Integrated sourcing & supply chain platform for China\'s precision metal EDC fidget & kinetic desk toy industry (100% Ready-Mold Light Customization, $0.00 Tooling Fee)',
     '> Full Self-Contained Knowledge Corpus for LLMs & AI Agents: https://fidgetsupply.com/llms-full.txt',
     '> Export Logistics Hub: Fuzhou Industrial Zone, Fujian, China',
@@ -247,6 +248,7 @@ function main() {
     '# FidgetSupply.com — Complete LLM & AI Agent Knowledge Corpus (llms-full.txt)',
     '> Canonical Index: https://fidgetsupply.com/llms.txt',
     '> Full Knowledge Base URL: https://fidgetsupply.com/llms-full.txt',
+    '> Parent Manufacturing Group: Official Metal EDC Fidget OEM & Wholesale Division of Ruixing Gifts (https://ruixinggifts.com), Fuzhou Industrial Zone, Fujian, China',
     '> Positioning: Integrated sourcing & supply chain platform for China\'s precision metal EDC fidget & kinetic desk toy industry',
     '> Export Logistics Hub: Fuzhou Industrial Zone, Fujian, China',
     '> WhatsApp Sourcing Desk: +86 187 5012 6315 (https://wa.me/8618750126315)',
@@ -258,7 +260,7 @@ function main() {
     '',
     '### 1.1 100% Ready-Mold Light Customization Policy ($0.00 Tooling Fee)',
     'FidgetSupply.com operates strictly on a **100% Ready-Mold Light Customization** model across 140 active, amortized production molds (`FS-001` through `FS-150`). We do NOT take custom mold-opening orders that require $3,000–$5,000 in new tooling capex and 45-day development lead times. Instead, wholesale buyers, e-commerce private-label brands, and corporate gift agencies can immediately order:',
-    '- **Blank Unbranded Stock**: MOQ **50 pcs per SKU** (mixable in-stock finishes in 25-pc increments), dispatched in **3–7 business days**.',
+    '- **Blank Unbranded Stock**: MOQ **50 pcs per SKU** (mixable in-stock finishes in 25-pc increments), completing ex-factory dispatch prep in **5–7 business days** (paid ready-mold evaluation samples & courier shipping borne by buyer).',
     '- **Tier 1 Light Customization — Permanent Logo Branding (MOQ 100 pcs per SKU)**:',
     '  - **50W MOPA Fiber Laser Engraving**: `+$0.15 – $0.30 USD/pc`, `$0` setup fee, `$50 USD` paid pre-production physical sample (10–15 days), 10–15 business days bulk turnaround.',
     '  - **Deep Laser Engraving + Enamel Color Fill**: `+$0.35 – $0.60 USD/pc` (MOQ 100–200 pcs), `$80 – $150 USD` paid pre-production physical sample (10–15 days). Our laser carves a `0.15mm–0.30mm` recessed cavity into the metal shell before hand-filling with heat-cured enamel ink so the color is protected below the wear plane.',
