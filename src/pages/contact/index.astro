@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import { getLanguageFromURL, getLocalizedPath, useTranslations } from '../../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
 import { localizeTitle } from '../../i18n/productLocalization';
 import { getLocalizedPageFaqs } from '../../i18n/pageContentLocalization';
 
 const currentLang = getLanguageFromURL(Astro.url.pathname);
 const t = useTranslations(currentLang);
+const microHooks = getMicroHookLabels(currentLang);
 const allProducts = (await getCollection('products')).sort((a, b) => a.data.rowId - b.data.rowId);
 const turnstileSiteKey = (
   import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ||
@@ -352,6 +353,42 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
                     <option value={`${p.data.skuDisplay} — ${localizeTitle(p.data.title, currentLang)}`} />
                   ))}
                 </datalist>
+
+                <div
+                  id="rfqLineItemsBox"
+                  class="rfq-line-box"
+                  data-total-label={microHooks.totalLabel}
+                  data-pcs-label={t('unit.pcs')}
+                >
+                  <div id="rfqLineItemsList" class="rfq-line-list" hidden></div>
+                  <div id="rfqLineItemsSummary" class="rfq-line-summary" hidden></div>
+                  <div id="rfqAddSkuBar" class="rfq-add-bar">
+                    <select id="rfqAddSkuSelect" class="rfq-add-select" aria-label={microHooks.addSkuPlaceholder}>
+                      <option value="">{microHooks.addSkuPlaceholder}</option>
+                      {allProducts.map((p) => (
+                        <option
+                          value={p.data.skuDisplay}
+                          data-title={localizeTitle(p.data.title, currentLang)}
+                          data-price={p.data.tier500 || p.data.tier50 || ''}
+                        >
+                          {`${p.data.skuDisplay} — ${localizeTitle(p.data.title, currentLang)}`}
+                        </option>
+                      ))}
+                    </select>
+                    <input
+                      type="number"
+                      id="rfqAddSkuQty"
+                      class="rfq-add-qty"
+                      min="1"
+                      step="1"
+                      value="50"
+                      aria-label={t('contact.quantity')}
+                    />
+                    <button type="button" id="rfqAddSkuBtn" class="rfq-add-btn">
+                      {microHooks.addSkuBtn}
+                    </button>
+                  </div>
+                </div>
 
                 <div class="quick-product-pills" role="group" aria-label="Popular categories">
                   <span class="pills-label">{t('contact.quickSelect')}</span>
@@ -788,21 +825,294 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
           localStorage.removeItem('fs_rfq_prefill');
         }
       }
+      var RFQ_STORAGE_KEY = 'fs_quote_shortlist';
+      var RFQ_QTY_TIERS = [1, 50, 100, 200, 500, 1000];
+      var rfqLineBox = document.getElementById('rfqLineItemsBox');
+      var rfqLineListEl = document.getElementById('rfqLineItemsList');
+      var rfqLineSummaryEl = document.getElementById('rfqLineItemsSummary');
+      var rfqAddSelect = document.getElementById('rfqAddSkuSelect');
+      var rfqAddQtyInput = document.getElementById('rfqAddSkuQty');
+      var rfqAddBtn = document.getElementById('rfqAddSkuBtn');
+      var rfqTotalLabel = (rfqLineBox && rfqLineBox.getAttribute('data-total-label')) || 'Total';
+      var rfqPcsLabel = (rfqLineBox && rfqLineBox.getAttribute('data-pcs-label')) || 'pcs';
+      var lastSyncedProductStr = '';
+      var rfqLineItems = [];
+
+      function normalizeRfqQty(val) {
+        var n = parseInt(String(val || '').replace(/,/g, ''), 10);
+        return !isNaN(n) && n >= 1 ? Math.min(n, 999999) : 50;
+      }
+
+      function stepRfqQty(curr, dir) {
+        var q = normalizeRfqQty(curr);
+        if (dir > 0) {
+          for (var i = 0; i < RFQ_QTY_TIERS.length; i++) {
+            if (RFQ_QTY_TIERS[i] > q) return RFQ_QTY_TIERS[i];
+          }
+          return q + 500;
+        }
+        for (var j = RFQ_QTY_TIERS.length - 1; j >= 0; j--) {
+          if (RFQ_QTY_TIERS[j] < q) return RFQ_QTY_TIERS[j];
+        }
+        return 1;
+      }
+
+      function lookupCatalogMeta(sku) {
+        if (!rfqAddSelect) return { title: '', price: '' };
+        for (var i = 0; i < rfqAddSelect.options.length; i++) {
+          var opt = rfqAddSelect.options[i];
+          if (opt.value === sku) {
+            return {
+              title: opt.getAttribute('data-title') || '',
+              price: opt.getAttribute('data-price') || ''
+            };
+          }
+        }
+        return { title: '', price: '' };
+      }
+
+      function saveRfqLineItems() {
+        try {
+          if (rfqLineItems.length > 0) {
+            localStorage.setItem(RFQ_STORAGE_KEY, JSON.stringify(rfqLineItems.slice(0, 12)));
+          } else {
+            localStorage.removeItem(RFQ_STORAGE_KEY);
+          }
+        } catch (_) {}
+      }
+
+      function syncQuantitySelectBucket(totalPcs) {
+        var qSelect = document.getElementById('estimatedQuantity');
+        if (!qSelect || !totalPcs || totalPcs < 1) return;
+        var targetVal = totalPcs === 1
+          ? 'Sample / Prototype'
+          : totalPcs >= 2000 ? '2,000+' : totalPcs >= 500 ? '500 - 1,999' : totalPcs >= 200 ? '200 - 499' : totalPcs >= 100 ? '100 - 199' : '50 - 99';
+        for (var j = 0; j < qSelect.options.length; j++) {
+          if (qSelect.options[j].value.indexOf(targetVal) !== -1) {
+            qSelect.selectedIndex = j;
+            break;
+          }
+        }
+      }
+
+      function renderRfqLineItems() {
+        if (!rfqLineListEl || !rfqLineSummaryEl) return;
+        if (rfqLineItems.length === 0) {
+          rfqLineListEl.hidden = true;
+          rfqLineListEl.innerHTML = '';
+          rfqLineSummaryEl.hidden = true;
+          rfqLineSummaryEl.textContent = '';
+          if (productInput && productInput.value === lastSyncedProductStr) {
+            productInput.value = '';
+          }
+          lastSyncedProductStr = '';
+          return;
+        }
+
+        rfqLineListEl.hidden = false;
+        rfqLineSummaryEl.hidden = false;
+        rfqLineListEl.innerHTML = '';
+        var totalPcs = 0;
+
+        rfqLineItems.forEach(function (it) {
+          totalPcs += normalizeRfqQty(it.qty);
+          var row = document.createElement('div');
+          row.className = 'rfq-line-row';
+
+          var info = document.createElement('div');
+          info.className = 'rfq-line-info';
+
+          var skuSpan = document.createElement('span');
+          skuSpan.className = 'rfq-line-sku';
+          skuSpan.textContent = it.sku;
+          info.appendChild(skuSpan);
+
+          if (it.title) {
+            var titleSpan = document.createElement('span');
+            titleSpan.className = 'rfq-line-title';
+            titleSpan.textContent = it.title;
+            titleSpan.title = it.title;
+            info.appendChild(titleSpan);
+          }
+
+          if (it.price) {
+            var priceSpan = document.createElement('span');
+            priceSpan.className = 'rfq-line-price';
+            priceSpan.textContent = '$' + it.price + '+';
+            info.appendChild(priceSpan);
+          }
+          row.appendChild(info);
+
+          var ctrls = document.createElement('div');
+          ctrls.className = 'rfq-line-controls';
+
+          var minusBtn = document.createElement('button');
+          minusBtn.type = 'button';
+          minusBtn.className = 'rfq-line-qty-btn';
+          minusBtn.setAttribute('data-rfq-step-sku', it.sku);
+          minusBtn.setAttribute('data-rfq-step-dir', '-1');
+          minusBtn.setAttribute('aria-label', 'Decrease ' + it.sku + ' quantity');
+          minusBtn.textContent = '−';
+
+          var qInput = document.createElement('input');
+          qInput.type = 'number';
+          qInput.min = '1';
+          qInput.step = '1';
+          qInput.className = 'rfq-line-qty-input';
+          qInput.setAttribute('data-rfq-input-sku', it.sku);
+          qInput.setAttribute('aria-label', it.sku + ' quantity');
+          qInput.value = String(it.qty);
+
+          var plusBtn = document.createElement('button');
+          plusBtn.type = 'button';
+          plusBtn.className = 'rfq-line-qty-btn';
+          plusBtn.setAttribute('data-rfq-step-sku', it.sku);
+          plusBtn.setAttribute('data-rfq-step-dir', '1');
+          plusBtn.setAttribute('aria-label', 'Increase ' + it.sku + ' quantity');
+          plusBtn.textContent = '+';
+
+          var delBtn = document.createElement('button');
+          delBtn.type = 'button';
+          delBtn.className = 'rfq-line-del-btn';
+          delBtn.setAttribute('data-rfq-del-sku', it.sku);
+          delBtn.setAttribute('aria-label', 'Remove ' + it.sku);
+          delBtn.textContent = '×';
+
+          ctrls.appendChild(minusBtn);
+          ctrls.appendChild(qInput);
+          ctrls.appendChild(plusBtn);
+          ctrls.appendChild(delBtn);
+          row.appendChild(ctrls);
+          rfqLineListEl.appendChild(row);
+        });
+
+        rfqLineSummaryEl.textContent = rfqTotalLabel + ': ' + rfqLineItems.length + ' SKUs · ' + totalPcs.toLocaleString() + ' ' + rfqPcsLabel;
+        var summaryStr = rfqLineItems.map(function (it) { return it.sku + ' (' + it.qty + ' ' + rfqPcsLabel + ')'; }).join(', ');
+        if (productInput && (!productInput.value.trim() || productInput.value === lastSyncedProductStr)) {
+          productInput.value = summaryStr;
+          lastSyncedProductStr = summaryStr;
+        }
+        syncQuantitySelectBucket(totalPcs);
+      }
+
+      function addOrUpdateRfqLineItem(sku, qty) {
+        if (!sku) return;
+        var cleanSku = String(sku).trim();
+        var cleanQty = normalizeRfqQty(qty);
+        var meta = lookupCatalogMeta(cleanSku);
+        var existingIdx = -1;
+        for (var i = 0; i < rfqLineItems.length; i++) {
+          if (rfqLineItems[i].sku === cleanSku) { existingIdx = i; break; }
+        }
+        if (existingIdx >= 0) {
+          rfqLineItems[existingIdx].qty = cleanQty;
+        } else {
+          rfqLineItems.push({
+            sku: cleanSku,
+            title: meta.title.slice(0, 60),
+            price: meta.price,
+            qty: cleanQty
+          });
+        }
+        saveRfqLineItems();
+        renderRfqLineItems();
+      }
+
       var slItems = [];
       try {
-        slItems = JSON.parse(localStorage.getItem('fs_quote_shortlist') || '[]');
+        slItems = JSON.parse(localStorage.getItem(RFQ_STORAGE_KEY) || '[]');
         if (!Array.isArray(slItems)) slItems = [];
       } catch (_) { slItems = []; }
-      if (!skuParam && slItems.length > 0) {
-        skuParam = slItems.map(function (it) { return it.sku; }).join(', ');
+
+      if (slItems.length > 0) {
+        rfqLineItems = slItems
+          .filter(function (it) { return it && it.sku; })
+          .map(function (it) {
+            var meta = lookupCatalogMeta(String(it.sku));
+            return {
+              sku: String(it.sku),
+              title: (it.title ? String(it.title) : meta.title).slice(0, 60),
+              price: it.price ? String(it.price) : meta.price,
+              qty: normalizeRfqQty(it.qty)
+            };
+          });
+      } else if (skuParam) {
+        var matchedSkus = String(skuParam).match(/FS-\d+/gi) || [];
+        matchedSkus.forEach(function (code) {
+          var upper = code.toUpperCase();
+          var meta = lookupCatalogMeta(upper);
+          if (meta.title || matchedSkus.length === 1) {
+            var exists = rfqLineItems.some(function (it) { return it.sku === upper; });
+            if (!exists) {
+              rfqLineItems.push({
+                sku: upper,
+                title: meta.title.slice(0, 60),
+                price: meta.price,
+                qty: normalizeRfqQty(qtyParam)
+              });
+            }
+          }
+        });
       }
-      if (skuParam && productInput && !productInput.value) {
+
+      if (skuParam && productInput && !productInput.value && rfqLineItems.length === 0) {
         productInput.value = skuParam;
       }
-      var detailsBox = document.getElementById('inquiryDetails');
-      if (slItems.length > 0 && detailsBox && !detailsBox.value) {
-        detailsBox.value = 'Mixed Wholesale / Paid 1-Pc Evaluation Sample Shortlist (' + slItems.length + ' models):\n' +
-          slItems.map(function (it) { return '- ' + it.sku + (it.title ? ' (' + it.title + ')' : '') + (it.price ? ' [$' + it.price + '+ EXW]' : ''); }).join('\n');
+      if (rfqLineItems.length > 0) {
+        renderRfqLineItems();
+      }
+
+      if (rfqAddBtn && rfqAddSelect) {
+        rfqAddBtn.addEventListener('click', function () {
+          var chosenSku = rfqAddSelect.value;
+          if (!chosenSku) {
+            rfqAddSelect.focus();
+            return;
+          }
+          addOrUpdateRfqLineItem(chosenSku, rfqAddQtyInput ? rfqAddQtyInput.value : 50);
+          rfqAddSelect.value = '';
+          if (rfqAddQtyInput) rfqAddQtyInput.value = '50';
+        });
+      }
+
+      if (rfqLineListEl) {
+        rfqLineListEl.addEventListener('click', function (e) {
+          var stepBtn = e.target && e.target.closest ? e.target.closest('.rfq-line-qty-btn') : null;
+          if (stepBtn) {
+            var sSku = stepBtn.getAttribute('data-rfq-step-sku') || '';
+            var dir = parseInt(stepBtn.getAttribute('data-rfq-step-dir') || '1', 10);
+            for (var i = 0; i < rfqLineItems.length; i++) {
+              if (rfqLineItems[i].sku === sSku) {
+                rfqLineItems[i].qty = stepRfqQty(rfqLineItems[i].qty, dir);
+                break;
+              }
+            }
+            saveRfqLineItems();
+            renderRfqLineItems();
+            return;
+          }
+          var delBtn = e.target && e.target.closest ? e.target.closest('.rfq-line-del-btn') : null;
+          if (delBtn) {
+            var dSku = delBtn.getAttribute('data-rfq-del-sku') || '';
+            rfqLineItems = rfqLineItems.filter(function (it) { return it.sku !== dSku; });
+            saveRfqLineItems();
+            renderRfqLineItems();
+          }
+        });
+
+        rfqLineListEl.addEventListener('change', function (e) {
+          var qIn = e.target && e.target.classList && e.target.classList.contains('rfq-line-qty-input') ? e.target : null;
+          if (!qIn) return;
+          var iSku = qIn.getAttribute('data-rfq-input-sku') || '';
+          for (var i = 0; i < rfqLineItems.length; i++) {
+            if (rfqLineItems[i].sku === iSku) {
+              rfqLineItems[i].qty = normalizeRfqQty(qIn.value);
+              break;
+            }
+          }
+          saveRfqLineItems();
+          renderRfqLineItems();
+        });
       }
       if (modeParam && brandingSelect) {
         for (var i = 0; i < brandingSelect.options.length; i++) {
@@ -886,6 +1196,15 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
       });
     });
 
+    function formatLineItemsBreakdown() {
+      if (!rfqLineItems || rfqLineItems.length === 0) return '';
+      var totalPcs = rfqLineItems.reduce(function (sum, it) { return sum + normalizeRfqQty(it.qty); }, 0);
+      return 'Line Items (' + rfqLineItems.length + ' SKUs, Total: ' + totalPcs + ' pcs):\n' +
+        rfqLineItems.map(function (it) {
+          return '- ' + it.sku + (it.title ? ' (' + it.title + ')' : '') + ' — ' + normalizeRfqQty(it.qty) + ' pcs' + (it.price ? ' [$' + it.price + '+ EXW]' : '');
+        }).join('\n');
+    }
+
     function buildInquiryMessage() {
       var name = (document.getElementById('fullName')?.value || '').trim();
       var email = (document.getElementById('workEmail')?.value || '').trim();
@@ -896,11 +1215,13 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
       var mode = document.getElementById('brandingMode')?.value || '';
       var details = (document.getElementById('inquiryDetails')?.value || '').trim();
       var hasAttached = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0].name : '';
+      var breakdown = formatLineItemsBreakdown();
 
       return [
         'Hello FidgetSupply Sourcing Desk,',
         '',
         '• Target Product / SKU(s): ' + (products || 'Wholesale Metal EDC Fidgets'),
+        breakdown ? '• ' + breakdown : null,
         '• Estimated Quantity: ' + (qty || '100 - 199 pcs'),
         '• Customization Mode: ' + (mode || 'Custom Logo'),
         '• Contact Name: ' + (name || 'Buyer') + (company ? ' (' + company + ')' : ''),
@@ -930,6 +1251,12 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
       if (statusMsg) statusMsg.classList.add('hidden');
 
       var formData = new FormData(form);
+      if (rfqLineItems && rfqLineItems.length > 0) {
+        formData.set('lineItemsJson', JSON.stringify(rfqLineItems));
+        var breakdownStr = formatLineItemsBreakdown();
+        var rawNotes = (document.getElementById('inquiryDetails')?.value || '').trim();
+        formData.set('inquiryDetails', rawNotes ? breakdownStr + '\n\nNotes:\n' + rawNotes : breakdownStr);
+      }
       var attachedFile = fileInput && fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
       if (attachedFile && attachedFile.size > MAX_FILE_SIZE) {
         if (fileErrorMsg) {
@@ -1030,6 +1357,8 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
           if (progressFill) progressFill.style.width = '100%';
           if (progressPercent) progressPercent.textContent = '100%';
           try { localStorage.removeItem('fs_quote_shortlist'); } catch (_) {}
+          rfqLineItems = [];
+          renderRfqLineItems();
           if (typeof window.gtag === 'function') {
             window.gtag('event', 'generate_lead', {
               event_category: 'form_submission',

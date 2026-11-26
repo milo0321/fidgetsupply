@@ -320,6 +320,8 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       <aside
         id="quote-shortlist-bar"
         class="quote-shortlist-bar"
+        data-total-label={microHooks.totalLabel}
+        data-pcs-label={t('unit.pcs')}
         hidden
         aria-live="polite"
       >
@@ -327,10 +329,11 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           <div class="shortlist-title">
             <span class="shortlist-count-pill" id="shortlist-count">0</span>
             <span>{microHooks.shortlistTitle}</span>
+            <span class="shortlist-total-pcs" id="shortlist-total-pcs"></span>
           </div>
           <button type="button" class="shortlist-clear-btn" id="shortlist-clear-btn">{microHooks.shortlistClear}</button>
         </div>
-        <div class="shortlist-chips" id="shortlist-chips"></div>
+        <div class="shortlist-items" id="shortlist-items"></div>
         <div class="shortlist-actions">
           <a
             id="shortlist-quote-link"
@@ -1071,17 +1074,50 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
       // Multi-SKU Wholesale & Paid Sample Quote Shortlist Controller
       (function () {
         var STORAGE_KEY = 'fs_quote_shortlist';
+        var QTY_TIERS = [1, 50, 100, 200, 500, 1000];
         var bar = document.getElementById('quote-shortlist-bar');
         var countEl = document.getElementById('shortlist-count');
-        var chipsEl = document.getElementById('shortlist-chips');
+        var totalPcsEl = document.getElementById('shortlist-total-pcs');
+        var itemsEl = document.getElementById('shortlist-items');
         var quoteLink = document.getElementById('shortlist-quote-link');
         var waLink = document.getElementById('shortlist-wa-link');
         var clearBtn = document.getElementById('shortlist-clear-btn');
+        var totalLabel = (bar && bar.getAttribute('data-total-label')) || 'Total';
+        var pcsLabel = (bar && bar.getAttribute('data-pcs-label')) || 'pcs';
+
+        function normalizeQty(val) {
+          var n = parseInt(String(val || '').replace(/,/g, ''), 10);
+          return !isNaN(n) && n >= 1 ? Math.min(n, 999999) : 50;
+        }
+
+        function stepShortlistQty(curr, dir) {
+          var q = normalizeQty(curr);
+          if (dir > 0) {
+            for (var i = 0; i < QTY_TIERS.length; i++) {
+              if (QTY_TIERS[i] > q) return QTY_TIERS[i];
+            }
+            return q + 500;
+          }
+          for (var j = QTY_TIERS.length - 1; j >= 0; j--) {
+            if (QTY_TIERS[j] < q) return QTY_TIERS[j];
+          }
+          return 1;
+        }
 
         function readList() {
           try {
             var arr = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-            return Array.isArray(arr) ? arr : [];
+            if (!Array.isArray(arr)) return [];
+            return arr
+              .filter(function (it) { return it && it.sku; })
+              .map(function (it) {
+                return {
+                  sku: String(it.sku),
+                  title: it.title ? String(it.title).slice(0, 60) : '',
+                  price: it.price ? String(it.price) : '',
+                  qty: normalizeQty(it.qty)
+                };
+              });
           } catch (_) {
             return [];
           }
@@ -1095,7 +1131,7 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
         function syncShortlistUI() {
           var list = readList();
           var skuSet = {};
-          list.forEach(function (it) { if (it && it.sku) skuSet[it.sku] = true; });
+          list.forEach(function (it) { skuSet[it.sku] = true; });
 
           document.querySelectorAll('.shortlist-toggle-btn').forEach(function (btn) {
             var sku = btn.getAttribute('data-shortlist-sku') || '';
@@ -1106,7 +1142,7 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             if (label) btn.textContent = label;
           });
 
-          if (!bar || !countEl || !chipsEl) return;
+          if (!bar || !countEl || !itemsEl) return;
           if (list.length === 0) {
             bar.hidden = true;
             return;
@@ -1114,33 +1150,103 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           var pCard = document.getElementById('proactive-sheet-card');
           if (pCard) pCard.hidden = true;
 
+          var totalPcs = list.reduce(function (sum, it) { return sum + normalizeQty(it.qty); }, 0);
           bar.hidden = false;
           countEl.textContent = String(list.length);
-          chipsEl.innerHTML = '';
+          if (totalPcsEl) {
+            totalPcsEl.textContent = '· ' + totalLabel + ': ' + totalPcs.toLocaleString() + ' ' + pcsLabel;
+          }
+
+          itemsEl.innerHTML = '';
           list.forEach(function (it) {
-            var chip = document.createElement('span');
-            chip.className = 'shortlist-chip';
-            var txt = document.createTextNode(it.sku + (it.price ? ' ($' + it.price + '+)' : '') + ' ');
-            chip.appendChild(txt);
+            var row = document.createElement('div');
+            row.className = 'shortlist-item-row';
+
+            var meta = document.createElement('div');
+            meta.className = 'shortlist-item-meta';
+            if (it.title) meta.title = it.title;
+            var skuStrong = document.createElement('strong');
+            skuStrong.textContent = it.sku;
+            meta.appendChild(skuStrong);
+            if (it.price) {
+              var priceSpan = document.createElement('span');
+              priceSpan.className = 'shortlist-item-price';
+              priceSpan.textContent = '$' + it.price + '+';
+              meta.appendChild(priceSpan);
+            }
+            row.appendChild(meta);
+
+            var stepper = document.createElement('div');
+            stepper.className = 'shortlist-stepper';
+
+            var minusBtn = document.createElement('button');
+            minusBtn.type = 'button';
+            minusBtn.className = 'shortlist-qty-btn';
+            minusBtn.setAttribute('data-qty-sku', it.sku);
+            minusBtn.setAttribute('data-qty-dir', '-1');
+            minusBtn.setAttribute('aria-label', 'Decrease ' + it.sku + ' quantity');
+            minusBtn.textContent = '−';
+
+            var qtyInput = document.createElement('input');
+            qtyInput.type = 'number';
+            qtyInput.min = '1';
+            qtyInput.step = '1';
+            qtyInput.className = 'shortlist-qty-input';
+            qtyInput.setAttribute('data-qty-input-sku', it.sku);
+            qtyInput.setAttribute('aria-label', it.sku + ' quantity');
+            qtyInput.value = String(it.qty);
+
+            var plusBtn = document.createElement('button');
+            plusBtn.type = 'button';
+            plusBtn.className = 'shortlist-qty-btn';
+            plusBtn.setAttribute('data-qty-sku', it.sku);
+            plusBtn.setAttribute('data-qty-dir', '1');
+            plusBtn.setAttribute('aria-label', 'Increase ' + it.sku + ' quantity');
+            plusBtn.textContent = '+';
+
             var rm = document.createElement('button');
             rm.type = 'button';
             rm.className = 'shortlist-chip-remove';
             rm.setAttribute('data-remove-sku', it.sku);
             rm.setAttribute('aria-label', 'Remove ' + it.sku);
             rm.textContent = '×';
-            chip.appendChild(rm);
-            chipsEl.appendChild(chip);
+
+            stepper.appendChild(minusBtn);
+            stepper.appendChild(qtyInput);
+            stepper.appendChild(plusBtn);
+            stepper.appendChild(rm);
+            row.appendChild(stepper);
+            itemsEl.appendChild(row);
           });
 
-          var skuCsv = list.map(function (it) { return it.sku; }).join(', ');
+          var skuQtySummary = list.map(function (it) { return it.sku + ' x' + it.qty; }).join(', ');
           if (quoteLink) {
-            quoteLink.setAttribute('data-rfq-sku', skuCsv);
+            quoteLink.setAttribute('data-rfq-sku', skuQtySummary);
+            quoteLink.setAttribute('data-rfq-qty', String(totalPcs));
           }
           if (waLink) {
-            var waMsg = 'Hello FidgetSupply, I would like a mixed wholesale quote & paid 1-pc evaluation sample pricing for these selected SKUs: ' + skuCsv + '.';
+            var waMsg = 'Hello FidgetSupply, I would like a mixed wholesale quote for these selected SKUs (' +
+              list.length + ' models, Total: ' + totalPcs + ' pcs): ' + skuQtySummary + '.';
             waLink.setAttribute('href', 'https://wa.me/8618750126315?text=' + encodeURIComponent(waMsg));
           }
         }
+
+        window.syncPdpShortlistQty = function (sku, qty) {
+          if (!sku) return;
+          var list = readList();
+          var changed = false;
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].sku === sku) {
+              list[i].qty = normalizeQty(qty);
+              changed = true;
+              break;
+            }
+          }
+          if (changed) {
+            saveList(list);
+            syncShortlistUI();
+          }
+        };
 
         document.addEventListener('click', function (e) {
           var toggleBtn = e.target && e.target.closest ? e.target.closest('.shortlist-toggle-btn') : null;
@@ -1154,14 +1260,16 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             var list = readList();
             var idx = -1;
             for (var i = 0; i < list.length; i++) {
-              if (list[i] && list[i].sku === sku) { idx = i; break; }
+              if (list[i].sku === sku) { idx = i; break; }
             }
             var action = 'add';
             if (idx >= 0) {
               list.splice(idx, 1);
               action = 'remove';
             } else {
-              list.push({ sku: sku, title: title.slice(0, 60), price: price });
+              var calcQtyEl = document.getElementById('calc-qty-display');
+              var initQty = calcQtyEl ? normalizeQty(calcQtyEl.textContent) : 50;
+              list.push({ sku: sku, title: title.slice(0, 60), price: price, qty: initQty });
             }
             saveList(list);
             syncShortlistUI();
@@ -1179,14 +1287,45 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             return;
           }
 
+          var qtyStepBtn = e.target && e.target.closest ? e.target.closest('.shortlist-qty-btn') : null;
+          if (qtyStepBtn) {
+            var qSku = qtyStepBtn.getAttribute('data-qty-sku') || '';
+            var dir = parseInt(qtyStepBtn.getAttribute('data-qty-dir') || '1', 10);
+            var list = readList();
+            for (var j = 0; j < list.length; j++) {
+              if (list[j].sku === qSku) {
+                list[j].qty = stepShortlistQty(list[j].qty, dir);
+                break;
+              }
+            }
+            saveList(list);
+            syncShortlistUI();
+            return;
+          }
+
           var rmBtn = e.target && e.target.closest ? e.target.closest('.shortlist-chip-remove') : null;
           if (rmBtn) {
             var rmSku = rmBtn.getAttribute('data-remove-sku') || '';
-            var filtered = readList().filter(function (it) { return it && it.sku !== rmSku; });
+            var filtered = readList().filter(function (it) { return it.sku !== rmSku; });
             saveList(filtered);
             syncShortlistUI();
             return;
           }
+        });
+
+        document.addEventListener('change', function (e) {
+          var qtyIn = e.target && e.target.classList && e.target.classList.contains('shortlist-qty-input') ? e.target : null;
+          if (!qtyIn) return;
+          var sku = qtyIn.getAttribute('data-qty-input-sku') || '';
+          var list = readList();
+          for (var i = 0; i < list.length; i++) {
+            if (list[i].sku === sku) {
+              list[i].qty = normalizeQty(qtyIn.value);
+              break;
+            }
+          }
+          saveList(list);
+          syncShortlistUI();
         });
 
         if (clearBtn) {

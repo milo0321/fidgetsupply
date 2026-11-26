@@ -95,6 +95,9 @@ export interface ShortlistFilterLabels {
   shortlistClear: string;
   tagMagnetFree: string;
   tagSilentOffice: string;
+  addSkuPlaceholder: string;
+  addSkuBtn: string;
+  totalLabel: string;
 }
 
 export interface MicroHookLabels extends ShortlistFilterLabels {
@@ -369,7 +372,36 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, BaseMicroHookLabels> = {
   }
 };
 
-const SHORTLIST_FILTER_MAP: Record<SupportedLanguage, ShortlistFilterLabels> = {
+interface ShortlistControlLabels {
+  addSkuPlaceholder: string;
+  addSkuBtn: string;
+  totalLabel: string;
+}
+
+const SHORTLIST_CONTROLS_MAP: Record<SupportedLanguage, ShortlistControlLabels> = {
+  en: { addSkuPlaceholder: '+ Select SKU to add...', addSkuBtn: '+ Add', totalLabel: 'Total' },
+  de: { addSkuPlaceholder: '+ SKU hinzufügen...', addSkuBtn: '+ Hinzu', totalLabel: 'Gesamt' },
+  fr: { addSkuPlaceholder: '+ Ajouter un SKU...', addSkuBtn: '+ Ajouter', totalLabel: 'Total' },
+  nl: { addSkuPlaceholder: '+ SKU toevoegen...', addSkuBtn: '+ Toevoegen', totalLabel: 'Totaal' },
+  es: { addSkuPlaceholder: '+ Añadir SKU...', addSkuBtn: '+ Añadir', totalLabel: 'Total' },
+  it: { addSkuPlaceholder: '+ Aggiungi SKU...', addSkuBtn: '+ Aggiungi', totalLabel: 'Totale' },
+  pt: { addSkuPlaceholder: '+ Adicionar SKU...', addSkuBtn: '+ Adicionar', totalLabel: 'Total' },
+  sv: { addSkuPlaceholder: '+ Lägg till SKU...', addSkuBtn: '+ Lägg till', totalLabel: 'Totalt' },
+  da: { addSkuPlaceholder: '+ Tilføj SKU...', addSkuBtn: '+ Tilføj', totalLabel: 'I alt' },
+  no: { addSkuPlaceholder: '+ Legg til SKU...', addSkuBtn: '+ Legg til', totalLabel: 'Totalt' },
+  fi: { addSkuPlaceholder: '+ Lisää SKU...', addSkuBtn: '+ Lisää', totalLabel: 'Yhteensä' },
+  pl: { addSkuPlaceholder: '+ Dodaj SKU...', addSkuBtn: '+ Dodaj', totalLabel: 'Razem' },
+  cs: { addSkuPlaceholder: '+ Přidat SKU...', addSkuBtn: '+ Přidat', totalLabel: 'Celkem' },
+  ru: { addSkuPlaceholder: '+ Добавить SKU...', addSkuBtn: '+ Добавить', totalLabel: 'Итого' },
+  ja: { addSkuPlaceholder: '+ 型番を追加...', addSkuBtn: '+ 追加', totalLabel: '合計' },
+  ko: { addSkuPlaceholder: '+ SKU 추가...', addSkuBtn: '+ 추가', totalLabel: '합계' },
+  id: { addSkuPlaceholder: '+ Tambah SKU...', addSkuBtn: '+ Tambah', totalLabel: 'Total' },
+  ar: { addSkuPlaceholder: '+ إضافة رمز SKU...', addSkuBtn: '+ إضافة', totalLabel: 'الإجمالي' }
+};
+
+type BaseShortlistFilterLabels = Omit<ShortlistFilterLabels, keyof ShortlistControlLabels>;
+
+const SHORTLIST_FILTER_MAP: Record<SupportedLanguage, BaseShortlistFilterLabels> = {
   en: {
     addShortlist: '+ Quote List',
     inShortlist: '✓ Added',
@@ -537,5 +569,6 @@ const SHORTLIST_FILTER_MAP: Record<SupportedLanguage, ShortlistFilterLabels> = {
 export function getMicroHookLabels(lang: SupportedLanguage = defaultLang): MicroHookLabels {
   const base = MICRO_HOOK_MAP[lang] || MICRO_HOOK_MAP.en;
   const extra = SHORTLIST_FILTER_MAP[lang] || SHORTLIST_FILTER_MAP.en;
-  return { ...base, ...extra };
+  const controls = SHORTLIST_CONTROLS_MAP[lang] || SHORTLIST_CONTROLS_MAP.en;
+  return { ...base, ...extra, ...controls };
 }

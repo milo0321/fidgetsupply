@@ -766,6 +766,9 @@ const breadcrumbSchema = {
         qtyChips.forEach((c) => c.classList.remove('active'));
         chip.classList.add('active');
         updateRfqHref();
+        if (typeof window.syncPdpShortlistQty === 'function') {
+          window.syncPdpShortlistQty(currentSku, currentQty);
+        }
       });
     });
 
