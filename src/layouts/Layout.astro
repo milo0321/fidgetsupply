@@ -656,6 +656,9 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
 
         var rfqTarget = e.target.closest('a[href*="/contact"]');
         if (rfqTarget) {
+          try {
+            sessionStorage.setItem('fs_rfq_scroll_to_form', '1');
+          } catch (_) {}
           var rfqSku = rfqTarget.getAttribute('data-rfq-sku') || '';
           var rfqMode = rfqTarget.getAttribute('data-rfq-mode') || '';
           var rfqTopic = rfqTarget.getAttribute('data-rfq-topic') || '';
@@ -1130,16 +1133,28 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
 
         function syncShortlistUI() {
           var list = readList();
-          var skuSet = {};
-          list.forEach(function (it) { skuSet[it.sku] = true; });
+          var skuQtyMap = {};
+          list.forEach(function (it) { skuQtyMap[it.sku] = normalizeQty(it.qty); });
 
           document.querySelectorAll('.shortlist-toggle-btn').forEach(function (btn) {
             var sku = btn.getAttribute('data-shortlist-sku') || '';
-            var active = !!skuSet[sku];
+            var active = Object.prototype.hasOwnProperty.call(skuQtyMap, sku);
             btn.classList.toggle('is-selected', active);
             btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-            var label = active ? btn.getAttribute('data-label-added') : btn.getAttribute('data-label-add');
-            if (label) btn.textContent = label;
+            var labelAdd = btn.getAttribute('data-label-add');
+            var labelAdded = btn.getAttribute('data-label-added');
+            if (active && labelAdded) {
+              btn.textContent = labelAdded + ' (' + skuQtyMap[sku] + ')';
+            } else if (labelAdd) {
+              btn.textContent = labelAdd;
+            }
+            var cardEl = btn.closest ? btn.closest('.product-card') : null;
+            if (cardEl) cardEl.classList.toggle('is-in-shortlist', active);
+          });
+
+          document.querySelectorAll('[data-shortlist-nav-badge]').forEach(function (badge) {
+            badge.textContent = String(list.length);
+            badge.hidden = list.length === 0;
           });
 
           if (!bar || !countEl || !itemsEl) return;
@@ -1273,6 +1288,12 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             }
             saveList(list);
             syncShortlistUI();
+            if (action === 'add' && bar) {
+              bar.classList.remove('shortlist-bar-bump');
+              void bar.offsetWidth;
+              bar.classList.add('shortlist-bar-bump');
+              setTimeout(function () { bar.classList.remove('shortlist-bar-bump'); }, 500);
+            }
             try {
               if (typeof window.gtag === 'function') {
                 window.gtag('event', 'shortlist_toggle', {

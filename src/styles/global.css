@@ -1391,6 +1391,22 @@ img {
     grid-template-columns: minmax(0, 1fr) 68px auto;
   }
 }
+@keyframes shortlistBump {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  40% { transform: translate3d(0, -6px, 0) scale(1.02); box-shadow: 0 20px 44px rgba(2, 132, 199, 0.45); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+.shortlist-bar-bump {
+  animation: shortlistBump 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  border-color: #38bdf8 !important;
+}
+.rfq-line-box {
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.rfq-line-box-pulse {
+  border-color: #0284c7 !important;
+  box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.25);
+}
 .shortlist-actions {
   display: grid;
   grid-template-columns: 1.3fr 1fr;

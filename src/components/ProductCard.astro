@@ -152,6 +152,10 @@ const isSilentOffice =
     border-color: #0284c7;
     box-shadow: 0 14px 30px rgba(15, 23, 42, 0.11);
   }
+  .product-card.is-in-shortlist {
+    border-color: #059669;
+    box-shadow: 0 8px 22px rgba(5, 150, 105, 0.14);
+  }
   .card-img-wrap {
     position: relative;
     aspect-ratio: 4 / 3;
@@ -322,7 +326,8 @@ const isSilentOffice =
     justify-content: space-between;
     align-items: center;
     gap: 0.4rem;
-    padding-top: 0.35rem;
+    padding-top: 0.5rem;
+    margin-top: 0.45rem;
     border-top: 1px dashed #e2e8f0;
   }
   .card-micro-link {
@@ -339,28 +344,31 @@ const isSilentOffice =
     color: #0284c7;
   }
   .shortlist-toggle-btn {
-    background: #f1f5f9;
-    border: 1px solid #cbd5e1;
-    border-radius: 0.35rem;
-    padding: 0.18rem 0.5rem;
+    background: #eff6ff;
+    border: 1.5px solid #0284c7;
+    border-radius: 0.42rem;
+    padding: 0.34rem 0.68rem;
+    font-size: 0.76rem;
+    font-weight: 800;
     cursor: pointer;
-    color: #0f172a;
+    color: #0369a1;
     font-family: inherit;
     transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
   .shortlist-toggle-btn:hover {
-    background: #e0f2fe;
-    border-color: #0284c7;
-    color: #0369a1;
-    text-decoration: none;
-  }
-  .shortlist-toggle-btn.is-selected {
     background: #0284c7;
     border-color: #0284c7;
     color: #ffffff;
+    text-decoration: none;
+  }
+  .shortlist-toggle-btn.is-selected {
+    background: #059669;
+    border-color: #047857;
+    color: #ffffff;
   }
   .shortlist-toggle-btn.is-selected:hover {
-    background: #0369a1;
+    background: #047857;
+    border-color: #047857;
     color: #ffffff;
   }
 </style>

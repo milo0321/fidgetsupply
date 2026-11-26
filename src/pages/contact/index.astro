@@ -114,38 +114,15 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
   activePage="contact"
   jsonLd={[contactPageSchema, faqSchema]}
 >
-  <section class="grand-hero">
-    <div class="container grand-hero-centered">
+  <section class="contact-compact-hero">
+    <div class="container contact-compact-inner">
       <nav class="hero-breadcrumb" aria-label="Breadcrumb">
         <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
         <span class="bc-sep">/</span>
         <span class="bc-current">{t('nav.contact')}</span>
       </nav>
-
-      <div class="hero-badges-row">
-        <span class="badge badge-dark">{t('contact.badge')}</span>
-        <span class="badge badge-gold">{t('home.hero.badge2')}</span>
-      </div>
-
-      <h1 class="grand-hero-title">{t('contact.title')}</h1>
-      <p class="grand-hero-lead">
-        {t('contact.subtitle')}
-      </p>
-
-      <div class="hero-glass-grid cols-3" style="margin-bottom: 0;">
-        <div class="glass-kpi-card">
-          <span class="glass-kpi-label">{t('contact.stat1')}</span>
-          <strong class="glass-kpi-val">140+ Molds</strong>
-        </div>
-        <div class="glass-kpi-card">
-          <span class="glass-kpi-label">{t('contact.stat2')}</span>
-          <strong class="glass-kpi-val">50 / 100 {t('unit.pcs')}</strong>
-        </div>
-        <div class="glass-kpi-card">
-          <span class="glass-kpi-label">{t('contact.stat3')}</span>
-          <strong class="glass-kpi-val">&lt; 12 Hours</strong>
-        </div>
-      </div>
+      <h1 class="contact-compact-title">{t('contact.title')}</h1>
+      <p class="contact-compact-sub">{t('contact.subtitle')}</p>
     </div>
   </section>
 
@@ -227,7 +204,7 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
       </div>
 
       <!-- RIGHT PANEL: Primary Quote Submission Form -->
-      <div class="contact-form-panel">
+      <div class="contact-form-panel" id="rfq-form">
         <div class="contact-card">
           <div id="formFieldsContainer">
             <h3 class="form-title">{t('contact.formTitle')}</h3>
@@ -1062,6 +1039,35 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
         renderRfqLineItems();
       }
 
+      var shouldJumpToForm = false;
+      try {
+        if (sessionStorage.getItem('fs_rfq_scroll_to_form') === '1') {
+          shouldJumpToForm = true;
+          sessionStorage.removeItem('fs_rfq_scroll_to_form');
+        }
+      } catch (_) {}
+      if (window.location.hash === '#rfq-form' || rfqLineItems.length > 0 || Boolean(skuParam)) {
+        shouldJumpToForm = true;
+      }
+      if (shouldJumpToForm) {
+        var rfqPanelEl = document.getElementById('rfq-form');
+        if (rfqPanelEl) {
+          setTimeout(function () {
+            rfqPanelEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (rfqLineBox && rfqLineItems.length > 0) {
+              rfqLineBox.classList.add('rfq-line-box-pulse');
+              setTimeout(function () { rfqLineBox.classList.remove('rfq-line-box-pulse'); }, 1500);
+            }
+            if (window.innerWidth >= 768) {
+              var fnEl = document.getElementById('fullName');
+              if (fnEl && !fnEl.value) {
+                try { fnEl.focus({ preventScroll: true }); } catch (_) {}
+              }
+            }
+          }, 80);
+        }
+      }
+
       if (rfqAddBtn && rfqAddSelect) {
         rfqAddBtn.addEventListener('click', function () {
           var chosenSku = rfqAddSelect.value;
@@ -1507,9 +1513,34 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
 </script>
 
 <style>
+  .contact-compact-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background-color: #0f172a;
+    color: #ffffff;
+    padding: 1.35rem 0 1.5rem;
+    border-bottom: 1px solid #334155;
+  }
+  .contact-compact-inner {
+    max-width: 1240px;
+  }
+  .contact-compact-title {
+    color: #ffffff;
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0.35rem 0 0.3rem;
+  }
+  .contact-compact-sub {
+    color: #cbd5e1;
+    font-size: 0.94rem;
+    line-height: 1.45;
+    margin: 0;
+    max-width: 780px;
+  }
+
   .contact-page-wrapper {
     background-color: #f8fafc;
-    padding: 3.5rem 1.5rem 5rem;
+    padding: 1.5rem 1.5rem 4rem;
   }
 
   .text-center {
@@ -1777,6 +1808,7 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
     flex-direction: column;
     justify-content: center;
     background: #ffffff;
+    scroll-margin-top: 84px;
   }
 
   .form-title {
@@ -2408,7 +2440,7 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
   /* RESPONSIVE BREAKPOINTS */
   @media (max-width: 1024px) {
     .contact-card-container {
-      flex-direction: column;
+      flex-direction: column-reverse;
       border-radius: 20px;
     }
     .contact-info-panel,
@@ -2420,7 +2452,7 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
 
   @media (max-width: 640px) {
     .contact-page-wrapper {
-      padding: 2rem 1.25rem 3rem;
+      padding: 1.25rem 1.25rem 3rem;
     }
     .page-title {
       font-size: 1.65rem;
