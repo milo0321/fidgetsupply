@@ -87,7 +87,17 @@ export function getLanguageMetadata(lang: SupportedLanguage) {
   return languages[lang] || languages[defaultLang];
 }
 
-export interface MicroHookLabels {
+export interface ShortlistFilterLabels {
+  addShortlist: string;
+  inShortlist: string;
+  shortlistTitle: string;
+  shortlistQuoteBtn: string;
+  shortlistClear: string;
+  tagMagnetFree: string;
+  tagSilentOffice: string;
+}
+
+export interface MicroHookLabels extends ShortlistFilterLabels {
   sample1Pc: string;
   freeLogoProof: string;
   sheet140: string;
@@ -102,7 +112,9 @@ export interface MicroHookLabels {
   pdpSentConfirm: string;
 }
 
-const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
+type BaseMicroHookLabels = Omit<MicroHookLabels, keyof ShortlistFilterLabels>;
+
+const MICRO_HOOK_MAP: Record<SupportedLanguage, BaseMicroHookLabels> = {
   en: {
     sample1Pc: '📦 1-Pc Sample',
     freeLogoProof: 'Free Logo Proof',
@@ -357,6 +369,173 @@ const MICRO_HOOK_MAP: Record<SupportedLanguage, MicroHookLabels> = {
   }
 };
 
+const SHORTLIST_FILTER_MAP: Record<SupportedLanguage, ShortlistFilterLabels> = {
+  en: {
+    addShortlist: '+ Quote List',
+    inShortlist: '✓ Added',
+    shortlistTitle: 'Quote Shortlist',
+    shortlistQuoteBtn: 'Quote Selected →',
+    shortlistClear: 'Clear',
+    tagMagnetFree: '🧲 Magnet-Free / CPSC Exempt',
+    tagSilentOffice: '🔇 Silent Office (<35 dBA)'
+  },
+  de: {
+    addShortlist: '+ Merkliste',
+    inShortlist: '✓ Gewählt',
+    shortlistTitle: 'Anfrageliste',
+    shortlistQuoteBtn: 'Auswahl anfragen →',
+    shortlistClear: 'Leeren',
+    tagMagnetFree: '🧲 Magnetfrei / CPSC-befreit',
+    tagSilentOffice: '🔇 Leise für Büro (<35 dBA)'
+  },
+  fr: {
+    addShortlist: '+ Liste Devis',
+    inShortlist: '✓ Ajouté',
+    shortlistTitle: 'Sélection Devis',
+    shortlistQuoteBtn: 'Demander Devis →',
+    shortlistClear: 'Vider',
+    tagMagnetFree: '🧲 Sans Aimant (Mécanique)',
+    tagSilentOffice: '🔇 Silencieux Bureau (<35 dBA)'
+  },
+  nl: {
+    addShortlist: '+ Offertelijst',
+    inShortlist: '✓ Toegevoegd',
+    shortlistTitle: 'Geselecteerde Modellen',
+    shortlistQuoteBtn: 'Selectie Aanvragen →',
+    shortlistClear: 'Wissen',
+    tagMagnetFree: '🧲 Magneetvrij (Mechanisch)',
+    tagSilentOffice: '🔇 Stil voor Kantoor (<35 dBA)'
+  },
+  es: {
+    addShortlist: '+ Lista',
+    inShortlist: '✓ Añadido',
+    shortlistTitle: 'Lista de Cotización',
+    shortlistQuoteBtn: 'Cotizar Selección →',
+    shortlistClear: 'Limpiar',
+    tagMagnetFree: '🧲 Sin Imanes (Mecánico)',
+    tagSilentOffice: '🔇 Silencioso Oficina (<35 dBA)'
+  },
+  it: {
+    addShortlist: '+ Lista',
+    inShortlist: '✓ Aggiunto',
+    shortlistTitle: 'Lista Preventivo',
+    shortlistQuoteBtn: 'Richiedi Selezione →',
+    shortlistClear: 'Svuota',
+    tagMagnetFree: '🧲 Senza Magneti (Meccanico)',
+    tagSilentOffice: '🔇 Silenzioso Ufficio (<35 dBA)'
+  },
+  pt: {
+    addShortlist: '+ Lista',
+    inShortlist: '✓ Adicionado',
+    shortlistTitle: 'Lista de Cotação',
+    shortlistQuoteBtn: 'Cotar Seleção →',
+    shortlistClear: 'Limpar',
+    tagMagnetFree: '🧲 Sem Ímãs (Mecânico)',
+    tagSilentOffice: '🔇 Silencioso Escritório (<35 dBA)'
+  },
+  sv: {
+    addShortlist: '+ Offertlista',
+    inShortlist: '✓ Tillagd',
+    shortlistTitle: 'Valda Modeller',
+    shortlistQuoteBtn: 'Begär Offert →',
+    shortlistClear: 'Rensa',
+    tagMagnetFree: '🧲 Magnetfri (Mekanisk)',
+    tagSilentOffice: '🔇 Tyst Kontor (<35 dBA)'
+  },
+  da: {
+    addShortlist: '+ Tilbudsliste',
+    inShortlist: '✓ Tilføjet',
+    shortlistTitle: 'Valgte Modeller',
+    shortlistQuoteBtn: 'Få Tilbud på Valgte →',
+    shortlistClear: 'Ryd',
+    tagMagnetFree: '🧲 Magnetfri (Mekanisk)',
+    tagSilentOffice: '🔇 Stille Kontor (<35 dBA)'
+  },
+  no: {
+    addShortlist: '+ Tilbudsliste',
+    inShortlist: '✓ Lagt til',
+    shortlistTitle: 'Valgte Modeller',
+    shortlistQuoteBtn: 'Be om Tilbud →',
+    shortlistClear: 'Tøm',
+    tagMagnetFree: '🧲 Magnetfri (Mekanisk)',
+    tagSilentOffice: '🔇 Stille Kontor (<35 dBA)'
+  },
+  fi: {
+    addShortlist: '+ Tarjouslistaan',
+    inShortlist: '✓ Lisätty',
+    shortlistTitle: 'Valitut Mallit',
+    shortlistQuoteBtn: 'Pyydä Tarjous →',
+    shortlistClear: 'Tyhjennä',
+    tagMagnetFree: '🧲 Magneetiton (Mekaaninen)',
+    tagSilentOffice: '🔇 Hiljainen Toimisto (<35 dBA)'
+  },
+  pl: {
+    addShortlist: '+ Do Wyceny',
+    inShortlist: '✓ Dodano',
+    shortlistTitle: 'Lista do Wyceny',
+    shortlistQuoteBtn: 'Wyceń Wybrane →',
+    shortlistClear: 'Wyczyść',
+    tagMagnetFree: '🧲 Bez Magnesów (Mechaniczny)',
+    tagSilentOffice: '🔇 Cichy do Biura (<35 dBA)'
+  },
+  cs: {
+    addShortlist: '+ Do Poptávky',
+    inShortlist: '✓ Přidáno',
+    shortlistTitle: 'Vybrané Modely',
+    shortlistQuoteBtn: 'Poptat Výběr →',
+    shortlistClear: 'Vymazat',
+    tagMagnetFree: '🧲 Bez Magnetů (Mechanický)',
+    tagSilentOffice: '🔇 Tichý do Kanceláře (<35 dBA)'
+  },
+  ru: {
+    addShortlist: '+ В запрос',
+    inShortlist: '✓ Добавлено',
+    shortlistTitle: 'Список для расчета',
+    shortlistQuoteBtn: 'Запросить выбранные →',
+    shortlistClear: 'Очистить',
+    tagMagnetFree: '🧲 Без магнитов (Механика)',
+    tagSilentOffice: '🔇 Тихий для офиса (<35 дБА)'
+  },
+  ja: {
+    addShortlist: '+ 見積リスト',
+    inShortlist: '✓ 追加済',
+    shortlistTitle: '選択済みモデル',
+    shortlistQuoteBtn: '選択分を見積依頼 →',
+    shortlistClear: 'クリア',
+    tagMagnetFree: '🧲 非磁性・磁石なし (純機械式)',
+    tagSilentOffice: '🔇 オフィス静音 (<35 dBA)'
+  },
+  ko: {
+    addShortlist: '+ 견적함',
+    inShortlist: '✓ 담김',
+    shortlistTitle: '선택한 모델',
+    shortlistQuoteBtn: '선택 모델 견적 요청 →',
+    shortlistClear: '비우기',
+    tagMagnetFree: '🧲 무자석 / 비자성 순수 기계식',
+    tagSilentOffice: '🔇 무소음 사무실용 (<35 dBA)'
+  },
+  id: {
+    addShortlist: '+ Daftar RFQ',
+    inShortlist: '✓ Ditambahkan',
+    shortlistTitle: 'Model Terpilih',
+    shortlistQuoteBtn: 'Minta Penawaran →',
+    shortlistClear: 'Hapus',
+    tagMagnetFree: '🧲 Bebas Magnet (Mekanik)',
+    tagSilentOffice: '🔇 Senyap Kantor (<35 dBA)'
+  },
+  ar: {
+    addShortlist: '+ لقائمة السعر',
+    inShortlist: '✓ تمت الإضافة',
+    shortlistTitle: 'النماذج المختارة',
+    shortlistQuoteBtn: 'طلب عرض أسعار →',
+    shortlistClear: 'مسح',
+    tagMagnetFree: '🧲 بدون مغناطيس (ميكانيكي)',
+    tagSilentOffice: '🔇 صامت للمكتب (<35 dBA)'
+  }
+};
+
 export function getMicroHookLabels(lang: SupportedLanguage = defaultLang): MicroHookLabels {
-  return MICRO_HOOK_MAP[lang] || MICRO_HOOK_MAP.en;
+  const base = MICRO_HOOK_MAP[lang] || MICRO_HOOK_MAP.en;
+  const extra = SHORTLIST_FILTER_MAP[lang] || SHORTLIST_FILTER_MAP.en;
+  return { ...base, ...extra };
 }

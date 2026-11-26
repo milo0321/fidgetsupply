@@ -1075,4 +1075,131 @@ img {
   }
 }
 
+.quote-shortlist-bar[hidden] {
+  display: none !important;
+}
+.quote-shortlist-bar {
+  position: fixed;
+  left: 1.25rem;
+  bottom: 1.25rem;
+  width: min(410px, calc(100vw - 5.5rem));
+  z-index: 992;
+  background: #0f172a;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  border-radius: 0.85rem;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 16px 38px rgba(2, 6, 23, 0.48);
+  transform: translateZ(0);
+  color: #ffffff;
+}
+.shortlist-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+.shortlist-title {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+.shortlist-count-pill {
+  display: inline-block;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.1rem 0.48rem;
+  border-radius: 999px;
+  margin-right: 0.35rem;
+}
+.shortlist-clear-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.15rem 0.35rem;
+}
+.shortlist-clear-btn:hover {
+  color: #f87171;
+}
+.shortlist-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  max-height: 82px;
+  overflow-y: auto;
+  margin-bottom: 0.65rem;
+}
+.shortlist-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  border-radius: 999px;
+  padding: 0.18rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+.shortlist-chip-remove {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 0;
+}
+.shortlist-chip-remove:hover {
+  color: #f87171;
+}
+.shortlist-actions {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 0.5rem;
+}
+.shortlist-btn-primary,
+.shortlist-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.shortlist-btn-primary {
+  background: #0284c7;
+  color: #ffffff;
+}
+.shortlist-btn-primary:hover {
+  background: #0369a1;
+  color: #ffffff;
+}
+.shortlist-btn-wa {
+  background: #059669;
+  color: #ffffff;
+}
+.shortlist-btn-wa:hover {
+  background: #047857;
+  color: #ffffff;
+}
+@media (max-width: 640px) {
+  .quote-shortlist-bar {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 5rem;
+    width: auto;
+  }
+}
+
+
 

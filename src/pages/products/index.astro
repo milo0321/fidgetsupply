@@ -232,6 +232,8 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
             <option value="logo">{t('catalog.tagLogo')}</option>
             <option value="tuning">{t('catalog.tagTuning')}</option>
             <option value="cnc">{t('catalog.tagCnc')}</option>
+            <option value="magnet-free">{microHooks.tagMagnetFree}</option>
+            <option value="silent">{microHooks.tagSilentOffice}</option>
           </select>
         </div>
 
@@ -353,6 +355,8 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
         const cLogo = card.dataset.logo === 'true';
         const cTuning = card.dataset.tuning === 'true';
         const cCnc = card.dataset.cnc === 'true';
+        const cMagFree = card.dataset.magnetFree === 'true';
+        const cSilent = card.dataset.silent === 'true';
         const cPrice = parseFloat(card.dataset.price || '0');
         const cWeight = parseFloat(card.dataset.weight || '75');
 
@@ -363,6 +367,8 @@ const CATALOG_META_DESC_MAP: Record<string, string> = {
           if (tag === 'logo' && !cLogo) match = false;
           if (tag === 'tuning' && !cTuning) match = false;
           if (tag === 'cnc' && !cCnc) match = false;
+          if (tag === 'magnet-free' && !cMagFree) match = false;
+          if (tag === 'silent' && !cSilent) match = false;
         }
         if (match && mat !== 'all') {
           if (mat === 'zinc' && !cMat.includes('zinc')) match = false;

@@ -2,7 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppWidget from '../components/WhatsAppWidget.astro';
-import { getLanguageFromURL, getDirection, getHreflangTags, useTranslations, getMicroHookLabels } from '../i18n/utils';
+import { getLanguageFromURL, getLocalizedPath, getDirection, getHreflangTags, useTranslations, getMicroHookLabels } from '../i18n/utils';
 import { languages, type SupportedLanguage } from '../i18n/config';
 import '../styles/global.css';
 import '../styles/rtl.css';
@@ -313,6 +313,45 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           </div>
           <div class="inline-qrfq-status" hidden>{microHooks.pdpSentConfirm}</div>
         </form>
+      </aside>
+    )}
+
+    {activePage !== 'contact' && (
+      <aside
+        id="quote-shortlist-bar"
+        class="quote-shortlist-bar"
+        hidden
+        aria-live="polite"
+      >
+        <div class="shortlist-head">
+          <div class="shortlist-title">
+            <span class="shortlist-count-pill" id="shortlist-count">0</span>
+            <span>{microHooks.shortlistTitle}</span>
+          </div>
+          <button type="button" class="shortlist-clear-btn" id="shortlist-clear-btn">{microHooks.shortlistClear}</button>
+        </div>
+        <div class="shortlist-chips" id="shortlist-chips"></div>
+        <div class="shortlist-actions">
+          <a
+            id="shortlist-quote-link"
+            href={getLocalizedPath('/contact', currentLang)}
+            data-rfq-sku=""
+            data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+            data-rfq-qty="50"
+            class="shortlist-btn-primary"
+          >
+            {microHooks.shortlistQuoteBtn}
+          </a>
+          <a
+            id="shortlist-wa-link"
+            href={waUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="shortlist-btn-wa"
+          >
+            💬 WhatsApp
+          </a>
+        </div>
       </aside>
     )}
 
@@ -979,6 +1018,10 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
         function showProactive(reason) {
           if (triggered) return;
           try {
+            var curSl = JSON.parse(localStorage.getItem('fs_quote_shortlist') || '[]');
+            if (Array.isArray(curSl) && curSl.length > 0) return;
+          } catch (_) {}
+          try {
             if (sessionStorage.getItem(shownKey) === '1' || localStorage.getItem('rx_user_email')) return;
             sessionStorage.setItem(shownKey, '1');
           } catch (_) {}
@@ -1023,6 +1066,141 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             showProactive('desktop_exit_intent');
           }
         });
+      })();
+
+      // Multi-SKU Wholesale & Paid Sample Quote Shortlist Controller
+      (function () {
+        var STORAGE_KEY = 'fs_quote_shortlist';
+        var bar = document.getElementById('quote-shortlist-bar');
+        var countEl = document.getElementById('shortlist-count');
+        var chipsEl = document.getElementById('shortlist-chips');
+        var quoteLink = document.getElementById('shortlist-quote-link');
+        var waLink = document.getElementById('shortlist-wa-link');
+        var clearBtn = document.getElementById('shortlist-clear-btn');
+
+        function readList() {
+          try {
+            var arr = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            return Array.isArray(arr) ? arr : [];
+          } catch (_) {
+            return [];
+          }
+        }
+        function saveList(list) {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(list.slice(0, 12)));
+          } catch (_) {}
+        }
+
+        function syncShortlistUI() {
+          var list = readList();
+          var skuSet = {};
+          list.forEach(function (it) { if (it && it.sku) skuSet[it.sku] = true; });
+
+          document.querySelectorAll('.shortlist-toggle-btn').forEach(function (btn) {
+            var sku = btn.getAttribute('data-shortlist-sku') || '';
+            var active = !!skuSet[sku];
+            btn.classList.toggle('is-selected', active);
+            btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+            var label = active ? btn.getAttribute('data-label-added') : btn.getAttribute('data-label-add');
+            if (label) btn.textContent = label;
+          });
+
+          if (!bar || !countEl || !chipsEl) return;
+          if (list.length === 0) {
+            bar.hidden = true;
+            return;
+          }
+          var pCard = document.getElementById('proactive-sheet-card');
+          if (pCard) pCard.hidden = true;
+
+          bar.hidden = false;
+          countEl.textContent = String(list.length);
+          chipsEl.innerHTML = '';
+          list.forEach(function (it) {
+            var chip = document.createElement('span');
+            chip.className = 'shortlist-chip';
+            var txt = document.createTextNode(it.sku + (it.price ? ' ($' + it.price + '+)' : '') + ' ');
+            chip.appendChild(txt);
+            var rm = document.createElement('button');
+            rm.type = 'button';
+            rm.className = 'shortlist-chip-remove';
+            rm.setAttribute('data-remove-sku', it.sku);
+            rm.setAttribute('aria-label', 'Remove ' + it.sku);
+            rm.textContent = '×';
+            chip.appendChild(rm);
+            chipsEl.appendChild(chip);
+          });
+
+          var skuCsv = list.map(function (it) { return it.sku; }).join(', ');
+          if (quoteLink) {
+            quoteLink.setAttribute('data-rfq-sku', skuCsv);
+          }
+          if (waLink) {
+            var waMsg = 'Hello FidgetSupply, I would like a mixed wholesale quote & paid 1-pc evaluation sample pricing for these selected SKUs: ' + skuCsv + '.';
+            waLink.setAttribute('href', 'https://wa.me/8618750126315?text=' + encodeURIComponent(waMsg));
+          }
+        }
+
+        document.addEventListener('click', function (e) {
+          var toggleBtn = e.target && e.target.closest ? e.target.closest('.shortlist-toggle-btn') : null;
+          if (toggleBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            var sku = toggleBtn.getAttribute('data-shortlist-sku') || '';
+            if (!sku) return;
+            var title = toggleBtn.getAttribute('data-shortlist-title') || '';
+            var price = toggleBtn.getAttribute('data-shortlist-price') || '';
+            var list = readList();
+            var idx = -1;
+            for (var i = 0; i < list.length; i++) {
+              if (list[i] && list[i].sku === sku) { idx = i; break; }
+            }
+            var action = 'add';
+            if (idx >= 0) {
+              list.splice(idx, 1);
+              action = 'remove';
+            } else {
+              list.push({ sku: sku, title: title.slice(0, 60), price: price });
+            }
+            saveList(list);
+            syncShortlistUI();
+            try {
+              if (typeof window.gtag === 'function') {
+                window.gtag('event', 'shortlist_toggle', {
+                  event_category: 'conversion_intent',
+                  action: action,
+                  sku: sku,
+                  list_size: list.length,
+                  source_path: window.location.pathname
+                });
+              }
+            } catch (_) {}
+            return;
+          }
+
+          var rmBtn = e.target && e.target.closest ? e.target.closest('.shortlist-chip-remove') : null;
+          if (rmBtn) {
+            var rmSku = rmBtn.getAttribute('data-remove-sku') || '';
+            var filtered = readList().filter(function (it) { return it && it.sku !== rmSku; });
+            saveList(filtered);
+            syncShortlistUI();
+            return;
+          }
+        });
+
+        if (clearBtn) {
+          clearBtn.addEventListener('click', function () {
+            saveList([]);
+            syncShortlistUI();
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', syncShortlistUI);
+        } else {
+          syncShortlistUI();
+        }
       })();
     </script>
   </body>

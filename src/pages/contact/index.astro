@@ -51,11 +51,11 @@ const contactFaqs = [
   },
   {
     question: 'What international shipping and delivery options do you offer?',
-    answer: 'From our Export Logistics Hub in <strong>Fuzhou Industrial Zone, Fujian, China</strong>, we arrange <strong>Door-to-Door (DDP) duty-paid delivery</strong> as well as standard air express (DHL/FedEx/UPS in 5–7 days), air cargo, and sea/rail freight worldwide.'
+    answer: 'From our Export Logistics Hub in <strong>Fuzhou Industrial Zone, Fujian, China</strong>, blank orders complete factory dispatch prep in <strong>5–7 business days</strong> and custom laser orders complete production in <strong>10–15 business days</strong>. We arrange <strong>Door-to-Door (DDP)</strong> air/sea/rail and air express (DHL/FedEx/UPS), with delivery transit time determined by carrier and destination customs.'
   },
   {
     question: 'What packaging options are included or available?',
-    answer: 'Most models include a standard protective polybag or <strong>black EVA zipper pouch</strong>. We also supply custom-debossed EVA cases, window tin boxes, rigid magnetic gift boxes, and retail barcode labels upon request.'
+    answer: 'Every unit ships in an individual protective <strong>anti-oxidation vacuum pouch ($0.00 included)</strong>. Optional upgrades: stock-mold <strong>black EVA zipper case (+$0.75+/pc, MOQ 100)</strong>, custom rigid gift boxes (+$1.45+/pc, MOQ 500), Made-to-Order window tin boxes (MOQ 1,000+), and free Amazon FNSKU barcode stickers.'
   },
   {
     question: 'What payment methods and commercial terms do you support?',
@@ -86,24 +86,24 @@ const contactPageSchema = {
 };
 
 const CONTACT_META_DESC_MAP: Record<string, string> = {
-  en: 'Request a 12-hour wholesale quote & free 1:1 logo proof for 140+ ready metal fidget molds ($1.46–$470.77, $0 tooling, MOQ 50 pcs blank / 100 pcs 50W laser).',
-  de: '12-Stunden-Großhandelsangebot & kostenloser 1:1-Logokorrekturabzug für 140+ Metall-Fidget-Formen ($1.46–$470.77, $0 Werkzeugkosten, MOQ 50 Stk.).',
-  fr: 'Devis grossiste sous 12h et BAT logo 1:1 gratuit sur 140+ moules fidgets métal ($1.46–$470.77, 0 $ moule, MOQ 50 pcs vierges / 100 pcs gravure laser 50W).',
-  nl: 'Ontvang binnen 12 uur een groothandelsofferte & gratis 1:1 logoproef voor 140+ metalen fidget-mallen ($1.46–$470.77, $0 matrijskosten, MOQ 50 stuks).',
-  es: 'Solicite cotización mayorista en 12h y boceto 1:1 gratis para 140+ moldes de fidgets metálicos ($1.46–$470.77, $0 molde, MOQ 50 uds. / 100 uds. láser 50W).',
-  it: 'Richiedi un preventivo ingrosso in 12 ore e bozza logo 1:1 gratuita su 140+ stampi fidget in metallo ($1.46–$470.77, $0 stampo, MOQ 50 pz. / 100 pz. laser).',
-  pt: 'Peça orçamento por atacado em 12h e prova de logo 1:1 grátis para 140+ moldes de fidgets metálicos ($1.46–$470.77, $0 molde, MOQ 50 un. / 100 un. laser).',
-  sv: 'Begär grossistoffert inom 12 timmar & gratis 1:1 logokorrektur för 140+ metallfidget-formar ($1.46–$470.77, $0 verktygskostnad, MOQ 50 st / 100 st laser).',
-  da: 'Få et engrostilbud inden for 12 timer & gratis 1:1 logokorrektur på 140+ metalfidget-forme ($1.46–$470.77, $0 værktøjsgebyr, MOQ 50 stk. / 100 stk. laser).',
-  no: 'Be om grossisttilbud innen 12 timer & gratis 1:1 logokorrektur på 140+ metallfidget-former ($1.46–$470.77, $0 verktøygebyr, MOQ 50 stk. / 100 stk. laser).',
-  fi: 'Pyydä tukkutarjous 12 tunnissa ja ilmainen 1:1-logovedos 140+ metallifidget-muotille ($1.46–$470.77, $0 muottikulu, MOQ 50 kpl / 100 kpl 50W laser).',
-  pl: 'Poproś o wycenę hurtową w 12h i darmową wizualizację 1:1 dla 140+ form metalowych fidgetów ($1.46–$470.77, $0 za formę, MOQ 50 szt. / 100 szt. laser 50W).',
-  cs: 'Vyžádejte si velkoobchodní nabídku do 12h a 1:1 náhled loga zdarma pro 140+ forem kovových fidgetů ($1.46–$470.77, $0 forma, MOQ 50 ks / 100 ks laser).',
-  ru: 'Оптовый расчет за 12 часов и бесплатный 1:1 макет логотипа для 140+ форм металлических фиджетов ($1.46–$470.77, $0 за форму, от 50 шт. / 100 шт. лазер).',
-  ja: '140種以上の金属EDC既存金型（$1.46〜$470.77・金型代$0・無地50個／レーザー名入れ100個〜）の12時間以内の卸売お見積り＆無料1:1ロゴ配置データ作成。',
-  ko: '140종 이상 금속 피젯 기성 금형($1.46–$470.77, 금형비 $0, 무지 50개/레이저 로고 100개 MOQ) 12시간 내 도매 견적 및 무료 1:1 로고 시안 요청.',
-  id: 'Minta penawaran grosir 12 jam & desain logo 1:1 gratis untuk 140+ cetakan fidget logam ($1.46–$470.77, $0 biaya cetakan, MOQ 50 pcs polos / 100 pcs laser).',
-  ar: 'اطلب عرض أسعار بالجملة خلال 12 ساعة وبروفة شعار 1:1 مجانية لأكثر من 140 قالب فيدجت معدني ($1.46–$470.77، قالب 0$، الحد الأدنى 50 قطعة / 100 قطعة ليزر).'
+  en: 'Request a 12-hour wholesale quote & free 1:1 logo proof for 140+ ready metal fidget molds ($0.74–$470.77, $0 tooling, MOQ 50 pcs blank / 100 pcs 50W laser).',
+  de: '12-Stunden-Großhandelsangebot & kostenloser 1:1-Logokorrekturabzug für 140+ Metall-Fidget-Formen ($0.74–$470.77, $0 Werkzeugkosten, MOQ 50 Stk.).',
+  fr: 'Devis grossiste sous 12h et BAT logo 1:1 gratuit sur 140+ moules fidgets métal ($0.74–$470.77, 0 $ moule, MOQ 50 pcs vierges / 100 pcs gravure laser 50W).',
+  nl: 'Ontvang binnen 12 uur een groothandelsofferte & gratis 1:1 logoproef voor 140+ metalen fidget-mallen ($0.74–$470.77, $0 matrijskosten, MOQ 50 stuks).',
+  es: 'Solicite cotización mayorista en 12h y boceto 1:1 gratis para 140+ moldes de fidgets metálicos ($0.74–$470.77, $0 molde, MOQ 50 uds. / 100 uds. láser 50W).',
+  it: 'Richiedi un preventivo ingrosso in 12 ore e bozza logo 1:1 gratuita su 140+ stampi fidget in metallo ($0.74–$470.77, $0 stampo, MOQ 50 pz. / 100 pz. laser).',
+  pt: 'Peça orçamento por atacado em 12h e prova de logo 1:1 grátis para 140+ moldes de fidgets metálicos ($0.74–$470.77, $0 molde, MOQ 50 un. / 100 un. laser).',
+  sv: 'Begär grossistoffert inom 12 timmar & gratis 1:1 logokorrektur för 140+ metallfidget-formar ($0.74–$470.77, $0 verktygskostnad, MOQ 50 st / 100 st laser).',
+  da: 'Få et engrostilbud inden for 12 timer & gratis 1:1 logokorrektur på 140+ metalfidget-forme ($0.74–$470.77, $0 værktøjsgebyr, MOQ 50 stk. / 100 stk. laser).',
+  no: 'Be om grossisttilbud innen 12 timer & gratis 1:1 logokorrektur på 140+ metallfidget-former ($0.74–$470.77, $0 verktøygebyr, MOQ 50 stk. / 100 stk. laser).',
+  fi: 'Pyydä tukkutarjous 12 tunnissa ja ilmainen 1:1-logovedos 140+ metallifidget-muotille ($0.74–$470.77, $0 muottikulu, MOQ 50 kpl / 100 kpl 50W laser).',
+  pl: 'Poproś o wycenę hurtową w 12h i darmową wizualizację 1:1 dla 140+ form metalowych fidgetów ($0.74–$470.77, $0 za formę, MOQ 50 szt. / 100 szt. laser 50W).',
+  cs: 'Vyžádejte si velkoobchodní nabídku do 12h a 1:1 náhled loga zdarma pro 140+ forem kovových fidgetů ($0.74–$470.77, $0 forma, MOQ 50 ks / 100 ks laser).',
+  ru: 'Оптовый расчет за 12 часов и бесплатный 1:1 макет логотипа для 140+ форм металлических фиджетов ($0.74–$470.77, $0 за форму, от 50 шт. / 100 шт. лазер).',
+  ja: '140種以上の金属EDC既存金型（$0.74〜$470.77・金型代$0・無地50個／レーザー名入れ100個〜）の12時間以内の卸売お見積り＆無料1:1ロゴ配置データ作成。',
+  ko: '140종 이상 금속 피젯 기성 금형($0.74–$470.77, 금형비 $0, 무지 50개/레이저 로고 100개 MOQ) 12시간 내 도매 견적 및 무료 1:1 로고 시안 요청.',
+  id: 'Minta penawaran grosir 12 jam & desain logo 1:1 gratis untuk 140+ cetakan fidget logam ($0.74–$470.77, $0 biaya cetakan, MOQ 50 pcs polos / 100 pcs laser).',
+  ar: 'اطلب عرض أسعار بالجملة خلال 12 ساعة وبروفة شعار 1:1 مجانية لأكثر من 140 قالب فيدجت معدني ($0.74–$470.77، قالب 0$، الحد الأدنى 50 قطعة / 100 قطعة ليزر).'
 };
 ---
 
@@ -788,8 +788,21 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
           localStorage.removeItem('fs_rfq_prefill');
         }
       }
+      var slItems = [];
+      try {
+        slItems = JSON.parse(localStorage.getItem('fs_quote_shortlist') || '[]');
+        if (!Array.isArray(slItems)) slItems = [];
+      } catch (_) { slItems = []; }
+      if (!skuParam && slItems.length > 0) {
+        skuParam = slItems.map(function (it) { return it.sku; }).join(', ');
+      }
       if (skuParam && productInput && !productInput.value) {
         productInput.value = skuParam;
+      }
+      var detailsBox = document.getElementById('inquiryDetails');
+      if (slItems.length > 0 && detailsBox && !detailsBox.value) {
+        detailsBox.value = 'Mixed Wholesale / Paid 1-Pc Evaluation Sample Shortlist (' + slItems.length + ' models):\n' +
+          slItems.map(function (it) { return '- ' + it.sku + (it.title ? ' (' + it.title + ')' : '') + (it.price ? ' [$' + it.price + '+ EXW]' : ''); }).join('\n');
       }
       if (modeParam && brandingSelect) {
         for (var i = 0; i < brandingSelect.options.length; i++) {
@@ -1016,6 +1029,7 @@ const CONTACT_META_DESC_MAP: Record<string, string> = {
         if (xhr.status >= 200 && xhr.status < 300 && resData.success !== false) {
           if (progressFill) progressFill.style.width = '100%';
           if (progressPercent) progressPercent.textContent = '100%';
+          try { localStorage.removeItem('fs_quote_shortlist'); } catch (_) {}
           if (typeof window.gtag === 'function') {
             window.gtag('event', 'generate_lead', {
               event_category: 'form_submission',

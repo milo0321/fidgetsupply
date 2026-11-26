@@ -18,6 +18,20 @@ const locMaterial = localizeMaterial(p.material.split('/')[0].trim(), currentLan
 const locMagnets = localizeHardwareOrMagnets(p.magnetsEn, currentLang);
 const pdpUrl = getLocalizedPath(`/products/${p.slug}`, currentLang);
 const rfqUrl = getLocalizedPath('/contact', currentLang);
+const magRaw = String(p.magnetsEn || '');
+const SILENT_OFFICE_SKUS = new Set([
+  'FS-125', 'FS-047', 'FS-135', 'FS-140', 'FS-014', 'FS-069',
+  'FS-009', 'FS-064', 'FS-005', 'FS-043', 'FS-066', 'FS-118', 'FS-120', 'FS-139'
+]);
+const isMagnetFree =
+  !/magnet|ndfeb|n35|n38|n40|n42|n45|n50|n52|n54/i.test(magRaw) ||
+  /non-magnetic|zero magnet|no magnet/i.test(magRaw);
+const isSilentOffice =
+  SILENT_OFFICE_SKUS.has(p.sku) ||
+  (/ptfe|silent|quiet|teflon|bearing ring|spinner ring|gimbal gyro|knuckle roller/i.test(
+    `${p.title || ''} ${p.overview || ''} ${magRaw}`.toLowerCase()
+  ) &&
+    !/tuning fork|acoustic|chime|ratchet|pistol|sword/i.test((p.title || '').toLowerCase()));
 ---
 
 <article
@@ -29,6 +43,8 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
   data-logo={p.logoReady ? 'true' : 'false'}
   data-tuning={p.tuningFork ? 'true' : 'false'}
   data-cnc={p.cncExotic ? 'true' : 'false'}
+  data-magnet-free={isMagnetFree ? 'true' : 'false'}
+  data-silent={isSilentOffice ? 'true' : 'false'}
   data-price={parseFloat(p.tier500)}
   data-weight={parseFloat(p.weight) || 75}
 >
@@ -104,14 +120,18 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
       >
         {microHooks.sample1Pc}
       </a>
-      <a
-        href={`https://wa.me/8618750126315?text=${encodeURIComponent(`Hello FidgetSupply, I would like wholesale pricing ($${p.tier500}–$${p.tier50}/pc) & 1-pc sample info for ${p.sku} (${locTitle}).`)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="card-micro-link card-micro-wa"
+      <button
+        type="button"
+        class="card-micro-link shortlist-toggle-btn"
+        data-shortlist-sku={p.sku}
+        data-shortlist-title={locTitle}
+        data-shortlist-price={p.tier500}
+        data-label-add={microHooks.addShortlist}
+        data-label-added={microHooks.inShortlist}
+        aria-pressed="false"
       >
-        💬 WhatsApp
-      </a>
+        {microHooks.addShortlist}
+      </button>
     </div>
   </div>
 </article>
@@ -318,10 +338,29 @@ const rfqUrl = getLocalizedPath('/contact', currentLang);
     text-decoration: underline;
     color: #0284c7;
   }
-  .card-micro-wa {
-    color: #047857;
+  .shortlist-toggle-btn {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.35rem;
+    padding: 0.18rem 0.5rem;
+    cursor: pointer;
+    color: #0f172a;
+    font-family: inherit;
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
-  .card-micro-wa:hover {
-    color: #059669;
+  .shortlist-toggle-btn:hover {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    color: #0369a1;
+    text-decoration: none;
+  }
+  .shortlist-toggle-btn.is-selected {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff;
+  }
+  .shortlist-toggle-btn.is-selected:hover {
+    background: #0369a1;
+    color: #ffffff;
   }
 </style>

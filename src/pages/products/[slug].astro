@@ -414,17 +414,31 @@ const breadcrumbSchema = {
           <span class="inline-qrfq-status pdp-direct-status" hidden>{microHooks.pdpSentConfirm}</span>
           <div class="pdp-direct-footer">
             <a href={getLocalizedPath('/sample-kit', currentLang)} class="pdp-direct-badge" style="text-decoration: none;">{microHooks.mixMoqBadge}</a>
-            <a
-              id="pdp-rfq-btn"
-              data-rfq-base={rfqBaseUrl}
-              data-rfq-sku={p.sku}
-              data-rfq-mode="Blank Stock (MOQ 50 pcs)"
-              data-rfq-qty="50"
-              href={rfqBaseUrl}
-              class="pdp-full-form-link"
-            >
-              {t('pdp.requestQuote')} →
-            </a>
+            <div class="pdp-direct-footer-actions">
+              <button
+                type="button"
+                class="pdp-shortlist-btn shortlist-toggle-btn"
+                data-shortlist-sku={p.sku}
+                data-shortlist-title={lp.title}
+                data-shortlist-price={p.tier500}
+                data-label-add={microHooks.addShortlist}
+                data-label-added={microHooks.inShortlist}
+                aria-pressed="false"
+              >
+                {microHooks.addShortlist}
+              </button>
+              <a
+                id="pdp-rfq-btn"
+                data-rfq-base={rfqBaseUrl}
+                data-rfq-sku={p.sku}
+                data-rfq-mode="Blank Stock (MOQ 50 pcs)"
+                data-rfq-qty="50"
+                href={rfqBaseUrl}
+                class="pdp-full-form-link"
+              >
+                {t('pdp.requestQuote')} →
+              </a>
+            </div>
           </div>
         </form>
       </div>
@@ -1411,6 +1425,33 @@ const breadcrumbSchema = {
   }
   .pdp-full-form-link:hover {
     color: #7dd3fc !important;
+  }
+  .pdp-direct-footer-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+  }
+  .pdp-shortlist-btn {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid #475569;
+    border-radius: 0.4rem;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .pdp-shortlist-btn:hover {
+    border-color: #38bdf8;
+    color: #ffffff;
+  }
+  .pdp-shortlist-btn.is-selected {
+    background: #0284c7;
+    border-color: #38bdf8;
+    color: #ffffff;
   }
   @media (max-width: 640px) {
     .pdp-direct-input-row {
