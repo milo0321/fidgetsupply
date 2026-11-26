@@ -130,7 +130,7 @@ relatedSkus: ["FS-012", "FS-019", "FS-096", "FS-099", "FS-105", "FS-107", "FS-04
 
 <p>Every cylindrical pill, bead cylinder, and CNC palm gourd is available for paid 1-piece physical evaluation (buyer pays sample unit cost plus international courier freight, non-refundable). Paid custom rotary laser samples require 10–15 days ($50 USD setup for 50W laser or $80–$150 USD for deep laser + color fill, plus buyer shipping after our free 12-hour vector proof).</p>
 
-<p>Blank stock orders dispatch in 3–7 business days from Fuzhou, while custom logo orders complete factory production in 10–15 business days. Door-to-door transit timing depends on DHL, FedEx, UPS, or DDP air/sea freight and destination customs clearance.</p>
+<p>Blank stock orders complete dispatch prep from Fuzhou in 5–7 business days from Fuzhou, while custom logo orders complete factory production in 10–15 business days. Door-to-door transit timing depends on DHL, FedEx, UPS, or DDP air/sea freight and destination customs clearance.</p>
 
 <h2 id="cylindrical-edc-packaging-and-retail-margin">6. Anti-Oxidation Sealing, Gift Packaging Economics &amp; Multi-Category Merchandising</h2>
 

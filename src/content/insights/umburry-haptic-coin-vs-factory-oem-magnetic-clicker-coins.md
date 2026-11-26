@@ -123,7 +123,7 @@ relatedSkus: ["FS-013", "FS-041", "FS-017", "FS-027", "FS-030", "FS-032", "FS-03
         <td><strong>Blank Wholesale Stock</strong></td>
         <td>$2.76 – $10.98 EXW</td>
         <td>MOQ 50 pcs · Vacuum anti-oxidation pouch ($0.00)</td>
-        <td>3–7 business days dispatch</td>
+        <td>5–7 business days dispatch prep</td>
       </tr>
       <tr>
         <td><strong>Private-Label Packaged Batch</strong></td>

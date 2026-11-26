@@ -215,8 +215,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Fiber laser gravering (50W fiberlasergravering, +$0,15/stk., prøve $50) og dyb laser med emaljefyld (+$0,35/stk.) vs. UV-tryk på metal ($0 værktøj, MOQ 100).'
     },
     no: {
-      title: 'Fiberlaser Gravering på Metall (+$0.15/stk · MOQ 100)',
-      summary: 'Fiberlaser gravering (50W MOPA, +$0,15/stk., prøve $50) og dyp laser med emaljefyll (+$0,35/stk.) på metallfidgets vs. UV-trykk ($0 verktøy, MOQ 100).'
+      title: 'Fiberlaser Gravering (+$0.15/stk · MOQ 100)',
+      summary: 'Fiberlaser gravering (50W MOPA, +$0,15/stk., betalt prøve $50) og dyp laser med emaljefyll (+$0,35/stk.) på metallfidgets vs. UV-trykk ($0 verktøy, MOQ 100).'
     },
     fi: {
       title: '50W Kuitulaserkaiverrus & Syvä Laserkaiverrus Väritäytöllä vs. Silkkipaino / UV Metallifidgeteissä',
@@ -492,7 +492,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
     },
     es: {
       title: '¿Aleación de Zinc es Acero Inoxidable? Costos y Peso',
-      summary: '¿Aleación de zinc o acero inoxidable? Compara densidad, durabilidad y costo CNC 5 ejes ($15–$380+) vs. fundición Zamak #3 ($1.20–$6.00, $0 molde).'
+      summary: '¿Es lo mismo aleación de zinc que acero inoxidable? No: fundición Zamak #3 ($0.74–$6.00) vs CNC acero 304/316 ($7.43–$35.67, $0 molde).'
     },
     it: {
       title: 'Lega di Zinco Pressofusa vs. Acciaio Inox 304/316 CNC a 5 Assi, PEI e Zirconio: Analisi dei Costi',
@@ -807,8 +807,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Emballageguide til metal-EDC: højdensitets EVA-skumindsatser, hard-shell lynlåsetuier, matte metalæsker, Amazon FNSKU-stregkoder og IATA PI-953 magnetisk luftfragtsskærmning.'
     },
     no: {
-      title: 'Detaljemballasje for Metallfidgets: EVA-etui & Gaveesker',
-      summary: 'Guide til detaljemballasje for metall-EDC: vakuumpose (MOQ 50), EVA-etui (MOQ 100), gaveeske (MOQ 500), tinnboks (1000+), FNSKU & IATA PI-953.'
+      title: 'Detaljemballasje: EVA-etui & Gaveesker',
+      summary: 'Detaljemballasje for metallfidgets: vakuumpose (MOQ 50), EVA-etui (MOQ 100), gaveeske (MOQ 500), tinnboks (1000+), FNSKU & IATA PI-953.'
     },
     fi: {
       title: 'Räätälöidyt EVA-vetoketjukotelot, Ikkunalliset Peltirasiat & Keräilylahjapakkaukset Metallifidgeteille',
@@ -1477,8 +1477,8 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'Liukuteippi (0,13/0,18mm PTFE-Teflon) & Fidget-Opas',
-      summary: 'Liukuteippi (0,13/0,18 mm PTFE-teflon), Si3N4-keraamikuulat & R188-laakerit metallifidgeteihin ($0 muotti, MOQ 50, maksullinen näyte).'
+      title: 'Liukuteippi (PTFE-Teflon) & R188 Laakeriopas',
+      summary: 'Liukuteippi (0,13/0,18 mm PTFE-teflon), Si3N4-keraamikuulat & R188-laakerien huolto metallifidgeteihin ($0 muotti, MOQ 50, maksullinen näyte).'
     },
     pl: {
       title: 'Taśma PTFE Teflon, Kulki Ceramiczne Si3N4 i Konserwacja Łożysk R188: Przewodnik Tuningu i Części Zamiennych EDC',

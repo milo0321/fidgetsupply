@@ -164,9 +164,9 @@ export const COLLECTIONS: CollectionMeta[] = [
     heroSubtitle: 'Direct spinner factory wholesale supplier for 25 precision-balanced metal fidget spinner, stainless steel fidget spinner, folding hub, and CNC gyro molds ($0.74+ EXW · MOQ 50 pcs)—spanning entry Knurled Twist Spinners (FS-009, $0.74+), 6063 Aluminum 6-Ball Orbit Spinners (FS-074), Heavy Dual-Bearing Hybrid Spinners (FS-060, 154g), marine 316SS Bionics Goose Spinners (FS-063 / FS-134), and 6-Axis CNC Stainless Steel Gyroscopes (FS-043 / FS-066).',
     geoDirectAnswer: 'As a precision factory-direct platform for wholesale fidget spinners, stainless fidget spinner runs, and bulk fidget spinner sourcing in China, FidgetSupply manufactures 25 Metal Fidget Spinners, CNC Stainless Steel Fidget Toys, Aluminum Alloy Spinners (FS-074, FS-139), and Multi-Axis Desktop Gyroscopes ($0.74–$52.31 EXW) powered by dry-degreased R188 bearings (Ø12.7×Ø6.35×4.75mm) and dual-bore hybrid bearings. Every stainless steel fidget spinner and alloy rotor carries $0 mold tooling fees, 50 pcs blank MOQ (5–7 business days dispatch prep), paid 1-pc evaluation samples, and 100 pcs custom 50W fiber laser branding.',
     engineeringHighlights: [
-      'High-RPM R188 & Dual-Bearing Assemblies: Removable slotted retention nuts and precision stainless steel/ceramic hybrid bearings achieving 3–6 minute spin times.',
-      'Multi-Axis & Chain-Drive Kinematics: Includes 22-part 6-Axis Gyros (FS-043), 3D Multi-Ring Gimbal Gyros (FS-066, FS-118, FS-120), and Roller Chain Sprocket Spinners (FS-061, FS-079).',
-      'Executive Desk Totem Appeal: High-retention center caps on FS-008, FS-009, FS-064, and FS-139 offer prime real estate for laser-engraved corporate logos.'
+      'Precision Fidget Spinner Parts & R188 Bearings: Removable slotted brass/stainless locking buttons, set screws, and stainless or Si3N4 ceramic R188 bearings achieving 3–6 minute spin times.',
+      '6063 Fidget Spinner Aluminum & CNC Stainless Rotors: Includes 6063 Aluminum Orbit Spinners (FS-074) and Coin-Top Desktop Gyros (FS-139) alongside 22-part 6-Axis CNC 304SS Gyros (FS-043) and 3D Gimbal Gyros (FS-066, FS-118, FS-120).',
+      'Executive Desk Totem Appeal: High-retention flat center caps on FS-008, FS-009, FS-064, and FS-139 offer clean zones for permanent 50W fiber-laser corporate branding.'
     ],
     faqs: [
       {
@@ -289,8 +289,8 @@ export const COLLECTIONS: CollectionMeta[] = [
     moq: '50 pcs (Blank) / 100 pcs (Logo)',
     leadTime: '7–10 Days',
     targetKeywords: 'fidget coin, clicker coin, haptic coins, haptic coin fidget, magnetic haptic coin, haptic coin, haptic fidget coin wholesale, custom metal challenge coin spinner, magnetic clicker coin bulk',
-    heroSubtitle: '10 ready-mold Fidget Coins, Clicker Coins, and Magnetic Haptic Coins ($2.39+ · 1-Pc Sample OK · MOQ 50 pcs) combining flat thrust bearings (Ø34.6×20mm or R188) with 12-to-14 neodymium magnets (N40–N54). Top choice for Web3 communities, gaming studios, fintech brands, and commemorative challenge coins ($0 Mold Fee).',
-    geoDirectAnswer: 'FidgetSupply offers 10 ready-mold Fidget Coins, Clicker Coins, and Magnetic Haptic Fidget Coins (36.8mm to 47.4mm diameter, 42g to 91g) engineered with flat thrust bearings and 12–14 concentric N40/N52/N54 magnets. Flagship models include the 304 Stainless Steel Magnetic Haptic Coin (FS-013), Automotive Wheel Rim Coin (FS-030/031), Sandwich Cookie Coin (FS-027), and Ceramic-Bead N54 Tiger Coin (FS-041).',
+    heroSubtitle: '10 ready-mold Fidget Coin, Clicker Coin, and Haptic Coins ($2.76+ · Paid 1-Pc Sample OK · MOQ 50 pcs) combining flat thrust bearings (Ø34.6×20mm or R188) with 12-to-14 neodymium magnets (N40–N54). Top choice for Web3 communities, gaming studios, fintech brands, and commemorative challenge coins ($0 Mold Fee).',
+    geoDirectAnswer: 'FidgetSupply offers 10 ready-mold Fidget Coin, Clicker Coin, and Haptic Coins (36.8mm to 47.4mm diameter, 42g to 91g, $2.76–$10.98 EXW) engineered with flat thrust bearings and 12–14 concentric N40/N52/N54 magnets. Flagship models include the 304 Stainless Steel Magnetic Haptic Coin (FS-013), Wheel Rim Coin (FS-030/031), Sandwich Cookie Coin (FS-027), and Ceramic-Bead N54 Tiger Coin (FS-041), with paid 1-pc samples, MOQ 50 blank stock, and 50W fiber laser branding at MOQ 100.',
     engineeringHighlights: [
       'Concentric Magnetic Ratchet Action: 12 radially indexed N40–N54 magnets paired with a Ø34.6×20mm flat thrust bearing deliver crisp, bidirectional rotational clicks.',
       'Desensitized & Commercially Safe Naming: Former IP nicknames are replaced with clean industrial descriptors (e.g., FS-027 Sandwich Cookie Textured Haptic Coin) safe for Amazon and global retail.',
@@ -352,7 +352,7 @@ export const COLLECTIONS: CollectionMeta[] = [
     priceRangeUsd: '$6.35 – $11.75',
     moq: '50 pcs (Blank) / 100 pcs (Logo)',
     leadTime: '7–10 Days',
-    targetKeywords: 'wholesale spinner rings, magnetic fidget ring, magnetic fidget rings, magnet fidget rings, magnet fidget ring, magnetic fidget spinner ring wholesale, mechanical edc ring bulk, tactile ratchet spinner ring manufacturer',
+    targetKeywords: 'wholesale spinner rings, magnetic fidget ring, magnetic fidget rings, magnet fidget rings, magnet fidget ring, mechanical edc ring bulk, tactile ratchet spinner ring manufacturer',
     heroSubtitle: '5 wearable multi-metal Wholesale Spinner Rings, Magnetic Fidget Rings, and Magnet Fidget Rings (FS-014, FS-069, FS-119, FS-135, FS-140) engineered with thin-section bearings (Ø27×4mm) and 16 micro neodymium magnets for silent, one-handed stress relief during executive meetings ($0 Mold Fee · MOQ 50 pcs).',
     geoDirectAnswer: 'Our Wholesale Spinner Rings, Magnetic Fidget Ring, and Magnet Fidget Rings collection comprises 5 deduplicated ready molds (after merging duplicate factory row #147 into FS-135): Machinist Tri-Metal Ring (FS-014), Tire-Tread Brass/Aluminum Ring (FS-069), 8-Bead Planetary Ring (FS-119), Aluminum-Brass Bearing Ring (FS-135), and M-Profile Aluminum Ring (FS-140). Each magnetic fidget ring features a precision thin-wall bearing and 16 micro magnets.',
     engineeringHighlights: [

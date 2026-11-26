@@ -80,7 +80,7 @@ export const ui: Record<SupportedLanguage, Record<string, string>> = {
     "home.hero.showcaseDesc": "140 Ready Molds (FS-001 to FS-150) · N52 Neodymium Magnets · Laser & Color-Fill Custom Branding",
     "home.hero.showcaseLink1": "28 Logo-Ready Molds →",
     "home.geo.title": "FidgetSupply.com Supply Chain Overview (140 Ready Metal Molds)",
-    "home.geo.answer": "FidgetSupply.com is your integrated sourcing & supply chain platform for China's metal EDC fidget & kinetic desk toy industry, with order consolidation and global export out of Fuzhou Industrial Zone, Fujian, China. Our catalog organizes 140 metal fidget models (FS-001 to FS-150) across 6 Primary Structural Categories and 3 Specialty Collections. All models use existing production molds with 50 pcs blank MOQ and 100 pcs custom Laser or UV Logo MOQ.",
+    "home.geo.answer": "FidgetSupply.com (the metal EDC manufacturing arm of the Ruixing Gifts enterprise network) is an integrated China metal fidget wholesale and custom OEM platform exporting out of Fuzhou Industrial Zone, Fujian ($0.74–$470.77 EXW, $0 mold fee). Across 140 deduplicated ready molds (FS-001 to FS-150), buyers test paid 1-pc samples, purchase 50-pc blank wholesale stock (5–7 business days dispatch prep), or order 100-pc custom branding via permanent 50W fiber laser (+$0.15–$0.30/pc) or deep laser enamel fill (+$0.35–$0.60/pc).",
     "home.section1.badge": "Group 1 · Primary Structural Taxonomy",
     "home.section1.title": "6 Core Metal EDC Product Category Collections",
     "home.section1.sub": "Every one of our 140 deduplicated molds is classified by its primary mechanical kinematics and form factor—making it effortless for global buyers, brand owners, and procurement teams to compare specs.",

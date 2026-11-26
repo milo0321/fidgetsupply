@@ -131,7 +131,7 @@ relatedSkus: ["FS-063", "FS-072", "FS-076", "FS-134", "FS-137", "FS-043", "FS-06
 
 <p>Brands scaling above 100 pcs add Stock Black EVA Zipper Cases (+$0.75+/pc, MOQ 100) or step into Custom Rigid Gift Boxes (+$1.45+/pc, MOQ 500) and Window Metal Tin Boxes (MOQ 1,000+ MTO), paired with complimentary Amazon FNSKU stickers and an R188 dry-bearing care insert warning against oil.</p>
 
-<p>Blank stock orders (50+ pcs) dispatch in 3–7 business days, whereas custom 50W fiber laser batches (100+ pcs, $0 bulk setup; paid custom sample $50 laser or $80–$150 color fill in 10–15 days after free 12h proof) complete factory production in 10–15 business days before DHL, FedEx, UPS, or DDP transit.</p>
+<p>Blank stock orders (50+ pcs) complete dispatch prep from Fuzhou in 5–7 business days, whereas custom 50W fiber laser batches (100+ pcs, $0 bulk setup; paid custom sample $50 laser or $80–$150 color fill in 10–15 days after free 12h proof) complete factory production in 10–15 business days before DHL, FedEx, UPS, or DDP transit.</p>
 
 <p>Glossy chrome, brushed steel, and oiled brass caps reject surface silk-screen and UV digital ink under finger-pad rubbing, making permanent 50W MOPA fiber laser ablation or recessed enamel cavity fill necessary for durable logos.</p>
 

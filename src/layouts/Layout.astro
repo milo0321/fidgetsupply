@@ -879,7 +879,10 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
                 btn.style.background = '#059669';
               }
               if (statusEl) {
-                if (!statusEl.textContent || statusEl.textContent.indexOf('⚠') === 0) {
+                var customSent = statusEl.getAttribute('data-sent-msg') || statusEl.getAttribute('data-orig-msg') || '';
+                if (customSent && customSent.indexOf('⚠') !== 0) {
+                  statusEl.textContent = customSent;
+                } else if (!statusEl.textContent || statusEl.textContent.indexOf('⚠') === 0) {
                   statusEl.textContent = '✅ Received! Our Fuzhou export desk will email your quote & 140-SKU price sheet shortly.';
                 }
                 statusEl.style.color = '#34d399';
@@ -949,6 +952,23 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
         var triggered = false;
         var enterTs = Date.now();
         var maxScrollPct = 0;
+        var baseCumMs = 0;
+        var pageViewsCount = 1;
+        try {
+          baseCumMs = parseInt(sessionStorage.getItem('fs_cum_dwell_ms') || '0', 10) || 0;
+          pageViewsCount = (parseInt(sessionStorage.getItem('fs_cum_views') || '0', 10) || 0) + 1;
+          sessionStorage.setItem('fs_cum_views', String(pageViewsCount));
+        } catch (_) {}
+
+        function saveCumDwell() {
+          try {
+            sessionStorage.setItem('fs_cum_dwell_ms', String(baseCumMs + Math.max(0, Date.now() - enterTs)));
+          } catch (_) {}
+        }
+        window.addEventListener('pagehide', saveCumDwell);
+        document.addEventListener('visibilitychange', function () {
+          if (document.visibilityState === 'hidden') saveCumDwell();
+        });
 
         function getScrollPct() {
           var docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
@@ -979,11 +999,12 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           if (triggered) return;
           maxScrollPct = Math.max(maxScrollPct, getScrollPct());
           var elapsedSec = (Date.now() - enterTs) / 1000;
+          var totalSessionSec = (baseCumMs + (Date.now() - enterTs)) / 1000;
           var isDesktop = window.innerWidth > 768;
-          if (isDesktop && elapsedSec >= 24 && maxScrollPct >= 25) {
-            showProactive('desktop_24s_scroll25');
-          } else if (!isDesktop && elapsedSec >= 32 && maxScrollPct >= 50) {
-            showProactive('mobile_32s_scroll50');
+          if (isDesktop && ((elapsedSec >= 20 && maxScrollPct >= 25) || (totalSessionSec >= 24 && pageViewsCount >= 2))) {
+            showProactive(pageViewsCount >= 2 ? 'desktop_multipages_24s' : 'desktop_20s_scroll25');
+          } else if (!isDesktop && ((elapsedSec >= 28 && maxScrollPct >= 45) || (totalSessionSec >= 32 && pageViewsCount >= 2))) {
+            showProactive(pageViewsCount >= 2 ? 'mobile_multipages_32s' : 'mobile_28s_scroll45');
           }
         }
 
@@ -992,8 +1013,9 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           evaluateDwellTrigger();
         }, { passive: true });
 
-        setTimeout(evaluateDwellTrigger, 24200);
-        setTimeout(evaluateDwellTrigger, 32200);
+        setTimeout(evaluateDwellTrigger, 6500);
+        setTimeout(evaluateDwellTrigger, 20200);
+        setTimeout(evaluateDwellTrigger, 28200);
 
         document.addEventListener('mouseleave', function (e) {
           if (triggered || window.innerWidth <= 768) return;

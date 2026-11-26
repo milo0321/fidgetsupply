@@ -174,7 +174,7 @@ relatedSkus: ["FS-150","FS-001","FS-002","FS-075","FS-124","FS-148","FS-026","FS
       </tr>
       <tr>
         <td><strong>Compliance &amp; Logistics</strong></td>
-        <td>3–7 Days Dispatch via DHL/FedEx Air</td>
+        <td>5–7 Days Dispatch Prep (Carrier Transit Varies)</td>
         <td>10–15 Days Production + Free Amazon FNSKU &amp; 14+ Labels</td>
         <td>IATA PI-953 Shielded Air DDP (8–12d) or Sea DDP (18–25d)</td>
       </tr>

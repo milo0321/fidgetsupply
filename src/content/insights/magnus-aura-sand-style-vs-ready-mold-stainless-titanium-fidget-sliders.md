@@ -145,7 +145,7 @@ relatedSkus: ["FS-075", "FS-086", "FS-144", "FS-108", "FS-091", "FS-094", "FS-12
 
 <p>Many DTC brands launch seasonal drops using shared PTFE dimensions across <a href="/products/304ss-akq-triple-layer-24-magnet-slider">FS-075</a>, <a href="/products/conqueror-ultra-slim-26-magnet-ss-slider">FS-144</a>, and <a href="/products/fortune-oracle-cnc-stainless-slider">FS-108</a>, paired with anodized aluminum (<a href="/products/cnc-aluminum-14-magnet-tile-slider">FS-097</a>) or multi-layer Zamak models (<a href="/products/triple-layer-32-magnet-slider">FS-002</a>, <a href="/products/qka-royal-triple-layer-magnetic-slider">FS-062</a>).</p>
 
-<p>Every unbranded item includes an individual anti-oxidation vacuum pouch ($0.00 at MOQ 50 pcs) protecting stainless surfaces during freight. Blank orders dispatch in 3–7 business days, laser OEM runs finish in 10–15 business days, and master cartons carry steel-lined IATA PI-953 shielding for carrier-governed DHL, FedEx, UPS, or DDP transport.</p>
+<p>Every unbranded item includes an individual anti-oxidation vacuum pouch ($0.00 at MOQ 50 pcs) protecting stainless surfaces during freight. Blank orders complete dispatch prep from Fuzhou in 5–7 business days, laser OEM runs finish in 10–15 business days, and master cartons carry steel-lined IATA PI-953 shielding for carrier-governed DHL, FedEx, UPS, or DDP transport.</p>
 
 <p>Run exact landed margins in our <a href="/landed-cost-calculator">Wholesale Cost Calculator</a> and inspect three field checks before bulk settlement: feeler-gauge plate flatness across both track faces, potted magnet caps rather than exposed adhesive wells, and warm-hand PTFE liner adhesion.</p>
 
