@@ -470,6 +470,18 @@ const HOME_META_DESC_MAP: Record<string, string> = {
         <h2 class="section-title">{t('home.section4.title')}</h2>
         <p class="section-subtitle">
           {t('home.section4.sub')}
+          {' '}
+          <a href={getLocalizedPath('/collections/tuning-fork-fidget-sliders', currentLang)} style="color: #0284c7; font-weight: 600; text-decoration: underline;">
+            {currentLang === 'en' ? 'Tuning Fork Slider' : t('col.tuning-fork-fidget-sliders.name' as any)}
+          </a>
+          {' · '}
+          <a href={getLocalizedPath('/collections/magnetic-fidget-rings', currentLang)} style="color: #0284c7; font-weight: 600; text-decoration: underline;">
+            {currentLang === 'en' ? 'Magnetic Fidget Rings' : t('col.magnetic-fidget-rings.name' as any)}
+          </a>
+          {' · '}
+          <a href={getLocalizedPath('/collections/metal-fidget-spinners-gyros', currentLang)} style="color: #0284c7; font-weight: 600; text-decoration: underline;">
+            {currentLang === 'en' ? 'Metal Fidget Spinners' : t('col.metal-fidget-spinners-gyros.name' as any)}
+          </a>
         </p>
       </div>
 

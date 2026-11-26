@@ -3848,6 +3848,46 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
     ko: { title: '스테인리스 vs 황동(브라스) 헤비 스피너 도매 비교', summary: 'CNC 304/316 스테인리스와 C36000 황동 헤비 피젯 스피너의 R188 베어링 관성 및 단가 비교($0.74–$53.08).' },
     id: { title: 'Spinner Baja vs. Kuningan OEM ($0.74+)', summary: 'Bandingkan fidget spinner berat CNC baja 304/316 & kuningan dengan bearing R188 ($0.74–$53.08 EXW).' },
     ar: { title: 'سبينر فولاذ 304 مقابل النحاس الثقيل', summary: 'مقارنة سبينرات الفولاذ المقاوم للصدأ 304/316 والنحاس بمحامل R188 وزمن دوران 3–6 دقائق ($0.74–$53.08).' }
+  },
+  'atesson-stainless-fidget-spinner-vs-factory-oem-r188-metal-spinners': {
+    en: { title: 'Atesson Fidget Spinner vs. OEM R188 ($0.74+)', summary: 'Compare retail Atesson stainless steel spinners against 25 ready-mold R188 metal spinners ($0.74–$52.31 EXW, $0 mold, MOQ 50).' },
+    de: { title: 'Edelstahl Fidget Spinner OEM: R188 ($0.74+)', summary: 'Vergleich von Marken-Edelstahlspinnern mit 25 CNC-316/304-R188-Metallspinnern ab Werk ($0.74–$52.31 EXW, MOQ 50).' },
+    fr: { title: 'Spinner Inox vs. OEM R188 Usine ($0.74+)', summary: 'Comparatif des spinners en acier inoxydable retail face à 25 moules R188 en gros ($0.74–$52.31 EXW, 0 $ moule, MOQ 50).' },
+    nl: { title: 'RVS Fidget Spinner vs. OEM R188 ($0.74+)', summary: 'Vergelijk retail roestvrijstalen spinners met 25 directe R188-fabrieksmallen in 316/304 staal ($0.74–$52.31 EXW, MOQ 50).' },
+    es: { title: 'Spinner Acero Inox vs. OEM R188 ($0.74+)', summary: 'Compare spinners comerciales de acero inoxidable frente a 25 moldes OEM con rodamiento R188 ($0.74–$52.31 EXW, MOQ 50).' },
+    it: { title: 'Spinner Acciaio Inox vs. OEM R188 ($0.74+)', summary: 'Confronto tra spinner retail in acciaio e 25 stampi diretti di fabbrica con cuscinetti R188 ($0.74–$52.31 EXW, MOQ 50).' },
+    pt: { title: 'Spinner Aço Inox vs. OEM R188 ($0.74+)', summary: 'Compare spinners de varejo em aço inox com 25 moldes OEM R188 direto da fábrica ($0.74–$52.31 EXW, MOQ 50).' },
+    sv: { title: 'Rostfri Fidget Spinner vs. OEM R188 ($0.74+)', summary: 'Jämför retail rostfria spinners mot 25 fabriksformar i 316/304-stål med R188-kullager ($0.74–$52.31 EXW, MOQ 50).' },
+    da: { title: 'Rustfri Fidget Spinner vs. OEM R188 ($0.74+)', summary: 'Sammenlign retail stålspinnere med 25 fabriksforme i 316/304 rustfrit stål med R188-lejer ($0.74–$52.31 EXW, MOQ 50).' },
+    no: { title: 'Rustfri Fidget Spinner vs. OEM R188 ($0.74+)', summary: 'Sammenlign retail stålspinnere med 25 fabrikkformer i 316/304 rustfritt stål med R188-lager ($0.74–$52.31 EXW, MOQ 50).' },
+    fi: { title: 'Teräs Fidget Spinner vs. OEM R188 ($0.74+)', summary: 'Vertaa vähittäismyyntispinnereitä 25 valmiiseen 316/304-teräs- ja R188-tehdasmalliin ($0.74–$52.31 EXW, MOQ 50).' },
+    pl: { title: 'Spinner Stal Inox vs. OEM R188 ($0.74+)', summary: 'Porównanie detalicznych spinnerów ze stali nierdzewnej z 25 formami OEM R188 ($0.74–$52.31 EXW, $0 formy, MOQ 50).' },
+    cs: { title: 'Nerez Fidget Spinner vs. OEM R188 ($0.74+)', summary: 'Srovnání maloobchodních nerezových spinnerů s 25 hotovými formami OEM s ložisky R188 ($0.74–$52.31 EXW, MOQ 50).' },
+    ru: { title: 'Спиннер из стали vs. OEM R188 ($0.74+)', summary: 'Сравнение розничных стальных спиннеров с 25 заводскими формами с подшипниками R188 ($0.74–$52.31 EXW, от 50 шт.).' },
+    ja: { title: 'ステンレス製スピナー vs 工場OEM R188 ($0.74〜)', summary: '市販ステンレス製スピナーと既存25金型のCNC 316/304製R188ハンドスピナーを比較（$0.74〜$52.31・MOQ 50）。' },
+    ko: { title: '스테인리스 피젯 스피너 vs 공장 OEM R188 ($0.74+)', summary: '시중 스테인리스 스피너와 기성 25금형 R188 메탈 스피너 도매 비교($0.74–$52.31 EXW, 금형비 $0, MOQ 50).' },
+    id: { title: 'Spinner Baja Inox vs. OEM R188 ($0.74+)', summary: 'Bandingkan spinner baja ritel dengan 25 cetakan OEM R188 langsung pabrik ($0.74–$52.31 EXW, $0 cetakan, MOQ 50).' },
+    ar: { title: 'سبينر فولاذ مقابل قوالب OEM R188 ($0.74+)', summary: 'مقارنة سبينرات الفولاذ المقاوم للصدأ مع 25 قالباً جاهزاً بمحامل R188 مباشرة من المصنع ($0.74–$52.31 EXW).' }
+  },
+  'mechforce-edc-gyroscope-alternative-cnc-stainless-multi-axis-gyros': {
+    en: { title: 'Mechforce Gyroscope Alternative: CNC ($4.88+)', summary: 'Compare Gen 2 stainless gyroscopes against 7 factory CNC 304/303 multi-axis gimbal gyros ($2.55–$20.92 EXW, $0 mold, MOQ 50).' },
+    de: { title: 'CNC Edelstahl Multi-Axis Gyroskope ($4.88+)', summary: 'Vergleich von Gen-2-Edelstahlkreiseln mit 7 CNC-304/303-Multi-Axis-Gimbal-Gyros ($2.55–$20.92 EXW, MOQ 50).' },
+    fr: { title: 'Gyroscopes CNC Multi-Axes Inox ($4.88+)', summary: 'Alternative aux gyroscopes CNC Gen 2 via 7 moules multi-axes en acier 304/303 ($2.55–$20.92 EXW, 0 $ moule, MOQ 50).' },
+    nl: { title: 'CNC RVS Multi-Axis Gyroscopen ($4.88+)', summary: 'Vergelijk Gen 2 RVS-gyroscopen met 7 CNC 304/303 gimbal-gyroscopen uit voorraadmallen ($2.55–$20.92 EXW, MOQ 50).' },
+    es: { title: 'Giroscopios CNC Multi-Eje Acero ($4.88+)', summary: 'Compare giroscopios Gen 2 de acero con 7 moldes CNC 304/303 multi-eje de fábrica ($2.55–$20.92 EXW, $0 molde).' },
+    it: { title: 'Giroscopi CNC Multi-Asse Acciaio ($4.88+)', summary: 'Confronto tra giroscopi Gen 2 in acciaio e 7 stampi CNC 304/303 gimbal multi-asse ($2.55–$20.92 EXW, MOQ 50).' },
+    pt: { title: 'Giroscópios CNC Multi-Eixo Aço ($4.88+)', summary: 'Compare giroscópios Gen 2 em aço com 7 moldes CNC 304/303 multi-eixo direto de fábrica ($2.55–$20.92 EXW, MOQ 50).' },
+    sv: { title: 'CNC Rostfria Fleraxlade Gyroskop ($4.88+)', summary: 'Jämför Gen 2 stålgyroskop mot 7 CNC 304/303 gimbal-gyroskop på färdiga formar ($2.55–$20.92 EXW, $0 verktyg).' },
+    da: { title: 'CNC Rustfri Multi-Akse Gyroskoper ($4.88+)', summary: 'Sammenlign Gen 2 stålgyroskoper med 7 CNC 304/303 multi-akse gimbal-gyroer ($2.55–$20.92 EXW, MOQ 50).' },
+    no: { title: 'CNC Rustfrie Multi-Akse Gyroskoper ($4.88+)', summary: 'Sammenlign Gen 2 stålgyroskoper med 7 CNC 304/303 gimbal-gyroer fra fabrikk ($2.55–$20.92 EXW, $0 verktøy).' },
+    fi: { title: 'CNC Teräs Moniakseli-Gyroskoopit ($4.88+)', summary: 'Vertaa Gen 2 teräsgyroskooppeja 7 CNC 304/303 -moniakselimalliin suoraan tehtaalta ($2.55–$20.92 EXW, MOQ 50).' },
+    pl: { title: 'Żyroskopy CNC Stal 304/303 OEM ($4.88+)', summary: 'Porównanie żyroskopów Gen 2 ze stali z 7 formami CNC 304/303 multi-axis ($2.55–$20.92 EXW, $0 formy, MOQ 50).' },
+    cs: { title: 'CNC Nerezové Víceosé Gyroskopy ($4.88+)', summary: 'Srovnání Gen 2 nerezových gyroskopů se 7 hotovými CNC 304/303 gimbal modely ($2.55–$20.92 EXW, MOQ 50).' },
+    ru: { title: 'ЧПУ Гироскопы из стали 304/303 ($4.88+)', summary: 'Сравнение гироскопов Gen 2 с 7 серийными ЧПУ-гироскопами из стали 304/303 ($2.55–$20.92 EXW, $0 форма, от 50 шт.).' },
+    ja: { title: 'CNCステンレス多軸ジャイロスコープ比較 ($4.88〜)', summary: 'Gen2ステンレス製ジャイロと工場直販CNC 304/303多軸ジンバルジャイロ7金型を比較（$2.55〜$20.92・MOQ 50）。' },
+    ko: { title: 'CNC 스테인리스 다축 자이로스코프 대안 ($4.88+)', summary: 'Gen 2 스테인리스 자이로와 기성 금형 CNC 304/303 다축 짐벌 자이로 7종 도매 비교($2.55–$20.92 EXW, MOQ 50).' },
+    id: { title: 'Giroskop CNC Multi-Axis Baja ($4.88+)', summary: 'Bandingkan giroskop baja Gen 2 dengan 7 cetakan CNC 304/303 gimbal pabrik ($2.55–$20.92 EXW, MOQ 50).' },
+    ar: { title: 'بديل جيروسكوب CNC فولاذ متعدد المحاور ($4.88+)', summary: 'مقارنة جيروسكوبات Gen 2 مع 7 قوالب CNC فولاذ 304/303 متعددة المحاور مباشرة من المصنع ($2.55–$20.92 EXW).' }
   }
 };
 
