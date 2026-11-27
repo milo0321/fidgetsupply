@@ -2,7 +2,7 @@
 title: "N35 vs. N45 vs. N52 Neodymium Magnets in Metal Fidget Sliders: Tactile Force & Acoustic Guide"
 slug: "n35-vs-n52-neodymium-magnet-haptic-feel-guide"
 publishDate: "2026-10-15"
-updatedDate: "2026-11-18"
+updatedDate: "2026-11-27"
 author: "FidgetSupply Engineering Team"
 category: "Magnetics & Tactile Engineering"
 summary: "An engineering comparison of N30, N35, N40, N45, N50, N52, and N54 NdFeB rare-earth magnets across 140 metal fidget molds—measuring pull force, acoustic decibels, PTFE wear, and wholesale cost impact."
@@ -188,7 +188,7 @@ Because magnet counterbore pockets (`Ø4×2mm` and `Ø5×2mm`) are standardized 
 
 <p>Raw sintered NdFeB rare-earth magnets contain over 60% elemental iron, making unprotected magnet slugs highly vulnerable to intergranular corrosion when exposed to coastal humidity or sweaty palms. If a magnet oxidizes inside a slider pocket, its plating flakes off and the magnetic flux density degrades permanently.</p>
 
-<p>To guarantee multi-year corrosion stability across all 69 models in our <a href="/collections/magnetic-fidget-sliders">Magnetic Haptic Sliders Collection</a>, every magnet batch undergoes strict surface plating control:</p>
+<p>To guarantee multi-year corrosion stability across all 69 <a href="/collections/magnetic-fidget-sliders">magnetic textured fidget sliders</a> and CNC acoustic models (including our <a href="/products/wood-tone-acoustic-resonance-slider">FS-045 Wood-Tone 5-Magnet N50 Resonance Slider</a>), every magnet batch undergoes strict surface plating control:</p>
 
 <ul>
   <li><strong>15-Micron Ni-Cu-Ni Triple Layer Plating:</strong> Every cylindrical magnet receives an inner matte Nickel strike, a ductile Copper barrier layer that seals micro-pores, and a bright outer Nickel topcoat tested to <strong>48-hour ASTM B117 neutral salt-spray resistance</strong>.</li>

@@ -2361,7 +2361,7 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
       : `${p.skuDisplay} ${locTitle} ($${p.tier500}–$${p.tier50}, $0 пресс-форма, MOQ 50 шт.). ${shortMat}, ${p.weight}, лазерный логотип 50W от 100 шт.`,
     ja: `${p.skuDisplay} ${locTitle}（卸売 $${p.tier500}〜$${p.tier50}、金型代$0、MOQ 50個）。${shortMat}・${p.weight}、100個〜50Wレーザー名入れ対応。`,
     ko: p.tuningFork
-      ? `극성중공 ${p.skuDisplay} 소리굽쇠·튜닝포크 (가격 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개 · 1개 유료샘플). ${locTitle.replace(/\bAcoustic\b/gi, '').replace(/극성중공/g, '').replace(/\s+/g, ' ').trim()} · ${shortMat} ${p.weight}.`
+      ? `극성중공 ${p.skuDisplay} 소리굽쇠·튜닝포크 ($${p.tier500}–$${p.tier50}, 금형비 $0, 1개 유료샘플·MOQ 50개). ${shortMat} ${p.weight} 공장 직판.`
       : isRing
         ? `${p.skuDisplay} 피젯 스피너 반지 · ${locTitle} (가격 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat} ${p.weight}, 50W 레이저 로고 각인.`
         : `${p.skuDisplay} ${locTitle} (도매 가격 $${p.tier500}–$${p.tier50}, 금형비 $0, MOQ 50개). ${shortMat}, ${p.weight}, 100개부터 50W 레이저 로고 각인.`,
@@ -2375,11 +2375,13 @@ export function localizeProduct(p: any, lang: SupportedLanguage): LocalizedProdu
     .replace(/소리굽쇠/g, '')
     .replace(/\s+/g, ' ')
     .trim();
+  const koTuningBaseTitle = `극성중공 소리굽쇠 ${p.skuDisplay} ($${p.tier500}+) · 1개 샘플·도매`;
+  const koTuningWithSub = `${koTuningBaseTitle} ${koCleanTuningTitle}`;
   const metaTitle =
     lang === 'en'
       ? p.metaTitle
       : lang === 'ko' && p.tuningFork
-        ? `극성중공 소리굽쇠 ${p.skuDisplay} ($${p.tier500}+) ${koCleanTuningTitle} | FidgetSupply`
+        ? (koTuningWithSub.length <= 58 ? koTuningWithSub : koTuningBaseTitle)
         : lang === 'de' && p.sku === 'FS-148'
           ? 'FS-148 Resonanzkammer Stimmgabel Spinner ($42.46+)'
           : `${p.skuDisplay} ${locTitle} · $${p.tier500}+ | FidgetSupply`;

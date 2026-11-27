@@ -4,10 +4,12 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+import { getWholesaleCatalogCopy } from '../../i18n/landing/wholesaleCatalog';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
 const microHooks = getMicroHookLabels(currentLang);
+const copy = getWholesaleCatalogCopy(currentLang);
 const allProducts = (await getCollection('products')).sort((a, b) => a.data.rowId - b.data.rowId);
 
 const tierBudget = allProducts.filter((p) => parseFloat(p.data.tier500) <= 3.5);
@@ -64,48 +66,7 @@ const PAGE_DESCS: Record<string, string> = {
   ar: 'قائمة أسعار المصنع المباشرة للفيدجت المعدني: 140 قالباً جاهزاً (0.74$–470.77$، قالب 0$)، الحد الأدنى 50 قطعة بدون شعار و100 قطعة بالليزر.'
 };
 
-const catalogFaqs = [
-  {
-    question: 'What is the full EXW factory wholesale price range across FidgetSupply’s 140 ready molds?',
-    answer: 'Across our 140 active molds (FS-001 to FS-150), 500-piece tier EXW prices span from $0.74/pc for compact Zamak-3 pocket spinners (FS-009) up to $470.77/pc for multi-metal CNC Zirconium & Titanium collector editions. Over 85 models fall in the high-velocity $1.70–$12.50 wholesale band.'
-  },
-  {
-    question: 'How are volume price tiers structured (50 pcs vs. 200 pcs vs. 500+ pcs)?',
-    answer: 'Every product page displays transparent 3-tier factory pricing: Tier 1 (50–199 pcs), Tier 2 (200–499 pcs), and Tier 3 (500+ pcs). Moving from 50 pcs to 500 pcs typically lowers unit factory cost by 15%–22%, with additional discounts available for 1,000+ piece runs.'
-  },
-  {
-    question: 'Do we have to pay mold or tooling fees when sourcing from the 140-SKU wholesale catalog?',
-    answer: 'No. All 140 catalog SKUs use existing hardened die-casting molds and CNC fixtures maintained across our integrated partner workshops, so your mold tooling cost is $0.00.'
-  },
-  {
-    question: 'Can we order a 50-piece Mix-SKU starter assortment instead of 50 pieces of one single model?',
-    answer: 'Yes. For ready-stock blank models, we support Mix-SKU starter batches so retail shops, e-commerce sellers, and distributors can test 5 to 10 models in their first shipment before scaling winning SKUs.'
-  },
-  {
-    question: 'What is the difference in wholesale cost between Zamak-3 zinc alloy, 6063 aluminum, and CNC 304 stainless steel?',
-    answer: 'High-pressure die-cast Zamak-3 zinc alloy sits in the $0.74–$6.80 wholesale tier, CNC 6063 anodized aluminum ranges from $4.50–$12.55, and 5-axis CNC 304/316 stainless steel ranges from $8.49–$43.94.'
-  },
-  {
-    question: 'How much does custom 50W fiber laser engraving or deep color-fill logo branding add to the catalog unit price?',
-    answer: 'Standard monochrome 50W MOPA fiber laser engraving adds +$0.15 to $0.30/pc (MOQ 100 pcs, $0 setup fee), while Deep Laser Engraving + Pantone Enamel Color Fill adds +$0.35 to $0.60/pc (MOQ 100–200 pcs).'
-  },
-  {
-    question: 'What packaging options are available and how much do they add per unit?',
-    answer: 'Every unit includes standard scratch-protective packaging. Custom logo Black EVA Zipper Cases add +$0.75/pc (MOQ 100), Matte Window Metal Tin Boxes add +$0.85/pc (MOQ 200), and Two-Piece Rigid Luxury Gift Boxes add +$1.10/pc (MOQ 300).'
-  },
-  {
-    question: 'Can I receive the complete 140-SKU catalog as a downloadable Excel / PDF price sheet?',
-    answer: 'Yes. Enter your work email or WhatsApp in the inline bar above (or message +86 187 5012 6315 on WhatsApp) and our Fuzhou export desk will send the complete 140-SKU spreadsheet with exact 50/200/500-pc EXW pricing, weights, dimensions, and magnet specs.'
-  },
-  {
-    question: 'Can we order paid 1-piece samples from the catalog before placing a bulk order?',
-    answer: 'Yes. Paid 1-piece evaluation samples are available across all 140 models; sample unit fees and international courier shipping are paid by the buyer and are non-refundable.'
-  },
-  {
-    question: 'Do you handle IATA PI953 magnetic shielding and DDP door-to-door shipping for bulk orders?',
-    answer: 'Yes. Our Fuzhou Export Hub packs bulk magnetic shipments with ferromagnetic shielding sheets to comply with IATA DGR Packing Instruction 953 (PI953 / PI-953) and arranges EXW, FOB, or DDP Air/Sea logistics.'
-  }
-];
+const catalogFaqs = copy.faqs;
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -120,9 +81,19 @@ const faqSchema = {
 const catalogSchema = {
   '@context': 'https://schema.org',
   '@type': 'OfferCatalog',
-  name: 'FidgetSupply 140-SKU Wholesale Metal EDC Fidget Price List',
+  name: copy.catalogName,
   numberOfItems: allProducts.length,
   url: `https://fidgetsupply.com${getLocalizedPath('/wholesale-catalog', currentLang)}`
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
+    { '@type': 'ListItem', position: 2, name: t('breadcrumb.allCatalog'), item: `https://fidgetsupply.com${getLocalizedPath('/products', currentLang)}` },
+    { '@type': 'ListItem', position: 3, name: copy.bcCurrent, item: `https://fidgetsupply.com${getLocalizedPath('/wholesale-catalog', currentLang)}` }
+  ]
 };
 ---
 
@@ -131,7 +102,7 @@ const catalogSchema = {
   description={PAGE_DESCS[currentLang] || PAGE_DESCS.en}
   ogImage="/images/factory/showcase-2.webp"
   activePage="products"
-  jsonLd={[catalogSchema, faqSchema]}
+  jsonLd={[catalogSchema, faqSchema, breadcrumbSchema]}
 >
   <section class="grand-hero">
     <div class="container grand-hero-grid">
@@ -141,12 +112,12 @@ const catalogSchema = {
           <span class="bc-sep">/</span>
           <a href={getLocalizedPath('/products', currentLang)}>{t('breadcrumb.allCatalog')}</a>
           <span class="bc-sep">/</span>
-          <span class="bc-current">140-SKU Price List</span>
+          <span class="bc-current">{copy.bcCurrent}</span>
         </nav>
 
         <div class="hero-badges-row">
-          <span class="badge badge-gold">FACTORY-DIRECT EXW MATRIX</span>
-          <span class="badge badge-emerald">140 Active Molds · $0.00 Tooling</span>
+          <span class="badge badge-gold">{copy.badge1}</span>
+          <span class="badge badge-emerald">{copy.badge2}</span>
         </div>
 
         <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
@@ -156,51 +127,51 @@ const catalogSchema = {
 
         <div class="hero-glass-grid">
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Entry Tier (&le;$3.50)</span>
-            <strong class="glass-kpi-val">{tierBudget.length} Molds</strong>
+            <span class="glass-kpi-label">{copy.kpis[0].label}</span>
+            <strong class="glass-kpi-val">{tierBudget.length} {copy.moldUnit}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Core Retail ($3.51–$10)</span>
-            <strong class="glass-kpi-val">{tierMid.length} Molds</strong>
+            <span class="glass-kpi-label">{copy.kpis[1].label}</span>
+            <strong class="glass-kpi-val">{tierMid.length} {copy.moldUnit}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">CNC Pro ($10.01–$45)</span>
-            <strong class="glass-kpi-val">{tierPremium.length} Molds</strong>
+            <span class="glass-kpi-label">{copy.kpis[2].label}</span>
+            <strong class="glass-kpi-val">{tierPremium.length} {copy.moldUnit}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Exotic / Zr ($45+)</span>
-            <strong class="glass-kpi-val">{tierExotic.length} Molds</strong>
+            <span class="glass-kpi-label">{copy.kpis[3].label}</span>
+            <strong class="glass-kpi-val">{tierExotic.length} {copy.moldUnit}</strong>
           </div>
         </div>
 
         <div class="hero-actions">
           <a href={getLocalizedPath('/products', currentLang)} class="btn btn-accent btn-hero">
-            Browse All {allProducts.length} SKUs →
+            {copy.ctaPrimaryPrefix} {allProducts.length} {copy.ctaPrimarySuffix}
           </a>
           <a href={getLocalizedPath('/sample-kit', currentLang)} class="btn btn-secondary-dark btn-hero">
-            1-{t('unit.pc')} Sample Program →
+            {copy.ctaSecondary}
           </a>
         </div>
       </div>
 
       <div class="hero-showcase-card">
         <div class="hero-showcase-top">
-          <span class="sku-pill">3-TIER VOLUME PRICING</span>
+          <span class="sku-pill">{copy.showcasePill}</span>
           <span class="hero-showcase-price">$0.74 – $470.77</span>
         </div>
         <div class="hero-showcase-img-wrap">
           <img
             src="/images/factory/showcase-2.webp"
-            alt="FidgetSupply 140-SKU wholesale metal fidget price list across zinc alloy, aluminum, stainless steel, and zirconium"
+            alt={copy.showcaseAlt}
             width="480"
             height="360"
             loading="eager"
           />
         </div>
         <div class="hero-showcase-meta">
-          <span>MOQ 50 Blank</span>
-          <span>MOQ 100 Laser Logo</span>
-          <span>50-Pc Mix-SKU OK</span>
+          <span>{copy.showcaseMeta[0]}</span>
+          <span>{copy.showcaseMeta[1]}</span>
+          <span>{copy.showcaseMeta[2]}</span>
         </div>
       </div>
     </div>
@@ -208,8 +179,8 @@ const catalogSchema = {
 
   <div class="container">
     <GeoDirectAnswer
-      title="Direct Answer: 140-SKU Wholesale Metal Fidget Price Tiers & MOQs"
-      answer="FidgetSupply's wholesale catalog covers 140 ready-to-produce metal EDC molds (FS-001 to FS-150) organized into four factory price bands: Entry Promo ($0.74–$3.50), Core E-Commerce ($3.51–$10.00), Precision CNC Stainless & Brass ($10.01–$45.00), and Collector Zirconium/Exotic ($45.01–$470.77). Every SKU requires $0.00 mold fees, starts at 50 pcs blank (or Mix-SKU starter batch) and 100 pcs for 50W fiber laser engraving (+$0.15–$0.30/pc), with paid 1-piece physical evaluation samples available."
+      title={copy.geoTitle}
+      answer={copy.geoAnswer}
     />
 
     <form class="inline-quick-sheet-form" data-inline-sku="Full 140-SKU Wholesale Price Sheet (Excel/PDF · 50/200/500 Tiers)" novalidate>
@@ -234,47 +205,47 @@ const catalogSchema = {
 
     <section class="section">
       <div class="section-header-center">
-        <span class="badge">FACTORY PRICE BAND ARCHITECTURE</span>
-        <h2 class="section-title">140 Ready Molds Grouped by Wholesale EXW Price Band</h2>
+        <span class="badge">{copy.matrixBadge}</span>
+        <h2 class="section-title">{copy.matrixTitle}</h2>
       </div>
       <div class="geo-table-wrap">
         <table class="geo-table">
           <thead>
             <tr>
-              <th>Price Band (500-Pc EXW)</th>
-              <th>Active Molds</th>
-              <th>Primary Materials &amp; Process</th>
-              <th>Best-Fit Buyer Channels</th>
-              <th>Typical Retail Range</th>
+              <th>{copy.tableHeaders[0]}</th>
+              <th>{copy.tableHeaders[1]}</th>
+              <th>{copy.tableHeaders[2]}</th>
+              <th>{copy.tableHeaders[3]}</th>
+              <th>{copy.tableHeaders[4]}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>$0.74 – $3.50 / pc</strong></td>
-              <td>{tierBudget.length} SKUs</td>
-              <td>Zamak-3 High-Pressure Die Casting, Electroplated / Antique Finish</td>
-              <td>Corporate trade-show giveaways, promotional swag, high-volume gift bundles</td>
+              <td><strong>$0.74 – $3.50 / {t('unit.pc')}</strong></td>
+              <td>{tierBudget.length} {copy.skuUnit}</td>
+              <td>{copy.bandMaterials[0]}</td>
+              <td>{copy.bandChannels[0]}</td>
               <td>$12 – $24</td>
             </tr>
             <tr>
-              <td><strong>$3.51 – $10.00 / pc</strong></td>
-              <td>{tierMid.length} SKUs</td>
-              <td>Zamak-3 Multi-Layer, 6063 Anodized Aluminum, Brass Hybrid, PTFE Sliders</td>
-              <td>Amazon FBA private label, TikTok Shop ASMR, Shopify EDC brands</td>
+              <td><strong>$3.51 – $10.00 / {t('unit.pc')}</strong></td>
+              <td>{tierMid.length} {copy.skuUnit}</td>
+              <td>{copy.bandMaterials[1]}</td>
+              <td>{copy.bandChannels[1]}</td>
               <td>$25 – $59</td>
             </tr>
             <tr>
-              <td><strong>$10.01 – $45.00 / pc</strong></td>
-              <td>{tierPremium.length} SKUs</td>
-              <td>5-Axis CNC 304/316 Stainless Steel, Ceramic Detents, Acoustic Tuning Forks</td>
-              <td>Boutique EDC stores, Kickstarter/Indiegogo drops, VIP executive gifts</td>
+              <td><strong>$10.01 – $45.00 / {t('unit.pc')}</strong></td>
+              <td>{tierPremium.length} {copy.skuUnit}</td>
+              <td>{copy.bandMaterials[2]}</td>
+              <td>{copy.bandChannels[2]}</td>
               <td>$65 – $180</td>
             </tr>
             <tr>
-              <td><strong>$45.01 – $470.77 / pc</strong></td>
-              <td>{tierExotic.length} SKUs</td>
-              <td>CNC Zirconium (Zr702), Titanium, Damascus, Abalone Inlay, Multi-Metal</td>
-              <td>Collector EDC clubs, limited serialized editions (001/100)</td>
+              <td><strong>$45.01 – $470.77 / {t('unit.pc')}</strong></td>
+              <td>{tierExotic.length} {copy.skuUnit}</td>
+              <td>{copy.bandMaterials[3]}</td>
+              <td>{copy.bandChannels[3]}</td>
               <td>$190 – $850+</td>
             </tr>
           </tbody>
@@ -284,8 +255,8 @@ const catalogSchema = {
 
     <section class="section section-light" style="padding: 2.5rem 1.75rem; border-radius: 1rem;">
       <div class="section-header-center">
-        <span class="badge badge-emerald">REPRESENTATIVE BENCHMARKS ACROSS ALL 4 TIERS</span>
-        <h2 class="section-title">Flagship Models From $0.74 Entry to Collector CNC</h2>
+        <span class="badge badge-emerald">{copy.picksBadge}</span>
+        <h2 class="section-title">{copy.picksTitle}</h2>
       </div>
       <div class="grid-4">
         {showcaseMatrix.map((p) => (
@@ -296,8 +267,8 @@ const catalogSchema = {
 
     <section class="section">
       <div class="section-header-center">
-        <span class="badge">WHOLESALE CATALOG FAQ</span>
-        <h2 class="section-title">Pricing Tiers, MOQ &amp; Factory Sourcing Questions</h2>
+        <span class="badge">{copy.faqBadge}</span>
+        <h2 class="section-title">{copy.faqTitle}</h2>
       </div>
       <div class="faq-list">
         {catalogFaqs.map((faq, idx) => (

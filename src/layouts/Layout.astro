@@ -990,9 +990,17 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           });
         }
         var shownKey = 'fs_proactive_shown';
-        try {
-          if (sessionStorage.getItem(shownKey) === '1' || localStorage.getItem('rx_user_email')) return;
-        } catch (_) {}
+        var tsKey = 'fs_proactive_shown_ts';
+        var COOLDOWN_MS = 6 * 3600 * 1000;
+        function isProactiveCoolingDown() {
+          try {
+            if (sessionStorage.getItem(shownKey) === '1' || localStorage.getItem('rx_user_email')) return true;
+            var lastTs = parseInt(localStorage.getItem(tsKey) || '0', 10);
+            if (lastTs && Date.now() - lastTs < COOLDOWN_MS) return true;
+          } catch (_) {}
+          return false;
+        }
+        if (isProactiveCoolingDown()) return;
 
         var triggered = false;
         var enterTs = Date.now();
@@ -1027,9 +1035,10 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
             var curSl = JSON.parse(localStorage.getItem('fs_quote_shortlist') || '[]');
             if (Array.isArray(curSl) && curSl.length > 0) return;
           } catch (_) {}
+          if (isProactiveCoolingDown()) return;
           try {
-            if (sessionStorage.getItem(shownKey) === '1' || localStorage.getItem('rx_user_email')) return;
             sessionStorage.setItem(shownKey, '1');
+            localStorage.setItem(tsKey, String(Date.now()));
           } catch (_) {}
           triggered = true;
           card.hidden = false;
