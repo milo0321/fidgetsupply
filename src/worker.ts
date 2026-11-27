@@ -237,56 +237,79 @@ export default {
       });
     }
 
+    const withNoIndex = (res: Response): Response => {
+      const nextHeaders = new Headers(res.headers);
+      nextHeaders.set('X-Robots-Tag', 'noindex, nofollow');
+      nextHeaders.set('Cache-Control', 'no-store');
+      return new Response(res.body, {
+        status: res.status,
+        statusText: res.statusText,
+        headers: nextHeaders,
+      });
+    };
+
     // Route: /api/contact
     if (pathname === '/api/contact') {
       if (request.method === 'POST') {
-        return handleContactPost({ request, env, ctx });
+        return withNoIndex(await handleContactPost({ request, env, ctx }));
       }
       if (request.method === 'GET') {
-        return new Response(
-          JSON.stringify({
-            status: 'ok',
-            service: 'FidgetSupply Contact API',
-            turnstileSiteKey: env.PUBLIC_TURNSTILE_SITE_KEY || env.TURNSTILE_SITE_KEY || '0x4AAAAAAF1GTaPVmYSNUcHS'
-          }),
-          {
-            status: 200,
-            headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-          }
+        return withNoIndex(
+          new Response(
+            JSON.stringify({
+              status: 'ok',
+              service: 'FidgetSupply Contact API',
+              turnstileSiteKey: env.PUBLIC_TURNSTILE_SITE_KEY || env.TURNSTILE_SITE_KEY || '0x4AAAAAAF1GTaPVmYSNUcHS'
+            }),
+            {
+              status: 200,
+              headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+            }
+          )
         );
       }
-      return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
-        status: 405,
-        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      });
+      return withNoIndex(
+        new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
+          status: 405,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        })
+      );
     }
 
     // Route: /api/whatsapp-track
     if (pathname === '/api/whatsapp-track') {
       if (request.method === 'POST') {
-        return handleWhatsAppPost({ request, env, ctx });
+        return withNoIndex(await handleWhatsAppPost({ request, env, ctx }));
       }
       if (request.method === 'GET') {
-        return handleWhatsAppGet();
+        return withNoIndex(await handleWhatsAppGet());
       }
-      return new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
-        status: 405,
-        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      });
+      return withNoIndex(
+        new Response(JSON.stringify({ error: 'Method Not Allowed' }), {
+          status: 405,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        })
+      );
     }
 
     // For non-GET/HEAD methods on static paths, return 405 JSON instead of asset crash
     if (request.method !== 'GET' && request.method !== 'HEAD') {
-      return new Response(JSON.stringify({ error: 'Endpoint not found or method not allowed' }), {
-        status: 404,
-        headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
-      });
+      return withNoIndex(
+        new Response(JSON.stringify({ error: 'Endpoint not found or method not allowed' }), {
+          status: 404,
+          headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' },
+        })
+      );
     }
 
     // Pass-through to Cloudflare Static Assets (pre-rendered HTML pages + static files)
     const assetResponse = await env.ASSETS.fetch(request);
     const headers = new Headers(assetResponse.headers);
     headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+    if (assetResponse.status === 404 || pathname.startsWith('/api/')) {
+      headers.set('X-Robots-Tag', 'noindex, nofollow');
+      headers.set('Cache-Control', 'no-store');
+    }
     return new Response(assetResponse.body, {
       status: assetResponse.status,
       statusText: assetResponse.statusText,

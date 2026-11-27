@@ -95,6 +95,8 @@ export async function onRequestGet() {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
+        'X-Robots-Tag': 'noindex, nofollow',
+        'Cache-Control': 'no-store',
         ...corsHeaders
       }
     }

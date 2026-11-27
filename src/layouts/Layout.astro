@@ -373,8 +373,9 @@ const allSchemas = [...defaultSchemas, ...extraSchemas];
           {
             "where": {
               "and": [
-                { "href_matches": "/*" },
-                { "not": { "href_matches": "/contact*" } }
+                { "selector_matches": "a[href^='/']" },
+                { "not": { "selector_matches": "a[href*='/contact']" } },
+                { "not": { "selector_matches": "a[href^='/api/']" } }
               ]
             },
             "eagerness": "moderate"
