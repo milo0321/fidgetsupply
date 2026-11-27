@@ -72,7 +72,7 @@ function calibrateSeoTitle(raw: string, langCode: SupportedLanguage): string {
   // Strip redundant brand suffix and non-price parenthetical notes on localized pages to save character budget
   clean = clean
     .replace(/\s*\|\s*FidgetSupply(\.com)?$/i, '')
-    .replace(/\s*\((?!\$)[^)]+\)$/, '')
+    .replace(/\s*\((?!\+?\$\d)[^)]+\)$/, '')
     .replace(/\s&\s/g, ' + ')
     .trim();
 
@@ -125,6 +125,7 @@ function calibrateSeoDescription(raw: string, langCode: SupportedLanguage): stri
     return full;
   }
   const maxLen = 153;
+  const endChar = langCode === 'ja' ? '。' : '.';
   if (full.includes(' ') && !['ja'].includes(langCode)) {
     const words = full.split(' ');
     let acc = '';
@@ -136,12 +137,23 @@ function calibrateSeoDescription(raw: string, langCode: SupportedLanguage): stri
         break;
       }
     }
-    clean = (acc || full.slice(0, maxLen)).replace(/[\s:,\-–—/+|&.]+$/, '') + '.';
+    clean = (acc || full.slice(0, maxLen)).replace(/[\s:,\-–—/+|&.]+$/, '');
   } else {
-    const endChar = langCode === 'ja' ? '。' : '.';
-    clean = full.slice(0, maxLen).replace(/[\s:,\-–—/+|&.、。]+$/, '') + endChar;
+    clean = full.slice(0, maxLen).replace(/[\s:,\-–—/+|&.、。]+$/, '');
   }
-  return clean;
+  const openParenIdx = clean.lastIndexOf('(');
+  if (openParenIdx > clean.lastIndexOf(')')) {
+    const beforeParen = clean.slice(0, openParenIdx).replace(/[\s:,\-–—/+|&.、。]+$/, '');
+    if (beforeParen.length >= 80) {
+      clean = beforeParen;
+    } else {
+      while (htmlEncodedLen(`${clean})`) > maxLen && clean.length > 0) {
+        clean = clean.slice(0, -1).replace(/[\s:,\-–—/+|&.、。]+$/, '');
+      }
+      clean = `${clean})`;
+    }
+  }
+  return `${clean}${endChar}`;
 }
 
 const localizedTitle = calibrateSeoTitle(title, currentLang);

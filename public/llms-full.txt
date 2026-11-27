@@ -1643,11 +1643,11 @@ FidgetSupply.com operates strictly on a **100% Ready-Mold Light Customization** 
 - **Primary Category**: Multi-Action Mechanical EDC (`mechanical-edc-fidgets`)
 - **Material**: Die-Cast Zinc Alloy (Zamak #3)
 - **Dimensions**: 68*12.8*12.2MM | **Net Weight**: 54g
-- **Magnets & Internal Hardware**: Non-Magnetic (Pure Mechanical / Bearing Action) | 5 pcs Blue Crystal Inlay Ø4*1, 2 pcs Hardened Steel Detent Ball Ø5, 2 pcs Conical Compression Spring Wire ØØ0.4*Ø5.*Ø4*3.5, 4 pcs Countersunk Screw Ø5*1.5M2.5*3.5Hex Machine Screw , 1 pcs Countersunk Screw Ø4.15M2.5*5Phillips Machine Screw
+- **Magnets & Internal Hardware**: Non-Magnetic (Pure Mechanical / Bearing Action) | 5 pcs Blue Crystal Inlay (Ø4×1mm), 2 pcs Hardened Steel Detent Ball (Ø5mm), 2 pcs Conical Compression Spring (Ø0.4×Ø5×3.5mm), 4 pcs M2.5×3.5mm Hex Countersunk Machine Screw, 1 pc M2.5×5mm Phillips Countersunk Machine Screw
 - **Available Finishes / Colors**: Anodized Gold
 - **Factory-Direct USD Wholesale Tiers ($0 Tooling Fee)**: 50–199 pcs: **$4.71/pc** | 200–499 pcs: **$4.21/pc** | 500+ pcs: **$3.82/pc**
 - **MOQ & Lead Time**: 50 pcs (Blank) / 100 pcs (Custom Logo) | Lead Time: 7–12 Days
-- **Engineering Overview**: FS-141 Twin-Bar 5-Crystal Dual-Tower-Spring Mechanical Stick EDC is an industrial-grade wholesale metal EDC fidget engineered from Die-Cast Zinc Alloy (Zamak #3) (68*12.8*12.2MM, net weight 54g). Equipped with Non-Magnetic (Pure Mechanical / Bearing Action) and 5 pcs Blue Crystal Inlay Ø4*1, 2 pcs Hardened Steel Detent Ball Ø5, 2 pcs Conical Compression Spring Wire ØØ0.4*Ø5.*Ø4*3.5, 4 pcs Countersunk Screw Ø5*1.5M2.5*3.5Hex Machine Screw , 1 pcs Countersunk Screw Ø4.15M2.5*5Phillips Machine Screw, this model utilizes our mature ready-to-use production mold #141 ($0 Tooling Cost) across our integrated China precision metalworking & CNC supply chain network. Available for immediate blank wholesale (MOQ 50 pcs) or custom corporate branding via 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) and Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).
+- **Engineering Overview**: FS-141 Twin-Bar 5-Crystal Dual-Tower-Spring Mechanical Stick EDC is an industrial-grade wholesale metal EDC fidget engineered from Die-Cast Zinc Alloy (Zamak #3) (68*12.8*12.2MM, net weight 54g). Equipped with Non-Magnetic (Pure Mechanical / Bearing Action) and 5 pcs Blue Crystal Inlay (Ø4×1mm), 2 pcs Hardened Steel Detent Ball (Ø5mm), 2 pcs Conical Compression Spring (Ø0.4×Ø5×3.5mm), 4 pcs M2.5×3.5mm Hex Countersunk Machine Screw, 1 pc M2.5×5mm Phillips Countersunk Machine Screw, this model utilizes our mature ready-to-use production mold #141 ($0 Tooling Cost) across our integrated China precision metalworking & CNC supply chain network. Available for immediate blank wholesale (MOQ 50 pcs) or custom corporate branding via 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) and Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample).
 
 ### FS-142: Drop-Tower 6-Bearing 24-Magnet Brass & Zinc Heavyweight EDC
 - **Canonical URL**: https://fidgetsupply.com/products/drop-tower-6-bearing-24-magnet-heavy-edc
@@ -3161,7 +3161,7 @@ For international buyers shipping via air courier (DHL, FedEx, UPS) or importing
 
 ### Guide #12: Bulk Fidget Toys for Adults & Quiet Office Wellness: Decibel Ratings, Allergen-Free Metals & Wholesale Guide
 - **Canonical URL**: https://fidgetsupply.com/insights/bulk-fidget-toys-for-adults-office-wellness-wholesale-guide
-- **Category**: Wholesale Sourcing SOP | **Reading Time**: 10 min read | **Updated**: 2026-11-25
+- **Category**: Wholesale Sourcing SOP | **Reading Time**: 10 min read | **Updated**: 2026-11-27
 - **Featured Ready-Mold SKUs**: FS-125, FS-047, FS-135, FS-014, FS-009, FS-064, FS-013, FS-027, FS-069, FS-140
 - **Executive Summary**: How HR wellness teams, clinics, and retailers source bulk fidget toys for adults (<35 dBA silent office sliders, spinner rings & ADHD sensory metal tools from $0.74 EXW, MOQ 50).
 
