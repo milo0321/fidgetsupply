@@ -4,10 +4,12 @@ import Layout from '../../layouts/Layout.astro';
 import ProductCard from '../../components/ProductCard.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+import { getBulkAdultCopy } from '../../i18n/landing/bulkAdultOffice';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
 const microHooks = getMicroHookLabels(currentLang);
+const copy = getBulkAdultCopy(currentLang);
 const allProducts = await getCollection('products');
 
 const officeSkus = ['FS-125', 'FS-047', 'FS-135', 'FS-014', 'FS-009', 'FS-064', 'FS-013', 'FS-150'];
@@ -57,52 +59,7 @@ const PAGE_DESCS: Record<string, string> = {
   ar: 'أدوات فيدجت معدنية للكبار بالجملة: سلايدرات مكتب صامتة (<35 ديسيبل) وخواتم دوارة ($0.74+، الحد الأدنى 50 قطعة، عينة قطعة واحدة).'
 };
 
-const bulkAdultFaqs = [
-  {
-    question: 'Which bulk metal fidget toys are quietest (<35 dBA) for open offices and Zoom calls?',
-    answer: 'Silent office leaders include FS-125 (Smooth Soap-Box PTFE Slider), FS-047 (6063 Anodized Aluminum Slider with PTFE pads), FS-135 (16-Magnet Bearing Ring), and FS-009 / FS-064 oil-free R188 desk spinners—all engineered to glide or spin below 35 dBA without disturbing coworkers.'
-  },
-  {
-    question: 'Why do HR wellness buyers and therapists prefer solid metal fidgets for adult ADHD and anxiety?',
-    answer: 'Unlike lightweight plastic trinkets, solid Zamak-3 (55–95g), aluminum, and CNC stainless steel (80–160g) tools deliver stronger proprioceptive tactile feedback, calibrated magnetic detents, and durable precision bearings suited for sustained adult focus.'
-  },
-  {
-    question: 'What is the minimum order quantity for bulk adult fidget toys across mixed models?',
-    answer: 'Blank stock starts at 50 pieces per SKU (with finish mixing available), or teams can bundle multiple SKUs into one Fuzhou export order to hit volume tier discounts.'
-  },
-  {
-    question: 'Can we order 1-piece samples across silent vs. tactile models before buying in bulk?',
-    answer: 'Yes. Paid 1-piece physical evaluation samples are available on all 140 molds (buyer pays unit cost + international courier shipping, non-refundable). We often ship an acoustic comparison trio (e.g., FS-125 + FS-013 + FS-150) in one parcel.'
-  },
-  {
-    question: 'How much do bulk adult metal fidget toys cost at 50, 200, and 500+ unit volumes?',
-    answer: 'Factory EXW pricing spans $0.74–$0.92 for pocket twist spinners (FS-009), $3.18–$6.00 for signature Zamak/Aluminum magnetic sliders (FS-001, FS-047, FS-125), and $7.43–$21.45 for heavy CNC 304 stainless steel coins and multi-layer sliders.'
-  },
-  {
-    question: 'Can we add our company wellness program logo onto silent office fidget sliders?',
-    answer: 'Yes. At MOQ 100 pcs per SKU, permanent 50W fiber laser engraving adds +$0.15–$0.30/pc ($0 setup fee), or Deep Laser Engraving + Color Fill adds +$0.35–$0.60/pc with a free 12-hour digital proof.'
-  },
-  {
-    question: 'What weight range works best for discreet everyday office desk use vs. heavy sensory grounding?',
-    answer: 'For lightweight pocket carry without pulling trousers, 6063 Aluminum sliders (FS-047, ~35–48g) and spinner rings (FS-135) are ideal. For grounded desk sensory regulation, choose 60–115g Zamak-3 or 304 stainless steel models (FS-125, FS-013, FS-075).'
-  },
-  {
-    question: 'Do any bulk adult fidget options avoid magnets completely for pacemaker or sensitive environments?',
-    answer: 'Yes. Over 30 purely mechanical models—including oil-free R188 spinners (FS-009, FS-043, FS-064), dual-bearing ratchet bars (FS-085, FS-087), and sprocket chains (FS-079)—contain zero magnets.'
-  },
-  {
-    question: 'What packaging comes standard on bulk office wellness orders?',
-    answer: 'Every unit ships in an individual anti-oxidation vacuum pouch ($0.00 included at MOQ 50). Teams can upgrade to Stock Black EVA Zipper Cases (+$0.75+/pc, MOQ 100), Rigid Gift Boxes (+$1.45+/pc, MOQ 500), or Window Tin Boxes (MOQ 1,000+ MTO).'
-  },
-  {
-    question: 'What are the best metal fidget toys for adults in corporate wellness and executive desk kits?',
-    answer: 'The best metal fidget toys for adults balance tactile weight with workspace acoustics: FS-125 (Smooth Soap-Box PTFE Slider) and FS-047 (6063 Anodized Aluminum Slider) glide below 35 dBA, FS-135 (16-Magnet Bearing Ring) spins quietly on one finger, and FS-009 / FS-064 / FS-043 serve buyers seeking an adult metal fidget spinner without magnets.'
-  },
-  {
-    question: 'What is the production and dispatch lead time for bulk office wellness orders?',
-    answer: 'Blank stock orders (50+ pcs) complete factory dispatch prep from Fuzhou in 5–7 business days; custom logo orders (100+ pcs) take 10–15 business days after proof approval. Door-to-door courier delivery times are set by DHL, FedEx, UPS, or DDP carriers.'
-  }
-];
+const bulkAdultFaqs = copy.faqs;
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -117,9 +74,9 @@ const faqSchema = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Bulk Adult & Silent Office Metal Fidget Toys Supply',
+  name: copy.serviceName,
   provider: { '@type': 'Organization', name: 'FidgetSupply.com', url: 'https://fidgetsupply.com' },
-  description: 'Wholesale bulk metal fidget toys for adults, silent <35 dBA PTFE office sliders, spinner rings, and sensory EDC tools directly from 140 ready molds ($0.74+, MOQ 50).'
+  description: copy.serviceDesc
 };
 
 const breadcrumbSchema = {
@@ -128,7 +85,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
     { '@type': 'ListItem', position: 2, name: t('breadcrumb.allCatalog'), item: `https://fidgetsupply.com${getLocalizedPath('/products', currentLang)}` },
-    { '@type': 'ListItem', position: 3, name: 'Adult & Office Bulk', item: `https://fidgetsupply.com${getLocalizedPath('/bulk-adult-office-fidgets', currentLang)}` }
+    { '@type': 'ListItem', position: 3, name: copy.bcCurrent, item: `https://fidgetsupply.com${getLocalizedPath('/bulk-adult-office-fidgets', currentLang)}` }
   ]
 };
 ---
@@ -148,12 +105,12 @@ const breadcrumbSchema = {
           <span class="bc-sep">/</span>
           <a href={getLocalizedPath('/products', currentLang)}>{t('breadcrumb.allCatalog')}</a>
           <span class="bc-sep">/</span>
-          <span class="bc-current">Adult &amp; Office Bulk</span>
+          <span class="bc-current">{copy.bcCurrent}</span>
         </nav>
 
         <div class="hero-badges-row">
-          <span class="badge badge-gold">ADULT SENSORY &amp; OFFICE EDC</span>
-          <span class="badge badge-emerald">&lt;35 dBA Silent &amp; Heavyweight Tiers</span>
+          <span class="badge badge-gold">{copy.badge1}</span>
+          <span class="badge badge-emerald">{copy.badge2}</span>
         </div>
 
         <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
@@ -163,51 +120,51 @@ const breadcrumbSchema = {
 
         <div class="hero-glass-grid">
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Office Decibel Floor</span>
-            <strong class="glass-kpi-val">&lt;35 dBA Silent</strong>
+            <span class="glass-kpi-label">{copy.kpis[0].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[0].val}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Bulk Unit Range</span>
-            <strong class="glass-kpi-val">$0.74 – $21.45</strong>
+            <span class="glass-kpi-label">{copy.kpis[1].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[1].val}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Blank Bulk MOQ</span>
-            <strong class="glass-kpi-val">50 {t('unit.pcs')}</strong>
+            <span class="glass-kpi-label">{copy.kpis[2].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[2].val} {t('unit.pcs')}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Non-Magnetic Option</span>
-            <strong class="glass-kpi-val">30+ Molds</strong>
+            <span class="glass-kpi-label">{copy.kpis[3].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[3].val}</strong>
           </div>
         </div>
 
         <div class="hero-actions">
           <a href={getLocalizedPath('/contact', currentLang)} class="btn btn-accent btn-hero">
-            Request Bulk Adult Catalog →
+            {copy.ctaPrimary}
           </a>
           <a href={getLocalizedPath('/landed-cost-calculator', currentLang)} class="btn btn-secondary-dark btn-hero">
-            Open Cost Calculator →
+            {copy.ctaSecondary}
           </a>
         </div>
       </div>
 
       <div class="hero-showcase-card">
         <div class="hero-showcase-top">
-          <span class="sku-pill">QUIET OFFICE CALIBRATED</span>
+          <span class="sku-pill">{copy.showcasePill}</span>
           <span class="hero-showcase-price">MOQ 50 {t('unit.pcs')}</span>
         </div>
         <div class="hero-showcase-img-wrap">
           <img
             src="/images/insights/quiet-office-decibel-fidgets-hero.webp"
-            alt="Silent office metal fidget sliders, spinner rings, and haptic coins for adult focus and wellness"
+            alt={`${PAGE_TITLES[currentLang] || PAGE_TITLES.en} — FidgetSupply`}
             width="480"
             height="360"
             loading="eager"
           />
         </div>
         <div class="hero-showcase-meta">
-          <span>PTFE Whisper Glide</span>
-          <span>6063 Al / 304 SS</span>
-          <span>1-Pc Sample OK</span>
+          <span>{copy.showcaseMeta[0]}</span>
+          <span>{copy.showcaseMeta[1]}</span>
+          <span>{copy.showcaseMeta[2]}</span>
         </div>
       </div>
     </div>
@@ -215,8 +172,8 @@ const breadcrumbSchema = {
 
   <div class="container">
     <GeoDirectAnswer
-      title="Direct Answer: Choosing Bulk Metal Fidget Toys for Adults & Office Teams"
-      answer="Searching for the best metal fidget toys for adults in corporate offices, ADHD neurodiversity programs, and adult retail? FidgetSupply classifies 140 metal fidget toys and stainless steel fidget toys by sound output: Silent <35 dBA PTFE Sliders & Rings (FS-125, FS-047, FS-135) plus adult metal fidget spinner options (FS-009, FS-043, FS-064); Soft Tactile Coins (FS-013, FS-027) at 35–50 dBA; and Tuning Fork Sliders (FS-150) for private focus. Blank wholesale starts at 50 pcs ($0.74+) with paid 1-pc samples."
+      title={copy.geoTitle}
+      answer={copy.geoAnswer}
     />
 
     <form class="inline-quick-sheet-form" data-inline-sku="Bulk Adult & Office Silent Metal Fidget Quote (MOQ 50+)" novalidate>
@@ -241,38 +198,28 @@ const breadcrumbSchema = {
 
     <section class="section">
       <div class="section-header-center">
-        <span class="badge">ACOUSTIC &amp; SENSORY CALIBRATION</span>
-        <h2 class="section-title">Acoustic Decibel Matrix for Workplace, Therapy &amp; Collector Tiers</h2>
+        <span class="badge">{copy.matrixBadge}</span>
+        <h2 class="section-title">{copy.matrixTitle}</h2>
       </div>
       <div class="geo-table-wrap">
         <table class="geo-table">
           <thead>
             <tr>
-              <th>Acoustic Profile &amp; Setting</th>
-              <th>Sound Output</th>
-              <th>Recommended Ready Molds</th>
-              <th>Wholesale Tier (EXW)</th>
+              <th>{copy.tableHeaders[0]}</th>
+              <th>{copy.tableHeaders[1]}</th>
+              <th>{copy.tableHeaders[2]}</th>
+              <th>{copy.tableHeaders[3]}</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Silent Open-Office &amp; Call-Safe</strong></td>
-              <td>&lt; 35 dBA (Whisper PTFE / R188)</td>
-              <td>FS-125 Smooth Slider, FS-047 Aluminum Slider, FS-135 Ring, FS-009 Top</td>
-              <td>$0.74 – $12.90 / pc</td>
-            </tr>
-            <tr>
-              <td><strong>Soft Executive Desk Tactile</strong></td>
-              <td>35 – 50 dBA (Muted Detent)</td>
-              <td>FS-013 304SS Coin, FS-027 Cookie Coin, FS-064 Aluminum Desk Egg</td>
-              <td>$2.76 – $11.50 / pc</td>
-            </tr>
-            <tr>
-              <td><strong>Crisp Acoustic &amp; Mechanical Feedback</strong></td>
-              <td>55 – 68 dBA (2,800–4,200 Hz Ring)</td>
-              <td>FS-150 Tuning Fork Slider, FS-129 Divine Realm, FS-085 Ratchet EDC</td>
-              <td>$10.19 – $21.45 / pc</td>
-            </tr>
+            {copy.tableRows.map((row) => (
+              <tr>
+                <td><strong>{row[0]}</strong></td>
+                <td>{row[1]}</td>
+                <td>{row[2]}</td>
+                <td>{row[3]}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
@@ -280,8 +227,8 @@ const breadcrumbSchema = {
 
     <section class="section section-light" style="padding: 2.5rem 1.75rem; border-radius: 1rem;">
       <div class="section-header-center">
-        <span class="badge badge-emerald">ADULT FOCUS &amp; OFFICE BESTSELLERS</span>
-        <h2 class="section-title">Top 8 Metal Fidget Molds for Adult Bulk &amp; Office Wellness</h2>
+        <span class="badge badge-emerald">{copy.picksBadge}</span>
+        <h2 class="section-title">{copy.picksTitle}</h2>
       </div>
       <div class="grid-4">
         {officeProducts.map((p) => (
@@ -292,8 +239,8 @@ const breadcrumbSchema = {
 
     <section class="section">
       <div class="section-header-center">
-        <span class="badge">ADULT BULK SOURCING FAQ</span>
-        <h2 class="section-title">Decibel Ratings, Magnet-Free Models &amp; Volume Questions</h2>
+        <span class="badge">{copy.faqBadge}</span>
+        <h2 class="section-title">{copy.faqTitle}</h2>
       </div>
       <div class="faq-list">
         {bulkAdultFaqs.map((faq, idx) => (

@@ -2,10 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import GeoDirectAnswer from '../../components/GeoDirectAnswer.astro';
 import { getLanguageFromURL, getLocalizedPath, useTranslations, getMicroHookLabels } from '../../i18n/utils';
+import { getCalculatorCopy } from '../../i18n/landing/landedCostCalculator';
 
 const currentLang = getLanguageFromURL(Astro.url);
 const t = useTranslations(currentLang);
 const microHooks = getMicroHookLabels(currentLang);
+const copy = getCalculatorCopy(currentLang);
 
 const PAGE_TITLES: Record<string, string> = {
   en: 'Metal Fidget Wholesale & Logo Cost Calculator (MOQ 50+)',
@@ -49,48 +51,7 @@ const PAGE_DESCS: Record<string, string> = {
   ar: 'حاسبة تفاعلية لتكلفة الجملة وهامش الربح عبر 140 قالباً: شرائح 50/200/500+ قطعة، حفر ليزر 50W، تغليف EVA وصناديق الهدايا وتكلفة العينة.'
 };
 
-const calcFaqs = [
-  {
-    question: 'Are there any hidden mold or laser setup fees omitted from this wholesale calculator?',
-    answer: 'No. Across all 140 active ready molds (FS-001 through FS-150), new mold/tooling fees are $0.00 USD and bulk 50W fiber laser setup fees are $0.00 at MOQ 100+. Only physical pre-production custom logo sampling incurs an explicit setup charge ($50 for 50W laser, or $80–$150 for deep laser color fill).'
-  },
-  {
-    question: 'How does order quantity affect unit price in the FidgetSupply tiered matrix?',
-    answer: 'Every SKU uses transparent three-tier EXW volume brackets: 50–199 pieces (Tier 1), 200–499 pieces (Tier 2), and 500+ pieces (Tier 3). Larger 1,000+ container batches receive customized Fuzhou factory quotes.'
-  },
-  {
-    question: 'Why does custom logo branding require at least 100 pieces per SKU?',
-    answer: 'Blank stock orders can ship as low as 50 pieces because finished inventory is ready in vacuum pouches. Custom 50W Fiber Laser (+$0.15–$0.30/pc) or Deep Laser + Enamel Color Fill (+$0.35–$0.60/pc) require jig alignment, first-article QC, and laser workstation scheduling calibrated for 100+ unit runs.'
-  },
-  {
-    question: 'Why are UV and silk-screen logo options excluded from the calculator?',
-    answer: 'Smooth anodized, plated, and brushed metal surfaces are chemically inert, so surface-printed inks easily peel under daily pocket carry and thumb friction. We strictly specify permanent 50W fiber laser or recessed enamel color fill.'
-  },
-  {
-    question: 'What is the real MOQ difference across the 3 packaging tiers?',
-    answer: 'Anti-oxidation vacuum pouches are included ($0.00) starting at MOQ 50 pcs. Stock-mold Black Shockproof EVA Zipper Cases (+$0.75+/pc) require MOQ 100 pcs. Custom Rigid Gift Boxes (+$1.45+/pc) start at MOQ 500 pcs, and bespoke Window Metal Tin Boxes require MOQ 1,000+ pcs made-to-order.'
-  },
-  {
-    question: 'Does this EXW estimate include international air or sea courier shipping?',
-    answer: 'No. This tool computes factory EXW unit and batch production cost in Fuzhou. Submit your configuration below with your destination postal code to receive an exact courier (DHL/FedEx/UPS) or DDP air/sea freight quote.'
-  },
-  {
-    question: 'How should I factor paid sample costs into my launch budget?',
-    answer: 'Paid 1-piece blank evaluation samples charge the 1-pc unit fee plus buyer-paid international courier shipping (non-refundable). Custom laser samples add $50 USD ($80–$150 USD for deep color fill) plus courier shipping.'
-  },
-  {
-    question: 'Do magnetic orders require extra IATA PI-953 export carton charges?',
-    answer: 'Our Fuzhou Export Logistics Hub packs multi-unit neodymium fidget master cartons with ferromagnetic shielding liners compliant with IATA PI-953. Exact air-carrier surcharge depends on total carton count and destination airport.'
-  },
-  {
-    question: 'What retail gross margin is realistic for metal EDC sliders and coins?',
-    answer: 'Wholesale buyers retailing CNC 304 stainless steel or acoustic tuning-fork sliders at $29.99–$59.99 typically achieve 65%–78% gross product margin before ad spend and shipping; sub-$2.00 promo spinners serve corporate event budgets rather than DTC resale.'
-  },
-  {
-    question: 'How do I lock in my calculator scenario for an official proforma quote?',
-    answer: 'Adjust the 5 sliders/selectors below to match your target product grade, quantity, laser option, and packaging tier, enter your work email into the form inside the Live Summary card, and our engineering desk replies with matching SKU sheets.'
-  }
-];
+const calcFaqs = copy.faqs;
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -105,11 +66,11 @@ const faqSchema = {
 const appSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'FidgetSupply Wholesale & Custom Logo Cost Calculator',
+  name: copy.appName,
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'All',
   url: `https://fidgetsupply.com${getLocalizedPath('/landed-cost-calculator', currentLang)}`,
-  description: 'Interactive factory EXW cost, permanent 50W fiber laser branding, packaging MOQ, and retail gross margin estimator for 140 ready-mold metal fidgets.'
+  description: copy.appDesc
 };
 
 const breadcrumbSchema = {
@@ -117,8 +78,8 @@ const breadcrumbSchema = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: t('breadcrumb.home'), item: `https://fidgetsupply.com${getLocalizedPath('/', currentLang)}` },
-    { '@type': 'ListItem', position: 2, name: 'Wholesale Matrix', item: `https://fidgetsupply.com${getLocalizedPath('/wholesale-catalog', currentLang)}` },
-    { '@type': 'ListItem', position: 3, name: 'Cost Calculator', item: `https://fidgetsupply.com${getLocalizedPath('/landed-cost-calculator', currentLang)}` }
+    { '@type': 'ListItem', position: 2, name: copy.bcParent, item: `https://fidgetsupply.com${getLocalizedPath('/wholesale-catalog', currentLang)}` },
+    { '@type': 'ListItem', position: 3, name: copy.bcCurrent, item: `https://fidgetsupply.com${getLocalizedPath('/landed-cost-calculator', currentLang)}` }
   ]
 };
 ---
@@ -136,14 +97,14 @@ const breadcrumbSchema = {
         <nav class="hero-breadcrumb" aria-label="Breadcrumb">
           <a href={getLocalizedPath('/', currentLang)}>{t('breadcrumb.home')}</a>
           <span class="bc-sep">/</span>
-          <a href={getLocalizedPath('/wholesale-catalog', currentLang)}>Wholesale Matrix</a>
+          <a href={getLocalizedPath('/wholesale-catalog', currentLang)}>{copy.bcParent}</a>
           <span class="bc-sep">/</span>
-          <span class="bc-current">Cost Calculator</span>
+          <span class="bc-current">{copy.bcCurrent}</span>
         </nav>
 
         <div class="hero-badges-row">
-          <span class="badge badge-gold">INTERACTIVE OEM ESTIMATOR</span>
-          <span class="badge badge-emerald">140 Molds · Real 3-Tier Packaging</span>
+          <span class="badge badge-gold">{copy.badge1}</span>
+          <span class="badge badge-emerald">{copy.badge2}</span>
         </div>
 
         <h1 class="grand-hero-title">{PAGE_TITLES[currentLang] || PAGE_TITLES.en}</h1>
@@ -153,42 +114,42 @@ const breadcrumbSchema = {
 
         <div class="hero-glass-grid">
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Tooling Capex</span>
-            <strong class="glass-kpi-val">$0.00 Mold Fee</strong>
+            <span class="glass-kpi-label">{copy.kpis[0].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[0].val}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Laser Markup</span>
-            <strong class="glass-kpi-val">+$0.15 / +$0.35+</strong>
+            <span class="glass-kpi-label">{copy.kpis[1].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[1].val}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Packaging Tiers</span>
-            <strong class="glass-kpi-val">50 / 100 / 500+</strong>
+            <span class="glass-kpi-label">{copy.kpis[2].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[2].val}</strong>
           </div>
           <div class="glass-kpi-card">
-            <span class="glass-kpi-label">Lead Time</span>
-            <strong class="glass-kpi-val">3–15 Bus. Days</strong>
+            <span class="glass-kpi-label">{copy.kpis[3].label}</span>
+            <strong class="glass-kpi-val">{copy.kpis[3].val}</strong>
           </div>
         </div>
       </div>
 
       <div class="hero-showcase-card">
         <div class="hero-showcase-top">
-          <span class="sku-pill">LIVE BATCH PRICING ENGINE</span>
+          <span class="sku-pill">{copy.showcasePill}</span>
           <span class="hero-showcase-price">MOQ 50+</span>
         </div>
         <div class="hero-showcase-img-wrap">
           <img
             src="/images/insights/zinc-vs-cnc-metallurgy-hero.webp"
-            alt="Die-cast Zamak-3 and CNC 304 stainless steel metal fidget cost comparison"
+            alt={`${PAGE_TITLES[currentLang] || PAGE_TITLES.en} — FidgetSupply`}
             width="480"
             height="360"
             loading="eager"
           />
         </div>
         <div class="hero-showcase-meta">
-          <span>EXW Fuzhou Tiers</span>
-          <span>Gross Margin Check</span>
-          <span>MOQ Validator</span>
+          <span>{copy.showcaseMeta[0]}</span>
+          <span>{copy.showcaseMeta[1]}</span>
+          <span>{copy.showcaseMeta[2]}</span>
         </div>
       </div>
     </div>
@@ -196,60 +157,60 @@ const breadcrumbSchema = {
 
   <div class="container">
     <GeoDirectAnswer
-      title="Direct Answer: Estimating Wholesale Unit Cost, Logo Branding & Packaging MOQ"
-      answer="FidgetSupply's interactive calculator combines factory EXW volume tiers (50–199, 200–499, and 500+ pcs with $0.00 mold fees), permanent metal logo options (50W fiber laser at +$0.15–$0.30/pc or recessed Pantone enamel fill at +$0.35–$0.60/pc, MOQ 100), and real 3-tier packaging (included vacuum pouch MOQ 50, stock EVA zipper case +$0.75+ MOQ 100, rigid gift box +$1.45+ MOQ 500, or tin box 1,000+ MTO) to output batch EXW cost and target retail gross margin."
+      title={copy.geoTitle}
+      answer={copy.geoAnswer}
     />
 
-    <section class="section" id="calculator-workspace">
+    <section class="section" id="calculator-workspace" data-calc-i18n={JSON.stringify(copy.runtime)}>
       <div class="section-header-center">
-        <span class="badge">BUILD YOUR BATCH ESTIMATE</span>
-        <h2 class="section-title">Configure Product Grade, Volume, Laser Branding &amp; Packaging</h2>
+        <span class="badge">{copy.wsBadge}</span>
+        <h2 class="section-title">{copy.wsTitle}</h2>
       </div>
 
       <div class="calc-grid">
         <div class="calc-controls-card">
           <div class="calc-field">
-            <label class="calc-label" for="calc-tier">1. Select Ready-Mold Hardware Grade</label>
+            <label class="calc-label" for="calc-tier">{copy.labels.step1}</label>
             <select id="calc-tier" class="calc-select">
-              <option value="promo">Entry Promo Zinc Spinner / Slider (FS-009 / FS-006 — $0.74–$0.92 base)</option>
-              <option value="slider" selected>Core Signature Magnetic Slider (FS-001 / FS-047 — $3.18–$3.92 base)</option>
-              <option value="cnc">CNC 304 Stainless Coin / Slider (FS-013 / FS-075 — $7.43–$9.15 base)</option>
-              <option value="acoustic">Acoustic Tuning Fork / Multi-Layer (FS-150 / FS-148 — $14.50–$17.80 base)</option>
+              <option value="promo">{copy.tierOptions.promo}</option>
+              <option value="slider" selected>{copy.tierOptions.slider}</option>
+              <option value="cnc">{copy.tierOptions.cnc}</option>
+              <option value="acoustic">{copy.tierOptions.acoustic}</option>
             </select>
           </div>
 
           <div class="calc-field">
-            <span class="calc-label">2. Order Quantity (Units per SKU)</span>
+            <span class="calc-label">{copy.labels.step2}</span>
             <div class="calc-qty-pills" id="calc-qty-pills">
-              <button type="button" class="qty-pill" data-qty="50">50 pcs</button>
-              <button type="button" class="qty-pill" data-qty="100">100 pcs</button>
-              <button type="button" class="qty-pill active" data-qty="200">200 pcs</button>
-              <button type="button" class="qty-pill" data-qty="500">500 pcs</button>
-              <button type="button" class="qty-pill" data-qty="1000">1,000 pcs</button>
+              <button type="button" class="qty-pill" data-qty="50">50 {t('unit.pcs')}</button>
+              <button type="button" class="qty-pill" data-qty="100">100 {t('unit.pcs')}</button>
+              <button type="button" class="qty-pill active" data-qty="200">200 {t('unit.pcs')}</button>
+              <button type="button" class="qty-pill" data-qty="500">500 {t('unit.pcs')}</button>
+              <button type="button" class="qty-pill" data-qty="1000">1,000 {t('unit.pcs')}</button>
             </div>
           </div>
 
           <div class="calc-field">
-            <label class="calc-label" for="calc-branding">3. Permanent Metal Branding Mode (No UV / Silk-Screen)</label>
+            <label class="calc-label" for="calc-branding">{copy.labels.step3}</label>
             <select id="calc-branding" class="calc-select">
-              <option value="blank">Blank Unbranded Stock (+$0.00/pc · MOQ 50)</option>
-              <option value="laser" selected>50W MOPA Fiber Laser Engraving (+$0.20/pc avg · MOQ 100 · $50 Sample)</option>
-              <option value="enamel">Deep Laser + Pantone Enamel Color Fill (+$0.45/pc avg · MOQ 100–200 · $80–$150 Sample)</option>
+              <option value="blank">{copy.brandOptions.blank}</option>
+              <option value="laser" selected>{copy.brandOptions.laser}</option>
+              <option value="enamel">{copy.brandOptions.enamel}</option>
             </select>
           </div>
 
           <div class="calc-field">
-            <label class="calc-label" for="calc-packaging">4. Factory 3-Tier Packaging Option</label>
+            <label class="calc-label" for="calc-packaging">{copy.labels.step4}</label>
             <select id="calc-packaging" class="calc-select">
-              <option value="vacuum">Individual Anti-Oxidation Vacuum Pouch ($0.00 included · MOQ 50)</option>
-              <option value="eva" selected>Stock-Mold Black EVA Zipper Case (+$0.75/pc · MOQ 100)</option>
-              <option value="rigid">Custom Rigid Gift Presentation Box (+$1.45/pc · MOQ 500)</option>
-              <option value="tin">Windowed Matte Metal Tin Box MTO (+$1.15/pc · MOQ 1,000+)</option>
+              <option value="vacuum">{copy.pkgOptions.vacuum}</option>
+              <option value="eva" selected>{copy.pkgOptions.eva}</option>
+              <option value="rigid">{copy.pkgOptions.rigid}</option>
+              <option value="tin">{copy.pkgOptions.tin}</option>
             </select>
           </div>
 
           <div class="calc-field">
-            <label class="calc-label" for="calc-msrp">5. Target Retail Selling Price (MSRP USD / pc)</label>
+            <label class="calc-label" for="calc-msrp">{copy.labels.step5}</label>
             <input id="calc-msrp" type="number" class="calc-input" value="24.99" min="1" step="0.5" />
           </div>
 
@@ -258,50 +219,50 @@ const breadcrumbSchema = {
 
         <div class="calc-summary-card">
           <div class="calc-summary-top">
-            <span class="calc-badge-live">EXW FUZHOU ESTIMATE</span>
-            <span class="calc-mold-pill">$0.00 Tooling Fee</span>
+            <span class="calc-badge-live">{copy.summary.badge}</span>
+            <span class="calc-mold-pill">{copy.summary.moldPill}</span>
           </div>
 
           <div class="calc-main-metric">
-            <span class="calc-metric-label">Estimated Factory Unit Cost (EXW)</span>
+            <span class="calc-metric-label">{copy.summary.unitCostLabel}</span>
             <strong class="calc-metric-value" id="out-unit-cost">$4.50</strong>
           </div>
 
           <div class="calc-kpi-rows">
             <div class="calc-kpi-row">
-              <span>Estimated Total Batch (EXW)</span>
+              <span>{copy.summary.batchTotalLabel}</span>
               <strong id="out-batch-total">$900.00 USD</strong>
             </div>
             <div class="calc-kpi-row">
-              <span>Hardware Tier Breakdown</span>
-              <strong id="out-base-breakdown">$3.55/pc (200–499 bracket)</strong>
+              <span>{copy.summary.tierBreakLabel}</span>
+              <strong id="out-base-breakdown">$3.55/{copy.runtime.pcWord} ({copy.runtime.bracket200})</strong>
             </div>
             <div class="calc-kpi-row">
-              <span>Logo + Packaging Add-On</span>
-              <strong id="out-addon-breakdown">+$0.95/pc</strong>
+              <span>{copy.summary.addonLabel}</span>
+              <strong id="out-addon-breakdown">+$0.95/{copy.runtime.pcWord}</strong>
             </div>
             <div class="calc-kpi-row">
-              <span>Est. Gross Profit / Margin vs. MSRP</span>
-              <strong class="calc-profit-hl" id="out-margin">82.0% ($4,098 batch profit)</strong>
+              <span>{copy.summary.marginLabel}</span>
+              <strong class="calc-profit-hl" id="out-margin">82.0% ($4,098 {copy.runtime.grossWord})</strong>
             </div>
             <div class="calc-kpi-row">
-              <span>Paid Sample Fee Reference</span>
-              <strong id="out-sample-ref">$50 Laser Setup + Buyer Courier</strong>
+              <span>{copy.summary.sampleRefLabel}</span>
+              <strong id="out-sample-ref">{copy.runtime.brandSamples.laser}</strong>
             </div>
             <div class="calc-kpi-row">
-              <span>In-House Factory Lead Time</span>
-              <strong id="out-leadtime">10–15 Business Days (Excl. Courier)</strong>
+              <span>{copy.summary.leadTimeLabel}</span>
+              <strong id="out-leadtime">{copy.runtime.brandDays.laser}</strong>
             </div>
           </div>
 
           <p class="calc-disclaimer">
-            * Paid 1-pc blank evaluation samples &amp; international courier freight (DHL/FedEx/UPS/DDP) are buyer-paid &amp; non-refundable. Carrier transit speed is governed by the courier &amp; customs.
+            {copy.summary.disclaimer}
           </p>
 
           <form id="calc-sheet-form" class="inline-quick-sheet-form calc-embedded-form" data-inline-sku="Cost Calculator Quote: Core Slider | 200 pcs | 50W Laser | EVA Case ($4.50/pc EXW)" novalidate>
             <div class="inline-qrfq-text">
               <strong>{microHooks.getFullSheetPdf}</strong>
-              <span>Locks your exact scenario above into a formal Fuzhou EXW &amp; freight quote.</span>
+              <span>{copy.summary.formSubtext}</span>
             </div>
             <div class="inline-qrfq-controls">
               <input
@@ -323,8 +284,8 @@ const breadcrumbSchema = {
 
     <section class="section">
       <div class="section-header-center">
-        <span class="badge">CALCULATOR &amp; QUOTE FAQ</span>
-        <h2 class="section-title">Pricing Tiers, MOQ Thresholds &amp; Freight Questions</h2>
+        <span class="badge">{copy.faqBadge}</span>
+        <h2 class="section-title">{copy.faqTitle}</h2>
       </div>
       <div class="faq-list">
         {calcFaqs.map((faq, idx) => (
@@ -345,22 +306,37 @@ const breadcrumbSchema = {
 
 <script is:inline>
   (function () {
+    const wsEl = document.getElementById('calculator-workspace');
+    let i18n = {};
+    try {
+      i18n = JSON.parse((wsEl && wsEl.getAttribute('data-calc-i18n')) || '{}');
+    } catch (_) {
+      i18n = {};
+    }
+    const tl = i18n.tierLabels || {};
+    const bl = i18n.brandLabels || {};
+    const bs = i18n.brandSamples || {};
+    const bd = i18n.brandDays || {};
+    const pl = i18n.pkgLabels || {};
+    const pcWord = i18n.pcWord || 'pc';
+    const pcsWord = i18n.pcsWord || 'pcs';
+
     const BASE_PRICES = {
-      promo: { label: 'Entry Promo Zinc', t50: 0.92, t200: 0.82, t500: 0.74 },
-      slider: { label: 'Core Magnetic Slider', t50: 3.92, t200: 3.55, t500: 3.18 },
-      cnc: { label: 'CNC 304SS Coin/Slider', t50: 9.15, t200: 8.29, t500: 7.43 },
-      acoustic: { label: 'Acoustic / Multi-Layer', t50: 17.80, t200: 16.10, t500: 14.50 }
+      promo: { label: tl.promo || 'Entry Promo Zinc', t50: 0.92, t200: 0.82, t500: 0.74 },
+      slider: { label: tl.slider || 'Core Magnetic Slider', t50: 3.92, t200: 3.55, t500: 3.18 },
+      cnc: { label: tl.cnc || 'CNC 304SS Coin/Slider', t50: 9.15, t200: 8.29, t500: 7.43 },
+      acoustic: { label: tl.acoustic || 'Acoustic / Multi-Layer', t50: 17.80, t200: 16.10, t500: 14.50 }
     };
     const BRANDING_COSTS = {
-      blank: { cost: 0, moq: 50, sample: '1-Pc Unit Cost + Buyer Courier (Non-Refundable)', days: '3–7 Business Days (Excl. Courier)', label: 'Blank' },
-      laser: { cost: 0.20, moq: 100, sample: '$50 Laser Setup + Buyer Courier', days: '10–15 Business Days (Excl. Courier)', label: '50W Laser' },
-      enamel: { cost: 0.45, moq: 100, sample: '$80–$150 Color-Fill Setup + Courier', days: '10–15 Business Days (Excl. Courier)', label: 'Deep Laser + Color' }
+      blank: { cost: 0, moq: 50, sample: bs.blank || '1-Pc Unit Cost + Buyer Courier', days: bd.blank || '5–7 Business Days', label: bl.blank || 'Blank' },
+      laser: { cost: 0.20, moq: 100, sample: bs.laser || '$50 Laser Setup + Buyer Courier', days: bd.laser || '10–15 Business Days', label: bl.laser || '50W Laser' },
+      enamel: { cost: 0.45, moq: 100, sample: bs.enamel || '$80–$150 Color-Fill Setup + Courier', days: bd.enamel || '10–15 Business Days', label: bl.enamel || 'Deep Laser + Color' }
     };
     const PKG_COSTS = {
-      vacuum: { cost: 0, moq: 50, label: 'Vacuum Pouch' },
-      eva: { cost: 0.75, moq: 100, label: 'Stock EVA Case' },
-      rigid: { cost: 1.45, moq: 500, label: 'Rigid Gift Box' },
-      tin: { cost: 1.15, moq: 1000, label: 'Window Tin MTO' }
+      vacuum: { cost: 0, moq: 50, label: pl.vacuum || 'Vacuum Pouch' },
+      eva: { cost: 0.75, moq: 100, label: pl.eva || 'Stock EVA Case' },
+      rigid: { cost: 1.45, moq: 500, label: pl.rigid || 'Rigid Gift Box' },
+      tin: { cost: 1.15, moq: 1000, label: pl.tin || 'Window Tin MTO' }
     };
 
     let selectedQty = 200;
@@ -378,13 +354,13 @@ const breadcrumbSchema = {
       const msrp = Math.max(0.5, parseFloat(msrpEl.value || '24.99'));
 
       let baseUnit = tier.t50;
-      let bracket = '50–199 bracket';
+      let bracket = i18n.bracket50 || '50–199 bracket';
       if (selectedQty >= 500) {
         baseUnit = tier.t500;
-        bracket = '500+ bracket';
+        bracket = i18n.bracket500 || '500+ bracket';
       } else if (selectedQty >= 200) {
         baseUnit = tier.t200;
-        bracket = '200–499 bracket';
+        bracket = i18n.bracket200 || '200–499 bracket';
       }
 
       const addonUnit = brand.cost + pkg.cost;
@@ -395,17 +371,18 @@ const breadcrumbSchema = {
 
       document.getElementById('out-unit-cost').textContent = '$' + unitCost.toFixed(2);
       document.getElementById('out-batch-total').textContent = '$' + batchCost.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' USD';
-      document.getElementById('out-base-breakdown').textContent = '$' + baseUnit.toFixed(2) + '/pc (' + bracket + ')';
-      document.getElementById('out-addon-breakdown').textContent = '+$' + addonUnit.toFixed(2) + '/pc';
-      document.getElementById('out-margin').textContent = marginPct.toFixed(1) + '% ($' + Math.round(batchProfit).toLocaleString('en-US') + ' gross)';
+      document.getElementById('out-base-breakdown').textContent = '$' + baseUnit.toFixed(2) + '/' + pcWord + ' (' + bracket + ')';
+      document.getElementById('out-addon-breakdown').textContent = '+$' + addonUnit.toFixed(2) + '/' + pcWord;
+      document.getElementById('out-margin').textContent = marginPct.toFixed(1) + '% ($' + Math.round(batchProfit).toLocaleString('en-US') + ' ' + (i18n.grossWord || 'gross') + ')';
       document.getElementById('out-sample-ref').textContent = brand.sample;
       document.getElementById('out-leadtime').textContent = brand.days;
 
+      const reqWord = i18n.requiresMoq || 'requires MOQ';
       const warnings = [];
-      if (selectedQty < brand.moq) warnings.push(brand.label + ' requires MOQ ' + brand.moq + ' pcs.');
-      if (selectedQty < pkg.moq) warnings.push(pkg.label + ' requires MOQ ' + pkg.moq + ' pcs.');
+      if (selectedQty < brand.moq) warnings.push(brand.label + ' ' + reqWord + ' ' + brand.moq + ' ' + pcsWord + '.');
+      if (selectedQty < pkg.moq) warnings.push(pkg.label + ' ' + reqWord + ' ' + pkg.moq + ' ' + pcsWord + '.');
       if (warnings.length) {
-        alertEl.textContent = '⚠ MOQ Notice: ' + warnings.join(' ');
+        alertEl.textContent = (i18n.moqNoticePrefix || '⚠ MOQ Notice: ') + warnings.join(' ');
         alertEl.hidden = false;
       } else {
         alertEl.hidden = true;
@@ -413,7 +390,7 @@ const breadcrumbSchema = {
 
       const formEl = document.getElementById('calc-sheet-form');
       if (formEl) {
-        formEl.setAttribute('data-inline-sku', 'Cost Calculator: ' + tier.label + ' | ' + selectedQty + ' pcs | ' + brand.label + ' | ' + pkg.label + ' ($' + unitCost.toFixed(2) + '/pc EXW)');
+        formEl.setAttribute('data-inline-sku', 'Cost Calculator: ' + tier.label + ' | ' + selectedQty + ' ' + pcsWord + ' | ' + brand.label + ' | ' + pkg.label + ' ($' + unitCost.toFixed(2) + '/pc EXW)');
       }
     }
 
