@@ -21,3 +21,7 @@
 
 /llms.txt
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/api/*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
