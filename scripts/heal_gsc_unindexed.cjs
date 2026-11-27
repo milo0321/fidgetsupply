@@ -4,7 +4,7 @@
  * Smart GSC Index Healer:
  * 1. Uses URL Inspection API (2,000/day read quota) to check which priority URLs are NOT yet indexed (verdict !== 'PASS').
  * 2. Spends 100% of the precious 200/day Google Indexing API write quota EXCLUSIVELY on unindexed URLs!
- * 3. Resubmits sitemap-index.xml & sitemap-0.xml to GSC Sitemaps API.
+ * 3. Resubmits sitemap-index.xml to GSC Sitemaps API.
  */
 const fs = require('fs');
 const path = require('path');
@@ -56,8 +56,8 @@ async function main() {
   const token = await getToken();
   const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
 
-  // 1. Resubmit Sitemaps
-  for (const sm of ['https://fidgetsupply.com/sitemap-index.xml', 'https://fidgetsupply.com/sitemap-0.xml']) {
+  // 1. Resubmit canonical Sitemap index only
+  for (const sm of ['https://fidgetsupply.com/sitemap-index.xml']) {
     const r = await fetch(`https://www.googleapis.com/webmasters/v3/sites/sc-domain%3Afidgetsupply.com/sitemaps/${encodeURIComponent(sm)}`, {
       method: 'PUT',
       headers

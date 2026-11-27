@@ -53,23 +53,7 @@ async function getAccessToken(creds, scopes) {
 }
 
 async function discoverSitemaps() {
-  const sitemaps = new Set([`${BASE_URL}/sitemap-index.xml`]);
-  try {
-    const res = await fetch(`${BASE_URL}/sitemap-index.xml`);
-    if (res.ok) {
-      const xml = await res.text();
-      const matches = [...xml.matchAll(/<loc>\s*(https?:\/\/[^<\s]+)\s*<\/loc>/gi)];
-      for (const m of matches) {
-        if (m[1]) sitemaps.add(m[1].trim());
-      }
-    }
-  } catch {
-    // Fallback below if fetch fails
-  }
-  if (sitemaps.size === 1) {
-    sitemaps.add(`${BASE_URL}/sitemap-0.xml`);
-  }
-  return Array.from(sitemaps);
+  return [`${BASE_URL}/sitemap-index.xml`];
 }
 
 function getArgValue(prefix) {
