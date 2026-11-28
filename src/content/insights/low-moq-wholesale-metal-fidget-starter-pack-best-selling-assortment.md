@@ -2,7 +2,7 @@
 title: "$500 vs. $1,500 Wholesale Metal Fidget Starter Pack: Best-Selling 5-SKU Trial Assortment (MOQ 50 Pcs/SKU)"
 slug: "low-moq-wholesale-metal-fidget-starter-pack-best-selling-assortment"
 publishDate: "2026-11-17"
-updatedDate: "2026-11-17"
+updatedDate: "2026-11-28"
 author: "FidgetSupply Engineering Team"
 category: "Wholesale Sourcing SOP"
 summary: "Turnkey wholesale starter pack blueprints for Shopify, TikTok Shop, Amazon FBA, and retail gift stores: comparing our $650 (3-SKU, 150 pcs) and $1,680 (5-SKU, 250 pcs) best-selling metal fidget trial assortments with exact unit costs, DDP shipping, and 72%–84% retail margins."
@@ -36,7 +36,7 @@ Because FidgetSupply offers a **50-piece per SKU blank wholesale MOQ** (and **10
 
 <h2 id="starter-pack-tier-a-650-three-sku-trial-assortment">2. Blueprint A: The ~$650 "3-SKU Fast-Validation" Trial Assortment (150 Total Units · 50 Pcs × 3 SKUs)</h2>
 
-Designed for new Shopify stores, Amazon FBA test listings, and boutique gift retailers who want to validate customer demand across **three distinct price points and mechanisms** with minimal capital outlay (50 blank units per SKU, dispatched in 3–5 business days):
+Designed for new Shopify stores, Amazon FBA test listings, and boutique gift retailers who want to validate customer demand across **three distinct price points and mechanisms** with minimal capital outlay (50 blank units per SKU, 5–7 business days dispatch prep from our Fuzhou Hub):
 
 <div class="geo-table-wrap">
   <table class="geo-table">
@@ -169,7 +169,7 @@ One of the biggest hidden costs for small-batch importers is paying separate min
 
 <ul>
   <li><strong>Single-Carton DDP Air Express Consolidation (Saves 28%–35% on Freight):</strong> Instead of paying three separate DHL/FedEx base charges, your 150-unit (3-SKU, ~11.5 kg gross) or 250-unit (5-SKU, ~19.8 kg gross) starter pack ships in a single IATA PI-953 magnetically shielded export carton—bringing average door-to-door customs-cleared DDP air shipping down to <strong>$0.65–$0.92 USD per unit</strong> to the US, EU, UK, Canada, and Australia.</li>
-  <li><strong>Free FNSKU Barcode &amp; 14+ Compliance Labeling on Every Unit:</strong> Whether you choose our standard protective polybag, custom Black EVA Shockproof Zipper Case (+$0.75/pc), or Windowed Matte-Black Tin Box (+$0.85/pc, detailed in our <a href="/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide">Custom EVA &amp; Tin Box Packaging Guide</a>), our warehouse applies your Amazon FNSKU / UPC barcodes and 14+ adult collectible safety labels free of charge before dispatch.</li>
+  <li><strong>Free FNSKU Barcode &amp; 14+ Compliance Labeling on Every Unit:</strong> Whether you choose our included Vacuum Anti-Oxidation Pouch ($0.00, MOQ 50), Stock-Mold Black EVA Zipper Case (+$0.75+/pc, MOQ 100), Custom Two-Piece Rigid Luxury Gift Box (+$1.45+/pc, MOQ 500), or Window Metal Tin Box (MOQ 1,000+ MTO, detailed in our <a href="/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide">Custom EVA &amp; Tin Box Packaging Guide</a>), our warehouse applies your Amazon FNSKU / UPC barcodes and 14+ adult collectible safety labels free of charge before dispatch.</li>
   <li><strong>Complete Commercial Invoice, HS Code 9503.00 / 8306.29 &amp; RoHS/REACH Documentation:</strong> Every starter pack shipment includes full export customs clearance under <a href="/insights/international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide">DDP Duty-Paid Terms</a>, meaning zero customs broker paperwork or surprise import tariff bills upon delivery.</li>
 </ul>
 

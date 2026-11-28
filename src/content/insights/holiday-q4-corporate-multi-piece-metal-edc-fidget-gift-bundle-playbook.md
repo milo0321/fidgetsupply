@@ -11,7 +11,7 @@ featuredImage: "/images/insights/holiday-corporate-multi-piece-edc-bundle-hero.w
 heroAlt: "Luxury 3-piece metal EDC fidget gift box containing a magnetic haptic slider, stainless clicker coin, and magnetic spinner ring in custom CNC EVA foam"
 metaTitle: "Multi-Piece Metal EDC Fidget Gift Bundles ($69+ AOV)"
 metaDescription: "Engineer high-AOV 2-piece and 3-piece metal EDC fidget gift bundles for Q4 holidays and VIP corporate kits with custom CNC-routed EVA foam boxes."
-directAnswer: "Bundling 2 or 3 complementary metal EDC fidgets—such as a Magnetic Haptic Slider (FS-125), a 304 Stainless Clicker Coin (FS-013), and a Magnetic Spinner Ring (FS-014)—inside a single multi-cavity CNC-routed EVA foam gift box increases retail Average Order Value (AOV) by 65%–110% while adding zero extra pick-and-pack shipping cost. FidgetSupply.com engineers custom multi-cavity EVA trays (MOQ 200 boxes) matched to all 140 catalog CAD contours."
+directAnswer: "Bundling 2 or 3 complementary metal EDC fidgets—such as a Magnetic Haptic Slider (FS-125), a 304 Stainless Clicker Coin (FS-013), and a Magnetic Spinner Ring (FS-014)—inside a custom EVA zipper case (MOQ 100 pcs) or rigid gift box (MOQ 500 pcs) increases retail Average Order Value (AOV) by 65%–110% while adding zero extra pick-and-pack shipping cost. FidgetSupply.com configures multi-SKU bundles across all 140 catalog CAD contours."
 relatedSkus:
   - "FS-001"
   - "FS-125"
@@ -129,25 +129,25 @@ tags:
         <td><strong>Oversized Dual-Cavity EVA Zipper Case</strong></td>
         <td>135 × 85 × 35 mm</td>
         <td>2 Fidget Cavities (e.g., 1 Slider + 1 Coin) + Internal Mesh Tool Pocket</td>
-        <td>MOQ 200 pcs · Silk-Screen or Debossed Silicone Lid Badge</td>
+        <td>MOQ 100 pcs (Stock Black EVA Mold, +$0.75+/pc) · Logo Debossed / Printed</td>
+      </tr>
+      <tr>
+        <td><strong>Custom Two-Piece Rigid Luxury Gift Box</strong></td>
+        <td>165 × 115 × 40 mm</td>
+        <td>2 or 3 CNC-Routed Black EVA Cavities + Spare Hardware Slot</td>
+        <td>MOQ 500 pcs (+$1.45+/pc) · Foil Stamping + Spot UV + FNSKU</td>
       </tr>
       <tr>
         <td><strong>Large Matte Window Metal Tin Box</strong></td>
         <td>145 × 105 × 32 mm</td>
-        <td>2 or 3 CNC-Routed Black EVA Cavities under Clear PET Viewing Window</td>
-        <td>MOQ 200 pcs · Fiber Laser Etched or UV Printed Tin Lid</td>
+        <td>2 or 3 CNC-Routed EVA Foam Inserts under Clear Viewing Window</td>
+        <td>MOQ 1,000+ pcs (Made-to-Order) · Fiber Laser or Printed Tin Lid</td>
       </tr>
       <tr>
-        <td><strong>Executive 3-Piece Rigid Lid-and-Base Gift Box</strong></td>
-        <td>165 × 115 × 40 mm</td>
-        <td>3 Fidget Cavities + 1 Spare Hardware Vial Slot in Velvet-Flocked EVA</td>
-        <td>MOQ 300 pcs · Gold/Silver Hot Foil Stamping + Spot UV + FNSKU</td>
-      </tr>
-      <tr>
-        <td><strong>VIP Magnetic Book-Style Collector Case</strong></td>
-        <td>185 × 130 × 42 mm</td>
-        <td>3 to 4 Fidget Cavities + Inside-Cover Story/Instruction Print Panel</td>
-        <td>MOQ 300 pcs · Soft-Touch Matte Lamination + Foil Emblem</td>
+        <td><strong>Standard Individual Vacuum Anti-Oxidation Pouch</strong></td>
+        <td>SKU-Matched Individual Sleeve</td>
+        <td>Dust-Proof Sealed Protection Included Per Unit</td>
+        <td>MOQ 50 pcs ($0.00 Included) · Ready for Master Carton Export</td>
       </tr>
     </tbody>
   </table>
@@ -159,7 +159,7 @@ tags:
 
 <ul>
   <li><strong>60–75 Days Before Peak Event (Sea/Rail DDP Window):</strong> Ideal for 500 to 5,000+ custom rigid gift boxes or window tin boxes shipping via cost-effective DDP sea freight into Amazon FBA or regional fulfillment centers.</li>
-  <li><strong>25–35 Days Before Peak Event (Air Cargo &amp; Express Window):</strong> Ideal for 200 to 1,000 custom-engraved 2-piece and 3-piece sets; production and CNC EVA foam routing complete in 12–15 business days, followed by 5–7 day DHL/FedEx/UPS air express delivery in IATA PI-953 magnetic-shielded cartons.</li>
+  <li><strong>25–35 Days Before Peak Event (Air Cargo &amp; Express Window):</strong> Ideal for 200 to 1,000 custom-engraved 2-piece and 3-piece sets; production and kitting complete in 10–15 business days, followed by carrier-governed DHL/FedEx/UPS air express or DDP transit in IATA PI-953 magnetic-shielded cartons.</li>
   <li><strong>10–15 Days Before Event (Fast-Track Laser + Custom EVA Case Window):</strong> Pair any in-stock catalog models with 50W fiber laser engraving and our 100-piece MOQ custom Black EVA Zipper Cases for rapid turnaround executive conference and year-end client gifts.</li>
 </ul>
 
