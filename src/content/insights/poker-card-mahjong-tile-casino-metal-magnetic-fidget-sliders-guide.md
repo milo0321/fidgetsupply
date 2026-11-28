@@ -2,7 +2,7 @@
 title: "Poker Card, Tile & Casino Gaming Metal Fidget Sliders: Why Card Ergonomics Lead Wholesale Sales"
 slug: "poker-card-mahjong-tile-casino-metal-magnetic-fidget-sliders-guide"
 publishDate: "2026-11-04"
-updatedDate: "2026-11-18"
+updatedDate: "2026-11-28"
 author: "FidgetSupply Engineering Team"
 category: "Pocket Ergonomics & Form Factors"
 summary: "Why playing-card and tile-proportioned metal fidget sliders (FS-001, FS-024, FS-025, FS-033, FS-062, FS-075, FS-097) consistently rank #1 in unit reorder volume across Amazon, TikTok Shop, and casino/gaming promotions."
@@ -159,7 +159,7 @@ How do poker rooms, esports tournaments, and gift brands customize these gaming 
         <td><strong>FS-001 / FS-024 / FS-025 Poker Sliders</strong></td>
         <td>Smooth internal stainless track plate (`38 × 25 mm`) or rear flat</td>
         <td>50W Fiber Laser Engraving (+$0.15–$0.30/pc) or Silk-Screen Print</td>
-        <td>Custom Logo Black EVA Zipper Case (+$0.75/pc)</td>
+        <td>Custom Logo Stock-Mold Black EVA Zipper Case (+$0.75+/pc, MOQ 100)</td>
       </tr>
       <tr>
         <td><strong>FS-062 / FS-075 3-Layer QKA / AKQ</strong></td>

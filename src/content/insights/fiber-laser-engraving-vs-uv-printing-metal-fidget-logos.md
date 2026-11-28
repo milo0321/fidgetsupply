@@ -2,7 +2,7 @@
 title: "Fiber Laser Engraving & Deep Laser Color Fill vs. Silk-Screen / UV Printing on Metal Fidgets"
 slug: "fiber-laser-engraving-vs-uv-printing-metal-fidget-logos"
 publishDate: "2026-10-25"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-28"
 author: "FidgetSupply Engineering Team"
 category: "Custom Branding & Packaging"
 summary: "Why our factory does NOT recommend silk-screen or UV surface printing on smooth, chemically inert metal fidgets (poor ink adhesion leads to peeling)—and why we recommend 50W Fiber Laser Engraving (+$0.15–$0.30/pc, $50 sample) or Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc, $80–$150 sample)."
@@ -145,7 +145,7 @@ Our factory solves this permanently through **Deep Laser Engraving + Enamel Colo
   </li>
   <li><strong>Transparent Factory Pricing &amp; Sampling:</strong>
     <ul>
-      <li><strong>Bulk Unit Cost:</strong> **+$0.35 to $0.60 USD per piece** (depending on logo area and color count) at a **100 to 200 pcs MOQ**.</li>
+      <li><strong>Bulk Unit Cost:</strong> **+$0.35 to $0.60 USD per piece** (depending on logo area and color count) at a **100 to MOQ 100 pcs (EVA) / MOQ 500 pcs (Rigid)**.</li>
       <li><strong>Paid Pre-Production Sample Fee:</strong> **$80 to $150 USD** (10–15 days lead time), compared to **$50 USD** for a standard monochrome laser sample.</li>
     </ul>
   </li>

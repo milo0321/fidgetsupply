@@ -2,7 +2,7 @@
 title: "How E-Commerce Brands & Corporate Gift Agencies Launch Custom Metal Fidgets in 10 Days ($0 Tooling SOP)"
 slug: "zero-tooling-ready-mold-private-label-fidget-sop"
 publishDate: "2026-11-01"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-28"
 author: "FidgetSupply Engineering Team"
 category: "Wholesale Sourcing SOP"
 summary: "Step-by-step operational playbook for selecting high-margin SKUs (FS-001 to FS-150), avoiding IP/trademark pitfalls, pairing custom laser logos with EVA cases, and calculating landed DDP margins."
@@ -21,7 +21,7 @@ Instead of spending 6 weeks negotiating custom CAD drawings and paying **$3,500+
 <ol>
   <li><strong>Step 1 — Pick Proven Ready Molds (Day 1):</strong> Select 1 to 3 existing molds from our <a href="/collections/custom-logo-metal-fidgets">28 Logo-Ready Metal Fidgets</a> (<code>FS-125</code>, <code>FS-047</code>, <code>FS-026</code>, <code>FS-013</code>, <code>FS-009</code>). Because the hardened steel die-casting cavities and 5-axis CNC fixtures are already running on our production floor, your mold investment is <strong>$0.00</strong>.</li>
   <li><strong>Step 2 — Apply Custom Surface Branding at 100–300 pcs MOQ (Days 2–6):</strong> Etch your brand wordmark via <a href="/insights/fiber-laser-engraving-vs-uv-printing-metal-fidget-logos">50W MOPA Fiber Laser Engraving</a> (+$0.15–$0.30/pc, $0 setup fee), print multi-color logos via Silk-Screen Printing ($35/color screen fee + $0.10/color/pc), or choose Deep Laser Engraving + Color Fill (+$0.35–$0.60/pc at 200–300 pcs MOQ).</li>
-  <li><strong>Step 3 — Pack in Custom EVA Zipper Cases &amp; Ship DDP (Days 7–12):</strong> Nest each unit inside a custom-branded Black EVA Shockproof Zipper Case (+$0.75/pc) with pre-applied FNSKU barcodes and 14+ safety labels, shipped door-to-door via DDP Air Express.</li>
+  <li><strong>Step 3 — Pack in Custom EVA Zipper Cases &amp; Ship DDP (Days 7–12):</strong> Nest each unit inside a custom-branded Stock-Mold Black EVA Zipper Case ($0.75+/pc, MOQ 100) with pre-applied FNSKU barcodes and 14+ safety labels, shipped door-to-door via DDP Air Express.</li>
 </ol>
 
 <figure class="article-figure">

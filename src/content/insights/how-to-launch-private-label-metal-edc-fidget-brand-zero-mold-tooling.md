@@ -4,7 +4,7 @@ slug: "how-to-launch-private-label-metal-edc-fidget-brand-zero-mold-tooling"
 category: "Brand Launch & Private Label Playbook"
 summary: "A capital-efficient blueprint for launching a high-margin private-label metal EDC fidget brand under $1,500—comparing $3,500 custom mold tooling against FidgetSupply.com's 100-piece custom laser-engraved ready molds, custom EVA zipper cases, and tiered SKU architecture."
 publishDate: "2026-11-07"
-updatedDate: "2026-11-07"
+updatedDate: "2026-11-28"
 readTime: "11 min read"
 author: "FidgetSupply Brand Launch & OEM Desk"
 featuredImage: "/images/insights/launch-private-label-edc-brand-zero-tooling-hero.webp"
@@ -72,7 +72,7 @@ tags:
       </tr>
       <tr>
         <td><strong>Turnkey Custom Retail Packaging MOQ</strong></td>
-        <td><strong>100 pcs MOQ</strong> for Custom Logo Black EVA Zipper Case (+$0.75/pc)</td>
+        <td><strong>100 pcs MOQ</strong> for Custom Logo Stock-Mold Black EVA Zipper Case (+$0.75+/pc, MOQ 100)</td>
         <td>1,000+ pcs MOQ at traditional packaging box factories</td>
         <td>1:1 matching MOQ between hardware (100 pcs) and EVA case (100 pcs)</td>
       </tr>
@@ -154,7 +154,7 @@ tags:
       <tr>
         <td><strong>Package C: Executive Stainless Haptic Coin Launch</strong></td>
         <td>FS-013 (CNC 304 Stainless Coin) + Deep Laser Logo + Window Tin Box</td>
-        <td>~$8.80 – $9.60 / unit (100–200 pcs MOQ)</td>
+        <td>~$8.80 – $9.60 / unit (100–MOQ 100 pcs (EVA) / MOQ 500 pcs (Rigid))</td>
         <td>$59.00 – $69.00 Retail (<strong>85%–87% Gross Margin</strong>)</td>
       </tr>
       <tr>

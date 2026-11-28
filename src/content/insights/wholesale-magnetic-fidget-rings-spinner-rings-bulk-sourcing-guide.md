@@ -2,7 +2,7 @@
 title: "Wholesale Magnetic Fidget Rings & Stainless Steel Spinner Rings: Bulk Sizing, Pricing ($6.37+) & Custom Logo Guide"
 slug: "wholesale-magnetic-fidget-rings-spinner-rings-bulk-sourcing-guide"
 publishDate: "2026-11-17"
-updatedDate: "2026-11-17"
+updatedDate: "2026-11-28"
 author: "FidgetSupply Engineering Team"
 category: "Pocket Ergonomics & Form Factors"
 summary: "Definitive wholesale buyer's guide to magnetic fidget rings and mechanical ratcheting spinner rings (FS-014, FS-069, FS-119, FS-135, FS-140): comparing 16-magnet N52 bearing tracks, CNC stainless/brass/aluminum metallurgy, inner-bore sizing, and 360-degree rotary laser logo engraving ($0 mold fee, MOQ 50)."
@@ -140,7 +140,7 @@ As detailed in our <a href="/insights/fiber-laser-engraving-vs-uv-printing-metal
         <td><strong>Outer Chamfered Rim / Sidewall</strong></td>
         <td>Micro-Precision 50W Fiber Laser (1.8mm Text Height)</td>
         <td>100 pcs · +$0.20/pc ($50 Sample)</td>
-        <td>Windowed Matte-Black Tin Box (+$0.85/pc)</td>
+        <td>Window Metal Tin Box (MOQ 1,000+ MTO)</td>
       </tr>
       <tr>
         <td><strong>2-Piece Pocket EDC Bundle (Ring + Coin / Slider)</strong></td>

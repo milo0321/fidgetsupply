@@ -2,7 +2,7 @@
 title: "Corporate Executive Gifts, Trade-Show Swag & Tech Onboarding EDC Fidget Kits: Sourcing Playbook"
 slug: "corporate-executive-gifts-trade-show-vip-swag-metal-fidget-guide"
 publishDate: "2026-11-04"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-28"
 author: "FidgetSupply Corporate Gifting Desk"
 category: "Custom Branding & Packaging"
 summary: "How SaaS companies, financial institutions, and promotional distributors achieve 94%+ desk retention using custom-branded metal EDC fidgets—comparing 3 budget tiers ($1.50 Event Swag, $6.00 Onboarding Kits, $25+ C-Suite VIP Gifts)."
@@ -136,8 +136,8 @@ Corporate procurement teams need exact, predictable landed pricing without hidde
 <h2 id="kitting-integration-and-drop-shipping-to-event-hotels">5. Swag-Box Kitting Integration &amp; Direct DDP Delivery to Event Venues</h2>
 
 Working with a third-party corporate kitting warehouse (such as SwagUp, Reachdesk, Sendoso, or Brilliant) or shipping directly to a trade-show convention center?
-- **Compact Master Cartons &amp; Individual Gift Packaging**: Every unit can be pre-packed inside a custom-branded **Black EVA Shockproof Zipper Case (`+$0.75/pc`)** or **Matte Windowed Tin Box (`+$0.85/pc`)** with custom die-cut EVA foam (see <a href="/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide">Custom Packaging Guide</a>).
-- **Direct DDP Air Delivery in 5–7 Days**: Using our IATA PI-953 magnetically shielded export cartons (see <a href="/insights/international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide">International DDP Shipping &amp; IATA PI-953 Guide</a>), we ship door-to-door with all customs duties prepaid directly to your office, 3PL kitting partner, or conference hotel receiving dock.
+- **Compact Master Cartons &amp; Individual Gift Packaging**: Every unit can be pre-packed inside a custom-branded **Stock-Mold Black EVA Zipper Case ($0.75+/pc, MOQ 100)** or **Window Metal Tin Box (MOQ 1,000+ MTO)** with custom die-cut EVA foam (see <a href="/insights/custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide">Custom Packaging Guide</a>).
+- **Direct DDP Air & Express Dispatch From Fuzhou Hub**: Using our IATA PI-953 magnetically shielded export cartons (see <a href="/insights/international-ddp-shipping-hs-codes-iata-pi953-metal-fidget-import-guide">International DDP Shipping &amp; IATA PI-953 Guide</a>), we ship door-to-door with all customs duties prepaid directly to your office, 3PL kitting partner, or conference hotel receiving dock.
 
 <h2 id="corporate-proofing-and-sampling-workflow">6. 12-Hour Digital Mockup &amp; 10–15 Day Physical Corporate Sample Protocol</h2>
 

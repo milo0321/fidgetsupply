@@ -2,7 +2,7 @@
 title: "Custom EVA Zipper Cases, Windowed Tin Boxes & Collector Gift Packaging for Wholesale Metal Fidgets"
 slug: "custom-eva-zipper-cases-tin-boxes-metal-fidget-packaging-guide"
 publishDate: "2026-11-03"
-updatedDate: "2026-11-06"
+updatedDate: "2026-11-28"
 author: "FidgetSupply Packaging & QC Desk"
 category: "Packaging & Retail Presentation"
 summary: "A complete packaging engineering guide for wholesale metal EDC fidgets—comparing 75-Shore-C EVA foam inserts, hard-shell PU/nylon zipper cases, matte tin presentation boxes, Amazon FNSKU barcoding, and magnetic air-freight shielding."
@@ -63,7 +63,7 @@ Whether you are fulfilling a `$4.50` trade-show giveaway or a `$110` limited-edi
       <tr>
         <td><strong>Tier 3: Matte Tin Box + Die-Cut EVA Foam</strong></td>
         <td>0.23mm tinplate steel box (hinged or slip-lid, optional clear PVC window) + 45kg/m³ black flocked EVA foam cavity</td>
-        <td>+$0.85 – $1.45 / unit</td>
+        <td>MOQ 1,000+ MTO (Custom Tin)</td>
         <td>100 pcs (Fiber laser etched lid or UV full-color printed lid)</td>
         <td>Corporate VIP gifts, haptic coins &amp; spinners (<a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013</a>, <a href="/products/6-axis-cnc-stainless-gyro-spinner">FS-043</a>, <a href="/products/bolt-action-spring-breech-edc-slider">FS-067</a>)</td>
       </tr>

@@ -1477,7 +1477,7 @@ const INSIGHT_META_ALL: Record<string, Record<SupportedLanguage, { title: string
       summary: 'Komplett tribologi- og tuningguide for 0,13/0,18 mm PTFE-tape, silisiumnitrid (Si3N4) keramiske kuler, fosforbronsefjærer og tørr IPA-rensing av R188-lagre.'
     },
     fi: {
-      title: 'Liukuteippi (PTFE-Teflon) & R188 Laakeriopas',
+      title: 'Liukuteippi (PTFE) & R188 Laakeriopas (MOQ 50)',
       summary: 'Liukuteippi (0,13/0,18 mm PTFE-teflon), Si3N4-keraamikuulat & R188-laakerien huolto metallifidgeteihin ($0 muotti, MOQ 50, maksullinen näyte).'
     },
     pl: {

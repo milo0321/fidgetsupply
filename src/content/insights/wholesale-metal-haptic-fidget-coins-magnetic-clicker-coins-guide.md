@@ -175,16 +175,16 @@ For corporate events, esports tournaments, automotive clubs (see our <a href="/i
         <td>$80–$150 Sample · 10–15 Days</td>
       </tr>
       <tr>
-        <td><strong>Windowed Matte-Black Tin Box + Die-Cut EVA Foam</strong></td>
-        <td>All 10 Haptic Coins (Displays Center Logo)</td>
-        <td>200 pcs · +$0.85/pc</td>
+        <td><strong>Stock Black EVA Zipper Case (+$0.75+/pc) or Custom Rigid Box (+$1.45+/pc · MOQ 500)</strong></td>
+        <td>All 10 Haptic Coins (Window Tin at MOQ 1,000+ MTO)</td>
+        <td>MOQ 100 (EVA) / MOQ 500 (Rigid)</td>
         <td>Free 12h Digital Dieline Proof</td>
       </tr>
     </tbody>
   </table>
 </div>
 
-When building a multi-SKU store assortment, successful merchants pair a round haptic coin (<a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013</a> or <a href="/products/sandwich-cookie-textured-haptic-coin">FS-027</a>) with rectangular poker sliders from <a href="/collections/magnetic-fidget-sliders">Magnetic Fidget Sliders</a> (<a href="/products/poker-king-magnetic-slider">FS-001</a>, <a href="/products/royal-king-queen-poker-magnetic-slider">FS-024</a>, <a href="/products/smooth-soap-box-20-magnet-unlimited-slider">FS-125</a>), acoustic chime sliders (<a href="/products/compact-20-magnet-acoustic-tuning-fork-slider">FS-150</a>), and wearable <a href="/collections/magnetic-fidget-rings">Magnetic Spinner Rings</a> (<a href="/products/machinist-tri-metal-magnetic-spinner-ring">FS-014</a>).
+When building a multi-SKU store assortment, successful merchants pair a round haptic coin (<a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013</a> or <a href="/products/sandwich-cookie-textured-haptic-coin">FS-027</a>; also compare CNC OEM tolerances in our <a href="/insights/umburry-haptic-coin-vs-factory-oem-magnetic-clicker-coins">Umburry-Style vs. Factory OEM Haptic Clicker Coin Comparison</a>) with rectangular poker sliders from <a href="/collections/magnetic-fidget-sliders">Magnetic Fidget Sliders</a> (<a href="/products/poker-king-magnetic-slider">FS-001</a>, <a href="/products/royal-king-queen-poker-magnetic-slider">FS-024</a>, <a href="/products/smooth-soap-box-20-magnet-unlimited-slider">FS-125</a>), acoustic chime sliders (<a href="/products/compact-20-magnet-acoustic-tuning-fork-slider">FS-150</a>), and wearable <a href="/collections/magnetic-fidget-rings">Magnetic Spinner Rings</a> (<a href="/products/machinist-tri-metal-magnetic-spinner-ring">FS-014</a>).
 
 <h2 id="landed-ddp-economics-and-qc-for-wholesale-haptic-coins">5. Landed DDP Unit Economics, Center Pivot Torque Calibration &amp; Pre-Shipment Quality Control</h2>
 
@@ -192,8 +192,8 @@ Why do experienced EDC brand owners and corporate buyers source haptic fidget co
 
 <ul>
   <li><strong>Axial Center-Pivot Torque &amp; Air-Gap Calibration (0.15mm Precision):</strong> If the central screw or thrust bearing on a haptic coin is over-tightened by even 0.2mm, the two metal shells bind; if under-tightened, the shells rattle. On our assembly line (detailed in our <a href="/insights/metal-edc-fidget-quality-control-checklist-12-pre-shipment-inspection-tests">12-Point QC Inspection Checklist</a>), technicians torque-calibrate every <a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013</a>, <a href="/products/sandwich-cookie-textured-haptic-coin">FS-027</a>, <a href="/products/wheel-rim-12-magnet-haptic-coin">FS-030</a>, <a href="/products/poker-suit-engraved-haptic-coin">FS-033</a>, <a href="/products/tiger-crest-ceramic-bead-haptic-coin">FS-041</a>, and <a href="/products/invader-heavyweight-r188-haptic-coin">FS-071</a> coin and lock the center pivot thread with medium-strength anaerobic threadlocker so the rotation tension stays consistent across 100,000+ cycles.</li>
-  <li><strong>200-Unit Landed DDP Margin Breakdown (76%–84% Retail Gross Margin):</strong> Ordering 200 units of <a href="/products/sandwich-cookie-textured-haptic-coin">FS-027 Cookie Haptic Coin ($3.00/pc at 200 pcs)</a> with custom 50W fiber laser branding (+$0.20/pc) and Door-to-Door DDP air freight (+$0.48/pc for 55g weight) yields a total landed door-to-door cost of <strong>$3.68 USD per unit</strong>—retailing at $19.99 to $26.99 on Shopify and TikTok Shop. For our CNC 304 stainless steel <a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013 ($8.07/pc at 200 pcs)</a> paired with a windowed tin gift box (+$0.85/pc), total landed cost is ~$9.75/unit against a $44.99–$59.99 collector retail price.</li>
-  <li><strong>IATA PI-953 Air-Freight Shielding &amp; US CPSC 16 CFR 1262 Safety:</strong> All 10 haptic coin models enclose their 12 to 14 neodymium magnets inside captive metal pockets and ship in ferromagnetic-shielded master cartons for smooth 5–9 day customs clearance worldwide.</li>
+  <li><strong>200-Unit Landed DDP Margin Breakdown (76%–84% Retail Gross Margin):</strong> Ordering 200 units of <a href="/products/sandwich-cookie-textured-haptic-coin">FS-027 Cookie Haptic Coin ($3.00/pc at 200 pcs)</a> with custom 50W fiber laser branding (+$0.20/pc) and Door-to-Door DDP air freight (+$0.48/pc for 55g weight) yields a total landed door-to-door cost of <strong>$3.68 USD per unit</strong>—retailing at $19.99 to $26.99 on Shopify and TikTok Shop. For our CNC 304 stainless steel <a href="/products/304ss-12-magnet-haptic-fidget-coin">FS-013 ($8.07/pc at 200 pcs)</a> paired with a Stock Black EVA Zipper Case (+$0.75+/pc, MOQ 100), total landed cost is ~$9.65/unit against a $44.99–$59.99 collector retail price.</li>
+  <li><strong>IATA PI-953 Air-Freight Shielding &amp; US CPSC 16 CFR 1262 Safety:</strong> All 10 haptic coin models enclose their 12 to 14 neodymium magnets inside captive metal pockets and ship in ferromagnetic-shielded master cartons from Fuzhou (5–7 business days blank dispatch prep; international transit depends on carrier and destination customs).</li>
 </ul>
 
 <div class="sourcing-cta-box">
