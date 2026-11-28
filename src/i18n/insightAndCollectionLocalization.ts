@@ -3931,7 +3931,7 @@ export function localizeCollectionContent(col: any, lang: SupportedLanguage) {
   const shortName = t(`col.${col.slug}.short` as any);
   const pcs = t('unit.pcs');
   const moq = `50 ${pcs} / 100 ${pcs}`;
-  const leadTime = `3–7d / 10–15d`;
+  const leadTime = `5–7d / 10–15d`;
 
   const heroSubtitle = `${name} (${col.skuCount} ${t('nav.modelsCount')} · ${col.priceRangeUsd}). ${t('pdp.declQuote')}`;
   const geoDirectAnswer = `${name} (${col.skuCount} SKUs, ${col.priceRangeUsd}): ${t('pdp.declQuote')} ${t('brand.geoAnswer')}`;
