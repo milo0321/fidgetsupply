@@ -4,7 +4,7 @@ slug: "holiday-q4-corporate-multi-piece-metal-edc-fidget-gift-bundle-playbook"
 category: "Corporate Gifting & Retail Merchandising"
 summary: "How retail merchandisers and corporate gifting agencies engineer high-AOV 2-piece and 3-piece metal EDC fidget gift bundles (Slider + Haptic Coin + Spinner Ring) inside custom CNC-routed multi-cavity EVA foam gift boxes."
 publishDate: "2026-11-07"
-updatedDate: "2026-11-07"
+updatedDate: "2026-11-28"
 readTime: "10 min read"
 author: "FidgetSupply Merchandising & Packaging Desk"
 featuredImage: "/images/insights/holiday-corporate-multi-piece-edc-bundle-hero.webp"
@@ -162,6 +162,8 @@ tags:
   <li><strong>25–35 Days Before Peak Event (Air Cargo &amp; Express Window):</strong> Ideal for 200 to 1,000 custom-engraved 2-piece and 3-piece sets; production and CNC EVA foam routing complete in 12–15 business days, followed by 5–7 day DHL/FedEx/UPS air express delivery in IATA PI-953 magnetic-shielded cartons.</li>
   <li><strong>10–15 Days Before Event (Fast-Track Laser + Custom EVA Case Window):</strong> Pair any in-stock catalog models with 50W fiber laser engraving and our 100-piece MOQ custom Black EVA Zipper Cases for rapid turnaround executive conference and year-end client gifts.</li>
 </ul>
+
+<p>For enterprise event teams assembling golf tournament hampers, wellness retreats, or outdoor lifestyle onboarding packs, multi-category merchandisers frequently combine a 3-piece laser-engraved metal EDC tray with <a href="https://towelsourcing.com" target="_blank" rel="noopener noreferrer">direct-mill custom golf, cooling, and microfiber wellness towels from TowelSourcing.com</a> under one consolidated procurement schedule.</p>
 
 <div class="sourcing-cta-box">
   <h3>Design Your Custom 2-Piece or 3-Piece Metal EDC Gift Bundle</h3>

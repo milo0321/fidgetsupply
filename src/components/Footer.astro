@@ -264,6 +264,23 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
             <p class="network-card-desc">{t('footer.medalpinDesc')}</p>
           </div>
         </a>
+
+        <!-- Sister Site 5: TowelSourcing -->
+        <a href="https://towelsourcing.com" target="_blank" rel="noopener noreferrer" class="network-link network-card network-card-towel">
+          <div class="network-card-icon icon-towel" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z"/><path d="M4 10h16"/><path d="M8 15h8"/></svg>
+          </div>
+          <div class="network-card-body">
+            <div class="network-card-top">
+              <strong>TowelSourcing</strong>
+              <span class="network-domain-pill">
+                towelsourcing.com
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+            <p class="network-card-desc">{t('footer.towelDesc')}</p>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -570,7 +587,7 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
 
   .network-cards-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1rem;
   }
 
@@ -611,6 +628,11 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     box-shadow: 0 8px 20px -6px rgba(245, 158, 11, 0.22);
   }
 
+  .network-card-towel:hover {
+    border-color: rgba(45, 212, 191, 0.42);
+    box-shadow: 0 8px 20px -6px rgba(20, 184, 166, 0.22);
+  }
+
   .network-card-icon {
     display: flex;
     align-items: center;
@@ -644,6 +666,12 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     background: rgba(245, 158, 11, 0.12);
     color: #fbbf24;
     border: 1px solid rgba(251, 191, 36, 0.26);
+  }
+
+  .icon-towel {
+    background: rgba(20, 184, 166, 0.12);
+    color: #2dd4bf;
+    border: 1px solid rgba(45, 212, 191, 0.26);
   }
 
   .network-card-body {
@@ -696,6 +724,10 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     color: #fbbf24;
   }
 
+  .network-card-towel .network-domain-pill {
+    color: #2dd4bf;
+  }
+
   .network-card:hover .network-domain-pill {
     background: rgba(56, 189, 248, 0.14);
     border-color: rgba(56, 189, 248, 0.32);
@@ -718,6 +750,12 @@ const crossCollections = COLLECTIONS.filter((c) => c.group === 'cross');
     background: rgba(245, 158, 11, 0.15);
     border-color: rgba(251, 191, 36, 0.34);
     color: #fde68a;
+  }
+
+  .network-card-towel:hover .network-domain-pill {
+    background: rgba(20, 184, 166, 0.15);
+    border-color: rgba(45, 212, 191, 0.34);
+    color: #99f6e4;
   }
 
   .network-card-desc {
